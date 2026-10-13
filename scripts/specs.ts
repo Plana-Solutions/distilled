@@ -48,6 +48,7 @@ const MIRROR_OWNER = "distilled-mirror";
 interface SpecRepo {
   readonly package: string;
   readonly mirror?: string;
+  readonly owner?: string;
   readonly blocked?: string;
 }
 
@@ -70,7 +71,7 @@ const manifest = (await import(manifestPath)) as {
 const { SPEC_REPOS, repositoryName, SHARED, PER_REPO, MODELS } = manifest;
 
 const mirrorUrl = (specRepo: SpecRepo) =>
-  `https://github.com/${MIRROR_OWNER}/${repositoryName(specRepo)}.git`;
+  `https://github.com/${specRepo.owner ?? MIRROR_OWNER}/${repositoryName(specRepo)}.git`;
 /** Where the mirror is submoduled once it exists. */
 const submodulePath = (specRepo: SpecRepo) =>
   `packages/${specRepo.package}/specs/${repositoryName(specRepo)}`;

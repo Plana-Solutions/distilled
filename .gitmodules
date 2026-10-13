@@ -440,6 +440,6 @@ ignore = dirty
 shallow = true
 [submodule "packages/scaleway/specs/spec-mirror-scaleway"]
 	path = packages/scaleway/specs/spec-mirror-scaleway
-	url = https://github.com/distilled-mirror/spec-mirror-scaleway.git
+	url = https://github.com/Plana-Solutions/spec-mirror-scaleway.git
 	ignore = dirty
 	shallow = true

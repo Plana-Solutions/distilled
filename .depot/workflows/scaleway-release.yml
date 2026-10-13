@@ -1,0 +1,94 @@
+name: Scaleway release
+
+# Daily: pull the latest Scaleway specs from Plana-Solutions/spec-mirror-scaleway,
+# regenerate packages/scaleway, gate it, commit it to main and publish
+# @plana-solutions/distilled-scaleway to GitHub Packages. See PLANA.md.
+#
+# Secret PLANA_GH_TOKEN: a classic GitHub token with `repo`, `write:packages`
+# and `delete:packages` (push to main, publish, prune old versions).
+
+on:
+  schedule:
+    - cron: "0 2 * * *" # two hours after the mirror's midnight refresh
+  workflow_dispatch:
+    inputs:
+      force:
+        description: Regenerate and publish even if the mirror did not change
+        type: boolean
+        default: false
+
+concurrency:
+  group: scaleway-release
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+
+jobs:
+  release:
+    name: Regenerate, gate, publish
+    runs-on: depot-ubuntu-24.04-8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          ref: main
+          token: ${{ secrets.PLANA_GH_TOKEN }}
+
+      - name: Update the spec mirror
+        id: mirror
+        run: |
+          git submodule update --init --remote --depth=1 packages/scaleway/specs/spec-mirror-scaleway
+          if git diff --quiet -- packages/scaleway/specs/spec-mirror-scaleway; then
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+            echo "Spec mirror unchanged."
+          else
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Setup pnpm, Node.js and install dependencies
+        if: steps.mirror.outputs.changed == 'true' || inputs.force
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          install: true
+          require-lockfile: true
+
+      - name: Regenerate
+        if: steps.mirror.outputs.changed == 'true' || inputs.force
+        run: pnpm generate scaleway
+
+      - name: Gate
+        if: steps.mirror.outputs.changed == 'true' || inputs.force
+        run: |
+          npx tsc -b packages/scaleway/tsconfig.json packages/scaleway/tsconfig.scripts.json --noCheck false
+          pnpm vitest run packages/scaleway packages/core/src/sdks.test.ts
+          pnpm specs:check
+          pnpm format:check
+
+      - name: Commit to main
+        if: steps.mirror.outputs.changed == 'true' || inputs.force
+        run: |
+          git add packages/scaleway
+          if git diff --cached --quiet; then
+            echo "Nothing to commit."
+          else
+            git config user.name "plana-scaleway-release[bot]"
+            git config user.email "plana-scaleway-release@users.noreply.github.com"
+            git commit -m "chore(scaleway): regenerate from spec mirror $(git -C packages/scaleway/specs/spec-mirror-scaleway rev-parse --short HEAD)"
+            git push origin HEAD:main
+          fi
+
+      - name: Build and publish
+        if: steps.mirror.outputs.changed == 'true' || inputs.force
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.PLANA_GH_TOKEN }}
+        run: |
+          npx tsc -b packages/scaleway/tsconfig.json
+          node plana/publish-scaleway.mjs
+
+      - name: Prune old versions
+        if: steps.mirror.outputs.changed == 'true' || inputs.force
+        env:
+          GH_TOKEN: ${{ secrets.PLANA_GH_TOKEN }}
+        run: node plana/prune-versions.mjs

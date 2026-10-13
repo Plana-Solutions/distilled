@@ -1,0 +1,153 @@
+name: CI (Depot)
+
+# Typecheck gate for PRs and pushes to main.
+#
+# `tsconfig.base.json` sets `noCheck: true` so day-to-day `tsc -b` (and
+# every editor/intellisense engine) only EMITS the generated SDKs instead
+# of checking them — checking 20 generated SDKs costs minutes and GBs.
+# CI is where that cost is worth paying: `typecheck:ci` re-enables
+# checking (`tsc -b --noCheck false`) across every package, so a
+# generator or patch bug can't reach npm.
+#
+# `stacks/*` are workspace members but are NOT in the root tsconfig's project
+# references, so `tsc -b` never sees them. They get their own job.
+
+# Plana-Solutions/distilled: .github/workflows/ci.yml on Depot runner sizes,
+# run on pushes to any branch. See PLANA.md.
+on:
+  push:
+    branches: ["**"]
+  workflow_dispatch:
+
+concurrency:
+  group: ci-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  typecheck:
+    name: Typecheck (all packages, generated code included)
+    runs-on: depot-ubuntu-24.04-8
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup pnpm, Node.js and install dependencies
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          install: true
+          require-lockfile: true
+
+      - name: Run Typecheck
+        run: pnpm typecheck:ci
+
+  test:
+    name: Test
+    runs-on: depot-ubuntu-24.04-4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup pnpm, Node.js and install dependencies
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          install: true
+          require-lockfile: true
+
+      # Every test in the repo (vitest.config.ts): core's protocol, codegen and
+      # cross-SDK checks (packages/core/src/sdks.test.ts), plus the tests next
+      # to hand-written provider code. No network, no credentials.
+      - name: Run tests
+        run: pnpm vitest run
+
+  typecheck-stacks:
+    name: Typecheck (deployment stacks)
+    runs-on: depot-ubuntu-24.04-4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup pnpm, Node.js and install dependencies
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          install: true
+          require-lockfile: true
+
+      # A recursive filter rather than a matrix, so a new stack is covered the
+      # day it is added. Each stack's own `typecheck` script decides what that
+      # means — distilled-submodules also checks the mirror fetch scripts.
+      - name: Run Typecheck
+        run: pnpm --filter "./stacks/*" run typecheck
+
+      # The mirror manifest, the fetch scripts, `.gitmodules` and packages/
+      # have to agree, and the same rule runs at deploy time inside the stack
+      # — but a deploy only happens after merge. Checking it here means a PR
+      # that adds a provider fails on the PR. It also fails a package that
+      # reads its specs from the gitignored `.local` working copy, which is
+      # for local iteration only.
+      - name: Check spec mirrors
+        run: pnpm specs:check
+
+  website:
+    name: Website (typecheck & static build)
+    runs-on: depot-ubuntu-24.04-4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup pnpm
+        uses: pnpm/setup@84cb39b217b10273981911c288cd62326dc7c6d2 # v2.0.2
+        with:
+          cache: true
+          install: false
+
+      - name: Install Node 24
+        run: pnpm runtime set node 24 -g
+
+      # Same filter website.yml deploys with, so a lockfile problem that would
+      # break the deploy fails here instead.
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile --filter "./website..."
+
+      # website/ is a workspace member but is not under stacks/* and is not
+      # in the root tsconfig project references (so `tsc -b` never sees it).
+      - name: Typecheck
+        run: pnpm --filter "./website" run typecheck
+
+      # The site reads the package catalogue, patch counts and benchmark
+      # results from the repo while it builds, so a change to any of them can
+      # break prerendering — which would otherwise only surface after merge,
+      # in the main.distilled.cloud deploy. An internal PR labelled
+      # `deploy-website` runs this exact build in website.yml to produce its
+      # preview, so skip the duplicate there.
+      - name: Build
+        if: >-
+          github.event_name != 'pull_request' ||
+          github.event.pull_request.head.repo.full_name != github.repository ||
+          !contains(github.event.pull_request.labels.*.name, 'deploy-website')
+        run: pnpm --filter "./website" run build
+
+  format:
+    name: Check formatting
+    runs-on: depot-ubuntu-24.04-4
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+
+      - name: Setup pnpm, Node.js and install dependencies
+        uses: pnpm/setup@703c52620218391530e48b9e8870d5c0082e1b9b # v2.1.0
+        with:
+          cache: true
+          install: true
+          require-lockfile: true
+
+      - name: Check formatting
+        run: pnpm format:check
+
+      - name: Check package versions
+        run: pnpm validate:publish-packages

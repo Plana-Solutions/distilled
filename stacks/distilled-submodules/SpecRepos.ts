@@ -28,6 +28,11 @@ export interface SpecRepo {
   /** Stable mirror identity when the package directory is renamed. Defaults to package. */
   readonly mirror?: string;
   /**
+   * GitHub owner of a mirror this stack does not manage (default:
+   * `distilled-mirror`). Plana-Solutions' fork hosts its own Scaleway mirror.
+   */
+  readonly owner?: string;
+  /**
    * Why this mirror has no fetch machinery yet. A blocked mirror still gets
    * its repository — so its settings and state stay converged — but no
    * scaffold is committed, because there is nothing it could usefully fetch.
@@ -111,7 +116,8 @@ export const SPEC_REPOS: readonly SpecRepo[] = [
   { package: "render" },
   { package: "resend" },
   { package: "s2" },
-  { package: "scaleway" },
+  // Hosted by Plana-Solutions (not deployed by this stack).
+  { package: "scaleway", owner: "Plana-Solutions" },
   { package: "sentry" },
   // Slack publishes no OpenAPI document; the mirror snapshots the JSON twins
   // of the docs.slack.dev reference pages.
