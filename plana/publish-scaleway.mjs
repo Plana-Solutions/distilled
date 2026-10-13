@@ -31,7 +31,7 @@ pkg.name = NAME;
 pkg.version = `${pkg.version}-plana.${stamp}`;
 pkg.repository = {
   type: "git",
-  url: "https://github.com/Plana-Solutions/distilled",
+  url: "git+https://github.com/Plana-Solutions/distilled.git",
   directory: "packages/scaleway",
 };
 pkg.publishConfig = { registry: REGISTRY };

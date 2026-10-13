@@ -34,14 +34,22 @@ Plana-only changes against upstream, kept small so syncing stays easy:
 
 ## Using the package
 
-`.npmrc` in the consuming project:
+The package is private. In the consuming project's `.npmrc` (committed), map
+the scope only:
 
 ```
 @plana-solutions:registry=https://npm.pkg.github.com
-//npm.pkg.github.com/:_authToken=${GITHUB_TOKEN}
 ```
 
-`GITHUB_TOKEN` needs `read:packages`. Then:
+The token goes in a trusted, uncommitted place, because pnpm does not expand
+`${...}` credentials from a project `.npmrc`. Use your user-level `~/.npmrc`
+(or the CI equivalent) with a token that has `read:packages`:
+
+```
+//npm.pkg.github.com/:_authToken=${NODE_AUTH_TOKEN}
+```
+
+Then:
 
 ```sh
 pnpm add @plana-solutions/distilled-scaleway effect
