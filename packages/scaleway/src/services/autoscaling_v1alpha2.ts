@@ -840,9 +840,9 @@ export type UpdateGroupRequestZone =
 export const UpdateGroupRequestZone = S.String;
 
 /** New tags for the group. */
-export type UpdateGroupRequestTagsList = Array<unknown>;
+export type UpdateGroupRequestTagsList = Array<string>;
 export const UpdateGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateGroupRequestTagsList>;
 
 export interface UpdateGroupRequest {

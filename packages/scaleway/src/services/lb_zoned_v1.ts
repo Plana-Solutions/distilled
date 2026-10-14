@@ -1055,9 +1055,9 @@ export type CreateFrontendRequestZone =
 export const CreateFrontendRequestZone = S.String;
 
 /** List of SSL/TLS certificate IDs to bind to the frontend. */
-export type CreateFrontendRequestCertificateIdsList = Array<unknown>;
+export type CreateFrontendRequestCertificateIdsList = Array<string>;
 export const CreateFrontendRequestCertificateIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateFrontendRequestCertificateIdsList>;
 
 export interface CreateFrontendRequest {
@@ -3189,9 +3189,9 @@ export type UpdateFrontendRequestZone =
 export const UpdateFrontendRequestZone = S.String;
 
 /** List of SSL/TLS certificate IDs to bind to the frontend. */
-export type UpdateFrontendRequestCertificateIdsList = Array<unknown>;
+export type UpdateFrontendRequestCertificateIdsList = Array<string>;
 export const UpdateFrontendRequestCertificateIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateFrontendRequestCertificateIdsList>;
 
 export interface UpdateFrontendRequest {
@@ -3323,9 +3323,9 @@ export type UpdateIpRequestZone =
 export const UpdateIpRequestZone = S.String;
 
 /** List of tags for the IP. */
-export type UpdateIpRequestTagsList = Array<unknown>;
+export type UpdateIpRequestTagsList = Array<string>;
 export const UpdateIpRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateIpRequestTagsList>;
 
 export interface UpdateIpRequest {

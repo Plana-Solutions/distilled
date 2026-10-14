@@ -562,7 +562,7 @@
     "com.scaleway.vpc_v2#UpdateIngressRuleRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags to set for this ingress rule."
@@ -1925,7 +1925,7 @@
     "com.scaleway.vpc_v2#UpdatePrivateNetworkRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags for the Private Network."
@@ -2511,7 +2511,7 @@
     "com.scaleway.vpc_v2#UpdateRouteRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the Route."
@@ -3404,7 +3404,7 @@
     "com.scaleway.vpc_v2#UpdateVPCConnectorRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags for the VPC connector."
@@ -4134,7 +4134,7 @@
     "com.scaleway.vpc_v2#UpdateVPCRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags for the VPC."

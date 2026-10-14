@@ -389,7 +389,7 @@
     "com.scaleway.iot_v1#DeviceMessageFiltersRuleTopicsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of topics to accept or reject. It must be valid MQTT topics and up to 65535 characters."

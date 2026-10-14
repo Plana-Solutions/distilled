@@ -384,15 +384,15 @@ export const CreateClusterRequestAdmissionPluginsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<CreateClusterRequestAdmissionPluginsList>;
 
 /** JWT claim to use as the user's group. */
-export type CreateClusterRequestOpenIDConnectConfigGroupsClaimList = Array<unknown>;
+export type CreateClusterRequestOpenIDConnectConfigGroupsClaimList = Array<string>;
 export const CreateClusterRequestOpenIDConnectConfigGroupsClaimList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateClusterRequestOpenIDConnectConfigGroupsClaimList>;
 
 /** Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value. */
-export type CreateClusterRequestOpenIDConnectConfigRequiredClaimList = Array<unknown>;
+export type CreateClusterRequestOpenIDConnectConfigRequiredClaimList = Array<string>;
 export const CreateClusterRequestOpenIDConnectConfigRequiredClaimList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateClusterRequestOpenIDConnectConfigRequiredClaimList>;
 
 export interface CreateClusterRequestOpenIDConnectConfig {
@@ -2282,9 +2282,9 @@ export type UpdateClusterRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mi
 export const UpdateClusterRequestRegion = S.String;
 
 /** New tags associated with the cluster. */
-export type UpdateClusterRequestTagsList = Array<unknown>;
+export type UpdateClusterRequestTagsList = Array<string>;
 export const UpdateClusterRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestTagsList>;
 
 export type UpdateClusterRequestAutoscalerConfig = CreateClusterRequestAutoscalerConfig;
@@ -2306,27 +2306,27 @@ export const UpdateClusterRequestAutoUpgrade = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<UpdateClusterRequestAutoUpgrade>;
 
 /** List of feature gates to enable. */
-export type UpdateClusterRequestFeatureGatesList = Array<unknown>;
+export type UpdateClusterRequestFeatureGatesList = Array<string>;
 export const UpdateClusterRequestFeatureGatesList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestFeatureGatesList>;
 
 /** List of admission plugins to enable. */
-export type UpdateClusterRequestAdmissionPluginsList = Array<unknown>;
+export type UpdateClusterRequestAdmissionPluginsList = Array<string>;
 export const UpdateClusterRequestAdmissionPluginsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestAdmissionPluginsList>;
 
 /** JWT claim to use as the user's group. */
-export type UpdateClusterRequestOpenIDConnectConfigGroupsClaimList = Array<unknown>;
+export type UpdateClusterRequestOpenIDConnectConfigGroupsClaimList = Array<string>;
 export const UpdateClusterRequestOpenIDConnectConfigGroupsClaimList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestOpenIDConnectConfigGroupsClaimList>;
 
 /** Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value. */
-export type UpdateClusterRequestOpenIDConnectConfigRequiredClaimList = Array<unknown>;
+export type UpdateClusterRequestOpenIDConnectConfigRequiredClaimList = Array<string>;
 export const UpdateClusterRequestOpenIDConnectConfigRequiredClaimList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestOpenIDConnectConfigRequiredClaimList>;
 
 export interface UpdateClusterRequestOpenIDConnectConfig {
@@ -2360,9 +2360,9 @@ export const UpdateClusterRequestOpenIDConnectConfig = /*@__PURE__*/ S.suspend((
 }) as any as S.Schema<UpdateClusterRequestOpenIDConnectConfig>;
 
 /** Additional Subject Alternative Names for the Kubernetes API server certificate. */
-export type UpdateClusterRequestApiserverCertSansList = Array<unknown>;
+export type UpdateClusterRequestApiserverCertSansList = Array<string>;
 export const UpdateClusterRequestApiserverCertSansList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestApiserverCertSansList>;
 
 export interface UpdateClusterRequest {
@@ -2416,9 +2416,9 @@ export type UpdatePoolRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const UpdatePoolRequestRegion = S.String;
 
 /** New tags associated with the pool. */
-export type UpdatePoolRequestTagsList = Array<unknown>;
+export type UpdatePoolRequestTagsList = Array<string>;
 export const UpdatePoolRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePoolRequestTagsList>;
 
 /** New Kubelet arguments to be used by this pool. Note that this feature is experimental. */

@@ -762,7 +762,7 @@
     "com.scaleway.flexible_ip_v1alpha1#UpdateFlexibleIPRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags associated with the flexible IP."

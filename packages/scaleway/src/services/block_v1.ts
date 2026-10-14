@@ -893,9 +893,9 @@ export type UpdateSnapshotRequestZone =
 export const UpdateSnapshotRequestZone = S.String;
 
 /** List of tags assigned to the snapshot. */
-export type UpdateSnapshotRequestTagsList = Array<unknown>;
+export type UpdateSnapshotRequestTagsList = Array<string>;
 export const UpdateSnapshotRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateSnapshotRequestTagsList>;
 
 export interface UpdateSnapshotRequest {
@@ -940,9 +940,9 @@ export type UpdateVolumeRequestZone =
 export const UpdateVolumeRequestZone = S.String;
 
 /** List of tags assigned to the volume. */
-export type UpdateVolumeRequestTagsList = Array<unknown>;
+export type UpdateVolumeRequestTagsList = Array<string>;
 export const UpdateVolumeRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateVolumeRequestTagsList>;
 
 export interface UpdateVolumeRequest {

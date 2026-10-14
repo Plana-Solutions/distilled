@@ -1030,9 +1030,9 @@ export type UpdateKeyRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateKeyRequestRegion = S.String;
 
 /** (Optional) Updated list of the key's tags. */
-export type UpdateKeyRequestTagsList = Array<unknown>;
+export type UpdateKeyRequestTagsList = Array<string>;
 export const UpdateKeyRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateKeyRequestTagsList>;
 
 export interface UpdateKeyRequest {

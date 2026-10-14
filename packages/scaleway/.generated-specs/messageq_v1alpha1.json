@@ -731,7 +731,7 @@
     "com.scaleway.messageq_v1alpha1#UpdateDeploymentRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags to update."

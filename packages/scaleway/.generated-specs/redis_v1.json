@@ -1477,7 +1477,7 @@
     "com.scaleway.redis_v1#UpdateClusterRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Database Instance tags."

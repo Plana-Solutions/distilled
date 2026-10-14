@@ -2188,9 +2188,9 @@ export type UpdateServerRequestZone =
 export const UpdateServerRequestZone = S.String;
 
 /** Tags associated with the server, not updated if null. */
-export type UpdateServerRequestTagsList = Array<unknown>;
+export type UpdateServerRequestTagsList = Array<string>;
 export const UpdateServerRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateServerRequestTagsList>;
 
 export interface UpdateServerRequest {

@@ -1449,7 +1449,7 @@
     "com.scaleway.interlink_v1beta1#UpdateLinkRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the link."
@@ -3292,7 +3292,7 @@
     "com.scaleway.interlink_v1beta1#UpdateRoutingPolicyRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the routing policy."
@@ -3301,7 +3301,7 @@
     "com.scaleway.interlink_v1beta1#UpdateRoutingPolicyRequestPrefixFilterInList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "IP prefixes to accept from the peer (ranges of route announcements to accept)."
@@ -3310,7 +3310,7 @@
     "com.scaleway.interlink_v1beta1#UpdateRoutingPolicyRequestPrefixFilterOutList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "IP prefix filters for routes to advertise to the peer (ranges of routes to advertise)."

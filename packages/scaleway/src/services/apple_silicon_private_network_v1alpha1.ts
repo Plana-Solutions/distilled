@@ -237,10 +237,10 @@ export type SetServerPrivateNetworksRequestZone = "fr-par-1" | "fr-par-3";
 export const SetServerPrivateNetworksRequestZone = S.String;
 
 /** Object where the keys are the IDs of Private Networks and the values are arrays of IPAM IDs representing the IPs to assign to this Apple silicon server on the Private Network. If the array supplied for a Private Network is empty, the next available IP from the Private Network's CIDR block will automatically be used for attachment. */
-export type SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList = Array<unknown>;
+export type SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList = Array<string>;
 export const SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList =
   /*@__PURE__*/ S.Array(
-    S.Unknown,
+    S.String,
   ) as any as S.Schema<SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList>;
 
 /** Object where the keys are the IDs of Private Networks and the values are arrays of IPAM IDs representing the IPs to assign to this Apple silicon server on the Private Network. If the array supplied for a Private Network is empty, the next available IP from the Private Network's CIDR block will automatically be used for attachment. */

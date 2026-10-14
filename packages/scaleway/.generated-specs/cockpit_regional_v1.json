@@ -2492,7 +2492,7 @@
     "com.scaleway.cockpit_regional_v1#UpdateExporterRequestExportedProductsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Updated list of Scaleway products to export.\nTo include all products in your data export, you can use an array containing \"all\"\nYou can retrieve the complete list of product names using the `ListProducts` endpoint."

@@ -409,9 +409,9 @@ export type UpdateFileSystemRequestRegion = "fr-par";
 export const UpdateFileSystemRequestRegion = S.String;
 
 /** List of tags assigned to the filesystem. */
-export type UpdateFileSystemRequestTagsList = Array<unknown>;
+export type UpdateFileSystemRequestTagsList = Array<string>;
 export const UpdateFileSystemRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateFileSystemRequestTagsList>;
 
 export interface UpdateFileSystemRequest {

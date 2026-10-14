@@ -561,9 +561,9 @@ export type UpdateFlexibleIPRequestZone =
 export const UpdateFlexibleIPRequestZone = S.String;
 
 /** Tags associated with the flexible IP. */
-export type UpdateFlexibleIPRequestTagsList = Array<unknown>;
+export type UpdateFlexibleIPRequestTagsList = Array<string>;
 export const UpdateFlexibleIPRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateFlexibleIPRequestTagsList>;
 
 export interface UpdateFlexibleIPRequest {

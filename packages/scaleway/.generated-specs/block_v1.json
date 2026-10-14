@@ -994,7 +994,7 @@
     "com.scaleway.block_v1#UpdateSnapshotRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags assigned to the snapshot."
@@ -2379,7 +2379,7 @@
     "com.scaleway.block_v1#UpdateVolumeRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags assigned to the volume."

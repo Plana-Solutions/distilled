@@ -27,8 +27,8 @@ export const CancelJobRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CancelJobRequest" }) as any as S.Schema<CancelJobRequest>;
 
 /** Tags of the job. */
-export type JobTagsList = Array<unknown>;
-export const JobTagsList = /*@__PURE__*/ S.Array(S.Unknown) as any as S.Schema<JobTagsList>;
+export type JobTagsList = Array<string>;
+export const JobTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<JobTagsList>;
 
 export type JobStatus =
   | "unknown_status"
@@ -176,9 +176,9 @@ export const Process = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "Process" }) as any as S.Schema<Process>;
 
 /** Tags of the job. */
-export type CreateJobRequestTagsList = Array<unknown>;
+export type CreateJobRequestTagsList = Array<string>;
 export const CreateJobRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateJobRequestTagsList>;
 
 export interface JobCircuit {
@@ -307,9 +307,9 @@ export const CreateProcessRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateProcessRequest" }) as any as S.Schema<CreateProcessRequest>;
 
 /** Tags of the session. */
-export type CreateSessionRequestTagsList = Array<unknown>;
+export type CreateSessionRequestTagsList = Array<string>;
 export const CreateSessionRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateSessionRequestTagsList>;
 
 export interface CreateSessionRequestBookingDemand {
@@ -379,8 +379,8 @@ export type SessionStatus = "unknown_status" | "running" | "stopped" | "starting
 export const SessionStatus = S.String;
 
 /** Tags of the session. */
-export type SessionTagsList = Array<unknown>;
-export const SessionTagsList = /*@__PURE__*/ S.Array(S.Unknown) as any as S.Schema<SessionTagsList>;
+export type SessionTagsList = Array<string>;
+export const SessionTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<SessionTagsList>;
 
 export type SessionOriginType = "unknown_origin_type" | "customer" | "process";
 export const SessionOriginType = S.String;
@@ -1539,9 +1539,9 @@ export const UpdateBookingRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateBookingRequest" }) as any as S.Schema<UpdateBookingRequest>;
 
 /** Tags of the job. */
-export type UpdateJobRequestTagsList = Array<unknown>;
+export type UpdateJobRequestTagsList = Array<string>;
 export const UpdateJobRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateJobRequestTagsList>;
 
 export interface UpdateJobRequest {
@@ -1568,9 +1568,9 @@ export const UpdateJobRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateJobRequest" }) as any as S.Schema<UpdateJobRequest>;
 
 /** Tags of the process. */
-export type UpdateProcessRequestTagsList = Array<unknown>;
+export type UpdateProcessRequestTagsList = Array<string>;
 export const UpdateProcessRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateProcessRequestTagsList>;
 
 export interface UpdateProcessRequest {
@@ -1597,9 +1597,9 @@ export const UpdateProcessRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateProcessRequest" }) as any as S.Schema<UpdateProcessRequest>;
 
 /** Tags of the session. */
-export type UpdateSessionRequestTagsList = Array<unknown>;
+export type UpdateSessionRequestTagsList = Array<string>;
 export const UpdateSessionRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateSessionRequestTagsList>;
 
 export interface UpdateSessionRequest {

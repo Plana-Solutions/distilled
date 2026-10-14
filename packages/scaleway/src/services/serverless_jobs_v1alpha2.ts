@@ -948,15 +948,15 @@ export type StartJobDefinitionRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const StartJobDefinitionRequestRegion = S.String;
 
 /** Contextual startup command for this specific job run. Overrides the default defined in the job image. The main executable or entrypoint script to run. If both command and startup_command are provided, only startup_command will be used. */
-export type StartJobDefinitionRequestStartupCommandList = Array<unknown>;
+export type StartJobDefinitionRequestStartupCommandList = Array<string>;
 export const StartJobDefinitionRequestStartupCommandList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<StartJobDefinitionRequestStartupCommandList>;
 
 /** Contextual arguments for this specific job run. Overrides the default arguments defined in the job image. Passed to the contextual startup command at runtime. Environment variables and secrets can be included, and will be expanded before the arguments are used. */
-export type StartJobDefinitionRequestArgsList = Array<unknown>;
+export type StartJobDefinitionRequestArgsList = Array<string>;
 export const StartJobDefinitionRequestArgsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<StartJobDefinitionRequestArgsList>;
 
 /** Contextual environment variables for this specific job run. */
@@ -1050,15 +1050,15 @@ export type UpdateJobDefinitionRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateJobDefinitionRequestRegion = S.String;
 
 /** Job startup command. Overrides the default defined in the job image. The main executable or entrypoint script to run. If both command and startup_command are provided, only startup_command will be used. */
-export type UpdateJobDefinitionRequestStartupCommandList = Array<unknown>;
+export type UpdateJobDefinitionRequestStartupCommandList = Array<string>;
 export const UpdateJobDefinitionRequestStartupCommandList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateJobDefinitionRequestStartupCommandList>;
 
 /** Job arguments. Overrides the default arguments defined in the job image. Passed to the startup command at runtime. Environment variables and secrets can be included, and will be expanded before the arguments are used. */
-export type UpdateJobDefinitionRequestArgsList = Array<unknown>;
+export type UpdateJobDefinitionRequestArgsList = Array<string>;
 export const UpdateJobDefinitionRequestArgsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateJobDefinitionRequestArgsList>;
 
 /** Environment variables of the job. */
@@ -1191,15 +1191,15 @@ export type UpdateTriggerRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateTriggerRequestRegion = S.String;
 
 /** Startup command that will be used by the triggered job. */
-export type UpdateTriggerRequestCronConfigStartupCommandList = Array<unknown>;
+export type UpdateTriggerRequestCronConfigStartupCommandList = Array<string>;
 export const UpdateTriggerRequestCronConfigStartupCommandList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTriggerRequestCronConfigStartupCommandList>;
 
 /** Arguments passed to the startup command used by the triggered job. */
-export type UpdateTriggerRequestCronConfigArgsList = Array<unknown>;
+export type UpdateTriggerRequestCronConfigArgsList = Array<string>;
 export const UpdateTriggerRequestCronConfigArgsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTriggerRequestCronConfigArgsList>;
 
 export interface UpdateTriggerRequestCronConfig {

@@ -2896,7 +2896,7 @@
     "com.scaleway.domain_registrar_v2beta1#ScalewayStdStringsValue": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {}
     },

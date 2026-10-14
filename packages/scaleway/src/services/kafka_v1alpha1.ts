@@ -875,9 +875,9 @@ export type UpdateClusterRequestRegion = "fr-par";
 export const UpdateClusterRequestRegion = S.String;
 
 /** Tags of a Kafka Cluster. */
-export type UpdateClusterRequestTagsList = Array<unknown>;
+export type UpdateClusterRequestTagsList = Array<string>;
 export const UpdateClusterRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestTagsList>;
 
 export interface UpdateClusterRequest {

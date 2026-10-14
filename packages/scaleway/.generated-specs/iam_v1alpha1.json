@@ -907,7 +907,7 @@
     "com.scaleway.iam_v1alpha1#UpdateApplicationRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the application (maximum of 10 tags)."
@@ -1643,7 +1643,7 @@
     "com.scaleway.iam_v1alpha1#UpdateGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the group (maximum of 10 tags)."
@@ -3294,7 +3294,7 @@
     "com.scaleway.iam_v1alpha1#PermissionSetCategoriesList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Categories of the permission set."
@@ -3715,7 +3715,7 @@
     "com.scaleway.iam_v1alpha1#RuleSpecsPermissionSetNamesList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Names of permission sets bound to the rule."
@@ -3724,7 +3724,7 @@
     "com.scaleway.iam_v1alpha1#RuleSpecsProjectIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of Project IDs the rule is scoped to."
@@ -3870,7 +3870,7 @@
     "com.scaleway.iam_v1alpha1#UpdatePolicyRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the policy (maximum of 10 tags)."
@@ -4448,7 +4448,7 @@
     "com.scaleway.iam_v1alpha1#RulePermissionSetNamesList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Names of permission sets bound to the rule."
@@ -4457,7 +4457,7 @@
     "com.scaleway.iam_v1alpha1#RuleProjectIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of Project IDs the rule is scoped to."
@@ -6156,7 +6156,7 @@
     "com.scaleway.iam_v1alpha1#UpdateUserRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the user (maximum of 10 tags)."

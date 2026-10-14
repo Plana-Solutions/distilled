@@ -1153,7 +1153,7 @@
     "com.scaleway.containers_v1#UpdateContainerRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the Serverless Container."
@@ -1162,7 +1162,7 @@
     "com.scaleway.containers_v1#UpdateContainerRequestCommandList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Container command.\nCommand executed when the container starts. This overrides the default command defined in the container image. This is usually the main executable, or ENTRYPOINT script to run."
@@ -1171,7 +1171,7 @@
     "com.scaleway.containers_v1#UpdateContainerRequestArgsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Container arguments.\nArguments passed to the command specified in the \"command\" field. These override the default arguments from the container image, and behave like command-line parameters."
@@ -2030,7 +2030,7 @@
     "com.scaleway.containers_v1#UpdateDomainRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "A list of arbitrary tags associated with the domain."
@@ -2778,7 +2778,7 @@
     "com.scaleway.containers_v1#UpdateNamespaceRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "A list of arbitrary tags associated with the namespace."
@@ -3987,7 +3987,7 @@
     "com.scaleway.containers_v1#UpdateTriggerRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the trigger."
@@ -4173,7 +4173,7 @@
     "com.scaleway.containers_v1#UpdateTriggerRequestNATSConfigServerUrlsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "The URLs of the NATS server (e.g., \"nats://nats.mnq.fr-par.scaleway.com:4222\")."

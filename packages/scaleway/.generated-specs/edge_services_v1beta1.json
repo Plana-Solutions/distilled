@@ -1127,7 +1127,7 @@
     "com.scaleway.edge_services_v1beta1#UpdateDNSStageRequestFqdnsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Custom Fully Qualified Domain Name to be configured (only 1 FQDN can be setup for now)."
@@ -2534,7 +2534,7 @@
     "com.scaleway.edge_services_v1beta1#CreateDNSStageRequestFqdnsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Custom Fully Qualified Domain Name to be configured (only 1 FQDN can be setup for now)."
@@ -3886,7 +3886,7 @@
     "com.scaleway.edge_services_v1beta1#PurgeRequestAssetsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of asserts to purge."
@@ -3929,7 +3929,7 @@
     "com.scaleway.edge_services_v1beta1#CreatePurgeRequestRequestAssetsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of asserts to purge."

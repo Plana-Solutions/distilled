@@ -1109,9 +1109,9 @@ export const UpdateUserRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateUserRequest" }) as any as S.Schema<UpdateUserRequest>;
 
 /** Pinned products. */
-export type UpdateUserPreferencesRequestPinnedProductsList = Array<unknown>;
+export type UpdateUserPreferencesRequestPinnedProductsList = Array<string>;
 export const UpdateUserPreferencesRequestPinnedProductsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateUserPreferencesRequestPinnedProductsList>;
 
 export interface UpdateUserPreferencesRequest {

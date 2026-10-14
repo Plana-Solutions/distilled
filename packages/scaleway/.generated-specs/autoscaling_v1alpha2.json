@@ -1484,7 +1484,7 @@
     "com.scaleway.autoscaling_v1alpha2#UpdateGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the group."

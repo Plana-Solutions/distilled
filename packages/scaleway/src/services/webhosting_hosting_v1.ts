@@ -970,9 +970,9 @@ export type UpdateHostingRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateHostingRequestRegion = S.String;
 
 /** New tags for the Web Hosting plan. */
-export type UpdateHostingRequestTagsList = Array<unknown>;
+export type UpdateHostingRequestTagsList = Array<string>;
 export const UpdateHostingRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateHostingRequestTagsList>;
 
 /** List of the Web Hosting plan options IDs with their quantities. */

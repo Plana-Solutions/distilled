@@ -1196,7 +1196,7 @@
     "com.scaleway.instance_v1#ScalewayStdStringsValue": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {}
     },
@@ -1509,7 +1509,7 @@
     "com.scaleway.instance_v1#UpdateImageRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the image."
@@ -2453,7 +2453,7 @@
     "com.scaleway.instance_v1#UpdateIpRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "An array of keywords you want to tag this IP with."
@@ -3398,7 +3398,7 @@
     "com.scaleway.instance_v1#UpdatePlacementGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the placement group."
@@ -5418,7 +5418,7 @@
     "com.scaleway.instance_v1#SetSecurityGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the security group."
@@ -5755,7 +5755,7 @@
     "com.scaleway.instance_v1#UpdateSecurityGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the security group."
@@ -8635,7 +8635,7 @@
     "com.scaleway.instance_v1#CreateServerRequestPublicIpsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "A list of reserved IP IDs to attach to the Instance."
@@ -8991,7 +8991,7 @@
     "com.scaleway.instance_v1#UpdateServerRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the Instance."
@@ -9010,7 +9010,7 @@
     "com.scaleway.instance_v1#UpdateServerRequestPublicIpsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "A list of reserved IP IDs to attach to the Instance."
@@ -9031,7 +9031,7 @@
     "com.scaleway.instance_v1#UpdateServerRequestPrivateNicsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Instance private NICs."
@@ -10829,7 +10829,7 @@
     "com.scaleway.instance_v1#UpdatePrivateNICRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags used to select private NIC/s."
@@ -11905,7 +11905,7 @@
     "com.scaleway.instance_v1#CreateSnapshotRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the snapshot."
@@ -12364,7 +12364,7 @@
     "com.scaleway.instance_v1#UpdateSnapshotRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the snapshot."
@@ -13083,7 +13083,7 @@
     "com.scaleway.instance_v1#SetVolumeRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the volume."
@@ -13393,7 +13393,7 @@
     "com.scaleway.instance_v1#UpdateVolumeRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the volume."

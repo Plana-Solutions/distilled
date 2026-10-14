@@ -533,15 +533,15 @@ export const CreateGroupRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateGroupRequest" }) as any as S.Schema<CreateGroupRequest>;
 
 /** Names of permission sets bound to the rule. */
-export type RuleSpecsPermissionSetNamesList = Array<unknown>;
+export type RuleSpecsPermissionSetNamesList = Array<string>;
 export const RuleSpecsPermissionSetNamesList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<RuleSpecsPermissionSetNamesList>;
 
 /** List of Project IDs the rule is scoped to. */
-export type RuleSpecsProjectIdsList = Array<unknown>;
+export type RuleSpecsProjectIdsList = Array<string>;
 export const RuleSpecsProjectIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<RuleSpecsProjectIdsList>;
 
 export interface RuleSpecs {
@@ -2310,9 +2310,9 @@ export type PermissionSetScopeType =
 export const PermissionSetScopeType = S.String;
 
 /** Categories of the permission set. */
-export type PermissionSetCategoriesList = Array<unknown>;
+export type PermissionSetCategoriesList = Array<string>;
 export const PermissionSetCategoriesList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<PermissionSetCategoriesList>;
 
 export interface PermissionSet {
@@ -2534,15 +2534,15 @@ export const ListRulesRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListRulesRequest" }) as any as S.Schema<ListRulesRequest>;
 
 /** Names of permission sets bound to the rule. */
-export type RulePermissionSetNamesList = Array<unknown>;
+export type RulePermissionSetNamesList = Array<string>;
 export const RulePermissionSetNamesList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<RulePermissionSetNamesList>;
 
 /** List of Project IDs the rule is scoped to. */
-export type RuleProjectIdsList = Array<unknown>;
+export type RuleProjectIdsList = Array<string>;
 export const RuleProjectIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<RuleProjectIdsList>;
 
 export interface Rule {
@@ -3023,9 +3023,9 @@ export const UpdateAPIKeyRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateAPIKeyRequest" }) as any as S.Schema<UpdateAPIKeyRequest>;
 
 /** New tags for the application (maximum of 10 tags). */
-export type UpdateApplicationRequestTagsList = Array<unknown>;
+export type UpdateApplicationRequestTagsList = Array<string>;
 export const UpdateApplicationRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateApplicationRequestTagsList>;
 
 export interface UpdateApplicationRequest {
@@ -3055,9 +3055,9 @@ export const UpdateApplicationRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateApplicationRequest" }) as any as S.Schema<UpdateApplicationRequest>;
 
 /** New tags for the group (maximum of 10 tags). */
-export type UpdateGroupRequestTagsList = Array<unknown>;
+export type UpdateGroupRequestTagsList = Array<string>;
 export const UpdateGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateGroupRequestTagsList>;
 
 export interface UpdateGroupRequest {
@@ -3152,9 +3152,9 @@ export const UpdateOrganizationSecuritySettingsRequest = /*@__PURE__*/ S.suspend
 }) as any as S.Schema<UpdateOrganizationSecuritySettingsRequest>;
 
 /** New tags for the policy (maximum of 10 tags). */
-export type UpdatePolicyRequestTagsList = Array<unknown>;
+export type UpdatePolicyRequestTagsList = Array<string>;
 export const UpdatePolicyRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePolicyRequestTagsList>;
 
 export interface UpdatePolicyRequest {
@@ -3241,9 +3241,9 @@ export const UpdateSSHKeyRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateSSHKeyRequest" }) as any as S.Schema<UpdateSSHKeyRequest>;
 
 /** New tags for the user (maximum of 10 tags). */
-export type UpdateUserRequestTagsList = Array<unknown>;
+export type UpdateUserRequestTagsList = Array<string>;
 export const UpdateUserRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateUserRequestTagsList>;
 
 export interface UpdateUserRequest {

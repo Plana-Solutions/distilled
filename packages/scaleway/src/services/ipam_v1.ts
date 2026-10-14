@@ -510,9 +510,9 @@ export type UpdateIPRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "pl-waw";
 export const UpdateIPRequestRegion = S.String;
 
 /** Tags for the IP. */
-export type UpdateIPRequestTagsList = Array<unknown>;
+export type UpdateIPRequestTagsList = Array<string>;
 export const UpdateIPRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateIPRequestTagsList>;
 
 /** Array of reverse domain names associated with an IP in the subnet of the current IP. */

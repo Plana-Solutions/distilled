@@ -1429,9 +1429,9 @@ export const CreateServerRequestVolumesMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<CreateServerRequestVolumesMap>;
 
 /** A list of reserved IP IDs to attach to the Instance. */
-export type CreateServerRequestPublicIpsList = Array<unknown>;
+export type CreateServerRequestPublicIpsList = Array<string>;
 export const CreateServerRequestPublicIpsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateServerRequestPublicIpsList>;
 
 /** Instance tags. */
@@ -1531,9 +1531,9 @@ export type CreateSnapshotRequestZone =
 export const CreateSnapshotRequestZone = S.String;
 
 /** Tags of the snapshot. */
-export type CreateSnapshotRequestTagsList = Array<unknown>;
+export type CreateSnapshotRequestTagsList = Array<string>;
 export const CreateSnapshotRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateSnapshotRequestTagsList>;
 
 export type SnapshotVolumeType = "unknown_volume_type" | "l_ssd" | "b_ssd" | "unified";
@@ -4233,9 +4233,9 @@ export const SetImageRequestExtraVolumesMap = /*@__PURE__*/ S.Record(
   Volume,
 ) as any as S.Schema<SetImageRequestExtraVolumesMap>;
 
-export type ScalewayStdStringsValue = Array<unknown>;
+export type ScalewayStdStringsValue = Array<string>;
 export const ScalewayStdStringsValue = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<ScalewayStdStringsValue>;
 
 export interface SetImageRequest {
@@ -4425,9 +4425,9 @@ export type SetSecurityGroupRequestZone =
 export const SetSecurityGroupRequestZone = S.String;
 
 /** Tags of the security group. */
-export type SetSecurityGroupRequestTagsList = Array<unknown>;
+export type SetSecurityGroupRequestTagsList = Array<string>;
 export const SetSecurityGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<SetSecurityGroupRequestTagsList>;
 
 /** Instances attached to this security group. */
@@ -4797,9 +4797,9 @@ export type SetVolumeRequestZone =
 export const SetVolumeRequestZone = S.String;
 
 /** Tags of the volume. */
-export type SetVolumeRequestTagsList = Array<unknown>;
+export type SetVolumeRequestTagsList = Array<string>;
 export const SetVolumeRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<SetVolumeRequestTagsList>;
 
 export interface SetVolumeRequest {
@@ -4899,9 +4899,9 @@ export const UpdateImageRequestExtraVolumesMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<UpdateImageRequestExtraVolumesMap>;
 
 /** Tags of the image. */
-export type UpdateImageRequestTagsList = Array<unknown>;
+export type UpdateImageRequestTagsList = Array<string>;
 export const UpdateImageRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateImageRequestTagsList>;
 
 export interface UpdateImageRequest {
@@ -4962,9 +4962,9 @@ export type UpdateIpRequestZone =
 export const UpdateIpRequestZone = S.String;
 
 /** An array of keywords you want to tag this IP with. */
-export type UpdateIpRequestTagsList = Array<unknown>;
+export type UpdateIpRequestTagsList = Array<string>;
 export const UpdateIpRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateIpRequestTagsList>;
 
 export interface UpdateIpRequest {
@@ -5021,9 +5021,9 @@ export type UpdatePlacementGroupRequestZone =
 export const UpdatePlacementGroupRequestZone = S.String;
 
 /** Tags of the placement group. */
-export type UpdatePlacementGroupRequestTagsList = Array<unknown>;
+export type UpdatePlacementGroupRequestTagsList = Array<string>;
 export const UpdatePlacementGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePlacementGroupRequestTagsList>;
 
 export interface UpdatePlacementGroupRequest {
@@ -5147,9 +5147,9 @@ export type UpdatePrivateNICRequestZone =
 export const UpdatePrivateNICRequestZone = S.String;
 
 /** Tags used to select private NIC/s. */
-export type UpdatePrivateNICRequestTagsList = Array<unknown>;
+export type UpdatePrivateNICRequestTagsList = Array<string>;
 export const UpdatePrivateNICRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePrivateNICRequestTagsList>;
 
 export interface UpdatePrivateNICRequest {
@@ -5192,9 +5192,9 @@ export type UpdateSecurityGroupRequestZone =
 export const UpdateSecurityGroupRequestZone = S.String;
 
 /** Tags of the security group. */
-export type UpdateSecurityGroupRequestTagsList = Array<unknown>;
+export type UpdateSecurityGroupRequestTagsList = Array<string>;
 export const UpdateSecurityGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateSecurityGroupRequestTagsList>;
 
 export interface UpdateSecurityGroupRequest {
@@ -5341,9 +5341,9 @@ export type UpdateServerRequestZone =
 export const UpdateServerRequestZone = S.String;
 
 /** Tags of the Instance. */
-export type UpdateServerRequestTagsList = Array<unknown>;
+export type UpdateServerRequestTagsList = Array<string>;
 export const UpdateServerRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateServerRequestTagsList>;
 
 export type UpdateServerRequestVolumesMap = { [key: string]: VolumeServerTemplate | undefined };
@@ -5353,18 +5353,18 @@ export const UpdateServerRequestVolumesMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<UpdateServerRequestVolumesMap>;
 
 /** A list of reserved IP IDs to attach to the Instance. */
-export type UpdateServerRequestPublicIpsList = Array<unknown>;
+export type UpdateServerRequestPublicIpsList = Array<string>;
 export const UpdateServerRequestPublicIpsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateServerRequestPublicIpsList>;
 
 export type SecurityGroupTemplate = ServerSummary;
 export const SecurityGroupTemplate = ServerSummary;
 
 /** Instance private NICs. */
-export type UpdateServerRequestPrivateNicsList = Array<unknown>;
+export type UpdateServerRequestPrivateNicsList = Array<string>;
 export const UpdateServerRequestPrivateNicsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateServerRequestPrivateNicsList>;
 
 export interface UpdateServerRequest {
@@ -5447,9 +5447,9 @@ export type UpdateSnapshotRequestZone =
 export const UpdateSnapshotRequestZone = S.String;
 
 /** Tags of the snapshot. */
-export type UpdateSnapshotRequestTagsList = Array<unknown>;
+export type UpdateSnapshotRequestTagsList = Array<string>;
 export const UpdateSnapshotRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateSnapshotRequestTagsList>;
 
 export interface UpdateSnapshotRequest {
@@ -5501,9 +5501,9 @@ export type UpdateVolumeRequestZone =
 export const UpdateVolumeRequestZone = S.String;
 
 /** Tags of the volume. */
-export type UpdateVolumeRequestTagsList = Array<unknown>;
+export type UpdateVolumeRequestTagsList = Array<string>;
 export const UpdateVolumeRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateVolumeRequestTagsList>;
 
 export interface UpdateVolumeRequest {

@@ -678,7 +678,7 @@
     "com.scaleway.inference_v1#UpdateDeploymentRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the deployment."

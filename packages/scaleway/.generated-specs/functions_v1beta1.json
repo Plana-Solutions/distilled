@@ -2184,7 +2184,7 @@
     "com.scaleway.functions_v1beta1#UpdateFunctionRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the Serverless Function."
@@ -2529,7 +2529,7 @@
     "com.scaleway.functions_v1beta1#ScalewayStdStringsValue": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {}
     },
@@ -2642,7 +2642,7 @@
     "com.scaleway.functions_v1beta1#UploadURLHeadersValueList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "HTTP headers."
@@ -3286,7 +3286,7 @@
     "com.scaleway.functions_v1beta1#UpdateNamespaceRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the Serverless Function Namespace."

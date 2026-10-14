@@ -1471,9 +1471,9 @@ export type UpdateExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateExporterRequestRegion = S.String;
 
 /** Updated list of Scaleway products to export. To include all products in your data export, you can use an array containing "all" You can retrieve the complete list of product names using the `ListProducts` endpoint. */
-export type UpdateExporterRequestExportedProductsList = Array<unknown>;
+export type UpdateExporterRequestExportedProductsList = Array<string>;
 export const UpdateExporterRequestExportedProductsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateExporterRequestExportedProductsList>;
 
 export interface UpdateExporterRequest {

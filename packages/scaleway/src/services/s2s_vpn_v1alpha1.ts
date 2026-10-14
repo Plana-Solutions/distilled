@@ -1568,9 +1568,9 @@ export type UpdateConnectionRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "pl
 export const UpdateConnectionRequestRegion = S.String;
 
 /** List of tags to apply to the connection. */
-export type UpdateConnectionRequestTagsList = Array<unknown>;
+export type UpdateConnectionRequestTagsList = Array<string>;
 export const UpdateConnectionRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateConnectionRequestTagsList>;
 
 /** List of IKE v2 ciphers proposed for the IPsec tunnel. */
@@ -1630,9 +1630,9 @@ export type UpdateCustomerGatewayRequestRegion = "fr-par" | "it-mil" | "nl-ams" 
 export const UpdateCustomerGatewayRequestRegion = S.String;
 
 /** List of tags to apply to the customer gateway. */
-export type UpdateCustomerGatewayRequestTagsList = Array<unknown>;
+export type UpdateCustomerGatewayRequestTagsList = Array<string>;
 export const UpdateCustomerGatewayRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateCustomerGatewayRequestTagsList>;
 
 export interface UpdateCustomerGatewayRequest {
@@ -1676,21 +1676,21 @@ export type UpdateRoutingPolicyRequestRegion = "fr-par" | "it-mil" | "nl-ams" | 
 export const UpdateRoutingPolicyRequestRegion = S.String;
 
 /** List of tags to apply to the routing policy. */
-export type UpdateRoutingPolicyRequestTagsList = Array<unknown>;
+export type UpdateRoutingPolicyRequestTagsList = Array<string>;
 export const UpdateRoutingPolicyRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRoutingPolicyRequestTagsList>;
 
 /** IP prefixes to accept from the peer (ranges of route announcements to accept). */
-export type UpdateRoutingPolicyRequestPrefixFilterInList = Array<unknown>;
+export type UpdateRoutingPolicyRequestPrefixFilterInList = Array<string>;
 export const UpdateRoutingPolicyRequestPrefixFilterInList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRoutingPolicyRequestPrefixFilterInList>;
 
 /** IP prefix filters for routes to advertise to the peer (ranges of routes to advertise). */
-export type UpdateRoutingPolicyRequestPrefixFilterOutList = Array<unknown>;
+export type UpdateRoutingPolicyRequestPrefixFilterOutList = Array<string>;
 export const UpdateRoutingPolicyRequestPrefixFilterOutList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRoutingPolicyRequestPrefixFilterOutList>;
 
 export interface UpdateRoutingPolicyRequest {
@@ -1731,9 +1731,9 @@ export type UpdateVpnGatewayRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "pl
 export const UpdateVpnGatewayRequestRegion = S.String;
 
 /** List of tags to apply to the VPN Gateway. */
-export type UpdateVpnGatewayRequestTagsList = Array<unknown>;
+export type UpdateVpnGatewayRequestTagsList = Array<string>;
 export const UpdateVpnGatewayRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateVpnGatewayRequestTagsList>;
 
 export interface UpdateVpnGatewayRequest {

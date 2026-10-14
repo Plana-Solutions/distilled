@@ -1390,9 +1390,9 @@ export type UpdateClusterRequestZone =
 export const UpdateClusterRequestZone = S.String;
 
 /** Database Instance tags. */
-export type UpdateClusterRequestTagsList = Array<unknown>;
+export type UpdateClusterRequestTagsList = Array<string>;
 export const UpdateClusterRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateClusterRequestTagsList>;
 
 export interface UpdateClusterRequest {

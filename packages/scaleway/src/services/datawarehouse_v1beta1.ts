@@ -967,9 +967,9 @@ export type UpdateDeploymentRequestRegion = "fr-par";
 export const UpdateDeploymentRequestRegion = S.String;
 
 /** Tags of a deployment. */
-export type UpdateDeploymentRequestTagsList = Array<unknown>;
+export type UpdateDeploymentRequestTagsList = Array<string>;
 export const UpdateDeploymentRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateDeploymentRequestTagsList>;
 
 export interface UpdateDeploymentRequest {

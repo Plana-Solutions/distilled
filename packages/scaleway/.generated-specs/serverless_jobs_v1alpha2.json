@@ -629,7 +629,7 @@
     "com.scaleway.serverless_jobs_v1alpha2#UpdateJobDefinitionRequestStartupCommandList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Job startup command. Overrides the default defined in the job image.\nThe main executable or entrypoint script to run.\nIf both command and startup_command are provided, only startup_command will be used."
@@ -638,7 +638,7 @@
     "com.scaleway.serverless_jobs_v1alpha2#UpdateJobDefinitionRequestArgsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Job arguments. Overrides the default arguments defined in the job image.\nPassed to the startup command at runtime.\nEnvironment variables and secrets can be included, and will be expanded before the arguments are used."
@@ -908,7 +908,7 @@
     "com.scaleway.serverless_jobs_v1alpha2#StartJobDefinitionRequestStartupCommandList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Contextual startup command for this specific job run.\nOverrides the default defined in the job image.\nThe main executable or entrypoint script to run.\nIf both command and startup_command are provided, only startup_command will be used."
@@ -917,7 +917,7 @@
     "com.scaleway.serverless_jobs_v1alpha2#StartJobDefinitionRequestArgsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Contextual arguments for this specific job run.\nOverrides the default arguments defined in the job image.\nPassed to the contextual startup command at runtime.\nEnvironment variables and secrets can be included, and will be expanded before the arguments are used."
@@ -2671,7 +2671,7 @@
     "com.scaleway.serverless_jobs_v1alpha2#UpdateTriggerRequestCronConfigStartupCommandList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Startup command that will be used by the triggered job."
@@ -2680,7 +2680,7 @@
     "com.scaleway.serverless_jobs_v1alpha2#UpdateTriggerRequestCronConfigArgsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Arguments passed to the startup command used by the triggered job."

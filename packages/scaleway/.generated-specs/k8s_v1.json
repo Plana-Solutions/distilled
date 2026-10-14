@@ -1793,7 +1793,7 @@
     "com.scaleway.k8s_v1#CreateClusterRequestOpenIDConnectConfigGroupsClaimList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "JWT claim to use as the user's group."
@@ -1802,7 +1802,7 @@
     "com.scaleway.k8s_v1#CreateClusterRequestOpenIDConnectConfigRequiredClaimList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value."
@@ -2077,7 +2077,7 @@
     "com.scaleway.k8s_v1#UpdateClusterRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags associated with the cluster."
@@ -2193,7 +2193,7 @@
     "com.scaleway.k8s_v1#UpdateClusterRequestFeatureGatesList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of feature gates to enable."
@@ -2202,7 +2202,7 @@
     "com.scaleway.k8s_v1#UpdateClusterRequestAdmissionPluginsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of admission plugins to enable."
@@ -2266,7 +2266,7 @@
     "com.scaleway.k8s_v1#UpdateClusterRequestOpenIDConnectConfigGroupsClaimList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "JWT claim to use as the user's group."
@@ -2275,7 +2275,7 @@
     "com.scaleway.k8s_v1#UpdateClusterRequestOpenIDConnectConfigRequiredClaimList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value."
@@ -2284,7 +2284,7 @@
     "com.scaleway.k8s_v1#UpdateClusterRequestApiserverCertSansList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Additional Subject Alternative Names for the Kubernetes API server certificate."
@@ -5208,7 +5208,7 @@
     "com.scaleway.k8s_v1#UpdatePoolRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags associated with the pool."

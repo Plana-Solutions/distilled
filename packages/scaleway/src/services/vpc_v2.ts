@@ -1716,9 +1716,9 @@ export type UpdateIngressRuleRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "p
 export const UpdateIngressRuleRequestRegion = S.String;
 
 /** Tags to set for this ingress rule. */
-export type UpdateIngressRuleRequestTagsList = Array<unknown>;
+export type UpdateIngressRuleRequestTagsList = Array<string>;
 export const UpdateIngressRuleRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateIngressRuleRequestTagsList>;
 
 export interface UpdateIngressRuleRequest {
@@ -1760,9 +1760,9 @@ export type UpdatePrivateNetworkRequestRegion = "fr-par" | "it-mil" | "nl-ams" |
 export const UpdatePrivateNetworkRequestRegion = S.String;
 
 /** Tags for the Private Network. */
-export type UpdatePrivateNetworkRequestTagsList = Array<unknown>;
+export type UpdatePrivateNetworkRequestTagsList = Array<string>;
 export const UpdatePrivateNetworkRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePrivateNetworkRequestTagsList>;
 
 export interface UpdatePrivateNetworkRequest {
@@ -1800,9 +1800,9 @@ export type UpdateRouteRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "pl-waw"
 export const UpdateRouteRequestRegion = S.String;
 
 /** Tags of the Route. */
-export type UpdateRouteRequestTagsList = Array<unknown>;
+export type UpdateRouteRequestTagsList = Array<string>;
 export const UpdateRouteRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRouteRequestTagsList>;
 
 export interface UpdateRouteRequest {
@@ -1847,9 +1847,9 @@ export type UpdateVPCRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "pl-waw";
 export const UpdateVPCRequestRegion = S.String;
 
 /** Tags for the VPC. */
-export type UpdateVPCRequestTagsList = Array<unknown>;
+export type UpdateVPCRequestTagsList = Array<string>;
 export const UpdateVPCRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateVPCRequestTagsList>;
 
 export interface UpdateVPCRequest {
@@ -1882,9 +1882,9 @@ export type UpdateVPCConnectorRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "
 export const UpdateVPCConnectorRequestRegion = S.String;
 
 /** Tags for the VPC connector. */
-export type UpdateVPCConnectorRequestTagsList = Array<unknown>;
+export type UpdateVPCConnectorRequestTagsList = Array<string>;
 export const UpdateVPCConnectorRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateVPCConnectorRequestTagsList>;
 
 export interface UpdateVPCConnectorRequest {

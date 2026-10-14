@@ -1954,9 +1954,9 @@ export const UpdateDomainRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "UpdateDomainRequest" }) as any as S.Schema<UpdateDomainRequest>;
 
-export type ScalewayStdStringsValue = Array<unknown>;
+export type ScalewayStdStringsValue = Array<string>;
 export const ScalewayStdStringsValue = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<ScalewayStdStringsValue>;
 
 export interface UpdateDomainHostRequest {

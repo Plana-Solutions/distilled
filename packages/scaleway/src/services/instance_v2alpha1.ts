@@ -3893,21 +3893,21 @@ export type StopAndDeleteServerRequestZone =
 export const StopAndDeleteServerRequestZone = S.String;
 
 /** List of IP IDs to delete. */
-export type StopAndDeleteServerRequestDeleteIpIdsList = Array<unknown>;
+export type StopAndDeleteServerRequestDeleteIpIdsList = Array<string>;
 export const StopAndDeleteServerRequestDeleteIpIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<StopAndDeleteServerRequestDeleteIpIdsList>;
 
 /** List of volume IDs to delete. */
-export type StopAndDeleteServerRequestDeleteVolumeIdsList = Array<unknown>;
+export type StopAndDeleteServerRequestDeleteVolumeIdsList = Array<string>;
 export const StopAndDeleteServerRequestDeleteVolumeIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<StopAndDeleteServerRequestDeleteVolumeIdsList>;
 
 /** List of private network interface IDs to delete. */
-export type StopAndDeleteServerRequestDeletePrivateNicIdsList = Array<unknown>;
+export type StopAndDeleteServerRequestDeletePrivateNicIdsList = Array<string>;
 export const StopAndDeleteServerRequestDeletePrivateNicIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<StopAndDeleteServerRequestDeletePrivateNicIdsList>;
 
 export interface StopAndDeleteServerRequest {
@@ -3997,9 +3997,9 @@ export type UpdatePlacementGroupRequestZone =
 export const UpdatePlacementGroupRequestZone = S.String;
 
 /** Tags of the placement group. */
-export type UpdatePlacementGroupRequestTagsList = Array<unknown>;
+export type UpdatePlacementGroupRequestTagsList = Array<string>;
 export const UpdatePlacementGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePlacementGroupRequestTagsList>;
 
 export interface UpdatePlacementGroupRequest {
@@ -4047,9 +4047,9 @@ export type UpdatePrivateNetworkInterfaceRequestZone =
 export const UpdatePrivateNetworkInterfaceRequestZone = S.String;
 
 /** New tags to assign to the private network interface. */
-export type UpdatePrivateNetworkInterfaceRequestTagsList = Array<unknown>;
+export type UpdatePrivateNetworkInterfaceRequestTagsList = Array<string>;
 export const UpdatePrivateNetworkInterfaceRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdatePrivateNetworkInterfaceRequestTagsList>;
 
 export interface UpdatePrivateNetworkInterfaceRequest {
@@ -4091,9 +4091,9 @@ export type UpdateSecurityGroupRequestZone =
 export const UpdateSecurityGroupRequestZone = S.String;
 
 /** New tags for the security group. */
-export type UpdateSecurityGroupRequestTagsList = Array<unknown>;
+export type UpdateSecurityGroupRequestTagsList = Array<string>;
 export const UpdateSecurityGroupRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateSecurityGroupRequestTagsList>;
 
 export interface UpdateSecurityGroupRequest {
@@ -4215,9 +4215,9 @@ export type UpdateServerRequestZone =
 export const UpdateServerRequestZone = S.String;
 
 /** New tags for the server. */
-export type UpdateServerRequestTagsList = Array<unknown>;
+export type UpdateServerRequestTagsList = Array<string>;
 export const UpdateServerRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateServerRequestTagsList>;
 
 export interface UpdateServerRequestPublicNetworkInterface {
@@ -4293,15 +4293,15 @@ export type UpdateTemplateRequestZone =
 export const UpdateTemplateRequestZone = S.String;
 
 /** New tags for the template. */
-export type UpdateTemplateRequestTagsList = Array<unknown>;
+export type UpdateTemplateRequestTagsList = Array<string>;
 export const UpdateTemplateRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTemplateRequestTagsList>;
 
 /** New server tags for the template. */
-export type UpdateTemplateRequestServerTagsList = Array<unknown>;
+export type UpdateTemplateRequestServerTagsList = Array<string>;
 export const UpdateTemplateRequestServerTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTemplateRequestServerTagsList>;
 
 /** List of updated volume templates. */
@@ -4343,9 +4343,9 @@ export const UpdateTemplateRequestUpdatePrivateNetworks = /*@__PURE__*/ S.suspen
 }) as any as S.Schema<UpdateTemplateRequestUpdatePrivateNetworks>;
 
 /** New list of filesystem IDs for the template. */
-export type UpdateTemplateRequestFilesystemIdsList = Array<unknown>;
+export type UpdateTemplateRequestFilesystemIdsList = Array<string>;
 export const UpdateTemplateRequestFilesystemIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTemplateRequestFilesystemIdsList>;
 
 export interface UpdateTemplateRequest {

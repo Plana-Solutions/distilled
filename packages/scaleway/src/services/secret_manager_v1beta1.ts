@@ -798,9 +798,9 @@ export type UpdateSecretRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateSecretRequestRegion = S.String;
 
 /** Secret's updated list of tags (optional). */
-export type UpdateSecretRequestTagsList = Array<unknown>;
+export type UpdateSecretRequestTagsList = Array<string>;
 export const UpdateSecretRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateSecretRequestTagsList>;
 
 export interface UpdateSecretRequest {

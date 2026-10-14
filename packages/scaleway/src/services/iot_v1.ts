@@ -17,9 +17,9 @@ export type DeviceMessageFiltersRulePolicy = "unknown" | "accept" | "reject";
 export const DeviceMessageFiltersRulePolicy = S.String;
 
 /** List of topics to accept or reject. It must be valid MQTT topics and up to 65535 characters. */
-export type DeviceMessageFiltersRuleTopicsList = Array<unknown>;
+export type DeviceMessageFiltersRuleTopicsList = Array<string>;
 export const DeviceMessageFiltersRuleTopicsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<DeviceMessageFiltersRuleTopicsList>;
 
 export interface DeviceMessageFiltersRule {

@@ -1442,21 +1442,21 @@ export const UpdateContainerRequestProbe = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<UpdateContainerRequestProbe>;
 
 /** Tags of the Serverless Container. */
-export type UpdateContainerRequestTagsList = Array<unknown>;
+export type UpdateContainerRequestTagsList = Array<string>;
 export const UpdateContainerRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateContainerRequestTagsList>;
 
 /** Container command. Command executed when the container starts. This overrides the default command defined in the container image. This is usually the main executable, or ENTRYPOINT script to run. */
-export type UpdateContainerRequestCommandList = Array<unknown>;
+export type UpdateContainerRequestCommandList = Array<string>;
 export const UpdateContainerRequestCommandList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateContainerRequestCommandList>;
 
 /** Container arguments. Arguments passed to the command specified in the "command" field. These override the default arguments from the container image, and behave like command-line parameters. */
-export type UpdateContainerRequestArgsList = Array<unknown>;
+export type UpdateContainerRequestArgsList = Array<string>;
 export const UpdateContainerRequestArgsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateContainerRequestArgsList>;
 
 export interface UpdateContainerRequest {
@@ -1557,9 +1557,9 @@ export type UpdateDomainRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil
 export const UpdateDomainRequestRegion = S.String;
 
 /** A list of arbitrary tags associated with the domain. */
-export type UpdateDomainRequestTagsList = Array<unknown>;
+export type UpdateDomainRequestTagsList = Array<string>;
 export const UpdateDomainRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateDomainRequestTagsList>;
 
 export interface UpdateDomainRequest {
@@ -1605,9 +1605,9 @@ export const UpdateNamespaceRequestSecretEnvironmentVariablesMap = /*@__PURE__*/
 ) as any as S.Schema<UpdateNamespaceRequestSecretEnvironmentVariablesMap>;
 
 /** A list of arbitrary tags associated with the namespace. */
-export type UpdateNamespaceRequestTagsList = Array<unknown>;
+export type UpdateNamespaceRequestTagsList = Array<string>;
 export const UpdateNamespaceRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateNamespaceRequestTagsList>;
 
 export interface UpdateNamespaceRequest {
@@ -1648,9 +1648,9 @@ export type UpdateTriggerRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mi
 export const UpdateTriggerRequestRegion = S.String;
 
 /** Tags of the trigger. */
-export type UpdateTriggerRequestTagsList = Array<unknown>;
+export type UpdateTriggerRequestTagsList = Array<string>;
 export const UpdateTriggerRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTriggerRequestTagsList>;
 
 export type UpdateTriggerRequestDestinationConfigHttpMethod =
@@ -1730,9 +1730,9 @@ export const UpdateTriggerRequestSQSConfig = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<UpdateTriggerRequestSQSConfig>;
 
 /** The URLs of the NATS server (e.g., "nats://nats.mnq.fr-par.scaleway.com:4222"). */
-export type UpdateTriggerRequestNATSConfigServerUrlsList = Array<unknown>;
+export type UpdateTriggerRequestNATSConfigServerUrlsList = Array<string>;
 export const UpdateTriggerRequestNATSConfigServerUrlsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateTriggerRequestNATSConfigServerUrlsList>;
 
 export interface UpdateTriggerRequestNATSConfig {

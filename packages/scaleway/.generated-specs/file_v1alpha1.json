@@ -844,7 +844,7 @@
     "com.scaleway.file_v1alpha1#UpdateFileSystemRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags assigned to the filesystem."

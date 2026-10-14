@@ -1044,9 +1044,9 @@ export const GetFunctionDownloadURLRequest = /*@__PURE__*/ S.suspend(() =>
   identifier: "GetFunctionDownloadURLRequest",
 }) as any as S.Schema<GetFunctionDownloadURLRequest>;
 
-export type ScalewayStdStringsValue = Array<unknown>;
+export type ScalewayStdStringsValue = Array<string>;
 export const ScalewayStdStringsValue = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<ScalewayStdStringsValue>;
 
 export type DownloadURLHeadersMap = { [key: string]: ScalewayStdStringsValue | null | undefined };
@@ -1095,9 +1095,9 @@ export const GetFunctionUploadURLRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetFunctionUploadURLRequest>;
 
 /** HTTP headers. */
-export type UploadURLHeadersValueList = Array<unknown>;
+export type UploadURLHeadersValueList = Array<string>;
 export const UploadURLHeadersValueList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UploadURLHeadersValueList>;
 
 /** HTTP headers. */
@@ -1682,9 +1682,9 @@ export const UpdateFunctionRequestSecretEnvironmentVariablesList = /*@__PURE__*/
 ) as any as S.Schema<UpdateFunctionRequestSecretEnvironmentVariablesList>;
 
 /** Tags of the Serverless Function. */
-export type UpdateFunctionRequestTagsList = Array<unknown>;
+export type UpdateFunctionRequestTagsList = Array<string>;
 export const UpdateFunctionRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateFunctionRequestTagsList>;
 
 export interface UpdateFunctionRequest {
@@ -1769,9 +1769,9 @@ export const UpdateNamespaceRequestSecretEnvironmentVariablesList = /*@__PURE__*
 ) as any as S.Schema<UpdateNamespaceRequestSecretEnvironmentVariablesList>;
 
 /** Tags of the Serverless Function Namespace. */
-export type UpdateNamespaceRequestTagsList = Array<unknown>;
+export type UpdateNamespaceRequestTagsList = Array<string>;
 export const UpdateNamespaceRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateNamespaceRequestTagsList>;
 
 export interface UpdateNamespaceRequest {

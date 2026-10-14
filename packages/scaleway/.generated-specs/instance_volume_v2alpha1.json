@@ -741,7 +741,7 @@
     "com.scaleway.instance_volume_v2alpha1#UpdateSnapshotRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the snapshot."
@@ -2142,7 +2142,7 @@
     "com.scaleway.instance_volume_v2alpha1#UpdateVolumeRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the volume."

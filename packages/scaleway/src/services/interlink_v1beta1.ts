@@ -1262,9 +1262,9 @@ export type UpdateLinkRequestRegion = "fr-par" | "it-mil" | "nl-ams" | "pl-waw";
 export const UpdateLinkRequestRegion = S.String;
 
 /** List of tags to apply to the link. */
-export type UpdateLinkRequestTagsList = Array<unknown>;
+export type UpdateLinkRequestTagsList = Array<string>;
 export const UpdateLinkRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateLinkRequestTagsList>;
 
 export interface UpdateLinkRequest {
@@ -1300,21 +1300,21 @@ export type UpdateRoutingPolicyRequestRegion = "fr-par" | "it-mil" | "nl-ams" | 
 export const UpdateRoutingPolicyRequestRegion = S.String;
 
 /** List of tags to apply to the routing policy. */
-export type UpdateRoutingPolicyRequestTagsList = Array<unknown>;
+export type UpdateRoutingPolicyRequestTagsList = Array<string>;
 export const UpdateRoutingPolicyRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRoutingPolicyRequestTagsList>;
 
 /** IP prefixes to accept from the peer (ranges of route announcements to accept). */
-export type UpdateRoutingPolicyRequestPrefixFilterInList = Array<unknown>;
+export type UpdateRoutingPolicyRequestPrefixFilterInList = Array<string>;
 export const UpdateRoutingPolicyRequestPrefixFilterInList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRoutingPolicyRequestPrefixFilterInList>;
 
 /** IP prefix filters for routes to advertise to the peer (ranges of routes to advertise). */
-export type UpdateRoutingPolicyRequestPrefixFilterOutList = Array<unknown>;
+export type UpdateRoutingPolicyRequestPrefixFilterOutList = Array<string>;
 export const UpdateRoutingPolicyRequestPrefixFilterOutList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateRoutingPolicyRequestPrefixFilterOutList>;
 
 export interface UpdateRoutingPolicyRequest {

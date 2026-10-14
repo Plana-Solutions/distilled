@@ -809,7 +809,7 @@
     "com.scaleway.qaas_v1alpha1#JobTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the job."
@@ -900,7 +900,7 @@
     "com.scaleway.qaas_v1alpha1#CreateJobRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the job."
@@ -1038,7 +1038,7 @@
     "com.scaleway.qaas_v1alpha1#UpdateJobRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the job."
@@ -2596,7 +2596,7 @@
     "com.scaleway.qaas_v1alpha1#UpdateProcessRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the process."
@@ -3178,7 +3178,7 @@
     "com.scaleway.qaas_v1alpha1#SessionTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the session."
@@ -3245,7 +3245,7 @@
     "com.scaleway.qaas_v1alpha1#CreateSessionRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the session."
@@ -3415,7 +3415,7 @@
     "com.scaleway.qaas_v1alpha1#UpdateSessionRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the session."

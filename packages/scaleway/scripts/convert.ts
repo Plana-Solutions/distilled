@@ -26,8 +26,10 @@
  *   2. Nullable properties are not required — the protocol drops `null`
  *      properties, so such a member arrives absent ({@link unrequireNullable}).
  *      The `Float`/`Double`/`BytesValue` wrappers become the bare scalars
- *      proto3 JSON sends ({@link WRAPPERS}). The reverse: response members
- *      proto3 JSON always emits become required ({@link requireEmitted}).
+ *      proto3 JSON sends ({@link WRAPPERS}), and an untyped nullable
+ *      array is the list of strings it stands for ({@link typeStringsValue}).
+ *      The reverse: response members proto3 JSON always emits become
+ *      required ({@link requireEmitted}).
  *   3. Component names. Schemas are named by their proto message
  *      (`scaleway.instance.v1.Server.State`); the document's own package
  *      prefix is dropped (`Server.State`), so shapes read `ServerState`
@@ -162,6 +164,22 @@ const unrequireNullable = (schema: Record<string, any>): void => {
     return !(Array.isArray(type) && type.includes("null"));
   });
   if (schema.required.length === 0) delete schema.required;
+};
+
+/**
+ * `{ "type": ["array", "null"] }` with no `items` → a nullable list of
+ * strings. That is how the export writes `scaleway.std.StringsValue`, the
+ * nullable `repeated string` Scaleway's update requests use to tell "leave
+ * as is" (`null` / absent) from "set to this list" (`tags`, `public_ips`,
+ * `feature_gates`, IAM `project_ids`, …); without `items` the member
+ * became `Array<unknown>`. Every such node in the published documents
+ * (124 on 2026-10-14) is one of these; the official SDKs type them
+ * `*[]string` (Go) and `string[]` (JS).
+ */
+const typeStringsValue = (schema: Record<string, any>): void => {
+  const type = schema.type;
+  if (!Array.isArray(type) || !type.includes("array") || !type.includes("null")) return;
+  if (schema.items === undefined) schema.items = { type: "string" };
 };
 
 /**
@@ -324,6 +342,7 @@ const preprocess = (entry: ManifestEntry) => (spec: any) => {
   }
   walk(spec, mapPlaceholder);
   walk(spec, unrequireNullable);
+  walk(spec, typeStringsValue);
   for (const [name, schema] of Object.entries(WRAPPERS)) {
     if (spec.components?.schemas?.[name] !== undefined) spec.components.schemas[name] = schema;
   }

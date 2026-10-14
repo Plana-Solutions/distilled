@@ -2970,9 +2970,9 @@ export type UpdateInstanceRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const UpdateInstanceRequestRegion = S.String;
 
 /** Tags of a Database Instance. */
-export type UpdateInstanceRequestTagsList = Array<unknown>;
+export type UpdateInstanceRequestTagsList = Array<string>;
 export const UpdateInstanceRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateInstanceRequestTagsList>;
 
 export interface UpdateInstanceRequest {

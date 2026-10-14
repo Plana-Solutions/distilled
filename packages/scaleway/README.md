@@ -24,9 +24,9 @@ const program = Effect.gen(function* () {
   // `region` is optional: it defaults to SCW_DEFAULT_REGION (fr-par).
   const vpc = yield* Scaleway.vpcV2.createVPC({ name: "distilled-example", project_id });
   const { private_networks } = yield* Scaleway.vpcV2.listPrivateNetworks({ vpc_id: vpc.id });
-  yield* Scaleway.vpcV2.deleteVPC({ vpc_id: vpc.id! });
+  yield* Scaleway.vpcV2.deleteVPC({ vpc_id: vpc.id });
 
-  return { vpc: vpc.id, privateNetworks: private_networks?.length };
+  return { vpc: vpc.id, privateNetworks: private_networks.length };
 });
 
 const Live = Layer.mergeAll(
@@ -164,6 +164,15 @@ not its Block Storage (SBS) volumes — delete them with
 
 Scaleway writes unset fields as `null`; the protocol drops `null` properties
 before decoding, as the official SDKs do, so an unset field is absent.
+
+Response members the API always sends are required in the types (`vpc.id`
+is a `string`): non-nullable scalars, enums, lists and maps of response
+shapes, which proto3 JSON writes even at their zero value. Nested messages,
+nullable members and one-of members stay optional, and Instance v1 keeps
+every member optional because it answers `null` for some of them.
+
+On update requests a list such as `tags` is `Array<string> | null`: leave
+it out (or pass `null`) to keep the current list, pass `[]` to clear it.
 
 ## Known limits
 

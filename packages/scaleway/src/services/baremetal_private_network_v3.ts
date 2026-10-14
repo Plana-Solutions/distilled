@@ -235,10 +235,10 @@ export type SetServerPrivateNetworksRequestZone =
 export const SetServerPrivateNetworksRequestZone = S.String;
 
 /** Object where the keys are the UUIDs of Private Networks and the values are arrays of IPAM IDs representing the IPs to assign to this Elastic Metal server on the Private Network. If the array supplied for a Private Network is empty, the next available IP from the Private Network's CIDR block will automatically be used for attachment. */
-export type SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList = Array<unknown>;
+export type SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList = Array<string>;
 export const SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList =
   /*@__PURE__*/ S.Array(
-    S.Unknown,
+    S.String,
   ) as any as S.Schema<SetServerPrivateNetworksRequestPerPrivateNetworkIpamIpIdsValueList>;
 
 /** Object where the keys are the UUIDs of Private Networks and the values are arrays of IPAM IDs representing the IPs to assign to this Elastic Metal server on the Private Network. If the array supplied for a Private Network is empty, the next available IP from the Private Network's CIDR block will automatically be used for attachment. */

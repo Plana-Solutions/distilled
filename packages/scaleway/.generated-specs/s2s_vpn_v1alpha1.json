@@ -1167,7 +1167,7 @@
     "com.scaleway.s2s_vpn_v1alpha1#UpdateConnectionRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the connection."
@@ -2382,7 +2382,7 @@
     "com.scaleway.s2s_vpn_v1alpha1#UpdateCustomerGatewayRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the customer gateway."
@@ -3072,7 +3072,7 @@
     "com.scaleway.s2s_vpn_v1alpha1#UpdateRoutingPolicyRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the routing policy."
@@ -3081,7 +3081,7 @@
     "com.scaleway.s2s_vpn_v1alpha1#UpdateRoutingPolicyRequestPrefixFilterInList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "IP prefixes to accept from the peer (ranges of route announcements to accept)."
@@ -3090,7 +3090,7 @@
     "com.scaleway.s2s_vpn_v1alpha1#UpdateRoutingPolicyRequestPrefixFilterOutList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "IP prefix filters for routes to advertise to the peer (ranges of routes to advertise)."
@@ -4189,7 +4189,7 @@
     "com.scaleway.s2s_vpn_v1alpha1#UpdateVpnGatewayRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags to apply to the VPN Gateway."

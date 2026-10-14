@@ -828,7 +828,7 @@
     "com.scaleway.datawarehouse_v1beta1#UpdateDeploymentRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of a deployment."

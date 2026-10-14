@@ -664,7 +664,7 @@
     "com.scaleway.instance_v2alpha1#UpdatePlacementGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags of the placement group."
@@ -1675,7 +1675,7 @@
     "com.scaleway.instance_v2alpha1#UpdatePrivateNetworkInterfaceRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags to assign to the private network interface."
@@ -3803,7 +3803,7 @@
     "com.scaleway.instance_v2alpha1#UpdateSecurityGroupRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the security group."
@@ -6029,7 +6029,7 @@
     "com.scaleway.instance_v2alpha1#UpdateServerRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the server."
@@ -7994,7 +7994,7 @@
     "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeleteIpIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of IP IDs to delete."
@@ -8003,7 +8003,7 @@
     "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeleteVolumeIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of volume IDs to delete."
@@ -8012,7 +8012,7 @@
     "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeletePrivateNicIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of private network interface IDs to delete."
@@ -9923,7 +9923,7 @@
     "com.scaleway.instance_v2alpha1#UpdateTemplateRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the template."
@@ -9932,7 +9932,7 @@
     "com.scaleway.instance_v2alpha1#UpdateTemplateRequestServerTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New server tags for the template."
@@ -9983,7 +9983,7 @@
     "com.scaleway.instance_v2alpha1#UpdateTemplateRequestFilesystemIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New list of filesystem IDs for the template."

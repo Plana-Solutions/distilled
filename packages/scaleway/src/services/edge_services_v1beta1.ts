@@ -385,9 +385,9 @@ export const CacheStage = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CacheStage" }) as any as S.Schema<CacheStage>;
 
 /** Custom Fully Qualified Domain Name to be configured (only 1 FQDN can be setup for now). */
-export type CreateDNSStageRequestFqdnsList = Array<unknown>;
+export type CreateDNSStageRequestFqdnsList = Array<string>;
 export const CreateDNSStageRequestFqdnsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreateDNSStageRequestFqdnsList>;
 
 export interface CreateDNSStageRequest {
@@ -610,9 +610,9 @@ export const Pipeline = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "Pipeline" }) as any as S.Schema<Pipeline>;
 
 /** List of asserts to purge. */
-export type CreatePurgeRequestRequestAssetsList = Array<unknown>;
+export type CreatePurgeRequestRequestAssetsList = Array<string>;
 export const CreatePurgeRequestRequestAssetsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<CreatePurgeRequestRequestAssetsList>;
 
 export interface CreatePurgeRequestRequest {
@@ -644,9 +644,9 @@ export type PurgeRequestStatus = "unknown_status" | "done" | "error" | "pending"
 export const PurgeRequestStatus = S.String;
 
 /** List of asserts to purge. */
-export type PurgeRequestAssetsList = Array<unknown>;
+export type PurgeRequestAssetsList = Array<string>;
 export const PurgeRequestAssetsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<PurgeRequestAssetsList>;
 
 export interface PurgeRequest {
@@ -2370,9 +2370,9 @@ export const UpdateCacheStageRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateCacheStageRequest" }) as any as S.Schema<UpdateCacheStageRequest>;
 
 /** Custom Fully Qualified Domain Name to be configured (only 1 FQDN can be setup for now). */
-export type UpdateDNSStageRequestFqdnsList = Array<unknown>;
+export type UpdateDNSStageRequestFqdnsList = Array<string>;
 export const UpdateDNSStageRequestFqdnsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateDNSStageRequestFqdnsList>;
 
 export interface UpdateDNSStageRequest {

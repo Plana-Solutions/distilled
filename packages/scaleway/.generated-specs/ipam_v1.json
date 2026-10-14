@@ -1069,7 +1069,7 @@
     "com.scaleway.ipam_v1#UpdateIPRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags for the IP."

@@ -3241,7 +3241,7 @@
     "com.scaleway.lb_zoned_v1#UpdateFrontendRequestCertificateIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of SSL/TLS certificate IDs to bind to the frontend."
@@ -4424,7 +4424,7 @@
     "com.scaleway.lb_zoned_v1#UpdateIpRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of tags for the IP."
@@ -7479,7 +7479,7 @@
     "com.scaleway.lb_zoned_v1#CreateFrontendRequestCertificateIdsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "List of SSL/TLS certificate IDs to bind to the frontend."

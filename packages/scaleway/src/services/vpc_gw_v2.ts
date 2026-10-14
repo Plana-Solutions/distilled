@@ -1422,9 +1422,9 @@ export type UpdateGatewayRequestZone =
 export const UpdateGatewayRequestZone = S.String;
 
 /** Tags for the gateway. */
-export type UpdateGatewayRequestTagsList = Array<unknown>;
+export type UpdateGatewayRequestTagsList = Array<string>;
 export const UpdateGatewayRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateGatewayRequestTagsList>;
 
 export interface UpdateGatewayRequest {
@@ -1518,9 +1518,9 @@ export type UpdateIPRequestZone =
 export const UpdateIPRequestZone = S.String;
 
 /** Tags to give to the IP address. */
-export type UpdateIPRequestTagsList = Array<unknown>;
+export type UpdateIPRequestTagsList = Array<string>;
 export const UpdateIPRequestTagsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
+  S.String,
 ) as any as S.Schema<UpdateIPRequestTagsList>;
 
 export interface UpdateIPRequest {

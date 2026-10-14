@@ -1071,7 +1071,7 @@
     "com.scaleway.key_manager_v1alpha1#UpdateKeyRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "(Optional) Updated list of the key's tags."

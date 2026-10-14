@@ -1617,7 +1617,7 @@
     "com.scaleway.webhosting_hosting_v1#UpdateHostingRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "New tags for the Web Hosting plan."

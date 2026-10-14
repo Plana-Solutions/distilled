@@ -1904,7 +1904,7 @@
     "com.scaleway.vpc_gw_v2#UpdateGatewayRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags for the gateway."
@@ -3192,7 +3192,7 @@
     "com.scaleway.vpc_gw_v2#UpdateIPRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags to give to the IP address."

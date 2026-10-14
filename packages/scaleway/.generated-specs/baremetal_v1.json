@@ -3579,7 +3579,7 @@
     "com.scaleway.baremetal_v1#UpdateServerRequestTagsList": {
       "type": "list",
       "member": {
-        "target": "smithy.api#Document"
+        "target": "smithy.api#String"
       },
       "traits": {
         "smithy.api#documentation": "Tags associated with the server, not updated if null."
