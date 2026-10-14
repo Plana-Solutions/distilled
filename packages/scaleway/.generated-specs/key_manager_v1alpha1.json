@@ -371,7 +371,6 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#httpQuery": "scheduled_for_deletion",
-            "smithy.api#required": {},
             "smithy.api#documentation": "Filter keys based on their deletion status. By default, only keys not scheduled for deletion are returned in the output."
           }
         },

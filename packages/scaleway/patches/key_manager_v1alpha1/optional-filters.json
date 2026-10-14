@@ -1,0 +1,9 @@
+{
+  "description": "The document marks the `scheduled_for_deletion` query filter of ListKeys required, as it does every proto3 boolean that is not declared optional; the API treats it as a filter that defaults to false. Observed 2026-10-14 in the live Project: `GET /key-manager/v1alpha1/regions/fr-par/keys?project_id=…` without it answered 200 `{\"keys\":[],\"total_count\":0}`.",
+  "patches": [
+    {
+      "op": "remove",
+      "path": "/shapes/com.scaleway.key_manager_v1alpha1#ListKeysRequest/members/scheduled_for_deletion/traits/smithy.api#required"
+    }
+  ]
+}

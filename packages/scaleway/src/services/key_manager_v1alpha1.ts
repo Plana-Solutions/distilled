@@ -812,7 +812,7 @@ export interface ListKeysRequest {
   /** (Optional) Filter keys by usage. Select from symmetric encryption, asymmetric encryption, asymmetric signing or key_encapsulation. */
   usage?: ListKeysRequestUsage | (string & {});
   /** Filter keys based on their deletion status. By default, only keys not scheduled for deletion are returned in the output. */
-  scheduled_for_deletion: boolean;
+  scheduled_for_deletion?: boolean;
   /** (Optional) Filter keys by protection level. Select from software or hsm. */
   protection_level?: KeyProtectionLevel | (string & {});
 }
@@ -827,7 +827,7 @@ export const ListKeysRequest = /*@__PURE__*/ S.suspend(() =>
     tags: S.optional(ListKeysRequestTagsList.pipe(T.Query())),
     name: S.optional(S.String.pipe(T.Query())),
     usage: S.optional(ListKeysRequestUsage.pipe(T.Query())),
-    scheduled_for_deletion: S.Boolean.pipe(T.Query()),
+    scheduled_for_deletion: S.optional(S.Boolean.pipe(T.Query())),
     protection_level: S.optional(KeyProtectionLevel.pipe(T.Query())),
   }).pipe(
     T.Http({
