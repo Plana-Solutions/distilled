@@ -1,3 +1,4 @@
+import * as Category from "@distilled.cloud/core/category";
 import * as CoreErrors from "@distilled.cloud/core/errors";
 import * as ResponseValidation from "@distilled.cloud/core/response-validation";
 import * as Effect from "effect/Effect";
@@ -389,7 +390,45 @@ describe("{ type, message } failure envelope", () => {
     const { layer } = fakeScaleway(json(418, body));
     const error = await runFlip(getServer({ server_id: serverId }), layer);
     expect(error).toBeInstanceOf(UnknownScalewayError);
-    expect(error).toMatchObject({ code: "teapot", message: "short and stout", body });
+    expect(error).toMatchObject({ code: "teapot", status: 418, message: "short and stout", body });
+  });
+});
+
+describe("default retry policy", () => {
+  /** Like {@link run}, but with no Retry policy in context, so core's `makeDefault` applies. */
+  const runDefault = <A, E>(
+    operation: Effect.Effect<A, E, Credentials | HttpClient.HttpClient>,
+    http: Layer.Layer<HttpClient.HttpClient>,
+  ) => Effect.runPromise(operation.pipe(Effect.provide(creds()), Effect.provide(http)));
+
+  test("an unmapped 4xx is not retried", async () => {
+    const { calls, layer } = fakeScaleway(json(418, { type: "teapot", message: "short" }));
+    const error = await runDefault(Effect.flip(getServer({ server_id: serverId })), layer);
+    expect(error).toBeInstanceOf(UnknownScalewayError);
+    expect(error).toMatchObject({ code: "teapot", status: 418 });
+    expect(Category.isTransientError(error)).toBe(false);
+    expect(calls).toHaveLength(1);
+  });
+
+  test("a Scaleway lock is not retried", async () => {
+    const { calls, layer } = fakeScaleway(
+      json(423, { type: "locked", message: "locked", resource: "r", resource_id: "x" }),
+    );
+    const error = await runDefault(Effect.flip(getServer({ server_id: serverId })), layer);
+    expect(error).toBeInstanceOf(ResourceLockedError);
+    expect(Category.isTransientError(error)).toBe(false);
+    expect(calls).toHaveLength(1);
+  });
+
+  test("transient_state is still retried until the resource settles", async () => {
+    const { calls, layer } = fakeScaleway(
+      json(409, { type: "transient_state", message: "busy", current_state: "starting" }),
+      json(200, { server: { id: serverId } }),
+    );
+    expect(await runDefault(getServer({ server_id: serverId }), layer)).toEqual({
+      server: { id: serverId },
+    });
+    expect(calls).toHaveLength(2);
   });
 });
 

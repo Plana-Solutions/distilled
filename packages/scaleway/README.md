@@ -107,7 +107,9 @@ Failures are dispatched on Scaleway's error `type`, as the official SDKs do:
 (retried by the default policy), `AlreadyExistsError`,
 `PreconditionFailedError` and `OutOfStockError`; `too_many_requests` is
 core's `TooManyRequests`. A failure without a recognised `type` falls back
-to the HTTP status class, then `UnknownScalewayError`.
+to the HTTP status class, then `UnknownScalewayError` (with the `status`).
+The default policy retries transient states, throttling and server errors
+only: `ResourceLockedError` and `UnknownScalewayError` fail at once.
 
 ```ts
 Scaleway.instanceV1.getServer({ server_id }).pipe(

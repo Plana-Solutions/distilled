@@ -156,6 +156,11 @@ export class ResourceExpiredError extends Schema.TaggedError<ResourceExpiredErro
 /**
  * `locked` (423) — Scaleway has locked the resource (abuse, billing or
  * legal hold); it cannot be changed until the lock is lifted.
+ *
+ * Categorised as a conflict, like {@link PreconditionFailedError}, and not
+ * as core's `LockedError`: that category is transient to the default retry
+ * policy, and a lock lifted by Scaleway support never clears within a
+ * retry budget. (A bare 423 without the envelope stays core `Locked`.)
  */
 export class ResourceLockedError extends Schema.TaggedError<ResourceLockedError>()(
   "ResourceLockedError",
@@ -165,7 +170,7 @@ export class ResourceLockedError extends Schema.TaggedError<ResourceLockedError>
     resource_id: Schema.optional(Schema.String),
     body: Schema.Unknown,
   },
-).pipe(Category.withLockedError) {}
+).pipe(Category.withConflictError) {}
 
 /**
  * `transient_state` (409) — the resource is mid-transition
@@ -226,16 +231,23 @@ export class OutOfStockError extends Schema.TaggedError<OutOfStockError>()("OutO
 
 /**
  * Unknown Scaleway error — returned when nothing else matches the failure.
- * `code` is the envelope's `type` when it had one.
+ * `code` is the envelope's `type` when it had one, `status` the HTTP
+ * status (absent for a failure event inside a stream).
+ *
+ * The protocol only reaches it for a 4xx with no typed envelope and no
+ * status class (every 5xx becomes a server error first), so it carries no
+ * category: a client error the SDK cannot name is not transient, and
+ * retrying it would repeat a rejected, possibly non-idempotent request.
  */
 export class UnknownScalewayError extends Schema.TaggedError<UnknownScalewayError>()(
   "UnknownScalewayError",
   {
     code: Schema.optional(Schema.String),
+    status: Schema.optional(Schema.Number),
     message: Schema.optional(Schema.String),
     body: Schema.Unknown,
   },
-).pipe(Category.withServerError) {}
+) {}
 
 /** Schema parse error wrapper. */
 export class ScalewayParseError extends Schema.TaggedError<ScalewayParseError>()(

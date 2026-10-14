@@ -390,6 +390,7 @@ export const failureFor = (
   // 4. Fallback.
   return new UnknownScalewayError({
     code: isObject(json) ? str(json.type) : undefined,
+    status,
     message,
     body,
   });
