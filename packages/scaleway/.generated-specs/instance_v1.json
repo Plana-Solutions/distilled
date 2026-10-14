@@ -4268,6 +4268,12 @@
             "smithy.api#documentation": "List of Instance types.",
             "smithy.api#required": {}
           }
+        },
+        "total_count": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Total number of items, from the `X-Total-Count` response header."
+          }
         }
       },
       "traits": {}
@@ -4545,6 +4551,27 @@
             "smithy.api#documentation": "Max number of SFS (Scaleway File Systems) that can be attached to the Instance.",
             "smithy.api#required": {}
           }
+        },
+        "placement_groups": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Whether the Instance supports placement groups.",
+            "smithy.api#required": {}
+          }
+        },
+        "hot_snapshots_local_volume": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Whether a local volume of the Instance can be snapshotted while the Instance runs.",
+            "smithy.api#required": {}
+          }
+        },
+        "private_network": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum number of Private Networks the Instance can join.",
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4609,7 +4636,14 @@
           "code": 200,
           "baseUrl": "https://api.scaleway.com"
         },
-        "smithy.api#documentation": "List Instance types\n\nList available Instance types and their technical details."
+        "smithy.api#documentation": "List Instance types\n\nList available Instance types and their technical details.",
+        "smithy.api#paginated": {
+          "mode": "page",
+          "inputToken": "page",
+          "outputToken": "total_count",
+          "items": "servers",
+          "pageSize": "per_page"
+        }
       }
     },
     "com.scaleway.instance_v1#GetServerTypesAvailabilityRequestZone": {
@@ -4716,6 +4750,12 @@
             "smithy.api#documentation": "Map of server types.",
             "smithy.api#required": {}
           }
+        },
+        "total_count": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Total number of items, from the `X-Total-Count` response header."
+          }
         }
       },
       "traits": {}
@@ -4783,7 +4823,14 @@
           "code": 200,
           "baseUrl": "https://api.scaleway.com"
         },
-        "smithy.api#documentation": "Get availability\n\nGet availability for all Instance types."
+        "smithy.api#documentation": "Get availability\n\nGet availability for all Instance types.",
+        "smithy.api#paginated": {
+          "mode": "page",
+          "inputToken": "page",
+          "outputToken": "total_count",
+          "items": "servers",
+          "pageSize": "per_page"
+        }
       }
     },
     "com.scaleway.instance_v1#ListVolumesTypesRequestZone": {
@@ -4888,6 +4935,12 @@
             "smithy.api#documentation": "Map of volume types.",
             "smithy.api#required": {}
           }
+        },
+        "total_count": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Total number of items, from the `X-Total-Count` response header."
+          }
         }
       },
       "traits": {}
@@ -4969,7 +5022,14 @@
           "code": 200,
           "baseUrl": "https://api.scaleway.com"
         },
-        "smithy.api#documentation": "List volume types\n\nList all volume types and their technical details."
+        "smithy.api#documentation": "List volume types\n\nList all volume types and their technical details.",
+        "smithy.api#paginated": {
+          "mode": "page",
+          "inputToken": "page",
+          "outputToken": "total_count",
+          "items": "volumes",
+          "pageSize": "per_page"
+        }
       }
     },
     "com.scaleway.instance_v1#ListSecurityGroupsRequestZone": {
@@ -6729,25 +6789,29 @@
         "action": {
           "target": "com.scaleway.instance_v1#SecurityGroupRuleAction",
           "traits": {
-            "smithy.api#documentation": "Action to apply when the rule matches a packet."
+            "smithy.api#documentation": "Action to apply when the rule matches a packet.",
+            "smithy.api#required": {}
           }
         },
         "protocol": {
           "target": "com.scaleway.instance_v1#SecurityGroupRuleProtocol",
           "traits": {
-            "smithy.api#documentation": "Protocol family this rule applies to."
+            "smithy.api#documentation": "Protocol family this rule applies to.",
+            "smithy.api#required": {}
           }
         },
         "direction": {
           "target": "com.scaleway.instance_v1#SecurityGroupRuleDirection",
           "traits": {
-            "smithy.api#documentation": "Direction the rule applies to."
+            "smithy.api#documentation": "Direction the rule applies to.",
+            "smithy.api#required": {}
           }
         },
         "ip_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Range of IP addresses these rules apply to. (IP network)"
+            "smithy.api#documentation": "Range of IP addresses these rules apply to. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "dest_port_from": {
@@ -6767,7 +6831,8 @@
         "position": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined."
+            "smithy.api#documentation": "Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined.",
+            "smithy.api#required": {}
           }
         },
         "editable": {

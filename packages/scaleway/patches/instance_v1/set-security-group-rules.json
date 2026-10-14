@@ -1,0 +1,30 @@
+{
+  "description": "The document marks no member of a `SetSecurityGroupRules` rule required, but the API rejects a rule without `action`, `protocol`, `direction`, `ip_range` or `position`. Observed 2026-10-14: `PUT /instance/v1/zones/nl-ams-1/security_groups/{id}/rules` with a complete rule answered 404 for an unknown security group (validation passed); dropping one member at a time answered 400 `invalid_arguments` with `rules.0.<member>` / reason `required` / help_message `required key not provided` for each of those five. `id`, `dest_port_from`, `dest_port_to`, `editable` and `zone` were accepted when absent (`dest_port_to` alone, without `dest_port_from`, is a 400 constraint error, not a missing key).",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SetSecurityGroupRulesRequestRule/members/action/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SetSecurityGroupRulesRequestRule/members/protocol/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SetSecurityGroupRulesRequestRule/members/direction/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SetSecurityGroupRulesRequestRule/members/ip_range/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SetSecurityGroupRulesRequestRule/members/position/traits/smithy.api#required",
+      "value": {}
+    }
+  ]
+}

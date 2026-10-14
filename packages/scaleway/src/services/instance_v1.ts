@@ -2892,10 +2892,13 @@ export const GetServerTypesAvailabilityResponseServersMap = /*@__PURE__*/ S.Reco
 export interface GetServerTypesAvailabilityResponse {
   /** Map of server types. */
   servers: GetServerTypesAvailabilityResponseServersMap;
+  /** Total number of items, from the `X-Total-Count` response header. */
+  total_count?: number;
 }
 export const GetServerTypesAvailabilityResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     servers: GetServerTypesAvailabilityResponseServersMap,
+    total_count: S.optional(S.Number),
   }),
 ).annotate({
   identifier: "GetServerTypesAvailabilityResponse",
@@ -3748,12 +3751,21 @@ export interface ServerTypeCapabilities {
   boot_types: ServerTypeCapabilitiesBootTypesList;
   /** Max number of SFS (Scaleway File Systems) that can be attached to the Instance. */
   max_file_systems: number;
+  /** Whether the Instance supports placement groups. */
+  placement_groups: boolean;
+  /** Whether a local volume of the Instance can be snapshotted while the Instance runs. */
+  hot_snapshots_local_volume: boolean;
+  /** Maximum number of Private Networks the Instance can join. */
+  private_network: number;
 }
 export const ServerTypeCapabilities = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     block_storage: S.optional(S.NullOr(S.Boolean)),
     boot_types: ServerTypeCapabilitiesBootTypesList,
     max_file_systems: S.Number,
+    placement_groups: S.Boolean,
+    hot_snapshots_local_volume: S.Boolean,
+    private_network: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeCapabilities" }) as any as S.Schema<ServerTypeCapabilities>;
 
@@ -3825,10 +3837,13 @@ export const ListServersTypesResponseServersMap = /*@__PURE__*/ S.Record(
 export interface ListServersTypesResponse {
   /** List of Instance types. */
   servers: ListServersTypesResponseServersMap;
+  /** Total number of items, from the `X-Total-Count` response header. */
+  total_count?: number;
 }
 export const ListServersTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     servers: ListServersTypesResponseServersMap,
+    total_count: S.optional(S.Number),
   }),
 ).annotate({ identifier: "ListServersTypesResponse" }) as any as S.Schema<ListServersTypesResponse>;
 
@@ -4102,10 +4117,13 @@ export const ListVolumesTypesResponseVolumesMap = /*@__PURE__*/ S.Record(
 export interface ListVolumesTypesResponse {
   /** Map of volume types. */
   volumes: ListVolumesTypesResponseVolumesMap;
+  /** Total number of items, from the `X-Total-Count` response header. */
+  total_count?: number;
 }
 export const ListVolumesTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     volumes: ListVolumesTypesResponseVolumesMap,
+    total_count: S.optional(S.Number),
   }),
 ).annotate({ identifier: "ListVolumesTypesResponse" }) as any as S.Schema<ListVolumesTypesResponse>;
 
@@ -4598,19 +4616,19 @@ export interface SetSecurityGroupRulesRequestRule {
   /** UUID of the security rule to update. If no value is provided, a new rule will be created. */
   id?: string | null;
   /** Action to apply when the rule matches a packet. */
-  action?: SecurityGroupRuleAction | (string & {});
+  action: SecurityGroupRuleAction | (string & {});
   /** Protocol family this rule applies to. */
-  protocol?: SecurityGroupRuleProtocol | (string & {});
+  protocol: SecurityGroupRuleProtocol | (string & {});
   /** Direction the rule applies to. */
-  direction?: SecurityGroupRuleDirection | (string & {});
+  direction: SecurityGroupRuleDirection | (string & {});
   /** Range of IP addresses these rules apply to. (IP network) */
-  ip_range?: string;
+  ip_range: string;
   /** Beginning of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY. */
   dest_port_from?: number | null;
   /** End of the range of ports this rule applies to (inclusive). This value will be set to null if protocol is ICMP or ANY, or if it is equal to dest_port_from. */
   dest_port_to?: number | null;
   /** Position of this rule in the security group rules list. If several rules are passed with the same position, the resulting order is undefined. */
-  position?: number;
+  position: number;
   /** Indicates if this rule is editable. Rules with the value false will be ignored. */
   editable?: boolean | null;
   /** Zone of the rule. This field is ignored. */
@@ -4619,13 +4637,13 @@ export interface SetSecurityGroupRulesRequestRule {
 export const SetSecurityGroupRulesRequestRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.NullOr(S.String)),
-    action: S.optional(SecurityGroupRuleAction),
-    protocol: S.optional(SecurityGroupRuleProtocol),
-    direction: S.optional(SecurityGroupRuleDirection),
-    ip_range: S.optional(S.String),
+    action: SecurityGroupRuleAction,
+    protocol: SecurityGroupRuleProtocol,
+    direction: SecurityGroupRuleDirection,
+    ip_range: S.String,
     dest_port_from: S.optional(S.NullOr(S.Number)),
     dest_port_to: S.optional(S.NullOr(S.Number)),
-    position: S.optional(S.Number),
+    position: S.Number,
     editable: S.optional(S.NullOr(S.Boolean)),
     zone: S.optional(S.String),
   }),
@@ -6086,18 +6104,28 @@ export const getServerCompatibleTypes: API.OperationMethod<
 
 export type GetServerTypesAvailabilityError = ScalewayOpError;
 /** Get availability Get availability for all Instance types. */
-export const getServerTypesAvailability: API.OperationMethod<
+export const getServerTypesAvailability: API.PaginatedOperationMethod<
   GetServerTypesAvailabilityRequest,
   GetServerTypesAvailabilityResponse,
   GetServerTypesAvailabilityError,
   ScalewayOpContext
-> = /*@__PURE__*/ API.make(() => ({
-  input: GetServerTypesAvailabilityRequest,
-  output: GetServerTypesAvailabilityResponse,
-  errors: [UnknownScalewayError],
-  protocol: ScalewayProtocol,
-  retry: Retry.Retry,
-}));
+> = /*@__PURE__*/ API.makePaginated(
+  () => ({
+    input: GetServerTypesAvailabilityRequest,
+    output: GetServerTypesAvailabilityResponse,
+    errors: [UnknownScalewayError],
+    protocol: ScalewayProtocol,
+    retry: Retry.Retry,
+    pagination: {
+      mode: "page",
+      inputToken: "page",
+      outputToken: "total_count",
+      items: "servers",
+      pageSize: "per_page",
+    } as const,
+  }),
+  paginateByTotalCount,
+);
 
 export type GetServerUserDataError = ScalewayOpError;
 /** Get user data Get the content of a user data with the specified key on an Instance. */
@@ -6358,18 +6386,28 @@ export const listServers: API.PaginatedOperationMethod<
 
 export type ListServersTypesError = ScalewayOpError;
 /** List Instance types List available Instance types and their technical details. */
-export const listServersTypes: API.OperationMethod<
+export const listServersTypes: API.PaginatedOperationMethod<
   ListServersTypesRequest,
   ListServersTypesResponse,
   ListServersTypesError,
   ScalewayOpContext
-> = /*@__PURE__*/ API.make(() => ({
-  input: ListServersTypesRequest,
-  output: ListServersTypesResponse,
-  errors: [UnknownScalewayError],
-  protocol: ScalewayProtocol,
-  retry: Retry.Retry,
-}));
+> = /*@__PURE__*/ API.makePaginated(
+  () => ({
+    input: ListServersTypesRequest,
+    output: ListServersTypesResponse,
+    errors: [UnknownScalewayError],
+    protocol: ScalewayProtocol,
+    retry: Retry.Retry,
+    pagination: {
+      mode: "page",
+      inputToken: "page",
+      outputToken: "total_count",
+      items: "servers",
+      pageSize: "per_page",
+    } as const,
+  }),
+  paginateByTotalCount,
+);
 
 export type ListServerUserDataError = ScalewayOpError;
 /** List user data List all user data keys registered on a specified Instance. */
@@ -6440,18 +6478,28 @@ export const listVolumes: API.PaginatedOperationMethod<
 
 export type ListVolumesTypesError = ScalewayOpError;
 /** List volume types List all volume types and their technical details. */
-export const listVolumesTypes: API.OperationMethod<
+export const listVolumesTypes: API.PaginatedOperationMethod<
   ListVolumesTypesRequest,
   ListVolumesTypesResponse,
   ListVolumesTypesError,
   ScalewayOpContext
-> = /*@__PURE__*/ API.make(() => ({
-  input: ListVolumesTypesRequest,
-  output: ListVolumesTypesResponse,
-  errors: [UnknownScalewayError],
-  protocol: ScalewayProtocol,
-  retry: Retry.Retry,
-}));
+> = /*@__PURE__*/ API.makePaginated(
+  () => ({
+    input: ListVolumesTypesRequest,
+    output: ListVolumesTypesResponse,
+    errors: [UnknownScalewayError],
+    protocol: ScalewayProtocol,
+    retry: Retry.Retry,
+    pagination: {
+      mode: "page",
+      inputToken: "page",
+      outputToken: "total_count",
+      items: "volumes",
+      pageSize: "per_page",
+    } as const,
+  }),
+  paginateByTotalCount,
+);
 
 export type ReleaseIpToIpamError = ScalewayOpError;
 /** Releases the reserved IP without deleting the reservation. **The IP remains available in IPAM**, which means that it is still reserved by the Organization, and can be reattached to another resource (Instance or other product). */

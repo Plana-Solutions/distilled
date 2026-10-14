@@ -1,0 +1,38 @@
+{
+  "description": "`ServerType.capabilities` carries three members the document omits: `placement_groups` (boolean), `hot_snapshots_local_volume` (boolean) and `private_network` (the number of Private Networks a server of the type can join). Observed 2026-10-14: `GET /instance/v1/zones/{zone}/products/servers?per_page=100&page=1|2` in all ten Instance zones returned 756 server types; every one carried all three, none null.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerTypeCapabilities/members/placement_groups",
+      "value": {
+        "target": "smithy.api#Boolean",
+        "traits": {
+          "smithy.api#documentation": "Whether the Instance supports placement groups.",
+          "smithy.api#required": {}
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerTypeCapabilities/members/hot_snapshots_local_volume",
+      "value": {
+        "target": "smithy.api#Boolean",
+        "traits": {
+          "smithy.api#documentation": "Whether a local volume of the Instance can be snapshotted while the Instance runs.",
+          "smithy.api#required": {}
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerTypeCapabilities/members/private_network",
+      "value": {
+        "target": "smithy.api#Integer",
+        "traits": {
+          "smithy.api#documentation": "Maximum number of Private Networks the Instance can join.",
+          "smithy.api#required": {}
+        }
+      }
+    }
+  ]
+}
