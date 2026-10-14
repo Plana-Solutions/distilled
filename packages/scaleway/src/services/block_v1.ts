@@ -647,7 +647,7 @@ export interface ListSnapshotsRequest {
   /** Filter by tags. Only snapshots with one or more matching tags will be returned. */
   tags?: ListSnapshotsRequestTagsList;
   /** Display deleted snapshots not erased yet. */
-  include_deleted: boolean;
+  include_deleted?: boolean;
 }
 export const ListSnapshotsRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -660,7 +660,7 @@ export const ListSnapshotsRequest = /*@__PURE__*/ S.suspend(() =>
     volume_id: S.optional(S.String.pipe(T.Query())),
     name: S.optional(S.String.pipe(T.Query())),
     tags: S.optional(ListSnapshotsRequestTagsList.pipe(T.Query())),
-    include_deleted: S.Boolean.pipe(T.Query()),
+    include_deleted: S.optional(S.Boolean.pipe(T.Query())),
   }).pipe(
     T.Http({
       method: "GET",
@@ -739,7 +739,7 @@ export interface ListVolumesRequest {
   /** Filter by tags. Only volumes with one or more matching tags will be returned. */
   tags?: ListVolumesRequestTagsList;
   /** Display deleted volumes not erased yet. */
-  include_deleted: boolean;
+  include_deleted?: boolean;
   /** Filter by volume type. */
   volume_type?: string;
   /** Filter by volume IDs. */
@@ -756,7 +756,7 @@ export const ListVolumesRequest = /*@__PURE__*/ S.suspend(() =>
     name: S.optional(S.String.pipe(T.Query())),
     product_resource_id: S.optional(S.String.pipe(T.Query())),
     tags: S.optional(ListVolumesRequestTagsList.pipe(T.Query())),
-    include_deleted: S.Boolean.pipe(T.Query()),
+    include_deleted: S.optional(S.Boolean.pipe(T.Query())),
     volume_type: S.optional(S.String.pipe(T.Query())),
     volume_ids: S.optional(ListVolumesRequestVolumeIdsList.pipe(T.Query())),
   }).pipe(

@@ -185,7 +185,6 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#httpQuery": "include_deleted",
-            "smithy.api#required": {},
             "smithy.api#documentation": "Display deleted snapshots not erased yet."
           }
         }
@@ -1821,7 +1820,6 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#httpQuery": "include_deleted",
-            "smithy.api#required": {},
             "smithy.api#documentation": "Display deleted volumes not erased yet."
           }
         },
