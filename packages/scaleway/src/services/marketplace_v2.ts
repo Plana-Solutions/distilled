@@ -120,7 +120,12 @@ export const LocalImageCompatibleCommercialTypesList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<LocalImageCompatibleCommercialTypesList>;
 
-export type LocalImageType = "unknown_type" | "instance_local" | "instance_sbs";
+export type LocalImageType =
+  | "unknown_type"
+  | "instance_local"
+  | "instance_sbs"
+  | "instance_local_snapshot"
+  | "instance_sbs_snapshot";
 export const LocalImageType = S.String;
 
 export interface LocalImage {

@@ -1,0 +1,25 @@
+{
+  "description": "The document lists three `LocalImage.type` values (`unknown_type`, `instance_local`, `instance_sbs`), but the API also answers `instance_local_snapshot` and `instance_sbs_snapshot`. Observed 2026-10-14: `GET /marketplace/v2/local-images?zone=fr-par-1&image_label=ubuntu_noble` answered 200 with six local images whose `type` was `instance_local`, `instance_local_snapshot`, `instance_sbs` or `instance_sbs_snapshot`. The generated type was a closed union that omitted both.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.marketplace_v2#LocalImageType/members/INSTANCE_LOCAL_SNAPSHOT",
+      "value": {
+        "target": "smithy.api#Unit",
+        "traits": {
+          "smithy.api#enumValue": "instance_local_snapshot"
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.marketplace_v2#LocalImageType/members/INSTANCE_SBS_SNAPSHOT",
+      "value": {
+        "target": "smithy.api#Unit",
+        "traits": {
+          "smithy.api#enumValue": "instance_sbs_snapshot"
+        }
+      }
+    }
+  ]
+}

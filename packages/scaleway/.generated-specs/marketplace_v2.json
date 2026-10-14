@@ -452,6 +452,18 @@
           "traits": {
             "smithy.api#enumValue": "instance_sbs"
           }
+        },
+        "INSTANCE_LOCAL_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "instance_local_snapshot"
+          }
+        },
+        "INSTANCE_SBS_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "instance_sbs_snapshot"
+          }
         }
       },
       "traits": {}
