@@ -8382,7 +8382,8 @@
         "backend_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the target backend for the route."
+            "smithy.api#documentation": "ID of the target backend for the route.",
+            "smithy.api#required": {}
           }
         },
         "match": {

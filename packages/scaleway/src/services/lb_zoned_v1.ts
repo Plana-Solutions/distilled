@@ -3423,7 +3423,7 @@ export interface UpdateRouteRequest {
   /** Route ID. */
   route_id: string;
   /** ID of the target backend for the route. */
-  backend_id?: string;
+  backend_id: string;
   /** Object defining the match condition for a route to be applied. If an incoming client session matches the specified condition (i.e. it has a matching SNI value or HTTP Host header value), it will be passed to the target backend. */
   match?: RouteMatch;
 }
@@ -3431,7 +3431,7 @@ export const UpdateRouteRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     zone: S.optional(UpdateRouteRequestZone.pipe(T.Label())),
     route_id: S.String.pipe(T.Label()),
-    backend_id: S.optional(S.String),
+    backend_id: S.String,
     match: S.optional(RouteMatch),
   }).pipe(
     T.Http({

@@ -1,0 +1,10 @@
+{
+  "description": "The document leaves `backend_id` of UpdateRoute optional, but the API requires it on every update. Observed 2026-10-14 in the live Project with a Load Balancer, two backends, a frontend and a route created for the purpose: `PUT /lb/v1/zones/fr-par-1/routes/{route_id}` with only `{\"match\":{\"host_header\":\"b.example.com\"}}` answered 400 `invalid_arguments` (`backend_id` / reason `constraint` / help_message `backend_id must be required got nil`); the same call with `backend_id` answered 200.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.lb_zoned_v1#UpdateRouteRequest/members/backend_id/traits/smithy.api#required",
+      "value": {}
+    }
+  ]
+}
