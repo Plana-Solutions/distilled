@@ -5178,6 +5178,15 @@ export const UpdatePrivateNICRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "UpdatePrivateNICRequest" }) as any as S.Schema<UpdatePrivateNICRequest>;
 
+export interface UpdatePrivateNICResponse {
+  private_nic: PrivateNIC;
+}
+export const UpdatePrivateNICResponse = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    private_nic: PrivateNIC,
+  }),
+).annotate({ identifier: "UpdatePrivateNICResponse" }) as any as S.Schema<UpdatePrivateNICResponse>;
+
 export type UpdateSecurityGroupRequestZone =
   | "fr-par-1"
   | "fr-par-2"
@@ -6665,12 +6674,12 @@ export type UpdatePrivateNICError = ScalewayOpError;
 /** Update a private NIC Update one or more parameter(s) of a specified private NIC. */
 export const updatePrivateNIC: API.OperationMethod<
   UpdatePrivateNICRequest,
-  PrivateNIC,
+  UpdatePrivateNICResponse,
   UpdatePrivateNICError,
   ScalewayOpContext
 > = /*@__PURE__*/ API.make(() => ({
   input: UpdatePrivateNICRequest,
-  output: PrivateNIC,
+  output: UpdatePrivateNICResponse,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

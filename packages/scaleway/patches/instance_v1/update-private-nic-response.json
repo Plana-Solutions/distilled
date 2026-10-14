@@ -1,0 +1,26 @@
+{
+  "description": "UpdatePrivateNIC answers `{\"private_nic\": {...}}` like CreatePrivateNIC and GetPrivateNIC, but the document declares its 200 as the bare `scaleway.instance.v1.PrivateNIC`, so every member decoded as absent. Observed 2026-10-14 in the live Project: `PATCH /instance/v1/zones/nl-ams-1/servers/{server_id}/private_nics/{private_nic_id}` with `{\"tags\": [\"i\"]}` answered 200 `{\"private_nic\": {\"id\": \u2026, \"private_network_id\": \u2026, \"server_id\": \u2026, \"mac_address\": \u2026, \"state\": \"available\", \u2026}}`.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdatePrivateNICResponse",
+      "value": {
+        "type": "structure",
+        "members": {
+          "private_nic": {
+            "target": "com.scaleway.instance_v1#PrivateNIC",
+            "traits": {
+              "smithy.api#required": {}
+            }
+          }
+        },
+        "traits": {}
+      }
+    },
+    {
+      "op": "replace",
+      "path": "/shapes/com.scaleway.instance_v1#UpdatePrivateNIC/output/target",
+      "value": "com.scaleway.instance_v1#UpdatePrivateNICResponse"
+    }
+  ]
+}
