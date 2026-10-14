@@ -12,6 +12,7 @@ import { describe, expect, test } from "vitest";
 import { Credentials, CredentialsFromEnv, credentials } from "./credentials.ts";
 import {
   AlreadyExistsError,
+  BetaAccessRequiredError,
   DeniedAuthenticationError,
   InvalidArgumentsError,
   OutOfStockError,
@@ -38,9 +39,12 @@ import {
   getServer,
   getServerUserData,
   listServers,
+  listServersTypes,
   releaseIpToIpam,
   setServerUserData,
 } from "./services/instance_v1.ts";
+import { getUserData, setUserData } from "./services/instance_v2alpha1.ts";
+import { createSecret } from "./services/secret_manager_v1beta1.ts";
 import { listVPCs } from "./services/vpc_v2.ts";
 
 interface Captured {
@@ -228,6 +232,39 @@ describe("request encoding", () => {
   });
 });
 
+describe("bytes members", () => {
+  test("a Uint8Array is sent as base64 and base64 is read back as bytes", async () => {
+    const put = fakeScaleway([204, null]);
+    await run(
+      setUserData({
+        zone: "nl-ams-1",
+        server_id: serverId,
+        key: "cloud-init",
+        content: new TextEncoder().encode("#cloud-config\n"),
+      }),
+      put.layer,
+    );
+    expect(JSON.parse(put.calls[0]!.body!)).toEqual({ content: "I2Nsb3VkLWNvbmZpZwo=" });
+
+    const get = fakeScaleway(json(200, { key: "cloud-init", content: "I2Nsb3VkLWNvbmZpZwo=" }));
+    const got = await run(
+      getUserData({ zone: "nl-ams-1", server_id: serverId, key: "cloud-init" }),
+      get.layer,
+    );
+    expect(got.content).toBeInstanceOf(Uint8Array);
+    expect(new TextDecoder().decode(got.content)).toBe("#cloud-config\n");
+  });
+
+  test("a response member that is not base64 is a parse error", async () => {
+    const { layer } = fakeScaleway(json(200, { key: "k", content: "not base64!" }));
+    const error = await runFlip(
+      getUserData({ zone: "nl-ams-1", server_id: serverId, key: "k" }),
+      layer,
+    );
+    expect(error).toBeInstanceOf(ScalewayParseError);
+  });
+});
+
 describe("pagination", () => {
   test("page / total_count: sized by the first page, X-Total-Count folded in", async () => {
     const { calls, layer } = fakeScaleway(
@@ -238,6 +275,16 @@ describe("pagination", () => {
     const items = await run(Stream.runCollect(listServers.items({ per_page: 2 })), layer);
     expect(Array.from(items).map((s) => s.id)).toEqual(["1", "2", "3", "4", "5"]);
     expect(calls.map((c) => c.url.searchParams.get("page"))).toEqual(["1", "2", "3"]);
+  });
+
+  test("a catalogue paged as a map is counted by key", async () => {
+    const { calls, layer } = fakeScaleway(
+      json(200, { servers: { A: { sku: "a" }, B: { sku: "b" } } }, { "x-total-count": "3" }),
+      json(200, { servers: { C: { sku: "c" } } }, { "x-total-count": "3" }),
+    );
+    const pages = await run(Stream.runCollect(listServersTypes.pages({ per_page: 2 })), layer);
+    expect(Array.from(pages).flatMap((page) => Object.keys(page.servers))).toEqual(["A", "B", "C"]);
+    expect(calls.map((c) => c.url.searchParams.get("page"))).toEqual(["1", "2"]);
   });
 
   test("page / total_count from the body stops on an empty page", async () => {
@@ -345,6 +392,17 @@ describe("{ type, message } failure envelope", () => {
       { precondition: "resource_still_in_use" },
     ],
     [
+      412,
+      {
+        type: "precondition_failed",
+        message: "precondition failed",
+        precondition: "resource_still_in_use",
+        help_message: "requires BETA ACCESS",
+      },
+      BetaAccessRequiredError,
+      { precondition: "resource_still_in_use", help_message: "requires BETA ACCESS" },
+    ],
+    [
       503,
       { type: "out_of_stock", message: "out of stock", resource: "GP1-XL" },
       OutOfStockError,
@@ -360,6 +418,36 @@ describe("{ type, message } failure envelope", () => {
       expect(error).toMatchObject({ ...fields, body });
     });
   }
+
+  test("a duplicate secret name is a typed conflict, other 400s stay invalid_arguments", async () => {
+    const duplicate = fakeScaleway(
+      json(400, {
+        type: "invalid_arguments",
+        message: "invalid argument(s)",
+        details: [
+          {
+            argument_name: "name",
+            reason: "format",
+            help_message: "cannot have same secret name in same path",
+          },
+        ],
+      }),
+    );
+    const error = await runFlip(createSecret({ project_id: serverId, name: "s" }), duplicate.layer);
+    expect(error).toMatchObject({ _tag: "SecretNameAlreadyExists" });
+    expect(Category.isConflictError(error)).toBe(true);
+
+    const other = fakeScaleway(
+      json(400, {
+        type: "invalid_arguments",
+        message: "invalid argument(s)",
+        details: [{ argument_name: "name", reason: "format", help_message: "too long" }],
+      }),
+    );
+    expect(
+      await runFlip(createSecret({ project_id: serverId, name: "s" }), other.layer),
+    ).toBeInstanceOf(InvalidArgumentsError);
+  });
 
   test("invalid_arguments appends each help_message to the message", async () => {
     const { layer } = fakeScaleway(
@@ -450,6 +538,20 @@ describe("default retry policy", () => {
     const error = await runDefault(Effect.flip(getServer({ server_id: serverId })), layer);
     expect(error).toBeInstanceOf(UnknownScalewayError);
     expect(error).toMatchObject({ code: "teapot", status: 418 });
+    expect(Category.isTransientError(error)).toBe(false);
+    expect(calls).toHaveLength(1);
+  });
+
+  test("a beta-access refusal is not retried", async () => {
+    const { calls, layer } = fakeScaleway(
+      json(412, {
+        type: "precondition_failed",
+        message: "no",
+        help_message: "requires BETA ACCESS",
+      }),
+    );
+    const error = await runDefault(Effect.flip(getServer({ server_id: serverId })), layer);
+    expect(error).toBeInstanceOf(BetaAccessRequiredError);
     expect(Category.isTransientError(error)).toBe(false);
     expect(calls).toHaveLength(1);
   });

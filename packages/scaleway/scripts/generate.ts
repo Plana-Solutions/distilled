@@ -29,6 +29,8 @@ import {
 } from "@distilled.cloud/core/codegen/openapi";
 
 const SENSITIVE_TRAIT = "smithy.api#sensitive";
+/** A proto `bytes` member (see src/bytes.ts); set by patches. */
+const BYTES_TRAIT = "com.distilled.scaleway#bytes";
 
 /** `lb_zoned_v1` → `lbZonedV1` (the barrel's export name). */
 const camel = (slug: string): string =>
@@ -60,11 +62,14 @@ const spec: SdkSpec = {
   // (the protocol unwraps).
   memberTraitPipes: {
     [SENSITIVE_TRAIT]: "T.SensitiveValue",
+    [BYTES_TRAIT]: "T.Bytes",
   },
   memberTsType: (m) =>
     SENSITIVE_TRAIT in m.traits
       ? `string | Redacted.Redacted<string>${m.nullable ? " | null" : ""}`
-      : undefined,
+      : BYTES_TRAIT in m.traits
+        ? `Uint8Array${m.nullable ? " | null" : ""}`
+        : undefined,
 
   // Scaleway's `oneOf` members surface as TS type unions over an opaque
   // schema — wire names ARE the TS names, so the protocol passes union

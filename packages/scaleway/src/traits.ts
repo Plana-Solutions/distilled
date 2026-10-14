@@ -61,3 +61,11 @@ export interface ScalewayHttpTrait extends HttpTrait {
 
 /** Operation-level HTTP binding carrying the Scaleway API host. */
 export const Http = (trait: ScalewayHttpTrait) => makeAnnotation(httpSymbol, trait);
+
+export const bytesSymbol = Symbol.for("@distilled.cloud/scaleway/bytes");
+
+/**
+ * Marks a proto `bytes` member: base64 on the JSON wire, `Uint8Array` on the
+ * TypeScript surface. The protocol converts it (see `bytes.ts`).
+ */
+export const Bytes = (_value?: unknown) => makeAnnotation(bytesSymbol, true);

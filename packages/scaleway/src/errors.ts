@@ -220,6 +220,25 @@ export class PreconditionFailedError extends Schema.TaggedError<PreconditionFail
 ).pipe(Category.withConflictError) {}
 
 /**
+ * `precondition_failed` (412) whose message says the call "requires BETA
+ * ACCESS" — the Organization is not enrolled in the programme that offers
+ * the feature (observed on VPC `enableObjectStoragePrivateAccess`,
+ * 2026-10-14, with `precondition: "resource_still_in_use"`, which is the
+ * wrong reason for it). Nothing the caller changes on the resource clears
+ * it, so it is not a {@link PreconditionFailedError} a caller might retry
+ * as a dependency settling.
+ */
+export class BetaAccessRequiredError extends Schema.TaggedError<BetaAccessRequiredError>()(
+  "BetaAccessRequiredError",
+  {
+    message: Schema.String,
+    precondition: Schema.optional(Schema.String),
+    help_message: Schema.optional(Schema.String),
+    body: Schema.Unknown,
+  },
+).pipe(Category.withAuthError) {}
+
+/**
  * `out_of_stock` — the zone has no capacity left for `resource` (an
  * Instance or Elastic Metal offer). Try another zone or offer.
  */
@@ -270,6 +289,7 @@ export type ScalewayErrors =
   | TransientStateError
   | AlreadyExistsError
   | PreconditionFailedError
+  | BetaAccessRequiredError
   | OutOfStockError;
 
 /**

@@ -12,7 +12,9 @@ import { getPath, type PaginationStrategy } from "@distilled.cloud/core/paginati
  * `ceil(total_count / first page length)` pages are read.
  *
  * Instance v1 answers `total_count` as the `X-Total-Count` header; the
- * protocol folds it into the body before this strategy reads it.
+ * protocol folds it into the body before this strategy reads it. Its
+ * product catalogues (`listServersTypes`) page a map keyed by name, which
+ * counts by key; their `.items()` therefore yields each page's map.
  *
  * The few lists that page by cursor (`page_token` in, `next_page_token`
  * out — Audit Trail, Cockpit, Key Manager, …) use core's `paginateToken`.
@@ -47,8 +49,13 @@ export const paginateByTotalCount: PaginationStrategy = (operation, input, pagin
 
       const response = yield* operation({ ...input, [inputToken]: state.page } as typeof input);
 
-      const items = getPath(response, itemsPath) as readonly unknown[] | undefined;
-      const length = Array.isArray(items) ? items.length : 0;
+      const items = getPath(response, itemsPath);
+      // Instance v1's catalogues page a map keyed by name rather than a list.
+      const length = Array.isArray(items)
+        ? items.length
+        : items !== null && typeof items === "object"
+          ? Object.keys(items).length
+          : 0;
       let lastPage = state.lastPage;
       if (lastPage === undefined) {
         const total = getPath(response, totalCountPath);

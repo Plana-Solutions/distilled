@@ -56,9 +56,11 @@ import type * as HttpClientResponse from "effect/http/HttpClientResponse";
 import * as Layer from "effect/Layer";
 import * as Redacted from "effect/Redacted";
 import type * as AST from "effect/SchemaAST";
+import { decodeBytes, encodeBytes } from "./bytes.ts";
 import { Credentials, DEFAULT_API_URL, type Config } from "./credentials.ts";
 import {
   AlreadyExistsError,
+  BetaAccessRequiredError,
   DeniedAuthenticationError,
   InvalidArgumentsError,
   OutOfStockError,
@@ -98,6 +100,8 @@ const str = (value: unknown): string | undefined => (typeof value === "string" ?
 const records = (value: unknown): Json[] => (Array.isArray(value) ? value.filter(isObject) : []);
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+const BETA_ACCESS = /requires beta access/i;
 
 /**
  * Scaleway's typed error for a failure body, or undefined when its `type`
@@ -188,13 +192,17 @@ export const scalewayError = (
         help_message: str(body.help_message),
         body,
       });
-    case "precondition_failed":
-      return new PreconditionFailedError({
+    case "precondition_failed": {
+      const fields = {
         message,
         precondition: str(body.precondition),
         help_message: str(body.help_message),
         body,
-      });
+      };
+      return BETA_ACCESS.test(`${str(body.help_message) ?? ""} ${str(body.message) ?? ""}`)
+        ? new BetaAccessRequiredError(fields)
+        : new PreconditionFailedError(fields);
+    }
     case "out_of_stock":
       return new OutOfStockError({ message, resource, body });
     case "too_many_requests": {
@@ -338,7 +346,7 @@ export const encodeRequest = (
     const http = httpTraitOf(inputAst);
     const secretKey = Redacted.value(creds.secretKey);
     const request = buildRequest({
-      input: withLocality(unwrapRedactedDeep(input), http.uri, creds),
+      input: withLocality(encodeBytes(inputAst, unwrapRedactedDeep(input)), http.uri, creds),
       inputAst,
       baseUrl: baseUrlFor(creds, http),
       headers: {
@@ -475,7 +483,10 @@ export const ScalewayProtocol: Layer.Layer<API.Protocol> = Layer.succeed(
           mapKeys(outputAst, body, "decode"),
           (cause) => new ScalewayParseError({ body: nonJson ? text : json, cause }),
         ).pipe(Effect.catch(fail));
-        return wrapSensitive(outputAst, mapped);
+        return yield* Effect.try({
+          try: () => decodeBytes(outputAst, wrapSensitive(outputAst, mapped)),
+          catch: (cause) => new ScalewayParseError({ body: json, cause }),
+        }).pipe(Effect.catch(fail));
       }),
   }),
 );

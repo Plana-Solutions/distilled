@@ -451,8 +451,26 @@ const paginationFor = (spec: any, op: any): Record<string, string> | undefined =
   const arrays = Object.entries<any>(props)
     .filter(([, value]) => deref(spec, value)?.type === "array")
     .map(([name]) => name);
-  if (arrays.length !== 1) return undefined;
-  const items = arrays[0]!;
+  // Instance v1's product catalogues (`ListServersTypes`,
+  // `GetServerTypesAvailability`) page like any list but answer the page as
+  // one map keyed by name (`{ servers: { "DEV1-S": … } }`). Observed
+  // 2026-10-14, fr-par-1: 50 entries by default, 100 + 24 with `per_page=100`,
+  // `X-Total-Count: 124`. A page-numbered operation whose only collection is
+  // such a map is paginated on it, which `paginateByTotalCount` counts by key.
+  const maps = Object.entries<any>(props)
+    .filter(([, value]) => {
+      const target = deref(spec, value);
+      return (
+        target?.type === "object" &&
+        target.additionalProperties !== undefined &&
+        target.properties === undefined
+      );
+    })
+    .map(([name]) => name);
+  const collections =
+    arrays.length > 0 ? arrays : query.has("page") && !query.has("page_token") ? maps : [];
+  if (collections.length !== 1) return undefined;
+  const items = collections[0]!;
 
   if (query.has("page_token") && props.next_page_token !== undefined) {
     return {
