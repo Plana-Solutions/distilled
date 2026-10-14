@@ -38,6 +38,7 @@ import {
   getServer,
   getServerUserData,
   listServers,
+  releaseIpToIpam,
   setServerUserData,
 } from "./services/instance_v1.ts";
 import { listVPCs } from "./services/vpc_v2.ts";
@@ -194,6 +195,21 @@ describe("request encoding", () => {
     await run(listVPCs({ tags: ["a", "b"], page_size: 10 }), layer);
     expect(calls[0]!.url.searchParams.getAll("tags")).toEqual(["a", "b"]);
     expect(calls[0]!.url.searchParams.get("page_size")).toBe("10");
+  });
+
+  test("a POST with nothing to send still carries an empty JSON object", async () => {
+    const { calls, layer } = fakeScaleway([204, null]);
+    await run(releaseIpToIpam({ zone: "nl-ams-1", ip_id: serverId }), layer);
+    expect(calls[0]!.method).toBe("POST");
+    expect(calls[0]!.headers["content-type"]).toBe("application/json");
+    expect(calls[0]!.body).toBe("{}");
+  });
+
+  test("a GET stays body-less", async () => {
+    const { calls, layer } = fakeScaleway(json(200, { server: {} }));
+    await run(getServer({ server_id: serverId }), layer);
+    expect(calls[0]!.headers["content-type"]).toBeUndefined();
+    expect(calls[0]!.body).toBeUndefined();
   });
 
   test("user data is sent and read as text/plain", async () => {

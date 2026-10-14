@@ -306,6 +306,22 @@ const isJsonContentType = (contentType: string | undefined): boolean =>
   contentType === undefined || contentType === "" || /[/+]json\b/i.test(contentType);
 
 /**
+ * Scaleway answers `400 This API only supports the Content-Type
+ * application/json` to a POST, PUT or PATCH that carries no body, so an
+ * operation with nothing to send (`releaseIpToIpam`, the `…/enable` and
+ * `…/start` actions) sends `{}`. Verified 2026-10-14 against
+ * `POST /instance/v1/zones/{zone}/ips/{ip_id}/release-to-ipam`: no body is a
+ * 400, `{}` with the JSON header is a 204.
+ */
+const withJsonBody = (
+  request: HttpClientRequest.HttpClientRequest,
+  method: string,
+): HttpClientRequest.HttpClientRequest =>
+  (method === "POST" || method === "PUT" || method === "PATCH") && request.body._tag === "Empty"
+    ? HttpClientRequest.bodyJsonUnsafe(request, {})
+    : request;
+
+/**
  * The HTTP request for an operation input — shared by the protocol and the
  * streaming helpers (`streaming.ts`). Resolves credentials, fills the
  * default region / zone, picks the host and sets the auth headers; a `…Raw`
@@ -331,9 +347,10 @@ export const encodeRequest = (
         ...extraHeaders,
       },
     });
+    const withBody = withJsonBody(request, http.method);
     return http.rawDownload === true
-      ? HttpClientRequest.appendUrlParam(request, "dl", "1")
-      : request;
+      ? HttpClientRequest.appendUrlParam(withBody, "dl", "1")
+      : withBody;
   });
 
 /**
