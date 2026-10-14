@@ -88,61 +88,61 @@ export const DeviceStatus = S.String;
 
 export interface Device {
   /** Device ID, also used as MQTT Client ID or username. */
-  id?: string;
+  id: string;
   /** Device name. */
-  name?: string;
+  name: string;
   /** Device description. */
-  description?: string;
+  description: string;
   /** Device status. */
-  status?: DeviceStatus;
+  status: DeviceStatus;
   /** Hub ID. */
-  hub_id?: string;
+  hub_id: string;
   /** Last connection/activity date of a device. (RFC 3339 format) */
   last_activity_at?: string | null;
   /** Defines whether the device is connected to the Hub. */
-  is_connected?: boolean;
+  is_connected: boolean;
   /** Defines whether to allow the device to connect to the Hub without TLS mutual authentication. */
-  allow_insecure?: boolean;
+  allow_insecure: boolean;
   /** Defines whether to allow multiple physical devices to connect to the Hub with this device's credentials. */
-  allow_multiple_connections?: boolean;
+  allow_multiple_connections: boolean;
   /** Filter-sets to restrict the topics the device can publish/subscribe to. */
   message_filters?: DeviceMessageFilters;
   /** Defines whether the device was assigned a custom certificate. Assigning a custom certificate allows a device to authenticate using that specific certificate without checking the Hub's CA certificate. */
-  has_custom_certificate?: boolean;
+  has_custom_certificate: boolean;
   /** Date at which the device was added. (RFC 3339 format) */
   created_at?: string | null;
   /** Date at which the device was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Region of the device. */
-  region?: string;
+  region: string;
 }
 export const Device = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    status: S.optional(DeviceStatus),
-    hub_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    status: DeviceStatus,
+    hub_id: S.String,
     last_activity_at: S.optional(S.NullOr(S.String)),
-    is_connected: S.optional(S.Boolean),
-    allow_insecure: S.optional(S.Boolean),
-    allow_multiple_connections: S.optional(S.Boolean),
+    is_connected: S.Boolean,
+    allow_insecure: S.Boolean,
+    allow_multiple_connections: S.Boolean,
     message_filters: S.optional(DeviceMessageFilters),
-    has_custom_certificate: S.optional(S.Boolean),
+    has_custom_certificate: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Device" }) as any as S.Schema<Device>;
 
 export interface Certificate {
-  crt?: string;
-  key?: string;
+  crt: string;
+  key: string;
 }
 export const Certificate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    crt: S.optional(S.String),
-    key: S.optional(S.String),
+    crt: S.String,
+    key: S.String,
   }),
 ).annotate({ identifier: "Certificate" }) as any as S.Schema<Certificate>;
 
@@ -214,61 +214,61 @@ export const HubStatus = S.String;
 
 export interface Hub {
   /** Hub ID. */
-  id?: string;
+  id: string;
   /** Hub name. */
-  name?: string;
+  name: string;
   /** Current status of the Hub. */
-  status?: HubStatus;
+  status: HubStatus;
   /** Hub feature set. */
-  product_plan?: HubProductPlan;
+  product_plan: HubProductPlan;
   /** Defines whether the hub has been enabled. */
-  enabled?: boolean;
+  enabled: boolean;
   /** Number of registered devices. */
-  device_count?: number;
+  device_count: number;
   /** Number of currently connected devices. */
-  connected_device_count?: number;
+  connected_device_count: number;
   /** Host to connect your devices to. Devices should be connected to this host. Port may be 1883 (MQTT), 8883 (MQTT over TLS), 80 (MQTT over Websocket) or 443 (MQTT over Websocket over TLS). */
-  endpoint?: string;
+  endpoint: string;
   /** Defines whether to disable Hub events. */
-  disable_events?: boolean;
+  disable_events: boolean;
   /** Hub events topic prefix. */
-  events_topic_prefix?: string;
+  events_topic_prefix: string;
   /** Region of the Hub. */
-  region?: string;
+  region: string;
   /** Hub creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Hub last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Project owning the resource. */
-  project_id?: string;
+  project_id: string;
   /** Organization owning the resource. */
-  organization_id?: string;
+  organization_id: string;
   /** Defines whether to enable device auto provisioning. When an unknown device connects to your hub using a valid certificate chain, it will be automatically provisioned inside your Hub. The Hub uses the common name of the device certificate to find out if a device with the same name already exists. This setting can only be enabled on a hub with a custom certificate authority. */
-  enable_device_auto_provisioning?: boolean;
+  enable_device_auto_provisioning: boolean;
   /** Defines whether the hub is using a custom certificate authority. Flag is automatically set to `false` after Hub creation, as Hub certificates are managed by Scaleway. Once a custom certificate authority is set, the flag will be set to `true`. */
-  has_custom_ca?: boolean;
+  has_custom_ca: boolean;
   /** BETA - not implemented yet. */
   twins_graphite_config?: HubTwinsGraphiteConfig | null;
 }
 export const Hub = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(HubStatus),
-    product_plan: S.optional(HubProductPlan),
-    enabled: S.optional(S.Boolean),
-    device_count: S.optional(S.Number),
-    connected_device_count: S.optional(S.Number),
-    endpoint: S.optional(S.String),
-    disable_events: S.optional(S.Boolean),
-    events_topic_prefix: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    status: HubStatus,
+    product_plan: HubProductPlan,
+    enabled: S.Boolean,
+    device_count: S.Number,
+    connected_device_count: S.Number,
+    endpoint: S.String,
+    disable_events: S.Boolean,
+    events_topic_prefix: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    enable_device_auto_provisioning: S.optional(S.Boolean),
-    has_custom_ca: S.optional(S.Boolean),
+    project_id: S.String,
+    organization_id: S.String,
+    enable_device_auto_provisioning: S.Boolean,
+    has_custom_ca: S.Boolean,
     twins_graphite_config: S.optional(S.NullOr(HubTwinsGraphiteConfig)),
   }),
 ).annotate({ identifier: "Hub" }) as any as S.Schema<Hub>;
@@ -310,32 +310,32 @@ export const CreateNetworkRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Network {
   /** Network ID. */
-  id?: string;
+  id: string;
   /** Network name. */
-  name?: string;
+  name: string;
   /** Type of network to connect with. */
-  type?: NetworkNetworkType;
+  type: NetworkNetworkType;
   /** Endpoint to use for interacting with the network. */
-  endpoint?: string;
+  endpoint: string;
   /** Hub ID to connect the Network to. */
-  hub_id?: string;
+  hub_id: string;
   /** Date at which the network was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Topic prefix for the Network. This prefix will be prepended to all topics for this Network. */
-  topic_prefix?: string;
+  topic_prefix: string;
   /** Region of the network. */
-  region?: string;
+  region: string;
 }
 export const Network = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    type: S.optional(NetworkNetworkType),
-    endpoint: S.optional(S.String),
-    hub_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    type: NetworkNetworkType,
+    endpoint: S.String,
+    hub_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
-    topic_prefix: S.optional(S.String),
-    region: S.optional(S.String),
+    topic_prefix: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Network" }) as any as S.Schema<Network>;
 
@@ -343,12 +343,12 @@ export interface CreateNetworkResponse {
   /** Information related to the created network. */
   network?: Network;
   /** Endpoint Key to keep secret. This cannot be retrieved later. */
-  secret?: string | Redacted.Redacted<string>;
+  secret: string | Redacted.Redacted<string>;
 }
 export const CreateNetworkResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     network: S.optional(Network),
-    secret: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    secret: S.String.pipe(T.SensitiveValue({})),
   }),
 ).annotate({ identifier: "CreateNetworkResponse" }) as any as S.Schema<CreateNetworkResponse>;
 
@@ -465,26 +465,26 @@ export const RouteRouteType = S.String;
 
 export interface RouteS3Config {
   /** Region of the Amazon S3 route's destination bucket (e.g., 'fr-par'). */
-  bucket_region?: string;
+  bucket_region: string;
   /** Destination bucket name of the Amazon S3 route. */
-  bucket_name?: string;
+  bucket_name: string;
   /** Optional string to prefix object names with. */
-  object_prefix?: string;
+  object_prefix: string;
   /** How the Amazon S3 route's objects will be created: one per topic or one per message. */
-  strategy?: RouteS3ConfigS3Strategy;
+  strategy: RouteS3ConfigS3Strategy;
 }
 export const RouteS3Config = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    bucket_region: S.optional(S.String),
-    bucket_name: S.optional(S.String),
-    object_prefix: S.optional(S.String),
-    strategy: S.optional(RouteS3ConfigS3Strategy),
+    bucket_region: S.String,
+    bucket_name: S.String,
+    object_prefix: S.String,
+    strategy: RouteS3ConfigS3Strategy,
   }),
 ).annotate({ identifier: "RouteS3Config" }) as any as S.Schema<RouteS3Config>;
 
 export interface RouteDatabaseConfig {
   /** Database engine the route will connect to. If not specified, the default database will be 'PostgreSQL'. */
-  engine?: RouteDatabaseConfigEngine;
+  engine: RouteDatabaseConfigEngine;
   /** Database host. */
   host: string;
   /** Database port. */
@@ -496,17 +496,17 @@ export interface RouteDatabaseConfig {
   /** Database password. */
   password: string | Redacted.Redacted<string>;
   /** SQL query to be executed ($TOPIC and $PAYLOAD variables are available, see documentation). */
-  query?: string;
+  query: string;
 }
 export const RouteDatabaseConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    engine: S.optional(RouteDatabaseConfigEngine),
+    engine: RouteDatabaseConfigEngine,
     host: S.String,
     port: S.Number,
     dbname: S.String,
     username: S.String,
     password: S.String.pipe(T.SensitiveValue({})),
-    query: S.optional(S.String),
+    query: S.String,
   }),
 ).annotate({ identifier: "RouteDatabaseConfig" }) as any as S.Schema<RouteDatabaseConfig>;
 
@@ -519,31 +519,31 @@ export const RouteRestConfigHeadersMap = /*@__PURE__*/ S.Record(
 
 export interface RouteRestConfig {
   /** HTTP verb used to call REST URI. */
-  verb?: RouteRestConfigHttpVerb;
+  verb: RouteRestConfigHttpVerb;
   /** URI of the REST endpoint. */
-  uri?: string;
+  uri: string;
   /** HTTP call extra headers. */
-  headers?: RouteRestConfigHeadersMap;
+  headers: RouteRestConfigHeadersMap;
 }
 export const RouteRestConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    verb: S.optional(RouteRestConfigHttpVerb),
-    uri: S.optional(S.String),
-    headers: S.optional(RouteRestConfigHeadersMap),
+    verb: RouteRestConfigHttpVerb,
+    uri: S.String,
+    headers: RouteRestConfigHeadersMap,
   }),
 ).annotate({ identifier: "RouteRestConfig" }) as any as S.Schema<RouteRestConfig>;
 
 export interface Route {
   /** Route ID. */
-  id?: string;
+  id: string;
   /** Route name. */
-  name?: string;
+  name: string;
   /** Hub ID of the route. */
-  hub_id?: string;
+  hub_id: string;
   /** Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters. */
-  topic?: string;
+  topic: string;
   /** Route type. */
-  type?: RouteRouteType;
+  type: RouteRouteType;
   /** Date at which the route was created. (RFC 3339 format) */
   created_at?: string | null;
   /** When using Amazon S3 Routes, Amazon S3-specific configuration fields. */
@@ -555,21 +555,21 @@ export interface Route {
   /** Date at which the route was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Region of the route. */
-  region?: string;
+  region: string;
 }
 export const Route = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    hub_id: S.optional(S.String),
-    topic: S.optional(S.String),
-    type: S.optional(RouteRouteType),
+    id: S.String,
+    name: S.String,
+    hub_id: S.String,
+    topic: S.String,
+    type: RouteRouteType,
     created_at: S.optional(S.NullOr(S.String)),
     s3_config: S.optional(S.NullOr(RouteS3Config)),
     db_config: S.optional(S.NullOr(RouteDatabaseConfig)),
     rest_config: S.optional(S.NullOr(RouteRestConfig)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Route" }) as any as S.Schema<Route>;
 
@@ -895,12 +895,12 @@ export interface GetDeviceCertificateResponse {
   /** Information related to the created device. */
   device?: Device;
   /** Device certificate. */
-  certificate_pem?: string;
+  certificate_pem: string;
 }
 export const GetDeviceCertificateResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     device: S.optional(Device),
-    certificate_pem: S.optional(S.String),
+    certificate_pem: S.String,
   }),
 ).annotate({
   identifier: "GetDeviceCertificateResponse",
@@ -952,11 +952,11 @@ export const GetHubCARequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetHubCARequest" }) as any as S.Schema<GetHubCARequest>;
 
 export interface GetHubCAResponse {
-  ca_cert_pem?: string;
+  ca_cert_pem: string;
 }
 export const GetHubCAResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ca_cert_pem: S.optional(S.String),
+    ca_cert_pem: S.String,
   }),
 ).annotate({ identifier: "GetHubCAResponse" }) as any as S.Schema<GetHubCAResponse>;
 
@@ -1041,20 +1041,20 @@ export const TwinDocumentDataMap = /*@__PURE__*/ S.Record(
 
 export interface TwinDocument {
   /** Parent twin ID of the document. */
-  twin_id?: string;
+  twin_id: string;
   /** Name of the document. */
-  document_name?: string;
+  document_name: string;
   /** New version of the document. */
-  version?: number;
+  version: number;
   /** New data related to the document. */
-  data?: TwinDocumentDataMap;
+  data: TwinDocumentDataMap;
 }
 export const TwinDocument = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    twin_id: S.optional(S.String),
-    document_name: S.optional(S.String),
-    version: S.optional(S.Number),
-    data: S.optional(TwinDocumentDataMap),
+    twin_id: S.String,
+    document_name: S.String,
+    version: S.Number,
+    data: TwinDocumentDataMap,
   }),
 ).annotate({ identifier: "TwinDocument" }) as any as S.Schema<TwinDocument>;
 
@@ -1122,13 +1122,13 @@ export const ListDevicesResponseDevicesList = /*@__PURE__*/ S.Array(
 
 export interface ListDevicesResponse {
   /** Total number of devices. */
-  total_count?: number;
+  total_count: number;
   /** Page of devices. */
   devices: ListDevicesResponseDevicesList;
 }
 export const ListDevicesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     devices: ListDevicesResponseDevicesList,
   }),
 ).annotate({ identifier: "ListDevicesResponse" }) as any as S.Schema<ListDevicesResponse>;
@@ -1192,13 +1192,13 @@ export const ListHubsResponseHubsList = /*@__PURE__*/ S.Array(
 
 export interface ListHubsResponse {
   /** Total number of Hubs. */
-  total_count?: number;
+  total_count: number;
   /** A page of hubs. */
   hubs: ListHubsResponseHubsList;
 }
 export const ListHubsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     hubs: ListHubsResponseHubsList,
   }),
 ).annotate({ identifier: "ListHubsResponse" }) as any as S.Schema<ListHubsResponse>;
@@ -1258,13 +1258,13 @@ export const ListNetworksResponseNetworksList = /*@__PURE__*/ S.Array(
 
 export interface ListNetworksResponse {
   /** Total number of Networks. */
-  total_count?: number;
+  total_count: number;
   /** Page of networks. */
   networks: ListNetworksResponseNetworksList;
 }
 export const ListNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     networks: ListNetworksResponseNetworksList,
   }),
 ).annotate({ identifier: "ListNetworksResponse" }) as any as S.Schema<ListNetworksResponse>;
@@ -1317,32 +1317,32 @@ export const ListRoutesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface RouteSummary {
   /** Route ID. */
-  id?: string;
+  id: string;
   /** Route name. */
-  name?: string;
+  name: string;
   /** Hub ID of the route. */
-  hub_id?: string;
+  hub_id: string;
   /** Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters. */
-  topic?: string;
+  topic: string;
   /** Route type. */
-  type?: RouteRouteType;
+  type: RouteRouteType;
   /** Date at which the route was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date at which the route was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Region of the route. */
-  region?: string;
+  region: string;
 }
 export const RouteSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    hub_id: S.optional(S.String),
-    topic: S.optional(S.String),
-    type: S.optional(RouteRouteType),
+    id: S.String,
+    name: S.String,
+    hub_id: S.String,
+    topic: S.String,
+    type: RouteRouteType,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "RouteSummary" }) as any as S.Schema<RouteSummary>;
 
@@ -1354,13 +1354,13 @@ export const ListRoutesResponseRoutesList = /*@__PURE__*/ S.Array(
 
 export interface ListRoutesResponse {
   /** Total number of routes. */
-  total_count?: number;
+  total_count: number;
   /** Page of routes. */
   routes: ListRoutesResponseRoutesList;
 }
 export const ListRoutesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     routes: ListRoutesResponseRoutesList,
   }),
 ).annotate({ identifier: "ListRoutesResponse" }) as any as S.Schema<ListRoutesResponse>;
@@ -1390,11 +1390,11 @@ export const ListTwinDocumentsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ListTwinDocumentsResponseDocumentSummary {
   /** Name of the document. */
-  document_name?: string;
+  document_name: string;
 }
 export const ListTwinDocumentsResponseDocumentSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    document_name: S.optional(S.String),
+    document_name: S.String,
   }),
 ).annotate({
   identifier: "ListTwinDocumentsResponseDocumentSummary",
@@ -1409,11 +1409,11 @@ export const ListTwinDocumentsResponseDocumentsList = /*@__PURE__*/ S.Array(
 
 export interface ListTwinDocumentsResponse {
   /** List of the twin document. */
-  documents?: ListTwinDocumentsResponseDocumentsList;
+  documents: ListTwinDocumentsResponseDocumentsList;
 }
 export const ListTwinDocumentsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    documents: S.optional(ListTwinDocumentsResponseDocumentsList),
+    documents: ListTwinDocumentsResponseDocumentsList,
   }),
 ).annotate({
   identifier: "ListTwinDocumentsResponse",
@@ -1567,12 +1567,12 @@ export const SetDeviceCertificateRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface SetDeviceCertificateResponse {
   device?: Device;
-  certificate_pem?: string;
+  certificate_pem: string;
 }
 export const SetDeviceCertificateResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     device: S.optional(Device),
-    certificate_pem: S.optional(S.String),
+    certificate_pem: S.String,
   }),
 ).annotate({
   identifier: "SetDeviceCertificateResponse",

@@ -116,13 +116,15 @@
         "consumption_limits": {
           "target": "com.scaleway.generative_apis_v1#ListConsumptionLimitsResponseConsumptionLimitsList",
           "traits": {
-            "smithy.api#documentation": "List of consumption limit objects."
+            "smithy.api#documentation": "List of consumption limit objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of objects."
+            "smithy.api#documentation": "Total count of objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -134,25 +136,29 @@
         "model_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Model name identifier."
+            "smithy.api#documentation": "Model name identifier.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID. (UUID format)"
+            "smithy.api#documentation": "Organization ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "limits": {
           "target": "com.scaleway.generative_apis_v1#ConsumptionLimitsResponseLimitsList",
           "traits": {
-            "smithy.api#documentation": "Model limit objects."
+            "smithy.api#documentation": "Model limit objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -164,13 +170,15 @@
         "processing_unit": {
           "target": "com.scaleway.generative_apis_v1#ProcessingUnit",
           "traits": {
-            "smithy.api#documentation": "Processing unit type."
+            "smithy.api#documentation": "Processing unit type.",
+            "smithy.api#required": {}
           }
         },
         "organization_rate_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Rate limit quota per minute applied across the entire Organization."
+            "smithy.api#documentation": "Rate limit quota per minute applied across the entire Organization.",
+            "smithy.api#required": {}
           }
         },
         "project_rate_limit": {

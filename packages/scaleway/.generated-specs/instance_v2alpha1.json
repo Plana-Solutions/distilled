@@ -199,7 +199,8 @@
         "placement_groups": {
           "target": "com.scaleway.instance_v2alpha1#ListPlacementGroupsResponsePlacementGroupsList",
           "traits": {
-            "smithy.api#documentation": "List of placement groups."
+            "smithy.api#documentation": "List of placement groups.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -212,7 +213,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of placement groups."
+            "smithy.api#documentation": "Total number of placement groups.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -224,37 +226,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Placement group unique ID."
+            "smithy.api#documentation": "Placement group unique ID.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the placement group."
+            "smithy.api#documentation": "The SRN of the placement group.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Placement group Project ID."
+            "smithy.api#documentation": "Placement group Project ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Placement group name."
+            "smithy.api#documentation": "Placement group name.",
+            "smithy.api#required": {}
           }
         },
         "policy_type": {
           "target": "com.scaleway.instance_v2alpha1#PlacementGroupPolicyType",
           "traits": {
-            "smithy.api#documentation": "Select the behavior of the placement group, either low_latency (group) or max_availability (spread)."
+            "smithy.api#documentation": "Select the behavior of the placement group, either low_latency (group) or max_availability (spread).",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#PlacementGroupTagsList",
           "traits": {
-            "smithy.api#documentation": "Placement group tags."
+            "smithy.api#documentation": "Placement group tags.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -274,7 +282,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the placement group is located."
+            "smithy.api#documentation": "Zone in which the placement group is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1017,7 +1026,8 @@
         "private_network_interfaces": {
           "target": "com.scaleway.instance_v2alpha1#ListPrivateNetworkInterfacesResponsePrivateNetworkInterfacesList",
           "traits": {
-            "smithy.api#documentation": "List of private network interfaces."
+            "smithy.api#documentation": "List of private network interfaces.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -1030,7 +1040,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1042,55 +1053,64 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the private network interface."
+            "smithy.api#documentation": "Unique ID of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the private network interface."
+            "smithy.api#documentation": "The SRN of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Private Network this interface is attached to."
+            "smithy.api#documentation": "ID of the Private Network this interface is attached to.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the private network interface belongs to."
+            "smithy.api#documentation": "Project ID the private network interface belongs to.",
+            "smithy.api#required": {}
           }
         },
         "server_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Instance this interface is attached to."
+            "smithy.api#documentation": "ID of the Instance this interface is attached to.",
+            "smithy.api#required": {}
           }
         },
         "mac_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MAC address of the private network interface."
+            "smithy.api#documentation": "MAC address of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.instance_v2alpha1#PrivateNetworkInterfaceStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the private network interface."
+            "smithy.api#documentation": "Current status of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "ip_ids": {
           "target": "com.scaleway.instance_v2alpha1#PrivateNetworkInterfaceSummaryIpIdsList",
           "traits": {
-            "smithy.api#documentation": "List of IP IDs attached to this interface."
+            "smithy.api#documentation": "List of IP IDs attached to this interface.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#PrivateNetworkInterfaceSummaryTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the private network interface."
+            "smithy.api#documentation": "Tags associated with the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1110,7 +1130,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the network interface is located."
+            "smithy.api#documentation": "Zone in which the network interface is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1358,55 +1379,64 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the private network interface."
+            "smithy.api#documentation": "Unique ID of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the private network interface."
+            "smithy.api#documentation": "The SRN of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Private Network this interface is attached to."
+            "smithy.api#documentation": "ID of the Private Network this interface is attached to.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the private network interface belongs to."
+            "smithy.api#documentation": "Project ID the private network interface belongs to.",
+            "smithy.api#required": {}
           }
         },
         "server_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Instance this interface is attached to."
+            "smithy.api#documentation": "ID of the Instance this interface is attached to.",
+            "smithy.api#required": {}
           }
         },
         "mac_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MAC address of the private network interface."
+            "smithy.api#documentation": "MAC address of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.instance_v2alpha1#PrivateNetworkInterfaceStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the private network interface."
+            "smithy.api#documentation": "Current status of the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "ip_ids": {
           "target": "com.scaleway.instance_v2alpha1#PrivateNetworkInterfaceIpIdsList",
           "traits": {
-            "smithy.api#documentation": "List of IP IDs attached to this interface."
+            "smithy.api#documentation": "List of IP IDs attached to this interface.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#PrivateNetworkInterfaceTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the private network interface."
+            "smithy.api#documentation": "Tags associated with the private network interface.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1426,7 +1456,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the network interface is located."
+            "smithy.api#documentation": "Zone in which the network interface is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2012,91 +2043,106 @@
         "servers": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of servers."
+            "smithy.api#documentation": "Number of servers.",
+            "smithy.api#required": {}
           }
         },
         "gpu_servers": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of GPU servers."
+            "smithy.api#documentation": "Number of GPU servers.",
+            "smithy.api#required": {}
           }
         },
         "servers_by_type": {
           "target": "com.scaleway.instance_v2alpha1#ResourceCountsServersByTypeMap",
           "traits": {
-            "smithy.api#documentation": "Map of server types with their counts."
+            "smithy.api#documentation": "Map of server types with their counts.",
+            "smithy.api#required": {}
           }
         },
         "security_groups": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of security groups."
+            "smithy.api#documentation": "Number of security groups.",
+            "smithy.api#required": {}
           }
         },
         "placement_groups": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of placement groups."
+            "smithy.api#documentation": "Number of placement groups.",
+            "smithy.api#required": {}
           }
         },
         "snapshots": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of snapshots."
+            "smithy.api#documentation": "Number of snapshots.",
+            "smithy.api#required": {}
           }
         },
         "volumes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of volumes."
+            "smithy.api#documentation": "Number of volumes.",
+            "smithy.api#required": {}
           }
         },
         "volumes_l_ssd": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of local SSD volumes."
+            "smithy.api#documentation": "Number of local SSD volumes.",
+            "smithy.api#required": {}
           }
         },
         "volumes_l_ssd_total_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total size of local SSD volumes in bytes."
+            "smithy.api#documentation": "Total size of local SSD volumes in bytes.",
+            "smithy.api#required": {}
           }
         },
         "volumes_scratch": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of scratch volumes."
+            "smithy.api#documentation": "Number of scratch volumes.",
+            "smithy.api#required": {}
           }
         },
         "private_network_interfaces": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of private network interfaces."
+            "smithy.api#documentation": "Number of private network interfaces.",
+            "smithy.api#required": {}
           }
         },
         "templates": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of templates."
+            "smithy.api#documentation": "Number of templates.",
+            "smithy.api#required": {}
           }
         },
         "flexible_ips": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of flexible IPs."
+            "smithy.api#documentation": "Number of flexible IPs.",
+            "smithy.api#required": {}
           }
         },
         "unused_flexible_ips": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of flexible IPs not attached to any server."
+            "smithy.api#documentation": "Number of flexible IPs not attached to any server.",
+            "smithy.api#required": {}
           }
         },
         "images": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of images."
+            "smithy.api#documentation": "Number of images.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2408,7 +2454,8 @@
         "added_rules": {
           "target": "com.scaleway.instance_v2alpha1#AddSecurityGroupRulesResponseAddedRulesList",
           "traits": {
-            "smithy.api#documentation": "List of rules that were added."
+            "smithy.api#documentation": "List of rules that were added.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2420,67 +2467,78 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the security group."
+            "smithy.api#documentation": "Unique ID of the security group.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the security group."
+            "smithy.api#documentation": "The SRN of the security group.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the security group."
+            "smithy.api#documentation": "Name of the security group.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the security group."
+            "smithy.api#documentation": "Description of the security group.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the security group belongs to."
+            "smithy.api#documentation": "Project ID the security group belongs to.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the security group."
+            "smithy.api#documentation": "Tags associated with the security group.",
+            "smithy.api#required": {}
           }
         },
         "disable_default_rules": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if default rules are disabled."
+            "smithy.api#documentation": "True if default rules are disabled.",
+            "smithy.api#required": {}
           }
         },
         "project_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if this is the default security group for the project."
+            "smithy.api#documentation": "True if this is the default security group for the project.",
+            "smithy.api#required": {}
           }
         },
         "inbound_default_action": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupAction",
           "traits": {
-            "smithy.api#documentation": "Default action for inbound rules."
+            "smithy.api#documentation": "Default action for inbound rules.",
+            "smithy.api#required": {}
           }
         },
         "outbound_default_action": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupAction",
           "traits": {
-            "smithy.api#documentation": "Default action for outbound rules."
+            "smithy.api#documentation": "Default action for outbound rules.",
+            "smithy.api#required": {}
           }
         },
         "stateless": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the security group is stateless."
+            "smithy.api#documentation": "True if the security group is stateless.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2500,19 +2558,22 @@
         "default_rules": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupDefaultRulesList",
           "traits": {
-            "smithy.api#documentation": "List of default rules applied to the security group."
+            "smithy.api#documentation": "List of default rules applied to the security group.",
+            "smithy.api#required": {}
           }
         },
         "rules": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupRulesList",
           "traits": {
-            "smithy.api#documentation": "List of custom rules applied to the security group."
+            "smithy.api#documentation": "List of custom rules applied to the security group.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the security group is located."
+            "smithy.api#documentation": "Zone in which the security group is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2557,37 +2618,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the rule."
+            "smithy.api#documentation": "Unique ID of the rule.",
+            "smithy.api#required": {}
           }
         },
         "protocol": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupRuleProtocol",
           "traits": {
-            "smithy.api#documentation": "Protocol this rule applies to."
+            "smithy.api#documentation": "Protocol this rule applies to.",
+            "smithy.api#required": {}
           }
         },
         "direction": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupRuleDirection",
           "traits": {
-            "smithy.api#documentation": "Direction of traffic this rule applies to."
+            "smithy.api#documentation": "Direction of traffic this rule applies to.",
+            "smithy.api#required": {}
           }
         },
         "action": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupRuleAction",
           "traits": {
-            "smithy.api#documentation": "Action to take when the rule matches."
+            "smithy.api#documentation": "Action to take when the rule matches.",
+            "smithy.api#required": {}
           }
         },
         "source_ip_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Source IP range for the rule. (IP network)"
+            "smithy.api#documentation": "Source IP range for the rule. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "destination_ip_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Destination IP range for the rule. (IP network)"
+            "smithy.api#documentation": "Destination IP range for the rule. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "source_ports": {
@@ -2605,7 +2672,8 @@
         "position": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Position of the rule in the list."
+            "smithy.api#documentation": "Position of the rule in the list.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3229,7 +3297,8 @@
         "security_groups": {
           "target": "com.scaleway.instance_v2alpha1#ListSecurityGroupsResponseSecurityGroupsList",
           "traits": {
-            "smithy.api#documentation": "List of security groups."
+            "smithy.api#documentation": "List of security groups.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -3242,7 +3311,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3254,67 +3324,78 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the security group."
+            "smithy.api#documentation": "Unique ID of the security group.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the security group."
+            "smithy.api#documentation": "The SRN of the security group.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the security group."
+            "smithy.api#documentation": "Name of the security group.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the security group."
+            "smithy.api#documentation": "Description of the security group.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the security group belongs to."
+            "smithy.api#documentation": "Project ID the security group belongs to.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupSummaryTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the security group."
+            "smithy.api#documentation": "Tags associated with the security group.",
+            "smithy.api#required": {}
           }
         },
         "disable_default_rules": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if default rules are disabled."
+            "smithy.api#documentation": "True if default rules are disabled.",
+            "smithy.api#required": {}
           }
         },
         "project_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if this is the default security group for the project."
+            "smithy.api#documentation": "True if this is the default security group for the project.",
+            "smithy.api#required": {}
           }
         },
         "inbound_default_action": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupAction",
           "traits": {
-            "smithy.api#documentation": "Default action for inbound rules."
+            "smithy.api#documentation": "Default action for inbound rules.",
+            "smithy.api#required": {}
           }
         },
         "outbound_default_action": {
           "target": "com.scaleway.instance_v2alpha1#SecurityGroupAction",
           "traits": {
-            "smithy.api#documentation": "Default action for outbound rules."
+            "smithy.api#documentation": "Default action for outbound rules.",
+            "smithy.api#required": {}
           }
         },
         "stateless": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the security group is stateless."
+            "smithy.api#documentation": "True if the security group is stateless.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3334,7 +3415,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the security group is located."
+            "smithy.api#documentation": "Zone in which the security group is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4030,7 +4112,8 @@
         "server_types": {
           "target": "com.scaleway.instance_v2alpha1#ListServerTypesResponseServerTypesList",
           "traits": {
-            "smithy.api#documentation": "List of server types."
+            "smithy.api#documentation": "List of server types.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -4043,7 +4126,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of server types."
+            "smithy.api#documentation": "Total number of server types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4055,37 +4139,43 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the server type."
+            "smithy.api#documentation": "Name of the server type.",
+            "smithy.api#required": {}
           }
         },
         "vcpu_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of vCPUs."
+            "smithy.api#documentation": "Number of vCPUs.",
+            "smithy.api#required": {}
           }
         },
         "gpu_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of GPUs."
+            "smithy.api#documentation": "Number of GPUs.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Amount of memory. (in bytes)"
+            "smithy.api#documentation": "Amount of memory. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "architecture": {
           "target": "com.scaleway.instance_v2alpha1#ServerTypeArchitecture",
           "traits": {
-            "smithy.api#documentation": "Architecture of the server type."
+            "smithy.api#documentation": "Architecture of the server type.",
+            "smithy.api#required": {}
           }
         },
         "availability": {
           "target": "com.scaleway.instance_v2alpha1#ServerTypeAvailability",
           "traits": {
-            "smithy.api#documentation": "Availability status of the server type."
+            "smithy.api#documentation": "Availability status of the server type.",
+            "smithy.api#required": {}
           }
         },
         "limits": {
@@ -4103,7 +4193,8 @@
         "end_of_service": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server type has reached end of service."
+            "smithy.api#documentation": "Whether the server type has reached end of service.",
+            "smithy.api#required": {}
           }
         },
         "spot_info": {
@@ -4115,7 +4206,8 @@
         "sku": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The billing SKU for this server type."
+            "smithy.api#documentation": "The billing SKU for this server type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4187,61 +4279,71 @@
         "private_network_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of Private Networks."
+            "smithy.api#documentation": "Maximum number of Private Networks.",
+            "smithy.api#required": {}
           }
         },
         "file_system_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of filesystems."
+            "smithy.api#documentation": "Maximum number of filesystems.",
+            "smithy.api#required": {}
           }
         },
         "private_network_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum Private Network bandwidth."
+            "smithy.api#documentation": "Maximum Private Network bandwidth.",
+            "smithy.api#required": {}
           }
         },
         "block_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum block storage bandwidth."
+            "smithy.api#documentation": "Maximum block storage bandwidth.",
+            "smithy.api#required": {}
           }
         },
         "internet_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum internet bandwidth."
+            "smithy.api#documentation": "Maximum internet bandwidth.",
+            "smithy.api#required": {}
           }
         },
         "l_ssd_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum size of local SSD. (in bytes)"
+            "smithy.api#documentation": "Maximum size of local SSD. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "scratch_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum size of scratch storage. (in bytes)"
+            "smithy.api#documentation": "Maximum size of scratch storage. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "scratch_volumes_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of scratch volumes."
+            "smithy.api#documentation": "Maximum number of scratch volumes.",
+            "smithy.api#required": {}
           }
         },
         "ip_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of IPs."
+            "smithy.api#documentation": "Maximum number of IPs.",
+            "smithy.api#required": {}
           }
         },
         "volume_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of volumes."
+            "smithy.api#documentation": "Maximum number of volumes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4253,19 +4355,22 @@
         "manufacturer": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Manufacturer of the GPU."
+            "smithy.api#documentation": "Manufacturer of the GPU.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the GPU."
+            "smithy.api#documentation": "Name of the GPU.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Memory of the GPU. (in bytes)"
+            "smithy.api#documentation": "Memory of the GPU. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4275,7 +4380,10 @@
       "type": "structure",
       "members": {
         "availability": {
-          "target": "com.scaleway.instance_v2alpha1#ServerTypeAvailability"
+          "target": "com.scaleway.instance_v2alpha1#ServerTypeAvailability",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4565,7 +4673,8 @@
         "servers": {
           "target": "com.scaleway.instance_v2alpha1#ListServersResponseServersList",
           "traits": {
-            "smithy.api#documentation": "List of servers."
+            "smithy.api#documentation": "List of servers.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -4578,7 +4687,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of servers."
+            "smithy.api#documentation": "Total number of servers.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4590,37 +4700,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the server."
+            "smithy.api#documentation": "Unique ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the server."
+            "smithy.api#documentation": "The SRN of the server.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the server."
+            "smithy.api#documentation": "Name of the server.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID to which the server belongs."
+            "smithy.api#documentation": "Project ID to which the server belongs.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#ServerSummaryTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the server."
+            "smithy.api#documentation": "Tags associated with the server.",
+            "smithy.api#required": {}
           }
         },
         "server_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of the server."
+            "smithy.api#documentation": "Type of the server.",
+            "smithy.api#required": {}
           }
         },
         "placement_group_id": {
@@ -4633,13 +4749,15 @@
         "status": {
           "target": "com.scaleway.instance_v2alpha1#ServerStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the server."
+            "smithy.api#documentation": "Current status of the server.",
+            "smithy.api#required": {}
           }
         },
         "architecture": {
           "target": "com.scaleway.instance_v2alpha1#ServerArchitecture",
           "traits": {
-            "smithy.api#documentation": "Architecture of the server."
+            "smithy.api#documentation": "Architecture of the server.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -4659,13 +4777,15 @@
         "rescue_mode": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server is in rescue mode."
+            "smithy.api#documentation": "Whether the server is in rescue mode.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the server is located."
+            "smithy.api#documentation": "Zone in which the server is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5163,37 +5283,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the server."
+            "smithy.api#documentation": "Unique ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the server."
+            "smithy.api#documentation": "The SRN of the server.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the server."
+            "smithy.api#documentation": "Name of the server.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID to which the server belongs."
+            "smithy.api#documentation": "Project ID to which the server belongs.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#ServerTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the server."
+            "smithy.api#documentation": "Tags associated with the server.",
+            "smithy.api#required": {}
           }
         },
         "server_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of the server."
+            "smithy.api#documentation": "Type of the server.",
+            "smithy.api#required": {}
           }
         },
         "placement_group_id": {
@@ -5206,25 +5332,29 @@
         "status": {
           "target": "com.scaleway.instance_v2alpha1#ServerStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the server."
+            "smithy.api#documentation": "Current status of the server.",
+            "smithy.api#required": {}
           }
         },
         "volumes": {
           "target": "com.scaleway.instance_v2alpha1#ServerVolumesList",
           "traits": {
-            "smithy.api#documentation": "List of volumes attached to the server."
+            "smithy.api#documentation": "List of volumes attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "filesystems": {
           "target": "com.scaleway.instance_v2alpha1#ServerFilesystemsList",
           "traits": {
-            "smithy.api#documentation": "List of filesystems attached to the server."
+            "smithy.api#documentation": "List of filesystems attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "architecture": {
           "target": "com.scaleway.instance_v2alpha1#ServerArchitecture",
           "traits": {
-            "smithy.api#documentation": "Architecture of the server."
+            "smithy.api#documentation": "Architecture of the server.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -5244,13 +5374,15 @@
         "private_network_interfaces": {
           "target": "com.scaleway.instance_v2alpha1#ServerPrivateNetworkInterfacesList",
           "traits": {
-            "smithy.api#documentation": "List of private network interfaces attached to the server."
+            "smithy.api#documentation": "List of private network interfaces attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "rescue_mode": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server is in rescue mode."
+            "smithy.api#documentation": "Whether the server is in rescue mode.",
+            "smithy.api#required": {}
           }
         },
         "boot_volume_id": {
@@ -5263,7 +5395,8 @@
         "status_detail": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Detailed status information of the server."
+            "smithy.api#documentation": "Detailed status information of the server.",
+            "smithy.api#required": {}
           }
         },
         "windows_rdp_password": {
@@ -5281,7 +5414,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the server is located."
+            "smithy.api#documentation": "Zone in which the server is located.",
+            "smithy.api#required": {}
           }
         },
         "runtime_info": {
@@ -5306,10 +5440,16 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "volume_type": {
-          "target": "com.scaleway.instance_v2alpha1#ServerVolumeVolumeType"
+          "target": "com.scaleway.instance_v2alpha1#ServerVolumeVolumeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5359,11 +5499,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.scaleway.instance_v2alpha1#ServerFilesystemStatus"
+          "target": "com.scaleway.instance_v2alpha1#ServerFilesystemStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5411,22 +5555,40 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "private_network_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "mac_address": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.instance_v2alpha1#ServerPrivateNetworkInterfaceStatus"
+          "target": "com.scaleway.instance_v2alpha1#ServerPrivateNetworkInterfaceStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ip_ids": {
-          "target": "com.scaleway.instance_v2alpha1#ServerPrivateNetworkInterfaceIpIdsList"
+          "target": "com.scaleway.instance_v2alpha1#ServerPrivateNetworkInterfaceIpIdsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "security_group_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5507,11 +5669,15 @@
         "encrypted_password": {
           "target": "smithy.api#String",
           "traits": {
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "rdp_ssh_key_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5520,19 +5686,34 @@
       "type": "structure",
       "members": {
         "status": {
-          "target": "com.scaleway.instance_v2alpha1#ServerPublicNetworkInterfaceStatus"
+          "target": "com.scaleway.instance_v2alpha1#ServerPublicNetworkInterfaceStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "mac_address": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "security_group_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ips": {
-          "target": "com.scaleway.instance_v2alpha1#ServerPublicNetworkInterfaceIpsList"
+          "target": "com.scaleway.instance_v2alpha1#ServerPublicNetworkInterfaceIpsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "dns": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5565,21 +5746,34 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "dynamic": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.instance_v2alpha1#ServerIPStatus"
+          "target": "com.scaleway.instance_v2alpha1#ServerIPStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "provisioned_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP network)"
+            "smithy.api#documentation": "(IP network)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5634,7 +5828,8 @@
         "spot": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the Instance is running as Spot."
+            "smithy.api#documentation": "True if the Instance is running as Spot.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6685,7 +6880,10 @@
       "type": "structure",
       "members": {
         "server_types": {
-          "target": "com.scaleway.instance_v2alpha1#ListServerCompatibleTypesResponseServerTypesList"
+          "target": "com.scaleway.instance_v2alpha1#ListServerCompatibleTypesResponseServerTypesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "next_page_token": {
           "target": "smithy.api#String",
@@ -6694,7 +6892,10 @@
           }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -8009,7 +8210,8 @@
         "keys": {
           "target": "com.scaleway.instance_v2alpha1#ListUserDataKeysResponseKeysList",
           "traits": {
-            "smithy.api#documentation": "List of user data keys."
+            "smithy.api#documentation": "List of user data keys.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -8022,7 +8224,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -8165,13 +8368,15 @@
         "key": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The key of the user data."
+            "smithy.api#documentation": "The key of the user data.",
+            "smithy.api#required": {}
           }
         },
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The content of the user data."
+            "smithy.api#documentation": "The content of the user data.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -8874,7 +9079,8 @@
         "templates": {
           "target": "com.scaleway.instance_v2alpha1#ListTemplatesResponseTemplatesList",
           "traits": {
-            "smithy.api#documentation": "List of template summaries."
+            "smithy.api#documentation": "List of template summaries.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -8887,7 +9093,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -8899,43 +9106,50 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID associated with the template."
+            "smithy.api#documentation": "Project ID associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the template."
+            "smithy.api#documentation": "Unique ID of the template.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the template."
+            "smithy.api#documentation": "The SRN of the template.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the template."
+            "smithy.api#documentation": "Name of the template.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#TemplateSummaryTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the template."
+            "smithy.api#documentation": "Tags associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "server_tags": {
           "target": "com.scaleway.instance_v2alpha1#TemplateSummaryServerTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with servers created from this template."
+            "smithy.api#documentation": "Tags associated with servers created from this template.",
+            "smithy.api#required": {}
           }
         },
         "server_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Commercial type of the server defined by the template."
+            "smithy.api#documentation": "Commercial type of the server defined by the template.",
+            "smithy.api#required": {}
           }
         },
         "security_group_id": {
@@ -8955,19 +9169,22 @@
         "public_ip_v4_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of IPv4 public IPs to attach to servers created from this template."
+            "smithy.api#documentation": "Number of IPv4 public IPs to attach to servers created from this template.",
+            "smithy.api#required": {}
           }
         },
         "public_ip_v6_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of IPv6 public IPs to attach to servers created from this template."
+            "smithy.api#documentation": "Number of IPv6 public IPs to attach to servers created from this template.",
+            "smithy.api#required": {}
           }
         },
         "filesystem_ids": {
           "target": "com.scaleway.instance_v2alpha1#TemplateSummaryFilesystemIdsList",
           "traits": {
-            "smithy.api#documentation": "List of Filesystem IDs associated with the template."
+            "smithy.api#documentation": "List of Filesystem IDs associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -8987,7 +9204,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the template is located."
+            "smithy.api#documentation": "Zone in which the template is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -9340,43 +9558,50 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID associated with the template."
+            "smithy.api#documentation": "Project ID associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the template."
+            "smithy.api#documentation": "Unique ID of the template.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the template."
+            "smithy.api#documentation": "The SRN of the template.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the template."
+            "smithy.api#documentation": "Name of the template.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_v2alpha1#TemplateTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the template."
+            "smithy.api#documentation": "Tags associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "server_tags": {
           "target": "com.scaleway.instance_v2alpha1#TemplateServerTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with servers created from this template."
+            "smithy.api#documentation": "Tags associated with servers created from this template.",
+            "smithy.api#required": {}
           }
         },
         "server_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Commercial type of the server defined by the template."
+            "smithy.api#documentation": "Commercial type of the server defined by the template.",
+            "smithy.api#required": {}
           }
         },
         "security_group_id": {
@@ -9396,31 +9621,36 @@
         "public_ip_v4_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of IPv4 public IPs to attach to servers created from this template."
+            "smithy.api#documentation": "Number of IPv4 public IPs to attach to servers created from this template.",
+            "smithy.api#required": {}
           }
         },
         "public_ip_v6_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of IPv6 public IPs to attach to servers created from this template."
+            "smithy.api#documentation": "Number of IPv6 public IPs to attach to servers created from this template.",
+            "smithy.api#required": {}
           }
         },
         "volumes": {
           "target": "com.scaleway.instance_v2alpha1#TemplateVolumesList",
           "traits": {
-            "smithy.api#documentation": "List of volume templates used to create volumes for servers."
+            "smithy.api#documentation": "List of volume templates used to create volumes for servers.",
+            "smithy.api#required": {}
           }
         },
         "private_networks": {
           "target": "com.scaleway.instance_v2alpha1#TemplatePrivateNetworksList",
           "traits": {
-            "smithy.api#documentation": "List of private network associated with the template."
+            "smithy.api#documentation": "List of private network associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "filesystem_ids": {
           "target": "com.scaleway.instance_v2alpha1#TemplateFilesystemIdsList",
           "traits": {
-            "smithy.api#documentation": "List of filesystem IDs associated with the template."
+            "smithy.api#documentation": "List of filesystem IDs associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -9447,7 +9677,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the template is located."
+            "smithy.api#documentation": "Zone in which the template is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -10317,7 +10548,8 @@
         "keys": {
           "target": "com.scaleway.instance_v2alpha1#ListTemplateUserDataKeysResponseKeysList",
           "traits": {
-            "smithy.api#documentation": "List of user data keys associated with the template."
+            "smithy.api#documentation": "List of user data keys associated with the template.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -10330,7 +10562,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -51,53 +51,53 @@ export const GroupTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<
 
 export interface Group {
   /** ID of the group. */
-  id?: string;
+  id: string;
   /** Date and time of group creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last group update. (RFC 3339 format) */
   updated_at?: string | null;
   /** ID of Organization linked to the group. */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the group. */
-  name?: string;
+  name: string;
   /** Description of the group. */
-  description?: string;
+  description: string;
   /** IDs of users attached to this group. */
-  user_ids?: GroupUserIdsList;
+  user_ids: GroupUserIdsList;
   /** IDs of applications attached to this group. */
-  application_ids?: GroupApplicationIdsList;
+  application_ids: GroupApplicationIdsList;
   /** Tags associated to the group. */
-  tags?: GroupTagsList;
+  tags: GroupTagsList;
   /** Defines whether or not the group is editable. */
-  editable?: boolean;
+  editable: boolean;
   /** Defines whether or not the group is deletable. */
-  deletable?: boolean;
+  deletable: boolean;
   /** Defines whether or not the group is managed. */
-  managed?: boolean;
+  managed: boolean;
   /** Indicates if the group is the special "All Users" group that contains all users of the organization. */
-  all_users?: boolean;
+  all_users: boolean;
   /** Indicates if the group is the special "All Applications" group that contains all non-managed applications of the organization. */
-  all_applications?: boolean;
+  all_applications: boolean;
   /** The SRN of the group. */
-  srn?: string;
+  srn: string;
 }
 export const Group = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    user_ids: S.optional(GroupUserIdsList),
-    application_ids: S.optional(GroupApplicationIdsList),
-    tags: S.optional(GroupTagsList),
-    editable: S.optional(S.Boolean),
-    deletable: S.optional(S.Boolean),
-    managed: S.optional(S.Boolean),
-    all_users: S.optional(S.Boolean),
-    all_applications: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    organization_id: S.String,
+    name: S.String,
+    description: S.String,
+    user_ids: GroupUserIdsList,
+    application_ids: GroupApplicationIdsList,
+    tags: GroupTagsList,
+    editable: S.Boolean,
+    deletable: S.Boolean,
+    managed: S.Boolean,
+    all_users: S.Boolean,
+    all_applications: S.Boolean,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Group" }) as any as S.Schema<Group>;
 
@@ -169,26 +169,26 @@ export const SamlCertificateOrigin = S.String;
 
 export interface SamlCertificate {
   /** ID of the SAML certificate. */
-  id?: string;
+  id: string;
   /** Type of the SAML certificate. */
-  type?: SamlCertificateType;
+  type: SamlCertificateType;
   /** Origin of the SAML certificate. */
-  origin?: SamlCertificateOrigin;
+  origin: SamlCertificateOrigin;
   /** Content of the SAML certificate. */
-  content?: string;
+  content: string;
   /** Date and time of the SAML certificate expiration. (RFC 3339 format) */
   expires_at?: string | null;
   /** The SRN of the SAML certificate. */
-  srn?: string;
+  srn: string;
 }
 export const SamlCertificate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(SamlCertificateType),
-    origin: S.optional(SamlCertificateOrigin),
-    content: S.optional(S.String),
+    id: S.String,
+    type: SamlCertificateType,
+    origin: SamlCertificateOrigin,
+    content: S.String,
     expires_at: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "SamlCertificate" }) as any as S.Schema<SamlCertificate>;
 
@@ -236,11 +236,11 @@ export type CheckPermissionsResponseResponseDecision = "deny" | "allow";
 export const CheckPermissionsResponseResponseDecision = S.String;
 
 export interface CheckPermissionsResponseResponse {
-  decision?: CheckPermissionsResponseResponseDecision;
+  decision: CheckPermissionsResponseResponseDecision;
 }
 export const CheckPermissionsResponseResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    decision: S.optional(CheckPermissionsResponseResponseDecision),
+    decision: CheckPermissionsResponseResponseDecision,
   }),
 ).annotate({
   identifier: "CheckPermissionsResponseResponse",
@@ -252,11 +252,11 @@ export const CheckPermissionsResponseResponsesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<CheckPermissionsResponseResponsesList>;
 
 export interface CheckPermissionsResponse {
-  responses?: CheckPermissionsResponseResponsesList;
+  responses: CheckPermissionsResponseResponsesList;
 }
 export const CheckPermissionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    responses: S.optional(CheckPermissionsResponseResponsesList),
+    responses: CheckPermissionsResponseResponsesList,
   }),
 ).annotate({ identifier: "CheckPermissionsResponse" }) as any as S.Schema<CheckPermissionsResponse>;
 
@@ -282,31 +282,31 @@ export const PolicyTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema
 
 export interface Policy {
   /** Id of the policy. */
-  id?: string;
+  id: string;
   /** Name of the policy. */
-  name?: string;
+  name: string;
   /** Description of the policy. */
-  description?: string;
+  description: string;
   /** Organization ID of the policy. */
-  organization_id?: string;
+  organization_id: string;
   /** Date and time of policy creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last policy update. (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether or not a policy is editable. */
-  editable?: boolean;
+  editable: boolean;
   /** Defines whether or not a policy is deletable. */
-  deletable?: boolean;
+  deletable: boolean;
   /** Defines whether or not a policy is managed. */
-  managed?: boolean;
+  managed: boolean;
   /** Number of rules of the policy. */
-  nb_rules?: number;
+  nb_rules: number;
   /** Number of policy scopes. */
-  nb_scopes?: number;
+  nb_scopes: number;
   /** Number of permission sets of the policy. */
-  nb_permission_sets?: number;
+  nb_permission_sets: number;
   /** Tags associated with the policy. */
-  tags?: PolicyTagsList;
+  tags: PolicyTagsList;
   /** ID of the user attributed to the policy. */
   user_id?: string | null;
   /** ID of the group attributed to the policy. */
@@ -316,28 +316,28 @@ export interface Policy {
   /** Defines whether or not a policy is attributed to a principal. */
   no_principal?: boolean | null;
   /** The SRN of the policy. */
-  srn?: string;
+  srn: string;
 }
 export const Policy = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    organization_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    organization_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    editable: S.optional(S.Boolean),
-    deletable: S.optional(S.Boolean),
-    managed: S.optional(S.Boolean),
-    nb_rules: S.optional(S.Number),
-    nb_scopes: S.optional(S.Number),
-    nb_permission_sets: S.optional(S.Number),
-    tags: S.optional(PolicyTagsList),
+    editable: S.Boolean,
+    deletable: S.Boolean,
+    managed: S.Boolean,
+    nb_rules: S.Number,
+    nb_scopes: S.Number,
+    nb_permission_sets: S.Number,
+    tags: PolicyTagsList,
     user_id: S.optional(S.NullOr(S.String)),
     group_id: S.optional(S.NullOr(S.String)),
     application_id: S.optional(S.NullOr(S.String)),
     no_principal: S.optional(S.NullOr(S.Boolean)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Policy" }) as any as S.Schema<Policy>;
 
@@ -372,7 +372,7 @@ export const CreateAPIKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface APIKey {
   /** Access key of the API key. */
-  access_key?: string;
+  access_key: string;
   /** Secret key of the API Key. */
   secret_key?: string | Redacted.Redacted<string> | null;
   /** ID of application that bears the API key. */
@@ -380,7 +380,7 @@ export interface APIKey {
   /** ID of user that bears the API key. */
   user_id?: string | null;
   /** Description of API key. */
-  description?: string;
+  description: string;
   /** Date and time of API key creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last API key update. (RFC 3339 format) */
@@ -388,34 +388,34 @@ export interface APIKey {
   /** Date and time of API key expiration. (RFC 3339 format) */
   expires_at?: string | null;
   /** Default Project ID specified for this API key. */
-  default_project_id?: string;
+  default_project_id: string;
   /** Defines whether or not the API key is editable. */
-  editable?: boolean;
+  editable: boolean;
   /** Defines whether or not the API key is deletable. */
-  deletable?: boolean;
+  deletable: boolean;
   /** Defines whether or not the API key is managed. */
-  managed?: boolean;
+  managed: boolean;
   /** IP address of the device that created the API key. */
-  creation_ip?: string;
+  creation_ip: string;
   /** The SRN of the API key. */
-  srn?: string;
+  srn: string;
 }
 export const APIKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    access_key: S.optional(S.String),
+    access_key: S.String,
     secret_key: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
     application_id: S.optional(S.NullOr(S.String)),
     user_id: S.optional(S.NullOr(S.String)),
-    description: S.optional(S.String),
+    description: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
-    default_project_id: S.optional(S.String),
-    editable: S.optional(S.Boolean),
-    deletable: S.optional(S.Boolean),
-    managed: S.optional(S.Boolean),
-    creation_ip: S.optional(S.String),
-    srn: S.optional(S.String),
+    default_project_id: S.String,
+    editable: S.Boolean,
+    deletable: S.Boolean,
+    managed: S.Boolean,
+    creation_ip: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "APIKey" }) as any as S.Schema<APIKey>;
 
@@ -459,44 +459,44 @@ export const ApplicationTagsList = /*@__PURE__*/ S.Array(
 
 export interface Application {
   /** ID of the application. */
-  id?: string;
+  id: string;
   /** Name of the application. */
-  name?: string;
+  name: string;
   /** Description of the application. */
-  description?: string;
+  description: string;
   /** Date and time application was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last application update. (RFC 3339 format) */
   updated_at?: string | null;
   /** ID of the Organization. */
-  organization_id?: string;
+  organization_id: string;
   /** Defines whether or not the application is editable. */
-  editable?: boolean;
+  editable: boolean;
   /** Defines whether or not the application is deletable. */
-  deletable?: boolean;
+  deletable: boolean;
   /** Defines whether or not the application is managed. */
-  managed?: boolean;
+  managed: boolean;
   /** Number of API keys attributed to the application. */
-  nb_api_keys?: number;
+  nb_api_keys: number;
   /** Tags associated with the user. */
-  tags?: ApplicationTagsList;
+  tags: ApplicationTagsList;
   /** SRN of the application. */
-  srn?: string;
+  srn: string;
 }
 export const Application = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    editable: S.optional(S.Boolean),
-    deletable: S.optional(S.Boolean),
-    managed: S.optional(S.Boolean),
-    nb_api_keys: S.optional(S.Number),
-    tags: S.optional(ApplicationTagsList),
-    srn: S.optional(S.String),
+    organization_id: S.String,
+    editable: S.Boolean,
+    deletable: S.Boolean,
+    managed: S.Boolean,
+    nb_api_keys: S.Number,
+    tags: ApplicationTagsList,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Application" }) as any as S.Schema<Application>;
 
@@ -635,9 +635,9 @@ export const CreateScimTokenRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ScimToken {
   /** (UUID format) */
-  id?: string;
+  id: string;
   /** (UUID format) */
-  scim_id?: string;
+  scim_id: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
   /** (RFC 3339 format) */
@@ -645,8 +645,8 @@ export interface ScimToken {
 }
 export const ScimToken = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    scim_id: S.optional(S.String),
+    id: S.String,
+    scim_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
   }),
@@ -656,12 +656,12 @@ export interface CreateScimTokenResponse {
   /** The SCIM token metadata. */
   token?: ScimToken;
   /** The Bearer Token to use to authenticate to SCIM endpoints. */
-  bearer_token?: string;
+  bearer_token: string;
 }
 export const CreateScimTokenResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     token: S.optional(ScimToken),
-    bearer_token: S.optional(S.String),
+    bearer_token: S.String,
   }),
 ).annotate({ identifier: "CreateScimTokenResponse" }) as any as S.Schema<CreateScimTokenResponse>;
 
@@ -690,38 +690,38 @@ export const CreateSSHKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface SSHKey {
   /** ID of SSH key. */
-  id?: string;
+  id: string;
   /** Name of SSH key. */
-  name?: string;
+  name: string;
   /** Public key of SSH key. */
-  public_key?: string;
+  public_key: string;
   /** Fingerprint of the SSH key. */
-  fingerprint?: string;
+  fingerprint: string;
   /** Creation date of SSH key. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of SSH key. (RFC 3339 format) */
   updated_at?: string | null;
   /** ID of Organization linked to the SSH key. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of Project linked to the SSH key. */
-  project_id?: string;
+  project_id: string;
   /** SSH key status. */
-  disabled?: boolean;
+  disabled: boolean;
   /** The SRN of the SSH key. */
-  srn?: string;
+  srn: string;
 }
 export const SSHKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    public_key: S.optional(S.String),
-    fingerprint: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    public_key: S.String,
+    fingerprint: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    disabled: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    organization_id: S.String,
+    project_id: S.String,
+    disabled: S.Boolean,
+    srn: S.String,
   }),
 ).annotate({ identifier: "SSHKey" }) as any as S.Schema<SSHKey>;
 
@@ -803,68 +803,68 @@ export const UserTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<U
 
 export interface User {
   /** ID of user. */
-  id?: string;
+  id: string;
   /** Email of user. */
-  email?: string;
+  email: string;
   /** User identifier unique to the Organization. */
-  username?: string;
+  username: string;
   /** First name of the user. */
-  first_name?: string;
+  first_name: string;
   /** Last name of the user. */
-  last_name?: string;
+  last_name: string;
   /** Phone number of the user. */
-  phone_number?: string;
+  phone_number: string;
   /** Locale of the user. */
-  locale?: string;
+  locale: string;
   /** Date user was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date of last user update. (RFC 3339 format) */
   updated_at?: string | null;
   /** ID of the Organization. */
-  organization_id?: string;
+  organization_id: string;
   /** Deletion status of user. Owners cannot be deleted. */
-  deletable?: boolean;
+  deletable: boolean;
   /** Date of the last login. (RFC 3339 format) */
   last_login_at?: string | null;
   /** Type of user. */
-  type?: UserType;
+  type: UserType;
   /** Deprecated, use "mfa" instead. */
   two_factor_enabled?: boolean;
   /** Status of user invitation. */
   status?: UserStatus;
   /** Defines whether MFA is enabled. */
-  mfa?: boolean;
+  mfa: boolean;
   /** ID of the account root user associated with the user. */
-  account_root_user_id?: string;
+  account_root_user_id: string;
   /** Tags associated with the user. */
-  tags?: UserTagsList;
+  tags: UserTagsList;
   /** Defines whether the user is locked. */
-  locked?: boolean;
+  locked: boolean;
   /** The SRN of the user. */
-  srn?: string;
+  srn: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    email: S.optional(S.String),
-    username: S.optional(S.String),
-    first_name: S.optional(S.String),
-    last_name: S.optional(S.String),
-    phone_number: S.optional(S.String),
-    locale: S.optional(S.String),
+    id: S.String,
+    email: S.String,
+    username: S.String,
+    first_name: S.String,
+    last_name: S.String,
+    phone_number: S.String,
+    locale: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    deletable: S.optional(S.Boolean),
+    organization_id: S.String,
+    deletable: S.Boolean,
     last_login_at: S.optional(S.NullOr(S.String)),
-    type: S.optional(UserType),
+    type: UserType,
     two_factor_enabled: S.optional(S.Boolean),
     status: S.optional(UserStatus),
-    mfa: S.optional(S.Boolean),
-    account_root_user_id: S.optional(S.String),
-    tags: S.optional(UserTagsList),
-    locked: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    mfa: S.Boolean,
+    account_root_user_id: S.String,
+    tags: UserTagsList,
+    locked: S.Boolean,
+    srn: S.String,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -886,11 +886,11 @@ export const CreateUserMFAOTPRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateUserMFAOTPRequest" }) as any as S.Schema<CreateUserMFAOTPRequest>;
 
 export interface MFAOTP {
-  secret?: string | Redacted.Redacted<string>;
+  secret: string | Redacted.Redacted<string>;
 }
 export const MFAOTP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secret: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    secret: S.String.pipe(T.SensitiveValue({})),
   }),
 ).annotate({ identifier: "MFAOTP" }) as any as S.Schema<MFAOTP>;
 
@@ -1187,38 +1187,38 @@ export type SamlStatus =
 export const SamlStatus = S.String;
 
 export interface SamlServiceProvider {
-  entity_id?: string;
-  assertion_consumer_service_url?: string;
+  entity_id: string;
+  assertion_consumer_service_url: string;
 }
 export const SamlServiceProvider = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    entity_id: S.optional(S.String),
-    assertion_consumer_service_url: S.optional(S.String),
+    entity_id: S.String,
+    assertion_consumer_service_url: S.String,
   }),
 ).annotate({ identifier: "SamlServiceProvider" }) as any as S.Schema<SamlServiceProvider>;
 
 export interface Saml {
   /** ID of the SAML configuration. */
-  id?: string;
+  id: string;
   /** Status of the SAML configuration. */
-  status?: SamlStatus;
+  status: SamlStatus;
   /** Service Provider information. */
   service_provider?: SamlServiceProvider;
   /** Entity ID of the SAML Identity Provider. */
-  entity_id?: string;
+  entity_id: string;
   /** Single Sign-On URL of the SAML Identity Provider. */
-  single_sign_on_url?: string;
+  single_sign_on_url: string;
   /** The SRN of the SAML. */
-  srn?: string;
+  srn: string;
 }
 export const Saml = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    status: S.optional(SamlStatus),
+    id: S.String,
+    status: SamlStatus,
     service_provider: S.optional(SamlServiceProvider),
-    entity_id: S.optional(S.String),
-    single_sign_on_url: S.optional(S.String),
-    srn: S.optional(S.String),
+    entity_id: S.String,
+    single_sign_on_url: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Saml" }) as any as S.Schema<Saml>;
 
@@ -1243,13 +1243,13 @@ export const EnableOrganizationScimRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Scim {
   /** ID of the SCIM configuration. */
-  id?: string;
+  id: string;
   /** Date and time of SCIM configuration creation. (RFC 3339 format) */
   created_at?: string | null;
 }
 export const Scim = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Scim" }) as any as S.Schema<Scim>;
@@ -1324,11 +1324,11 @@ export const GetJWTRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface JWT {
   /** JWT ID. */
-  jti?: string;
+  jti: string;
   /** ID of the user who issued the JWT. */
-  issuer_id?: string;
+  issuer_id: string;
   /** ID of the user targeted by the JWT. */
-  audience_id?: string;
+  audience_id: string;
   /** Creation date of the JWT. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the JWT. (RFC 3339 format) */
@@ -1336,23 +1336,23 @@ export interface JWT {
   /** Expiration date of the JWT. (RFC 3339 format) */
   expires_at?: string | null;
   /** IP address used during the creation of the JWT. (IP address) */
-  ip?: string;
+  ip: string;
   /** User-agent used during the creation of the JWT. */
-  user_agent?: string;
+  user_agent: string;
   /** The SRN of the JWT. */
-  srn?: string;
+  srn: string;
 }
 export const JWT = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    jti: S.optional(S.String),
-    issuer_id: S.optional(S.String),
-    audience_id: S.optional(S.String),
+    jti: S.String,
+    issuer_id: S.String,
+    audience_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
-    ip: S.optional(S.String),
-    user_agent: S.optional(S.String),
-    srn: S.optional(S.String),
+    ip: S.String,
+    user_agent: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "JWT" }) as any as S.Schema<JWT>;
 
@@ -1387,38 +1387,38 @@ export const LogResourceType = S.String;
 
 export interface Log {
   /** Log ID. (UUID format) */
-  id?: string;
+  id: string;
   /** Creation date of the log. (RFC 3339 format) */
   created_at?: string | null;
   /** IP address of the HTTP request linked to the log. (IP address) */
-  ip?: string;
+  ip: string;
   /** User-Agent of the HTTP request linked to the log. */
-  user_agent?: string;
+  user_agent: string;
   /** Action linked to the log. */
-  action?: LogAction;
+  action: LogAction;
   /** ID of the principal at the origin of the log. (UUID format) */
-  bearer_id?: string;
+  bearer_id: string;
   /** ID of Organization linked to the log. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Type of the resource linked to the log. */
-  resource_type?: LogResourceType;
+  resource_type: LogResourceType;
   /** ID of the resource linked to the log. */
-  resource_id?: string;
+  resource_id: string;
   /** The SRN of the log. */
-  srn?: string;
+  srn: string;
 }
 export const Log = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
-    ip: S.optional(S.String),
-    user_agent: S.optional(S.String),
-    action: S.optional(LogAction),
-    bearer_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    resource_type: S.optional(LogResourceType),
-    resource_id: S.optional(S.String),
-    srn: S.optional(S.String),
+    ip: S.String,
+    user_agent: S.String,
+    action: LogAction,
+    bearer_id: S.String,
+    organization_id: S.String,
+    resource_type: LogResourceType,
+    resource_id: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Log" }) as any as S.Schema<Log>;
 
@@ -1441,29 +1441,29 @@ export const GetOrganizationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Organization {
   /** ID of the Organization. */
-  id?: string;
+  id: string;
   /** Name of the Organization. */
-  name?: string;
+  name: string;
   /** Alias of the Organization. */
-  alias?: string;
+  alias: string;
   /** Defines whether login with a password is enabled for the Organization. */
-  login_password_enabled?: boolean;
+  login_password_enabled: boolean;
   /** Defines whether login with an authentication code is enabled for the Organization. */
-  login_magic_code_enabled?: boolean;
+  login_magic_code_enabled: boolean;
   /** Defines whether login through OAuth2 is enabled for the Organization. */
-  login_oauth2_enabled?: boolean;
+  login_oauth2_enabled: boolean;
   /** Defines whether login through SAML is enabled for the Organization. */
-  login_saml_enabled?: boolean;
+  login_saml_enabled: boolean;
 }
 export const Organization = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    alias: S.optional(S.String),
-    login_password_enabled: S.optional(S.Boolean),
-    login_magic_code_enabled: S.optional(S.Boolean),
-    login_oauth2_enabled: S.optional(S.Boolean),
-    login_saml_enabled: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    alias: S.String,
+    login_password_enabled: S.Boolean,
+    login_magic_code_enabled: S.Boolean,
+    login_oauth2_enabled: S.Boolean,
+    login_saml_enabled: S.Boolean,
   }),
 ).annotate({ identifier: "Organization" }) as any as S.Schema<Organization>;
 
@@ -1525,11 +1525,11 @@ export const GetOrganizationSecuritySettingsRequest = /*@__PURE__*/ S.suspend(()
 
 export interface OrganizationSecuritySettings {
   /** Defines whether password renewal is enforced during first login. */
-  enforce_password_renewal?: boolean;
+  enforce_password_renewal: boolean;
   /** Duration of the grace period to renew password or enable MFA. (in seconds) */
   grace_period_duration?: string | null;
   /** Number of login attempts before the account is locked. */
-  login_attempts_before_locked?: number;
+  login_attempts_before_locked: number;
   /** Maximum duration a login session will stay active before needing to relogin. (in seconds) */
   max_login_session_duration?: string | null;
   /** Maximum duration the `expires_at` field of an API key can represent. A value of 0 means there is no maximum duration. (in seconds) */
@@ -1537,9 +1537,9 @@ export interface OrganizationSecuritySettings {
 }
 export const OrganizationSecuritySettings = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    enforce_password_renewal: S.optional(S.Boolean),
+    enforce_password_renewal: S.Boolean,
     grace_period_duration: S.optional(S.NullOr(S.String)),
-    login_attempts_before_locked: S.optional(S.Number),
+    login_attempts_before_locked: S.Number,
     max_login_session_duration: S.optional(S.NullOr(S.String)),
     max_api_key_expiration_duration: S.optional(S.NullOr(S.String)),
   }),
@@ -1617,35 +1617,35 @@ export const QuotumLimitsList = /*@__PURE__*/ S.Array(
 
 export interface Quotum {
   /** Name of the quota. */
-  name?: string;
+  name: string;
   /** Maximum limit of the quota. */
   limit?: number | null;
   /** Defines whether or not the quota is unlimited. */
   unlimited?: boolean | null;
   /** A human-readable name for the quota. */
-  pretty_name?: string;
+  pretty_name: string;
   /** The unit in which the quota is expressed. */
-  unit?: string;
+  unit: string;
   /** Details about the quota. */
-  description?: string;
+  description: string;
   /** Whether this quotum is applied on at the zone level, region level, or globally. */
-  locality_type?: LocalityType;
+  locality_type: LocalityType;
   /** Limits per locality. */
-  limits?: QuotumLimitsList;
+  limits: QuotumLimitsList;
   /** The SRN of the quotum. */
-  srn?: string;
+  srn: string;
 }
 export const Quotum = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
     limit: S.optional(S.NullOr(S.Number)),
     unlimited: S.optional(S.NullOr(S.Boolean)),
-    pretty_name: S.optional(S.String),
-    unit: S.optional(S.String),
-    description: S.optional(S.String),
-    locality_type: S.optional(LocalityType),
-    limits: S.optional(QuotumLimitsList),
-    srn: S.optional(S.String),
+    pretty_name: S.String,
+    unit: S.String,
+    description: S.String,
+    locality_type: LocalityType,
+    limits: QuotumLimitsList,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Quotum" }) as any as S.Schema<Quotum>;
 
@@ -1738,30 +1738,30 @@ export const GetUserConnectionsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetUserConnectionsRequest>;
 
 export interface ConnectionConnectedOrganization {
-  id?: string;
-  name?: string;
-  locked?: boolean;
+  id: string;
+  name: string;
+  locked: boolean;
 }
 export const ConnectionConnectedOrganization = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    locked: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    locked: S.Boolean,
   }),
 ).annotate({
   identifier: "ConnectionConnectedOrganization",
 }) as any as S.Schema<ConnectionConnectedOrganization>;
 
 export interface ConnectionConnectedUser {
-  id?: string;
-  username?: string;
-  type?: UserType;
+  id: string;
+  username: string;
+  type: UserType;
 }
 export const ConnectionConnectedUser = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    username: S.optional(S.String),
-    type: S.optional(UserType),
+    id: S.String,
+    username: S.String,
+    type: UserType,
   }),
 ).annotate({ identifier: "ConnectionConnectedUser" }) as any as S.Schema<ConnectionConnectedUser>;
 
@@ -1786,11 +1786,11 @@ export const GetUserConnectionsResponseConnectionsList = /*@__PURE__*/ S.Array(
 
 export interface GetUserConnectionsResponse {
   /** List of connections. */
-  connections?: GetUserConnectionsResponseConnectionsList;
+  connections: GetUserConnectionsResponseConnectionsList;
 }
 export const GetUserConnectionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    connections: S.optional(GetUserConnectionsResponseConnectionsList),
+    connections: GetUserConnectionsResponseConnectionsList,
   }),
 ).annotate({
   identifier: "GetUserConnectionsResponse",
@@ -1817,11 +1817,11 @@ export const InitiateUserConnectionRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface InitiateUserConnectionResponse {
   /** Token to be used in JoinUserConnection. */
-  token?: string | Redacted.Redacted<string>;
+  token: string | Redacted.Redacted<string>;
 }
 export const InitiateUserConnectionResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    token: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    token: S.String.pipe(T.SensitiveValue({})),
   }),
 ).annotate({
   identifier: "InitiateUserConnectionResponse",
@@ -1936,12 +1936,12 @@ export interface ListAPIKeysResponse {
   /** List of API keys. */
   api_keys: ListAPIKeysResponseApiKeysList;
   /** Total count of API Keys. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListAPIKeysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     api_keys: ListAPIKeysResponseApiKeysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListAPIKeysResponse" }) as any as S.Schema<ListAPIKeysResponse>;
 
@@ -2007,12 +2007,12 @@ export interface ListApplicationsResponse {
   /** List of applications. */
   applications: ListApplicationsResponseApplicationsList;
   /** Total count of applications. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListApplicationsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     applications: ListApplicationsResponseApplicationsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListApplicationsResponse" }) as any as S.Schema<ListApplicationsResponse>;
 
@@ -2038,7 +2038,7 @@ export const GracePeriodType = S.String;
 
 export interface GracePeriod {
   /** Type of grace period. */
-  type?: GracePeriodType;
+  type: GracePeriodType;
   /** Date and time the grace period was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time the grace period expires. (RFC 3339 format) */
@@ -2046,7 +2046,7 @@ export interface GracePeriod {
 }
 export const GracePeriod = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(GracePeriodType),
+    type: GracePeriodType,
     created_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
   }),
@@ -2060,11 +2060,11 @@ export const ListGracePeriodsResponseGracePeriodsList = /*@__PURE__*/ S.Array(
 
 export interface ListGracePeriodsResponse {
   /** List of grace periods. */
-  grace_periods?: ListGracePeriodsResponseGracePeriodsList;
+  grace_periods: ListGracePeriodsResponseGracePeriodsList;
 }
 export const ListGracePeriodsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    grace_periods: S.optional(ListGracePeriodsResponseGracePeriodsList),
+    grace_periods: ListGracePeriodsResponseGracePeriodsList,
   }),
 ).annotate({ identifier: "ListGracePeriodsResponse" }) as any as S.Schema<ListGracePeriodsResponse>;
 
@@ -2143,12 +2143,12 @@ export interface ListGroupsResponse {
   /** List of groups. */
   groups: ListGroupsResponseGroupsList;
   /** Total count of groups. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListGroupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     groups: ListGroupsResponseGroupsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListGroupsResponse" }) as any as S.Schema<ListGroupsResponse>;
 
@@ -2195,12 +2195,12 @@ export const ListJWTsResponseJwtsList = /*@__PURE__*/ S.Array(
 
 export interface ListJWTsResponse {
   jwts: ListJWTsResponseJwtsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListJWTsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     jwts: ListJWTsResponseJwtsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListJWTsResponse" }) as any as S.Schema<ListJWTsResponse>;
 
@@ -2258,12 +2258,12 @@ export interface ListLogsResponse {
   /** List of logs. */
   logs: ListLogsResponseLogsList;
   /** Total count of logs. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListLogsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     logs: ListLogsResponseLogsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListLogsResponse" }) as any as S.Schema<ListLogsResponse>;
 
@@ -2317,22 +2317,22 @@ export const PermissionSetCategoriesList = /*@__PURE__*/ S.Array(
 
 export interface PermissionSet {
   /** Id of the permission set. */
-  id?: string;
+  id: string;
   /** Name of the permission set. */
-  name?: string;
+  name: string;
   /** Scope of the permission set. */
-  scope_type?: PermissionSetScopeType;
+  scope_type: PermissionSetScopeType;
   /** Description of the permission set. */
-  description?: string;
+  description: string;
   /** Categories of the permission set. */
   categories?: PermissionSetCategoriesList | null;
 }
 export const PermissionSet = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    scope_type: S.optional(PermissionSetScopeType),
-    description: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    scope_type: PermissionSetScopeType,
+    description: S.String,
     categories: S.optional(S.NullOr(PermissionSetCategoriesList)),
   }),
 ).annotate({ identifier: "PermissionSet" }) as any as S.Schema<PermissionSet>;
@@ -2347,12 +2347,12 @@ export interface ListPermissionSetsResponse {
   /** List of permission sets. */
   permission_sets: ListPermissionSetsResponsePermissionSetsList;
   /** Total count of permission sets. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPermissionSetsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     permission_sets: ListPermissionSetsResponsePermissionSetsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPermissionSetsResponse",
@@ -2445,12 +2445,12 @@ export interface ListPoliciesResponse {
   /** List of policies. */
   policies: ListPoliciesResponsePoliciesList;
   /** Total count of policies. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPoliciesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     policies: ListPoliciesResponsePoliciesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPoliciesResponse" }) as any as S.Schema<ListPoliciesResponse>;
 
@@ -2501,12 +2501,12 @@ export interface ListQuotaResponse {
   /** List of quota. */
   quota: ListQuotaResponseQuotaList;
   /** Total count of quota. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListQuotaResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     quota: ListQuotaResponseQuotaList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListQuotaResponse" }) as any as S.Schema<ListQuotaResponse>;
 
@@ -2547,13 +2547,13 @@ export const RuleProjectIdsList = /*@__PURE__*/ S.Array(
 
 export interface Rule {
   /** Id of rule. */
-  id?: string;
+  id: string;
   /** Names of permission sets bound to the rule. */
   permission_set_names?: RulePermissionSetNamesList | null;
   /** Permission_set_names have the same scope_type. */
-  permission_sets_scope_type?: PermissionSetScopeType;
+  permission_sets_scope_type: PermissionSetScopeType;
   /** Condition expression to evaluate. */
-  condition?: string;
+  condition: string;
   /** List of Project IDs the rule is scoped to. */
   project_ids?: RuleProjectIdsList | null;
   /** ID of Organization the rule is scoped to. */
@@ -2561,18 +2561,18 @@ export interface Rule {
   /** ID of account root user the rule is scoped to. */
   account_root_user_id?: string | null;
   /** The SRN of the rule. */
-  srn?: string;
+  srn: string;
 }
 export const Rule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     permission_set_names: S.optional(S.NullOr(RulePermissionSetNamesList)),
-    permission_sets_scope_type: S.optional(PermissionSetScopeType),
-    condition: S.optional(S.String),
+    permission_sets_scope_type: PermissionSetScopeType,
+    condition: S.String,
     project_ids: S.optional(S.NullOr(RuleProjectIdsList)),
     organization_id: S.optional(S.NullOr(S.String)),
     account_root_user_id: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Rule" }) as any as S.Schema<Rule>;
 
@@ -2586,12 +2586,12 @@ export interface ListRulesResponse {
   /** Rules of the policy. */
   rules: ListRulesResponseRulesList;
   /** Total count of rules. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     rules: ListRulesResponseRulesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListRulesResponse" }) as any as S.Schema<ListRulesResponse>;
 
@@ -2622,11 +2622,11 @@ export const ListSamlCertificatesResponseCertificatesList = /*@__PURE__*/ S.Arra
 
 export interface ListSamlCertificatesResponse {
   /** List of SAML certificates. */
-  certificates?: ListSamlCertificatesResponseCertificatesList;
+  certificates: ListSamlCertificatesResponseCertificatesList;
 }
 export const ListSamlCertificatesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    certificates: S.optional(ListSamlCertificatesResponseCertificatesList),
+    certificates: ListSamlCertificatesResponseCertificatesList,
   }),
 ).annotate({
   identifier: "ListSamlCertificatesResponse",
@@ -2671,12 +2671,12 @@ export interface ListScimTokensResponse {
   /** List of SCIM tokens. */
   scim_tokens: ListScimTokensResponseScimTokensList;
   /** Total count of SCIM tokens. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListScimTokensResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     scim_tokens: ListScimTokensResponseScimTokensList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListScimTokensResponse" }) as any as S.Schema<ListScimTokensResponse>;
 
@@ -2734,12 +2734,12 @@ export interface ListSSHKeysResponse {
   /** List of SSH keys. */
   ssh_keys: ListSSHKeysResponseSshKeysList;
   /** Total count of SSH keys. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSSHKeysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     ssh_keys: ListSSHKeysResponseSshKeysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSSHKeysResponse" }) as any as S.Schema<ListSSHKeysResponse>;
 
@@ -2809,12 +2809,12 @@ export interface ListUsersResponse {
   /** List of users. */
   users: ListUsersResponseUsersList;
   /** Total count of users. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     users: ListUsersResponseUsersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUsersResponse" }) as any as S.Schema<ListUsersResponse>;
 
@@ -2971,11 +2971,11 @@ export const SetRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetRulesResponse {
   /** Rules of the policy. */
-  rules?: SetRulesResponseRulesList;
+  rules: SetRulesResponseRulesList;
 }
 export const SetRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(SetRulesResponseRulesList),
+    rules: SetRulesResponseRulesList,
   }),
 ).annotate({ identifier: "SetRulesResponse" }) as any as S.Schema<SetRulesResponse>;
 
@@ -3355,11 +3355,11 @@ export const ValidateUserMFAOTPResponseRecoveryCodesList = /*@__PURE__*/ S.Array
 
 export interface ValidateUserMFAOTPResponse {
   /** List of recovery codes usable for this OTP method. */
-  recovery_codes?: ValidateUserMFAOTPResponseRecoveryCodesList;
+  recovery_codes: ValidateUserMFAOTPResponseRecoveryCodesList;
 }
 export const ValidateUserMFAOTPResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    recovery_codes: S.optional(ValidateUserMFAOTPResponseRecoveryCodesList),
+    recovery_codes: ValidateUserMFAOTPResponseRecoveryCodesList,
   }),
 ).annotate({
   identifier: "ValidateUserMFAOTPResponse",

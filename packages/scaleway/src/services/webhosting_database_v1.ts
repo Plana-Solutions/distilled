@@ -49,14 +49,14 @@ export const DatabaseUserDatabasesList = /*@__PURE__*/ S.Array(
 
 export interface DatabaseUser {
   /** Name of the database user. */
-  username?: string;
+  username: string;
   /** List of databases accessible by the user. */
-  databases?: DatabaseUserDatabasesList;
+  databases: DatabaseUserDatabasesList;
 }
 export const DatabaseUser = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    username: S.optional(S.String),
-    databases: S.optional(DatabaseUserDatabasesList),
+    username: S.String,
+    databases: DatabaseUserDatabasesList,
   }),
 ).annotate({ identifier: "DatabaseUser" }) as any as S.Schema<DatabaseUser>;
 
@@ -144,14 +144,14 @@ export const DatabaseUsersList = /*@__PURE__*/ S.Array(
 
 export interface Database {
   /** Name of the database. */
-  database_name?: string;
+  database_name: string;
   /** List of users who have access to the database. */
-  users?: DatabaseUsersList;
+  users: DatabaseUsersList;
 }
 export const Database = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    database_name: S.optional(S.String),
-    users: S.optional(DatabaseUsersList),
+    database_name: S.String,
+    users: DatabaseUsersList,
   }),
 ).annotate({ identifier: "Database" }) as any as S.Schema<Database>;
 
@@ -335,13 +335,13 @@ export const ListDatabasesResponseDatabasesList = /*@__PURE__*/ S.Array(
 
 export interface ListDatabasesResponse {
   /** Total number of databases. */
-  total_count?: number;
+  total_count: number;
   /** List of databases. */
   databases: ListDatabasesResponseDatabasesList;
 }
 export const ListDatabasesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     databases: ListDatabasesResponseDatabasesList,
   }),
 ).annotate({ identifier: "ListDatabasesResponse" }) as any as S.Schema<ListDatabasesResponse>;
@@ -389,13 +389,13 @@ export const ListDatabaseUsersResponseUsersList = /*@__PURE__*/ S.Array(
 
 export interface ListDatabaseUsersResponse {
   /** Total number of database users. */
-  total_count?: number;
+  total_count: number;
   /** List of database users. */
   users: ListDatabaseUsersResponseUsersList;
 }
 export const ListDatabaseUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     users: ListDatabaseUsersResponseUsersList,
   }),
 ).annotate({

@@ -54,9 +54,9 @@ export const BulkCreateBlocklistsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Blocklist {
   /** ID of the blocklist. */
-  id?: string;
+  id: string;
   /** Domain ID linked to the blocklist. */
-  domain_id?: string;
+  domain_id: string;
   /** Date and time of the blocklist creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of the blocklist's last update. (RFC 3339 format) */
@@ -64,25 +64,25 @@ export interface Blocklist {
   /** Date and time when the blocklist ends. Empty if the blocklist has no end. (RFC 3339 format) */
   ends_at?: string | null;
   /** Email blocked by the blocklist. */
-  email?: string;
+  email: string;
   /** Type of block for this email. */
-  type?: BlocklistType;
+  type: BlocklistType;
   /** Reason to block this email. */
-  reason?: string;
+  reason: string;
   /** True if this blocklist was created manually. False for an automatic Transactional Email blocklist. */
-  custom?: boolean;
+  custom: boolean;
 }
 export const Blocklist = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    domain_id: S.optional(S.String),
+    id: S.String,
+    domain_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     ends_at: S.optional(S.NullOr(S.String)),
-    email: S.optional(S.String),
-    type: S.optional(BlocklistType),
-    reason: S.optional(S.String),
-    custom: S.optional(S.Boolean),
+    email: S.String,
+    type: BlocklistType,
+    reason: S.String,
+    custom: S.Boolean,
   }),
 ).annotate({ identifier: "Blocklist" }) as any as S.Schema<Blocklist>;
 
@@ -94,11 +94,11 @@ export const BulkCreateBlocklistsResponseBlocklistsList = /*@__PURE__*/ S.Array(
 
 export interface BulkCreateBlocklistsResponse {
   /** List of blocklist created. */
-  blocklists?: BulkCreateBlocklistsResponseBlocklistsList;
+  blocklists: BulkCreateBlocklistsResponseBlocklistsList;
 }
 export const BulkCreateBlocklistsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    blocklists: S.optional(BulkCreateBlocklistsResponseBlocklistsList),
+    blocklists: BulkCreateBlocklistsResponseBlocklistsList,
   }),
 ).annotate({
   identifier: "BulkCreateBlocklistsResponse",
@@ -135,20 +135,20 @@ export const EmailStatus = S.String;
 
 export interface EmailTry {
   /** Rank number of this attempt to send the email. */
-  rank?: number;
+  rank: number;
   /** Date of the attempt to send the email. (RFC 3339 format) */
   tried_at?: string | null;
   /** The SMTP status code received after the attempt. 0 if the attempt did not reach an SMTP server. */
-  code?: number;
+  code: number;
   /** The SMTP message received. If the attempt did not reach an SMTP server, the message returned explains what happened. */
-  message?: string;
+  message: string;
 }
 export const EmailTry = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rank: S.optional(S.Number),
+    rank: S.Number,
     tried_at: S.optional(S.NullOr(S.String)),
-    code: S.optional(S.Number),
-    message: S.optional(S.String),
+    code: S.Number,
+    message: S.String,
   }),
 ).annotate({ identifier: "EmailTry" }) as any as S.Schema<EmailTry>;
 
@@ -176,53 +176,53 @@ export const EmailFlagsList = /*@__PURE__*/ S.Array(EmailFlag) as any as S.Schem
 
 export interface Email {
   /** Technical ID of the email. */
-  id?: string;
+  id: string;
   /** Message ID of the email. */
-  message_id?: string;
+  message_id: string;
   /** ID of the Project to which the email belongs. */
-  project_id?: string;
+  project_id: string;
   /** Email address of the sender. */
-  mail_from?: string;
+  mail_from: string;
   /** Deprecated. Email address of the recipient. */
   rcpt_to?: string;
   /** Email address of the recipient. */
-  mail_rcpt?: string;
+  mail_rcpt: string;
   /** Type of recipient. */
-  rcpt_type?: EmailRcptType;
+  rcpt_type: EmailRcptType;
   /** Subject of the email. */
-  subject?: string;
+  subject: string;
   /** Creation date of the email object. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update of the email object. (RFC 3339 format) */
   updated_at?: string | null;
   /** Status of the email. */
-  status?: EmailStatus;
+  status: EmailStatus;
   /** Additional status information. */
   status_details?: string | null;
   /** Number of attempts to send the email. */
-  try_count?: number;
+  try_count: number;
   /** Information about the last three attempts to send the email. */
-  last_tries?: EmailLastTriesList;
+  last_tries: EmailLastTriesList;
   /** Flags categorize emails. They allow you to obtain more information about recurring errors, for example. */
-  flags?: EmailFlagsList;
+  flags: EmailFlagsList;
 }
 export const Email = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    message_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    mail_from: S.optional(S.String),
+    id: S.String,
+    message_id: S.String,
+    project_id: S.String,
+    mail_from: S.String,
     rcpt_to: S.optional(S.String),
-    mail_rcpt: S.optional(S.String),
-    rcpt_type: S.optional(EmailRcptType),
-    subject: S.optional(S.String),
+    mail_rcpt: S.String,
+    rcpt_type: EmailRcptType,
+    subject: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(EmailStatus),
+    status: EmailStatus,
     status_details: S.optional(S.NullOr(S.String)),
-    try_count: S.optional(S.Number),
-    last_tries: S.optional(EmailLastTriesList),
-    flags: S.optional(EmailFlagsList),
+    try_count: S.Number,
+    last_tries: EmailLastTriesList,
+    flags: EmailFlagsList,
   }),
 ).annotate({ identifier: "Email" }) as any as S.Schema<Email>;
 
@@ -261,17 +261,17 @@ export type DomainStatus =
 export const DomainStatus = S.String;
 
 export interface DomainStatistics {
-  total_count?: number;
-  sent_count?: number;
-  failed_count?: number;
-  canceled_count?: number;
+  total_count: number;
+  sent_count: number;
+  failed_count: number;
+  canceled_count: number;
 }
 export const DomainStatistics = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    sent_count: S.optional(S.Number),
-    failed_count: S.optional(S.Number),
-    canceled_count: S.optional(S.Number),
+    total_count: S.Number,
+    sent_count: S.Number,
+    failed_count: S.Number,
+    canceled_count: S.Number,
   }),
 ).annotate({ identifier: "DomainStatistics" }) as any as S.Schema<DomainStatistics>;
 
@@ -280,9 +280,9 @@ export const DomainReputationStatus = S.String;
 
 export interface DomainReputation {
   /** Status of your domain's reputation. */
-  status?: DomainReputationStatus;
+  status: DomainReputationStatus;
   /** A range from 0 to 100 that determines your domain's reputation score. A score of `0` means a bad domain reputation and a score of `100` means an excellent domain reputation. */
-  score?: number;
+  score: number;
   /** Time and date the score was calculated. (RFC 3339 format) */
   scored_at?: string | null;
   /** The previously-calculated domain's reputation score. */
@@ -292,8 +292,8 @@ export interface DomainReputation {
 }
 export const DomainReputation = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainReputationStatus),
-    score: S.optional(S.Number),
+    status: DomainReputationStatus,
+    score: S.Number,
     scored_at: S.optional(S.NullOr(S.String)),
     previous_score: S.optional(S.NullOr(S.Number)),
     previous_scored_at: S.optional(S.NullOr(S.String)),
@@ -302,53 +302,53 @@ export const DomainReputation = /*@__PURE__*/ S.suspend(() =>
 
 export interface DomainRecordsDMARC {
   /** Name of the DMARC TXT record. */
-  name?: string;
+  name: string;
   /** Value of the DMARC TXT record. */
-  value?: string;
+  value: string;
 }
 export const DomainRecordsDMARC = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    value: S.optional(S.String),
+    name: S.String,
+    value: S.String,
   }),
 ).annotate({ identifier: "DomainRecordsDMARC" }) as any as S.Schema<DomainRecordsDMARC>;
 
 export interface DomainRecordsDKIM {
   /** Name of the DKIM TXT record. */
-  name?: string;
+  name: string;
   /** Value of the DKIM TXT record. */
-  value?: string;
+  value: string;
 }
 export const DomainRecordsDKIM = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    value: S.optional(S.String),
+    name: S.String,
+    value: S.String,
   }),
 ).annotate({ identifier: "DomainRecordsDKIM" }) as any as S.Schema<DomainRecordsDKIM>;
 
 export interface DomainRecordsSPF {
   /** Name of the SPF TXT record. */
-  name?: string;
+  name: string;
   /** Value of the SPF TXT record. */
-  value?: string;
+  value: string;
 }
 export const DomainRecordsSPF = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    value: S.optional(S.String),
+    name: S.String,
+    value: S.String,
   }),
 ).annotate({ identifier: "DomainRecordsSPF" }) as any as S.Schema<DomainRecordsSPF>;
 
 export interface DomainRecordsMX {
   /** Name of the MX record. */
-  name?: string;
+  name: string;
   /** Value of the MX record. */
-  value?: string;
+  value: string;
 }
 export const DomainRecordsMX = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    value: S.optional(S.String),
+    name: S.String,
+    value: S.String,
   }),
 ).annotate({ identifier: "DomainRecordsMX" }) as any as S.Schema<DomainRecordsMX>;
 
@@ -373,15 +373,15 @@ export const DomainRecords = /*@__PURE__*/ S.suspend(() =>
 
 export interface Domain {
   /** ID of the domain. */
-  id?: string;
+  id: string;
   /** ID of the domain's Organization. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the domain's Project. */
-  project_id?: string;
+  project_id: string;
   /** Domain name (example.com). */
-  name?: string;
+  name: string;
   /** Status of the domain. */
-  status?: DomainStatus;
+  status: DomainStatus;
   /** Date and time of domain creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of the next scheduled check. (RFC 3339 format) */
@@ -393,9 +393,9 @@ export interface Domain {
   /** Deprecated. Error message returned if the last check failed. */
   last_error?: string | null;
   /** Snippet of the SPF record to register in the DNS zone. */
-  spf_config?: string;
+  spf_config: string;
   /** DKIM public key to record in the DNS zone. */
-  dkim_config?: string;
+  dkim_config: string;
   /** Domain's statistics. */
   statistics?: DomainStatistics;
   /** The domain's reputation is available when your domain is checked and has sent enough emails. */
@@ -403,29 +403,29 @@ export interface Domain {
   /** List of records to configure to validate a domain. */
   records?: DomainRecords;
   /** Status of auto-configuration for the domain's DNS zone. */
-  autoconfig?: boolean;
+  autoconfig: boolean;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const Domain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(DomainStatus),
+    id: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    name: S.String,
+    status: DomainStatus,
     created_at: S.optional(S.NullOr(S.String)),
     next_check_at: S.optional(S.NullOr(S.String)),
     last_valid_at: S.optional(S.NullOr(S.String)),
     revoked_at: S.optional(S.NullOr(S.String)),
     last_error: S.optional(S.NullOr(S.String)),
-    spf_config: S.optional(S.String),
-    dkim_config: S.optional(S.String),
+    spf_config: S.String,
+    dkim_config: S.String,
     statistics: S.optional(DomainStatistics),
     reputation: S.optional(DomainReputation),
     records: S.optional(DomainRecords),
-    autoconfig: S.optional(S.Boolean),
-    region: S.optional(S.String),
+    autoconfig: S.Boolean,
+    region: S.String,
   }),
 ).annotate({ identifier: "Domain" }) as any as S.Schema<Domain>;
 
@@ -598,11 +598,11 @@ export const CreateEmailResponseEmailsList = /*@__PURE__*/ S.Array(
 
 export interface CreateEmailResponse {
   /** Single page of emails matching the requested criteria. */
-  emails?: CreateEmailResponseEmailsList;
+  emails: CreateEmailResponseEmailsList;
 }
 export const CreateEmailResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    emails: S.optional(CreateEmailResponseEmailsList),
+    emails: CreateEmailResponseEmailsList,
   }),
 ).annotate({ identifier: "CreateEmailResponse" }) as any as S.Schema<CreateEmailResponse>;
 
@@ -667,19 +667,19 @@ export const WebhookEventTypesList = /*@__PURE__*/ S.Array(
 
 export interface Webhook {
   /** ID of the Webhook. */
-  id?: string;
+  id: string;
   /** ID of the Domain to watch for triggering events. */
-  domain_id?: string;
+  domain_id: string;
   /** ID of the Webhook Organization. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the Webhook Project. */
-  project_id?: string;
+  project_id: string;
   /** Name of the Webhook. */
-  name?: string;
+  name: string;
   /** List of event types that will trigger a Webhook Event. */
-  event_types?: WebhookEventTypesList;
+  event_types: WebhookEventTypesList;
   /** Scaleway SNS ARN topic to push the events to. */
-  sns_arn?: string;
+  sns_arn: string;
   /** Date and time of the Webhook creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last Webhook updates. (RFC 3339 format) */
@@ -687,13 +687,13 @@ export interface Webhook {
 }
 export const Webhook = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    domain_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    event_types: S.optional(WebhookEventTypesList),
-    sns_arn: S.optional(S.String),
+    id: S.String,
+    domain_id: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    name: S.String,
+    event_types: WebhookEventTypesList,
+    sns_arn: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -812,7 +812,7 @@ export const DomainLastStatusRecordStatus = S.String;
 
 export interface DomainLastStatusSpfRecord {
   /** Status of the SPF record's configuration. */
-  status?: DomainLastStatusRecordStatus;
+  status: DomainLastStatusRecordStatus;
   /** Time and date the SPF record was last valid. (RFC 3339 format) */
   last_valid_at?: string | null;
   /** An error text displays in case the record is not valid. */
@@ -820,7 +820,7 @@ export interface DomainLastStatusSpfRecord {
 }
 export const DomainLastStatusSpfRecord = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainLastStatusRecordStatus),
+    status: DomainLastStatusRecordStatus,
     last_valid_at: S.optional(S.NullOr(S.String)),
     error: S.optional(S.NullOr(S.String)),
   }),
@@ -830,7 +830,7 @@ export const DomainLastStatusSpfRecord = /*@__PURE__*/ S.suspend(() =>
 
 export interface DomainLastStatusDkimRecord {
   /** Status of the DKIM record's configuration. */
-  status?: DomainLastStatusRecordStatus;
+  status: DomainLastStatusRecordStatus;
   /** Time and date the DKIM record was last valid. (RFC 3339 format) */
   last_valid_at?: string | null;
   /** An error text displays in case the record is not valid. */
@@ -838,7 +838,7 @@ export interface DomainLastStatusDkimRecord {
 }
 export const DomainLastStatusDkimRecord = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainLastStatusRecordStatus),
+    status: DomainLastStatusRecordStatus,
     last_valid_at: S.optional(S.NullOr(S.String)),
     error: S.optional(S.NullOr(S.String)),
   }),
@@ -848,7 +848,7 @@ export const DomainLastStatusDkimRecord = /*@__PURE__*/ S.suspend(() =>
 
 export interface DomainLastStatusDmarcRecord {
   /** Status of the DMARC record's configuration. */
-  status?: DomainLastStatusRecordStatus;
+  status: DomainLastStatusRecordStatus;
   /** Time and date the DMARC record was last valid. (RFC 3339 format) */
   last_valid_at?: string | null;
   /** An error text displays in case the record is not valid. */
@@ -856,7 +856,7 @@ export interface DomainLastStatusDmarcRecord {
 }
 export const DomainLastStatusDmarcRecord = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainLastStatusRecordStatus),
+    status: DomainLastStatusRecordStatus,
     last_valid_at: S.optional(S.NullOr(S.String)),
     error: S.optional(S.NullOr(S.String)),
   }),
@@ -866,7 +866,7 @@ export const DomainLastStatusDmarcRecord = /*@__PURE__*/ S.suspend(() =>
 
 export interface DomainLastStatusMXRecord {
   /** Status of the MX record's configuration. Status of the MX record's configuration. This record is optional to validate a domain, but highly recommended. */
-  status?: DomainLastStatusRecordStatus;
+  status: DomainLastStatusRecordStatus;
   /** Time and date the MX record was last valid. (RFC 3339 format) */
   last_valid_at?: string | null;
   /** An error text displays in case the record is not valid. */
@@ -874,7 +874,7 @@ export interface DomainLastStatusMXRecord {
 }
 export const DomainLastStatusMXRecord = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainLastStatusRecordStatus),
+    status: DomainLastStatusRecordStatus,
     last_valid_at: S.optional(S.NullOr(S.String)),
     error: S.optional(S.NullOr(S.String)),
   }),
@@ -888,17 +888,17 @@ export const DomainLastStatusAutoconfigStateReason = S.String;
 
 export interface DomainLastStatusAutoconfigState {
   /** Enable or disable the auto-configuration of domain DNS records. */
-  enabled?: boolean;
+  enabled: boolean;
   /** Whether the domain can be auto-configured or not. */
-  autoconfigurable?: boolean;
+  autoconfigurable: boolean;
   /** The reason that the domain cannot be auto-configurable. */
-  reason?: DomainLastStatusAutoconfigStateReason;
+  reason: DomainLastStatusAutoconfigStateReason;
 }
 export const DomainLastStatusAutoconfigState = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    enabled: S.optional(S.Boolean),
-    autoconfigurable: S.optional(S.Boolean),
-    reason: S.optional(DomainLastStatusAutoconfigStateReason),
+    enabled: S.Boolean,
+    autoconfigurable: S.Boolean,
+    reason: DomainLastStatusAutoconfigStateReason,
   }),
 ).annotate({
   identifier: "DomainLastStatusAutoconfigState",
@@ -906,9 +906,9 @@ export const DomainLastStatusAutoconfigState = /*@__PURE__*/ S.suspend(() =>
 
 export interface DomainLastStatus {
   /** The ID of the domain. */
-  domain_id?: string;
+  domain_id: string;
   /** The domain name (example.com). */
-  domain_name?: string;
+  domain_name: string;
   /** The SPF record verification data. */
   spf_record?: DomainLastStatusSpfRecord;
   /** The DKIM record verification data. */
@@ -922,8 +922,8 @@ export interface DomainLastStatus {
 }
 export const DomainLastStatus = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain_id: S.optional(S.String),
-    domain_name: S.optional(S.String),
+    domain_id: S.String,
+    domain_name: S.String,
     spf_record: S.optional(DomainLastStatusSpfRecord),
     dkim_record: S.optional(DomainLastStatusDkimRecord),
     dmarc_record: S.optional(DomainLastStatusDmarcRecord),
@@ -982,26 +982,26 @@ export const GetProjectConsumptionRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ProjectConsumption {
   /** ID of the project. */
-  project_id?: string;
+  project_id: string;
   /** Number of domains in the project. */
-  domains_count?: number;
+  domains_count: number;
   /** Number of dedicated IP in the project. */
-  dedicated_ips_count?: number;
+  dedicated_ips_count: number;
   /** Number of emails sent during the current month in the project. */
-  monthly_emails_count?: number;
+  monthly_emails_count: number;
   /** Number of webhooks in the project. */
-  webhooks_count?: number;
+  webhooks_count: number;
   /** Number of custom blocklists in the project. */
-  custom_blocklists_count?: number;
+  custom_blocklists_count: number;
 }
 export const ProjectConsumption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
-    domains_count: S.optional(S.Number),
-    dedicated_ips_count: S.optional(S.Number),
-    monthly_emails_count: S.optional(S.Number),
-    webhooks_count: S.optional(S.Number),
-    custom_blocklists_count: S.optional(S.Number),
+    project_id: S.String,
+    domains_count: S.Number,
+    dedicated_ips_count: S.Number,
+    monthly_emails_count: S.Number,
+    webhooks_count: S.Number,
+    custom_blocklists_count: S.Number,
   }),
 ).annotate({ identifier: "ProjectConsumption" }) as any as S.Schema<ProjectConsumption>;
 
@@ -1039,20 +1039,20 @@ export const ProjectSettingsPeriodicReportFrequency = S.String;
 
 export interface ProjectSettingsPeriodicReport {
   /** Enable or disable periodic report notifications. */
-  enabled?: boolean;
+  enabled: boolean;
   /** At which frequency you receive periodic report notifications. */
-  frequency?: ProjectSettingsPeriodicReportFrequency;
+  frequency: ProjectSettingsPeriodicReportFrequency;
   /** At which hour you receive periodic report notifications. */
-  sending_hour?: number;
+  sending_hour: number;
   /** On which day you receive periodic report notifications (1-7 weekly, 1-28 monthly). */
-  sending_day?: number;
+  sending_day: number;
 }
 export const ProjectSettingsPeriodicReport = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    enabled: S.optional(S.Boolean),
-    frequency: S.optional(ProjectSettingsPeriodicReportFrequency),
-    sending_hour: S.optional(S.Number),
-    sending_day: S.optional(S.Number),
+    enabled: S.Boolean,
+    frequency: ProjectSettingsPeriodicReportFrequency,
+    sending_hour: S.Number,
+    sending_day: S.Number,
   }),
 ).annotate({
   identifier: "ProjectSettingsPeriodicReport",
@@ -1105,26 +1105,26 @@ export const GetStatisticsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Statistics {
   /** Total number of emails matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Number of emails still in the `new` transient state. This means emails received from the API but not yet processed. */
-  new_count?: number;
+  new_count: number;
   /** Number of emails still in the `sending` transient state. This means emails received from the API but not yet in their final status. */
-  sending_count?: number;
+  sending_count: number;
   /** Number of emails in the final `sent` state. This means emails that have been delivered to the target mail system. */
-  sent_count?: number;
+  sent_count: number;
   /** Number of emails in the final `failed` state. This means emails that have been refused by the target mail system with a final error status. */
-  failed_count?: number;
+  failed_count: number;
   /** Number of emails in the final `canceled` state. This means emails that have been canceled upon request. */
-  canceled_count?: number;
+  canceled_count: number;
 }
 export const Statistics = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    new_count: S.optional(S.Number),
-    sending_count: S.optional(S.Number),
-    sent_count: S.optional(S.Number),
-    failed_count: S.optional(S.Number),
-    canceled_count: S.optional(S.Number),
+    total_count: S.Number,
+    new_count: S.Number,
+    sending_count: S.Number,
+    sent_count: S.Number,
+    failed_count: S.Number,
+    canceled_count: S.Number,
   }),
 ).annotate({ identifier: "Statistics" }) as any as S.Schema<Statistics>;
 
@@ -1207,13 +1207,13 @@ export const ListBlocklistsResponseBlocklistsList = /*@__PURE__*/ S.Array(
 
 export interface ListBlocklistsResponse {
   /** Number of blocklists matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of blocklists matching the requested criteria. */
   blocklists: ListBlocklistsResponseBlocklistsList;
 }
 export const ListBlocklistsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     blocklists: ListBlocklistsResponseBlocklistsList,
   }),
 ).annotate({ identifier: "ListBlocklistsResponse" }) as any as S.Schema<ListBlocklistsResponse>;
@@ -1269,13 +1269,13 @@ export const ListDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
 
 export interface ListDomainsResponse {
   /** Number of domains that match the request (without pagination). */
-  total_count?: number;
+  total_count: number;
   /** Single page of domains matching the requested criteria. */
   domains: ListDomainsResponseDomainsList;
 }
 export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     domains: ListDomainsResponseDomainsList,
   }),
 ).annotate({ identifier: "ListDomainsResponse" }) as any as S.Schema<ListDomainsResponse>;
@@ -1376,13 +1376,13 @@ export const ListEmailsResponseEmailsList = /*@__PURE__*/ S.Array(
 
 export interface ListEmailsResponse {
   /** Number of emails matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of emails matching the requested criteria. */
   emails: ListEmailsResponseEmailsList;
 }
 export const ListEmailsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     emails: ListEmailsResponseEmailsList,
   }),
 ).annotate({ identifier: "ListEmailsResponse" }) as any as S.Schema<ListEmailsResponse>;
@@ -1412,35 +1412,35 @@ export const OfferName = S.String;
 
 export interface Offer {
   /** Name of the offer. */
-  name?: OfferName;
+  name: OfferName;
   /** Date and time of the offer creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Period of commitment. (in seconds) */
   commitment_period?: string | null;
   /** Service Level Agreement percentage of the offer. */
-  sla?: number;
+  sla: number;
   /** Max number of checked domains that can be associated with the offer. */
-  max_domains?: number;
+  max_domains: number;
   /** Max number of dedicated IPs that can be associated with the offer. */
-  max_dedicated_ips?: number;
+  max_dedicated_ips: number;
   /** Number of emails included in the offer per month. */
-  included_monthly_emails?: number;
+  included_monthly_emails: number;
   /** Max number of webhooks that can be associated with the offer. */
-  max_webhooks_per_domain?: number;
+  max_webhooks_per_domain: number;
   /** Max number of active custom blocklists that can be associated with the offer. */
-  max_custom_blocklists_per_domain?: number;
+  max_custom_blocklists_per_domain: number;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(OfferName),
+    name: OfferName,
     created_at: S.optional(S.NullOr(S.String)),
     commitment_period: S.optional(S.NullOr(S.String)),
-    sla: S.optional(S.Number),
-    max_domains: S.optional(S.Number),
-    max_dedicated_ips: S.optional(S.Number),
-    included_monthly_emails: S.optional(S.Number),
-    max_webhooks_per_domain: S.optional(S.Number),
-    max_custom_blocklists_per_domain: S.optional(S.Number),
+    sla: S.Number,
+    max_domains: S.Number,
+    max_dedicated_ips: S.Number,
+    included_monthly_emails: S.Number,
+    max_webhooks_per_domain: S.Number,
+    max_custom_blocklists_per_domain: S.Number,
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
 
@@ -1452,14 +1452,14 @@ export const ListOffersResponseOffersList = /*@__PURE__*/ S.Array(
 
 export interface ListOffersResponse {
   /** Number of offers matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of offers matching the requested criteria. */
-  offers?: ListOffersResponseOffersList;
+  offers: ListOffersResponseOffersList;
 }
 export const ListOffersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    offers: S.optional(ListOffersResponseOffersList),
+    total_count: S.Number,
+    offers: ListOffersResponseOffersList,
   }),
 ).annotate({ identifier: "ListOffersResponse" }) as any as S.Schema<ListOffersResponse>;
 
@@ -1502,41 +1502,41 @@ export const ListOfferSubscriptionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface OfferSubscription {
   /** ID of the offer-subscription Organization. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the offer-subscription Project. */
-  project_id?: string;
+  project_id: string;
   /** Name of the offer associated with the Project. */
-  offer_name?: OfferName;
+  offer_name: OfferName;
   /** Date and time of the subscription. (RFC 3339 format) */
   subscribed_at?: string | null;
   /** Date and time of the end of the offer-subscription commitment. (RFC 3339 format) */
   cancellation_available_at?: string | null;
   /** Service Level Agreement percentage of the offer-subscription. */
-  sla?: number;
+  sla: number;
   /** Max number of domains that can be associated with the offer-subscription for a particular Project. */
-  max_domains?: number;
+  max_domains: number;
   /** Max number of dedicated IPs that can be associated with the offer-subscription for a particular Project. */
-  max_dedicated_ips?: number;
+  max_dedicated_ips: number;
   /** Max number of webhooks that can be associated with the offer-subscription for a particular Project. */
-  max_webhooks_per_domain?: number;
+  max_webhooks_per_domain: number;
   /** Max number of custom blocklists that can be associated with the offer-subscription for a particular Project. */
-  max_custom_blocklists_per_domain?: number;
+  max_custom_blocklists_per_domain: number;
   /** Number of emails included in the offer-subscription per month. */
-  included_monthly_emails?: number;
+  included_monthly_emails: number;
 }
 export const OfferSubscription = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    offer_name: S.optional(OfferName),
+    organization_id: S.String,
+    project_id: S.String,
+    offer_name: OfferName,
     subscribed_at: S.optional(S.NullOr(S.String)),
     cancellation_available_at: S.optional(S.NullOr(S.String)),
-    sla: S.optional(S.Number),
-    max_domains: S.optional(S.Number),
-    max_dedicated_ips: S.optional(S.Number),
-    max_webhooks_per_domain: S.optional(S.Number),
-    max_custom_blocklists_per_domain: S.optional(S.Number),
-    included_monthly_emails: S.optional(S.Number),
+    sla: S.Number,
+    max_domains: S.Number,
+    max_dedicated_ips: S.Number,
+    max_webhooks_per_domain: S.Number,
+    max_custom_blocklists_per_domain: S.Number,
+    included_monthly_emails: S.Number,
   }),
 ).annotate({ identifier: "OfferSubscription" }) as any as S.Schema<OfferSubscription>;
 
@@ -1548,13 +1548,13 @@ export const ListOfferSubscriptionsResponseOfferSubscriptionsList = /*@__PURE__*
 
 export interface ListOfferSubscriptionsResponse {
   /** Number of offer-subscriptions matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of offer-subscriptions matching the requested criteria. */
   offer_subscriptions: ListOfferSubscriptionsResponseOfferSubscriptionsList;
 }
 export const ListOfferSubscriptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     offer_subscriptions: ListOfferSubscriptionsResponseOfferSubscriptionsList,
   }),
 ).annotate({
@@ -1599,25 +1599,25 @@ export const PoolIpsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<Po
 
 export interface Pool {
   /** ID of the Project. */
-  project_id?: string;
+  project_id: string;
   /** Status of the pool. */
-  status?: PoolStatus;
+  status: PoolStatus;
   /** Details of the pool. */
   details?: string | null;
   /** Zone of the pool. */
   zone?: string | null;
   /** IPs of the pool. (IP address) */
-  ips?: PoolIpsList;
+  ips: PoolIpsList;
   /** Reverse hostname of all IPs of the pool. */
   reverse?: string | null;
 }
 export const Pool = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
-    status: S.optional(PoolStatus),
+    project_id: S.String,
+    status: PoolStatus,
     details: S.optional(S.NullOr(S.String)),
     zone: S.optional(S.NullOr(S.String)),
-    ips: S.optional(PoolIpsList),
+    ips: PoolIpsList,
     reverse: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Pool" }) as any as S.Schema<Pool>;
@@ -1630,13 +1630,13 @@ export const ListPoolsResponsePoolsList = /*@__PURE__*/ S.Array(
 
 export interface ListPoolsResponse {
   /** Number of pools matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of pools matching the requested criteria. */
   pools: ListPoolsResponsePoolsList;
 }
 export const ListPoolsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     pools: ListPoolsResponsePoolsList,
   }),
 ).annotate({ identifier: "ListPoolsResponse" }) as any as S.Schema<ListPoolsResponse>;
@@ -1709,21 +1709,21 @@ export const ListWebhookEventsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface WebhookEvent {
   /** ID of the Webhook Event. */
-  id?: string;
+  id: string;
   /** ID of the Webhook that triggers the Event. */
-  webhook_id?: string;
+  webhook_id: string;
   /** ID of the Webhook Event Organization. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the Webhook Event Project. */
-  project_id?: string;
+  project_id: string;
   /** ID of the webhook event domain. */
-  domain_id?: string;
+  domain_id: string;
   /** Type of the Webhook Event. */
-  type?: WebhookEventType;
+  type: WebhookEventType;
   /** Status of the Webhook Event. */
-  status?: WebhookEventStatus;
+  status: WebhookEventStatus;
   /** Data sent to the Webhook destination. */
-  data?: string;
+  data: string;
   /** Date and time of the Webhook Event creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last Webhook Event updates. (RFC 3339 format) */
@@ -1733,14 +1733,14 @@ export interface WebhookEvent {
 }
 export const WebhookEvent = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    webhook_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    domain_id: S.optional(S.String),
-    type: S.optional(WebhookEventType),
-    status: S.optional(WebhookEventStatus),
-    data: S.optional(S.String),
+    id: S.String,
+    webhook_id: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    domain_id: S.String,
+    type: WebhookEventType,
+    status: WebhookEventStatus,
+    data: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     email_id: S.optional(S.NullOr(S.String)),
@@ -1755,13 +1755,13 @@ export const ListWebhookEventsResponseWebhookEventsList = /*@__PURE__*/ S.Array(
 
 export interface ListWebhookEventsResponse {
   /** Number of Webhook events matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of Webhook events matching the requested criteria. */
   webhook_events: ListWebhookEventsResponseWebhookEventsList;
 }
 export const ListWebhookEventsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     webhook_events: ListWebhookEventsResponseWebhookEventsList,
   }),
 ).annotate({
@@ -1817,13 +1817,13 @@ export const ListWebhooksResponseWebhooksList = /*@__PURE__*/ S.Array(
 
 export interface ListWebhooksResponse {
   /** Number of Webhooks matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Single page of Webhooks matching the requested criteria. */
   webhooks: ListWebhooksResponseWebhooksList;
 }
 export const ListWebhooksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     webhooks: ListWebhooksResponseWebhooksList,
   }),
 ).annotate({ identifier: "ListWebhooksResponse" }) as any as S.Schema<ListWebhooksResponse>;

@@ -87,30 +87,30 @@ export const DNSZoneLinkedProductsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DNSZoneLinkedProductsList>;
 
 export interface DNSZone {
-  domain?: string;
-  subdomain?: string;
-  ns?: DNSZoneNsList;
-  ns_default?: DNSZoneNsDefaultList;
-  ns_master?: DNSZoneNsMasterList;
-  status?: DNSZoneStatus;
+  domain: string;
+  subdomain: string;
+  ns: DNSZoneNsList;
+  ns_default: DNSZoneNsDefaultList;
+  ns_master: DNSZoneNsMasterList;
+  status: DNSZoneStatus;
   message?: string | null;
   /** (RFC 3339 format) */
   updated_at?: string | null;
-  project_id?: string;
-  linked_products?: DNSZoneLinkedProductsList;
+  project_id: string;
+  linked_products: DNSZoneLinkedProductsList;
 }
 export const DNSZone = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    subdomain: S.optional(S.String),
-    ns: S.optional(DNSZoneNsList),
-    ns_default: S.optional(DNSZoneNsDefaultList),
-    ns_master: S.optional(DNSZoneNsMasterList),
-    status: S.optional(DNSZoneStatus),
+    domain: S.String,
+    subdomain: S.String,
+    ns: DNSZoneNsList,
+    ns_default: DNSZoneNsDefaultList,
+    ns_master: DNSZoneNsMasterList,
+    status: DNSZoneStatus,
     message: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
-    linked_products: S.optional(DNSZoneLinkedProductsList),
+    project_id: S.String,
+    linked_products: DNSZoneLinkedProductsList,
   }),
 ).annotate({ identifier: "DNSZone" }) as any as S.Schema<DNSZone>;
 
@@ -171,11 +171,11 @@ export type SSLCertificateStatus = "unknown" | "new" | "pending" | "success" | "
 export const SSLCertificateStatus = S.String;
 
 export interface SSLCertificate {
-  dns_zone?: string;
-  alternative_dns_zones?: SSLCertificateAlternativeDnsZonesList;
-  status?: SSLCertificateStatus;
-  private_key?: string | Redacted.Redacted<string>;
-  certificate_chain?: string;
+  dns_zone: string;
+  alternative_dns_zones: SSLCertificateAlternativeDnsZonesList;
+  status: SSLCertificateStatus;
+  private_key: string | Redacted.Redacted<string>;
+  certificate_chain: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
   /** (RFC 3339 format) */
@@ -183,11 +183,11 @@ export interface SSLCertificate {
 }
 export const SSLCertificate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    dns_zone: S.optional(S.String),
-    alternative_dns_zones: S.optional(SSLCertificateAlternativeDnsZonesList),
-    status: S.optional(SSLCertificateStatus),
-    private_key: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    certificate_chain: S.optional(S.String),
+    dns_zone: S.String,
+    alternative_dns_zones: SSLCertificateAlternativeDnsZonesList,
+    status: SSLCertificateStatus,
+    private_key: S.String.pipe(T.SensitiveValue({})),
+    certificate_chain: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     expired_at: S.optional(S.NullOr(S.String)),
   }),
@@ -290,15 +290,15 @@ export const ExportRawDNSZoneRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ExportRawDNSZoneRequest" }) as any as S.Schema<ExportRawDNSZoneRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -347,15 +347,15 @@ export const GetDNSZoneTsigKeyRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetDNSZoneTsigKeyRequest" }) as any as S.Schema<GetDNSZoneTsigKeyRequest>;
 
 export interface GetDNSZoneTsigKeyResponse {
-  name?: string;
-  key?: string;
-  algorithm?: string;
+  name: string;
+  key: string;
+  algorithm: string;
 }
 export const GetDNSZoneTsigKeyResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    key: S.optional(S.String),
-    algorithm: S.optional(S.String),
+    name: S.String,
+    key: S.String,
+    algorithm: S.String,
   }),
 ).annotate({
   identifier: "GetDNSZoneTsigKeyResponse",
@@ -637,11 +637,11 @@ export const GetDNSZoneVersionDiffResponseChangesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<GetDNSZoneVersionDiffResponseChangesList>;
 
 export interface GetDNSZoneVersionDiffResponse {
-  changes?: GetDNSZoneVersionDiffResponseChangesList;
+  changes: GetDNSZoneVersionDiffResponseChangesList;
 }
 export const GetDNSZoneVersionDiffResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    changes: S.optional(GetDNSZoneVersionDiffResponseChangesList),
+    changes: GetDNSZoneVersionDiffResponseChangesList,
   }),
 ).annotate({
   identifier: "GetDNSZoneVersionDiffResponse",
@@ -700,11 +700,11 @@ export const ImportProviderDNSZoneResponseRecordsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ImportProviderDNSZoneResponseRecordsList>;
 
 export interface ImportProviderDNSZoneResponse {
-  records?: ImportProviderDNSZoneResponseRecordsList;
+  records: ImportProviderDNSZoneResponseRecordsList;
 }
 export const ImportProviderDNSZoneResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    records: S.optional(ImportProviderDNSZoneResponseRecordsList),
+    records: ImportProviderDNSZoneResponseRecordsList,
   }),
 ).annotate({
   identifier: "ImportProviderDNSZoneResponse",
@@ -784,11 +784,11 @@ export const ImportRawDNSZoneResponseRecordsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ImportRawDNSZoneResponseRecordsList>;
 
 export interface ImportRawDNSZoneResponse {
-  records?: ImportRawDNSZoneResponseRecordsList;
+  records: ImportRawDNSZoneResponseRecordsList;
 }
 export const ImportRawDNSZoneResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    records: S.optional(ImportRawDNSZoneResponseRecordsList),
+    records: ImportRawDNSZoneResponseRecordsList,
   }),
 ).annotate({ identifier: "ImportRawDNSZoneResponse" }) as any as S.Schema<ImportRawDNSZoneResponse>;
 
@@ -838,11 +838,11 @@ export const ListDNSZoneNameserversResponseNsList = /*@__PURE__*/ S.Array(
 
 export interface ListDNSZoneNameserversResponse {
   /** DNS zone name servers returned. */
-  ns?: ListDNSZoneNameserversResponseNsList;
+  ns: ListDNSZoneNameserversResponseNsList;
 }
 export const ListDNSZoneNameserversResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ns: S.optional(ListDNSZoneNameserversResponseNsList),
+    ns: ListDNSZoneNameserversResponseNsList,
   }),
 ).annotate({
   identifier: "ListDNSZoneNameserversResponse",
@@ -899,13 +899,13 @@ export const ListDNSZoneRecordsResponseRecordsList = /*@__PURE__*/ S.Array(
 
 export interface ListDNSZoneRecordsResponse {
   /** Total number of DNS zone records. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned DNS zone records. */
   records: ListDNSZoneRecordsResponseRecordsList;
 }
 export const ListDNSZoneRecordsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     records: ListDNSZoneRecordsResponseRecordsList,
   }),
 ).annotate({
@@ -986,13 +986,13 @@ export const ListDNSZonesResponseDnsZonesList = /*@__PURE__*/ S.Array(
 
 export interface ListDNSZonesResponse {
   /** Total number of DNS zones matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned DNS zones. */
   dns_zones: ListDNSZonesResponseDnsZonesList;
 }
 export const ListDNSZonesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     dns_zones: ListDNSZonesResponseDnsZonesList,
   }),
 ).annotate({ identifier: "ListDNSZonesResponse" }) as any as S.Schema<ListDNSZonesResponse>;
@@ -1029,12 +1029,12 @@ export const ListDNSZoneVersionRecordsResponseRecordsList = /*@__PURE__*/ S.Arra
 
 export interface ListDNSZoneVersionRecordsResponse {
   /** Total number of DNS zones versions records. */
-  total_count?: number;
+  total_count: number;
   records: ListDNSZoneVersionRecordsResponseRecordsList;
 }
 export const ListDNSZoneVersionRecordsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     records: ListDNSZoneVersionRecordsResponseRecordsList,
   }),
 ).annotate({
@@ -1067,13 +1067,13 @@ export const ListDNSZoneVersionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface DNSZoneVersion {
   /** (UUID format) */
-  id?: string;
+  id: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
 }
 export const DNSZoneVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "DNSZoneVersion" }) as any as S.Schema<DNSZoneVersion>;
@@ -1085,12 +1085,12 @@ export const ListDNSZoneVersionsResponseVersionsList = /*@__PURE__*/ S.Array(
 
 export interface ListDNSZoneVersionsResponse {
   /** Total number of DNS zones versions. */
-  total_count?: number;
+  total_count: number;
   versions: ListDNSZoneVersionsResponseVersionsList;
 }
 export const ListDNSZoneVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     versions: ListDNSZoneVersionsResponseVersionsList,
   }),
 ).annotate({
@@ -1127,12 +1127,12 @@ export const ListSSLCertificatesResponseCertificatesList = /*@__PURE__*/ S.Array
 ) as any as S.Schema<ListSSLCertificatesResponseCertificatesList>;
 
 export interface ListSSLCertificatesResponse {
-  total_count?: number;
+  total_count: number;
   certificates: ListSSLCertificatesResponseCertificatesList;
 }
 export const ListSSLCertificatesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     certificates: ListSSLCertificatesResponseCertificatesList,
   }),
 ).annotate({
@@ -1170,11 +1170,11 @@ export const RefreshDNSZoneResponseDnsZonesList = /*@__PURE__*/ S.Array(
 
 export interface RefreshDNSZoneResponse {
   /** DNS zones returned. */
-  dns_zones?: RefreshDNSZoneResponseDnsZonesList;
+  dns_zones: RefreshDNSZoneResponseDnsZonesList;
 }
 export const RefreshDNSZoneResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    dns_zones: S.optional(RefreshDNSZoneResponseDnsZonesList),
+    dns_zones: RefreshDNSZoneResponseDnsZonesList,
   }),
 ).annotate({ identifier: "RefreshDNSZoneResponse" }) as any as S.Schema<RefreshDNSZoneResponse>;
 
@@ -1263,11 +1263,11 @@ export const UpdateDNSZoneNameserversResponseNsList = /*@__PURE__*/ S.Array(
 
 export interface UpdateDNSZoneNameserversResponse {
   /** DNS zone name servers returned. */
-  ns?: UpdateDNSZoneNameserversResponseNsList;
+  ns: UpdateDNSZoneNameserversResponseNsList;
 }
 export const UpdateDNSZoneNameserversResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ns: S.optional(UpdateDNSZoneNameserversResponseNsList),
+    ns: UpdateDNSZoneNameserversResponseNsList,
   }),
 ).annotate({
   identifier: "UpdateDNSZoneNameserversResponse",
@@ -1318,11 +1318,11 @@ export const UpdateDNSZoneRecordsResponseRecordsList = /*@__PURE__*/ S.Array(
 
 export interface UpdateDNSZoneRecordsResponse {
   /** DNS zone records returned. */
-  records?: UpdateDNSZoneRecordsResponseRecordsList;
+  records: UpdateDNSZoneRecordsResponseRecordsList;
 }
 export const UpdateDNSZoneRecordsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    records: S.optional(UpdateDNSZoneRecordsResponseRecordsList),
+    records: UpdateDNSZoneRecordsResponseRecordsList,
   }),
 ).annotate({
   identifier: "UpdateDNSZoneRecordsResponse",

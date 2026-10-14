@@ -63,78 +63,78 @@ export const BgpStatus = S.String;
 
 export interface PartnerHost {
   /** ID of the partner facilitating the link. (UUID format) */
-  partner_id?: string;
+  partner_id: string;
   /** Used to identify a link from a user or partner's point of view. */
-  pairing_key?: string;
+  pairing_key: string;
   /** Reason given by partner to explain why they did not approve the request for a hosted link. */
   disapproved_reason?: string | null;
   /** Whether or not the partner supports L3 connectivity. */
-  l3_connectivity?: boolean;
+  l3_connectivity: boolean;
 }
 export const PartnerHost = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    partner_id: S.optional(S.String),
-    pairing_key: S.optional(S.String),
+    partner_id: S.String,
+    pairing_key: S.String,
     disapproved_reason: S.optional(S.NullOr(S.String)),
-    l3_connectivity: S.optional(S.Boolean),
+    l3_connectivity: S.Boolean,
   }),
 ).annotate({ identifier: "PartnerHost" }) as any as S.Schema<PartnerHost>;
 
 export interface SelfHost {
   /** Dedicated physical connection supporting the link. (UUID format) */
-  connection_id?: string;
+  connection_id: string;
 }
 export const SelfHost = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    connection_id: S.optional(S.String),
+    connection_id: S.String,
   }),
 ).annotate({ identifier: "SelfHost" }) as any as S.Schema<SelfHost>;
 
 export interface BgpConfig {
   /** AS Number of the BGP peer. */
-  asn?: number;
+  asn: number;
   /** IPv4 address of the BGP peer. (IP network) */
-  ipv4?: string;
+  ipv4: string;
   /** IPv6 address of the BGP peer. (IP network) */
-  ipv6?: string;
+  ipv6: string;
 }
 export const BgpConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    asn: S.optional(S.Number),
-    ipv4: S.optional(S.String),
-    ipv6: S.optional(S.String),
+    asn: S.Number,
+    ipv4: S.String,
+    ipv6: S.String,
   }),
 ).annotate({ identifier: "BgpConfig" }) as any as S.Schema<BgpConfig>;
 
 export interface Link {
   /** Unique identifier of the link. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the link. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the link. */
-  name?: string;
+  name: string;
   /** List of tags associated with the link. */
-  tags?: LinkTagsList;
+  tags: LinkTagsList;
   /** ID of the PoP where the link's corresponding connection is located. (UUID format) */
-  pop_id?: string;
+  pop_id: string;
   /** Rate limited bandwidth of the link. */
-  bandwidth_mbps?: number;
+  bandwidth_mbps: number;
   /** Status of the link. */
-  status?: LinkStatus;
+  status: LinkStatus;
   /** Status of the link's BGP IPv4 session. */
-  bgp_v4_status?: BgpStatus;
+  bgp_v4_status: BgpStatus;
   /** Status of the link's BGP IPv6 session. */
-  bgp_v6_status?: BgpStatus;
+  bgp_v6_status: BgpStatus;
   /** ID of the Scaleway VPC attached to the link. (UUID format) */
   vpc_id?: string | null;
   /** Deprecated. Use routing_policy_v4_id or routing_policy_v6_id instead. (UUID format) */
   routing_policy_id?: string | null;
   /** Defines whether route propagation is enabled or not. To enable or disable route propagation, use the dedicated endpoint. */
-  enable_route_propagation?: boolean;
+  enable_route_propagation: boolean;
   /** Creation date of the link. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the link. (RFC 3339 format) */
@@ -144,7 +144,7 @@ export interface Link {
   /** Self-host information. */
   self?: SelfHost | null;
   /** VLAN of the link. */
-  vlan?: number;
+  vlan: number;
   /** BGP configuration on Scaleway's side. */
   scw_bgp_config?: BgpConfig;
   /** BGP configuration on peer's side (on-premises or other hosting provider). */
@@ -154,34 +154,34 @@ export interface Link {
   /** ID of the routing policy IPv6 attached to the link. (UUID format) */
   routing_policy_v6_id?: string | null;
   /** Region of the link. */
-  region?: string;
+  region: string;
 }
 export const Link = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(LinkTagsList),
-    pop_id: S.optional(S.String),
-    bandwidth_mbps: S.optional(S.Number),
-    status: S.optional(LinkStatus),
-    bgp_v4_status: S.optional(BgpStatus),
-    bgp_v6_status: S.optional(BgpStatus),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    tags: LinkTagsList,
+    pop_id: S.String,
+    bandwidth_mbps: S.Number,
+    status: LinkStatus,
+    bgp_v4_status: BgpStatus,
+    bgp_v6_status: BgpStatus,
     vpc_id: S.optional(S.NullOr(S.String)),
     routing_policy_id: S.optional(S.NullOr(S.String)),
-    enable_route_propagation: S.optional(S.Boolean),
+    enable_route_propagation: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     partner: S.optional(S.NullOr(PartnerHost)),
     self: S.optional(S.NullOr(SelfHost)),
-    vlan: S.optional(S.Number),
+    vlan: S.Number,
     scw_bgp_config: S.optional(BgpConfig),
     peer_bgp_config: S.optional(BgpConfig),
     routing_policy_v4_id: S.optional(S.NullOr(S.String)),
     routing_policy_v6_id: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Link" }) as any as S.Schema<Link>;
 
@@ -348,44 +348,44 @@ export const RoutingPolicyPrefixFilterOutList = /*@__PURE__*/ S.Array(
 
 export interface RoutingPolicy {
   /** Unique identifier of the routing policy. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the routing policy. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the routing policy. */
-  name?: string;
+  name: string;
   /** List of tags associated with the routing policy. */
-  tags?: RoutingPolicyTagsList;
+  tags: RoutingPolicyTagsList;
   /** IP prefixes to accept from the peer (ranges of route announcements to accept). (IP network) */
-  prefix_filter_in?: RoutingPolicyPrefixFilterInList;
+  prefix_filter_in: RoutingPolicyPrefixFilterInList;
   /** IP prefix filters to advertise to the peer (ranges of routes to advertise). (IP network) */
-  prefix_filter_out?: RoutingPolicyPrefixFilterOutList;
+  prefix_filter_out: RoutingPolicyPrefixFilterOutList;
   /** Creation date of the routing policy. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the routing policy. (RFC 3339 format) */
   updated_at?: string | null;
   /** IP prefixes version of the routing policy. */
-  is_ipv6?: boolean;
+  is_ipv6: boolean;
   /** Region of the routing policy. */
-  region?: string;
+  region: string;
 }
 export const RoutingPolicy = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(RoutingPolicyTagsList),
-    prefix_filter_in: S.optional(RoutingPolicyPrefixFilterInList),
-    prefix_filter_out: S.optional(RoutingPolicyPrefixFilterOutList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    tags: RoutingPolicyTagsList,
+    prefix_filter_in: RoutingPolicyPrefixFilterInList,
+    prefix_filter_out: RoutingPolicyPrefixFilterOutList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    is_ipv6: S.optional(S.Boolean),
-    region: S.optional(S.String),
+    is_ipv6: S.Boolean,
+    region: S.String,
   }),
 ).annotate({ identifier: "RoutingPolicy" }) as any as S.Schema<RoutingPolicy>;
 
@@ -592,37 +592,37 @@ export const DedicatedConnectionAvailableLinkBandwidthsList = /*@__PURE__*/ S.Ar
 ) as any as S.Schema<DedicatedConnectionAvailableLinkBandwidthsList>;
 
 export interface Range {
-  start?: number;
-  end?: number;
+  start: number;
+  end: number;
 }
 export const Range = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    start: S.optional(S.Number),
-    end: S.optional(S.Number),
+    start: S.Number,
+    end: S.Number,
   }),
 ).annotate({ identifier: "Range" }) as any as S.Schema<Range>;
 
 export interface DedicatedConnection {
   /** Unique identifier of the dedicated connection. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the dedicated connection. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Status of the dedicated connection. */
-  status?: DedicatedConnectionStatus;
+  status: DedicatedConnectionStatus;
   /** Name of the dedicated connection. */
-  name?: string;
+  name: string;
   /** List of tags associated with the dedicated connection. */
-  tags?: DedicatedConnectionTagsList;
+  tags: DedicatedConnectionTagsList;
   /** ID of the PoP where the dedicated connection is located. (UUID format) */
-  pop_id?: string;
+  pop_id: string;
   /** Bandwidth size of the dedicated connection. */
-  bandwidth_mbps?: number;
+  bandwidth_mbps: number;
   /** Size of the links supported on this dedicated connection. */
-  available_link_bandwidths?: DedicatedConnectionAvailableLinkBandwidthsList;
+  available_link_bandwidths: DedicatedConnectionAvailableLinkBandwidthsList;
   /** Creation date of the dedicated connection. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the dedicated connection. (RFC 3339 format) */
@@ -632,25 +632,25 @@ export interface DedicatedConnection {
   /** Range in which to pick vlan for self-hosted links on this dedicated connection. Both start & end are included. Any range defined here must be itself included in the greater allowed range of vlans from 1500 to 3899 (this range is hardware dependent and can change over time, but actual range will be enforced). */
   vlan_range?: Range;
   /** Region of the dedicated connection. */
-  region?: string;
+  region: string;
 }
 export const DedicatedConnection = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    status: S.optional(DedicatedConnectionStatus),
-    name: S.optional(S.String),
-    tags: S.optional(DedicatedConnectionTagsList),
-    pop_id: S.optional(S.String),
-    bandwidth_mbps: S.optional(S.Number),
-    available_link_bandwidths: S.optional(DedicatedConnectionAvailableLinkBandwidthsList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    status: DedicatedConnectionStatus,
+    name: S.String,
+    tags: DedicatedConnectionTagsList,
+    pop_id: S.String,
+    bandwidth_mbps: S.Number,
+    available_link_bandwidths: DedicatedConnectionAvailableLinkBandwidthsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     demarcation_info: S.optional(S.NullOr(S.String)),
     vlan_range: S.optional(Range),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "DedicatedConnection" }) as any as S.Schema<DedicatedConnection>;
 
@@ -702,38 +702,38 @@ export const GetPartnerRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Partner {
   /** Unique identifier of the partner. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the partner. */
-  srn?: string;
+  srn: string;
   /** Name of the partner. */
-  name?: string;
+  name: string;
   /** Contact email address of partner. */
-  contact_email?: string;
+  contact_email: string;
   /** Image URL of the partner's logo. */
-  logo_url?: string;
+  logo_url: string;
   /** URL of the partner's portal. */
-  portal_url?: string;
+  portal_url: string;
   /** Creation date of the partner. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the partner. (RFC 3339 format) */
   updated_at?: string | null;
   /** Whether or not the partner supports L3 connectivity. */
-  l3_connectivity?: boolean;
+  l3_connectivity: boolean;
   /** Region of the partner. */
-  region?: string;
+  region: string;
 }
 export const Partner = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    contact_email: S.optional(S.String),
-    logo_url: S.optional(S.String),
-    portal_url: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    contact_email: S.String,
+    logo_url: S.String,
+    portal_url: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    l3_connectivity: S.optional(S.Boolean),
-    region: S.optional(S.String),
+    l3_connectivity: S.Boolean,
+    region: S.String,
   }),
 ).annotate({ identifier: "Partner" }) as any as S.Schema<Partner>;
 
@@ -768,38 +768,38 @@ export const PopAvailableLinkBandwidthsMbpsList = /*@__PURE__*/ S.Array(
 
 export interface Pop {
   /** Unique identifier of the PoP. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the pop. */
-  srn?: string;
+  srn: string;
   /** Name of the PoP. It is the common reference of Hosting DC (ex: TH2). */
-  name?: string;
+  name: string;
   /** Name of the PoP's hosting provider, e.g. Telehouse for TH2 or OpCore for DC3. */
-  hosting_provider_name?: string;
+  hosting_provider_name: string;
   /** Physical address of the PoP. */
-  address?: string;
+  address: string;
   /** City where PoP is located. */
-  city?: string;
+  city: string;
   /** Image URL of the PoP's logo. */
-  logo_url?: string;
+  logo_url: string;
   /** Available bandwidth in Mbits/s for future hosted links from available connections in this PoP. */
-  available_link_bandwidths_mbps?: PopAvailableLinkBandwidthsMbpsList;
+  available_link_bandwidths_mbps: PopAvailableLinkBandwidthsMbpsList;
   /** Pretty name of the PoP. Includes name, hosting provider and location information (ex: Paris - TeleHouse TH2). */
-  display_name?: string;
+  display_name: string;
   /** Region of the PoP. */
-  region?: string;
+  region: string;
 }
 export const Pop = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    hosting_provider_name: S.optional(S.String),
-    address: S.optional(S.String),
-    city: S.optional(S.String),
-    logo_url: S.optional(S.String),
-    available_link_bandwidths_mbps: S.optional(PopAvailableLinkBandwidthsMbpsList),
-    display_name: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    hosting_provider_name: S.String,
+    address: S.String,
+    city: S.String,
+    logo_url: S.String,
+    available_link_bandwidths_mbps: PopAvailableLinkBandwidthsMbpsList,
+    display_name: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Pop" }) as any as S.Schema<Pop>;
 
@@ -904,12 +904,12 @@ export interface ListDedicatedConnectionsResponse {
   /** List of connections on current page. */
   connections: ListDedicatedConnectionsResponseConnectionsList;
   /** Total number of connections returned. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDedicatedConnectionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     connections: ListDedicatedConnectionsResponseConnectionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListDedicatedConnectionsResponse",
@@ -1016,12 +1016,12 @@ export interface ListLinksResponse {
   /** List of links on the current page. */
   links: ListLinksResponseLinksList;
   /** Total number of links. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListLinksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     links: ListLinksResponseLinksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListLinksResponse" }) as any as S.Schema<ListLinksResponse>;
 
@@ -1078,12 +1078,12 @@ export interface ListPartnersResponse {
   /** List of partners on current page. */
   partners: ListPartnersResponsePartnersList;
   /** Total number of partners returned. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPartnersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     partners: ListPartnersResponsePartnersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPartnersResponse" }) as any as S.Schema<ListPartnersResponse>;
 
@@ -1147,12 +1147,12 @@ export interface ListPopsResponse {
   /** List of PoPs on the current page. */
   pops: ListPopsResponsePopsList;
   /** Total number of PoPs. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPopsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     pops: ListPopsResponsePopsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPopsResponse" }) as any as S.Schema<ListPopsResponse>;
 
@@ -1221,12 +1221,12 @@ export const ListRoutingPoliciesResponseRoutingPoliciesList = /*@__PURE__*/ S.Ar
 
 export interface ListRoutingPoliciesResponse {
   routing_policies: ListRoutingPoliciesResponseRoutingPoliciesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListRoutingPoliciesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     routing_policies: ListRoutingPoliciesResponseRoutingPoliciesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListRoutingPoliciesResponse",

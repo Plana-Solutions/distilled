@@ -39,14 +39,14 @@ export const CheckFreeDomainAvailabilityRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface FreeDomain {
   /** Custom prefix used for the free domain. */
-  slug?: string;
+  slug: string;
   /** Free root domain provided by Web Hosting, selected from the list returned by `ListFreeRootDomains`. */
-  root_domain?: string;
+  root_domain: string;
 }
 export const FreeDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    slug: S.optional(S.String),
-    root_domain: S.optional(S.String),
+    slug: S.String,
+    root_domain: S.String,
   }),
 ).annotate({ identifier: "FreeDomain" }) as any as S.Schema<FreeDomain>;
 
@@ -65,15 +65,15 @@ export interface CheckFreeDomainAvailabilityResponse {
   /** The free domain that was checked. */
   free_domain?: FreeDomain;
   /** Whether the free domain is available. */
-  is_available?: boolean;
+  is_available: boolean;
   /** Reason the domain is unavailable, if applicable. */
-  reason?: CheckFreeDomainAvailabilityResponseUnavailableReason;
+  reason: CheckFreeDomainAvailabilityResponseUnavailableReason;
 }
 export const CheckFreeDomainAvailabilityResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     free_domain: S.optional(FreeDomain),
-    is_available: S.optional(S.Boolean),
-    reason: S.optional(CheckFreeDomainAvailabilityResponseUnavailableReason),
+    is_available: S.Boolean,
+    reason: CheckFreeDomainAvailabilityResponseUnavailableReason,
   }),
 ).annotate({
   identifier: "CheckFreeDomainAvailabilityResponse",
@@ -117,12 +117,12 @@ export interface ListFreeRootDomainsResponse {
   /** List of free root domains available for the Web Hosting. */
   root_domains: ListFreeRootDomainsResponseRootDomainsList;
   /** Total number of free root domains available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListFreeRootDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     root_domains: ListFreeRootDomainsResponseRootDomainsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListFreeRootDomainsResponse",

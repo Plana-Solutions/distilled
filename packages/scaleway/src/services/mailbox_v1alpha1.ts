@@ -78,23 +78,23 @@ export const MailboxStatus = S.String;
 
 export interface Mailbox {
   /** Unique identifier of the mailbox. (UUID format) */
-  id?: string;
+  id: string;
   /** ID of the Project to which the mailbox belongs. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** ID of the Organization to which the mailbox belongs. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the domain to which the mailbox belongs. (UUID format) */
-  domain_id?: string;
+  domain_id: string;
   /** Email address of the mailbox as local_part@domain. */
-  email?: string;
+  email: string;
   /** Status of the mailbox. */
-  status?: MailboxStatus;
+  status: MailboxStatus;
   /** Subscription renewal period, it can be monthly, yearly or canceled if the subscription has been canceled. */
-  subscription_period?: MailboxSubscriptionPeriod;
+  subscription_period: MailboxSubscriptionPeriod;
   /** Date and time of subscription period start. (RFC 3339 format) */
   subscription_period_started_at?: string | null;
   /** Next subscription renewal period, it can be monthly or yearly or canceled if the subscription has been canceled. */
-  next_subscription_period?: MailboxSubscriptionPeriod;
+  next_subscription_period: MailboxSubscriptionPeriod;
   /** Date and time when the next subscription period starts. (RFC 3339 format) */
   next_subscription_period_starts_at?: string | null;
   /** Date and time of mailbox creation. (RFC 3339 format) */
@@ -106,15 +106,15 @@ export interface Mailbox {
 }
 export const Mailbox = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    domain_id: S.optional(S.String),
-    email: S.optional(S.String),
-    status: S.optional(MailboxStatus),
-    subscription_period: S.optional(MailboxSubscriptionPeriod),
+    id: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    domain_id: S.String,
+    email: S.String,
+    status: MailboxStatus,
+    subscription_period: MailboxSubscriptionPeriod,
     subscription_period_started_at: S.optional(S.NullOr(S.String)),
-    next_subscription_period: S.optional(MailboxSubscriptionPeriod),
+    next_subscription_period: MailboxSubscriptionPeriod,
     next_subscription_period_starts_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
@@ -130,11 +130,11 @@ export const BatchCreateMailboxesResponseMailboxesList = /*@__PURE__*/ S.Array(
 
 export interface BatchCreateMailboxesResponse {
   /** Mailboxes created. */
-  mailboxes?: BatchCreateMailboxesResponseMailboxesList;
+  mailboxes: BatchCreateMailboxesResponseMailboxesList;
 }
 export const BatchCreateMailboxesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    mailboxes: S.optional(BatchCreateMailboxesResponseMailboxesList),
+    mailboxes: BatchCreateMailboxesResponseMailboxesList,
   }),
 ).annotate({
   identifier: "BatchCreateMailboxesResponse",
@@ -168,15 +168,15 @@ export const AliasStatus = S.String;
 
 export interface Alias {
   /** Unique identifier of the alias. (UUID format) */
-  id?: string;
+  id: string;
   /** Email address of the alias as local_part@domain. */
-  email?: string;
+  email: string;
   /** ID of the mailbox to which the alias belongs. (UUID format) */
-  mailbox_id?: string;
+  mailbox_id: string;
   /** Description of the alias. */
-  description?: string;
+  description: string;
   /** Current status of the alias. */
-  status?: AliasStatus;
+  status: AliasStatus;
   /** Date and time of alias creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time when the alias was last updated. (RFC 3339 format) */
@@ -184,11 +184,11 @@ export interface Alias {
 }
 export const Alias = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    email: S.optional(S.String),
-    mailbox_id: S.optional(S.String),
-    description: S.optional(S.String),
-    status: S.optional(AliasStatus),
+    id: S.String,
+    email: S.String,
+    mailbox_id: S.String,
+    description: S.String,
+    status: AliasStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -227,44 +227,44 @@ export const DomainStatus = S.String;
 
 export interface Domain {
   /** Unique identifier of the domain. (UUID format) */
-  id?: string;
+  id: string;
   /** ID of the Project to which the domain belongs. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** ID of the Organization to which the domain belongs. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Fully qualified domain name. */
-  name?: string;
+  name: string;
   /** Status of the domain. */
-  status?: DomainStatus;
+  status: DomainStatus;
   /** Number of mailboxes of the domain. */
-  mailbox_total_count?: number;
+  mailbox_total_count: number;
   /** Date and time of domain creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of the domain's last update. (RFC 3339 format) */
   updated_at?: string | null;
   /** URL of the domain's webmail. */
-  webmail_url?: string;
+  webmail_url: string;
   /** URL of the domain's IMAP service. */
-  imap_url?: string;
+  imap_url: string;
   /** URL of the domain's POP3 service. */
-  pop3_url?: string;
+  pop3_url: string;
   /** URL of the domain's SMTP service. */
-  smtp_url?: string;
+  smtp_url: string;
 }
 export const Domain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(DomainStatus),
-    mailbox_total_count: S.optional(S.Number),
+    id: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    status: DomainStatus,
+    mailbox_total_count: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    webmail_url: S.optional(S.String),
-    imap_url: S.optional(S.String),
-    pop3_url: S.optional(S.String),
-    smtp_url: S.optional(S.String),
+    webmail_url: S.String,
+    imap_url: S.String,
+    pop3_url: S.String,
+    smtp_url: S.String,
   }),
 ).annotate({ identifier: "Domain" }) as any as S.Schema<Domain>;
 
@@ -298,26 +298,26 @@ export const ForwardingStatus = S.String;
 
 export interface Forwarding {
   /** Unique identifier of the forwarding rule. (UUID format) */
-  id?: string;
+  id: string;
   /** Date and time of forwarding rule creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time when the forwarding rule was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** ID of the mailbox to which the forwarding rule belongs. (UUID format) */
-  mailbox_id?: string;
+  mailbox_id: string;
   /** Destination email address to which incoming emails are forwarded. */
-  email?: string;
+  email: string;
   /** Status of the forwarding rule. */
-  status?: ForwardingStatus;
+  status: ForwardingStatus;
 }
 export const Forwarding = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    mailbox_id: S.optional(S.String),
-    email: S.optional(S.String),
-    status: S.optional(ForwardingStatus),
+    mailbox_id: S.String,
+    email: S.String,
+    status: ForwardingStatus,
   }),
 ).annotate({ identifier: "Forwarding" }) as any as S.Schema<Forwarding>;
 
@@ -461,19 +461,19 @@ export const DomainRecordDNSType = S.String;
 
 export interface DomainRecord {
   /** Unique identifier of the DNS record. (UUID format) */
-  id?: string;
+  id: string;
   /** ID of the domain to which the record belongs. (UUID format) */
-  domain_id?: string;
+  domain_id: string;
   /** Status of the record. */
-  status?: DomainRecordStatus;
+  status: DomainRecordStatus;
   /** Level of requirement of the record. */
-  level?: DomainRecordLevel;
+  level: DomainRecordLevel;
   /** DNS type of the record. */
-  dns_type?: DomainRecordDNSType;
+  dns_type: DomainRecordDNSType;
   /** DNS name of the record. */
-  dns_name?: string;
+  dns_name: string;
   /** DNS value of the record. */
-  dns_value?: string;
+  dns_value: string;
   /** Error associated in case the record is not valid. */
   error?: string | null;
   /** Date and time of record creation. (RFC 3339 format) */
@@ -483,13 +483,13 @@ export interface DomainRecord {
 }
 export const DomainRecord = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    domain_id: S.optional(S.String),
-    status: S.optional(DomainRecordStatus),
-    level: S.optional(DomainRecordLevel),
-    dns_type: S.optional(DomainRecordDNSType),
-    dns_name: S.optional(S.String),
-    dns_value: S.optional(S.String),
+    id: S.String,
+    domain_id: S.String,
+    status: DomainRecordStatus,
+    level: DomainRecordLevel,
+    dns_type: DomainRecordDNSType,
+    dns_name: S.String,
+    dns_value: S.String,
     error: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
@@ -594,11 +594,11 @@ export const GetMailboxForwardingRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface MailboxForwarding {
   /** ID of the mailbox to which the forwarding settings belong. (UUID format) */
-  mailbox_id?: string;
+  mailbox_id: string;
   /** Whether to keep a copy of forwarded emails in the local mailbox. */
-  keep_copy?: boolean;
+  keep_copy: boolean;
   /** Whether forwarding is enabled for the mailbox. When disabled, no emails are forwarded. */
-  enabled?: boolean;
+  enabled: boolean;
   /** Date and time of the forwarding settings creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time when the forwarding settings were last updated. (RFC 3339 format) */
@@ -606,9 +606,9 @@ export interface MailboxForwarding {
 }
 export const MailboxForwarding = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    mailbox_id: S.optional(S.String),
-    keep_copy: S.optional(S.Boolean),
-    enabled: S.optional(S.Boolean),
+    mailbox_id: S.String,
+    keep_copy: S.Boolean,
+    enabled: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -663,13 +663,13 @@ export const ListAliasesResponseAliasesList = /*@__PURE__*/ S.Array(
 
 export interface ListAliasesResponse {
   /** Number of aliases that match the request (without pagination). */
-  total_count?: number;
+  total_count: number;
   /** Single page of aliases matching the requested criteria. */
   aliases: ListAliasesResponseAliasesList;
 }
 export const ListAliasesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     aliases: ListAliasesResponseAliasesList,
   }),
 ).annotate({ identifier: "ListAliasesResponse" }) as any as S.Schema<ListAliasesResponse>;
@@ -725,13 +725,13 @@ export const ListDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
 
 export interface ListDomainsResponse {
   /** Number of domains that match the request (without pagination). */
-  total_count?: number;
+  total_count: number;
   /** Single page of domains matching the requested criteria. */
   domains: ListDomainsResponseDomainsList;
 }
 export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     domains: ListDomainsResponseDomainsList,
   }),
 ).annotate({ identifier: "ListDomainsResponse" }) as any as S.Schema<ListDomainsResponse>;
@@ -788,13 +788,13 @@ export const ListForwardingsResponseForwardingsList = /*@__PURE__*/ S.Array(
 
 export interface ListForwardingsResponse {
   /** Number of forwarding rules that match the request (without pagination). */
-  total_count?: number;
+  total_count: number;
   /** Single page of forwarding rules matching the requested criteria. */
   forwardings: ListForwardingsResponseForwardingsList;
 }
 export const ListForwardingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     forwardings: ListForwardingsResponseForwardingsList,
   }),
 ).annotate({ identifier: "ListForwardingsResponse" }) as any as S.Schema<ListForwardingsResponse>;
@@ -856,13 +856,13 @@ export const ListMailboxesResponseMailboxesList = /*@__PURE__*/ S.Array(
 
 export interface ListMailboxesResponse {
   /** Number of mailboxes that match the request (without pagination). */
-  total_count?: number;
+  total_count: number;
   /** Mailboxes matching the requested criteria. */
   mailboxes: ListMailboxesResponseMailboxesList;
 }
 export const ListMailboxesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     mailboxes: ListMailboxesResponseMailboxesList,
   }),
 ).annotate({ identifier: "ListMailboxesResponse" }) as any as S.Schema<ListMailboxesResponse>;

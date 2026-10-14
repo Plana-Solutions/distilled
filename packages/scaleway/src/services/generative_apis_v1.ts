@@ -70,9 +70,9 @@ export const Limit = /*@__PURE__*/ S.suspend(() =>
 
 export interface ConsumptionLimits {
   /** Processing unit type. */
-  processing_unit?: ProcessingUnit;
+  processing_unit: ProcessingUnit;
   /** Rate limit quota per minute applied across the entire Organization. */
-  organization_rate_limit?: number;
+  organization_rate_limit: number;
   /** Secondary rate limit quota per minute applied to the Project. */
   project_rate_limit?: Limit;
   /** Daily consumption budget per user. */
@@ -82,8 +82,8 @@ export interface ConsumptionLimits {
 }
 export const ConsumptionLimits = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    processing_unit: S.optional(ProcessingUnit),
-    organization_rate_limit: S.optional(S.Number),
+    processing_unit: ProcessingUnit,
+    organization_rate_limit: S.Number,
     project_rate_limit: S.optional(Limit),
     user_daily_budget: S.optional(Limit),
     user_monthly_budget: S.optional(Limit),
@@ -98,20 +98,20 @@ export const ConsumptionLimitsResponseLimitsList = /*@__PURE__*/ S.Array(
 
 export interface ConsumptionLimitsResponse {
   /** Model name identifier. */
-  model_id?: string;
+  model_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Model limit objects. */
-  limits?: ConsumptionLimitsResponseLimitsList;
+  limits: ConsumptionLimitsResponseLimitsList;
 }
 export const ConsumptionLimitsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    model_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    limits: S.optional(ConsumptionLimitsResponseLimitsList),
+    model_id: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    limits: ConsumptionLimitsResponseLimitsList,
   }),
 ).annotate({
   identifier: "ConsumptionLimitsResponse",
@@ -127,12 +127,12 @@ export interface ListConsumptionLimitsResponse {
   /** List of consumption limit objects. */
   consumption_limits: ListConsumptionLimitsResponseConsumptionLimitsList;
   /** Total count of objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListConsumptionLimitsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     consumption_limits: ListConsumptionLimitsResponseConsumptionLimitsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListConsumptionLimitsResponse",

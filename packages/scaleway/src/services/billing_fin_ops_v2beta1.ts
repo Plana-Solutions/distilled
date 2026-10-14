@@ -88,33 +88,33 @@ export const ListChargesRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListChargesRequest" }) as any as S.Schema<ListChargesRequest>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface Charge {
   /** ID of the charged organization. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the charged organization. */
-  organization_name?: string;
+  organization_name: string;
   /** ID of the charged project. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Name of the charged project. */
-  project_name?: string;
+  project_name: string;
   /** ID of the SKU the charge is priced with. */
-  sku?: string;
+  sku: string;
   /** ID of the invoice including the charge. (UUID format) */
-  invoice_id?: string;
+  invoice_id: string;
   /** ID of the resource that incurs the charge. */
-  resource_id?: string;
+  resource_id: string;
   /** Optional display name assigned to the resource that incurs the charge. */
   resource_name?: string | null;
   /** Price of the charge. */
@@ -128,13 +128,13 @@ export interface Charge {
 }
 export const Charge = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    organization_id: S.optional(S.String),
-    organization_name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    project_name: S.optional(S.String),
-    sku: S.optional(S.String),
-    invoice_id: S.optional(S.String),
-    resource_id: S.optional(S.String),
+    organization_id: S.String,
+    organization_name: S.String,
+    project_id: S.String,
+    project_name: S.String,
+    sku: S.String,
+    invoice_id: S.String,
+    resource_id: S.String,
     resource_name: S.optional(S.NullOr(S.String)),
     price: S.optional(GoogleTypeMoney),
     start_date: S.optional(S.NullOr(S.String)),

@@ -241,13 +241,15 @@
         "gateway_networks": {
           "target": "com.scaleway.vpc_gw_v2#ListGatewayNetworksResponseGatewayNetworksList",
           "traits": {
-            "smithy.api#documentation": "GatewayNetworks on this page."
+            "smithy.api#documentation": "GatewayNetworks on this page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total GatewayNetworks count matching the filter."
+            "smithy.api#documentation": "Total GatewayNetworks count matching the filter.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -259,13 +261,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Public Gateway-Private Network connection. (UUID format)"
+            "smithy.api#documentation": "ID of the Public Gateway-Private Network connection. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the gateway network."
+            "smithy.api#documentation": "The SRN of the gateway network.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -285,13 +289,15 @@
         "gateway_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the connected Public Gateway. (UUID format)"
+            "smithy.api#documentation": "ID of the connected Public Gateway. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the connected Private Network. (UUID format)"
+            "smithy.api#documentation": "ID of the connected Private Network. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "mac_address": {
@@ -304,31 +310,36 @@
         "masquerade_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the gateway masquerades traffic for this Private Network (Dynamic NAT)."
+            "smithy.api#documentation": "Defines whether the gateway masquerades traffic for this Private Network (Dynamic NAT).",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.vpc_gw_v2#GatewayNetworkStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the Public Gateway's connection to the Private Network."
+            "smithy.api#documentation": "Current status of the Public Gateway's connection to the Private Network.",
+            "smithy.api#required": {}
           }
         },
         "push_default_route": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Enabling the default route also enables masquerading."
+            "smithy.api#documentation": "Enabling the default route also enables masquerading.",
+            "smithy.api#required": {}
           }
         },
         "ipam_ip_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Use this IPAM-booked IP ID as the Gateway's IP in this Private Network. (UUID format)"
+            "smithy.api#documentation": "Use this IPAM-booked IP ID as the Gateway's IP in this Private Network. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the GatewayNetwork connection."
+            "smithy.api#documentation": "Zone of the GatewayNetwork connection.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -897,7 +908,8 @@
         "types": {
           "target": "com.scaleway.vpc_gw_v2#ListGatewayTypesResponseTypesList",
           "traits": {
-            "smithy.api#documentation": "Available types of Public Gateway."
+            "smithy.api#documentation": "Available types of Public Gateway.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -909,19 +921,22 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Public Gateway type name."
+            "smithy.api#documentation": "Public Gateway type name.",
+            "smithy.api#required": {}
           }
         },
         "bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Bandwidth, in bps, of the Public Gateway. This is the public bandwidth to the outer Internet, and the internal bandwidth to each connected Private Networks."
+            "smithy.api#documentation": "Bandwidth, in bps, of the Public Gateway. This is the public bandwidth to the outer Internet, and the internal bandwidth to each connected Private Networks.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone the Public Gateway type is available in."
+            "smithy.api#documentation": "Zone the Public Gateway type is available in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1254,13 +1269,15 @@
         "gateways": {
           "target": "com.scaleway.vpc_gw_v2#ListGatewaysResponseGatewaysList",
           "traits": {
-            "smithy.api#documentation": "Gateways on this page."
+            "smithy.api#documentation": "Gateways on this page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of gateways matching the filter."
+            "smithy.api#documentation": "Total count of gateways matching the filter.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1272,25 +1289,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the gateway. (UUID format)"
+            "smithy.api#documentation": "ID of the gateway. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the gateway."
+            "smithy.api#documentation": "The SRN of the gateway.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Owning Organization. (UUID format)"
+            "smithy.api#documentation": "Owning Organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Owning Project. (UUID format)"
+            "smithy.api#documentation": "Owning Project. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1310,31 +1331,36 @@
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Gateway type name (commercial offer)."
+            "smithy.api#documentation": "Gateway type name (commercial offer).",
+            "smithy.api#required": {}
           }
         },
         "bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Bandwidth available of the gateway."
+            "smithy.api#documentation": "Bandwidth available of the gateway.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.vpc_gw_v2#GatewayStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the gateway."
+            "smithy.api#documentation": "Current status of the gateway.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the gateway."
+            "smithy.api#documentation": "Name of the gateway.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.vpc_gw_v2#GatewayTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the gateway."
+            "smithy.api#documentation": "Tags associated with the gateway.",
+            "smithy.api#required": {}
           }
         },
         "ipv4": {
@@ -1346,7 +1372,8 @@
         "gateway_networks": {
           "target": "com.scaleway.vpc_gw_v2#GatewayGatewayNetworksList",
           "traits": {
-            "smithy.api#documentation": "GatewayNetwork objects attached to the gateway (each one represents a connection to a Private Network)."
+            "smithy.api#documentation": "GatewayNetwork objects attached to the gateway (each one represents a connection to a Private Network).",
+            "smithy.api#required": {}
           }
         },
         "version": {
@@ -1366,37 +1393,43 @@
         "bastion_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether SSH bastion is enabled on the gateway."
+            "smithy.api#documentation": "Defines whether SSH bastion is enabled on the gateway.",
+            "smithy.api#required": {}
           }
         },
         "bastion_port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Port of the SSH bastion."
+            "smithy.api#documentation": "Port of the SSH bastion.",
+            "smithy.api#required": {}
           }
         },
         "smtp_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether SMTP traffic is allowed to pass through the gateway."
+            "smithy.api#documentation": "Defines whether SMTP traffic is allowed to pass through the gateway.",
+            "smithy.api#required": {}
           }
         },
         "is_legacy": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the gateway uses non-IPAM IP configurations."
+            "smithy.api#documentation": "Defines whether the gateway uses non-IPAM IP configurations.",
+            "smithy.api#required": {}
           }
         },
         "bastion_allowed_ips": {
           "target": "com.scaleway.vpc_gw_v2#GatewayBastionAllowedIpsList",
           "traits": {
-            "smithy.api#documentation": "Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network)"
+            "smithy.api#documentation": "Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the gateway."
+            "smithy.api#documentation": "Zone of the gateway.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1417,25 +1450,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address ID. (UUID format)"
+            "smithy.api#documentation": "IP address ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the ip."
+            "smithy.api#documentation": "The SRN of the ip.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Owning Organization. (UUID format)"
+            "smithy.api#documentation": "Owning Organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Owning Project. (UUID format)"
+            "smithy.api#documentation": "Owning Project. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1455,13 +1492,15 @@
         "tags": {
           "target": "com.scaleway.vpc_gw_v2#IPTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the IP address."
+            "smithy.api#documentation": "Tags associated with the IP address.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The IP address itself. (IP address)"
+            "smithy.api#documentation": "The IP address itself. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "reverse": {
@@ -1481,7 +1520,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the IP address."
+            "smithy.api#documentation": "Zone of the IP address.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2150,7 +2190,8 @@
         "ip_ranges": {
           "target": "com.scaleway.vpc_gw_v2#AddBastionAllowedIPsResponseIpRangesList",
           "traits": {
-            "smithy.api#documentation": "Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network)"
+            "smithy.api#documentation": "Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2287,7 +2328,8 @@
         "ip_ranges": {
           "target": "com.scaleway.vpc_gw_v2#SetBastionAllowedIPsResponseIpRangesList",
           "traits": {
-            "smithy.api#documentation": "Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network)"
+            "smithy.api#documentation": "Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2824,13 +2866,15 @@
         "ips": {
           "target": "com.scaleway.vpc_gw_v2#ListIPsResponseIpsList",
           "traits": {
-            "smithy.api#documentation": "IP addresses on this page."
+            "smithy.api#documentation": "IP addresses on this page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of IP addresses matching the filter."
+            "smithy.api#documentation": "Total count of IP addresses matching the filter.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3514,13 +3558,15 @@
         "pat_rules": {
           "target": "com.scaleway.vpc_gw_v2#ListPatRulesResponsePatRulesList",
           "traits": {
-            "smithy.api#documentation": "Array of PAT rules matching the filter."
+            "smithy.api#documentation": "Array of PAT rules matching the filter.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of PAT rules matching the filter."
+            "smithy.api#documentation": "Total count of PAT rules matching the filter.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3532,19 +3578,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "PAT rule ID. (UUID format)"
+            "smithy.api#documentation": "PAT rule ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the PAT rule."
+            "smithy.api#documentation": "The SRN of the PAT rule.",
+            "smithy.api#required": {}
           }
         },
         "gateway_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Gateway the PAT rule applies to. (UUID format)"
+            "smithy.api#documentation": "Gateway the PAT rule applies to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3564,31 +3613,36 @@
         "public_port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Public port to listen on."
+            "smithy.api#documentation": "Public port to listen on.",
+            "smithy.api#required": {}
           }
         },
         "private_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private IP address to forward data to. (IP address)"
+            "smithy.api#documentation": "Private IP address to forward data to. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "private_port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Private port to translate to."
+            "smithy.api#documentation": "Private port to translate to.",
+            "smithy.api#required": {}
           }
         },
         "protocol": {
           "target": "com.scaleway.vpc_gw_v2#PatRuleProtocol",
           "traits": {
-            "smithy.api#documentation": "Protocol the rule applies to."
+            "smithy.api#documentation": "Protocol the rule applies to.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the PAT rule."
+            "smithy.api#documentation": "Zone of the PAT rule.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3884,7 +3938,8 @@
         "pat_rules": {
           "target": "com.scaleway.vpc_gw_v2#SetPatRulesResponsePatRulesList",
           "traits": {
-            "smithy.api#documentation": "List of PAT rules."
+            "smithy.api#documentation": "List of PAT rules.",
+            "smithy.api#required": {}
           }
         }
       },

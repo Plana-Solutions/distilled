@@ -32,11 +32,11 @@ export const ChangeUserEmailRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ChangeUserEmailResponse {
   /** Email address for an already pending change request. */
-  pending_email?: string;
+  pending_email: string;
 }
 export const ChangeUserEmailResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    pending_email: S.optional(S.String),
+    pending_email: S.String,
   }),
 ).annotate({ identifier: "ChangeUserEmailResponse" }) as any as S.Schema<ChangeUserEmailResponse>;
 
@@ -116,17 +116,17 @@ export const CreateMFAOTPRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface MFAOTP {
   /** ID of the MFA OTP. */
-  id?: string;
+  id: string;
   /** Secret of the MFA OTP. */
   secret?: string | Redacted.Redacted<string> | null;
   /** The SRN of the MFA OTP. */
-  srn?: string;
+  srn: string;
 }
 export const MFAOTP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     secret: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "MFAOTP" }) as any as S.Schema<MFAOTP>;
 
@@ -317,14 +317,14 @@ export const FinishWebAuthnRegistrationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface FinishWebAuthnRegistrationResponse {
   /** ID of the WebAuthn authenticator. */
-  authenticator_id?: string;
+  authenticator_id: string;
   /** Set to true when the authenticator was created with UV verification. This indicates that the authenticator supports user verification and was verified during registration. */
-  uv_verified?: boolean;
+  uv_verified: boolean;
 }
 export const FinishWebAuthnRegistrationResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    authenticator_id: S.optional(S.String),
-    uv_verified: S.optional(S.Boolean),
+    authenticator_id: S.String,
+    uv_verified: S.Boolean,
   }),
 ).annotate({
   identifier: "FinishWebAuthnRegistrationResponse",
@@ -349,14 +349,14 @@ export const GetUserRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface UserMFAMethods {
   /** True if the user has setup a TOTP. */
-  totp?: boolean;
+  totp: boolean;
   /** True if the user has at least one WebAuthn authenticator. */
-  web_authn?: boolean;
+  web_authn: boolean;
 }
 export const UserMFAMethods = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    totp: S.optional(S.Boolean),
-    web_authn: S.optional(S.Boolean),
+    totp: S.Boolean,
+    web_authn: S.Boolean,
   }),
 ).annotate({ identifier: "UserMFAMethods" }) as any as S.Schema<UserMFAMethods>;
 
@@ -365,47 +365,47 @@ export const ScalewayStdLanguageCode = S.String;
 
 export interface User {
   /** ID of the user. (UUID format) */
-  id?: string;
+  id: string;
   /** First name of the user. */
-  first_name?: string;
+  first_name: string;
   /** Last name of the user. */
-  last_name?: string;
+  last_name: string;
   /** Email of the user. */
-  email?: string;
+  email: string;
   /** Phone number of the user. */
-  phone_number?: string;
+  phone_number: string;
   /** Date the user was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the user was updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether multi-factor authentication is enabled for the user. */
-  mfa?: boolean;
+  mfa: boolean;
   /** Defines for each multi-factor authentication method whether the user has it enabled or not. */
   mfa_methods?: UserMFAMethods;
   /** Locale of the user. */
-  locale?: ScalewayStdLanguageCode;
+  locale: ScalewayStdLanguageCode;
   /** Defines whether the user has a password set. */
-  has_password?: boolean;
+  has_password: boolean;
   /** Defines whether the user has a professional email or not. */
-  is_professional_email?: boolean;
+  is_professional_email: boolean;
   /** The SRN of the usr. */
-  srn?: string;
+  srn: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    first_name: S.optional(S.String),
-    last_name: S.optional(S.String),
-    email: S.optional(S.String),
-    phone_number: S.optional(S.String),
+    id: S.String,
+    first_name: S.String,
+    last_name: S.String,
+    email: S.String,
+    phone_number: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    mfa: S.optional(S.Boolean),
+    mfa: S.Boolean,
     mfa_methods: S.optional(UserMFAMethods),
-    locale: S.optional(ScalewayStdLanguageCode),
-    has_password: S.optional(S.Boolean),
-    is_professional_email: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    locale: ScalewayStdLanguageCode,
+    has_password: S.Boolean,
+    is_professional_email: S.Boolean,
+    srn: S.String,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -467,15 +467,15 @@ export const UserPreferencesProductsToDisplay = /*@__PURE__*/ S.suspend(() =>
 
 export interface UserPreferences {
   /** ID of the user. (UUID format) */
-  user_id?: string;
+  user_id: string;
   /** Console theme preference. */
-  console_theme?: UserPreferencesConsoleTheme;
+  console_theme: UserPreferencesConsoleTheme;
   /** Pinned products. */
-  pinned_products?: UserPreferencesPinnedProductsList;
+  pinned_products: UserPreferencesPinnedProductsList;
   /** Send SMS on login from a new IP. */
-  send_sms_new_ip_login?: boolean;
+  send_sms_new_ip_login: boolean;
   /** Receive SMS notifications. */
-  receive_sms_notifications?: boolean;
+  receive_sms_notifications: boolean;
   /** Selected sidebar template (e.g. default, web_cloud). */
   predefined_template?: UserPreferencesSideBarTemplate | null;
   /** Custom sidebar configuration defining which products are visible. */
@@ -483,11 +483,11 @@ export interface UserPreferences {
 }
 export const UserPreferences = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    user_id: S.optional(S.String),
-    console_theme: S.optional(UserPreferencesConsoleTheme),
-    pinned_products: S.optional(UserPreferencesPinnedProductsList),
-    send_sms_new_ip_login: S.optional(S.Boolean),
-    receive_sms_notifications: S.optional(S.Boolean),
+    user_id: S.String,
+    console_theme: UserPreferencesConsoleTheme,
+    pinned_products: UserPreferencesPinnedProductsList,
+    send_sms_new_ip_login: S.Boolean,
+    receive_sms_notifications: S.Boolean,
     predefined_template: S.optional(S.NullOr(UserPreferencesSideBarTemplate)),
     custom_template: S.optional(S.NullOr(UserPreferencesProductsToDisplay)),
   }),
@@ -532,26 +532,26 @@ export const MailingListSubscriptionType = S.String;
 
 export interface MailingListSubscription {
   /** ID of the mailing list. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the mailing list. */
-  name?: string;
+  name: string;
   /** Description of the mailing list. */
-  description?: string;
+  description: string;
   /** Status of the subscription. */
-  subscribed?: boolean;
+  subscribed: boolean;
   /** Type of the subscription. */
-  type?: MailingListSubscriptionType;
+  type: MailingListSubscriptionType;
   /** The SRN of the mailing list. */
-  srn?: string;
+  srn: string;
 }
 export const MailingListSubscription = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    subscribed: S.optional(S.Boolean),
-    type: S.optional(MailingListSubscriptionType),
-    srn: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    subscribed: S.Boolean,
+    type: MailingListSubscriptionType,
+    srn: S.String,
   }),
 ).annotate({ identifier: "MailingListSubscription" }) as any as S.Schema<MailingListSubscription>;
 
@@ -565,13 +565,13 @@ export const ListMailingListSubscriptionsResponseMailingListSubscriptionsList =
 
 export interface ListMailingListSubscriptionsResponse {
   /** Number of mailing list subscriptions. */
-  total_count?: number;
+  total_count: number;
   /** List of mailing list subscriptions. */
   mailing_list_subscriptions: ListMailingListSubscriptionsResponseMailingListSubscriptionsList;
 }
 export const ListMailingListSubscriptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     mailing_list_subscriptions: ListMailingListSubscriptionsResponseMailingListSubscriptionsList,
   }),
 ).annotate({
@@ -615,13 +615,13 @@ export const ListMFAOTPsResponseMfaOtpsList = /*@__PURE__*/ S.Array(
 
 export interface ListMFAOTPsResponse {
   /** Total number of MFA OTPs. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned MFA OTPs. */
   mfa_otps: ListMFAOTPsResponseMfaOtpsList;
 }
 export const ListMFAOTPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     mfa_otps: ListMFAOTPsResponseMfaOtpsList,
   }),
 ).annotate({ identifier: "ListMFAOTPsResponse" }) as any as S.Schema<ListMFAOTPsResponse>;
@@ -681,38 +681,38 @@ export const OrganizationCorporateIndustry = S.String;
 
 export interface OrganizationSummary {
   /** ID of the Organization. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Organization. */
-  name?: string;
+  name: string;
   /** Defines whether the user_id created the Organization. */
-  owner?: boolean;
+  owner: boolean;
   /** Defines whether we have locking warnings. */
-  locked?: boolean;
+  locked: boolean;
   /** Defines whether MFA is required for the Organization. */
-  mfa_enforced?: boolean;
+  mfa_enforced: boolean;
   /** Organization's picture URL. */
   picture_link?: string | null;
   /** Organization Type. */
-  organization_type?: OrganizationType;
+  organization_type: OrganizationType;
   /** Organization Corporate Industry. */
-  corporate_industry?: OrganizationCorporateIndustry;
+  corporate_industry: OrganizationCorporateIndustry;
   /** Deprecated. Defines whether the organization is a startup. */
   is_startup?: boolean;
   /** The SRN of the organization. */
-  srn?: string;
+  srn: string;
 }
 export const OrganizationSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    owner: S.optional(S.Boolean),
-    locked: S.optional(S.Boolean),
-    mfa_enforced: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    owner: S.Boolean,
+    locked: S.Boolean,
+    mfa_enforced: S.Boolean,
     picture_link: S.optional(S.NullOr(S.String)),
-    organization_type: S.optional(OrganizationType),
-    corporate_industry: S.optional(OrganizationCorporateIndustry),
+    organization_type: OrganizationType,
+    corporate_industry: OrganizationCorporateIndustry,
     is_startup: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "OrganizationSummary" }) as any as S.Schema<OrganizationSummary>;
 
@@ -726,12 +726,12 @@ export interface ListUserOrganizationsResponse {
   /** List of user's Organization summaries. */
   organizations: ListUserOrganizationsResponseOrganizationsList;
   /** Total count of Organization summaries. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUserOrganizationsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     organizations: ListUserOrganizationsResponseOrganizationsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListUserOrganizationsResponse",
@@ -781,23 +781,23 @@ export const ListUserWebAuthnAuthenticatorsRequest = /*@__PURE__*/ S.suspend(() 
 
 export interface WebAuthnAuthenticator {
   /** ID of the WebAuthn Authenticator. */
-  id?: string;
+  id: string;
   /** Name of the WebAuthn Authenticator. */
-  name?: string;
+  name: string;
   /** Date the WebAuthn Authenticator was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the WebAuthn Authenticator was last successfully used for a LogIn. Date the WebAuthn Authenticator was last successfully used for a LogIn, will be omitted if the WebAuthn Authenticator has never been used. (RFC 3339 format) */
   last_login_at?: string | null;
   /** Indicates whether the authenticator has been verified to perform User Verification (UV) by the legitimate owner. This flag prevents an attack where a lost, non-UV authenticator (e.g., a PIN-less hardware key used only as a second factor) is found by an attacker who then adds a PIN to it to bypass MFA via a passwordless login. To mitigate this, the system will not trust the authenticator for single-factor (passwordless) login until it successfully performs UV in conjunction with another trusted factor. */
-  uv_verified?: boolean;
+  uv_verified: boolean;
 }
 export const WebAuthnAuthenticator = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     last_login_at: S.optional(S.NullOr(S.String)),
-    uv_verified: S.optional(S.Boolean),
+    uv_verified: S.Boolean,
   }),
 ).annotate({ identifier: "WebAuthnAuthenticator" }) as any as S.Schema<WebAuthnAuthenticator>;
 
@@ -811,12 +811,12 @@ export interface ListUserWebAuthnAuthenticatorsResponse {
   /** List of the user's WebAuthn Authenticators. */
   authenticators: ListUserWebAuthnAuthenticatorsResponseAuthenticatorsList;
   /** Total count of WebAuthn Authenticators. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUserWebAuthnAuthenticatorsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     authenticators: ListUserWebAuthnAuthenticatorsResponseAuthenticatorsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListUserWebAuthnAuthenticatorsResponse",
@@ -846,14 +846,14 @@ export const SendPhoneValidationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface PhoneValidation {
   /** ID of the phone validation. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the phone validation. */
-  srn?: string;
+  srn: string;
 }
 export const PhoneValidation = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "PhoneValidation" }) as any as S.Schema<PhoneValidation>;
 
@@ -901,13 +901,11 @@ export const SetMailingListSubscriptionsResponseMailingListSubscriptionsList =
 
 export interface SetMailingListSubscriptionsResponse {
   /** List of mailing list subscriptions. */
-  mailing_list_subscriptions?: SetMailingListSubscriptionsResponseMailingListSubscriptionsList;
+  mailing_list_subscriptions: SetMailingListSubscriptionsResponseMailingListSubscriptionsList;
 }
 export const SetMailingListSubscriptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    mailing_list_subscriptions: S.optional(
-      SetMailingListSubscriptionsResponseMailingListSubscriptionsList,
-    ),
+    mailing_list_subscriptions: SetMailingListSubscriptionsResponseMailingListSubscriptionsList,
   }),
 ).annotate({
   identifier: "SetMailingListSubscriptionsResponse",
@@ -940,11 +938,11 @@ export const StartWebAuthnAuthenticatorUpgradeRequest = /*@__PURE__*/ S.suspend(
 
 export interface PublicKeyCredentialDescriptor {
   /** Unique identifier of the key. */
-  id?: string;
+  id: string;
 }
 export const PublicKeyCredentialDescriptor = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
   }),
 ).annotate({
   identifier: "PublicKeyCredentialDescriptor",
@@ -966,20 +964,20 @@ export const UserVerificationRequirement = S.String;
 
 export interface PublicKeyCredentialRequestOptions {
   /** Random bytes constituting the challenge to solve for the credentials assertion. */
-  challenge?: string;
+  challenge: string;
   /** Maximum duration of the authentication ceremony (milliseconds). */
-  timeout?: number;
+  timeout: number;
   /** List of credentials, if any, which can be used to perform the ceremony. */
-  allow_credentials?: PublicKeyCredentialRequestOptionsAllowCredentialsList;
+  allow_credentials: PublicKeyCredentialRequestOptionsAllowCredentialsList;
   /** User verification requirement for this authentication ceremony. */
-  user_verification?: UserVerificationRequirement;
+  user_verification: UserVerificationRequirement;
 }
 export const PublicKeyCredentialRequestOptions = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    challenge: S.optional(S.String),
-    timeout: S.optional(S.Number),
-    allow_credentials: S.optional(PublicKeyCredentialRequestOptionsAllowCredentialsList),
-    user_verification: S.optional(UserVerificationRequirement),
+    challenge: S.String,
+    timeout: S.Number,
+    allow_credentials: PublicKeyCredentialRequestOptionsAllowCredentialsList,
+    user_verification: UserVerificationRequirement,
   }),
 ).annotate({
   identifier: "PublicKeyCredentialRequestOptions",
@@ -987,13 +985,13 @@ export const PublicKeyCredentialRequestOptions = /*@__PURE__*/ S.suspend(() =>
 
 export interface StartWebAuthnAuthenticatorUpgradeResponse {
   /** ID of the upgrade ceremony. */
-  ceremony_id?: string;
+  ceremony_id: string;
   /** Challenge details for the upgrade. */
   public_key_credential_request_options?: PublicKeyCredentialRequestOptions;
 }
 export const StartWebAuthnAuthenticatorUpgradeResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ceremony_id: S.optional(S.String),
+    ceremony_id: S.String,
     public_key_credential_request_options: S.optional(PublicKeyCredentialRequestOptions),
   }),
 ).annotate({
@@ -1024,11 +1022,11 @@ export const StartWebAuthnRegistrationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface PublicKeyCredentialParameters {
   /** COSE identifier of the algorithm (see https://www.iana.org/assignments/cose/cose.xhtml#algorithms). */
-  alg?: number;
+  alg: number;
 }
 export const PublicKeyCredentialParameters = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    alg: S.optional(S.Number),
+    alg: S.Number,
   }),
 ).annotate({
   identifier: "PublicKeyCredentialParameters",
@@ -1050,20 +1048,20 @@ export const PublicKeyCredentialCreationOptionsExcludeCredentialsList = /*@__PUR
 
 export interface PublicKeyCredentialCreationOptions {
   /** Random bytes constituting the challenge to solve for the credentials creation. */
-  challenge?: string;
+  challenge: string;
   /** List of algorithms supported by the relying party. */
-  pub_key_cred_params?: PublicKeyCredentialCreationOptionsPubKeyCredParamsList;
+  pub_key_cred_params: PublicKeyCredentialCreationOptionsPubKeyCredParamsList;
   /** Maximum duration of the registration ceremony (milliseconds). */
-  timeout?: number;
+  timeout: number;
   /** List of credentials that cannot be used to fulfill the ceremony. */
-  exclude_credentials?: PublicKeyCredentialCreationOptionsExcludeCredentialsList;
+  exclude_credentials: PublicKeyCredentialCreationOptionsExcludeCredentialsList;
 }
 export const PublicKeyCredentialCreationOptions = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    challenge: S.optional(S.String),
-    pub_key_cred_params: S.optional(PublicKeyCredentialCreationOptionsPubKeyCredParamsList),
-    timeout: S.optional(S.Number),
-    exclude_credentials: S.optional(PublicKeyCredentialCreationOptionsExcludeCredentialsList),
+    challenge: S.String,
+    pub_key_cred_params: PublicKeyCredentialCreationOptionsPubKeyCredParamsList,
+    timeout: S.Number,
+    exclude_credentials: PublicKeyCredentialCreationOptionsExcludeCredentialsList,
   }),
 ).annotate({
   identifier: "PublicKeyCredentialCreationOptions",
@@ -1071,13 +1069,13 @@ export const PublicKeyCredentialCreationOptions = /*@__PURE__*/ S.suspend(() =>
 
 export interface StartWebAuthnRegistrationResponse {
   /** ID of the ceremony. */
-  id?: string;
+  id: string;
   /** Challenge details for registration. */
   public_key_credential_creation_options?: PublicKeyCredentialCreationOptions;
 }
 export const StartWebAuthnRegistrationResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     public_key_credential_creation_options: S.optional(PublicKeyCredentialCreationOptions),
   }),
 ).annotate({
@@ -1203,11 +1201,11 @@ export const ValidateMFAOTPResponseBackupCodesList = /*@__PURE__*/ S.Array(
 
 export interface ValidateMFAOTPResponse {
   /** Backup codes of the MFA OTP. */
-  backup_codes?: ValidateMFAOTPResponseBackupCodesList;
+  backup_codes: ValidateMFAOTPResponseBackupCodesList;
 }
 export const ValidateMFAOTPResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    backup_codes: S.optional(ValidateMFAOTPResponseBackupCodesList),
+    backup_codes: ValidateMFAOTPResponseBackupCodesList,
   }),
 ).annotate({ identifier: "ValidateMFAOTPResponse" }) as any as S.Schema<ValidateMFAOTPResponse>;
 

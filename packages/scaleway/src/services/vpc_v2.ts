@@ -51,16 +51,14 @@ export const AddPrivateNetworkObjectStoragePrivateAccessResponsePrivateNetworkId
 
 export interface AddPrivateNetworkObjectStoragePrivateAccessResponse {
   /** ID of the VPC containing the Object Storage private access. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** IDs of the Private Networks associated with the Object Storage private access. */
-  private_network_ids?: AddPrivateNetworkObjectStoragePrivateAccessResponsePrivateNetworkIdsList;
+  private_network_ids: AddPrivateNetworkObjectStoragePrivateAccessResponsePrivateNetworkIdsList;
 }
 export const AddPrivateNetworkObjectStoragePrivateAccessResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vpc_id: S.optional(S.String),
-    private_network_ids: S.optional(
-      AddPrivateNetworkObjectStoragePrivateAccessResponsePrivateNetworkIdsList,
-    ),
+    vpc_id: S.String,
+    private_network_ids: AddPrivateNetworkObjectStoragePrivateAccessResponsePrivateNetworkIdsList,
   }),
 ).annotate({
   identifier: "AddPrivateNetworkObjectStoragePrivateAccessResponse",
@@ -118,50 +116,50 @@ export const IngressRuleTagsList = /*@__PURE__*/ S.Array(
 
 export interface IngressRule {
   /** ID of the ingress rule. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the ingress rule. */
-  srn?: string;
+  srn: string;
   /** ID of the VPC this rule belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Date the ingress rule was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the ingress rule was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Whether this rule applies to IPv4 or IPv6 traffic. */
-  is_ipv6?: boolean;
+  is_ipv6: boolean;
   /** Source network to apply this rule on. (IP network) */
-  source?: string;
+  source: string;
   /** IP of the local resource to redirect ingress traffic to. (IP address) */
-  nexthop_resource_ip?: string;
+  nexthop_resource_ip: string;
   /** ID of the Private Network the destination resource is in. (UUID format) */
-  nexthop_private_network_id?: string;
+  nexthop_private_network_id: string;
   /** Description of this ingress rule. */
   description?: string | null;
   /** Tags of this ingress rule. */
-  tags?: IngressRuleTagsList;
+  tags: IngressRuleTagsList;
   /** Scaleway Organization the ingress rule belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Scaleway Project the ingress rule belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Region of the ingress rule. */
-  region?: string;
+  region: string;
 }
 export const IngressRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    vpc_id: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    vpc_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    is_ipv6: S.optional(S.Boolean),
-    source: S.optional(S.String),
-    nexthop_resource_ip: S.optional(S.String),
-    nexthop_private_network_id: S.optional(S.String),
+    is_ipv6: S.Boolean,
+    source: S.String,
+    nexthop_resource_ip: S.String,
+    nexthop_private_network_id: S.String,
     description: S.optional(S.NullOr(S.String)),
-    tags: S.optional(IngressRuleTagsList),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    tags: IngressRuleTagsList,
+    organization_id: S.String,
+    project_id: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "IngressRule" }) as any as S.Schema<IngressRule>;
 
@@ -225,35 +223,35 @@ export const PrivateNetworkTagsList = /*@__PURE__*/ S.Array(
 
 export interface Subnet {
   /** ID of the subnet. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the subnet. */
-  srn?: string;
+  srn: string;
   /** Subnet creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Subnet last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Subnet CIDR. (IP network) */
-  subnet?: string;
+  subnet: string;
   /** Scaleway Project the subnet belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Private Network the subnet belongs to. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
   /** VPC the subnet belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Region in which the Subnet can be used. */
-  region?: string;
+  region: string;
 }
 export const Subnet = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    subnet: S.optional(S.String),
-    project_id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    vpc_id: S.optional(S.String),
-    region: S.optional(S.String),
+    subnet: S.String,
+    project_id: S.String,
+    private_network_id: S.String,
+    vpc_id: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Subnet" }) as any as S.Schema<Subnet>;
 
@@ -265,50 +263,50 @@ export const PrivateNetworkSubnetsList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNetwork {
   /** Private Network ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the private network. */
-  srn?: string;
+  srn: string;
   /** Private Network name. */
-  name?: string;
+  name: string;
   /** Scaleway Organization the Private Network belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Scaleway Project the Private Network belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Region in which the Private Network is available. */
-  region?: string;
+  region: string;
   /** Tags of the Private Network. */
-  tags?: PrivateNetworkTagsList;
+  tags: PrivateNetworkTagsList;
   /** Date the Private Network was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the Private Network was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Private Network subnets. */
-  subnets?: PrivateNetworkSubnetsList;
+  subnets: PrivateNetworkSubnetsList;
   /** VPC the Private Network belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Defines whether managed DHCP is enabled for this Private Network. */
-  dhcp_enabled?: boolean;
+  dhcp_enabled: boolean;
   /** Defines whether default v4 and v6 routes are propagated for this Private Network. */
-  default_route_propagation_enabled?: boolean;
+  default_route_propagation_enabled: boolean;
   /** Defines whether this Private Network is enabled for Object Storage private access. */
-  has_object_storage_private_access?: boolean;
+  has_object_storage_private_access: boolean;
 }
 export const PrivateNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
-    tags: S.optional(PrivateNetworkTagsList),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    region: S.String,
+    tags: PrivateNetworkTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    subnets: S.optional(PrivateNetworkSubnetsList),
-    vpc_id: S.optional(S.String),
-    dhcp_enabled: S.optional(S.Boolean),
-    default_route_propagation_enabled: S.optional(S.Boolean),
-    has_object_storage_private_access: S.optional(S.Boolean),
+    subnets: PrivateNetworkSubnetsList,
+    vpc_id: S.String,
+    dhcp_enabled: S.Boolean,
+    default_route_propagation_enabled: S.Boolean,
+    has_object_storage_private_access: S.Boolean,
   }),
 ).annotate({ identifier: "PrivateNetwork" }) as any as S.Schema<PrivateNetwork>;
 
@@ -374,17 +372,17 @@ export const RouteType = S.String;
 
 export interface Route {
   /** Route ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the route. */
-  srn?: string;
+  srn: string;
   /** Route description. */
-  description?: string;
+  description: string;
   /** Tags of the Route. */
-  tags?: RouteTagsList;
+  tags: RouteTagsList;
   /** VPC the Route belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Destination of the Route. (IP network) */
-  destination?: string;
+  destination: string;
   /** ID of the nexthop resource. (UUID format) */
   nexthop_resource_id?: string | null;
   /** ID of the nexthop private network. (UUID format) */
@@ -396,28 +394,28 @@ export interface Route {
   /** Date the Route was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether the route can be modified or deleted by the user. */
-  is_read_only?: boolean;
+  is_read_only: boolean;
   /** Type of the Route. */
-  type?: RouteType;
+  type: RouteType;
   /** Region of the Route. */
-  region?: string;
+  region: string;
 }
 export const Route = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    description: S.optional(S.String),
-    tags: S.optional(RouteTagsList),
-    vpc_id: S.optional(S.String),
-    destination: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    description: S.String,
+    tags: RouteTagsList,
+    vpc_id: S.String,
+    destination: S.String,
     nexthop_resource_id: S.optional(S.NullOr(S.String)),
     nexthop_private_network_id: S.optional(S.NullOr(S.String)),
     nexthop_vpc_connector_id: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    is_read_only: S.optional(S.Boolean),
-    type: S.optional(RouteType),
-    region: S.optional(S.String),
+    is_read_only: S.Boolean,
+    type: RouteType,
+    region: S.String,
   }),
 ).annotate({ identifier: "Route" }) as any as S.Schema<Route>;
 
@@ -468,53 +466,53 @@ export const VPCTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<VP
 
 export interface VPC {
   /** VPC ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the VPC. */
-  srn?: string;
+  srn: string;
   /** VPC name. */
-  name?: string;
+  name: string;
   /** Scaleway Organization the VPC belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Scaleway Project the VPC belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Region of the VPC. */
-  region?: string;
+  region: string;
   /** Tags for the VPC. */
-  tags?: VPCTagsList;
+  tags: VPCTagsList;
   /** Defines whether the VPC is the default one for its Project. */
-  is_default?: boolean;
+  is_default: boolean;
   /** Date the VPC was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the VPC was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Number of Private Networks within this VPC. */
-  private_network_count?: number;
+  private_network_count: number;
   /** Defines whether the VPC routes traffic between its Private Networks. */
-  routing_enabled?: boolean;
+  routing_enabled: boolean;
   /** Defines whether the VPC advertises custom routes between its Private Networks. */
-  custom_routes_propagation_enabled?: boolean;
+  custom_routes_propagation_enabled: boolean;
   /** Defines whether the VPC allows packets from peered VPCs to transit through. */
-  transitivity_enabled?: boolean;
+  transitivity_enabled: boolean;
   /** Defines whether the Object Storage private access is enabled for the VPC. */
-  object_storage_private_access_enabled?: boolean;
+  object_storage_private_access_enabled: boolean;
 }
 export const VPC = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
-    tags: S.optional(VPCTagsList),
-    is_default: S.optional(S.Boolean),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    region: S.String,
+    tags: VPCTagsList,
+    is_default: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    private_network_count: S.optional(S.Number),
-    routing_enabled: S.optional(S.Boolean),
-    custom_routes_propagation_enabled: S.optional(S.Boolean),
-    transitivity_enabled: S.optional(S.Boolean),
-    object_storage_private_access_enabled: S.optional(S.Boolean),
+    private_network_count: S.Number,
+    routing_enabled: S.Boolean,
+    custom_routes_propagation_enabled: S.Boolean,
+    transitivity_enabled: S.Boolean,
+    object_storage_private_access_enabled: S.Boolean,
   }),
 ).annotate({ identifier: "VPC" }) as any as S.Schema<VPC>;
 
@@ -563,16 +561,16 @@ export const VPCConnectorStatus = S.String;
 
 export interface VPCConnectorPeerInfo {
   /** (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** (UUID format) */
-  project_id?: string;
-  vpc_name?: string;
+  project_id: string;
+  vpc_name: string;
 }
 export const VPCConnectorPeerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    vpc_name: S.optional(S.String),
+    organization_id: S.String,
+    project_id: S.String,
+    vpc_name: S.String,
   }),
 ).annotate({ identifier: "VPCConnectorPeerInfo" }) as any as S.Schema<VPCConnectorPeerInfo>;
 
@@ -584,27 +582,27 @@ export const VPCConnectorTagsList = /*@__PURE__*/ S.Array(
 
 export interface VPCConnector {
   /** VPC connector ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the VPC connector. */
-  srn?: string;
+  srn: string;
   /** VPC connector name. */
-  name?: string;
+  name: string;
   /** Scaleway Organization the VPC connector belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Scaleway Project the VPC connector belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** VPC the VPC connector belongs to (origin VPC). (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** VPC with which the VPC connector is peered (target VPC). (UUID format) */
-  target_vpc_id?: string;
+  target_vpc_id: string;
   /** Status of the VPC connector. */
-  status?: VPCConnectorStatus;
+  status: VPCConnectorStatus;
   /** Peer info of target VPC. Available when status is Peered. */
   peer_info?: VPCConnectorPeerInfo;
   /** Region of the VPC connector. */
-  region?: string;
+  region: string;
   /** Tags for the VPC connector. */
-  tags?: VPCConnectorTagsList;
+  tags: VPCConnectorTagsList;
   /** Date the VPC connector was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the VPC connector was last modified. (RFC 3339 format) */
@@ -612,17 +610,17 @@ export interface VPCConnector {
 }
 export const VPCConnector = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    vpc_id: S.optional(S.String),
-    target_vpc_id: S.optional(S.String),
-    status: S.optional(VPCConnectorStatus),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    vpc_id: S.String,
+    target_vpc_id: S.String,
+    status: VPCConnectorStatus,
     peer_info: S.optional(VPCConnectorPeerInfo),
-    region: S.optional(S.String),
-    tags: S.optional(VPCConnectorTagsList),
+    region: S.String,
+    tags: VPCConnectorTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -996,13 +994,13 @@ export const GetAclResponseRulesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<GetAclResponseRulesList>;
 
 export interface GetAclResponse {
-  rules?: GetAclResponseRulesList;
-  default_policy?: Action;
+  rules: GetAclResponseRulesList;
+  default_policy: Action;
 }
 export const GetAclResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(GetAclResponseRulesList),
-    default_policy: S.optional(Action),
+    rules: GetAclResponseRulesList,
+    default_policy: Action,
   }),
 ).annotate({ identifier: "GetAclResponse" }) as any as S.Schema<GetAclResponse>;
 
@@ -1192,12 +1190,12 @@ export const ListIngressRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface ListIngressRulesResponse {
   rules: ListIngressRulesResponseRulesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListIngressRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     rules: ListIngressRulesResponseRulesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListIngressRulesResponse" }) as any as S.Schema<ListIngressRulesResponse>;
 
@@ -1282,12 +1280,12 @@ export const ListPrivateNetworksResponsePrivateNetworksList = /*@__PURE__*/ S.Ar
 
 export interface ListPrivateNetworksResponse {
   private_networks: ListPrivateNetworksResponsePrivateNetworksList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListPrivateNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_networks: ListPrivateNetworksResponsePrivateNetworksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPrivateNetworksResponse",
@@ -1336,20 +1334,20 @@ export const ListSubnetOverlapsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ListSubnetOverlapsResponseSubnetOverlap {
   /** (UUID format) */
-  subnet_id?: string;
+  subnet_id: string;
   /** (IP network) */
-  subnet?: string;
+  subnet: string;
   /** (UUID format) */
-  target_subnet_id?: string;
+  target_subnet_id: string;
   /** (IP network) */
-  target_subnet?: string;
+  target_subnet: string;
 }
 export const ListSubnetOverlapsResponseSubnetOverlap = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    subnet_id: S.optional(S.String),
-    subnet: S.optional(S.String),
-    target_subnet_id: S.optional(S.String),
-    target_subnet: S.optional(S.String),
+    subnet_id: S.String,
+    subnet: S.String,
+    target_subnet_id: S.String,
+    target_subnet: S.String,
   }),
 ).annotate({
   identifier: "ListSubnetOverlapsResponseSubnetOverlap",
@@ -1363,12 +1361,12 @@ export const ListSubnetOverlapsResponseSubnetOverlapsList = /*@__PURE__*/ S.Arra
 
 export interface ListSubnetOverlapsResponse {
   subnet_overlaps: ListSubnetOverlapsResponseSubnetOverlapsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListSubnetOverlapsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     subnet_overlaps: ListSubnetOverlapsResponseSubnetOverlapsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListSubnetOverlapsResponse",
@@ -1430,12 +1428,12 @@ export const ListSubnetsResponseSubnetsList = /*@__PURE__*/ S.Array(
 
 export interface ListSubnetsResponse {
   subnets: ListSubnetsResponseSubnetsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListSubnetsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     subnets: ListSubnetsResponseSubnetsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSubnetsResponse" }) as any as S.Schema<ListSubnetsResponse>;
 
@@ -1508,12 +1506,12 @@ export const ListVPCConnectorsResponseVpcConnectorsList = /*@__PURE__*/ S.Array(
 
 export interface ListVPCConnectorsResponse {
   vpc_connectors: ListVPCConnectorsResponseVpcConnectorsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListVPCConnectorsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     vpc_connectors: ListVPCConnectorsResponseVpcConnectorsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListVPCConnectorsResponse",
@@ -1588,12 +1586,12 @@ export const ListVPCsResponseVpcsList = /*@__PURE__*/ S.Array(
 
 export interface ListVPCsResponse {
   vpcs: ListVPCsResponseVpcsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListVPCsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     vpcs: ListVPCsResponseVpcsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVPCsResponse" }) as any as S.Schema<ListVPCsResponse>;
 
@@ -1641,13 +1639,13 @@ export const SetAclResponseRulesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<SetAclResponseRulesList>;
 
 export interface SetAclResponse {
-  rules?: SetAclResponseRulesList;
-  default_policy?: Action;
+  rules: SetAclResponseRulesList;
+  default_policy: Action;
 }
 export const SetAclResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(SetAclResponseRulesList),
-    default_policy: S.optional(Action),
+    rules: SetAclResponseRulesList,
+    default_policy: Action,
   }),
 ).annotate({ identifier: "SetAclResponse" }) as any as S.Schema<SetAclResponse>;
 
@@ -1701,16 +1699,14 @@ export const SetPrivateNetworksObjectStoragePrivateAccessResponsePrivateNetworkI
 
 export interface SetPrivateNetworksObjectStoragePrivateAccessResponse {
   /** ID of the VPC containing the Object Storage private access. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** IDs of the Private Networks associated with the Object Storage private access. */
-  private_network_ids?: SetPrivateNetworksObjectStoragePrivateAccessResponsePrivateNetworkIdsList;
+  private_network_ids: SetPrivateNetworksObjectStoragePrivateAccessResponsePrivateNetworkIdsList;
 }
 export const SetPrivateNetworksObjectStoragePrivateAccessResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vpc_id: S.optional(S.String),
-    private_network_ids: S.optional(
-      SetPrivateNetworksObjectStoragePrivateAccessResponsePrivateNetworkIdsList,
-    ),
+    vpc_id: S.String,
+    private_network_ids: SetPrivateNetworksObjectStoragePrivateAccessResponsePrivateNetworkIdsList,
   }),
 ).annotate({
   identifier: "SetPrivateNetworksObjectStoragePrivateAccessResponse",

@@ -46,20 +46,20 @@ export const ControlPanelAvailableLanguagesList = /*@__PURE__*/ S.Array(
 
 export interface ControlPanel {
   /** Control panel name. */
-  name?: string;
+  name: string;
   /** Define if the control panel type is available to order. */
-  available?: boolean;
+  available: boolean;
   /** URL of the control panel's logo. */
-  logo_url?: string;
+  logo_url: string;
   /** List of available languages for the control panel. */
-  available_languages?: ControlPanelAvailableLanguagesList;
+  available_languages: ControlPanelAvailableLanguagesList;
 }
 export const ControlPanel = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    available: S.optional(S.Boolean),
-    logo_url: S.optional(S.String),
-    available_languages: S.optional(ControlPanelAvailableLanguagesList),
+    name: S.String,
+    available: S.Boolean,
+    logo_url: S.String,
+    available_languages: ControlPanelAvailableLanguagesList,
   }),
 ).annotate({ identifier: "ControlPanel" }) as any as S.Schema<ControlPanel>;
 
@@ -71,13 +71,13 @@ export const ListControlPanelsResponseControlPanelsList = /*@__PURE__*/ S.Array(
 
 export interface ListControlPanelsResponse {
   /** Number of control panels returned. */
-  total_count?: number;
+  total_count: number;
   /** List of control panels. */
   control_panels: ListControlPanelsResponseControlPanelsList;
 }
 export const ListControlPanelsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     control_panels: ListControlPanelsResponseControlPanelsList,
   }),
 ).annotate({

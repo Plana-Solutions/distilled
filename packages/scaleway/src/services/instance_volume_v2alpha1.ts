@@ -80,47 +80,47 @@ export const SnapshotVolumeType = S.String;
 
 export interface Snapshot {
   /** Unique ID of the snapshot. */
-  id?: string;
+  id: string;
   /** The SRN of the snapshot. */
-  srn?: string;
+  srn: string;
   /** Project ID of the snapshot. */
-  project_id?: string;
+  project_id: string;
   /** Name of the snapshot. */
-  name?: string;
+  name: string;
   /** Tags associated with the snapshot. */
-  tags?: SnapshotTagsList;
+  tags: SnapshotTagsList;
   /** Size of the snapshot in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** Current status of the snapshot. */
-  status?: SnapshotStatus;
+  status: SnapshotStatus;
   /** ID of the base volume. */
   base_volume_id?: string | null;
   /** Type of the volume. */
-  volume_type?: SnapshotVolumeType;
+  volume_type: SnapshotVolumeType;
   /** Creation date of the snapshot. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the snapshot. (RFC 3339 format) */
   updated_at?: string | null;
   /** Zone in which the snapshot is located. */
-  zone?: string;
+  zone: string;
   /** Whether the snapshot is public. */
-  public?: boolean;
+  public: boolean;
 }
 export const Snapshot = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(SnapshotTagsList),
-    size: S.optional(S.Number),
-    status: S.optional(SnapshotStatus),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    name: S.String,
+    tags: SnapshotTagsList,
+    size: S.Number,
+    status: SnapshotStatus,
     base_volume_id: S.optional(S.NullOr(S.String)),
-    volume_type: S.optional(SnapshotVolumeType),
+    volume_type: SnapshotVolumeType,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
-    public: S.optional(S.Boolean),
+    zone: S.String,
+    public: S.Boolean,
   }),
 ).annotate({ identifier: "Snapshot" }) as any as S.Schema<Snapshot>;
 
@@ -201,23 +201,23 @@ export const VolumeVolumeType = S.String;
 
 export interface Volume {
   /** Unique ID of the volume. */
-  id?: string;
+  id: string;
   /** The SRN of the volume. */
-  srn?: string;
+  srn: string;
   /** Project ID to which the volume belongs. */
-  project_id?: string;
+  project_id: string;
   /** Volume name. */
-  name?: string;
+  name: string;
   /** Tags associated with the volume. */
-  tags?: VolumeTagsList;
+  tags: VolumeTagsList;
   /** Volume size in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** ID of the base snapshot used for this volume. */
   base_snapshot_id?: string | null;
   /** Current status of the volume. */
-  status?: VolumeStatus;
+  status: VolumeStatus;
   /** Type of the volume. */
-  volume_type?: VolumeVolumeType;
+  volume_type: VolumeVolumeType;
   /** Creation date of the volume. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the volume. (RFC 3339 format) */
@@ -225,23 +225,23 @@ export interface Volume {
   /** ID of the Instance to which the volume is attached. */
   server_id?: string | null;
   /** Zone in which the volume is located. */
-  zone?: string;
+  zone: string;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(VolumeTagsList),
-    size: S.optional(S.Number),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    name: S.String,
+    tags: VolumeTagsList,
+    size: S.Number,
     base_snapshot_id: S.optional(S.NullOr(S.String)),
-    status: S.optional(VolumeStatus),
-    volume_type: S.optional(VolumeVolumeType),
+    status: VolumeStatus,
+    volume_type: VolumeVolumeType,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     server_id: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 
@@ -570,13 +570,13 @@ export interface ListSnapshotsResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSnapshotsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     snapshots: ListSnapshotsResponseSnapshotsList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSnapshotsResponse" }) as any as S.Schema<ListSnapshotsResponse>;
 
@@ -663,13 +663,13 @@ export interface ListVolumesResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVolumesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     volumes: ListVolumesResponseVolumesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVolumesResponse" }) as any as S.Schema<ListVolumesResponse>;
 
@@ -711,17 +711,17 @@ export const ListVolumeTypesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface VolumeType {
   /** Name of the volume type. */
-  name?: VolumeVolumeType;
+  name: VolumeVolumeType;
   /** Minimum size of the volume in bytes. */
-  min_size?: number;
+  min_size: number;
   /** Maximum size of the volume in bytes. */
-  max_size?: number;
+  max_size: number;
 }
 export const VolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(VolumeVolumeType),
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
+    name: VolumeVolumeType,
+    min_size: S.Number,
+    max_size: S.Number,
   }),
 ).annotate({ identifier: "VolumeType" }) as any as S.Schema<VolumeType>;
 
@@ -737,13 +737,13 @@ export interface ListVolumeTypesResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVolumeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     volume_types: ListVolumeTypesResponseVolumeTypesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVolumeTypesResponse" }) as any as S.Schema<ListVolumeTypesResponse>;
 

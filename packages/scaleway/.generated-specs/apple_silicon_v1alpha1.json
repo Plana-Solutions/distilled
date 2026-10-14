@@ -142,7 +142,8 @@
         "servers": {
           "target": "com.scaleway.apple_silicon_v1alpha1#BatchCreateServersResponseServersList",
           "traits": {
-            "smithy.api#documentation": "List of created servers."
+            "smithy.api#documentation": "List of created servers.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -154,62 +155,72 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the server."
+            "smithy.api#documentation": "UUID of the server.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of the server."
+            "smithy.api#documentation": "Type of the server.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the server."
+            "smithy.api#documentation": "Name of the server.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project this server is associated with."
+            "smithy.api#documentation": "Project this server is associated with.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization this server is associated with."
+            "smithy.api#documentation": "Organization this server is associated with.",
+            "smithy.api#required": {}
           }
         },
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv4 address of the server. (IPv4 address)"
+            "smithy.api#documentation": "IPv4 address of the server. (IPv4 address)",
+            "smithy.api#required": {}
           }
         },
         "vnc_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Vnc:// URL to access Apple Remote Desktop."
+            "smithy.api#documentation": "Vnc:// URL to access Apple Remote Desktop.",
+            "smithy.api#required": {}
           }
         },
         "ssh_username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SSH Username for remote shell."
+            "smithy.api#documentation": "SSH Username for remote shell.",
+            "smithy.api#required": {}
           }
         },
         "sudo_password": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Admin password required to execute commands.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "vnc_port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "VNC port to use for remote desktop connection."
+            "smithy.api#documentation": "VNC port to use for remote desktop connection.",
+            "smithy.api#required": {}
           }
         },
         "os": {
@@ -221,7 +232,8 @@
         "status": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ServerStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the server."
+            "smithy.api#documentation": "Current status of the server.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -248,31 +260,36 @@
         "deletion_scheduled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "If true, server will be automatically once deletable_at is reached.\nSet to true to mark the server for automatic deletion depending on `deletable_at` date. Set to false to cancel an existing deletion schedule. Leave unset otherwise."
+            "smithy.api#documentation": "If true, server will be automatically once deletable_at is reached.\nSet to true to mark the server for automatic deletion depending on `deletable_at` date. Set to false to cancel an existing deletion schedule. Leave unset otherwise.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the server."
+            "smithy.api#documentation": "Zone of the server.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the server."
+            "smithy.api#documentation": "SRN of the server.",
+            "smithy.api#required": {}
           }
         },
         "delivered": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicate if the newly ordered server is ready to use.\nSet to true once the server has completed its provisioning steps and is ready to use. Some OS configurations might require a reinstallation of the server before delivery depending on the available stock. A reinstallation after the initial delivery will not change this flag and can be tracked using the server status."
+            "smithy.api#documentation": "Indicate if the newly ordered server is ready to use.\nSet to true once the server has completed its provisioning steps and is ready to use. Some OS configurations might require a reinstallation of the server before delivery depending on the available stock. A reinstallation after the initial delivery will not change this flag and can be tracked using the server status.",
+            "smithy.api#required": {}
           }
         },
         "vpc_status": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ServerPrivateNetworkStatus",
           "traits": {
-            "smithy.api#documentation": "Activation status of optional Private Network feature support for this server."
+            "smithy.api#documentation": "Activation status of optional Private Network feature support for this server.",
+            "smithy.api#required": {}
           }
         },
         "commitment": {
@@ -284,7 +301,8 @@
         "public_bandwidth_bps": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Public bandwidth configured for this server. Expressed in bits per second."
+            "smithy.api#documentation": "Public bandwidth configured for this server. Expressed in bits per second.",
+            "smithy.api#required": {}
           }
         },
         "runner_configuration": {
@@ -296,19 +314,22 @@
         "tags": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ServerTagsList",
           "traits": {
-            "smithy.api#documentation": "A list of tags attached to the server."
+            "smithy.api#documentation": "A list of tags attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "applied_runner_configuration_ids": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ServerAppliedRunnerConfigurationIdsList",
           "traits": {
-            "smithy.api#documentation": "Runner configurations applied on the server, optional."
+            "smithy.api#documentation": "Runner configurations applied on the server, optional.",
+            "smithy.api#required": {}
           }
         },
         "kext_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Status of kernel extensions for the server."
+            "smithy.api#documentation": "Status of kernel extensions for the server.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -320,49 +341,57 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the OS."
+            "smithy.api#documentation": "Unique ID of the OS.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "OS name."
+            "smithy.api#documentation": "OS name.",
+            "smithy.api#required": {}
           }
         },
         "label": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "OS name as it should be displayed."
+            "smithy.api#documentation": "OS name as it should be displayed.",
+            "smithy.api#required": {}
           }
         },
         "image_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the image."
+            "smithy.api#documentation": "URL of the image.",
+            "smithy.api#required": {}
           }
         },
         "family": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The OS family to which this OS belongs, eg. 13 or 14."
+            "smithy.api#documentation": "The OS family to which this OS belongs, eg. 13 or 14.",
+            "smithy.api#required": {}
           }
         },
         "is_beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Describes if the OS is in beta."
+            "smithy.api#documentation": "Describes if the OS is in beta.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The OS version number, eg. Sonoma has version number 14.3."
+            "smithy.api#documentation": "The OS version number, eg. Sonoma has version number 14.3.",
+            "smithy.api#required": {}
           }
         },
         "xcode_version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The current xcode version for this OS."
+            "smithy.api#documentation": "The current xcode version for this OS.",
+            "smithy.api#required": {}
           }
         },
         "compatible_server_types": {
@@ -374,31 +403,36 @@
         "release_notes_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Url of the release notes for the OS image or software pre-installed."
+            "smithy.api#documentation": "Url of the release notes for the OS image or software pre-installed.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A summary of the OS image content and configuration."
+            "smithy.api#documentation": "A summary of the OS image content and configuration.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.apple_silicon_v1alpha1#OSTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags for the OS configuration."
+            "smithy.api#documentation": "List of tags for the OS configuration.",
+            "smithy.api#required": {}
           }
         },
         "supported_server_types": {
           "target": "com.scaleway.apple_silicon_v1alpha1#OSSupportedServerTypesList",
           "traits": {
-            "smithy.api#documentation": "List of server types which supports the OS configuration. Also gives information about immediate stock availability."
+            "smithy.api#documentation": "List of server types which supports the OS configuration. Also gives information about immediate stock availability.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of OS."
+            "smithy.api#documentation": "Zone of OS.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -426,10 +460,16 @@
       "type": "structure",
       "members": {
         "server_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "fast_delivery_available": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -549,10 +589,16 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#CommitmentType"
+          "target": "com.scaleway.apple_silicon_v1alpha1#CommitmentType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "cancelled": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -730,7 +776,10 @@
       "type": "structure",
       "members": {
         "diagnostic_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -790,31 +839,50 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#ConnectivityDiagnosticDiagnosticStatus"
+          "target": "com.scaleway.apple_silicon_v1alpha1#ConnectivityDiagnosticDiagnosticStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_healthy": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "health_details": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ConnectivityDiagnosticServerHealth"
         },
         "supported_actions": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#ConnectivityDiagnosticSupportedActionsList"
+          "target": "com.scaleway.apple_silicon_v1alpha1#ConnectivityDiagnosticSupportedActionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "error_message": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone you want to target"
+            "smithy.api#documentation": "The zone you want to target",
+            "smithy.api#required": {}
           }
         },
         "srn": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -860,19 +928,34 @@
           }
         },
         "is_server_alive": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_agent_alive": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_mdm_alive": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_ssh_port_up": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_vnc_port_up": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -980,13 +1063,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of OS."
+            "smithy.api#documentation": "Total number of OS.",
+            "smithy.api#required": {}
           }
         },
         "os": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ListOSResponseOsList",
           "traits": {
-            "smithy.api#documentation": "List of OS."
+            "smithy.api#documentation": "List of OS.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1217,10 +1302,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "runners": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#ListRunnersResponseRunnersList"
+          "target": "com.scaleway.apple_silicon_v1alpha1#ListRunnersResponseRunnersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1231,7 +1322,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the runner."
+            "smithy.api#documentation": "UUID of the runner.",
+            "smithy.api#required": {}
           }
         },
         "configuration": {
@@ -1243,25 +1335,29 @@
         "status": {
           "target": "com.scaleway.apple_silicon_v1alpha1#RunnerStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the runner."
+            "smithy.api#documentation": "Status of the runner.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Error message of the runner (if any)."
+            "smithy.api#documentation": "Error message of the runner (if any).",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the runner."
+            "smithy.api#documentation": "Zone of the runner.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the runner."
+            "smithy.api#documentation": "SRN of the runner.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1701,7 +1797,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the type."
+            "smithy.api#documentation": "Name of the type.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
@@ -1713,7 +1810,8 @@
         "stock": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ServerTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock."
+            "smithy.api#documentation": "Current stock.",
+            "smithy.api#required": {}
           }
         },
         "minimum_lease_duration": {
@@ -1750,7 +1848,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the server type."
+            "smithy.api#documentation": "Zone of the server type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1760,19 +1859,34 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "core_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "frequency": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "sockets": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "threads_per_core": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1783,11 +1897,15 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1798,11 +1916,15 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1841,7 +1963,10 @@
       "type": "structure",
       "members": {
         "count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1850,13 +1975,22 @@
       "type": "structure",
       "members": {
         "public_bandwidth_bps": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "supported_bandwidth": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#ServerTypeNetworkSupportedBandwidthList"
+          "target": "com.scaleway.apple_silicon_v1alpha1#ServerTypeNetworkSupportedBandwidthList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default_public_bandwidth": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1872,7 +2006,10 @@
       "type": "structure",
       "members": {
         "count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1928,7 +2065,8 @@
         "server_types": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ListServerTypesResponseServerTypesList",
           "traits": {
-            "smithy.api#documentation": "Available server types."
+            "smithy.api#documentation": "Available server types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2047,13 +2185,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of servers."
+            "smithy.api#documentation": "Total number of servers.",
+            "smithy.api#required": {}
           }
         },
         "servers": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ListServersResponseServersList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned servers."
+            "smithy.api#documentation": "Paginated returned servers.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2580,14 +2720,21 @@
         "vnc_password": {
           "target": "smithy.api#String",
           "traits": {
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "ssh_keys": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#UserConfigurationSshKeysList"
+          "target": "com.scaleway.apple_silicon_v1alpha1#UserConfigurationSshKeysList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "runner_configurations": {
-          "target": "com.scaleway.apple_silicon_v1alpha1#UserConfigurationRunnerConfigurationsList"
+          "target": "com.scaleway.apple_silicon_v1alpha1#UserConfigurationRunnerConfigurationsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

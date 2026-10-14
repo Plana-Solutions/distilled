@@ -37,15 +37,15 @@ export const DownloadImpactReportRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<DownloadImpactReportRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -177,33 +177,33 @@ export const GetImpactDataRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Impact {
   /** The estimated carbon emissions in kilograms of CO₂ equivalent (kgCO₂e). */
-  kg_co2_equivalent?: number;
+  kg_co2_equivalent: number;
   /** The estimated water consumption in cubic meters (m³). */
-  m3_water_usage?: number;
+  m3_water_usage: number;
 }
 export const Impact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    kg_co2_equivalent: S.optional(S.Number),
-    m3_water_usage: S.optional(S.Number),
+    kg_co2_equivalent: S.Number,
+    m3_water_usage: S.Number,
   }),
 ).annotate({ identifier: "Impact" }) as any as S.Schema<Impact>;
 
 export interface SkuImpact {
   /** Unique ID of the combination of product, region and zone. */
-  sku?: string;
+  sku: string;
   /** The total estimated impact for this SKU during the given period. */
   total_sku_impact?: Impact;
   /** The service category associated with this SKU. */
-  service_category?: ServiceCategory;
+  service_category: ServiceCategory;
   /** The product category associated with this SKU. */
-  product_category?: ProductCategory;
+  product_category: ProductCategory;
 }
 export const SkuImpact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    sku: S.optional(S.String),
+    sku: S.String,
     total_sku_impact: S.optional(Impact),
-    service_category: S.optional(ServiceCategory),
-    product_category: S.optional(ProductCategory),
+    service_category: ServiceCategory,
+    product_category: ProductCategory,
   }),
 ).annotate({ identifier: "SkuImpact" }) as any as S.Schema<SkuImpact>;
 
@@ -215,17 +215,17 @@ export const ZoneImpactSkusList = /*@__PURE__*/ S.Array(
 
 export interface ZoneImpact {
   /** ID of the zone. */
-  zone?: string;
+  zone: string;
   /** The total estimated impact for this zone across all given service categories, and product categories during the given period. */
   total_zone_impact?: Impact;
   /** List of estimated impact values per SKU for this zone. */
-  skus?: ZoneImpactSkusList;
+  skus: ZoneImpactSkusList;
 }
 export const ZoneImpact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    zone: S.optional(S.String),
+    zone: S.String,
     total_zone_impact: S.optional(Impact),
-    skus: S.optional(ZoneImpactSkusList),
+    skus: ZoneImpactSkusList,
   }),
 ).annotate({ identifier: "ZoneImpact" }) as any as S.Schema<ZoneImpact>;
 
@@ -243,20 +243,20 @@ export const RegionImpactSkusList = /*@__PURE__*/ S.Array(
 
 export interface RegionImpact {
   /** ID of the region. */
-  region?: string;
+  region: string;
   /** The total estimated impact for this region across all given zones, service categories, and product categories during the given period. */
   total_region_impact?: Impact;
   /** List of estimated impact values per zone. */
-  zones?: RegionImpactZonesList;
+  zones: RegionImpactZonesList;
   /** List of estimated impact values per SKU for this region. */
-  skus?: RegionImpactSkusList;
+  skus: RegionImpactSkusList;
 }
 export const RegionImpact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    region: S.optional(S.String),
+    region: S.String,
     total_region_impact: S.optional(Impact),
-    zones: S.optional(RegionImpactZonesList),
-    skus: S.optional(RegionImpactSkusList),
+    zones: RegionImpactZonesList,
+    skus: RegionImpactSkusList,
   }),
 ).annotate({ identifier: "RegionImpact" }) as any as S.Schema<RegionImpact>;
 
@@ -268,17 +268,17 @@ export const ProjectImpactRegionsList = /*@__PURE__*/ S.Array(
 
 export interface ProjectImpact {
   /** ID of the project. */
-  project_id?: string;
+  project_id: string;
   /** The total estimated impact for this Project across all given regions, zones, service categories, and product categories during the given period. */
   total_project_impact?: Impact;
   /** List of estimated impact values per region. */
-  regions?: ProjectImpactRegionsList;
+  regions: ProjectImpactRegionsList;
 }
 export const ProjectImpact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
+    project_id: S.String,
     total_project_impact: S.optional(Impact),
-    regions: S.optional(ProjectImpactRegionsList),
+    regions: ProjectImpactRegionsList,
   }),
 ).annotate({ identifier: "ProjectImpact" }) as any as S.Schema<ProjectImpact>;
 
@@ -296,14 +296,14 @@ export interface ImpactDataResponse {
   /** The total estimated impact across all given Projects, regions, zones, service categories, and product categories during the given period. */
   total_impact?: Impact;
   /** List of estimated impact values per Project. */
-  projects?: ImpactDataResponseProjectsList;
+  projects: ImpactDataResponseProjectsList;
 }
 export const ImpactDataResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     start_date: S.optional(S.NullOr(S.String)),
     end_date: S.optional(S.NullOr(S.String)),
     total_impact: S.optional(Impact),
-    projects: S.optional(ImpactDataResponseProjectsList),
+    projects: ImpactDataResponseProjectsList,
   }),
 ).annotate({ identifier: "ImpactDataResponse" }) as any as S.Schema<ImpactDataResponse>;
 

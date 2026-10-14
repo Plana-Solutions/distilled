@@ -117,13 +117,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of offers."
+            "smithy.api#documentation": "Total number of offers.",
+            "smithy.api#required": {}
           }
         },
         "offers": {
           "target": "com.scaleway.webhosting_offer_v1#ListOffersResponseOffersList",
           "traits": {
-            "smithy.api#documentation": "List of offers."
+            "smithy.api#documentation": "List of offers.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -135,25 +137,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer ID."
+            "smithy.api#documentation": "Offer ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer name."
+            "smithy.api#documentation": "Offer name.",
+            "smithy.api#required": {}
           }
         },
         "billing_operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier used for billing."
+            "smithy.api#documentation": "Unique identifier used for billing.",
+            "smithy.api#required": {}
           }
         },
         "options": {
           "target": "com.scaleway.webhosting_offer_v1#OfferOptionsList",
           "traits": {
-            "smithy.api#documentation": "Options available for the offer."
+            "smithy.api#documentation": "Options available for the offer.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -165,43 +171,50 @@
         "available": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "If a hosting_id was specified in the call, defines whether the offer is available for a specified hosting plan to migrate (update) to."
+            "smithy.api#documentation": "If a hosting_id was specified in the call, defines whether the offer is available for a specified hosting plan to migrate (update) to.",
+            "smithy.api#required": {}
           }
         },
         "control_panel_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the control panel."
+            "smithy.api#documentation": "Name of the control panel.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if the offer has reached its end of life."
+            "smithy.api#documentation": "Indicates if the offer has reached its end of life.",
+            "smithy.api#required": {}
           }
         },
         "quota_warning": {
           "target": "com.scaleway.webhosting_offer_v1#OfferOptionWarning",
           "traits": {
-            "smithy.api#documentation": "Defines a warning if the maximum value for an option in the offer is exceeded."
+            "smithy.api#documentation": "Defines a warning if the maximum value for an option in the offer is exceeded.",
+            "smithy.api#required": {}
           }
         },
         "control_panels": {
           "target": "com.scaleway.webhosting_offer_v1#OfferControlPanelsList",
           "traits": {
-            "smithy.api#documentation": "Lists available control panels for the specified offer."
+            "smithy.api#documentation": "Lists available control panels for the specified offer.",
+            "smithy.api#required": {}
           }
         },
         "commitments": {
           "target": "com.scaleway.webhosting_offer_v1#OfferCommitmentsList",
           "traits": {
-            "smithy.api#documentation": "Lists available offer commitments for the specified offer."
+            "smithy.api#documentation": "Lists available offer commitments for the specified offer.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region where the offer is hosted."
+            "smithy.api#documentation": "Region where the offer is hosted.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -213,43 +226,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Option ID."
+            "smithy.api#documentation": "Option ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "com.scaleway.webhosting_offer_v1#OfferOptionName",
           "traits": {
-            "smithy.api#documentation": "Name of the option."
+            "smithy.api#documentation": "Name of the option.",
+            "smithy.api#required": {}
           }
         },
         "billing_operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier used for billing."
+            "smithy.api#documentation": "Unique identifier used for billing.",
+            "smithy.api#required": {}
           }
         },
         "min_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum value for the option in the offer."
+            "smithy.api#documentation": "Minimum value for the option in the offer.",
+            "smithy.api#required": {}
           }
         },
         "current_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "If a hosting_id was specified in the call, defines the current value of the option in the hosting."
+            "smithy.api#documentation": "If a hosting_id was specified in the call, defines the current value of the option in the hosting.",
+            "smithy.api#required": {}
           }
         },
         "max_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum value for the option in the offer."
+            "smithy.api#documentation": "Maximum value for the option in the offer.",
+            "smithy.api#required": {}
           }
         },
         "quota_warning": {
           "target": "com.scaleway.webhosting_offer_v1#OfferOptionWarning",
           "traits": {
-            "smithy.api#documentation": "Defines a warning if the maximum value for the option has been reached."
+            "smithy.api#documentation": "Defines a warning if the maximum value for the option has been reached.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -367,13 +387,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -393,25 +422,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Control panel name."
+            "smithy.api#documentation": "Control panel name.",
+            "smithy.api#required": {}
           }
         },
         "available": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Define if the control panel type is available to order."
+            "smithy.api#documentation": "Define if the control panel type is available to order.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the control panel's logo."
+            "smithy.api#documentation": "URL of the control panel's logo.",
+            "smithy.api#required": {}
           }
         },
         "available_languages": {
           "target": "com.scaleway.webhosting_offer_v1#ControlPanelAvailableLanguagesList",
           "traits": {
-            "smithy.api#documentation": "List of available languages for the control panel."
+            "smithy.api#documentation": "List of available languages for the control panel.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -471,31 +504,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer commitment ID."
+            "smithy.api#documentation": "Offer commitment ID.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.webhosting_offer_v1#CommitmentType",
           "traits": {
-            "smithy.api#documentation": "Offer commitment type."
+            "smithy.api#documentation": "Offer commitment type.",
+            "smithy.api#required": {}
           }
         },
         "is_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the commitment is the default one for that offer."
+            "smithy.api#documentation": "True if the commitment is the default one for that offer.",
+            "smithy.api#required": {}
           }
         },
         "billing_mode": {
           "target": "com.scaleway.webhosting_offer_v1#BillingMode",
           "traits": {
-            "smithy.api#documentation": "Offer commitment name."
+            "smithy.api#documentation": "Offer commitment name.",
+            "smithy.api#required": {}
           }
         },
         "billing_operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier used for billing."
+            "smithy.api#documentation": "Unique identifier used for billing.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -507,7 +545,8 @@
         "duration_in_month": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Duration of the offer commitment in months."
+            "smithy.api#documentation": "Duration of the offer commitment in months.",
+            "smithy.api#required": {}
           }
         },
         "next": {

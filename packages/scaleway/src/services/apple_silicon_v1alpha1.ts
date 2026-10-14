@@ -88,13 +88,13 @@ export type OSTagsList = Array<string>;
 export const OSTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<OSTagsList>;
 
 export interface OSSupportedServerType {
-  server_type?: string;
-  fast_delivery_available?: boolean;
+  server_type: string;
+  fast_delivery_available: boolean;
 }
 export const OSSupportedServerType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server_type: S.optional(S.String),
-    fast_delivery_available: S.optional(S.Boolean),
+    server_type: S.String,
+    fast_delivery_available: S.Boolean,
   }),
 ).annotate({ identifier: "OSSupportedServerType" }) as any as S.Schema<OSSupportedServerType>;
 
@@ -106,50 +106,50 @@ export const OSSupportedServerTypesList = /*@__PURE__*/ S.Array(
 
 export interface OS {
   /** Unique ID of the OS. */
-  id?: string;
+  id: string;
   /** OS name. */
-  name?: string;
+  name: string;
   /** OS name as it should be displayed. */
-  label?: string;
+  label: string;
   /** URL of the image. */
-  image_url?: string;
+  image_url: string;
   /** The OS family to which this OS belongs, eg. 13 or 14. */
-  family?: string;
+  family: string;
   /** Describes if the OS is in beta. */
-  is_beta?: boolean;
+  is_beta: boolean;
   /** The OS version number, eg. Sonoma has version number 14.3. */
-  version?: string;
+  version: string;
   /** The current xcode version for this OS. */
-  xcode_version?: string;
+  xcode_version: string;
   /** List of compatible server types. Deprecated. */
   compatible_server_types?: OSCompatibleServerTypesList;
   /** Url of the release notes for the OS image or software pre-installed. */
-  release_notes_url?: string;
+  release_notes_url: string;
   /** A summary of the OS image content and configuration. */
-  description?: string;
+  description: string;
   /** List of tags for the OS configuration. */
-  tags?: OSTagsList;
+  tags: OSTagsList;
   /** List of server types which supports the OS configuration. Also gives information about immediate stock availability. */
-  supported_server_types?: OSSupportedServerTypesList;
+  supported_server_types: OSSupportedServerTypesList;
   /** Zone of OS. */
-  zone?: string;
+  zone: string;
 }
 export const OS = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    label: S.optional(S.String),
-    image_url: S.optional(S.String),
-    family: S.optional(S.String),
-    is_beta: S.optional(S.Boolean),
-    version: S.optional(S.String),
-    xcode_version: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    label: S.String,
+    image_url: S.String,
+    family: S.String,
+    is_beta: S.Boolean,
+    version: S.String,
+    xcode_version: S.String,
     compatible_server_types: S.optional(OSCompatibleServerTypesList),
-    release_notes_url: S.optional(S.String),
-    description: S.optional(S.String),
-    tags: S.optional(OSTagsList),
-    supported_server_types: S.optional(OSSupportedServerTypesList),
-    zone: S.optional(S.String),
+    release_notes_url: S.String,
+    description: S.String,
+    tags: OSTagsList,
+    supported_server_types: OSSupportedServerTypesList,
+    zone: S.String,
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
 
@@ -175,13 +175,13 @@ export type ServerPrivateNetworkStatus =
 export const ServerPrivateNetworkStatus = S.String;
 
 export interface Commitment {
-  type?: CommitmentType;
-  cancelled?: boolean;
+  type: CommitmentType;
+  cancelled: boolean;
 }
 export const Commitment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(CommitmentType),
-    cancelled: S.optional(S.Boolean),
+    type: CommitmentType,
+    cancelled: S.Boolean,
   }),
 ).annotate({ identifier: "Commitment" }) as any as S.Schema<Commitment>;
 
@@ -231,29 +231,29 @@ export const ServerAppliedRunnerConfigurationIdsList = /*@__PURE__*/ S.Array(
 
 export interface Server {
   /** UUID of the server. */
-  id?: string;
+  id: string;
   /** Type of the server. */
-  type?: string;
+  type: string;
   /** Name of the server. */
-  name?: string;
+  name: string;
   /** Project this server is associated with. */
-  project_id?: string;
+  project_id: string;
   /** Organization this server is associated with. */
-  organization_id?: string;
+  organization_id: string;
   /** IPv4 address of the server. (IPv4 address) */
-  ip?: string;
+  ip: string;
   /** Vnc:// URL to access Apple Remote Desktop. */
-  vnc_url?: string;
+  vnc_url: string;
   /** SSH Username for remote shell. */
-  ssh_username?: string;
+  ssh_username: string;
   /** Admin password required to execute commands. */
-  sudo_password?: string | Redacted.Redacted<string>;
+  sudo_password: string | Redacted.Redacted<string>;
   /** VNC port to use for remote desktop connection. */
-  vnc_port?: number;
+  vnc_port: number;
   /** Initially installed OS. Initially installed OS, this does not necessarily reflect the current OS version. */
   os?: OS;
   /** Current status of the server. */
-  status?: ServerStatus;
+  status: ServerStatus;
   /** Date on which the server was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the server was last updated. (RFC 3339 format) */
@@ -261,56 +261,56 @@ export interface Server {
   /** Date from which the server can be deleted. (RFC 3339 format) */
   deletable_at?: string | null;
   /** If true, server will be automatically once deletable_at is reached. Set to true to mark the server for automatic deletion depending on `deletable_at` date. Set to false to cancel an existing deletion schedule. Leave unset otherwise. */
-  deletion_scheduled?: boolean;
+  deletion_scheduled: boolean;
   /** Zone of the server. */
-  zone?: string;
+  zone: string;
   /** SRN of the server. */
-  srn?: string;
+  srn: string;
   /** Indicate if the newly ordered server is ready to use. Set to true once the server has completed its provisioning steps and is ready to use. Some OS configurations might require a reinstallation of the server before delivery depending on the available stock. A reinstallation after the initial delivery will not change this flag and can be tracked using the server status. */
-  delivered?: boolean;
+  delivered: boolean;
   /** Activation status of optional Private Network feature support for this server. */
-  vpc_status?: ServerPrivateNetworkStatus;
+  vpc_status: ServerPrivateNetworkStatus;
   /** Commitment scheme applied to this server. */
   commitment?: Commitment;
   /** Public bandwidth configured for this server. Expressed in bits per second. */
-  public_bandwidth_bps?: number;
+  public_bandwidth_bps: number;
   /** Current runner configuration, empty if none is installed. */
   runner_configuration?: RunnerConfiguration;
   /** A list of tags attached to the server. */
-  tags?: ServerTagsList;
+  tags: ServerTagsList;
   /** Runner configurations applied on the server, optional. */
-  applied_runner_configuration_ids?: ServerAppliedRunnerConfigurationIdsList;
+  applied_runner_configuration_ids: ServerAppliedRunnerConfigurationIdsList;
   /** Status of kernel extensions for the server. */
-  kext_enabled?: boolean;
+  kext_enabled: boolean;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    ip: S.optional(S.String),
-    vnc_url: S.optional(S.String),
-    ssh_username: S.optional(S.String),
-    sudo_password: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    vnc_port: S.optional(S.Number),
+    id: S.String,
+    type: S.String,
+    name: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    ip: S.String,
+    vnc_url: S.String,
+    ssh_username: S.String,
+    sudo_password: S.String.pipe(T.SensitiveValue({})),
+    vnc_port: S.Number,
     os: S.optional(OS),
-    status: S.optional(ServerStatus),
+    status: ServerStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     deletable_at: S.optional(S.NullOr(S.String)),
-    deletion_scheduled: S.optional(S.Boolean),
-    zone: S.optional(S.String),
-    srn: S.optional(S.String),
-    delivered: S.optional(S.Boolean),
-    vpc_status: S.optional(ServerPrivateNetworkStatus),
+    deletion_scheduled: S.Boolean,
+    zone: S.String,
+    srn: S.String,
+    delivered: S.Boolean,
+    vpc_status: ServerPrivateNetworkStatus,
     commitment: S.optional(Commitment),
-    public_bandwidth_bps: S.optional(S.Number),
+    public_bandwidth_bps: S.Number,
     runner_configuration: S.optional(RunnerConfiguration),
-    tags: S.optional(ServerTagsList),
-    applied_runner_configuration_ids: S.optional(ServerAppliedRunnerConfigurationIdsList),
-    kext_enabled: S.optional(S.Boolean),
+    tags: ServerTagsList,
+    applied_runner_configuration_ids: ServerAppliedRunnerConfigurationIdsList,
+    kext_enabled: S.Boolean,
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
 
@@ -322,11 +322,11 @@ export const BatchCreateServersResponseServersList = /*@__PURE__*/ S.Array(
 
 export interface BatchCreateServersResponse {
   /** List of created servers. */
-  servers?: BatchCreateServersResponseServersList;
+  servers: BatchCreateServersResponseServersList;
 }
 export const BatchCreateServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(BatchCreateServersResponseServersList),
+    servers: BatchCreateServersResponseServersList,
   }),
 ).annotate({
   identifier: "BatchCreateServersResponse",
@@ -414,26 +414,26 @@ export const RunnerStatus = S.String;
 
 export interface Runner {
   /** UUID of the runner. */
-  id?: string;
+  id: string;
   /** Configuration of the runner. */
   configuration?: RunnerConfigurationV2;
   /** Status of the runner. */
-  status?: RunnerStatus;
+  status: RunnerStatus;
   /** Error message of the runner (if any). */
-  error_message?: string;
+  error_message: string;
   /** Zone of the runner. */
-  zone?: string;
+  zone: string;
   /** SRN of the runner. */
-  srn?: string;
+  srn: string;
 }
 export const Runner = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     configuration: S.optional(RunnerConfigurationV2),
-    status: S.optional(RunnerStatus),
-    error_message: S.optional(S.String),
-    zone: S.optional(S.String),
-    srn: S.optional(S.String),
+    status: RunnerStatus,
+    error_message: S.String,
+    zone: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Runner" }) as any as S.Schema<Runner>;
 
@@ -595,20 +595,20 @@ export const ConnectivityDiagnosticDiagnosticStatus = S.String;
 export interface ConnectivityDiagnosticServerHealth {
   /** (RFC 3339 format) */
   last_checkin_date?: string | null;
-  is_server_alive?: boolean;
-  is_agent_alive?: boolean;
-  is_mdm_alive?: boolean;
-  is_ssh_port_up?: boolean;
-  is_vnc_port_up?: boolean;
+  is_server_alive: boolean;
+  is_agent_alive: boolean;
+  is_mdm_alive: boolean;
+  is_ssh_port_up: boolean;
+  is_vnc_port_up: boolean;
 }
 export const ConnectivityDiagnosticServerHealth = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     last_checkin_date: S.optional(S.NullOr(S.String)),
-    is_server_alive: S.optional(S.Boolean),
-    is_agent_alive: S.optional(S.Boolean),
-    is_mdm_alive: S.optional(S.Boolean),
-    is_ssh_port_up: S.optional(S.Boolean),
-    is_vnc_port_up: S.optional(S.Boolean),
+    is_server_alive: S.Boolean,
+    is_agent_alive: S.Boolean,
+    is_mdm_alive: S.Boolean,
+    is_ssh_port_up: S.Boolean,
+    is_vnc_port_up: S.Boolean,
   }),
 ).annotate({
   identifier: "ConnectivityDiagnosticServerHealth",
@@ -623,26 +623,26 @@ export const ConnectivityDiagnosticSupportedActionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ConnectivityDiagnosticSupportedActionsList>;
 
 export interface ConnectivityDiagnostic {
-  id?: string;
-  status?: ConnectivityDiagnosticDiagnosticStatus;
-  is_healthy?: boolean;
+  id: string;
+  status: ConnectivityDiagnosticDiagnosticStatus;
+  is_healthy: boolean;
   health_details?: ConnectivityDiagnosticServerHealth;
-  supported_actions?: ConnectivityDiagnosticSupportedActionsList;
-  error_message?: string;
+  supported_actions: ConnectivityDiagnosticSupportedActionsList;
+  error_message: string;
   /** The zone you want to target */
-  zone?: string;
-  srn?: string;
+  zone: string;
+  srn: string;
 }
 export const ConnectivityDiagnostic = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    status: S.optional(ConnectivityDiagnosticDiagnosticStatus),
-    is_healthy: S.optional(S.Boolean),
+    id: S.String,
+    status: ConnectivityDiagnosticDiagnosticStatus,
+    is_healthy: S.Boolean,
     health_details: S.optional(ConnectivityDiagnosticServerHealth),
-    supported_actions: S.optional(ConnectivityDiagnosticSupportedActionsList),
-    error_message: S.optional(S.String),
-    zone: S.optional(S.String),
-    srn: S.optional(S.String),
+    supported_actions: ConnectivityDiagnosticSupportedActionsList,
+    error_message: S.String,
+    zone: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "ConnectivityDiagnostic" }) as any as S.Schema<ConnectivityDiagnostic>;
 
@@ -739,31 +739,31 @@ export const GetServerTypeRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetServerTypeRequest" }) as any as S.Schema<GetServerTypeRequest>;
 
 export interface ServerTypeCPU {
-  name?: string;
-  core_count?: number;
-  frequency?: number;
-  sockets?: number;
-  threads_per_core?: number;
+  name: string;
+  core_count: number;
+  frequency: number;
+  sockets: number;
+  threads_per_core: number;
 }
 export const ServerTypeCPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    core_count: S.optional(S.Number),
-    frequency: S.optional(S.Number),
-    sockets: S.optional(S.Number),
-    threads_per_core: S.optional(S.Number),
+    name: S.String,
+    core_count: S.Number,
+    frequency: S.Number,
+    sockets: S.Number,
+    threads_per_core: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeCPU" }) as any as S.Schema<ServerTypeCPU>;
 
 export interface ServerTypeDisk {
   /** (in bytes) */
-  capacity?: number;
-  type?: string;
+  capacity: number;
+  type: string;
 }
 export const ServerTypeDisk = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    type: S.optional(S.String),
+    capacity: S.Number,
+    type: S.String,
   }),
 ).annotate({ identifier: "ServerTypeDisk" }) as any as S.Schema<ServerTypeDisk>;
 
@@ -774,11 +774,11 @@ export type ServerTypeStock = "unknown_stock" | "no_stock" | "low_stock" | "high
 export const ServerTypeStock = S.String;
 
 export interface ServerTypeGPU {
-  count?: number;
+  count: number;
 }
 export const ServerTypeGPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    count: S.optional(S.Number),
+    count: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeGPU" }) as any as S.Schema<ServerTypeGPU>;
 
@@ -788,15 +788,15 @@ export const ServerTypeNetworkSupportedBandwidthList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ServerTypeNetworkSupportedBandwidthList>;
 
 export interface ServerTypeNetwork {
-  public_bandwidth_bps?: number;
-  supported_bandwidth?: ServerTypeNetworkSupportedBandwidthList;
-  default_public_bandwidth?: number;
+  public_bandwidth_bps: number;
+  supported_bandwidth: ServerTypeNetworkSupportedBandwidthList;
+  default_public_bandwidth: number;
 }
 export const ServerTypeNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    public_bandwidth_bps: S.optional(S.Number),
-    supported_bandwidth: S.optional(ServerTypeNetworkSupportedBandwidthList),
-    default_public_bandwidth: S.optional(S.Number),
+    public_bandwidth_bps: S.Number,
+    supported_bandwidth: ServerTypeNetworkSupportedBandwidthList,
+    default_public_bandwidth: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeNetwork" }) as any as S.Schema<ServerTypeNetwork>;
 
@@ -809,11 +809,11 @@ export interface ServerType {
   /** Size of the local disk of the server. */
   disk?: ServerTypeDisk;
   /** Name of the type. */
-  name?: string;
+  name: string;
   /** Size of memory available. */
   memory?: ServerTypeDisk;
   /** Current stock. */
-  stock?: ServerTypeStock;
+  stock: ServerTypeStock;
   /** Minimum duration of the lease in seconds. Minimum duration of the lease in seconds (example. 3.4s). (in seconds) */
   minimum_lease_duration?: string | null;
   /** GPU description. */
@@ -825,21 +825,21 @@ export interface ServerType {
   /** NPU description. */
   npu?: ServerTypeGPU;
   /** Zone of the server type. */
-  zone?: string;
+  zone: string;
 }
 export const ServerType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     cpu: S.optional(ServerTypeCPU),
     disk: S.optional(ServerTypeDisk),
-    name: S.optional(S.String),
+    name: S.String,
     memory: S.optional(ServerTypeDisk),
-    stock: S.optional(ServerTypeStock),
+    stock: ServerTypeStock,
     minimum_lease_duration: S.optional(S.NullOr(S.String)),
     gpu: S.optional(ServerTypeGPU),
     network: S.optional(ServerTypeNetwork),
     default_os: S.optional(OS),
     npu: S.optional(ServerTypeGPU),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "ServerType" }) as any as S.Schema<ServerType>;
 
@@ -876,15 +876,15 @@ export const UserConfigurationRunnerConfigurationsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<UserConfigurationRunnerConfigurationsList>;
 
 export interface UserConfiguration {
-  vnc_password?: string | Redacted.Redacted<string>;
-  ssh_keys?: UserConfigurationSshKeysList;
-  runner_configurations?: UserConfigurationRunnerConfigurationsList;
+  vnc_password: string | Redacted.Redacted<string>;
+  ssh_keys: UserConfigurationSshKeysList;
+  runner_configurations: UserConfigurationRunnerConfigurationsList;
 }
 export const UserConfiguration = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vnc_password: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    ssh_keys: S.optional(UserConfigurationSshKeysList),
-    runner_configurations: S.optional(UserConfigurationRunnerConfigurationsList),
+    vnc_password: S.String.pipe(T.SensitiveValue({})),
+    ssh_keys: UserConfigurationSshKeysList,
+    runner_configurations: UserConfigurationRunnerConfigurationsList,
   }),
 ).annotate({ identifier: "UserConfiguration" }) as any as S.Schema<UserConfiguration>;
 
@@ -928,13 +928,13 @@ export const ListOSResponseOsList = /*@__PURE__*/ S.Array(
 
 export interface ListOSResponse {
   /** Total number of OS. */
-  total_count?: number;
+  total_count: number;
   /** List of OS. */
   os: ListOSResponseOsList;
 }
 export const ListOSResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     os: ListOSResponseOsList,
   }),
 ).annotate({ identifier: "ListOSResponse" }) as any as S.Schema<ListOSResponse>;
@@ -980,12 +980,12 @@ export const ListRunnersResponseRunnersList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListRunnersResponseRunnersList>;
 
 export interface ListRunnersResponse {
-  total_count?: number;
+  total_count: number;
   runners: ListRunnersResponseRunnersList;
 }
 export const ListRunnersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     runners: ListRunnersResponseRunnersList,
   }),
 ).annotate({ identifier: "ListRunnersResponse" }) as any as S.Schema<ListRunnersResponse>;
@@ -1036,13 +1036,13 @@ export const ListServersResponseServersList = /*@__PURE__*/ S.Array(
 
 export interface ListServersResponse {
   /** Total number of servers. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned servers. */
   servers: ListServersResponseServersList;
 }
 export const ListServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     servers: ListServersResponseServersList,
   }),
 ).annotate({ identifier: "ListServersResponse" }) as any as S.Schema<ListServersResponse>;
@@ -1075,11 +1075,11 @@ export const ListServerTypesResponseServerTypesList = /*@__PURE__*/ S.Array(
 
 export interface ListServerTypesResponse {
   /** Available server types. */
-  server_types?: ListServerTypesResponseServerTypesList;
+  server_types: ListServerTypesResponseServerTypesList;
 }
 export const ListServerTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server_types: S.optional(ListServerTypesResponseServerTypesList),
+    server_types: ListServerTypesResponseServerTypesList,
   }),
 ).annotate({ identifier: "ListServerTypesResponse" }) as any as S.Schema<ListServerTypesResponse>;
 
@@ -1160,11 +1160,11 @@ export const StartConnectivityDiagnosticRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<StartConnectivityDiagnosticRequest>;
 
 export interface StartConnectivityDiagnosticResponse {
-  diagnostic_id?: string;
+  diagnostic_id: string;
 }
 export const StartConnectivityDiagnosticResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    diagnostic_id: S.optional(S.String),
+    diagnostic_id: S.String,
   }),
 ).annotate({
   identifier: "StartConnectivityDiagnosticResponse",

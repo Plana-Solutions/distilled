@@ -207,13 +207,15 @@
         "routes": {
           "target": "com.scaleway.vpc_routes_with_nexthop_v2#ListRoutesWithNexthopResponseRoutesList",
           "traits": {
-            "smithy.api#documentation": "List of routes."
+            "smithy.api#documentation": "List of routes.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of routes."
+            "smithy.api#documentation": "Total number of routes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -245,7 +247,8 @@
         "nexthop_resource_type": {
           "target": "com.scaleway.vpc_routes_with_nexthop_v2#RouteWithNexthopResourceType",
           "traits": {
-            "smithy.api#documentation": "Resource type of the route's next hop."
+            "smithy.api#documentation": "Resource type of the route's next hop.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -257,37 +260,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route ID. (UUID format)"
+            "smithy.api#documentation": "Route ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the route."
+            "smithy.api#documentation": "The SRN of the route.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route description."
+            "smithy.api#documentation": "Route description.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.vpc_routes_with_nexthop_v2#RouteTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags of the Route."
+            "smithy.api#documentation": "Tags of the Route.",
+            "smithy.api#required": {}
           }
         },
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "VPC the Route belongs to. (UUID format)"
+            "smithy.api#documentation": "VPC the Route belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "destination": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Destination of the Route. (IP network)"
+            "smithy.api#documentation": "Destination of the Route. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "nexthop_resource_id": {
@@ -328,19 +337,22 @@
         "is_read_only": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the route can be modified or deleted by the user."
+            "smithy.api#documentation": "Defines whether the route can be modified or deleted by the user.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.vpc_routes_with_nexthop_v2#RouteType",
           "traits": {
-            "smithy.api#documentation": "Type of the Route."
+            "smithy.api#documentation": "Type of the Route.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the Route."
+            "smithy.api#documentation": "Region of the Route.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -69,7 +69,10 @@
       "type": "structure",
       "members": {
         "encryption_key": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

@@ -130,15 +130,15 @@ export const DeploymentTagsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DeploymentTagsList>;
 
 export interface EndpointService {
-  name?: string;
-  port?: number;
-  url?: string;
+  name: string;
+  port: number;
+  url: string;
 }
 export const EndpointService = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    port: S.optional(S.Number),
-    url: S.optional(S.String),
+    name: S.String,
+    port: S.Number,
+    url: S.String,
   }),
 ).annotate({ identifier: "EndpointService" }) as any as S.Schema<EndpointService>;
 
@@ -150,11 +150,11 @@ export const EndpointServicesList = /*@__PURE__*/ S.Array(
 
 export interface EndpointPrivateNetworkDetails {
   /** (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
 }
 export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
+    private_network_id: S.String,
   }),
 ).annotate({
   identifier: "EndpointPrivateNetworkDetails",
@@ -162,19 +162,19 @@ export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 
 export interface Endpoint {
   /** Unique identifier of the endpoint. (UUID format) */
-  id?: string;
+  id: string;
   /** DNS record for service access. Now deprecated. Use the `url` field from `services` field instead. */
   dns_record?: string;
   /** List of available services, their ports and URLs. */
-  services?: EndpointServicesList;
+  services: EndpointServicesList;
   public?: unknown | null;
   private_network?: EndpointPrivateNetworkDetails | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     dns_record: S.optional(S.String),
-    services: S.optional(EndpointServicesList),
+    services: EndpointServicesList,
     public: S.optional(S.NullOr(S.Unknown)),
     private_network: S.optional(S.NullOr(EndpointPrivateNetworkDetails)),
   }),
@@ -188,50 +188,50 @@ export const DeploymentEndpointsList = /*@__PURE__*/ S.Array(
 
 export interface Deployment {
   /** Unique identifier of the deployment. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the deployment. */
-  name?: string;
+  name: string;
   /** ID of the Organization containing the deployment. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the Project containing the deployment. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Status of the deployment. */
-  status?: DeploymentStatus;
+  status: DeploymentStatus;
   /** Tags of the deployment. */
-  tags?: DeploymentTagsList;
+  tags: DeploymentTagsList;
   /** Number of nodes. */
-  node_count?: number;
+  node_count: number;
   /** Node type used. */
-  node_type?: string;
+  node_type: string;
   /** Volume type and size. */
   volume?: Volume;
   /** Exposed endpoints. */
-  endpoints?: DeploymentEndpointsList;
+  endpoints: DeploymentEndpointsList;
   /** Date the deployment was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the deployment was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** MessageQ version of the deployment. */
-  version?: string;
+  version: string;
   /** Region of the deployment. */
-  region?: string;
+  region: string;
 }
 export const Deployment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(DeploymentStatus),
-    tags: S.optional(DeploymentTagsList),
-    node_count: S.optional(S.Number),
-    node_type: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    status: DeploymentStatus,
+    tags: DeploymentTagsList,
+    node_count: S.Number,
+    node_type: S.String,
     volume: S.optional(Volume),
-    endpoints: S.optional(DeploymentEndpointsList),
+    endpoints: DeploymentEndpointsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    version: S.optional(S.String),
-    region: S.optional(S.String),
+    version: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Deployment" }) as any as S.Schema<Deployment>;
 
@@ -291,11 +291,11 @@ export const CreateUserRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateUserRequest" }) as any as S.Schema<CreateUserRequest>;
 
 export interface User {
-  username?: string;
+  username: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    username: S.optional(S.String),
+    username: S.String,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -406,15 +406,15 @@ export const DownloadDeploymentCertificateAuthorityRequest = /*@__PURE__*/ S.sus
 }) as any as S.Schema<DownloadDeploymentCertificateAuthorityRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -533,12 +533,12 @@ export interface ListDeploymentsResponse {
   /** List of deployments. */
   deployments: ListDeploymentsResponseDeploymentsList;
   /** Number of deployments in result set. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDeploymentsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     deployments: ListDeploymentsResponseDeploymentsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDeploymentsResponse" }) as any as S.Schema<ListDeploymentsResponse>;
 
@@ -584,22 +584,22 @@ export type NodeTypeStockStatus = "unknown_stock" | "low_stock" | "out_of_stock"
 export const NodeTypeStockStatus = S.String;
 
 export interface NodeTypeVolumeType {
-  type?: VolumeType;
-  description?: string;
+  type: VolumeType;
+  description: string;
   /** (in bytes) */
-  min_size_bytes?: number;
+  min_size_bytes: number;
   /** (in bytes) */
-  max_size_bytes?: number;
+  max_size_bytes: number;
   /** (in bytes) */
-  chunk_size_bytes?: number;
+  chunk_size_bytes: number;
 }
 export const NodeTypeVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    description: S.optional(S.String),
-    min_size_bytes: S.optional(S.Number),
-    max_size_bytes: S.optional(S.Number),
-    chunk_size_bytes: S.optional(S.Number),
+    type: VolumeType,
+    description: S.String,
+    min_size_bytes: S.Number,
+    max_size_bytes: S.Number,
+    chunk_size_bytes: S.Number,
   }),
 ).annotate({ identifier: "NodeTypeVolumeType" }) as any as S.Schema<NodeTypeVolumeType>;
 
@@ -611,35 +611,35 @@ export const NodeTypeAvailableVolumeTypesList = /*@__PURE__*/ S.Array(
 
 export interface NodeType {
   /** Stock status for the node type. */
-  stock_status?: NodeTypeStockStatus;
+  stock_status: NodeTypeStockStatus;
   /** Name of the node type. */
-  name?: string;
+  name: string;
   /** Description of the node type. */
-  description?: string;
+  description: string;
   /** Number of vCPUs available. */
-  vcpus?: number;
+  vcpus: number;
   /** Amount of memory available. (in bytes) */
-  memory_bytes?: number;
+  memory_bytes: number;
   /** Defines whether the node type is disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Defines whether the node type is in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** Instance range associated with the node type offer. */
-  instance_range?: string;
+  instance_range: string;
   /** Available storage options for the node type. */
-  available_volume_types?: NodeTypeAvailableVolumeTypesList;
+  available_volume_types: NodeTypeAvailableVolumeTypesList;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    stock_status: S.optional(NodeTypeStockStatus),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory_bytes: S.optional(S.Number),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
-    instance_range: S.optional(S.String),
-    available_volume_types: S.optional(NodeTypeAvailableVolumeTypesList),
+    stock_status: NodeTypeStockStatus,
+    name: S.String,
+    description: S.String,
+    vcpus: S.Number,
+    memory_bytes: S.Number,
+    disabled: S.Boolean,
+    beta: S.Boolean,
+    instance_range: S.String,
+    available_volume_types: NodeTypeAvailableVolumeTypesList,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -653,12 +653,12 @@ export interface ListNodeTypesResponse {
   /** List of node types compatible. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** Number of node types in result set. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -702,12 +702,12 @@ export const ListUsersResponseUsersList = /*@__PURE__*/ S.Array(
 
 export interface ListUsersResponse {
   users: ListUsersResponseUsersList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     users: ListUsersResponseUsersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUsersResponse" }) as any as S.Schema<ListUsersResponse>;
 
@@ -748,20 +748,20 @@ export const ListVersionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Version {
   /** MessageQ version. */
-  version?: string;
+  version: string;
   /** Date the version support ends. (RFC 3339 format) */
   end_of_life?: string | null;
   /** Defines whether the version is disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Defines whether the version is in beta. */
-  beta?: boolean;
+  beta: boolean;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life: S.optional(S.NullOr(S.String)),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
+    disabled: S.Boolean,
+    beta: S.Boolean,
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
 
@@ -775,12 +775,12 @@ export interface ListVersionsResponse {
   /** List of versions. */
   versions: ListVersionsResponseVersionsList;
   /** Number of versions in result set. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 

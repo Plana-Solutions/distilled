@@ -206,7 +206,8 @@
         "snapshots": {
           "target": "com.scaleway.instance_volume_v2alpha1#ListSnapshotsResponseSnapshotsList",
           "traits": {
-            "smithy.api#documentation": "List of snapshots."
+            "smithy.api#documentation": "List of snapshots.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -219,7 +220,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -231,43 +233,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the snapshot."
+            "smithy.api#documentation": "Unique ID of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the snapshot."
+            "smithy.api#documentation": "The SRN of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the snapshot."
+            "smithy.api#documentation": "Project ID of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the snapshot."
+            "smithy.api#documentation": "Name of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_volume_v2alpha1#SnapshotTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the snapshot."
+            "smithy.api#documentation": "Tags associated with the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Size of the snapshot in bytes. (in bytes)"
+            "smithy.api#documentation": "Size of the snapshot in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.instance_volume_v2alpha1#SnapshotStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the snapshot."
+            "smithy.api#documentation": "Current status of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "base_volume_id": {
@@ -280,7 +289,8 @@
         "volume_type": {
           "target": "com.scaleway.instance_volume_v2alpha1#SnapshotVolumeType",
           "traits": {
-            "smithy.api#documentation": "Type of the volume."
+            "smithy.api#documentation": "Type of the volume.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -300,13 +310,15 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the snapshot is located."
+            "smithy.api#documentation": "Zone in which the snapshot is located.",
+            "smithy.api#required": {}
           }
         },
         "public": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the snapshot is public."
+            "smithy.api#documentation": "Whether the snapshot is public.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1275,7 +1287,8 @@
         "volume_types": {
           "target": "com.scaleway.instance_volume_v2alpha1#ListVolumeTypesResponseVolumeTypesList",
           "traits": {
-            "smithy.api#documentation": "List of volume types."
+            "smithy.api#documentation": "List of volume types.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -1288,7 +1301,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1300,19 +1314,22 @@
         "name": {
           "target": "com.scaleway.instance_volume_v2alpha1#VolumeVolumeType",
           "traits": {
-            "smithy.api#documentation": "Name of the volume type."
+            "smithy.api#documentation": "Name of the volume type.",
+            "smithy.api#required": {}
           }
         },
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum size of the volume in bytes."
+            "smithy.api#documentation": "Minimum size of the volume in bytes.",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum size of the volume in bytes."
+            "smithy.api#documentation": "Maximum size of the volume in bytes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1564,7 +1581,8 @@
         "volumes": {
           "target": "com.scaleway.instance_volume_v2alpha1#ListVolumesResponseVolumesList",
           "traits": {
-            "smithy.api#documentation": "List of volumes."
+            "smithy.api#documentation": "List of volumes.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -1577,7 +1595,8 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of items."
+            "smithy.api#documentation": "Total number of items.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1589,37 +1608,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the volume."
+            "smithy.api#documentation": "Unique ID of the volume.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the volume."
+            "smithy.api#documentation": "The SRN of the volume.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID to which the volume belongs."
+            "smithy.api#documentation": "Project ID to which the volume belongs.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Volume name."
+            "smithy.api#documentation": "Volume name.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.instance_volume_v2alpha1#VolumeTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the volume."
+            "smithy.api#documentation": "Tags associated with the volume.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Volume size in bytes. (in bytes)"
+            "smithy.api#documentation": "Volume size in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "base_snapshot_id": {
@@ -1632,13 +1657,15 @@
         "status": {
           "target": "com.scaleway.instance_volume_v2alpha1#VolumeStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the volume."
+            "smithy.api#documentation": "Current status of the volume.",
+            "smithy.api#required": {}
           }
         },
         "volume_type": {
           "target": "com.scaleway.instance_volume_v2alpha1#VolumeVolumeType",
           "traits": {
-            "smithy.api#documentation": "Type of the volume."
+            "smithy.api#documentation": "Type of the volume.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1665,7 +1692,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the volume is located."
+            "smithy.api#documentation": "Zone in which the volume is located.",
+            "smithy.api#required": {}
           }
         }
       },

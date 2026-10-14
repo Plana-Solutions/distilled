@@ -54,15 +54,15 @@ export interface ContactPoint {
   /** Email address to send alerts to. */
   email?: ContactPointEmail | null;
   /** Region. */
-  region?: string;
+  region: string;
   /** Send an email notification when an alert is marked as resolved. */
-  send_resolved_notifications?: boolean;
+  send_resolved_notifications: boolean;
 }
 export const ContactPoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     email: S.optional(S.NullOr(ContactPointEmail)),
-    region: S.optional(S.String),
-    send_resolved_notifications: S.optional(S.Boolean),
+    region: S.String,
+    send_resolved_notifications: S.Boolean,
   }),
 ).annotate({ identifier: "ContactPoint" }) as any as S.Schema<ContactPoint>;
 
@@ -106,43 +106,43 @@ export const DataSourceOrigin = S.String;
 
 export interface DataSource {
   /** ID of the data source. (UUID format) */
-  id?: string;
+  id: string;
   /** ID of the Project the data source belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Data source name. */
-  name?: string;
+  name: string;
   /** Data source URL. */
-  url?: string;
+  url: string;
   /** Data source type. */
-  type?: DataSourceType;
+  type: DataSourceType;
   /** Data source origin. */
-  origin?: DataSourceOrigin;
+  origin: DataSourceOrigin;
   /** Date the data source was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the data source was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Indicates whether the data source is synchronized with Grafana. */
-  synchronized_with_grafana?: boolean;
+  synchronized_with_grafana: boolean;
   /** Duration for which the data will be retained in the data source. */
-  retention_days?: number;
+  retention_days: number;
   /** Region of the data source. */
-  region?: string;
+  region: string;
   /** Usage of the month in bytes. (in bytes) */
   current_month_usage?: number | null;
 }
 export const DataSource = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    url: S.optional(S.String),
-    type: S.optional(DataSourceType),
-    origin: S.optional(DataSourceOrigin),
+    id: S.String,
+    project_id: S.String,
+    name: S.String,
+    url: S.String,
+    type: DataSourceType,
+    origin: DataSourceOrigin,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    synchronized_with_grafana: S.optional(S.Boolean),
-    retention_days: S.optional(S.Number),
-    region: S.optional(S.String),
+    synchronized_with_grafana: S.Boolean,
+    retention_days: S.Number,
+    region: S.String,
     current_month_usage: S.optional(S.NullOr(S.Number)),
   }),
 ).annotate({ identifier: "DataSource" }) as any as S.Schema<DataSource>;
@@ -232,41 +232,41 @@ export const ExporterExportedProductsList = /*@__PURE__*/ S.Array(
 
 export interface Exporter {
   /** ID of the data export. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the data export. */
-  name?: string;
+  name: string;
   /** Description of the data export. */
-  description?: string;
+  description: string;
   /** ID of the data source linked to the data export. (UUID format) */
-  datasource_id?: string;
+  datasource_id: string;
   /** Datadog destination configuration for the data export. */
   datadog_destination?: ExporterDatadogDestination | null;
   /** OTLP destination configuration for the data export. */
   otlp_destination?: ExporterOTLPDestination | null;
   /** Status of the data export. */
-  status?: ExporterStatus;
+  status: ExporterStatus;
   /** List of Scaleway products name exported by the data export. */
-  exported_products?: ExporterExportedProductsList;
+  exported_products: ExporterExportedProductsList;
   /** A timestamp of the creation date of the data export. (RFC 3339 format) */
   created_at?: string | null;
   /** A timestamp of the last update date of the data export. (RFC 3339 format) */
   updated_at?: string | null;
   /** The region in which the export is located. */
-  region?: string;
+  region: string;
 }
 export const Exporter = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    datasource_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    datasource_id: S.String,
     datadog_destination: S.optional(S.NullOr(ExporterDatadogDestination)),
     otlp_destination: S.optional(S.NullOr(ExporterOTLPDestination)),
-    status: S.optional(ExporterStatus),
-    exported_products: S.optional(ExporterExportedProductsList),
+    status: ExporterStatus,
+    exported_products: ExporterExportedProductsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Exporter" }) as any as S.Schema<Exporter>;
 
@@ -326,32 +326,32 @@ export const TokenScopesList = /*@__PURE__*/ S.Array(
 
 export interface Token {
   /** ID of the token. */
-  id?: string;
+  id: string;
   /** ID of the Project the token belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Name of the token. */
-  name?: string;
+  name: string;
   /** Token creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Token last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Token permission scopes. */
-  scopes?: TokenScopesList;
+  scopes: TokenScopesList;
   /** Token secret key. */
   secret_key?: string | Redacted.Redacted<string> | null;
   /** Regions where the token is located. */
-  region?: string;
+  region: string;
 }
 export const Token = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    project_id: S.String,
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    scopes: S.optional(TokenScopesList),
+    scopes: TokenScopesList,
     secret_key: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Token" }) as any as S.Schema<Token>;
 
@@ -501,18 +501,18 @@ export interface AlertManager {
   /** Alert manager URL. */
   alert_manager_url?: string | null;
   /** The Alert manager is enabled. */
-  alert_manager_enabled?: boolean;
+  alert_manager_enabled: boolean;
   /** Managed alerts are enabled. */
-  managed_alerts_enabled?: boolean;
+  managed_alerts_enabled: boolean;
   /** Regions where the Alert manager is enabled. */
-  region?: string;
+  region: string;
 }
 export const AlertManager = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     alert_manager_url: S.optional(S.NullOr(S.String)),
-    alert_manager_enabled: S.optional(S.Boolean),
-    managed_alerts_enabled: S.optional(S.Boolean),
-    region: S.optional(S.String),
+    alert_manager_enabled: S.Boolean,
+    managed_alerts_enabled: S.Boolean,
+    region: S.String,
   }),
 ).annotate({ identifier: "AlertManager" }) as any as S.Schema<AlertManager>;
 
@@ -556,11 +556,11 @@ export const DisableAlertRulesResponseDisabledRuleIdsList = /*@__PURE__*/ S.Arra
 
 export interface DisableAlertRulesResponse {
   /** List of IDs of the rules that were disabled. Only newly disabled rules are listed. Rules that were already disabled are not returned in the output. (UUID format) */
-  disabled_rule_ids?: DisableAlertRulesResponseDisabledRuleIdsList;
+  disabled_rule_ids: DisableAlertRulesResponseDisabledRuleIdsList;
 }
 export const DisableAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    disabled_rule_ids: S.optional(DisableAlertRulesResponseDisabledRuleIdsList),
+    disabled_rule_ids: DisableAlertRulesResponseDisabledRuleIdsList,
   }),
 ).annotate({
   identifier: "DisableAlertRulesResponse",
@@ -631,11 +631,11 @@ export const EnableAlertRulesResponseEnabledRuleIdsList = /*@__PURE__*/ S.Array(
 
 export interface EnableAlertRulesResponse {
   /** List of IDs of the rules that were enabled. Only newly enabled rules are listed. Rules that were already enabled are not returned in the output. (UUID format) */
-  enabled_rule_ids?: EnableAlertRulesResponseEnabledRuleIdsList;
+  enabled_rule_ids: EnableAlertRulesResponseEnabledRuleIdsList;
 }
 export const EnableAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    enabled_rule_ids: S.optional(EnableAlertRulesResponseEnabledRuleIdsList),
+    enabled_rule_ids: EnableAlertRulesResponseEnabledRuleIdsList,
   }),
 ).annotate({ identifier: "EnableAlertRulesResponse" }) as any as S.Schema<EnableAlertRulesResponse>;
 
@@ -683,15 +683,15 @@ export const GetConfigRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetConfigRequest" }) as any as S.Schema<GetConfigRequest>;
 
 export interface GetConfigResponseRetention {
-  min_days?: number;
-  max_days?: number;
-  default_days?: number;
+  min_days: number;
+  max_days: number;
+  default_days: number;
 }
 export const GetConfigResponseRetention = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    min_days: S.optional(S.Number),
-    max_days: S.optional(S.Number),
-    default_days: S.optional(S.Number),
+    min_days: S.Number,
+    max_days: S.Number,
+    default_days: S.Number,
   }),
 ).annotate({
   identifier: "GetConfigResponseRetention",
@@ -790,17 +790,17 @@ export const GetRulesCountRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface RulesCount {
   /** ID of the data source. (UUID format) */
-  data_source_id?: string;
+  data_source_id: string;
   /** Name of the data source. */
-  data_source_name?: string;
+  data_source_name: string;
   /** Total count of rules associated with this data source. */
-  rules_count?: number;
+  rules_count: number;
 }
 export const RulesCount = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    data_source_id: S.optional(S.String),
-    data_source_name: S.optional(S.String),
-    rules_count: S.optional(S.Number),
+    data_source_id: S.String,
+    data_source_name: S.String,
+    rules_count: S.Number,
   }),
 ).annotate({ identifier: "RulesCount" }) as any as S.Schema<RulesCount>;
 
@@ -812,17 +812,17 @@ export const GetRulesCountResponseRulesCountByDatasourceList = /*@__PURE__*/ S.A
 
 export interface GetRulesCountResponse {
   /** Total count of rules grouped by data source. */
-  rules_count_by_datasource?: GetRulesCountResponseRulesCountByDatasourceList;
+  rules_count_by_datasource: GetRulesCountResponseRulesCountByDatasourceList;
   /** Total count of preconfigured rules. */
-  preconfigured_rules_count?: number;
+  preconfigured_rules_count: number;
   /** Total count of custom rules. */
-  custom_rules_count?: number;
+  custom_rules_count: number;
 }
 export const GetRulesCountResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules_count_by_datasource: S.optional(GetRulesCountResponseRulesCountByDatasourceList),
-    preconfigured_rules_count: S.optional(S.Number),
-    custom_rules_count: S.optional(S.Number),
+    rules_count_by_datasource: GetRulesCountResponseRulesCountByDatasourceList,
+    preconfigured_rules_count: S.Number,
+    custom_rules_count: S.Number,
   }),
 ).annotate({ identifier: "GetRulesCountResponse" }) as any as S.Schema<GetRulesCountResponse>;
 
@@ -881,30 +881,30 @@ export interface Usage {
   /** ID of the data source. */
   data_source_id?: string | null;
   /** ID of the Project the data source belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Origin of the data source. */
-  data_source_origin?: DataSourceOrigin;
+  data_source_origin: DataSourceOrigin;
   /** Type of the data source. */
-  data_source_type?: DataSourceType;
+  data_source_type: DataSourceType;
   /** Unit of the data source usage. */
-  unit?: UsageUnit;
+  unit: UsageUnit;
   /** Interval for the data source usage. (in seconds) */
   interval?: string | null;
   /** Data source usage for the given interval. */
-  quantity_over_interval?: number;
+  quantity_over_interval: number;
   /** Region of the data source usage. */
-  region?: string;
+  region: string;
 }
 export const Usage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     data_source_id: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
-    data_source_origin: S.optional(DataSourceOrigin),
-    data_source_type: S.optional(DataSourceType),
-    unit: S.optional(UsageUnit),
+    project_id: S.String,
+    data_source_origin: DataSourceOrigin,
+    data_source_type: DataSourceType,
+    unit: UsageUnit,
     interval: S.optional(S.NullOr(S.String)),
-    quantity_over_interval: S.optional(S.Number),
-    region: S.optional(S.String),
+    quantity_over_interval: S.Number,
+    region: S.String,
   }),
 ).annotate({ identifier: "Usage" }) as any as S.Schema<Usage>;
 
@@ -975,60 +975,60 @@ export const AlertAnnotationsMap = /*@__PURE__*/ S.Record(
 
 export interface PreconfiguredAlertData {
   /** ID of the preconfigured rule if the alert is preconfigured. (UUID format) */
-  preconfigured_rule_id?: string;
+  preconfigured_rule_id: string;
   /** Human readable name of the alert. */
-  display_name?: string;
+  display_name: string;
   /** Human readable description of the alert. */
-  display_description?: string;
+  display_description: string;
   /** Product associated with the alert. */
-  product_name?: string;
+  product_name: string;
   /** Family of the product associated with the alert. */
-  product_family?: string;
+  product_family: string;
 }
 export const PreconfiguredAlertData = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    preconfigured_rule_id: S.optional(S.String),
-    display_name: S.optional(S.String),
-    display_description: S.optional(S.String),
-    product_name: S.optional(S.String),
-    product_family: S.optional(S.String),
+    preconfigured_rule_id: S.String,
+    display_name: S.String,
+    display_description: S.String,
+    product_name: S.String,
+    product_family: S.String,
   }),
 ).annotate({ identifier: "PreconfiguredAlertData" }) as any as S.Schema<PreconfiguredAlertData>;
 
 export interface Alert {
   /** The region in which the alert is defined. */
-  region?: string;
+  region: string;
   /** Indicates if the alert is preconfigured or custom. */
-  preconfigured?: boolean;
+  preconfigured: boolean;
   /** Name of the alert. */
-  name?: string;
+  name: string;
   /** Rule defining the alert condition. */
-  rule?: string;
+  rule: string;
   /** Duration for which the alert must be active before firing. The format of this duration follows the prometheus duration format. */
-  duration?: string;
+  duration: string;
   /** Indicates if the alert is enabled, enabling, disabled or disabling. Preconfigured alerts can have any of these values, whereas custom alerts can only have the status "enabled". */
-  rule_status?: AlertStatus;
+  rule_status: AlertStatus;
   /** Current state of the alert. Possible states are `inactive`, `pending`, and `firing`. */
-  state?: AlertState;
+  state: AlertState;
   /** Annotations for the alert, used to provide additional information about the alert. */
-  annotations?: AlertAnnotationsMap;
+  annotations: AlertAnnotationsMap;
   /** Contains additional data for preconfigured alerts, such as the rule ID, display name, and description. Only present if the alert is preconfigured. */
   preconfigured_data?: PreconfiguredAlertData;
   /** ID of the data source containing the alert rule. (UUID format) */
-  data_source_id?: string;
+  data_source_id: string;
 }
 export const Alert = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    region: S.optional(S.String),
-    preconfigured: S.optional(S.Boolean),
-    name: S.optional(S.String),
-    rule: S.optional(S.String),
-    duration: S.optional(S.String),
-    rule_status: S.optional(AlertStatus),
-    state: S.optional(AlertState),
-    annotations: S.optional(AlertAnnotationsMap),
+    region: S.String,
+    preconfigured: S.Boolean,
+    name: S.String,
+    rule: S.String,
+    duration: S.String,
+    rule_status: AlertStatus,
+    state: AlertState,
+    annotations: AlertAnnotationsMap,
     preconfigured_data: S.optional(PreconfiguredAlertData),
-    data_source_id: S.optional(S.String),
+    data_source_id: S.String,
   }),
 ).annotate({ identifier: "Alert" }) as any as S.Schema<Alert>;
 
@@ -1040,14 +1040,14 @@ export const ListAlertsResponseAlertsList = /*@__PURE__*/ S.Array(
 
 export interface ListAlertsResponse {
   /** Total count of alerts matching the request. */
-  total_count?: number;
+  total_count: number;
   /** List of alerts matching the applied filters. */
-  alerts?: ListAlertsResponseAlertsList;
+  alerts: ListAlertsResponseAlertsList;
 }
 export const ListAlertsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    alerts: S.optional(ListAlertsResponseAlertsList),
+    total_count: S.Number,
+    alerts: ListAlertsResponseAlertsList,
   }),
 ).annotate({ identifier: "ListAlertsResponse" }) as any as S.Schema<ListAlertsResponse>;
 
@@ -1088,20 +1088,20 @@ export const ListContactPointsResponseContactPointsList = /*@__PURE__*/ S.Array(
 
 export interface ListContactPointsResponse {
   /** Total count of contact points associated with the default receiver. */
-  total_count?: number;
+  total_count: number;
   /** List of contact points associated with the default receiver. */
   contact_points: ListContactPointsResponseContactPointsList;
   /** Indicates whether the Alert manager has other receivers than the default one. */
-  has_additional_receivers?: boolean;
+  has_additional_receivers: boolean;
   /** Indicates whether there are unmanaged contact points on the default receiver. */
-  has_additional_contact_points?: boolean;
+  has_additional_contact_points: boolean;
 }
 export const ListContactPointsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     contact_points: ListContactPointsResponseContactPointsList,
-    has_additional_receivers: S.optional(S.Boolean),
-    has_additional_contact_points: S.optional(S.Boolean),
+    has_additional_receivers: S.Boolean,
+    has_additional_contact_points: S.Boolean,
   }),
 ).annotate({
   identifier: "ListContactPointsResponse",
@@ -1167,13 +1167,13 @@ export const ListDataSourcesResponseDataSourcesList = /*@__PURE__*/ S.Array(
 
 export interface ListDataSourcesResponse {
   /** Total count of data sources matching the request. */
-  total_count?: number;
+  total_count: number;
   /** Data sources matching the request within the pagination. */
   data_sources: ListDataSourcesResponseDataSourcesList;
 }
 export const ListDataSourcesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     data_sources: ListDataSourcesResponseDataSourcesList,
   }),
 ).annotate({ identifier: "ListDataSourcesResponse" }) as any as S.Schema<ListDataSourcesResponse>;
@@ -1228,13 +1228,13 @@ export const ListExportersResponseExportersList = /*@__PURE__*/ S.Array(
 
 export interface ListExportersResponse {
   /** Total count of data exports matching the request. */
-  total_count?: number;
+  total_count: number;
   /** Data exports matching the request within the pagination. */
   exporters: ListExportersResponseExportersList;
 }
 export const ListExportersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     exporters: ListExportersResponseExportersList,
   }),
 ).annotate({ identifier: "ListExportersResponse" }) as any as S.Schema<ListExportersResponse>;
@@ -1283,17 +1283,17 @@ export const ProductResourceTypesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ProductResourceTypesList>;
 
 export interface Product {
-  name?: string;
-  display_name?: string;
-  family_name?: string;
-  resource_types?: ProductResourceTypesList;
+  name: string;
+  display_name: string;
+  family_name: string;
+  resource_types: ProductResourceTypesList;
 }
 export const Product = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    display_name: S.optional(S.String),
-    family_name: S.optional(S.String),
-    resource_types: S.optional(ProductResourceTypesList),
+    name: S.String,
+    display_name: S.String,
+    family_name: S.String,
+    resource_types: ProductResourceTypesList,
   }),
 ).annotate({ identifier: "Product" }) as any as S.Schema<Product>;
 
@@ -1304,12 +1304,12 @@ export const ListProductsResponseProductsListList = /*@__PURE__*/ S.Array(
 
 export interface ListProductsResponse {
   products_list: ListProductsResponseProductsListList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListProductsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     products_list: ListProductsResponseProductsListList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListProductsResponse" }) as any as S.Schema<ListProductsResponse>;
 
@@ -1368,13 +1368,13 @@ export const ListTokensResponseTokensList = /*@__PURE__*/ S.Array(
 
 export interface ListTokensResponse {
   /** Total count of tokens matching the request. */
-  total_count?: number;
+  total_count: number;
   /** Tokens matching the request within the pagination. */
   tokens: ListTokensResponseTokensList;
 }
 export const ListTokensResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     tokens: ListTokensResponseTokensList,
   }),
 ).annotate({ identifier: "ListTokensResponse" }) as any as S.Schema<ListTokensResponse>;

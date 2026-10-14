@@ -62,26 +62,26 @@ export const AddClusterACLRulesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ACLRule {
   /** ID of the ACL rule. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the ACL rule. */
-  srn?: string;
+  srn: string;
   /** IP subnet to allow. (IP network) */
   ip?: string | null;
   /** Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway. Only one rule with this field set to true can be added. */
   scaleway_ranges?: boolean | null;
   /** Description of the ACL. */
-  description?: string;
+  description: string;
   /** Region of the ACL rule. */
-  region?: string;
+  region: string;
 }
 export const ACLRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
     ip: S.optional(S.NullOr(S.String)),
     scaleway_ranges: S.optional(S.NullOr(S.Boolean)),
-    description: S.optional(S.String),
-    region: S.optional(S.String),
+    description: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "ACLRule" }) as any as S.Schema<ACLRule>;
 
@@ -93,11 +93,11 @@ export const AddClusterACLRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface AddClusterACLRulesResponse {
   /** ACLs that were added. */
-  rules?: AddClusterACLRulesResponseRulesList;
+  rules: AddClusterACLRulesResponseRulesList;
 }
 export const AddClusterACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(AddClusterACLRulesResponseRulesList),
+    rules: AddClusterACLRulesResponseRulesList,
   }),
 ).annotate({
   identifier: "AddClusterACLRulesResponse",
@@ -522,56 +522,56 @@ export const ClusterTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schem
 
 export interface ClusterAutoscalerConfig {
   /** Forbid cluster autoscaler to scale down the cluster, defaults to false. */
-  scale_down_disabled?: boolean;
+  scale_down_disabled: boolean;
   /** How long after scale up the scale down evaluation resumes. */
-  scale_down_delay_after_add?: string;
+  scale_down_delay_after_add: string;
   /** Type of resource estimator to be used in scale up. */
-  estimator?: AutoscalerEstimator;
+  estimator: AutoscalerEstimator;
   /** Kubernetes autoscaler strategy to fit pods into nodes, see https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders for details. */
-  expander?: AutoscalerExpander;
+  expander: AutoscalerExpander;
   /** Ignore DaemonSet pods when calculating resource utilization for scaling down, defaults to false. */
-  ignore_daemonsets_utilization?: boolean;
+  ignore_daemonsets_utilization: boolean;
   /** Detect similar node groups and balance the number of nodes between them, defaults to false. */
-  balance_similar_node_groups?: boolean;
+  balance_similar_node_groups: boolean;
   /** Pods with priority below cutoff will be expendable. They can be killed without any consideration during scale down and they won't cause scale up. Pods with null priority (PodPriority disabled) are non expendable. */
-  expendable_pods_priority_cutoff?: number;
+  expendable_pods_priority_cutoff: number;
   /** How long a node should be unneeded before it is eligible for scale down, defaults to 10 minutes. */
-  scale_down_unneeded_time?: string;
+  scale_down_unneeded_time: string;
   /** Node utilization level, defined as a sum of requested resources divided by allocatable capacity, below which a node can be considered for scale down. */
-  scale_down_utilization_threshold?: number;
+  scale_down_utilization_threshold: number;
   /** Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node, defaults to 600 (10 minutes). */
-  max_graceful_termination_sec?: number;
+  max_graceful_termination_sec: number;
   /** Cluster autoscaler will never delete nodes with pods with local storage, e.g. EmptyDir or HostPath, defaults to true. */
-  skip_nodes_with_local_storage?: boolean;
+  skip_nodes_with_local_storage: boolean;
   /** Cluster autoscaler logging level expressed from 0 to 4 (4 being the more verbose), defaults to 2. see https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-increase-the-information-that-the-ca-is-logging for details. */
-  log_level?: number;
+  log_level: number;
 }
 export const ClusterAutoscalerConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    scale_down_disabled: S.optional(S.Boolean),
-    scale_down_delay_after_add: S.optional(S.String),
-    estimator: S.optional(AutoscalerEstimator),
-    expander: S.optional(AutoscalerExpander),
-    ignore_daemonsets_utilization: S.optional(S.Boolean),
-    balance_similar_node_groups: S.optional(S.Boolean),
-    expendable_pods_priority_cutoff: S.optional(S.Number),
-    scale_down_unneeded_time: S.optional(S.String),
-    scale_down_utilization_threshold: S.optional(S.Number),
-    max_graceful_termination_sec: S.optional(S.Number),
-    skip_nodes_with_local_storage: S.optional(S.Boolean),
-    log_level: S.optional(S.Number),
+    scale_down_disabled: S.Boolean,
+    scale_down_delay_after_add: S.String,
+    estimator: AutoscalerEstimator,
+    expander: AutoscalerExpander,
+    ignore_daemonsets_utilization: S.Boolean,
+    balance_similar_node_groups: S.Boolean,
+    expendable_pods_priority_cutoff: S.Number,
+    scale_down_unneeded_time: S.String,
+    scale_down_utilization_threshold: S.Number,
+    max_graceful_termination_sec: S.Number,
+    skip_nodes_with_local_storage: S.Boolean,
+    log_level: S.Number,
   }),
 ).annotate({ identifier: "ClusterAutoscalerConfig" }) as any as S.Schema<ClusterAutoscalerConfig>;
 
 export interface ClusterAutoUpgrade {
   /** Defines whether auto upgrade is enabled for the cluster. */
-  enabled?: boolean;
+  enabled: boolean;
   /** Maintenance window of the cluster auto upgrades. */
   maintenance_window?: MaintenanceWindow;
 }
 export const ClusterAutoUpgrade = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    enabled: S.optional(S.Boolean),
+    enabled: S.Boolean,
     maintenance_window: S.optional(MaintenanceWindow),
   }),
 ).annotate({ identifier: "ClusterAutoUpgrade" }) as any as S.Schema<ClusterAutoUpgrade>;
@@ -602,29 +602,29 @@ export const ClusterOpenIDConnectConfigRequiredClaimList = /*@__PURE__*/ S.Array
 
 export interface ClusterOpenIDConnectConfig {
   /** URL of the provider which allows the API server to discover public signing keys. Only URLs using the `https://` scheme are accepted. This is typically the provider's discovery URL without a path, for example "https://accounts.google.com" or "https://login.salesforce.com". */
-  issuer_url?: string;
+  issuer_url: string;
   /** A client ID that all tokens must be issued for. */
-  client_id?: string;
+  client_id: string;
   /** JWT claim to use as the user name. The default is `sub`, which is expected to be the end user's unique identifier. Admins can choose other claims, such as `email` or `name`, depending on their provider. However, claims other than `email` will be prefixed with the issuer URL to prevent name collision. */
-  username_claim?: string;
+  username_claim: string;
   /** Prefix prepended to username claims to prevent name collision (such as `system:` users). For example, the value `oidc:` will create usernames like `oidc:jane.doe`. If this flag is not provided and `username_claim` is a value other than `email`, the prefix defaults to `( Issuer URL )#` where `( Issuer URL )` is the value of `issuer_url`. The value `-` can be used to disable all prefixing. */
-  username_prefix?: string;
+  username_prefix: string;
   /** JWT claim to use as the user's group. */
-  groups_claim?: ClusterOpenIDConnectConfigGroupsClaimList;
+  groups_claim: ClusterOpenIDConnectConfigGroupsClaimList;
   /** Prefix prepended to group claims to prevent name collision (such as `system:` groups). For example, the value `oidc:` will create group names like `oidc:engineering` and `oidc:infra`. */
-  groups_prefix?: string;
+  groups_prefix: string;
   /** Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value. */
-  required_claim?: ClusterOpenIDConnectConfigRequiredClaimList;
+  required_claim: ClusterOpenIDConnectConfigRequiredClaimList;
 }
 export const ClusterOpenIDConnectConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    issuer_url: S.optional(S.String),
-    client_id: S.optional(S.String),
-    username_claim: S.optional(S.String),
-    username_prefix: S.optional(S.String),
-    groups_claim: S.optional(ClusterOpenIDConnectConfigGroupsClaimList),
-    groups_prefix: S.optional(S.String),
-    required_claim: S.optional(ClusterOpenIDConnectConfigRequiredClaimList),
+    issuer_url: S.String,
+    client_id: S.String,
+    username_claim: S.String,
+    username_prefix: S.String,
+    groups_claim: ClusterOpenIDConnectConfigGroupsClaimList,
+    groups_prefix: S.String,
+    required_claim: ClusterOpenIDConnectConfigRequiredClaimList,
   }),
 ).annotate({
   identifier: "ClusterOpenIDConnectConfig",
@@ -638,33 +638,33 @@ export const ClusterApiserverCertSansList = /*@__PURE__*/ S.Array(
 
 export interface Cluster {
   /** Cluster ID. */
-  id?: string;
+  id: string;
   /** The SRN of the cluster. */
-  srn?: string;
+  srn: string;
   /** Cluster type. */
-  type?: string;
+  type: string;
   /** Cluster name. */
-  name?: string;
+  name: string;
   /** Status of the cluster. */
-  status?: ClusterStatus;
+  status: ClusterStatus;
   /** Kubernetes version of the cluster. */
-  version?: string;
+  version: string;
   /** Region in which the cluster is deployed. */
-  region?: string;
+  region: string;
   /** ID of the Organization owning the cluster. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the Project owning the cluster. */
-  project_id?: string;
+  project_id: string;
   /** Tags associated with the cluster. */
-  tags?: ClusterTagsList;
+  tags: ClusterTagsList;
   /** Container Network Interface (CNI) plugin running in the cluster. */
-  cni?: CNI;
+  cni: CNI;
   /** Cluster description. */
-  description?: string;
+  description: string;
   /** Kubernetes API server URL of the cluster. */
-  cluster_url?: string;
+  cluster_url: string;
   /** Wildcard DNS resolving all the ready cluster nodes. */
-  dns_wildcard?: string;
+  dns_wildcard: string;
   /** Date on which the cluster was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the cluster was last updated. (RFC 3339 format) */
@@ -674,15 +674,15 @@ export interface Cluster {
   /** Auto upgrade Kubernetes version of the cluster. */
   auto_upgrade?: ClusterAutoUpgrade;
   /** Defines whether a new Kubernetes version is available. */
-  upgrade_available?: boolean;
+  upgrade_available: boolean;
   /** List of enabled feature gates. */
-  feature_gates?: ClusterFeatureGatesList;
+  feature_gates: ClusterFeatureGatesList;
   /** List of enabled admission plugins. */
-  admission_plugins?: ClusterAdmissionPluginsList;
+  admission_plugins: ClusterAdmissionPluginsList;
   /** This configuration enables to update the OpenID Connect configuration of the Kubernetes API server. */
   open_id_connect_config?: ClusterOpenIDConnectConfig;
   /** Additional Subject Alternative Names for the Kubernetes API server certificate. */
-  apiserver_cert_sans?: ClusterApiserverCertSansList;
+  apiserver_cert_sans: ClusterApiserverCertSansList;
   /** Private network ID for internal cluster communication. */
   private_network_id?: string | null;
   /** Date on which it will be possible to switch to a smaller offer. (RFC 3339 format) */
@@ -690,49 +690,49 @@ export interface Cluster {
   /** Defines whether ACL is available on the cluster. */
   acl_available?: boolean;
   /** IAM group that nodes are members of (this field might be empty during early stage of cluster creation). */
-  iam_nodes_group_id?: string;
+  iam_nodes_group_id: string;
   /** IAM application ID for the control plane (this field might be empty during early stage of cluster creation). */
-  iam_control_plane_application_id?: string;
+  iam_control_plane_application_id: string;
   /** Subnet used for the Pod CIDR. (IP network) */
-  pod_cidr?: string;
+  pod_cidr: string;
   /** Subnet used for the Service CIDR. (IP network) */
-  service_cidr?: string;
+  service_cidr: string;
   /** IP used for the DNS Service. (IPv4 address) */
-  service_dns_ip?: string;
+  service_dns_ip: string;
 }
 export const Cluster = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    type: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(ClusterStatus),
-    version: S.optional(S.String),
-    region: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    tags: S.optional(ClusterTagsList),
-    cni: S.optional(CNI),
-    description: S.optional(S.String),
-    cluster_url: S.optional(S.String),
-    dns_wildcard: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    type: S.String,
+    name: S.String,
+    status: ClusterStatus,
+    version: S.String,
+    region: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    tags: ClusterTagsList,
+    cni: CNI,
+    description: S.String,
+    cluster_url: S.String,
+    dns_wildcard: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     autoscaler_config: S.optional(ClusterAutoscalerConfig),
     auto_upgrade: S.optional(ClusterAutoUpgrade),
-    upgrade_available: S.optional(S.Boolean),
-    feature_gates: S.optional(ClusterFeatureGatesList),
-    admission_plugins: S.optional(ClusterAdmissionPluginsList),
+    upgrade_available: S.Boolean,
+    feature_gates: ClusterFeatureGatesList,
+    admission_plugins: ClusterAdmissionPluginsList,
     open_id_connect_config: S.optional(ClusterOpenIDConnectConfig),
-    apiserver_cert_sans: S.optional(ClusterApiserverCertSansList),
+    apiserver_cert_sans: ClusterApiserverCertSansList,
     private_network_id: S.optional(S.NullOr(S.String)),
     commitment_ends_at: S.optional(S.NullOr(S.String)),
     acl_available: S.optional(S.Boolean),
-    iam_nodes_group_id: S.optional(S.String),
-    iam_control_plane_application_id: S.optional(S.String),
-    pod_cidr: S.optional(S.String),
-    service_cidr: S.optional(S.String),
-    service_dns_ip: S.optional(S.String),
+    iam_nodes_group_id: S.String,
+    iam_control_plane_application_id: S.String,
+    pod_cidr: S.String,
+    service_cidr: S.String,
+    service_dns_ip: S.String,
   }),
 ).annotate({ identifier: "Cluster" }) as any as S.Schema<Cluster>;
 
@@ -891,14 +891,14 @@ export const PoolKubeletArgsMap = /*@__PURE__*/ S.Record(
 
 export interface PoolUpgradePolicy {
   /** The maximum number of nodes that can be `upgrading` at the same time. */
-  max_unavailable?: number;
+  max_unavailable: number;
   /** The maximum number of nodes to be created during the upgrade, e.g. the pool will scale up to reach `size`+`max_surge` before downscaling to `size` after node upgrades. */
-  max_surge?: number;
+  max_surge: number;
 }
 export const PoolUpgradePolicy = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    max_unavailable: S.optional(S.Number),
-    max_surge: S.optional(S.Number),
+    max_unavailable: S.Number,
+    max_surge: S.Number,
   }),
 ).annotate({ identifier: "PoolUpgradePolicy" }) as any as S.Schema<PoolUpgradePolicy>;
 
@@ -921,98 +921,98 @@ export const PoolStartupTaintsList = /*@__PURE__*/ S.Array(
 
 export interface Pool {
   /** Pool ID. (UUID format) */
-  id?: string;
+  id: string;
   /** Cluster ID of the pool. (UUID format) */
-  cluster_id?: string;
+  cluster_id: string;
   /** Date on which the pool was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the pool was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Pool name. */
-  name?: string;
+  name: string;
   /** Pool status. */
-  status?: PoolStatus;
+  status: PoolStatus;
   /** Pool version. */
-  version?: string;
+  version: string;
   /** Node type is the type of Scaleway Instance wanted for the pool. Nodes with insufficient memory are not eligible (DEV1-S, PLAY2-PICO, STARDUST). 'external' is a special node type used to provision instances from other cloud providers in a Kosmos Cluster. */
   node_type: string;
   /** Defines whether the autoscaling feature is enabled for the pool. */
-  autoscaling?: boolean;
+  autoscaling: boolean;
   /** Size (number of nodes) of the pool. */
   size: number;
   /** Defines the minimum size of the pool. Note that this field is only used when autoscaling is enabled on the pool. */
-  min_size?: number;
+  min_size: number;
   /** Defines the maximum size of the pool. Note that this field is only used when autoscaling is enabled on the pool. */
-  max_size?: number;
+  max_size: number;
   /** Customization of the container runtime is available for each pool. */
-  container_runtime?: Runtime;
+  container_runtime: Runtime;
   /** Defines whether the autohealing feature is enabled for the pool. */
-  autohealing?: boolean;
+  autohealing: boolean;
   /** Tags associated with the pool, see [managing tags](https://www.scaleway.com/en/docs/kubernetes/api-cli/managing-tags). */
-  tags?: PoolTagsList;
+  tags: PoolTagsList;
   /** Placement group ID in which all the nodes of the pool will be created, placement groups are limited to 20 instances. (UUID format) */
   placement_group_id?: string | null;
   /** Kubelet arguments to be used by this pool. Note that this feature is experimental. */
-  kubelet_args?: PoolKubeletArgsMap;
+  kubelet_args: PoolKubeletArgsMap;
   /** Defines how node provisioning should behave during pool version upgrade. */
   upgrade_policy?: PoolUpgradePolicy;
   /** Zone in which the pool's nodes will be spawned. */
-  zone?: string;
+  zone: string;
   /** Defines the system volume disk type. Several types of volume (`volume_type`) are provided:. * `l_ssd` is a local block storage which means your system is stored locally on your node's hypervisor. This type is not available for all node types * `sbs_5k` is a remote block storage which means your system is stored on a centralized and resilient cluster with 5k IOPS limits * `sbs_15k` is a faster remote block storage which means your system is stored on a centralized and resilient cluster with 15k IOPS limits * `b_ssd` is the legacy remote block storage which means your system is stored on a centralized and resilient cluster. Not available for new pools, use `sbs_5k` or `sbs_15k` instead. */
-  root_volume_type?: PoolVolumeType;
+  root_volume_type: PoolVolumeType;
   /** System volume disk size. (in bytes) */
   root_volume_size?: number | null;
   /** Defines if the public IP should be removed from Nodes. To use this feature, your Cluster must have an attached Private Network set up with a Public Gateway. */
-  public_ip_disabled?: boolean;
+  public_ip_disabled: boolean;
   /** Security group ID in which all the nodes of the pool will be created. If unset, the pool will use default Kapsule security group in current zone. (UUID format) */
-  security_group_id?: string;
+  security_group_id: string;
   /** Kubernetes labels applied and reconciled on the nodes. */
-  labels?: PoolLabelsMap;
+  labels: PoolLabelsMap;
   /** Kubernetes taints applied and reconciled on the nodes. */
-  taints?: PoolTaintsList;
+  taints: PoolTaintsList;
   /** Kubernetes taints applied at node creation but not reconciled afterwards. */
-  startup_taints?: PoolStartupTaintsList;
+  startup_taints: PoolStartupTaintsList;
   /** Details of the error, if any occurred when managing the pool. */
   error_message?: string | null;
   /** Maximum amount of time in seconds before the API forces the drain and deletion of a `deleting` node. It overrides pods `PodDisruptionBudget` and `terminationGracePeriodSeconds`. Defaults to 15 minutes, up to 1 hour. (in seconds) */
   max_termination_grace_period?: string | null;
   /** The SRN of the pool. */
-  srn?: string;
+  srn: string;
   /** Cluster region of the pool. */
-  region?: string;
+  region: string;
 }
 export const Pool = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    cluster_id: S.optional(S.String),
+    id: S.String,
+    cluster_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    name: S.optional(S.String),
-    status: S.optional(PoolStatus),
-    version: S.optional(S.String),
+    name: S.String,
+    status: PoolStatus,
+    version: S.String,
     node_type: S.String,
-    autoscaling: S.optional(S.Boolean),
+    autoscaling: S.Boolean,
     size: S.Number,
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
-    container_runtime: S.optional(Runtime),
-    autohealing: S.optional(S.Boolean),
-    tags: S.optional(PoolTagsList),
+    min_size: S.Number,
+    max_size: S.Number,
+    container_runtime: Runtime,
+    autohealing: S.Boolean,
+    tags: PoolTagsList,
     placement_group_id: S.optional(S.NullOr(S.String)),
-    kubelet_args: S.optional(PoolKubeletArgsMap),
+    kubelet_args: PoolKubeletArgsMap,
     upgrade_policy: S.optional(PoolUpgradePolicy),
-    zone: S.optional(S.String),
-    root_volume_type: S.optional(PoolVolumeType),
+    zone: S.String,
+    root_volume_type: PoolVolumeType,
     root_volume_size: S.optional(S.NullOr(S.Number)),
-    public_ip_disabled: S.optional(S.Boolean),
-    security_group_id: S.optional(S.String),
-    labels: S.optional(PoolLabelsMap),
-    taints: S.optional(PoolTaintsList),
-    startup_taints: S.optional(PoolStartupTaintsList),
+    public_ip_disabled: S.Boolean,
+    security_group_id: S.String,
+    labels: PoolLabelsMap,
+    taints: PoolTaintsList,
+    startup_taints: PoolStartupTaintsList,
     error_message: S.optional(S.NullOr(S.String)),
     max_termination_grace_period: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
-    region: S.optional(S.String),
+    srn: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Pool" }) as any as S.Schema<Pool>;
 
@@ -1113,21 +1113,21 @@ export const NodeStatus = S.String;
 
 export interface Node {
   /** Node ID. */
-  id?: string;
+  id: string;
   /** The SRN of the node. */
-  srn?: string;
+  srn: string;
   /** Pool ID of the node. */
-  pool_id?: string;
+  pool_id: string;
   /** Cluster ID of the node. */
-  cluster_id?: string;
+  cluster_id: string;
   /** Underlying instance ID. It is prefixed by instance type and location information (see https://pkg.go.dev/k8s.io/api/core/v1#NodeSpec.ProviderID). */
-  provider_id?: string;
+  provider_id: string;
   /** Cluster region of the node. */
-  region?: string;
+  region: string;
   /** Name of the node. */
-  name?: string;
+  name: string;
   /** Status of the node. */
-  status?: NodeStatus;
+  status: NodeStatus;
   /** Details of the error, if any occurred when managing the node. */
   error_message?: string | null;
   /** Date on which the node was created. (RFC 3339 format) */
@@ -1137,14 +1137,14 @@ export interface Node {
 }
 export const Node = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    pool_id: S.optional(S.String),
-    cluster_id: S.optional(S.String),
-    provider_id: S.optional(S.String),
-    region: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(NodeStatus),
+    id: S.String,
+    srn: S.String,
+    pool_id: S.String,
+    cluster_id: S.String,
+    provider_id: S.String,
+    region: S.String,
+    name: S.String,
+    status: NodeStatus,
     error_message: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
@@ -1232,14 +1232,14 @@ export const GetClusterKubeConfigRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetClusterKubeConfigRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
+  name: string;
+  content_type: string;
   content?: string | Redacted.Redacted<string>;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
     content: S.optional(S.String.pipe(T.SensitiveValue({}))),
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
@@ -1428,11 +1428,11 @@ export const VersionAvailableKubeletArgsMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<VersionAvailableKubeletArgsMap>;
 
 export interface ComponentInfo {
-  version?: string;
+  version: string;
 }
 export const ComponentInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
   }),
 ).annotate({ identifier: "ComponentInfo" }) as any as S.Schema<ComponentInfo>;
 
@@ -1445,21 +1445,21 @@ export const VersionAdditionalComponentsMap = /*@__PURE__*/ S.Record(
 
 export interface Version {
   /** Name of the Kubernetes version. */
-  name?: string;
+  name: string;
   /** The SRN of the version. */
-  srn?: string;
+  srn: string;
   /** Label of the Kubernetes version. */
-  label?: string;
+  label: string;
   /** Region in which this version is available. */
-  region?: string;
+  region: string;
   /** Supported Container Network Interface (CNI) plugins for this version. */
-  available_cnis?: VersionAvailableCnisList;
+  available_cnis: VersionAvailableCnisList;
   /** Supported feature gates for this version. */
-  available_feature_gates?: VersionAvailableFeatureGatesList;
+  available_feature_gates: VersionAvailableFeatureGatesList;
   /** Supported admission plugins for this version. */
-  available_admission_plugins?: VersionAvailableAdmissionPluginsList;
+  available_admission_plugins: VersionAvailableAdmissionPluginsList;
   /** Supported kubelet arguments for this version. */
-  available_kubelet_args?: VersionAvailableKubeletArgsMap;
+  available_kubelet_args: VersionAvailableKubeletArgsMap;
   /** Date from which this version will no longer be available for provisioning. (RFC 3339 format) */
   deprecated_at?: string | null;
   /** Date from which any remaining clusters on this version will begin to be forcibly upgraded to the next minor version. (RFC 3339 format) */
@@ -1467,22 +1467,22 @@ export interface Version {
   /** Date at which this version was made available by Kapsule product. (RFC 3339 format) */
   released_at?: string | null;
   /** Map containing every sub-component version shipped with this Kapsule version. */
-  additional_components?: VersionAdditionalComponentsMap;
+  additional_components: VersionAdditionalComponentsMap;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    srn: S.optional(S.String),
-    label: S.optional(S.String),
-    region: S.optional(S.String),
-    available_cnis: S.optional(VersionAvailableCnisList),
-    available_feature_gates: S.optional(VersionAvailableFeatureGatesList),
-    available_admission_plugins: S.optional(VersionAvailableAdmissionPluginsList),
-    available_kubelet_args: S.optional(VersionAvailableKubeletArgsMap),
+    name: S.String,
+    srn: S.String,
+    label: S.String,
+    region: S.String,
+    available_cnis: VersionAvailableCnisList,
+    available_feature_gates: VersionAvailableFeatureGatesList,
+    available_admission_plugins: VersionAvailableAdmissionPluginsList,
+    available_kubelet_args: VersionAvailableKubeletArgsMap,
     deprecated_at: S.optional(S.NullOr(S.String)),
     end_of_life_at: S.optional(S.NullOr(S.String)),
     released_at: S.optional(S.NullOr(S.String)),
-    additional_components: S.optional(VersionAdditionalComponentsMap),
+    additional_components: VersionAdditionalComponentsMap,
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
 
@@ -1525,13 +1525,13 @@ export const ListClusterACLRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface ListClusterACLRulesResponse {
   /** Total number of ACLs that exist for the cluster. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned ACLs. */
   rules: ListClusterACLRulesResponseRulesList;
 }
 export const ListClusterACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     rules: ListClusterACLRulesResponseRulesList,
   }),
 ).annotate({
@@ -1571,41 +1571,41 @@ export const ClusterTypeResiliency = S.String;
 
 export interface ClusterType {
   /** Cluster type name. */
-  name?: string;
+  name: string;
   /** The SRN of the cluster type. */
-  srn?: string;
+  srn: string;
   /** Cluster type availability. */
-  availability?: ClusterTypeAvailability;
+  availability: ClusterTypeAvailability;
   /** Maximum number of nodes supported by the offer. */
-  max_nodes?: number;
+  max_nodes: number;
   /** Time period during which you can no longer switch to a lower offer. (in seconds) */
   commitment_delay?: string | null;
   /** Value of the Service Level Agreement of the offer. */
-  sla?: number;
+  sla: number;
   /** Resiliency offered by the offer. */
-  resiliency?: ClusterTypeResiliency;
+  resiliency: ClusterTypeResiliency;
   /** Max RAM allowed for the control plane. (in bytes) */
-  memory?: number;
+  memory: number;
   /** Returns information if this offer uses dedicated resources. */
-  dedicated?: boolean;
+  dedicated: boolean;
   /** True if the offer allows activation of the audit log functionality. Please note that audit logs are sent to Cockpit. */
-  audit_logs_supported?: boolean;
+  audit_logs_supported: boolean;
   /** The region of the cluster type. */
-  region?: string;
+  region: string;
 }
 export const ClusterType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    srn: S.optional(S.String),
-    availability: S.optional(ClusterTypeAvailability),
-    max_nodes: S.optional(S.Number),
+    name: S.String,
+    srn: S.String,
+    availability: ClusterTypeAvailability,
+    max_nodes: S.Number,
     commitment_delay: S.optional(S.NullOr(S.String)),
-    sla: S.optional(S.Number),
-    resiliency: S.optional(ClusterTypeResiliency),
-    memory: S.optional(S.Number),
-    dedicated: S.optional(S.Boolean),
-    audit_logs_supported: S.optional(S.Boolean),
-    region: S.optional(S.String),
+    sla: S.Number,
+    resiliency: ClusterTypeResiliency,
+    memory: S.Number,
+    dedicated: S.Boolean,
+    audit_logs_supported: S.Boolean,
+    region: S.String,
   }),
 ).annotate({ identifier: "ClusterType" }) as any as S.Schema<ClusterType>;
 
@@ -1617,14 +1617,14 @@ export const ListClusterAvailableTypesResponseClusterTypesList = /*@__PURE__*/ S
 
 export interface ListClusterAvailableTypesResponse {
   /** Available cluster types for the cluster. */
-  cluster_types?: ListClusterAvailableTypesResponseClusterTypesList;
+  cluster_types: ListClusterAvailableTypesResponseClusterTypesList;
   /** Total number of types. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListClusterAvailableTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    cluster_types: S.optional(ListClusterAvailableTypesResponseClusterTypesList),
-    total_count: S.optional(S.Number),
+    cluster_types: ListClusterAvailableTypesResponseClusterTypesList,
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListClusterAvailableTypesResponse",
@@ -1663,11 +1663,11 @@ export const ListClusterAvailableVersionsResponseVersionsList = /*@__PURE__*/ S.
 
 export interface ListClusterAvailableVersionsResponse {
   /** Available Kubernetes versions for the cluster. */
-  versions?: ListClusterAvailableVersionsResponseVersionsList;
+  versions: ListClusterAvailableVersionsResponseVersionsList;
 }
 export const ListClusterAvailableVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    versions: S.optional(ListClusterAvailableVersionsResponseVersionsList),
+    versions: ListClusterAvailableVersionsResponseVersionsList,
   }),
 ).annotate({
   identifier: "ListClusterAvailableVersionsResponse",
@@ -1744,13 +1744,13 @@ export const ListClustersResponseClustersList = /*@__PURE__*/ S.Array(
 
 export interface ListClustersResponse {
   /** Total number of clusters. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned clusters. */
   clusters: ListClustersResponseClustersList;
 }
 export const ListClustersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     clusters: ListClustersResponseClustersList,
   }),
 ).annotate({ identifier: "ListClustersResponse" }) as any as S.Schema<ListClustersResponse>;
@@ -1789,13 +1789,13 @@ export const ListClusterTypesResponseClusterTypesList = /*@__PURE__*/ S.Array(
 
 export interface ListClusterTypesResponse {
   /** Total number of cluster-types. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned cluster-types. */
   cluster_types: ListClusterTypesResponseClusterTypesList;
 }
 export const ListClusterTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     cluster_types: ListClusterTypesResponseClusterTypesList,
   }),
 ).annotate({ identifier: "ListClusterTypesResponse" }) as any as S.Schema<ListClusterTypesResponse>;
@@ -1862,13 +1862,13 @@ export const ListNodesResponseNodesList = /*@__PURE__*/ S.Array(
 
 export interface ListNodesResponse {
   /** Total number of nodes. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned nodes. */
   nodes: ListNodesResponseNodesList;
 }
 export const ListNodesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     nodes: ListNodesResponseNodesList,
   }),
 ).annotate({ identifier: "ListNodesResponse" }) as any as S.Schema<ListNodesResponse>;
@@ -1932,13 +1932,13 @@ export const ListPoolsResponsePoolsList = /*@__PURE__*/ S.Array(
 
 export interface ListPoolsResponse {
   /** Total number of pools that exists for the cluster. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned pools. */
   pools: ListPoolsResponsePoolsList;
 }
 export const ListPoolsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     pools: ListPoolsResponsePoolsList,
   }),
 ).annotate({ identifier: "ListPoolsResponse" }) as any as S.Schema<ListPoolsResponse>;
@@ -1968,11 +1968,11 @@ export const ListUserDataRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface UserDataSummary {
   /** Key name of a given user data. */
-  key?: string;
+  key: string;
 }
 export const UserDataSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key: S.optional(S.String),
+    key: S.String,
   }),
 ).annotate({ identifier: "UserDataSummary" }) as any as S.Schema<UserDataSummary>;
 
@@ -1984,11 +1984,11 @@ export const ListUserDataResponseUserDataList = /*@__PURE__*/ S.Array(
 
 export interface ListUserDataResponse {
   /** User data information. */
-  user_data?: ListUserDataResponseUserDataList;
+  user_data: ListUserDataResponseUserDataList;
 }
 export const ListUserDataResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    user_data: S.optional(ListUserDataResponseUserDataList),
+    user_data: ListUserDataResponseUserDataList,
   }),
 ).annotate({ identifier: "ListUserDataResponse" }) as any as S.Schema<ListUserDataResponse>;
 
@@ -2020,11 +2020,11 @@ export const ListVersionsResponseVersionsList = /*@__PURE__*/ S.Array(
 
 export interface ListVersionsResponse {
   /** Available Kubernetes versions. */
-  versions?: ListVersionsResponseVersionsList;
+  versions: ListVersionsResponseVersionsList;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    versions: S.optional(ListVersionsResponseVersionsList),
+    versions: ListVersionsResponseVersionsList,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 
@@ -2146,11 +2146,11 @@ export const SetClusterACLRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetClusterACLRulesResponse {
   /** ACLs that were set. */
-  rules?: SetClusterACLRulesResponseRulesList;
+  rules: SetClusterACLRulesResponseRulesList;
 }
 export const SetClusterACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(SetClusterACLRulesResponseRulesList),
+    rules: SetClusterACLRulesResponseRulesList,
   }),
 ).annotate({
   identifier: "SetClusterACLRulesResponse",

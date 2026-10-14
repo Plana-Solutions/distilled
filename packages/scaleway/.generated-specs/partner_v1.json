@@ -150,13 +150,15 @@
         "organizations": {
           "target": "com.scaleway.partner_v1#ListOrganizationsResponseOrganizationsList",
           "traits": {
-            "smithy.api#documentation": "List of organizations."
+            "smithy.api#documentation": "List of organizations.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of organizations."
+            "smithy.api#documentation": "Total number of organizations.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -168,37 +170,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the organization. (UUID format)"
+            "smithy.api#documentation": "ID of the organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the organization."
+            "smithy.api#documentation": "Name of the organization.",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization owner's email."
+            "smithy.api#documentation": "Organization owner's email.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.partner_v1#OrganizationStatus",
           "traits": {
-            "smithy.api#documentation": "The current status of the organization."
+            "smithy.api#documentation": "The current status of the organization.",
+            "smithy.api#required": {}
           }
         },
         "owner_firstname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization owner's first name."
+            "smithy.api#documentation": "Organization owner's first name.",
+            "smithy.api#required": {}
           }
         },
         "owner_lastname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization owner's last name."
+            "smithy.api#documentation": "Organization owner's last name.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -218,19 +226,22 @@
         "customer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Customer ID associated with this organization."
+            "smithy.api#documentation": "Customer ID associated with this organization.",
+            "smithy.api#required": {}
           }
         },
         "lock_reason_message": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "If the organization is locked, this field will contain a human-readable reason."
+            "smithy.api#documentation": "If the organization is locked, this field will contain a human-readable reason.",
+            "smithy.api#required": {}
           }
         },
         "locked_by": {
           "target": "com.scaleway.partner_v1#OrganizationLockedBy",
           "traits": {
-            "smithy.api#documentation": "Originator of the lock. Can be one of \"partner\" or \"scaleway\"."
+            "smithy.api#documentation": "Originator of the lock. Can be one of \"partner\" or \"scaleway\".",
+            "smithy.api#required": {}
           }
         },
         "locked_at": {
@@ -250,7 +261,8 @@
         "comment": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A comment about the organization."
+            "smithy.api#documentation": "A comment about the organization.",
+            "smithy.api#required": {}
           }
         }
       },

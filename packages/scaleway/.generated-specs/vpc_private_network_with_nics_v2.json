@@ -138,10 +138,16 @@
       "type": "structure",
       "members": {
         "private_networks": {
-          "target": "com.scaleway.vpc_private_network_with_nics_v2#ListPrivateNetworksWithNicsResponsePrivateNetworksList"
+          "target": "com.scaleway.vpc_private_network_with_nics_v2#ListPrivateNetworksWithNicsResponsePrivateNetworksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -156,7 +162,10 @@
           }
         },
         "private_nics": {
-          "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNetworkWithNicsPrivateNicsList"
+          "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNetworkWithNicsPrivateNicsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -167,43 +176,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network ID. (UUID format)"
+            "smithy.api#documentation": "Private Network ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the private network."
+            "smithy.api#documentation": "The SRN of the private network.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network name."
+            "smithy.api#documentation": "Private Network name.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Organization the Private Network belongs to. (UUID format)"
+            "smithy.api#documentation": "Scaleway Organization the Private Network belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Project the Private Network belongs to. (UUID format)"
+            "smithy.api#documentation": "Scaleway Project the Private Network belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the Private Network is available."
+            "smithy.api#documentation": "Region in which the Private Network is available.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNetworkTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags of the Private Network."
+            "smithy.api#documentation": "Tags of the Private Network.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -223,31 +239,36 @@
         "subnets": {
           "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNetworkSubnetsList",
           "traits": {
-            "smithy.api#documentation": "Private Network subnets."
+            "smithy.api#documentation": "Private Network subnets.",
+            "smithy.api#required": {}
           }
         },
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "VPC the Private Network belongs to. (UUID format)"
+            "smithy.api#documentation": "VPC the Private Network belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "dhcp_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether managed DHCP is enabled for this Private Network."
+            "smithy.api#documentation": "Defines whether managed DHCP is enabled for this Private Network.",
+            "smithy.api#required": {}
           }
         },
         "default_route_propagation_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether default v4 and v6 routes are propagated for this Private Network."
+            "smithy.api#documentation": "Defines whether default v4 and v6 routes are propagated for this Private Network.",
+            "smithy.api#required": {}
           }
         },
         "has_object_storage_private_access": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether this Private Network is enabled for Object Storage private access."
+            "smithy.api#documentation": "Defines whether this Private Network is enabled for Object Storage private access.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -268,13 +289,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the subnet. (UUID format)"
+            "smithy.api#documentation": "ID of the subnet. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the subnet."
+            "smithy.api#documentation": "The SRN of the subnet.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -294,31 +317,36 @@
         "subnet": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subnet CIDR. (IP network)"
+            "smithy.api#documentation": "Subnet CIDR. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Project the subnet belongs to. (UUID format)"
+            "smithy.api#documentation": "Scaleway Project the subnet belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network the subnet belongs to. (UUID format)"
+            "smithy.api#documentation": "Private Network the subnet belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "VPC the subnet belongs to. (UUID format)"
+            "smithy.api#documentation": "VPC the subnet belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the Subnet can be used."
+            "smithy.api#documentation": "Region in which the Subnet can be used.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -337,30 +365,49 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "private_network_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "server_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "mac_address": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "vlan": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "metadata": {
           "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNICMetadata"
         },
         "status": {
-          "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNICStatus"
+          "target": "com.scaleway.vpc_private_network_with_nics_v2#PrivateNICStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone you want to target"
+            "smithy.api#documentation": "The zone you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -370,13 +417,22 @@
       "type": "structure",
       "members": {
         "product_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "resource_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "resource_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

@@ -221,23 +221,23 @@ export const AlertFailingQuotasList = /*@__PURE__*/ S.Array(
 
 export interface Alert {
   /** Type of alert. */
-  type?: AlertAlertType;
+  type: AlertAlertType;
   /** Timestamp when the alert was opened. (RFC 3339 format) */
   opened_at?: string | null;
   /** Optional timestamp when the alert was closed. (RFC 3339 format) */
   closed_at?: string | null;
   /** ID of the group. */
-  group_id?: string;
+  group_id: string;
   /** List of quota names that are exceeded (for quotas_exceeded alerts). */
-  failing_quotas?: AlertFailingQuotasList;
+  failing_quotas: AlertFailingQuotasList;
 }
 export const Alert = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(AlertAlertType),
+    type: AlertAlertType,
     opened_at: S.optional(S.NullOr(S.String)),
     closed_at: S.optional(S.NullOr(S.String)),
-    group_id: S.optional(S.String),
-    failing_quotas: S.optional(AlertFailingQuotasList),
+    group_id: S.String,
+    failing_quotas: AlertFailingQuotasList,
   }),
 ).annotate({ identifier: "Alert" }) as any as S.Schema<Alert>;
 
@@ -248,26 +248,26 @@ export const GroupOpenAlertsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<GroupOpenAlertsList>;
 
 export interface GroupScalingPolicy {
-  minimum_size?: number;
-  maximum_size?: number;
+  minimum_size: number;
+  maximum_size: number;
   /** (in seconds) */
   scale_out_cooldown?: string | null;
   /** (in seconds) */
   scale_in_cooldown?: string | null;
-  scale_in_step?: number;
-  scale_out_step?: number;
+  scale_in_step: number;
+  scale_out_step: number;
   fixed_size?: GroupScalingPolicyScalingPolicyFixedSize | null;
   cpu_target?: GroupScalingPolicyScalingPolicyCpuTarget | null;
   memory_target?: GroupScalingPolicyScalingPolicyCpuTarget | null;
 }
 export const GroupScalingPolicy = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    minimum_size: S.optional(S.Number),
-    maximum_size: S.optional(S.Number),
+    minimum_size: S.Number,
+    maximum_size: S.Number,
     scale_out_cooldown: S.optional(S.NullOr(S.String)),
     scale_in_cooldown: S.optional(S.NullOr(S.String)),
-    scale_in_step: S.optional(S.Number),
-    scale_out_step: S.optional(S.Number),
+    scale_in_step: S.Number,
+    scale_out_step: S.Number,
     fixed_size: S.optional(S.NullOr(GroupScalingPolicyScalingPolicyFixedSize)),
     cpu_target: S.optional(S.NullOr(GroupScalingPolicyScalingPolicyCpuTarget)),
     memory_target: S.optional(S.NullOr(GroupScalingPolicyScalingPolicyCpuTarget)),
@@ -275,14 +275,14 @@ export const GroupScalingPolicy = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GroupScalingPolicy" }) as any as S.Schema<GroupScalingPolicy>;
 
 export interface GroupLoadBalancerConfigurationBackend {
-  backend_id?: string;
-  address_family?: GroupLoadBalancerConfigurationBackendAddressFamily;
+  backend_id: string;
+  address_family: GroupLoadBalancerConfigurationBackendAddressFamily;
   private_network_id?: string | null;
 }
 export const GroupLoadBalancerConfigurationBackend = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    backend_id: S.optional(S.String),
-    address_family: S.optional(GroupLoadBalancerConfigurationBackendAddressFamily),
+    backend_id: S.String,
+    address_family: GroupLoadBalancerConfigurationBackendAddressFamily,
     private_network_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -296,13 +296,13 @@ export const GroupLoadBalancerConfigurationBackendsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<GroupLoadBalancerConfigurationBackendsList>;
 
 export interface GroupLoadBalancerConfigurationAutoHealing {
-  enabled?: boolean;
+  enabled: boolean;
   /** (in seconds) */
   grace_period?: string | null;
 }
 export const GroupLoadBalancerConfigurationAutoHealing = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    enabled: S.optional(S.Boolean),
+    enabled: S.Boolean,
     grace_period: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -310,14 +310,14 @@ export const GroupLoadBalancerConfigurationAutoHealing = /*@__PURE__*/ S.suspend
 }) as any as S.Schema<GroupLoadBalancerConfigurationAutoHealing>;
 
 export interface GroupLoadBalancerConfiguration {
-  load_balancer_id?: string;
-  backends?: GroupLoadBalancerConfigurationBackendsList;
+  load_balancer_id: string;
+  backends: GroupLoadBalancerConfigurationBackendsList;
   auto_healing?: GroupLoadBalancerConfigurationAutoHealing;
 }
 export const GroupLoadBalancerConfiguration = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    load_balancer_id: S.optional(S.String),
-    backends: S.optional(GroupLoadBalancerConfigurationBackendsList),
+    load_balancer_id: S.String,
+    backends: GroupLoadBalancerConfigurationBackendsList,
     auto_healing: S.optional(GroupLoadBalancerConfigurationAutoHealing),
   }),
 ).annotate({
@@ -326,59 +326,59 @@ export const GroupLoadBalancerConfiguration = /*@__PURE__*/ S.suspend(() =>
 
 export interface Group {
   /** SRN of the Autoscaling Group. */
-  srn?: string;
+  srn: string;
   /** Unique identifier of the autoscaling group. */
-  id?: string;
+  id: string;
   /** Project ID owning this group. */
-  project_id?: string;
+  project_id: string;
   /** Name of the autoscaling group. */
-  name?: string;
+  name: string;
   /** Tags associated with the group. */
-  tags?: GroupTagsList;
+  tags: GroupTagsList;
   /** Creation timestamp of the group. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the group. (RFC 3339 format) */
   updated_at?: string | null;
   /** Current status of the autoscaling group. */
-  status?: GroupGroupStatus;
+  status: GroupGroupStatus;
   /** List of active alerts on the group. */
-  open_alerts?: GroupOpenAlertsList;
+  open_alerts: GroupOpenAlertsList;
   /** Current number of instances in the group. */
-  current_size?: number;
+  current_size: number;
   /** Target number of instances the group is scaling to. */
-  target_size?: number;
+  target_size: number;
   /** Timestamp of the last scale out event. (RFC 3339 format) */
   last_scale_out_at?: string | null;
   /** Timestamp of the last scale in event. (RFC 3339 format) */
   last_scale_in_at?: string | null;
   /** The Instance template ID used to create instances in this group. */
-  template_id?: string;
+  template_id: string;
   /** Scaling policy configuration. */
   scaling_policy?: GroupScalingPolicy;
   /** Optional load balancer configuration. */
   load_balancer_configuration?: GroupLoadBalancerConfiguration;
   /** Zone of the Autoscaling Group. */
-  zone?: string;
+  zone: string;
 }
 export const Group = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    srn: S.optional(S.String),
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(GroupTagsList),
+    srn: S.String,
+    id: S.String,
+    project_id: S.String,
+    name: S.String,
+    tags: GroupTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(GroupGroupStatus),
-    open_alerts: S.optional(GroupOpenAlertsList),
-    current_size: S.optional(S.Number),
-    target_size: S.optional(S.Number),
+    status: GroupGroupStatus,
+    open_alerts: GroupOpenAlertsList,
+    current_size: S.Number,
+    target_size: S.Number,
     last_scale_out_at: S.optional(S.NullOr(S.String)),
     last_scale_in_at: S.optional(S.NullOr(S.String)),
-    template_id: S.optional(S.String),
+    template_id: S.String,
     scaling_policy: S.optional(GroupScalingPolicy),
     load_balancer_configuration: S.optional(GroupLoadBalancerConfiguration),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "Group" }) as any as S.Schema<Group>;
 
@@ -497,13 +497,13 @@ export interface ListAlertsResponse {
   /** Token for the next page of results. */
   next_page_token?: string | null;
   /** Total number of alerts. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListAlertsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     alerts: ListAlertsResponseAlertsList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListAlertsResponse" }) as any as S.Schema<ListAlertsResponse>;
 
@@ -572,56 +572,56 @@ export const GroupSummaryScalingPolicyTargetType = S.String;
 
 export interface GroupSummary {
   /** SRN of the Autoscaling Group. */
-  srn?: string;
+  srn: string;
   /** Project ID owning this group. */
-  project_id?: string;
+  project_id: string;
   /** Unique identifier of the autoscaling group. */
-  id?: string;
+  id: string;
   /** Name of the autoscaling group. */
-  name?: string;
+  name: string;
   /** Tags associated with the group. */
-  tags?: GroupSummaryTagsList;
+  tags: GroupSummaryTagsList;
   /** Current status of the autoscaling group. */
-  status?: GroupGroupStatus;
+  status: GroupGroupStatus;
   /** Creation timestamp of the group. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the group. (RFC 3339 format) */
   updated_at?: string | null;
   /** The Instance template ID used to create instances in this group. */
-  template_id?: string;
+  template_id: string;
   /** Optional load balancer ID. */
   load_balancer_id?: string | null;
   /** Current number of instances in the group. */
-  current_size?: number;
+  current_size: number;
   /** Most recent active alert if any. */
   latest_open_alert?: Alert;
   /** The minimum number of instances in the group. */
-  minimum_size?: number;
+  minimum_size: number;
   /** The maximum number of instances in the group. */
-  maximum_size?: number;
+  maximum_size: number;
   /** Defines which metric the group uses for scaling (cpu, memory, or fixed size). */
-  scaling_policy_target_type?: GroupSummaryScalingPolicyTargetType;
+  scaling_policy_target_type: GroupSummaryScalingPolicyTargetType;
   /** Availability zone of the group. */
-  zone?: string;
+  zone: string;
 }
 export const GroupSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(GroupSummaryTagsList),
-    status: S.optional(GroupGroupStatus),
+    srn: S.String,
+    project_id: S.String,
+    id: S.String,
+    name: S.String,
+    tags: GroupSummaryTagsList,
+    status: GroupGroupStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    template_id: S.optional(S.String),
+    template_id: S.String,
     load_balancer_id: S.optional(S.NullOr(S.String)),
-    current_size: S.optional(S.Number),
+    current_size: S.Number,
     latest_open_alert: S.optional(Alert),
-    minimum_size: S.optional(S.Number),
-    maximum_size: S.optional(S.Number),
-    scaling_policy_target_type: S.optional(GroupSummaryScalingPolicyTargetType),
-    zone: S.optional(S.String),
+    minimum_size: S.Number,
+    maximum_size: S.Number,
+    scaling_policy_target_type: GroupSummaryScalingPolicyTargetType,
+    zone: S.String,
   }),
 ).annotate({ identifier: "GroupSummary" }) as any as S.Schema<GroupSummary>;
 
@@ -637,13 +637,13 @@ export interface ListGroupsResponse {
   /** Token for the next page of results. */
   next_page_token?: string | null;
   /** Total number of groups. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListGroupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     group_summaries: ListGroupsResponseGroupSummariesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListGroupsResponse" }) as any as S.Schema<ListGroupsResponse>;
 
@@ -695,15 +695,15 @@ export interface Log {
   /** Timestamp of the log entry. (RFC 3339 format) */
   timestamp?: string | null;
   /** Log level (info, warning, error). */
-  level?: LogLogLevel;
+  level: LogLogLevel;
   /** Log message content. */
-  message?: string;
+  message: string;
 }
 export const Log = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     timestamp: S.optional(S.NullOr(S.String)),
-    level: S.optional(LogLogLevel),
-    message: S.optional(S.String),
+    level: LogLogLevel,
+    message: S.String,
   }),
 ).annotate({ identifier: "Log" }) as any as S.Schema<Log>;
 
@@ -719,13 +719,13 @@ export interface ListLogsResponse {
   /** Token for the next page of results. */
   next_page_token?: string | null;
   /** Total number of logs. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListLogsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     logs: ListLogsResponseLogsList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListLogsResponse" }) as any as S.Schema<ListLogsResponse>;
 
@@ -766,11 +766,11 @@ export const ListServersRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Server {
   /** ID of the instance server. */
-  server_id?: string;
+  server_id: string;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server_id: S.optional(S.String),
+    server_id: S.String,
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
 
@@ -786,13 +786,13 @@ export interface ListServersResponse {
   /** Token for the next page of results. */
   next_page_token?: string | null;
   /** Total number of servers. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     servers: ListServersResponseServersList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListServersResponse" }) as any as S.Schema<ListServersResponse>;
 

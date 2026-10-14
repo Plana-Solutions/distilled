@@ -595,16 +595,28 @@
       "type": "structure",
       "members": {
         "domains": {
-          "target": "com.scaleway.domain_registrar_v2beta1#OrderResponseDomainsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#OrderResponseDomainsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "organization_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "project_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "task_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -709,7 +721,10 @@
       "type": "structure",
       "members": {
         "compatible": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "owner_check_result": {
           "target": "com.scaleway.domain_registrar_v2beta1#CheckContactsCompatibilityResponseContactCheckResult"
@@ -727,7 +742,10 @@
       "type": "structure",
       "members": {
         "compatible": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "error_message": {
           "target": "smithy.api#String",
@@ -870,10 +888,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "contacts": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ListContactsResponseContactsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#ListContactsResponseContactsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -885,7 +909,10 @@
           "target": "com.scaleway.domain_registrar_v2beta1#Contact"
         },
         "roles": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ContactRolesRolesMap"
+          "target": "com.scaleway.domain_registrar_v2beta1#ContactRolesRolesMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -894,58 +921,112 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "legal_form": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ContactLegalForm"
+          "target": "com.scaleway.domain_registrar_v2beta1#ContactLegalForm",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "firstname": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "lastname": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "company_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "email": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "email_alt": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "phone_number": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "fax_number": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "address_line_1": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "address_line_2": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "zip": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "city": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "country": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "vat_identification_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "company_identification_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "lang": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ScalewayStdLanguageCode"
+          "target": "com.scaleway.domain_registrar_v2beta1#ScalewayStdLanguageCode",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "resale": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "extension_fr": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFR"
@@ -954,19 +1035,31 @@
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionEU"
         },
         "whois_opt_in": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "email_status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ContactEmailStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#ContactEmailStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "state": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "extension_nl": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionNL"
         },
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ContactStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#ContactStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "extension_it": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionIT"
@@ -1012,13 +1105,22 @@
       "type": "structure",
       "members": {
         "is_owner": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_administrative": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_technical": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1432,10 +1534,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "domains": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ListDomainsResponseDomainsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#ListDomainsResponseDomainsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1444,19 +1552,34 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "project_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "auto_renew_status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "dnssec_status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "epp_code": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainSummaryEppCodeList"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainSummaryEppCodeList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "expired_at": {
           "target": "smithy.api#String",
@@ -1473,13 +1596,22 @@
           }
         },
         "registrar": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_external": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "external_domain_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusExternalDomain",
@@ -1494,7 +1626,10 @@
           }
         },
         "organization_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -1504,7 +1639,10 @@
           }
         },
         "pending_trade": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1556,7 +1694,10 @@
       "type": "structure",
       "members": {
         "validation_token": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1565,13 +1706,22 @@
       "type": "structure",
       "members": {
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusTransferStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusTransferStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "vote_current_owner": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "vote_new_owner": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1669,18 +1819,28 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "organization_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "project_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "auto_renew_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the automatic renewal of the domain."
+            "smithy.api#documentation": "Status of the automatic renewal of the domain.",
+            "smithy.api#required": {}
           }
         },
         "dnssec": {
@@ -1692,7 +1852,8 @@
         "epp_code": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainEppCodeList",
           "traits": {
-            "smithy.api#documentation": "List of the domain's EPP codes."
+            "smithy.api#documentation": "List of the domain's EPP codes.",
+            "smithy.api#required": {}
           }
         },
         "expired_at": {
@@ -1710,24 +1871,30 @@
           }
         },
         "registrar": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "is_external": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether Scaleway is the domain's registrar."
+            "smithy.api#documentation": "Indicates whether Scaleway is the domain's registrar.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the domain."
+            "smithy.api#documentation": "Status of the domain.",
+            "smithy.api#required": {}
           }
         },
         "dns_zones": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainDnsZonesList",
           "traits": {
-            "smithy.api#documentation": "List of the domain's DNS zones."
+            "smithy.api#documentation": "List of the domain's DNS zones.",
+            "smithy.api#required": {}
           }
         },
         "owner_contact": {
@@ -1771,13 +1938,15 @@
         "linked_products": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainLinkedProductsList",
           "traits": {
-            "smithy.api#documentation": "List of Scaleway resources linked to the domain."
+            "smithy.api#documentation": "List of Scaleway resources linked to the domain.",
+            "smithy.api#required": {}
           }
         },
         "pending_trade": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if a trade is ongoing."
+            "smithy.api#documentation": "Indicates if a trade is ongoing.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1787,10 +1956,16 @@
       "type": "structure",
       "members": {
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ds_records": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DomainDNSSECDsRecordsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#DomainDNSSECDsRecordsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1977,22 +2152,40 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "subdomain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ns": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneNsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneNsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ns_default": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneNsDefaultList"
+          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneNsDefaultList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ns_master": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneNsMasterList"
+          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneNsMasterList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "message": {
           "target": "smithy.api#String",
@@ -2008,10 +2201,16 @@
           }
         },
         "project_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "linked_products": {
-          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneLinkedProductsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneLinkedProductsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2111,25 +2310,46 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "dnssec_support": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "duration_in_years_min": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "duration_in_years_max": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "idn_support": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "offers": {
-          "target": "com.scaleway.domain_registrar_v2beta1#TldOffersMap"
+          "target": "com.scaleway.domain_registrar_v2beta1#TldOffersMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "specifications": {
-          "target": "com.scaleway.domain_registrar_v2beta1#TldSpecificationsMap"
+          "target": "com.scaleway.domain_registrar_v2beta1#TldSpecificationsMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2138,10 +2358,16 @@
       "type": "structure",
       "members": {
         "action": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "operation_path": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "price": {
           "target": "com.scaleway.domain_registrar_v2beta1#GoogleTypeMoney"
@@ -2153,13 +2379,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2299,7 +2534,10 @@
       "type": "structure",
       "members": {
         "auth_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2488,10 +2726,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "hosts": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ListDomainHostsResponseHostsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#ListDomainHostsResponseHostsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2500,19 +2744,29 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ips": {
           "target": "com.scaleway.domain_registrar_v2beta1#HostIpsList",
           "traits": {
-            "smithy.api#documentation": "(IP address)"
+            "smithy.api#documentation": "(IP address)",
+            "smithy.api#required": {}
           }
         },
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#HostStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#HostStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2957,13 +3211,22 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "organization_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "validation_token": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -2973,7 +3236,10 @@
           }
         },
         "project_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3090,10 +3356,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "inbound_transfers": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ListInboundTransfersResponseInboundTransfersList"
+          "target": "com.scaleway.domain_registrar_v2beta1#ListInboundTransfersResponseInboundTransfersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3104,7 +3376,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the inbound transfer."
+            "smithy.api#documentation": "The unique identifier of the inbound transfer.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3124,31 +3397,36 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The project ID associated with the inbound transfer."
+            "smithy.api#documentation": "The project ID associated with the inbound transfer.",
+            "smithy.api#required": {}
           }
         },
         "domain": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The domain associated with the inbound transfer."
+            "smithy.api#documentation": "The domain associated with the inbound transfer.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.domain_registrar_v2beta1#InboundTransferStatus",
           "traits": {
-            "smithy.api#documentation": "Inbound transfer status."
+            "smithy.api#documentation": "Inbound transfer status.",
+            "smithy.api#required": {}
           }
         },
         "message": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Human-friendly message to describe the current inbound transfer status."
+            "smithy.api#documentation": "Human-friendly message to describe the current inbound transfer status.",
+            "smithy.api#required": {}
           }
         },
         "task_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the associated task."
+            "smithy.api#documentation": "The unique identifier of the associated task.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3366,10 +3644,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "domains": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ListRenewableDomainsResponseDomainsList"
+          "target": "com.scaleway.domain_registrar_v2beta1#ListRenewableDomainsResponseDomainsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3378,16 +3662,28 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "project_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "organization_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.domain_registrar_v2beta1#RenewableDomainStatus"
+          "target": "com.scaleway.domain_registrar_v2beta1#RenewableDomainStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "renewable_duration_in_years": {
           "target": "smithy.api#Integer",
@@ -3610,7 +3906,8 @@
         "available_domains": {
           "target": "com.scaleway.domain_registrar_v2beta1#SearchAvailableDomainsResponseAvailableDomainsList",
           "traits": {
-            "smithy.api#documentation": "Array of available domains."
+            "smithy.api#documentation": "Array of available domains.",
+            "smithy.api#required": {}
           }
         },
         "exact_match_domain": {
@@ -3626,10 +3923,16 @@
       "type": "structure",
       "members": {
         "domain": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "available": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "tld": {
           "target": "com.scaleway.domain_registrar_v2beta1#Tld"
@@ -3984,10 +4287,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "tasks": {
-          "target": "com.scaleway.domain_registrar_v2beta1#ListTasksResponseTasksList"
+          "target": "com.scaleway.domain_registrar_v2beta1#ListTasksResponseTasksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3998,19 +4307,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the task."
+            "smithy.api#documentation": "The unique identifier of the task.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The project ID associated to the task."
+            "smithy.api#documentation": "The project ID associated to the task.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The organization ID associated to the task."
+            "smithy.api#documentation": "The organization ID associated to the task.",
+            "smithy.api#required": {}
           }
         },
         "domain": {
@@ -4023,13 +4335,15 @@
         "type": {
           "target": "com.scaleway.domain_registrar_v2beta1#TaskType",
           "traits": {
-            "smithy.api#documentation": "The type of the task."
+            "smithy.api#documentation": "The type of the task.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.domain_registrar_v2beta1#TaskStatus",
           "traits": {
-            "smithy.api#documentation": "The status of the task."
+            "smithy.api#documentation": "The status of the task.",
+            "smithy.api#required": {}
           }
         },
         "started_at": {
@@ -4162,13 +4476,15 @@
         "tlds": {
           "target": "com.scaleway.domain_registrar_v2beta1#ListTldsResponseTldsList",
           "traits": {
-            "smithy.api#documentation": "Array of TLDs."
+            "smithy.api#documentation": "Array of TLDs.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of TLDs returned."
+            "smithy.api#documentation": "Total count of TLDs returned.",
+            "smithy.api#required": {}
           }
         }
       },

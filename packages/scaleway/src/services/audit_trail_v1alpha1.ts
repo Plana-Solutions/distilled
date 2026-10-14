@@ -70,44 +70,44 @@ export const CustomAlertRuleStatus = S.String;
 
 export interface CustomAlertRule {
   /** ID of the alert rule. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the alert rule. */
-  srn?: string;
+  srn: string;
   /** Name of the alert rule. */
-  name?: string;
+  name: string;
   /** (Optional) Description of the alert rule. */
   description?: string | null;
   /** Current status of the alert rule. */
-  status?: CustomAlertRuleStatus;
+  status: CustomAlertRuleStatus;
   /** The Common Expression Language (CEL) string defining the logic for the alert rule. */
-  query?: string;
+  query: string;
   /** The duration of time over which to evaluate the rule (how far back to look for matching events). (in seconds) */
   evaluation_window?: string | null;
   /** The minimum number of matched occurrences required within the evaluation window to trigger the alert. */
-  occurrences?: number;
+  occurrences: number;
   /** The severity level assigned to the custom alert rule. */
-  severity?: CustomAlertRuleSeverity;
+  severity: CustomAlertRuleSeverity;
   /** Custom alert rule creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Custom alert rule last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Region of the alert rule. */
-  region?: string;
+  region: string;
 }
 export const CustomAlertRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
     description: S.optional(S.NullOr(S.String)),
-    status: S.optional(CustomAlertRuleStatus),
-    query: S.optional(S.String),
+    status: CustomAlertRuleStatus,
+    query: S.String,
     evaluation_window: S.optional(S.NullOr(S.String)),
-    occurrences: S.optional(S.Number),
-    severity: S.optional(CustomAlertRuleSeverity),
+    occurrences: S.Number,
+    severity: CustomAlertRuleSeverity,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "CustomAlertRule" }) as any as S.Schema<CustomAlertRule>;
 
@@ -176,25 +176,25 @@ export type ExportJobStatusCode = "unknown_code" | "success" | "failure";
 export const ExportJobStatusCode = S.String;
 
 export interface ExportJobStatus {
-  code?: ExportJobStatusCode;
+  code: ExportJobStatusCode;
   message?: string | null;
 }
 export const ExportJobStatus = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    code: S.optional(ExportJobStatusCode),
+    code: ExportJobStatusCode,
     message: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "ExportJobStatus" }) as any as S.Schema<ExportJobStatus>;
 
 export interface ExportJob {
   /** ID of the export job. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the export job. */
-  srn?: string;
+  srn: string;
   /** ID of the targeted Organization. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the export job. */
-  name?: string;
+  name: string;
   /** Destination in an S3 storage. */
   s3?: ExportJobS3 | null;
   /** Export job creation date. (RFC 3339 format) */
@@ -202,24 +202,24 @@ export interface ExportJob {
   /** Last run of export job. (RFC 3339 format) */
   last_run_at?: string | null;
   /** Tags of the export job. */
-  tags?: ExportJobTagsList;
+  tags: ExportJobTagsList;
   /** Status of last export job. */
   last_status?: ExportJobStatus;
   /** Region of the export job. */
-  region?: string;
+  region: string;
 }
 export const ExportJob = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    organization_id: S.String,
+    name: S.String,
     s3: S.optional(S.NullOr(ExportJobS3)),
     created_at: S.optional(S.NullOr(S.String)),
     last_run_at: S.optional(S.NullOr(S.String)),
-    tags: S.optional(ExportJobTagsList),
+    tags: ExportJobTagsList,
     last_status: S.optional(ExportJobStatus),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "ExportJob" }) as any as S.Schema<ExportJob>;
 
@@ -318,20 +318,20 @@ export const AlertRuleStatus = S.String;
 
 export interface AlertRule {
   /** ID of the alert rule. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the alert rule. */
-  name?: string;
+  name: string;
   /** Description of the alert rule. */
-  description?: string;
+  description: string;
   /** Current status of the alert rule. */
-  status?: AlertRuleStatus;
+  status: AlertRuleStatus;
 }
 export const AlertRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    status: S.optional(AlertRuleStatus),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    status: AlertRuleStatus,
   }),
 ).annotate({ identifier: "AlertRule" }) as any as S.Schema<AlertRule>;
 
@@ -343,11 +343,11 @@ export const DisableAlertRulesResponseAlertRulesList = /*@__PURE__*/ S.Array(
 
 export interface DisableAlertRulesResponse {
   /** List of the preconfigured rules that were disabled. */
-  alert_rules?: DisableAlertRulesResponseAlertRulesList;
+  alert_rules: DisableAlertRulesResponseAlertRulesList;
 }
 export const DisableAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    alert_rules: S.optional(DisableAlertRulesResponseAlertRulesList),
+    alert_rules: DisableAlertRulesResponseAlertRulesList,
   }),
 ).annotate({
   identifier: "DisableAlertRulesResponse",
@@ -395,11 +395,11 @@ export const DisableCustomAlertRulesResponseCustomAlertRulesList = /*@__PURE__*/
 
 export interface DisableCustomAlertRulesResponse {
   /** List of the custom rules that were disabled. */
-  custom_alert_rules?: DisableCustomAlertRulesResponseCustomAlertRulesList;
+  custom_alert_rules: DisableCustomAlertRulesResponseCustomAlertRulesList;
 }
 export const DisableCustomAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    custom_alert_rules: S.optional(DisableCustomAlertRulesResponseCustomAlertRulesList),
+    custom_alert_rules: DisableCustomAlertRulesResponseCustomAlertRulesList,
   }),
 ).annotate({
   identifier: "DisableCustomAlertRulesResponse",
@@ -445,11 +445,11 @@ export const EnableAlertRulesResponseAlertRulesList = /*@__PURE__*/ S.Array(
 
 export interface EnableAlertRulesResponse {
   /** List of the preconfigured rules that were enabled. */
-  alert_rules?: EnableAlertRulesResponseAlertRulesList;
+  alert_rules: EnableAlertRulesResponseAlertRulesList;
 }
 export const EnableAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    alert_rules: S.optional(EnableAlertRulesResponseAlertRulesList),
+    alert_rules: EnableAlertRulesResponseAlertRulesList,
   }),
 ).annotate({ identifier: "EnableAlertRulesResponse" }) as any as S.Schema<EnableAlertRulesResponse>;
 
@@ -495,11 +495,11 @@ export const EnableCustomAlertRulesResponseCustomAlertRulesList = /*@__PURE__*/ 
 
 export interface EnableCustomAlertRulesResponse {
   /** List of the custom rules that were enabled. */
-  custom_alert_rules?: EnableCustomAlertRulesResponseCustomAlertRulesList;
+  custom_alert_rules: EnableCustomAlertRulesResponseCustomAlertRulesList;
 }
 export const EnableCustomAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    custom_alert_rules: S.optional(EnableCustomAlertRulesResponseCustomAlertRulesList),
+    custom_alert_rules: EnableCustomAlertRulesResponseCustomAlertRulesList,
   }),
 ).annotate({
   identifier: "EnableCustomAlertRulesResponse",
@@ -553,11 +553,11 @@ export const CustomAlertRuleFieldStringOperatorsOperatorsList = /*@__PURE__*/ S.
 ) as any as S.Schema<CustomAlertRuleFieldStringOperatorsOperatorsList>;
 
 export interface CustomAlertRuleFieldStringOperators {
-  operators?: CustomAlertRuleFieldStringOperatorsOperatorsList;
+  operators: CustomAlertRuleFieldStringOperatorsOperatorsList;
 }
 export const CustomAlertRuleFieldStringOperators = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    operators: S.optional(CustomAlertRuleFieldStringOperatorsOperatorsList),
+    operators: CustomAlertRuleFieldStringOperatorsOperatorsList,
   }),
 ).annotate({
   identifier: "CustomAlertRuleFieldStringOperators",
@@ -579,11 +579,11 @@ export const CustomAlertRuleFieldIntOperatorsOperatorsList = /*@__PURE__*/ S.Arr
 ) as any as S.Schema<CustomAlertRuleFieldIntOperatorsOperatorsList>;
 
 export interface CustomAlertRuleFieldIntOperators {
-  operators?: CustomAlertRuleFieldIntOperatorsOperatorsList;
+  operators: CustomAlertRuleFieldIntOperatorsOperatorsList;
 }
 export const CustomAlertRuleFieldIntOperators = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    operators: S.optional(CustomAlertRuleFieldIntOperatorsOperatorsList),
+    operators: CustomAlertRuleFieldIntOperatorsOperatorsList,
   }),
 ).annotate({
   identifier: "CustomAlertRuleFieldIntOperators",
@@ -591,9 +591,9 @@ export const CustomAlertRuleFieldIntOperators = /*@__PURE__*/ S.suspend(() =>
 
 export interface CustomAlertRuleField {
   /** The field name to be used in the CEL expression (e.g., `productName`, `status`). */
-  name?: string;
+  name: string;
   /** The expected data type of the field within the CEL environment. */
-  type?: CustomAlertRuleFieldFieldType;
+  type: CustomAlertRuleFieldFieldType;
   /** A list of string CEL operators that are supported and valid for this field. */
   string_operators?: CustomAlertRuleFieldStringOperators | null;
   /** A list of int CEL operators that are supported and valid for this field. */
@@ -601,8 +601,8 @@ export interface CustomAlertRuleField {
 }
 export const CustomAlertRuleField = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    type: S.optional(CustomAlertRuleFieldFieldType),
+    name: S.String,
+    type: CustomAlertRuleFieldFieldType,
     string_operators: S.optional(S.NullOr(CustomAlertRuleFieldStringOperators)),
     int_operators: S.optional(S.NullOr(CustomAlertRuleFieldIntOperators)),
   }),
@@ -617,14 +617,14 @@ export const RetrieveAvailableFieldsForCustomAlertRulesResponseFieldsList = /*@_
 
 export interface RetrieveAvailableFieldsForCustomAlertRulesResponse {
   /** A list of fields that are authorized to be used in a CEL expression. */
-  fields?: RetrieveAvailableFieldsForCustomAlertRulesResponseFieldsList;
+  fields: RetrieveAvailableFieldsForCustomAlertRulesResponseFieldsList;
   /** Number of fields. */
-  total_count?: number;
+  total_count: number;
 }
 export const RetrieveAvailableFieldsForCustomAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    fields: S.optional(RetrieveAvailableFieldsForCustomAlertRulesResponseFieldsList),
-    total_count: S.optional(S.Number),
+    fields: RetrieveAvailableFieldsForCustomAlertRulesResponseFieldsList,
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "RetrieveAvailableFieldsForCustomAlertRulesResponse",
@@ -658,11 +658,11 @@ export const GetLastEventsOverviewRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface EventPrincipal {
   /** (UUID format) */
-  id?: string;
+  id: string;
 }
 export const EventPrincipal = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
   }),
 ).annotate({ identifier: "EventPrincipal" }) as any as S.Schema<EventPrincipal>;
 
@@ -790,35 +790,35 @@ export type Action = "unknown_action" | "create" | "update" | "delete";
 export const Action = S.String;
 
 export interface SecretManagerSecretInfo {
-  path?: string;
+  path: string;
   key_id?: string | null;
 }
 export const SecretManagerSecretInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    path: S.optional(S.String),
+    path: S.String,
     key_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "SecretManagerSecretInfo" }) as any as S.Schema<SecretManagerSecretInfo>;
 
 export interface SecretManagerSecretVersionInfo {
-  revision?: number;
+  revision: number;
 }
 export const SecretManagerSecretVersionInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    revision: S.optional(S.Number),
+    revision: S.Number,
   }),
 ).annotate({
   identifier: "SecretManagerSecretVersionInfo",
 }) as any as S.Schema<SecretManagerSecretVersionInfo>;
 
 export interface KubernetesPoolInfo {
-  id?: string;
-  name?: string;
+  id: string;
+  name: string;
 }
 export const KubernetesPoolInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
   }),
 ).annotate({ identifier: "KubernetesPoolInfo" }) as any as S.Schema<KubernetesPoolInfo>;
 
@@ -826,22 +826,22 @@ export type KubernetesNodeInfo = KubernetesPoolInfo;
 export const KubernetesNodeInfo = KubernetesPoolInfo;
 
 export interface AccountUserInfo {
-  email?: string;
+  email: string;
   phone_number?: string | null;
 }
 export const AccountUserInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    email: S.optional(S.String),
+    email: S.String,
     phone_number: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "AccountUserInfo" }) as any as S.Schema<AccountUserInfo>;
 
 export interface InstanceServerInfo {
-  name?: string;
+  name: string;
 }
 export const InstanceServerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
   }),
 ).annotate({ identifier: "InstanceServerInfo" }) as any as S.Schema<InstanceServerInfo>;
 
@@ -849,11 +849,11 @@ export type AppleSiliconServerInfo = KubernetesPoolInfo;
 export const AppleSiliconServerInfo = KubernetesPoolInfo;
 
 export interface AccountProjectInfo {
-  description?: string;
+  description: string;
 }
 export const AccountProjectInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
+    description: S.String,
   }),
 ).annotate({ identifier: "AccountProjectInfo" }) as any as S.Schema<AccountProjectInfo>;
 
@@ -863,32 +863,32 @@ export const BaremetalServerInfoTagsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<BaremetalServerInfoTagsList>;
 
 export interface BaremetalServerInfo {
-  description?: string;
-  tags?: BaremetalServerInfoTagsList;
+  description: string;
+  tags: BaremetalServerInfoTagsList;
 }
 export const BaremetalServerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    tags: S.optional(BaremetalServerInfoTagsList),
+    description: S.String,
+    tags: BaremetalServerInfoTagsList,
   }),
 ).annotate({ identifier: "BaremetalServerInfo" }) as any as S.Schema<BaremetalServerInfo>;
 
 export interface BaremetalSettingInfo {
-  type?: string;
+  type: string;
 }
 export const BaremetalSettingInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(S.String),
+    type: S.String,
   }),
 ).annotate({ identifier: "BaremetalSettingInfo" }) as any as S.Schema<BaremetalSettingInfo>;
 
 export interface IpamIpInfo {
   /** (IP network) */
-  address?: string;
+  address: string;
 }
 export const IpamIpInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    address: S.optional(S.String),
+    address: S.String,
   }),
 ).annotate({ identifier: "IpamIpInfo" }) as any as S.Schema<IpamIpInfo>;
 
@@ -896,24 +896,24 @@ export type LoadBalancerLbInfo = InstanceServerInfo;
 export const LoadBalancerLbInfo = InstanceServerInfo;
 
 export interface LoadBalancerIpInfo {
-  ip_address?: string;
+  ip_address: string;
   lb_id?: string | null;
 }
 export const LoadBalancerIpInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip_address: S.optional(S.String),
+    ip_address: S.String,
     lb_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "LoadBalancerIpInfo" }) as any as S.Schema<LoadBalancerIpInfo>;
 
 export interface LoadBalancerFrontendInfo {
-  lb_id?: string;
-  name?: string;
+  lb_id: string;
+  name: string;
 }
 export const LoadBalancerFrontendInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    lb_id: S.optional(S.String),
-    name: S.optional(S.String),
+    lb_id: S.String,
+    name: S.String,
   }),
 ).annotate({ identifier: "LoadBalancerFrontendInfo" }) as any as S.Schema<LoadBalancerFrontendInfo>;
 
@@ -921,22 +921,22 @@ export type LoadBalancerBackendInfo = LoadBalancerFrontendInfo;
 export const LoadBalancerBackendInfo = LoadBalancerFrontendInfo;
 
 export interface LoadBalancerRouteInfo {
-  frontend_id?: string;
-  backend_id?: string;
+  frontend_id: string;
+  backend_id: string;
 }
 export const LoadBalancerRouteInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    frontend_id: S.optional(S.String),
-    backend_id: S.optional(S.String),
+    frontend_id: S.String,
+    backend_id: S.String,
   }),
 ).annotate({ identifier: "LoadBalancerRouteInfo" }) as any as S.Schema<LoadBalancerRouteInfo>;
 
 export interface LoadBalancerAclInfo {
-  frontend_id?: string;
+  frontend_id: string;
 }
 export const LoadBalancerAclInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    frontend_id: S.optional(S.String),
+    frontend_id: S.String,
   }),
 ).annotate({ identifier: "LoadBalancerAclInfo" }) as any as S.Schema<LoadBalancerAclInfo>;
 
@@ -965,11 +965,11 @@ export type EdgeServicesRouteStageInfo = EdgeServicesDNSStageInfo;
 export const EdgeServicesRouteStageInfo = EdgeServicesDNSStageInfo;
 
 export interface EdgeServicesRouteRulesInfo {
-  route_stage_id?: string;
+  route_stage_id: string;
 }
 export const EdgeServicesRouteRulesInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    route_stage_id: S.optional(S.String),
+    route_stage_id: S.String,
   }),
 ).annotate({
   identifier: "EdgeServicesRouteRulesInfo",
@@ -982,10 +982,10 @@ export type EdgeServicesBackendStageInfo = EdgeServicesDNSStageInfo;
 export const EdgeServicesBackendStageInfo = EdgeServicesDNSStageInfo;
 
 export interface AccountContractSignatureInfoAccountContractInfo {
-  id?: string;
-  type?: string;
-  name?: string;
-  version?: number;
+  id: string;
+  type: string;
+  name: string;
+  version: number;
   /** (RFC 3339 format) */
   created_at?: string | null;
   /** (RFC 3339 format) */
@@ -993,10 +993,10 @@ export interface AccountContractSignatureInfoAccountContractInfo {
 }
 export const AccountContractSignatureInfoAccountContractInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(S.String),
-    name: S.optional(S.String),
-    version: S.optional(S.Number),
+    id: S.String,
+    type: S.String,
+    name: S.String,
+    version: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -1007,7 +1007,7 @@ export const AccountContractSignatureInfoAccountContractInfo = /*@__PURE__*/ S.s
 export interface AccountContractSignatureInfo {
   /** (RFC 3339 format) */
   signed_at?: string | null;
-  signed_by_account_root_user_id?: string;
+  signed_by_account_root_user_id: string;
   /** (RFC 3339 format) */
   expires_at?: string | null;
   contract?: AccountContractSignatureInfoAccountContractInfo;
@@ -1015,7 +1015,7 @@ export interface AccountContractSignatureInfo {
 export const AccountContractSignatureInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     signed_at: S.optional(S.NullOr(S.String)),
-    signed_by_account_root_user_id: S.optional(S.String),
+    signed_by_account_root_user_id: S.String,
     expires_at: S.optional(S.NullOr(S.String)),
     contract: S.optional(AccountContractSignatureInfoAccountContractInfo),
   }),
@@ -1025,22 +1025,22 @@ export const AccountContractSignatureInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface VpcSubnetInfo {
   /** (IP network) */
-  subnet_cidr?: string;
+  subnet_cidr: string;
   /** (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
 }
 export const VpcSubnetInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    subnet_cidr: S.optional(S.String),
-    vpc_id: S.optional(S.String),
+    subnet_cidr: S.String,
+    vpc_id: S.String,
   }),
 ).annotate({ identifier: "VpcSubnetInfo" }) as any as S.Schema<VpcSubnetInfo>;
 
 export interface VpcRouteInfo {
   /** (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** (IP network) */
-  destination?: string;
+  destination: string;
   /** (UUID format) */
   nexthop_resource_key?: string | null;
   /** (UUID format) */
@@ -1048,8 +1048,8 @@ export interface VpcRouteInfo {
 }
 export const VpcRouteInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vpc_id: S.optional(S.String),
-    destination: S.optional(S.String),
+    vpc_id: S.String,
+    destination: S.String,
     nexthop_resource_key: S.optional(S.NullOr(S.String)),
     nexthop_private_network_key: S.optional(S.NullOr(S.String)),
   }),
@@ -1057,13 +1057,13 @@ export const VpcRouteInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface VpcPrivateNetworkInfo {
   /** (UUID format) */
-  vpc_id?: string;
-  push_default_route?: boolean;
+  vpc_id: string;
+  push_default_route: boolean;
 }
 export const VpcPrivateNetworkInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vpc_id: S.optional(S.String),
-    push_default_route: S.optional(S.Boolean),
+    vpc_id: S.String,
+    push_default_route: S.Boolean,
   }),
 ).annotate({ identifier: "VpcPrivateNetworkInfo" }) as any as S.Schema<VpcPrivateNetworkInfo>;
 
@@ -1071,30 +1071,30 @@ export interface VpcGwGatewayInfo {
   /** (UUID format) */
   vpc_id?: string | null;
   /** (UUID format) */
-  gateway_type_id?: string;
+  gateway_type_id: string;
   /** (UUID format) */
   public_ip_id?: string | null;
 }
 export const VpcGwGatewayInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     vpc_id: S.optional(S.NullOr(S.String)),
-    gateway_type_id: S.optional(S.String),
+    gateway_type_id: S.String,
     public_ip_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "VpcGwGatewayInfo" }) as any as S.Schema<VpcGwGatewayInfo>;
 
 export interface VpcGwGatewayNetworkInfo {
   /** (UUID format) */
-  gateway_id?: string;
+  gateway_id: string;
   /** (UUID format) */
-  pn_id?: string;
+  pn_id: string;
   /** (IP network) */
   address?: string | null;
 }
 export const VpcGwGatewayNetworkInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    gateway_id: S.optional(S.String),
-    pn_id: S.optional(S.String),
+    gateway_id: S.String,
+    pn_id: S.String,
     address: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "VpcGwGatewayNetworkInfo" }) as any as S.Schema<VpcGwGatewayNetworkInfo>;
@@ -1104,25 +1104,25 @@ export const AppleSiliconRunnerInfo = KubernetesPoolInfo;
 
 export interface VpcConnectorInfo {
   /** (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** (UUID format) */
-  target_vpc_id?: string;
+  target_vpc_id: string;
 }
 export const VpcConnectorInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vpc_id: S.optional(S.String),
-    target_vpc_id: S.optional(S.String),
+    vpc_id: S.String,
+    target_vpc_id: S.String,
   }),
 ).annotate({ identifier: "VpcConnectorInfo" }) as any as S.Schema<VpcConnectorInfo>;
 
 export interface InstancePrivateNetworkInterfaceInfo {
-  private_network_id?: string;
+  private_network_id: string;
   server_id?: string | null;
   security_group_id?: string | null;
 }
 export const InstancePrivateNetworkInterfaceInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
+    private_network_id: S.String,
     server_id: S.optional(S.NullOr(S.String)),
     security_group_id: S.optional(S.NullOr(S.String)),
   }),
@@ -1132,29 +1132,29 @@ export const InstancePrivateNetworkInterfaceInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface VpcIngressRuleInfo {
   /** (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** (IP network) */
-  source?: string;
+  source: string;
   /** (UUID format) */
-  nexthop_private_network_id?: string;
+  nexthop_private_network_id: string;
   /** (IP address) */
-  nexthop_resource_ip?: string;
+  nexthop_resource_ip: string;
 }
 export const VpcIngressRuleInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    vpc_id: S.optional(S.String),
-    source: S.optional(S.String),
-    nexthop_private_network_id: S.optional(S.String),
-    nexthop_resource_ip: S.optional(S.String),
+    vpc_id: S.String,
+    source: S.String,
+    nexthop_private_network_id: S.String,
+    nexthop_resource_ip: S.String,
   }),
 ).annotate({ identifier: "VpcIngressRuleInfo" }) as any as S.Schema<VpcIngressRuleInfo>;
 
 export interface ObservabilityContactPointInfo {
-  email?: string;
+  email: string;
 }
 export const ObservabilityContactPointInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    email: S.optional(S.String),
+    email: S.String,
   }),
 ).annotate({
   identifier: "ObservabilityContactPointInfo",
@@ -1168,11 +1168,11 @@ export const ObservabilityAlertRuleInfoRuleIdsList = /*@__PURE__*/ S.Array(
 
 export interface ObservabilityAlertRuleInfo {
   /** (UUID format) */
-  rule_ids?: ObservabilityAlertRuleInfoRuleIdsList;
+  rule_ids: ObservabilityAlertRuleInfoRuleIdsList;
 }
 export const ObservabilityAlertRuleInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rule_ids: S.optional(ObservabilityAlertRuleInfoRuleIdsList),
+    rule_ids: ObservabilityAlertRuleInfoRuleIdsList,
   }),
 ).annotate({
   identifier: "ObservabilityAlertRuleInfo",
@@ -1180,11 +1180,11 @@ export const ObservabilityAlertRuleInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface EdgeServicesVPCEndpointInfo {
   /** (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
 }
 export const EdgeServicesVPCEndpointInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
+    private_network_id: S.String,
   }),
 ).annotate({
   identifier: "EdgeServicesVPCEndpointInfo",
@@ -1192,11 +1192,11 @@ export const EdgeServicesVPCEndpointInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerlessContainersContainerInfo {
   /** (UUID format) */
-  namespace_id?: string;
+  namespace_id: string;
 }
 export const ServerlessContainersContainerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    namespace_id: S.optional(S.String),
+    namespace_id: S.String,
   }),
 ).annotate({
   identifier: "ServerlessContainersContainerInfo",
@@ -1204,11 +1204,11 @@ export const ServerlessContainersContainerInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerlessContainersDomainInfo {
   /** (UUID format) */
-  container_id?: string;
+  container_id: string;
 }
 export const ServerlessContainersDomainInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    container_id: S.optional(S.String),
+    container_id: S.String,
   }),
 ).annotate({
   identifier: "ServerlessContainersDomainInfo",
@@ -1223,13 +1223,13 @@ export const ServerlessContainersTriggerInfoSourceType = S.String;
 
 export interface ServerlessContainersTriggerInfo {
   /** (UUID format) */
-  container_id?: string;
-  source_type?: ServerlessContainersTriggerInfoSourceType;
+  container_id: string;
+  source_type: ServerlessContainersTriggerInfoSourceType;
 }
 export const ServerlessContainersTriggerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    container_id: S.optional(S.String),
-    source_type: S.optional(ServerlessContainersTriggerInfoSourceType),
+    container_id: S.String,
+    source_type: ServerlessContainersTriggerInfoSourceType,
   }),
 ).annotate({
   identifier: "ServerlessContainersTriggerInfo",
@@ -1240,11 +1240,11 @@ export const ServerlessFunctionsFunctionInfo = ServerlessContainersContainerInfo
 
 export interface ServerlessFunctionsDomainInfo {
   /** (UUID format) */
-  function_id?: string;
+  function_id: string;
 }
 export const ServerlessFunctionsDomainInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    function_id: S.optional(S.String),
+    function_id: S.String,
   }),
 ).annotate({
   identifier: "ServerlessFunctionsDomainInfo",
@@ -1258,25 +1258,25 @@ export const ServerlessFunctionsTriggerInfoInputType = S.String;
 
 export interface ServerlessFunctionsTriggerInfo {
   /** (UUID format) */
-  function_id?: string;
-  input_type?: ServerlessFunctionsTriggerInfoInputType;
+  function_id: string;
+  input_type: ServerlessFunctionsTriggerInfoInputType;
 }
 export const ServerlessFunctionsTriggerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    function_id: S.optional(S.String),
-    input_type: S.optional(ServerlessFunctionsTriggerInfoInputType),
+    function_id: S.String,
+    input_type: ServerlessFunctionsTriggerInfoInputType,
   }),
 ).annotate({
   identifier: "ServerlessFunctionsTriggerInfo",
 }) as any as S.Schema<ServerlessFunctionsTriggerInfo>;
 
 export interface WoflWorkflowDefinitionInfo {
-  name?: string;
+  name: string;
   description?: string | null;
 }
 export const WoflWorkflowDefinitionInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
     description: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -1298,34 +1298,34 @@ export type RunStatus =
 export const RunStatus = S.String;
 
 export interface WoflWorkflowRunInfo {
-  workflow_definition_id?: string;
+  workflow_definition_id: string;
   workflow_definition_name?: string | null;
-  status?: RunStatus;
+  status: RunStatus;
 }
 export const WoflWorkflowRunInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    workflow_definition_id: S.optional(S.String),
+    workflow_definition_id: S.String,
     workflow_definition_name: S.optional(S.NullOr(S.String)),
-    status: S.optional(RunStatus),
+    status: RunStatus,
   }),
 ).annotate({ identifier: "WoflWorkflowRunInfo" }) as any as S.Schema<WoflWorkflowRunInfo>;
 
 export interface WoflWorkflowVersionInfo {
-  workflow_definition_id?: string;
+  workflow_definition_id: string;
   workflow_definition_name?: string | null;
-  name?: string;
+  name: string;
 }
 export const WoflWorkflowVersionInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    workflow_definition_id: S.optional(S.String),
+    workflow_definition_id: S.String,
     workflow_definition_name: S.optional(S.NullOr(S.String)),
-    name: S.optional(S.String),
+    name: S.String,
   }),
 ).annotate({ identifier: "WoflWorkflowVersionInfo" }) as any as S.Schema<WoflWorkflowVersionInfo>;
 
 export interface Resource {
-  id?: string;
-  type?: ResourceType;
+  id: string;
+  type: ResourceType;
   /** (RFC 3339 format) */
   created_at?: string | null;
   /** (RFC 3339 format) */
@@ -1333,7 +1333,7 @@ export interface Resource {
   /** (RFC 3339 format) */
   deleted_at?: string | null;
   name?: string | null;
-  action?: Action;
+  action: Action;
   secm_secret_info?: SecretManagerSecretInfo | null;
   secm_secret_version_info?: SecretManagerSecretVersionInfo | null;
   kube_cluster_info?: unknown | null;
@@ -1399,13 +1399,13 @@ export interface Resource {
 }
 export const Resource = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(ResourceType),
+    id: S.String,
+    type: ResourceType,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     deleted_at: S.optional(S.NullOr(S.String)),
     name: S.optional(S.NullOr(S.String)),
-    action: S.optional(Action),
+    action: Action,
     secm_secret_info: S.optional(S.NullOr(SecretManagerSecretInfo)),
     secm_secret_version_info: S.optional(S.NullOr(SecretManagerSecretVersionInfo)),
     kube_cluster_info: S.optional(S.NullOr(S.Unknown)),
@@ -1488,53 +1488,53 @@ export const EventRequestBodyMap = /*@__PURE__*/ S.Record(
 
 export interface Event {
   /** ID of the event. (UUID format) */
-  id?: string;
+  id: string;
   /** Timestamp of the event. (RFC 3339 format) */
   recorded_at?: string | null;
   /** Locality of the resource attached to the event. */
-  locality?: string;
+  locality: string;
   /** User or IAM application at the origin of the event. */
   principal?: EventPrincipal | null;
   /** Organization ID containing the event. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** (Optional) Project of the resource attached to the event. (UUID format) */
   project_id?: string | null;
   /** IP address at the origin of the event. (IP address) */
-  source_ip?: string;
+  source_ip: string;
   /** User Agent at the origin of the event. */
   user_agent?: string | null;
   /** Product name of the resource attached to the event. */
-  product_name?: string;
+  product_name: string;
   /** API name called to trigger the event. */
-  service_name?: string;
+  service_name: string;
   /** API method called to trigger the event. */
-  method_name?: string;
+  method_name: string;
   /** Resources attached to the event. */
-  resources?: EventResourcesList;
+  resources: EventResourcesList;
   /** Unique identifier of the request at the origin of the event. (UUID format) */
-  request_id?: string;
+  request_id: string;
   /** Request at the origin of the event. */
-  request_body?: EventRequestBodyMap;
+  request_body: EventRequestBodyMap;
   /** HTTP status code resulting of the API call. */
-  status_code?: number;
+  status_code: number;
 }
 export const Event = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     recorded_at: S.optional(S.NullOr(S.String)),
-    locality: S.optional(S.String),
+    locality: S.String,
     principal: S.optional(S.NullOr(EventPrincipal)),
-    organization_id: S.optional(S.String),
+    organization_id: S.String,
     project_id: S.optional(S.NullOr(S.String)),
-    source_ip: S.optional(S.String),
+    source_ip: S.String,
     user_agent: S.optional(S.NullOr(S.String)),
-    product_name: S.optional(S.String),
-    service_name: S.optional(S.String),
-    method_name: S.optional(S.String),
-    resources: S.optional(EventResourcesList),
-    request_id: S.optional(S.String),
-    request_body: S.optional(EventRequestBodyMap),
-    status_code: S.optional(S.Number),
+    product_name: S.String,
+    service_name: S.String,
+    method_name: S.String,
+    resources: EventResourcesList,
+    request_id: S.String,
+    request_body: EventRequestBodyMap,
+    status_code: S.Number,
   }),
 ).annotate({ identifier: "Event" }) as any as S.Schema<Event>;
 
@@ -1544,11 +1544,11 @@ export const EventsOverviewLastEventsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<EventsOverviewLastEventsList>;
 
 export interface EventsOverview {
-  last_events?: EventsOverviewLastEventsList;
+  last_events: EventsOverviewLastEventsList;
 }
 export const EventsOverview = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    last_events: S.optional(EventsOverviewLastEventsList),
+    last_events: EventsOverviewLastEventsList,
   }),
 ).annotate({ identifier: "EventsOverview" }) as any as S.Schema<EventsOverview>;
 
@@ -1592,12 +1592,12 @@ export interface ListAlertRulesResponse {
   /** Single page of preconfigured alert rules matching the requested criteria. */
   alert_rules: ListAlertRulesResponseAlertRulesList;
   /** Total count of alert rules matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     alert_rules: ListAlertRulesResponseAlertRulesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListAlertRulesResponse" }) as any as S.Schema<ListAlertRulesResponse>;
 
@@ -1933,44 +1933,44 @@ export const AuthenticationEventMFAType = S.String;
 
 export interface AuthenticationEvent {
   /** ID of the event. (UUID format) */
-  id?: string;
+  id: string;
   /** Timestamp of the event. (RFC 3339 format) */
   recorded_at?: string | null;
   /** Organization ID containing the event. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** IP address at the origin of the event. (IP address) */
-  source_ip?: string;
+  source_ip: string;
   /** User Agent at the origin of the event. */
   user_agent?: string | null;
   /** Resources attached to the event. */
-  resources?: AuthenticationEventResourcesList;
+  resources: AuthenticationEventResourcesList;
   /** Result of the authentication attempt. */
-  result?: AuthenticationEventResult;
+  result: AuthenticationEventResult;
   /** (Optional) Reason for authentication failure. */
-  failure_reason?: AuthenticationEventFailureReason;
+  failure_reason: AuthenticationEventFailureReason;
   /** (Optional) ISO 3166-1 alpha-2 country code of the source IP. */
-  country_code?: ScalewayStdCountryCode;
+  country_code: ScalewayStdCountryCode;
   /** Authentication method used. */
-  method?: AuthenticationEventMethod;
+  method: AuthenticationEventMethod;
   /** Origin of the authentication attempt. */
-  origin?: AuthenticationEventOrigin;
+  origin: AuthenticationEventOrigin;
   /** (Optional) MFA type used for the authentication attempt. */
-  mfa_type?: AuthenticationEventMFAType;
+  mfa_type: AuthenticationEventMFAType;
 }
 export const AuthenticationEvent = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     recorded_at: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    source_ip: S.optional(S.String),
+    organization_id: S.String,
+    source_ip: S.String,
     user_agent: S.optional(S.NullOr(S.String)),
-    resources: S.optional(AuthenticationEventResourcesList),
-    result: S.optional(AuthenticationEventResult),
-    failure_reason: S.optional(AuthenticationEventFailureReason),
-    country_code: S.optional(ScalewayStdCountryCode),
-    method: S.optional(AuthenticationEventMethod),
-    origin: S.optional(AuthenticationEventOrigin),
-    mfa_type: S.optional(AuthenticationEventMFAType),
+    resources: AuthenticationEventResourcesList,
+    result: AuthenticationEventResult,
+    failure_reason: AuthenticationEventFailureReason,
+    country_code: ScalewayStdCountryCode,
+    method: AuthenticationEventMethod,
+    origin: AuthenticationEventOrigin,
+    mfa_type: AuthenticationEventMFAType,
   }),
 ).annotate({ identifier: "AuthenticationEvent" }) as any as S.Schema<AuthenticationEvent>;
 
@@ -2046,38 +2046,38 @@ export const SystemEventKind = S.String;
 
 export interface SystemEvent {
   /** ID of the system event. (UUID format) */
-  id?: string;
+  id: string;
   /** Timestamp of the system event. (RFC 3339 format) */
   recorded_at?: string | null;
   /** Locality of the system event. */
-  locality?: string;
+  locality: string;
   /** Organization ID containing the system event. */
-  organization_id?: string;
+  organization_id: string;
   /** Project of the resource attached to the system event. (UUID format) */
   project_id?: string | null;
   /** Name of the Scaleway product in a hyphenated format. */
-  product_name?: string;
+  product_name: string;
   /** Source of the system event. */
-  source?: string;
+  source: string;
   /** Name of the jobs, notification, etc. */
-  system_name?: string;
+  system_name: string;
   /** Resources attached to the event. */
-  resources?: SystemEventResourcesList;
+  resources: SystemEventResourcesList;
   /** Source of the event (unknown, cron or notification). */
-  kind?: SystemEventKind;
+  kind: SystemEventKind;
 }
 export const SystemEvent = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     recorded_at: S.optional(S.NullOr(S.String)),
-    locality: S.optional(S.String),
-    organization_id: S.optional(S.String),
+    locality: S.String,
+    organization_id: S.String,
     project_id: S.optional(S.NullOr(S.String)),
-    product_name: S.optional(S.String),
-    source: S.optional(S.String),
-    system_name: S.optional(S.String),
-    resources: S.optional(SystemEventResourcesList),
-    kind: S.optional(SystemEventKind),
+    product_name: S.String,
+    source: S.String,
+    system_name: S.String,
+    resources: SystemEventResourcesList,
+    kind: SystemEventKind,
   }),
 ).annotate({ identifier: "SystemEvent" }) as any as S.Schema<SystemEvent>;
 
@@ -2156,12 +2156,12 @@ export interface ListCustomAlertRulesResponse {
   /** Single page of custom alert rules matching the requested criteria. */
   custom_alert_rules: ListCustomAlertRulesResponseCustomAlertRulesList;
   /** Total count of custom alert rules matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListCustomAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     custom_alert_rules: ListCustomAlertRulesResponseCustomAlertRulesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListCustomAlertRulesResponse",
@@ -2308,12 +2308,12 @@ export interface ListExportJobsResponse {
   /** Single page of export jobs matching the requested criteria. */
   export_jobs: ListExportJobsResponseExportJobsList;
   /** Total count of export jobs matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListExportJobsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     export_jobs: ListExportJobsResponseExportJobsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListExportJobsResponse" }) as any as S.Schema<ListExportJobsResponse>;
 
@@ -2346,13 +2346,13 @@ export const ProductServiceMethodsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ProductServiceMethodsList>;
 
 export interface ProductService {
-  name?: string;
-  methods?: ProductServiceMethodsList;
+  name: string;
+  methods: ProductServiceMethodsList;
 }
 export const ProductService = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    methods: S.optional(ProductServiceMethodsList),
+    name: S.String,
+    methods: ProductServiceMethodsList,
   }),
 ).annotate({ identifier: "ProductService" }) as any as S.Schema<ProductService>;
 
@@ -2364,17 +2364,17 @@ export const ProductServicesList = /*@__PURE__*/ S.Array(
 
 export interface Product {
   /** Product title. */
-  title?: string;
+  title: string;
   /** Product name. */
-  name?: string;
+  name: string;
   /** Specifies the API versions of the products integrated with Audit Trail. Each version defines the methods logged by Audit Trail. */
-  services?: ProductServicesList;
+  services: ProductServicesList;
 }
 export const Product = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    title: S.optional(S.String),
-    name: S.optional(S.String),
-    services: S.optional(ProductServicesList),
+    title: S.String,
+    name: S.String,
+    services: ProductServicesList,
   }),
 ).annotate({ identifier: "Product" }) as any as S.Schema<Product>;
 
@@ -2386,14 +2386,14 @@ export const ListProductsResponseProductsList = /*@__PURE__*/ S.Array(
 
 export interface ListProductsResponse {
   /** List of all products integrated with Audit Trail. */
-  products?: ListProductsResponseProductsList;
+  products: ListProductsResponseProductsList;
   /** Number of integrated products. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListProductsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    products: S.optional(ListProductsResponseProductsList),
-    total_count: S.optional(S.Number),
+    products: ListProductsResponseProductsList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListProductsResponse" }) as any as S.Schema<ListProductsResponse>;
 
@@ -2496,11 +2496,11 @@ export const SetEnabledAlertRulesResponseAlertRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetEnabledAlertRulesResponse {
   /** List of the preconfigured rules that were enabled. */
-  alert_rules?: SetEnabledAlertRulesResponseAlertRulesList;
+  alert_rules: SetEnabledAlertRulesResponseAlertRulesList;
 }
 export const SetEnabledAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    alert_rules: S.optional(SetEnabledAlertRulesResponseAlertRulesList),
+    alert_rules: SetEnabledAlertRulesResponseAlertRulesList,
   }),
 ).annotate({
   identifier: "SetEnabledAlertRulesResponse",
@@ -2550,11 +2550,11 @@ export const SetEnabledCustomAlertRulesResponseCustomAlertRulesList = /*@__PURE_
 
 export interface SetEnabledCustomAlertRulesResponse {
   /** List of the custom rules that were enabled. */
-  custom_alert_rules?: SetEnabledCustomAlertRulesResponseCustomAlertRulesList;
+  custom_alert_rules: SetEnabledCustomAlertRulesResponseCustomAlertRulesList;
 }
 export const SetEnabledCustomAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    custom_alert_rules: S.optional(SetEnabledCustomAlertRulesResponseCustomAlertRulesList),
+    custom_alert_rules: SetEnabledCustomAlertRulesResponseCustomAlertRulesList,
   }),
 ).annotate({
   identifier: "SetEnabledCustomAlertRulesResponse",
@@ -2596,11 +2596,11 @@ export const TestCustomAlertRuleRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface TestCustomAlertRuleResponse {
   /** True when the alert rule's condition is currently satisfied, false otherwise. A false return value does not mean the alert rule is incorrect, only that it is not currently firing. */
-  firing?: boolean;
+  firing: boolean;
 }
 export const TestCustomAlertRuleResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    firing: S.optional(S.Boolean),
+    firing: S.Boolean,
   }),
 ).annotate({
   identifier: "TestCustomAlertRuleResponse",

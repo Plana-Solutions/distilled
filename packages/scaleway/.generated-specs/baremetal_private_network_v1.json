@@ -128,10 +128,16 @@
       "type": "structure",
       "members": {
         "server_private_networks": {
-          "target": "com.scaleway.baremetal_private_network_v1#ListServerPrivateNetworksResponseServerPrivateNetworksList"
+          "target": "com.scaleway.baremetal_private_network_v1#ListServerPrivateNetworksResponseServerPrivateNetworksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -142,25 +148,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Private Network ID."
+            "smithy.api#documentation": "The Private Network ID.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Private Network Project ID."
+            "smithy.api#documentation": "The Private Network Project ID.",
+            "smithy.api#required": {}
           }
         },
         "server_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The server ID."
+            "smithy.api#documentation": "The server ID.",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Private Network ID."
+            "smithy.api#documentation": "The Private Network ID.",
+            "smithy.api#required": {}
           }
         },
         "vlan": {
@@ -173,7 +183,8 @@
         "status": {
           "target": "com.scaleway.baremetal_private_network_v1#ServerPrivateNetworkStatus",
           "traits": {
-            "smithy.api#documentation": "The configuration status of the Private Network."
+            "smithy.api#documentation": "The configuration status of the Private Network.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -382,7 +393,10 @@
       "type": "structure",
       "members": {
         "server_private_networks": {
-          "target": "com.scaleway.baremetal_private_network_v1#SetServerPrivateNetworksResponseServerPrivateNetworksList"
+          "target": "com.scaleway.baremetal_private_network_v1#SetServerPrivateNetworksResponseServerPrivateNetworksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

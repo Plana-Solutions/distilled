@@ -38,26 +38,26 @@ export const SnsInfoStatus = S.String;
 
 export interface SnsInfo {
   /** Project ID of the Project containing the service. */
-  project_id?: string;
+  project_id: string;
   /** Region of the service. */
-  region?: string;
+  region: string;
   /** Topics and Events creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Topics and Events last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Topics and Events activation status. */
-  status?: SnsInfoStatus;
+  status: SnsInfoStatus;
   /** Endpoint of the Topics and Events service for this region and project. */
-  sns_endpoint_url?: string;
+  sns_endpoint_url: string;
 }
 export const SnsInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    project_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(SnsInfoStatus),
-    sns_endpoint_url: S.optional(S.String),
+    status: SnsInfoStatus,
+    sns_endpoint_url: S.String,
   }),
 ).annotate({ identifier: "SnsInfo" }) as any as S.Schema<SnsInfo>;
 
@@ -110,37 +110,37 @@ export const CreateSnsCredentialsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface SnsCredentials {
   /** ID of the credentials. */
-  id?: string;
+  id: string;
   /** Name of the credentials. */
-  name?: string;
+  name: string;
   /** Project ID of the Project containing the credentials. */
-  project_id?: string;
+  project_id: string;
   /** Region where the credentials exists. */
-  region?: string;
+  region: string;
   /** Credentials creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Credentials last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Access key ID. */
-  access_key?: string;
+  access_key: string;
   /** Secret key ID (Only returned by **Create Topics and Events Credentials** call). */
-  secret_key?: string | Redacted.Redacted<string>;
+  secret_key: string | Redacted.Redacted<string>;
   /** Checksum of the Secret key. */
-  secret_checksum?: string;
+  secret_checksum: string;
   /** Permissions associated with these credentials. */
   permissions?: SnsPermissions;
 }
 export const SnsCredentials = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    access_key: S.optional(S.String),
-    secret_key: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    secret_checksum: S.optional(S.String),
+    access_key: S.String,
+    secret_key: S.String.pipe(T.SensitiveValue({})),
+    secret_checksum: S.String,
     permissions: S.optional(SnsPermissions),
   }),
 ).annotate({ identifier: "SnsCredentials" }) as any as S.Schema<SnsCredentials>;
@@ -295,13 +295,13 @@ export const ListSnsCredentialsResponseSnsCredentialsList = /*@__PURE__*/ S.Arra
 
 export interface ListSnsCredentialsResponse {
   /** Total count of existing credentials (matching any filters specified). */
-  total_count?: number;
+  total_count: number;
   /** Topics and Events credentials on this page. */
   sns_credentials: ListSnsCredentialsResponseSnsCredentialsList;
 }
 export const ListSnsCredentialsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     sns_credentials: ListSnsCredentialsResponseSnsCredentialsList,
   }),
 ).annotate({

@@ -24,7 +24,8 @@
         "countries": {
           "target": "com.scaleway.account_iso_code_v3#ListCountriesResponseCountriesList",
           "traits": {
-            "smithy.api#documentation": "List of countries."
+            "smithy.api#documentation": "List of countries.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -36,25 +37,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the country."
+            "smithy.api#documentation": "Name of the country.",
+            "smithy.api#required": {}
           }
         },
         "code": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Two letters representing the country."
+            "smithy.api#documentation": "Two letters representing the country.",
+            "smithy.api#required": {}
           }
         },
         "flag": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Flag representation of the country."
+            "smithy.api#documentation": "Flag representation of the country.",
+            "smithy.api#required": {}
           }
         },
         "vat_number_required": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the country should have a VAT identification number, false otherwise."
+            "smithy.api#documentation": "True if the country should have a VAT identification number, false otherwise.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -109,7 +114,8 @@
         "subdivisions": {
           "target": "com.scaleway.account_iso_code_v3#ListCountrySubdivisionsResponseSubdivisionsList",
           "traits": {
-            "smithy.api#documentation": "List of subdivisions for a country code."
+            "smithy.api#documentation": "List of subdivisions for a country code.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -121,13 +127,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subdivision name."
+            "smithy.api#documentation": "Subdivision name.",
+            "smithy.api#required": {}
           }
         },
         "code": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subdivision code is a few numbers and/or letters completing the ISO 3166-1 code of the country."
+            "smithy.api#documentation": "Subdivision code is a few numbers and/or letters completing the ISO 3166-1 code of the country.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -43,15 +43,15 @@ export type ConsumptionStatus = "unknown_status" | "pending" | "completed";
 export const ConsumptionStatus = S.String;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
@@ -108,11 +108,11 @@ export const ConsumptionUnit = S.String;
 
 export interface ConsumptionLine {
   /** Unique product identifier. */
-  sku?: string;
+  sku: string;
   /** Product code. */
-  product_name?: string;
+  product_name: string;
   /** Quantity. */
-  quantity?: number;
+  quantity: number;
   /** Start date of the consumption for the given SKU. (RFC 3339 format) */
   start_date?: string | null;
   /** End date of the consumption for the given SKU. (RFC 3339 format) */
@@ -122,21 +122,21 @@ export interface ConsumptionLine {
   /** Total price (excl. taxes). */
   total_price?: GoogleTypeMoney;
   /** The unit used for the given SKU. */
-  unit?: ConsumptionUnit;
+  unit: ConsumptionUnit;
   /** The project ID. */
-  project_id?: string;
+  project_id: string;
 }
 export const ConsumptionLine = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    sku: S.optional(S.String),
-    product_name: S.optional(S.String),
-    quantity: S.optional(S.Number),
+    sku: S.String,
+    product_name: S.String,
+    quantity: S.Number,
     start_date: S.optional(S.NullOr(S.String)),
     end_date: S.optional(S.NullOr(S.String)),
     unit_price: S.optional(GoogleTypeMoney),
     total_price: S.optional(GoogleTypeMoney),
-    unit: S.optional(ConsumptionUnit),
-    project_id: S.optional(S.String),
+    unit: ConsumptionUnit,
+    project_id: S.String,
   }),
 ).annotate({ identifier: "ConsumptionLine" }) as any as S.Schema<ConsumptionLine>;
 
@@ -147,47 +147,47 @@ export const ConsumptionLinesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ConsumptionLinesList>;
 
 export interface GoogleTypeDecimal {
-  value?: string;
+  value: string;
 }
 export const GoogleTypeDecimal = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    value: S.optional(S.String),
+    value: S.String,
   }),
 ).annotate({ identifier: "GoogleTypeDecimal" }) as any as S.Schema<GoogleTypeDecimal>;
 
 export interface Consumption {
   /** Unique Consumption ID. */
-  id?: string;
+  id: string;
   /** Status of this consumption. */
-  status?: ConsumptionStatus;
+  status: ConsumptionStatus;
   /** Start date for the consumption (usually the first of the month). (RFC 3339 format) */
   start_date?: string | null;
   /** End date for the consumption (usually the end of the month). (RFC 3339 format) */
   stop_date?: string | null;
   /** The organization ID. */
-  organization_id?: string;
+  organization_id: string;
   /** The customer ID associated to the organization. */
-  customer_id?: string;
+  customer_id: string;
   /** Last update date for this consumption. (RFC 3339 format) */
   updated_at?: string | null;
   /** Total price (Exc Taxes). */
   total_price?: GoogleTypeMoney;
   /** Detailed lines for this consumption. */
-  lines?: ConsumptionLinesList;
+  lines: ConsumptionLinesList;
   /** Discount rate decimal value (e.g., returns '20' for a 20% discount rate). */
   discount_rate?: GoogleTypeDecimal;
 }
 export const Consumption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    status: S.optional(ConsumptionStatus),
+    id: S.String,
+    status: ConsumptionStatus,
     start_date: S.optional(S.NullOr(S.String)),
     stop_date: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    customer_id: S.optional(S.String),
+    organization_id: S.String,
+    customer_id: S.String,
     updated_at: S.optional(S.NullOr(S.String)),
     total_price: S.optional(GoogleTypeMoney),
-    lines: S.optional(ConsumptionLinesList),
+    lines: ConsumptionLinesList,
     discount_rate: S.optional(GoogleTypeDecimal),
   }),
 ).annotate({ identifier: "Consumption" }) as any as S.Schema<Consumption>;
@@ -200,13 +200,13 @@ export const ListConsumptionsResponseConsumptionsList = /*@__PURE__*/ S.Array(
 
 export interface ListConsumptionsResponse {
   /** Total number of results. */
-  total_count?: number;
+  total_count: number;
   /** List of consumptions. */
   consumptions: ListConsumptionsResponseConsumptionsList;
 }
 export const ListConsumptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     consumptions: ListConsumptionsResponseConsumptionsList,
   }),
 ).annotate({ identifier: "ListConsumptionsResponse" }) as any as S.Schema<ListConsumptionsResponse>;

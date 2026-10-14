@@ -151,62 +151,62 @@ export const JobDefinitionArgsList = /*@__PURE__*/ S.Array(
 
 export interface JobDefinition {
   /** UUID of the job definition. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the job definition. */
-  name?: string;
+  name: string;
   /** UUID of the Scaleway Project containing the job. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Creation date of the job definition. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the job definition. (RFC 3339 format) */
   updated_at?: string | null;
   /** CPU limit of the job (in mvCPU). */
-  cpu_limit?: number;
+  cpu_limit: number;
   /** Memory limit of the job (in MiB). */
-  memory_limit?: number;
+  memory_limit: number;
   /** Local storage capacity of the job (in MiB). */
-  local_storage_capacity?: number;
+  local_storage_capacity: number;
   /** Image to use for the job. */
-  image_uri?: string;
+  image_uri: string;
   /** Deprecated, please use startup_command instead. */
   command?: string;
   /** Environment variables of the job. */
-  environment_variables?: JobDefinitionEnvironmentVariablesMap;
+  environment_variables: JobDefinitionEnvironmentVariablesMap;
   /** Timeout of the job in seconds. (in seconds) */
   job_timeout?: string | null;
   /** Description of the job. */
-  description?: string;
+  description: string;
   /** Configure a cron for the job. */
   cron_schedule?: CronSchedule;
   /** Job startup command. */
-  startup_command?: JobDefinitionStartupCommandList;
+  startup_command: JobDefinitionStartupCommandList;
   /** Job arguments passed to the startup command at runtime. */
-  args?: JobDefinitionArgsList;
+  args: JobDefinitionArgsList;
   /** Retry behaviour in case of job failure. */
   retry_policy?: RetryPolicy;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const JobDefinition = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    cpu_limit: S.optional(S.Number),
-    memory_limit: S.optional(S.Number),
-    local_storage_capacity: S.optional(S.Number),
-    image_uri: S.optional(S.String),
+    cpu_limit: S.Number,
+    memory_limit: S.Number,
+    local_storage_capacity: S.Number,
+    image_uri: S.String,
     command: S.optional(S.String),
-    environment_variables: S.optional(JobDefinitionEnvironmentVariablesMap),
+    environment_variables: JobDefinitionEnvironmentVariablesMap,
     job_timeout: S.optional(S.NullOr(S.String)),
-    description: S.optional(S.String),
+    description: S.String,
     cron_schedule: S.optional(CronSchedule),
-    startup_command: S.optional(JobDefinitionStartupCommandList),
-    args: S.optional(JobDefinitionArgsList),
+    startup_command: JobDefinitionStartupCommandList,
+    args: JobDefinitionArgsList,
     retry_policy: S.optional(RetryPolicy),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "JobDefinition" }) as any as S.Schema<JobDefinition>;
 
@@ -260,30 +260,30 @@ export const CreateSecretsRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateSecretsRequest" }) as any as S.Schema<CreateSecretsRequest>;
 
 export interface SecretFile {
-  path?: string;
+  path: string;
 }
 export const SecretFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    path: S.optional(S.String),
+    path: S.String,
   }),
 ).annotate({ identifier: "SecretFile" }) as any as S.Schema<SecretFile>;
 
 export interface SecretEnvVar {
-  name?: string;
+  name: string;
 }
 export const SecretEnvVar = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
   }),
 ).annotate({ identifier: "SecretEnvVar" }) as any as S.Schema<SecretEnvVar>;
 
 export interface Secret {
   /** UUID of the secret reference within the job. (UUID format) */
-  secret_id?: string;
+  secret_id: string;
   /** UUID of the secret in Secret Manager. (UUID format) */
-  secret_manager_id?: string;
+  secret_manager_id: string;
   /** Version of the secret in Secret Manager. */
-  secret_manager_version?: string;
+  secret_manager_version: string;
   /** UUID of the job definition. (UUID format) */
   job_definition_id: string;
   /** File secret mounted inside the job. */
@@ -293,9 +293,9 @@ export interface Secret {
 }
 export const Secret = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secret_id: S.optional(S.String),
-    secret_manager_id: S.optional(S.String),
-    secret_manager_version: S.optional(S.String),
+    secret_id: S.String,
+    secret_manager_id: S.String,
+    secret_manager_version: S.String,
     job_definition_id: S.String,
     file: S.optional(S.NullOr(SecretFile)),
     env_var: S.optional(S.NullOr(SecretEnvVar)),
@@ -310,11 +310,11 @@ export const CreateSecretsResponseSecretsList = /*@__PURE__*/ S.Array(
 
 export interface CreateSecretsResponse {
   /** List of secrets created. */
-  secrets?: CreateSecretsResponseSecretsList;
+  secrets: CreateSecretsResponseSecretsList;
 }
 export const CreateSecretsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secrets: S.optional(CreateSecretsResponseSecretsList),
+    secrets: CreateSecretsResponseSecretsList,
   }),
 ).annotate({ identifier: "CreateSecretsResponse" }) as any as S.Schema<CreateSecretsResponse>;
 
@@ -394,30 +394,30 @@ export const TriggerCronConfigArgsList = /*@__PURE__*/ S.Array(
 
 export interface TriggerCronConfig {
   /** CRON schedule in UNIX format. */
-  schedule?: string;
+  schedule: string;
   /** Time zone for the CRON schedule. */
-  timezone?: string;
+  timezone: string;
   /** Startup command that will be used by the triggered job. */
-  startup_command?: TriggerCronConfigStartupCommandList;
+  startup_command: TriggerCronConfigStartupCommandList;
   /** Arguments passed to the startup command used by the triggered job. */
-  args?: TriggerCronConfigArgsList;
+  args: TriggerCronConfigArgsList;
 }
 export const TriggerCronConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    schedule: S.optional(S.String),
-    timezone: S.optional(S.String),
-    startup_command: S.optional(TriggerCronConfigStartupCommandList),
-    args: S.optional(TriggerCronConfigArgsList),
+    schedule: S.String,
+    timezone: S.String,
+    startup_command: TriggerCronConfigStartupCommandList,
+    args: TriggerCronConfigArgsList,
   }),
 ).annotate({ identifier: "TriggerCronConfig" }) as any as S.Schema<TriggerCronConfig>;
 
 export interface Trigger {
   /** UUID of the trigger. (UUID format) */
-  id?: string;
+  id: string;
   /** UUID of the job definition. (UUID format) */
-  job_definition_id?: string;
+  job_definition_id: string;
   /** Human readable name of the trigger. */
-  name?: string;
+  name: string;
   /** Creation time of the trigger. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update time of the trigger. (RFC 3339 format) */
@@ -427,9 +427,9 @@ export interface Trigger {
 }
 export const Trigger = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    job_definition_id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    job_definition_id: S.String,
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     cron_config: S.optional(S.NullOr(TriggerCronConfig)),
@@ -617,9 +617,9 @@ export const JobRunArgsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema
 
 export interface JobRun {
   /** UUID of the job run. (UUID format) */
-  id?: string;
+  id: string;
   /** UUID of the job definition. (UUID format) */
-  job_definition_id?: string;
+  job_definition_id: string;
   /** Creation date of the job run. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the job run. (RFC 3339 format) */
@@ -631,54 +631,54 @@ export interface JobRun {
   /** Duration of the job run. (in seconds) */
   run_duration?: string | null;
   /** State of the job run. */
-  state?: JobRunState;
+  state: JobRunState;
   /** Reason for failure if the job failed. */
-  reason?: JobRunReason;
+  reason: JobRunReason;
   /** Exit code of the job. */
   exit_code?: number | null;
   /** Error message if the job failed. */
   error_message?: string | null;
   /** CPU limit of the job (in mvCPU). */
-  cpu_limit?: number;
+  cpu_limit: number;
   /** Memory limit of the job (in MiB). */
-  memory_limit?: number;
+  memory_limit: number;
   /** Local storage capacity of the job (in MiB). */
-  local_storage_capacity?: number;
+  local_storage_capacity: number;
   /** Deprecated, please use startup_command instead. */
   command?: string;
   /** Environment variables of the job run. */
-  environment_variables?: JobRunEnvironmentVariablesMap;
+  environment_variables: JobRunEnvironmentVariablesMap;
   /** Job startup command. */
-  startup_command?: JobRunStartupCommandList;
+  startup_command: JobRunStartupCommandList;
   /** Job arguments passed to the startup command at runtime. */
-  args?: JobRunArgsList;
+  args: JobRunArgsList;
   /** Number of run attempts. */
   attempts?: number | null;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const JobRun = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    job_definition_id: S.optional(S.String),
+    id: S.String,
+    job_definition_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     started_at: S.optional(S.NullOr(S.String)),
     terminated_at: S.optional(S.NullOr(S.String)),
     run_duration: S.optional(S.NullOr(S.String)),
-    state: S.optional(JobRunState),
-    reason: S.optional(JobRunReason),
+    state: JobRunState,
+    reason: JobRunReason,
     exit_code: S.optional(S.NullOr(S.Number)),
     error_message: S.optional(S.NullOr(S.String)),
-    cpu_limit: S.optional(S.Number),
-    memory_limit: S.optional(S.Number),
-    local_storage_capacity: S.optional(S.Number),
+    cpu_limit: S.Number,
+    memory_limit: S.Number,
+    local_storage_capacity: S.Number,
     command: S.optional(S.String),
-    environment_variables: S.optional(JobRunEnvironmentVariablesMap),
-    startup_command: S.optional(JobRunStartupCommandList),
-    args: S.optional(JobRunArgsList),
+    environment_variables: JobRunEnvironmentVariablesMap,
+    startup_command: JobRunStartupCommandList,
+    args: JobRunArgsList,
     attempts: S.optional(S.NullOr(S.Number)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "JobRun" }) as any as S.Schema<JobRun>;
 
@@ -770,12 +770,12 @@ export const ListJobDefinitionsResponseJobDefinitionsList = /*@__PURE__*/ S.Arra
 
 export interface ListJobDefinitionsResponse {
   job_definitions: ListJobDefinitionsResponseJobDefinitionsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListJobDefinitionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     job_definitions: ListJobDefinitionsResponseJobDefinitionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListJobDefinitionsResponse",
@@ -839,12 +839,12 @@ export const ListJobRunsResponseJobRunsList = /*@__PURE__*/ S.Array(
 
 export interface ListJobRunsResponse {
   job_runs: ListJobRunsResponseJobRunsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListJobRunsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     job_runs: ListJobRunsResponseJobRunsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListJobRunsResponse" }) as any as S.Schema<ListJobRunsResponse>;
 
@@ -879,14 +879,14 @@ export const ListSecretsResponseSecretsList = /*@__PURE__*/ S.Array(
 
 export interface ListSecretsResponse {
   /** List of secret references within a job definition. */
-  secrets?: ListSecretsResponseSecretsList;
+  secrets: ListSecretsResponseSecretsList;
   /** Total count of secret references within a job definition. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSecretsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secrets: S.optional(ListSecretsResponseSecretsList),
-    total_count: S.optional(S.Number),
+    secrets: ListSecretsResponseSecretsList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSecretsResponse" }) as any as S.Schema<ListSecretsResponse>;
 
@@ -935,12 +935,12 @@ export interface ListTriggersResponse {
   /** List of triggers. */
   triggers: ListTriggersResponseTriggersList;
   /** Total count of triggers. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListTriggersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     triggers: ListTriggersResponseTriggersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListTriggersResponse" }) as any as S.Schema<ListTriggersResponse>;
 

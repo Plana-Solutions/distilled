@@ -22,20 +22,20 @@ export const ListCountriesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ListCountriesResponseCountry {
   /** Name of the country. */
-  name?: string;
+  name: string;
   /** Two letters representing the country. */
-  code?: string;
+  code: string;
   /** Flag representation of the country. */
-  flag?: string;
+  flag: string;
   /** True if the country should have a VAT identification number, false otherwise. */
-  vat_number_required?: boolean;
+  vat_number_required: boolean;
 }
 export const ListCountriesResponseCountry = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    code: S.optional(S.String),
-    flag: S.optional(S.String),
-    vat_number_required: S.optional(S.Boolean),
+    name: S.String,
+    code: S.String,
+    flag: S.String,
+    vat_number_required: S.Boolean,
   }),
 ).annotate({
   identifier: "ListCountriesResponseCountry",
@@ -49,11 +49,11 @@ export const ListCountriesResponseCountriesList = /*@__PURE__*/ S.Array(
 
 export interface ListCountriesResponse {
   /** List of countries. */
-  countries?: ListCountriesResponseCountriesList;
+  countries: ListCountriesResponseCountriesList;
 }
 export const ListCountriesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    countries: S.optional(ListCountriesResponseCountriesList),
+    countries: ListCountriesResponseCountriesList,
   }),
 ).annotate({ identifier: "ListCountriesResponse" }) as any as S.Schema<ListCountriesResponse>;
 
@@ -78,14 +78,14 @@ export const ListCountrySubdivisionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ListCountrySubdivisionsResponseSubdivision {
   /** Subdivision name. */
-  name?: string;
+  name: string;
   /** Subdivision code is a few numbers and/or letters completing the ISO 3166-1 code of the country. */
-  code?: string;
+  code: string;
 }
 export const ListCountrySubdivisionsResponseSubdivision = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    code: S.optional(S.String),
+    name: S.String,
+    code: S.String,
   }),
 ).annotate({
   identifier: "ListCountrySubdivisionsResponseSubdivision",
@@ -100,11 +100,11 @@ export const ListCountrySubdivisionsResponseSubdivisionsList = /*@__PURE__*/ S.A
 
 export interface ListCountrySubdivisionsResponse {
   /** List of subdivisions for a country code. */
-  subdivisions?: ListCountrySubdivisionsResponseSubdivisionsList;
+  subdivisions: ListCountrySubdivisionsResponseSubdivisionsList;
 }
 export const ListCountrySubdivisionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    subdivisions: S.optional(ListCountrySubdivisionsResponseSubdivisionsList),
+    subdivisions: ListCountrySubdivisionsResponseSubdivisionsList,
   }),
 ).annotate({
   identifier: "ListCountrySubdivisionsResponse",

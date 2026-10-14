@@ -78,23 +78,23 @@ export const FullImageLocalImageType = S.String;
 
 export interface FullImageLocalImage {
   /** UUID of this local image. Version you will typically use to define an image in an API call. (UUID format) */
-  id?: string;
+  id: string;
   /** List of all commercial types that are compatible with this local image. */
-  compatible_commercial_types?: FullImageLocalImageCompatibleCommercialTypesList;
+  compatible_commercial_types: FullImageLocalImageCompatibleCommercialTypesList;
   /** Supported architecture for this local image. */
-  arch?: string;
+  arch: string;
   /** Availability Zone where this local image is available. */
-  zone?: string;
+  zone: string;
   /** The type of the image. */
-  type?: FullImageLocalImageType;
+  type: FullImageLocalImageType;
 }
 export const FullImageLocalImage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    compatible_commercial_types: S.optional(FullImageLocalImageCompatibleCommercialTypesList),
-    arch: S.optional(S.String),
-    zone: S.optional(S.String),
-    type: S.optional(FullImageLocalImageType),
+    id: S.String,
+    compatible_commercial_types: FullImageLocalImageCompatibleCommercialTypesList,
+    arch: S.String,
+    zone: S.String,
+    type: FullImageLocalImageType,
   }),
 ).annotate({ identifier: "FullImageLocalImage" }) as any as S.Schema<FullImageLocalImage>;
 
@@ -106,15 +106,15 @@ export const FullImageLocalImagesList = /*@__PURE__*/ S.Array(
 
 export interface FullImage {
   /** UUID of this image. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the image. */
-  name?: string;
+  name: string;
   /** Text description of this image. */
-  description?: string;
+  description: string;
   /** URL of this image's logo. */
-  logo?: string;
+  logo: string;
   /** List of categories this image belongs to. */
-  categories?: FullImageCategoriesList;
+  categories: FullImageCategoriesList;
   /** Creation date of this image. (RFC 3339 format) */
   created_at?: string | null;
   /** Date of the last modification of this image. (RFC 3339 format) */
@@ -122,22 +122,22 @@ export interface FullImage {
   /** Expiration date of this image. (RFC 3339 format) */
   valid_until?: string | null;
   /** Label of this image. Typically an identifier for a distribution (ex. "ubuntu_focal"). */
-  label?: string;
+  label: string;
   /** List of this image's local images. */
-  local_images?: FullImageLocalImagesList;
+  local_images: FullImageLocalImagesList;
 }
 export const FullImage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    logo: S.optional(S.String),
-    categories: S.optional(FullImageCategoriesList),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    logo: S.String,
+    categories: FullImageCategoriesList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     valid_until: S.optional(S.NullOr(S.String)),
-    label: S.optional(S.String),
-    local_images: S.optional(FullImageLocalImagesList),
+    label: S.String,
+    local_images: FullImageLocalImagesList,
   }),
 ).annotate({ identifier: "FullImage" }) as any as S.Schema<FullImage>;
 
@@ -148,12 +148,12 @@ export const ListFullImagesResponseImagesList = /*@__PURE__*/ S.Array(
 
 export interface ListFullImagesResponse {
   images: ListFullImagesResponseImagesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListFullImagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     images: ListFullImagesResponseImagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListFullImagesResponse" }) as any as S.Schema<ListFullImagesResponse>;
 

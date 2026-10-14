@@ -155,13 +155,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of blocklists matching the requested criteria."
+            "smithy.api#documentation": "Number of blocklists matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "blocklists": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListBlocklistsResponseBlocklistsList",
           "traits": {
-            "smithy.api#documentation": "Single page of blocklists matching the requested criteria."
+            "smithy.api#documentation": "Single page of blocklists matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -173,13 +175,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the blocklist."
+            "smithy.api#documentation": "ID of the blocklist.",
+            "smithy.api#required": {}
           }
         },
         "domain_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain ID linked to the blocklist."
+            "smithy.api#documentation": "Domain ID linked to the blocklist.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -206,25 +210,29 @@
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email blocked by the blocklist."
+            "smithy.api#documentation": "Email blocked by the blocklist.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.transactional_email_v1alpha1#BlocklistType",
           "traits": {
-            "smithy.api#documentation": "Type of block for this email."
+            "smithy.api#documentation": "Type of block for this email.",
+            "smithy.api#required": {}
           }
         },
         "reason": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Reason to block this email."
+            "smithy.api#documentation": "Reason to block this email.",
+            "smithy.api#required": {}
           }
         },
         "custom": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if this blocklist was created manually. False for an automatic Transactional Email blocklist."
+            "smithy.api#documentation": "True if this blocklist was created manually. False for an automatic Transactional Email blocklist.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -331,7 +339,8 @@
         "blocklists": {
           "target": "com.scaleway.transactional_email_v1alpha1#BulkCreateBlocklistsResponseBlocklistsList",
           "traits": {
-            "smithy.api#documentation": "List of blocklist created."
+            "smithy.api#documentation": "List of blocklist created.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -553,13 +562,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of domains that match the request (without pagination)."
+            "smithy.api#documentation": "Number of domains that match the request (without pagination).",
+            "smithy.api#required": {}
           }
         },
         "domains": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListDomainsResponseDomainsList",
           "traits": {
-            "smithy.api#documentation": "Single page of domains matching the requested criteria."
+            "smithy.api#documentation": "Single page of domains matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -571,31 +582,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the domain."
+            "smithy.api#documentation": "ID of the domain.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the domain's Organization."
+            "smithy.api#documentation": "ID of the domain's Organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the domain's Project."
+            "smithy.api#documentation": "ID of the domain's Project.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain name (example.com)."
+            "smithy.api#documentation": "Domain name (example.com).",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the domain."
+            "smithy.api#documentation": "Status of the domain.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -636,13 +652,15 @@
         "spf_config": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Snippet of the SPF record to register in the DNS zone."
+            "smithy.api#documentation": "Snippet of the SPF record to register in the DNS zone.",
+            "smithy.api#required": {}
           }
         },
         "dkim_config": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "DKIM public key to record in the DNS zone."
+            "smithy.api#documentation": "DKIM public key to record in the DNS zone.",
+            "smithy.api#required": {}
           }
         },
         "statistics": {
@@ -666,13 +684,15 @@
         "autoconfig": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Status of auto-configuration for the domain's DNS zone."
+            "smithy.api#documentation": "Status of auto-configuration for the domain's DNS zone.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "The region you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -682,16 +702,28 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "sent_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "failed_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "canceled_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -702,13 +734,15 @@
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainReputationStatus",
           "traits": {
-            "smithy.api#documentation": "Status of your domain's reputation."
+            "smithy.api#documentation": "Status of your domain's reputation.",
+            "smithy.api#required": {}
           }
         },
         "score": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "A range from 0 to 100 that determines your domain's reputation score. A score of `0` means a bad domain reputation and a score of `100` means an excellent domain reputation."
+            "smithy.api#documentation": "A range from 0 to 100 that determines your domain's reputation score. A score of `0` means a bad domain reputation and a score of `100` means an excellent domain reputation.",
+            "smithy.api#required": {}
           }
         },
         "scored_at": {
@@ -807,13 +841,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the DMARC TXT record."
+            "smithy.api#documentation": "Name of the DMARC TXT record.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value of the DMARC TXT record."
+            "smithy.api#documentation": "Value of the DMARC TXT record.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -825,13 +861,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the DKIM TXT record."
+            "smithy.api#documentation": "Name of the DKIM TXT record.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value of the DKIM TXT record."
+            "smithy.api#documentation": "Value of the DKIM TXT record.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -843,13 +881,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the SPF TXT record."
+            "smithy.api#documentation": "Name of the SPF TXT record.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value of the SPF TXT record."
+            "smithy.api#documentation": "Value of the SPF TXT record.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -861,13 +901,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the MX record."
+            "smithy.api#documentation": "Name of the MX record.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value of the MX record."
+            "smithy.api#documentation": "Value of the MX record.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1236,13 +1278,15 @@
         "domain_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The ID of the domain."
+            "smithy.api#documentation": "The ID of the domain.",
+            "smithy.api#required": {}
           }
         },
         "domain_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The domain name (example.com)."
+            "smithy.api#documentation": "The domain name (example.com).",
+            "smithy.api#required": {}
           }
         },
         "spf_record": {
@@ -1284,7 +1328,8 @@
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainLastStatusRecordStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the SPF record's configuration."
+            "smithy.api#documentation": "Status of the SPF record's configuration.",
+            "smithy.api#required": {}
           }
         },
         "last_valid_at": {
@@ -1340,7 +1385,8 @@
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainLastStatusRecordStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the DKIM record's configuration."
+            "smithy.api#documentation": "Status of the DKIM record's configuration.",
+            "smithy.api#required": {}
           }
         },
         "last_valid_at": {
@@ -1366,7 +1412,8 @@
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainLastStatusRecordStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the DMARC record's configuration."
+            "smithy.api#documentation": "Status of the DMARC record's configuration.",
+            "smithy.api#required": {}
           }
         },
         "last_valid_at": {
@@ -1392,7 +1439,8 @@
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainLastStatusRecordStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the MX record's configuration.\nStatus of the MX record's configuration. This record is optional to validate a domain, but highly recommended."
+            "smithy.api#documentation": "Status of the MX record's configuration.\nStatus of the MX record's configuration. This record is optional to validate a domain, but highly recommended.",
+            "smithy.api#required": {}
           }
         },
         "last_valid_at": {
@@ -1418,19 +1466,22 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Enable or disable the auto-configuration of domain DNS records."
+            "smithy.api#documentation": "Enable or disable the auto-configuration of domain DNS records.",
+            "smithy.api#required": {}
           }
         },
         "autoconfigurable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the domain can be auto-configured or not."
+            "smithy.api#documentation": "Whether the domain can be auto-configured or not.",
+            "smithy.api#required": {}
           }
         },
         "reason": {
           "target": "com.scaleway.transactional_email_v1alpha1#DomainLastStatusAutoconfigStateReason",
           "traits": {
-            "smithy.api#documentation": "The reason that the domain cannot be auto-configurable."
+            "smithy.api#documentation": "The reason that the domain cannot be auto-configurable.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1808,13 +1859,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails matching the requested criteria."
+            "smithy.api#documentation": "Number of emails matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "emails": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListEmailsResponseEmailsList",
           "traits": {
-            "smithy.api#documentation": "Single page of emails matching the requested criteria."
+            "smithy.api#documentation": "Single page of emails matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1826,25 +1879,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Technical ID of the email."
+            "smithy.api#documentation": "Technical ID of the email.",
+            "smithy.api#required": {}
           }
         },
         "message_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Message ID of the email."
+            "smithy.api#documentation": "Message ID of the email.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project to which the email belongs."
+            "smithy.api#documentation": "ID of the Project to which the email belongs.",
+            "smithy.api#required": {}
           }
         },
         "mail_from": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email address of the sender."
+            "smithy.api#documentation": "Email address of the sender.",
+            "smithy.api#required": {}
           }
         },
         "rcpt_to": {
@@ -1856,19 +1913,22 @@
         "mail_rcpt": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email address of the recipient."
+            "smithy.api#documentation": "Email address of the recipient.",
+            "smithy.api#required": {}
           }
         },
         "rcpt_type": {
           "target": "com.scaleway.transactional_email_v1alpha1#EmailRcptType",
           "traits": {
-            "smithy.api#documentation": "Type of recipient."
+            "smithy.api#documentation": "Type of recipient.",
+            "smithy.api#required": {}
           }
         },
         "subject": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subject of the email."
+            "smithy.api#documentation": "Subject of the email.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1888,7 +1948,8 @@
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#EmailStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the email."
+            "smithy.api#documentation": "Status of the email.",
+            "smithy.api#required": {}
           }
         },
         "status_details": {
@@ -1901,19 +1962,22 @@
         "try_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of attempts to send the email."
+            "smithy.api#documentation": "Number of attempts to send the email.",
+            "smithy.api#required": {}
           }
         },
         "last_tries": {
           "target": "com.scaleway.transactional_email_v1alpha1#EmailLastTriesList",
           "traits": {
-            "smithy.api#documentation": "Information about the last three attempts to send the email."
+            "smithy.api#documentation": "Information about the last three attempts to send the email.",
+            "smithy.api#required": {}
           }
         },
         "flags": {
           "target": "com.scaleway.transactional_email_v1alpha1#EmailFlagsList",
           "traits": {
-            "smithy.api#documentation": "Flags categorize emails. They allow you to obtain more information about recurring errors, for example."
+            "smithy.api#documentation": "Flags categorize emails. They allow you to obtain more information about recurring errors, for example.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1955,7 +2019,8 @@
         "rank": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Rank number of this attempt to send the email."
+            "smithy.api#documentation": "Rank number of this attempt to send the email.",
+            "smithy.api#required": {}
           }
         },
         "tried_at": {
@@ -1968,13 +2033,15 @@
         "code": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The SMTP status code received after the attempt. 0 if the attempt did not reach an SMTP server."
+            "smithy.api#documentation": "The SMTP status code received after the attempt. 0 if the attempt did not reach an SMTP server.",
+            "smithy.api#required": {}
           }
         },
         "message": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SMTP message received. If the attempt did not reach an SMTP server, the message returned explains what happened."
+            "smithy.api#documentation": "The SMTP message received. If the attempt did not reach an SMTP server, the message returned explains what happened.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2239,7 +2306,8 @@
         "emails": {
           "target": "com.scaleway.transactional_email_v1alpha1#CreateEmailResponseEmailsList",
           "traits": {
-            "smithy.api#documentation": "Single page of emails matching the requested criteria."
+            "smithy.api#documentation": "Single page of emails matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2470,13 +2538,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of offer-subscriptions matching the requested criteria."
+            "smithy.api#documentation": "Number of offer-subscriptions matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "offer_subscriptions": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListOfferSubscriptionsResponseOfferSubscriptionsList",
           "traits": {
-            "smithy.api#documentation": "Single page of offer-subscriptions matching the requested criteria."
+            "smithy.api#documentation": "Single page of offer-subscriptions matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2488,19 +2558,22 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the offer-subscription Organization."
+            "smithy.api#documentation": "ID of the offer-subscription Organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the offer-subscription Project."
+            "smithy.api#documentation": "ID of the offer-subscription Project.",
+            "smithy.api#required": {}
           }
         },
         "offer_name": {
           "target": "com.scaleway.transactional_email_v1alpha1#OfferName",
           "traits": {
-            "smithy.api#documentation": "Name of the offer associated with the Project."
+            "smithy.api#documentation": "Name of the offer associated with the Project.",
+            "smithy.api#required": {}
           }
         },
         "subscribed_at": {
@@ -2520,37 +2593,43 @@
         "sla": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Service Level Agreement percentage of the offer-subscription."
+            "smithy.api#documentation": "Service Level Agreement percentage of the offer-subscription.",
+            "smithy.api#required": {}
           }
         },
         "max_domains": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of domains that can be associated with the offer-subscription for a particular Project."
+            "smithy.api#documentation": "Max number of domains that can be associated with the offer-subscription for a particular Project.",
+            "smithy.api#required": {}
           }
         },
         "max_dedicated_ips": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of dedicated IPs that can be associated with the offer-subscription for a particular Project."
+            "smithy.api#documentation": "Max number of dedicated IPs that can be associated with the offer-subscription for a particular Project.",
+            "smithy.api#required": {}
           }
         },
         "max_webhooks_per_domain": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of webhooks that can be associated with the offer-subscription for a particular Project."
+            "smithy.api#documentation": "Max number of webhooks that can be associated with the offer-subscription for a particular Project.",
+            "smithy.api#required": {}
           }
         },
         "max_custom_blocklists_per_domain": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of custom blocklists that can be associated with the offer-subscription for a particular Project."
+            "smithy.api#documentation": "Max number of custom blocklists that can be associated with the offer-subscription for a particular Project.",
+            "smithy.api#required": {}
           }
         },
         "included_monthly_emails": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails included in the offer-subscription per month."
+            "smithy.api#documentation": "Number of emails included in the offer-subscription per month.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2680,13 +2759,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of offers matching the requested criteria."
+            "smithy.api#documentation": "Number of offers matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "offers": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListOffersResponseOffersList",
           "traits": {
-            "smithy.api#documentation": "Single page of offers matching the requested criteria."
+            "smithy.api#documentation": "Single page of offers matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2698,7 +2779,8 @@
         "name": {
           "target": "com.scaleway.transactional_email_v1alpha1#OfferName",
           "traits": {
-            "smithy.api#documentation": "Name of the offer."
+            "smithy.api#documentation": "Name of the offer.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2718,37 +2800,43 @@
         "sla": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Service Level Agreement percentage of the offer."
+            "smithy.api#documentation": "Service Level Agreement percentage of the offer.",
+            "smithy.api#required": {}
           }
         },
         "max_domains": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of checked domains that can be associated with the offer."
+            "smithy.api#documentation": "Max number of checked domains that can be associated with the offer.",
+            "smithy.api#required": {}
           }
         },
         "max_dedicated_ips": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of dedicated IPs that can be associated with the offer."
+            "smithy.api#documentation": "Max number of dedicated IPs that can be associated with the offer.",
+            "smithy.api#required": {}
           }
         },
         "included_monthly_emails": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails included in the offer per month."
+            "smithy.api#documentation": "Number of emails included in the offer per month.",
+            "smithy.api#required": {}
           }
         },
         "max_webhooks_per_domain": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of webhooks that can be associated with the offer."
+            "smithy.api#documentation": "Max number of webhooks that can be associated with the offer.",
+            "smithy.api#required": {}
           }
         },
         "max_custom_blocklists_per_domain": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max number of active custom blocklists that can be associated with the offer."
+            "smithy.api#documentation": "Max number of active custom blocklists that can be associated with the offer.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2836,13 +2924,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of pools matching the requested criteria."
+            "smithy.api#documentation": "Number of pools matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "pools": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListPoolsResponsePoolsList",
           "traits": {
-            "smithy.api#documentation": "Single page of pools matching the requested criteria."
+            "smithy.api#documentation": "Single page of pools matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2854,13 +2944,15 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project."
+            "smithy.api#documentation": "ID of the Project.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#PoolStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the pool."
+            "smithy.api#documentation": "Status of the pool.",
+            "smithy.api#required": {}
           }
         },
         "details": {
@@ -2880,7 +2972,8 @@
         "ips": {
           "target": "com.scaleway.transactional_email_v1alpha1#PoolIpsList",
           "traits": {
-            "smithy.api#documentation": "IPs of the pool. (IP address)"
+            "smithy.api#documentation": "IPs of the pool. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "reverse": {
@@ -3013,37 +3106,43 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the project."
+            "smithy.api#documentation": "ID of the project.",
+            "smithy.api#required": {}
           }
         },
         "domains_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of domains in the project."
+            "smithy.api#documentation": "Number of domains in the project.",
+            "smithy.api#required": {}
           }
         },
         "dedicated_ips_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of dedicated IP in the project."
+            "smithy.api#documentation": "Number of dedicated IP in the project.",
+            "smithy.api#required": {}
           }
         },
         "monthly_emails_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails sent during the current month in the project."
+            "smithy.api#documentation": "Number of emails sent during the current month in the project.",
+            "smithy.api#required": {}
           }
         },
         "webhooks_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of webhooks in the project."
+            "smithy.api#documentation": "Number of webhooks in the project.",
+            "smithy.api#required": {}
           }
         },
         "custom_blocklists_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of custom blocklists in the project."
+            "smithy.api#documentation": "Number of custom blocklists in the project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3120,25 +3219,29 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Enable or disable periodic report notifications."
+            "smithy.api#documentation": "Enable or disable periodic report notifications.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "com.scaleway.transactional_email_v1alpha1#ProjectSettingsPeriodicReportFrequency",
           "traits": {
-            "smithy.api#documentation": "At which frequency you receive periodic report notifications."
+            "smithy.api#documentation": "At which frequency you receive periodic report notifications.",
+            "smithy.api#required": {}
           }
         },
         "sending_hour": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "At which hour you receive periodic report notifications."
+            "smithy.api#documentation": "At which hour you receive periodic report notifications.",
+            "smithy.api#required": {}
           }
         },
         "sending_day": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "On which day you receive periodic report notifications (1-7 weekly, 1-28 monthly)."
+            "smithy.api#documentation": "On which day you receive periodic report notifications (1-7 weekly, 1-28 monthly).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3352,37 +3455,43 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of emails matching the requested criteria."
+            "smithy.api#documentation": "Total number of emails matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "new_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails still in the `new` transient state. This means emails received from the API but not yet processed."
+            "smithy.api#documentation": "Number of emails still in the `new` transient state. This means emails received from the API but not yet processed.",
+            "smithy.api#required": {}
           }
         },
         "sending_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails still in the `sending` transient state. This means emails received from the API but not yet in their final status."
+            "smithy.api#documentation": "Number of emails still in the `sending` transient state. This means emails received from the API but not yet in their final status.",
+            "smithy.api#required": {}
           }
         },
         "sent_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails in the final `sent` state. This means emails that have been delivered to the target mail system."
+            "smithy.api#documentation": "Number of emails in the final `sent` state. This means emails that have been delivered to the target mail system.",
+            "smithy.api#required": {}
           }
         },
         "failed_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails in the final `failed` state. This means emails that have been refused by the target mail system with a final error status."
+            "smithy.api#documentation": "Number of emails in the final `failed` state. This means emails that have been refused by the target mail system with a final error status.",
+            "smithy.api#required": {}
           }
         },
         "canceled_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of emails in the final `canceled` state. This means emails that have been canceled upon request."
+            "smithy.api#documentation": "Number of emails in the final `canceled` state. This means emails that have been canceled upon request.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3499,13 +3608,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of Webhooks matching the requested criteria."
+            "smithy.api#documentation": "Number of Webhooks matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "webhooks": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListWebhooksResponseWebhooksList",
           "traits": {
-            "smithy.api#documentation": "Single page of Webhooks matching the requested criteria."
+            "smithy.api#documentation": "Single page of Webhooks matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3517,43 +3628,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook."
+            "smithy.api#documentation": "ID of the Webhook.",
+            "smithy.api#required": {}
           }
         },
         "domain_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Domain to watch for triggering events."
+            "smithy.api#documentation": "ID of the Domain to watch for triggering events.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook Organization."
+            "smithy.api#documentation": "ID of the Webhook Organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook Project."
+            "smithy.api#documentation": "ID of the Webhook Project.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Webhook."
+            "smithy.api#documentation": "Name of the Webhook.",
+            "smithy.api#required": {}
           }
         },
         "event_types": {
           "target": "com.scaleway.transactional_email_v1alpha1#WebhookEventTypesList",
           "traits": {
-            "smithy.api#documentation": "List of event types that will trigger a Webhook Event."
+            "smithy.api#documentation": "List of event types that will trigger a Webhook Event.",
+            "smithy.api#required": {}
           }
         },
         "sns_arn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway SNS ARN topic to push the events to."
+            "smithy.api#documentation": "Scaleway SNS ARN topic to push the events to.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -4114,13 +4232,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of Webhook events matching the requested criteria."
+            "smithy.api#documentation": "Number of Webhook events matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "webhook_events": {
           "target": "com.scaleway.transactional_email_v1alpha1#ListWebhookEventsResponseWebhookEventsList",
           "traits": {
-            "smithy.api#documentation": "Single page of Webhook events matching the requested criteria."
+            "smithy.api#documentation": "Single page of Webhook events matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4132,49 +4252,57 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook Event."
+            "smithy.api#documentation": "ID of the Webhook Event.",
+            "smithy.api#required": {}
           }
         },
         "webhook_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook that triggers the Event."
+            "smithy.api#documentation": "ID of the Webhook that triggers the Event.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook Event Organization."
+            "smithy.api#documentation": "ID of the Webhook Event Organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Webhook Event Project."
+            "smithy.api#documentation": "ID of the Webhook Event Project.",
+            "smithy.api#required": {}
           }
         },
         "domain_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the webhook event domain."
+            "smithy.api#documentation": "ID of the webhook event domain.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.transactional_email_v1alpha1#WebhookEventType",
           "traits": {
-            "smithy.api#documentation": "Type of the Webhook Event."
+            "smithy.api#documentation": "Type of the Webhook Event.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.transactional_email_v1alpha1#WebhookEventStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Webhook Event."
+            "smithy.api#documentation": "Status of the Webhook Event.",
+            "smithy.api#required": {}
           }
         },
         "data": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Data sent to the Webhook destination."
+            "smithy.api#documentation": "Data sent to the Webhook destination.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {

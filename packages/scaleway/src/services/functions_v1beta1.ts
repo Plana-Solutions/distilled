@@ -68,32 +68,32 @@ export const CronStatus = S.String;
 
 export interface Cron {
   /** UUID of the cron. */
-  id?: string;
+  id: string;
   /** SRN of the cron. */
-  srn?: string;
+  srn: string;
   /** UUID of the function the cron applies to. */
-  function_id?: string;
+  function_id: string;
   /** Schedule of the cron. */
-  schedule?: string;
+  schedule: string;
   /** Arguments to pass with the cron. */
-  args?: CronArgsMap;
+  args: CronArgsMap;
   /** Status of the cron. */
-  status?: CronStatus;
+  status: CronStatus;
   /** Name of the cron. */
-  name?: string;
+  name: string;
   /** Region in which the cron is located. */
-  region?: string;
+  region: string;
 }
 export const Cron = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    function_id: S.optional(S.String),
-    schedule: S.optional(S.String),
-    args: S.optional(CronArgsMap),
-    status: S.optional(CronStatus),
-    name: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    function_id: S.String,
+    schedule: S.String,
+    args: CronArgsMap,
+    status: CronStatus,
+    name: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Cron" }) as any as S.Schema<Cron>;
 
@@ -128,32 +128,32 @@ export const DomainStatus = S.String;
 
 export interface Domain {
   /** UUID of the domain. */
-  id?: string;
+  id: string;
   /** SRN of the domain. */
-  srn?: string;
+  srn: string;
   /** Hostname associated with the function. */
-  hostname?: string;
+  hostname: string;
   /** UUID of the function the domain is associated with. */
-  function_id?: string;
+  function_id: string;
   /** URL of the function. */
-  url?: string;
+  url: string;
   /** State of the domain. */
-  status?: DomainStatus;
+  status: DomainStatus;
   /** Error message if the domain is in "error" state. */
   error_message?: string | null;
   /** Region in which the domain is located. */
-  region?: string;
+  region: string;
 }
 export const Domain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    hostname: S.optional(S.String),
-    function_id: S.optional(S.String),
-    url: S.optional(S.String),
-    status: S.optional(DomainStatus),
+    id: S.String,
+    srn: S.String,
+    hostname: S.String,
+    function_id: S.String,
+    url: S.String,
+    status: DomainStatus,
     error_message: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Domain" }) as any as S.Schema<Domain>;
 
@@ -326,13 +326,13 @@ export const FunctionEnvironmentVariablesMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<FunctionEnvironmentVariablesMap>;
 
 export interface SecretHashedValue {
-  key?: string;
-  hashed_value?: string;
+  key: string;
+  hashed_value: string;
 }
 export const SecretHashedValue = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key: S.optional(S.String),
-    hashed_value: S.optional(S.String),
+    key: S.String,
+    hashed_value: S.String,
   }),
 ).annotate({ identifier: "SecretHashedValue" }) as any as S.Schema<SecretHashedValue>;
 
@@ -350,50 +350,50 @@ export const FunctionTagsList = /*@__PURE__*/ S.Array(
 
 export interface Function {
   /** UUID of the function. */
-  id?: string;
+  id: string;
   /** SRN of the function. */
-  srn?: string;
+  srn: string;
   /** Name of the function. */
-  name?: string;
+  name: string;
   /** UUID of the namespace the function belongs to. */
-  namespace_id?: string;
+  namespace_id: string;
   /** Status of the function. */
-  status?: FunctionStatus;
+  status: FunctionStatus;
   /** Environment variables of the function. */
-  environment_variables?: FunctionEnvironmentVariablesMap;
+  environment_variables: FunctionEnvironmentVariablesMap;
   /** Minimum number of instances to scale the function to. */
-  min_scale?: number;
+  min_scale: number;
   /** Maximum number of instances to scale the function to. */
-  max_scale?: number;
+  max_scale: number;
   /** Runtime of the function. */
-  runtime?: FunctionRuntime;
+  runtime: FunctionRuntime;
   /** Memory limit of the function in MB. */
-  memory_limit?: number;
+  memory_limit: number;
   /** CPU limit of the function. */
-  cpu_limit?: number;
+  cpu_limit: number;
   /** Request processing time limit for the function. (in seconds) */
   timeout?: string | null;
   /** Handler to use for the function. */
-  handler?: string;
+  handler: string;
   /** Error message if the function is in "error" state. */
   error_message?: string | null;
   /** Description of the current build step. */
   build_message?: string | null;
   /** Privacy setting of the function. */
-  privacy?: FunctionPrivacy;
+  privacy: FunctionPrivacy;
   /** Description of the function. */
   description?: string | null;
   /** Domain name associated with the function. */
-  domain_name?: string;
+  domain_name: string;
   /** Secret environment variables of the function. */
-  secret_environment_variables?: FunctionSecretEnvironmentVariablesList;
+  secret_environment_variables: FunctionSecretEnvironmentVariablesList;
   /** Region in which the function is deployed. */
-  region?: string;
+  region: string;
   /** Configuration for handling of HTTP and HTTPS requests. Possible values: - redirected: Responds to HTTP request with a 301 redirect to ask the clients to use HTTPS. - enabled: Serve both HTTP and HTTPS traffic. */
-  http_option?: FunctionHttpOption;
-  runtime_message?: string;
+  http_option: FunctionHttpOption;
+  runtime_message: string;
   /** Execution environment of the function. */
-  sandbox?: FunctionSandbox;
+  sandbox: FunctionSandbox;
   /** Creation date of the function. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the function. (RFC 3339 format) */
@@ -401,39 +401,39 @@ export interface Function {
   /** Last date when the function was successfully deployed and set to ready. (RFC 3339 format) */
   ready_at?: string | null;
   /** List of tags applied to the Serverless Function. */
-  tags?: FunctionTagsList;
+  tags: FunctionTagsList;
   /** ID of the Private Network the function is connected to. When connected to a Private Network, the function can access other Scaleway resources in this Private Network. */
   private_network_id?: string | null;
 }
 export const Function = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    namespace_id: S.optional(S.String),
-    status: S.optional(FunctionStatus),
-    environment_variables: S.optional(FunctionEnvironmentVariablesMap),
-    min_scale: S.optional(S.Number),
-    max_scale: S.optional(S.Number),
-    runtime: S.optional(FunctionRuntime),
-    memory_limit: S.optional(S.Number),
-    cpu_limit: S.optional(S.Number),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    namespace_id: S.String,
+    status: FunctionStatus,
+    environment_variables: FunctionEnvironmentVariablesMap,
+    min_scale: S.Number,
+    max_scale: S.Number,
+    runtime: FunctionRuntime,
+    memory_limit: S.Number,
+    cpu_limit: S.Number,
     timeout: S.optional(S.NullOr(S.String)),
-    handler: S.optional(S.String),
+    handler: S.String,
     error_message: S.optional(S.NullOr(S.String)),
     build_message: S.optional(S.NullOr(S.String)),
-    privacy: S.optional(FunctionPrivacy),
+    privacy: FunctionPrivacy,
     description: S.optional(S.NullOr(S.String)),
-    domain_name: S.optional(S.String),
-    secret_environment_variables: S.optional(FunctionSecretEnvironmentVariablesList),
-    region: S.optional(S.String),
-    http_option: S.optional(FunctionHttpOption),
-    runtime_message: S.optional(S.String),
-    sandbox: S.optional(FunctionSandbox),
+    domain_name: S.String,
+    secret_environment_variables: FunctionSecretEnvironmentVariablesList,
+    region: S.String,
+    http_option: FunctionHttpOption,
+    runtime_message: S.String,
+    sandbox: FunctionSandbox,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     ready_at: S.optional(S.NullOr(S.String)),
-    tags: S.optional(FunctionTagsList),
+    tags: FunctionTagsList,
     private_network_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Function" }) as any as S.Schema<Function>;
@@ -528,33 +528,33 @@ export const NamespaceTagsList = /*@__PURE__*/ S.Array(
 
 export interface Namespace {
   /** UUID of the namespace. */
-  id?: string;
+  id: string;
   /** SRN of the namespace. */
-  srn?: string;
+  srn: string;
   /** Name of the namespace. */
-  name?: string;
+  name: string;
   /** Environment variables of the namespace. */
-  environment_variables?: NamespaceEnvironmentVariablesMap;
+  environment_variables: NamespaceEnvironmentVariablesMap;
   /** UUID of the Organization the namespace belongs to. */
-  organization_id?: string;
+  organization_id: string;
   /** UUID of the Project the namespace belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Status of the namespace. */
-  status?: NamespaceStatus;
+  status: NamespaceStatus;
   /** UUID of the registry namespace. */
-  registry_namespace_id?: string;
+  registry_namespace_id: string;
   /** Error message if the namespace is in "error" state. */
   error_message?: string | null;
   /** Registry endpoint of the namespace. */
-  registry_endpoint?: string;
+  registry_endpoint: string;
   /** Description of the namespace. */
   description?: string | null;
   /** Secret environment variables of the namespace. */
-  secret_environment_variables?: NamespaceSecretEnvironmentVariablesList;
+  secret_environment_variables: NamespaceSecretEnvironmentVariablesList;
   /** Region in which the namespace is located. */
-  region?: string;
+  region: string;
   /** List of tags applied to the Serverless Function Namespace. */
-  tags?: NamespaceTagsList;
+  tags: NamespaceTagsList;
   /** Creation date of the namespace. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the namespace. (RFC 3339 format) */
@@ -564,20 +564,20 @@ export interface Namespace {
 }
 export const Namespace = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    environment_variables: S.optional(NamespaceEnvironmentVariablesMap),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(NamespaceStatus),
-    registry_namespace_id: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    environment_variables: NamespaceEnvironmentVariablesMap,
+    organization_id: S.String,
+    project_id: S.String,
+    status: NamespaceStatus,
+    registry_namespace_id: S.String,
     error_message: S.optional(S.NullOr(S.String)),
-    registry_endpoint: S.optional(S.String),
+    registry_endpoint: S.String,
     description: S.optional(S.NullOr(S.String)),
-    secret_environment_variables: S.optional(NamespaceSecretEnvironmentVariablesList),
-    region: S.optional(S.String),
-    tags: S.optional(NamespaceTagsList),
+    secret_environment_variables: NamespaceSecretEnvironmentVariablesList,
+    region: S.String,
+    tags: NamespaceTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     vpc_integration_activated: S.optional(S.Boolean),
@@ -672,19 +672,19 @@ export const TriggerStatus = S.String;
 
 export interface TriggerMnqSqsClientConfig {
   /** Name of the SQS queue the trigger listens to. */
-  queue?: string;
+  queue: string;
   /** ID of the Messaging and Queuing project. */
-  mnq_project_id?: string;
+  mnq_project_id: string;
   /** Region in which the Messaging and Queuing project is activated. Currently, only the `fr-par` and `nl-ams` regions are available. */
-  mnq_region?: string;
+  mnq_region: string;
   /** ID of the Messaging and Queuing credentials used to read from the SQS queue. */
   mnq_credential_id?: string | null;
 }
 export const TriggerMnqSqsClientConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    queue: S.optional(S.String),
-    mnq_project_id: S.optional(S.String),
-    mnq_region: S.optional(S.String),
+    queue: S.String,
+    mnq_project_id: S.String,
+    mnq_region: S.String,
     mnq_credential_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -693,22 +693,22 @@ export const TriggerMnqSqsClientConfig = /*@__PURE__*/ S.suspend(() =>
 
 export interface TriggerMnqNatsClientConfig {
   /** Name of the NATS subject the trigger listens to. */
-  subject?: string;
+  subject: string;
   /** ID of the Messaging and Queuing NATS account. */
-  mnq_nats_account_id?: string;
+  mnq_nats_account_id: string;
   /** ID of the Messaging and Queuing project. */
-  mnq_project_id?: string;
+  mnq_project_id: string;
   /** Region in which the Messaging and Queuing project is activated. Currently, only the `fr-par` and `nl-ams` regions are available. */
-  mnq_region?: string;
+  mnq_region: string;
   /** ID of the Messaging and Queuing credentials used to subscribe to the NATS subject. */
   mnq_credential_id?: string | null;
 }
 export const TriggerMnqNatsClientConfig = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    subject: S.optional(S.String),
-    mnq_nats_account_id: S.optional(S.String),
-    mnq_project_id: S.optional(S.String),
-    mnq_region: S.optional(S.String),
+    subject: S.String,
+    mnq_nats_account_id: S.String,
+    mnq_project_id: S.String,
+    mnq_region: S.String,
     mnq_credential_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -717,19 +717,19 @@ export const TriggerMnqNatsClientConfig = /*@__PURE__*/ S.suspend(() =>
 
 export interface Trigger {
   /** ID of the trigger. */
-  id?: string;
+  id: string;
   /** SRN of the trigger. */
-  srn?: string;
+  srn: string;
   /** Name of the trigger. */
-  name?: string;
+  name: string;
   /** Description of the trigger. */
-  description?: string;
+  description: string;
   /** ID of the function to trigger. */
-  function_id?: string;
+  function_id: string;
   /** Type of the input. */
-  input_type?: TriggerInputType;
+  input_type: TriggerInputType;
   /** Status of the trigger. */
-  status?: TriggerStatus;
+  status: TriggerStatus;
   /** Error message of the trigger. */
   error_message?: string | null;
   /** Configuration for a Scaleway Messaging and Queuing SQS queue. */
@@ -737,21 +737,21 @@ export interface Trigger {
   /** Configuration for a Scaleway Messaging and Queuing NATS subject. */
   scw_nats_config?: TriggerMnqNatsClientConfig | null;
   /** Region in which the trigger is located. */
-  region?: string;
+  region: string;
 }
 export const Trigger = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    function_id: S.optional(S.String),
-    input_type: S.optional(TriggerInputType),
-    status: S.optional(TriggerStatus),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    description: S.String,
+    function_id: S.String,
+    input_type: TriggerInputType,
+    status: TriggerStatus,
     error_message: S.optional(S.NullOr(S.String)),
     scw_sqs_config: S.optional(S.NullOr(TriggerMnqSqsClientConfig)),
     scw_nats_config: S.optional(S.NullOr(TriggerMnqNatsClientConfig)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Trigger" }) as any as S.Schema<Trigger>;
 
@@ -875,9 +875,9 @@ export const TokenStatus = S.String;
 
 export interface Token {
   /** UUID of the token. */
-  id?: string;
+  id: string;
   /** String of the token. */
-  token?: string | Redacted.Redacted<string>;
+  token: string | Redacted.Redacted<string>;
   /** UUID of the function the token is associated with. */
   function_id?: string | null;
   /** UUID of the namespace the token is associated with. */
@@ -885,7 +885,7 @@ export interface Token {
   /** Public key of the token. */
   public_key?: string;
   /** Status of the token. */
-  status?: TokenStatus;
+  status: TokenStatus;
   /** Description of the token. */
   description?: string | null;
   /** Date on which the token expires. (RFC 3339 format) */
@@ -893,12 +893,12 @@ export interface Token {
 }
 export const Token = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    token: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    id: S.String,
+    token: S.String.pipe(T.SensitiveValue({})),
     function_id: S.optional(S.NullOr(S.String)),
     namespace_id: S.optional(S.NullOr(S.String)),
     public_key: S.optional(S.String),
-    status: S.optional(TokenStatus),
+    status: TokenStatus,
     description: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
   }),
@@ -1056,13 +1056,13 @@ export const DownloadURLHeadersMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<DownloadURLHeadersMap>;
 
 export interface DownloadURL {
-  url?: string;
-  headers?: DownloadURLHeadersMap;
+  url: string;
+  headers: DownloadURLHeadersMap;
 }
 export const DownloadURL = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    headers: S.optional(DownloadURLHeadersMap),
+    url: S.String,
+    headers: DownloadURLHeadersMap,
   }),
 ).annotate({ identifier: "DownloadURL" }) as any as S.Schema<DownloadURL>;
 
@@ -1109,14 +1109,14 @@ export const UploadURLHeadersMap = /*@__PURE__*/ S.Record(
 
 export interface UploadURL {
   /** Upload URL to upload the function to. */
-  url?: string;
+  url: string;
   /** HTTP headers. */
-  headers?: UploadURLHeadersMap;
+  headers: UploadURLHeadersMap;
 }
 export const UploadURL = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    headers: S.optional(UploadURLHeadersMap),
+    url: S.String,
+    headers: UploadURLHeadersMap,
   }),
 ).annotate({ identifier: "UploadURL" }) as any as S.Schema<UploadURL>;
 
@@ -1234,12 +1234,12 @@ export interface ListCronsResponse {
   /** Array of crons. */
   crons: ListCronsResponseCronsList;
   /** Total number of crons. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListCronsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     crons: ListCronsResponseCronsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListCronsResponse" }) as any as S.Schema<ListCronsResponse>;
 
@@ -1292,12 +1292,12 @@ export interface ListDomainsResponse {
   /** Array of domains. */
   domains: ListDomainsResponseDomainsList;
   /** Total number of domains. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     domains: ListDomainsResponseDomainsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDomainsResponse" }) as any as S.Schema<ListDomainsResponse>;
 
@@ -1333,29 +1333,29 @@ export type RuntimeStatus =
 export const RuntimeStatus = S.String;
 
 export interface Runtime {
-  name?: string;
-  language?: string;
-  version?: string;
-  default_handler?: string;
-  code_sample?: string;
-  status?: RuntimeStatus;
-  status_message?: string;
-  extension?: string;
-  implementation?: string;
-  logo_url?: string;
+  name: string;
+  language: string;
+  version: string;
+  default_handler: string;
+  code_sample: string;
+  status: RuntimeStatus;
+  status_message: string;
+  extension: string;
+  implementation: string;
+  logo_url: string;
 }
 export const Runtime = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    language: S.optional(S.String),
-    version: S.optional(S.String),
-    default_handler: S.optional(S.String),
-    code_sample: S.optional(S.String),
-    status: S.optional(RuntimeStatus),
-    status_message: S.optional(S.String),
-    extension: S.optional(S.String),
-    implementation: S.optional(S.String),
-    logo_url: S.optional(S.String),
+    name: S.String,
+    language: S.String,
+    version: S.String,
+    default_handler: S.String,
+    code_sample: S.String,
+    status: RuntimeStatus,
+    status_message: S.String,
+    extension: S.String,
+    implementation: S.String,
+    logo_url: S.String,
   }),
 ).annotate({ identifier: "Runtime" }) as any as S.Schema<Runtime>;
 
@@ -1367,14 +1367,14 @@ export const ListFunctionRuntimesResponseRuntimesList = /*@__PURE__*/ S.Array(
 
 export interface ListFunctionRuntimesResponse {
   /** Array of runtimes available. */
-  runtimes?: ListFunctionRuntimesResponseRuntimesList;
+  runtimes: ListFunctionRuntimesResponseRuntimesList;
   /** Total number of runtimes. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListFunctionRuntimesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    runtimes: S.optional(ListFunctionRuntimesResponseRuntimesList),
-    total_count: S.optional(S.Number),
+    runtimes: ListFunctionRuntimesResponseRuntimesList,
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListFunctionRuntimesResponse",
@@ -1438,12 +1438,12 @@ export interface ListFunctionsResponse {
   /** Array of functions. */
   functions: ListFunctionsResponseFunctionsList;
   /** Total number of functions. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListFunctionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     functions: ListFunctionsResponseFunctionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListFunctionsResponse" }) as any as S.Schema<ListFunctionsResponse>;
 
@@ -1500,12 +1500,12 @@ export const ListNamespacesResponseNamespacesList = /*@__PURE__*/ S.Array(
 export interface ListNamespacesResponse {
   namespaces: ListNamespacesResponseNamespacesList;
   /** Total number of namespaces. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNamespacesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     namespaces: ListNamespacesResponseNamespacesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNamespacesResponse" }) as any as S.Schema<ListNamespacesResponse>;
 
@@ -1554,12 +1554,12 @@ export const ListTokensResponseTokensList = /*@__PURE__*/ S.Array(
 
 export interface ListTokensResponse {
   tokens: ListTokensResponseTokensList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListTokensResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     tokens: ListTokensResponseTokensList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListTokensResponse" }) as any as S.Schema<ListTokensResponse>;
 
@@ -1612,13 +1612,13 @@ export const ListTriggersResponseTriggersList = /*@__PURE__*/ S.Array(
 
 export interface ListTriggersResponse {
   /** Total count of existing triggers (matching any filters specified). */
-  total_count?: number;
+  total_count: number;
   /** Triggers on this page. */
   triggers: ListTriggersResponseTriggersList;
 }
 export const ListTriggersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     triggers: ListTriggersResponseTriggersList,
   }),
 ).annotate({ identifier: "ListTriggersResponse" }) as any as S.Schema<ListTriggersResponse>;

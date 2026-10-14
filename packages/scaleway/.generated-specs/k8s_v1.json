@@ -154,13 +154,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of cluster-types."
+            "smithy.api#documentation": "Total number of cluster-types.",
+            "smithy.api#required": {}
           }
         },
         "cluster_types": {
           "target": "com.scaleway.k8s_v1#ListClusterTypesResponseClusterTypesList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned cluster-types."
+            "smithy.api#documentation": "Paginated returned cluster-types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -172,25 +174,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster type name."
+            "smithy.api#documentation": "Cluster type name.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the cluster type."
+            "smithy.api#documentation": "The SRN of the cluster type.",
+            "smithy.api#required": {}
           }
         },
         "availability": {
           "target": "com.scaleway.k8s_v1#ClusterTypeAvailability",
           "traits": {
-            "smithy.api#documentation": "Cluster type availability."
+            "smithy.api#documentation": "Cluster type availability.",
+            "smithy.api#required": {}
           }
         },
         "max_nodes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of nodes supported by the offer."
+            "smithy.api#documentation": "Maximum number of nodes supported by the offer.",
+            "smithy.api#required": {}
           }
         },
         "commitment_delay": {
@@ -203,37 +209,43 @@
         "sla": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Value of the Service Level Agreement of the offer."
+            "smithy.api#documentation": "Value of the Service Level Agreement of the offer.",
+            "smithy.api#required": {}
           }
         },
         "resiliency": {
           "target": "com.scaleway.k8s_v1#ClusterTypeResiliency",
           "traits": {
-            "smithy.api#documentation": "Resiliency offered by the offer."
+            "smithy.api#documentation": "Resiliency offered by the offer.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Max RAM allowed for the control plane. (in bytes)"
+            "smithy.api#documentation": "Max RAM allowed for the control plane. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "dedicated": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Returns information if this offer uses dedicated resources."
+            "smithy.api#documentation": "Returns information if this offer uses dedicated resources.",
+            "smithy.api#required": {}
           }
         },
         "audit_logs_supported": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the offer allows activation of the audit log functionality. Please note that audit logs are sent to Cockpit."
+            "smithy.api#documentation": "True if the offer allows activation of the audit log functionality. Please note that audit logs are sent to Cockpit.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region of the cluster type."
+            "smithy.api#documentation": "The region of the cluster type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -562,13 +574,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of clusters."
+            "smithy.api#documentation": "Total number of clusters.",
+            "smithy.api#required": {}
           }
         },
         "clusters": {
           "target": "com.scaleway.k8s_v1#ListClustersResponseClustersList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned clusters."
+            "smithy.api#documentation": "Paginated returned clusters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -580,85 +594,99 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster ID."
+            "smithy.api#documentation": "Cluster ID.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the cluster."
+            "smithy.api#documentation": "The SRN of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster type."
+            "smithy.api#documentation": "Cluster type.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster name."
+            "smithy.api#documentation": "Cluster name.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.k8s_v1#ClusterStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the cluster."
+            "smithy.api#documentation": "Status of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Kubernetes version of the cluster."
+            "smithy.api#documentation": "Kubernetes version of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the cluster is deployed."
+            "smithy.api#documentation": "Region in which the cluster is deployed.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization owning the cluster."
+            "smithy.api#documentation": "ID of the Organization owning the cluster.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project owning the cluster."
+            "smithy.api#documentation": "ID of the Project owning the cluster.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.k8s_v1#ClusterTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the cluster."
+            "smithy.api#documentation": "Tags associated with the cluster.",
+            "smithy.api#required": {}
           }
         },
         "cni": {
           "target": "com.scaleway.k8s_v1#CNI",
           "traits": {
-            "smithy.api#documentation": "Container Network Interface (CNI) plugin running in the cluster."
+            "smithy.api#documentation": "Container Network Interface (CNI) plugin running in the cluster.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster description."
+            "smithy.api#documentation": "Cluster description.",
+            "smithy.api#required": {}
           }
         },
         "cluster_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Kubernetes API server URL of the cluster."
+            "smithy.api#documentation": "Kubernetes API server URL of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "dns_wildcard": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Wildcard DNS resolving all the ready cluster nodes."
+            "smithy.api#documentation": "Wildcard DNS resolving all the ready cluster nodes.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -690,19 +718,22 @@
         "upgrade_available": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether a new Kubernetes version is available."
+            "smithy.api#documentation": "Defines whether a new Kubernetes version is available.",
+            "smithy.api#required": {}
           }
         },
         "feature_gates": {
           "target": "com.scaleway.k8s_v1#ClusterFeatureGatesList",
           "traits": {
-            "smithy.api#documentation": "List of enabled feature gates."
+            "smithy.api#documentation": "List of enabled feature gates.",
+            "smithy.api#required": {}
           }
         },
         "admission_plugins": {
           "target": "com.scaleway.k8s_v1#ClusterAdmissionPluginsList",
           "traits": {
-            "smithy.api#documentation": "List of enabled admission plugins."
+            "smithy.api#documentation": "List of enabled admission plugins.",
+            "smithy.api#required": {}
           }
         },
         "open_id_connect_config": {
@@ -714,7 +745,8 @@
         "apiserver_cert_sans": {
           "target": "com.scaleway.k8s_v1#ClusterApiserverCertSansList",
           "traits": {
-            "smithy.api#documentation": "Additional Subject Alternative Names for the Kubernetes API server certificate."
+            "smithy.api#documentation": "Additional Subject Alternative Names for the Kubernetes API server certificate.",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
@@ -740,31 +772,36 @@
         "iam_nodes_group_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IAM group that nodes are members of (this field might be empty during early stage of cluster creation)."
+            "smithy.api#documentation": "IAM group that nodes are members of (this field might be empty during early stage of cluster creation).",
+            "smithy.api#required": {}
           }
         },
         "iam_control_plane_application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IAM application ID for the control plane (this field might be empty during early stage of cluster creation)."
+            "smithy.api#documentation": "IAM application ID for the control plane (this field might be empty during early stage of cluster creation).",
+            "smithy.api#required": {}
           }
         },
         "pod_cidr": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subnet used for the Pod CIDR. (IP network)"
+            "smithy.api#documentation": "Subnet used for the Pod CIDR. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "service_cidr": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subnet used for the Service CIDR. (IP network)"
+            "smithy.api#documentation": "Subnet used for the Service CIDR. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "service_dns_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP used for the DNS Service. (IPv4 address)"
+            "smithy.api#documentation": "IP used for the DNS Service. (IPv4 address)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -827,73 +864,85 @@
         "scale_down_disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Forbid cluster autoscaler to scale down the cluster, defaults to false."
+            "smithy.api#documentation": "Forbid cluster autoscaler to scale down the cluster, defaults to false.",
+            "smithy.api#required": {}
           }
         },
         "scale_down_delay_after_add": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "How long after scale up the scale down evaluation resumes."
+            "smithy.api#documentation": "How long after scale up the scale down evaluation resumes.",
+            "smithy.api#required": {}
           }
         },
         "estimator": {
           "target": "com.scaleway.k8s_v1#AutoscalerEstimator",
           "traits": {
-            "smithy.api#documentation": "Type of resource estimator to be used in scale up."
+            "smithy.api#documentation": "Type of resource estimator to be used in scale up.",
+            "smithy.api#required": {}
           }
         },
         "expander": {
           "target": "com.scaleway.k8s_v1#AutoscalerExpander",
           "traits": {
-            "smithy.api#documentation": "Kubernetes autoscaler strategy to fit pods into nodes, see https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders for details."
+            "smithy.api#documentation": "Kubernetes autoscaler strategy to fit pods into nodes, see https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#what-are-expanders for details.",
+            "smithy.api#required": {}
           }
         },
         "ignore_daemonsets_utilization": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Ignore DaemonSet pods when calculating resource utilization for scaling down, defaults to false."
+            "smithy.api#documentation": "Ignore DaemonSet pods when calculating resource utilization for scaling down, defaults to false.",
+            "smithy.api#required": {}
           }
         },
         "balance_similar_node_groups": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Detect similar node groups and balance the number of nodes between them, defaults to false."
+            "smithy.api#documentation": "Detect similar node groups and balance the number of nodes between them, defaults to false.",
+            "smithy.api#required": {}
           }
         },
         "expendable_pods_priority_cutoff": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Pods with priority below cutoff will be expendable. They can be killed without any consideration during scale down and they won't cause scale up. Pods with null priority (PodPriority disabled) are non expendable."
+            "smithy.api#documentation": "Pods with priority below cutoff will be expendable. They can be killed without any consideration during scale down and they won't cause scale up. Pods with null priority (PodPriority disabled) are non expendable.",
+            "smithy.api#required": {}
           }
         },
         "scale_down_unneeded_time": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "How long a node should be unneeded before it is eligible for scale down, defaults to 10 minutes."
+            "smithy.api#documentation": "How long a node should be unneeded before it is eligible for scale down, defaults to 10 minutes.",
+            "smithy.api#required": {}
           }
         },
         "scale_down_utilization_threshold": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Node utilization level, defined as a sum of requested resources divided by allocatable capacity, below which a node can be considered for scale down."
+            "smithy.api#documentation": "Node utilization level, defined as a sum of requested resources divided by allocatable capacity, below which a node can be considered for scale down.",
+            "smithy.api#required": {}
           }
         },
         "max_graceful_termination_sec": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node, defaults to 600 (10 minutes)."
+            "smithy.api#documentation": "Maximum number of seconds the cluster autoscaler waits for pod termination when trying to scale down a node, defaults to 600 (10 minutes).",
+            "smithy.api#required": {}
           }
         },
         "skip_nodes_with_local_storage": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Cluster autoscaler will never delete nodes with pods with local storage, e.g. EmptyDir or HostPath, defaults to true."
+            "smithy.api#documentation": "Cluster autoscaler will never delete nodes with pods with local storage, e.g. EmptyDir or HostPath, defaults to true.",
+            "smithy.api#required": {}
           }
         },
         "log_level": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Cluster autoscaler logging level expressed from 0 to 4 (4 being the more verbose), defaults to 2. see https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-increase-the-information-that-the-ca-is-logging for details."
+            "smithy.api#documentation": "Cluster autoscaler logging level expressed from 0 to 4 (4 being the more verbose), defaults to 2. see https://github.com/kubernetes/autoscaler/blob/master/cluster-autoscaler/FAQ.md#how-can-i-increase-the-information-that-the-ca-is-logging for details.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -965,7 +1014,8 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether auto upgrade is enabled for the cluster."
+            "smithy.api#documentation": "Defines whether auto upgrade is enabled for the cluster.",
+            "smithy.api#required": {}
           }
         },
         "maintenance_window": {
@@ -1073,43 +1123,50 @@
         "issuer_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the provider which allows the API server to discover public signing keys. Only URLs using the `https://` scheme are accepted. This is typically the provider's discovery URL without a path, for example \"https://accounts.google.com\" or \"https://login.salesforce.com\"."
+            "smithy.api#documentation": "URL of the provider which allows the API server to discover public signing keys. Only URLs using the `https://` scheme are accepted. This is typically the provider's discovery URL without a path, for example \"https://accounts.google.com\" or \"https://login.salesforce.com\".",
+            "smithy.api#required": {}
           }
         },
         "client_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A client ID that all tokens must be issued for."
+            "smithy.api#documentation": "A client ID that all tokens must be issued for.",
+            "smithy.api#required": {}
           }
         },
         "username_claim": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "JWT claim to use as the user name. The default is `sub`, which is expected to be the end user's unique identifier. Admins can choose other claims, such as `email` or `name`, depending on their provider. However, claims other than `email` will be prefixed with the issuer URL to prevent name collision."
+            "smithy.api#documentation": "JWT claim to use as the user name. The default is `sub`, which is expected to be the end user's unique identifier. Admins can choose other claims, such as `email` or `name`, depending on their provider. However, claims other than `email` will be prefixed with the issuer URL to prevent name collision.",
+            "smithy.api#required": {}
           }
         },
         "username_prefix": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Prefix prepended to username claims to prevent name collision (such as `system:` users). For example, the value `oidc:` will create usernames like `oidc:jane.doe`. If this flag is not provided and `username_claim` is a value other than `email`, the prefix defaults to `( Issuer URL )#` where `( Issuer URL )` is the value of `issuer_url`. The value `-` can be used to disable all prefixing."
+            "smithy.api#documentation": "Prefix prepended to username claims to prevent name collision (such as `system:` users). For example, the value `oidc:` will create usernames like `oidc:jane.doe`. If this flag is not provided and `username_claim` is a value other than `email`, the prefix defaults to `( Issuer URL )#` where `( Issuer URL )` is the value of `issuer_url`. The value `-` can be used to disable all prefixing.",
+            "smithy.api#required": {}
           }
         },
         "groups_claim": {
           "target": "com.scaleway.k8s_v1#ClusterOpenIDConnectConfigGroupsClaimList",
           "traits": {
-            "smithy.api#documentation": "JWT claim to use as the user's group."
+            "smithy.api#documentation": "JWT claim to use as the user's group.",
+            "smithy.api#required": {}
           }
         },
         "groups_prefix": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Prefix prepended to group claims to prevent name collision (such as `system:` groups). For example, the value `oidc:` will create group names like `oidc:engineering` and `oidc:infra`."
+            "smithy.api#documentation": "Prefix prepended to group claims to prevent name collision (such as `system:` groups). For example, the value `oidc:` will create group names like `oidc:engineering` and `oidc:infra`.",
+            "smithy.api#required": {}
           }
         },
         "required_claim": {
           "target": "com.scaleway.k8s_v1#ClusterOpenIDConnectConfigRequiredClaimList",
           "traits": {
-            "smithy.api#documentation": "Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value."
+            "smithy.api#documentation": "Multiple key=value pairs describing a required claim in the ID token. If set, the claims are verified to be present in the ID token with a matching value.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2486,13 +2543,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of ACLs that exist for the cluster."
+            "smithy.api#documentation": "Total number of ACLs that exist for the cluster.",
+            "smithy.api#required": {}
           }
         },
         "rules": {
           "target": "com.scaleway.k8s_v1#ListClusterACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned ACLs."
+            "smithy.api#documentation": "Paginated returned ACLs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2504,13 +2563,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the ACL rule. (UUID format)"
+            "smithy.api#documentation": "ID of the ACL rule. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the ACL rule."
+            "smithy.api#documentation": "The SRN of the ACL rule.",
+            "smithy.api#required": {}
           }
         },
         "ip": {
@@ -2530,13 +2591,15 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the ACL."
+            "smithy.api#documentation": "Description of the ACL.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the ACL rule."
+            "smithy.api#documentation": "Region of the ACL rule.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2676,7 +2739,8 @@
         "rules": {
           "target": "com.scaleway.k8s_v1#AddClusterACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "ACLs that were added."
+            "smithy.api#documentation": "ACLs that were added.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2783,7 +2847,8 @@
         "rules": {
           "target": "com.scaleway.k8s_v1#SetClusterACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "ACLs that were set."
+            "smithy.api#documentation": "ACLs that were set.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2875,13 +2940,15 @@
         "cluster_types": {
           "target": "com.scaleway.k8s_v1#ListClusterAvailableTypesResponseClusterTypesList",
           "traits": {
-            "smithy.api#documentation": "Available cluster types for the cluster."
+            "smithy.api#documentation": "Available cluster types for the cluster.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of types."
+            "smithy.api#documentation": "Total number of types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2973,7 +3040,8 @@
         "versions": {
           "target": "com.scaleway.k8s_v1#ListClusterAvailableVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available Kubernetes versions for the cluster."
+            "smithy.api#documentation": "Available Kubernetes versions for the cluster.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2985,49 +3053,57 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Kubernetes version."
+            "smithy.api#documentation": "Name of the Kubernetes version.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the version."
+            "smithy.api#documentation": "The SRN of the version.",
+            "smithy.api#required": {}
           }
         },
         "label": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Label of the Kubernetes version."
+            "smithy.api#documentation": "Label of the Kubernetes version.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which this version is available."
+            "smithy.api#documentation": "Region in which this version is available.",
+            "smithy.api#required": {}
           }
         },
         "available_cnis": {
           "target": "com.scaleway.k8s_v1#VersionAvailableCnisList",
           "traits": {
-            "smithy.api#documentation": "Supported Container Network Interface (CNI) plugins for this version."
+            "smithy.api#documentation": "Supported Container Network Interface (CNI) plugins for this version.",
+            "smithy.api#required": {}
           }
         },
         "available_feature_gates": {
           "target": "com.scaleway.k8s_v1#VersionAvailableFeatureGatesList",
           "traits": {
-            "smithy.api#documentation": "Supported feature gates for this version."
+            "smithy.api#documentation": "Supported feature gates for this version.",
+            "smithy.api#required": {}
           }
         },
         "available_admission_plugins": {
           "target": "com.scaleway.k8s_v1#VersionAvailableAdmissionPluginsList",
           "traits": {
-            "smithy.api#documentation": "Supported admission plugins for this version."
+            "smithy.api#documentation": "Supported admission plugins for this version.",
+            "smithy.api#required": {}
           }
         },
         "available_kubelet_args": {
           "target": "com.scaleway.k8s_v1#VersionAvailableKubeletArgsMap",
           "traits": {
-            "smithy.api#documentation": "Supported kubelet arguments for this version."
+            "smithy.api#documentation": "Supported kubelet arguments for this version.",
+            "smithy.api#required": {}
           }
         },
         "deprecated_at": {
@@ -3054,7 +3130,8 @@
         "additional_components": {
           "target": "com.scaleway.k8s_v1#VersionAdditionalComponentsMap",
           "traits": {
-            "smithy.api#documentation": "Map containing every sub-component version shipped with this Kapsule version."
+            "smithy.api#documentation": "Map containing every sub-component version shipped with this Kapsule version.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3103,7 +3180,10 @@
       "type": "structure",
       "members": {
         "version": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3242,10 +3322,16 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
           "target": "smithy.api#String",
@@ -3519,13 +3605,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of nodes."
+            "smithy.api#documentation": "Total number of nodes.",
+            "smithy.api#required": {}
           }
         },
         "nodes": {
           "target": "com.scaleway.k8s_v1#ListNodesResponseNodesList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned nodes."
+            "smithy.api#documentation": "Paginated returned nodes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3537,49 +3625,57 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node ID."
+            "smithy.api#documentation": "Node ID.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the node."
+            "smithy.api#documentation": "The SRN of the node.",
+            "smithy.api#required": {}
           }
         },
         "pool_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pool ID of the node."
+            "smithy.api#documentation": "Pool ID of the node.",
+            "smithy.api#required": {}
           }
         },
         "cluster_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster ID of the node."
+            "smithy.api#documentation": "Cluster ID of the node.",
+            "smithy.api#required": {}
           }
         },
         "provider_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Underlying instance ID. It is prefixed by instance type and location information (see https://pkg.go.dev/k8s.io/api/core/v1#NodeSpec.ProviderID)."
+            "smithy.api#documentation": "Underlying instance ID. It is prefixed by instance type and location information (see https://pkg.go.dev/k8s.io/api/core/v1#NodeSpec.ProviderID).",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster region of the node."
+            "smithy.api#documentation": "Cluster region of the node.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the node."
+            "smithy.api#documentation": "Name of the node.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.k8s_v1#NodeStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the node."
+            "smithy.api#documentation": "Status of the node.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -3854,13 +3950,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of pools that exists for the cluster."
+            "smithy.api#documentation": "Total number of pools that exists for the cluster.",
+            "smithy.api#required": {}
           }
         },
         "pools": {
           "target": "com.scaleway.k8s_v1#ListPoolsResponsePoolsList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned pools."
+            "smithy.api#documentation": "Paginated returned pools.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3872,13 +3970,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pool ID. (UUID format)"
+            "smithy.api#documentation": "Pool ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "cluster_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster ID of the pool. (UUID format)"
+            "smithy.api#documentation": "Cluster ID of the pool. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3898,19 +3998,22 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pool name."
+            "smithy.api#documentation": "Pool name.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.k8s_v1#PoolStatus",
           "traits": {
-            "smithy.api#documentation": "Pool status."
+            "smithy.api#documentation": "Pool status.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pool version."
+            "smithy.api#documentation": "Pool version.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
@@ -3923,7 +4026,8 @@
         "autoscaling": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the autoscaling feature is enabled for the pool."
+            "smithy.api#documentation": "Defines whether the autoscaling feature is enabled for the pool.",
+            "smithy.api#required": {}
           }
         },
         "size": {
@@ -3936,31 +4040,36 @@
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Defines the minimum size of the pool. Note that this field is only used when autoscaling is enabled on the pool."
+            "smithy.api#documentation": "Defines the minimum size of the pool. Note that this field is only used when autoscaling is enabled on the pool.",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Defines the maximum size of the pool. Note that this field is only used when autoscaling is enabled on the pool."
+            "smithy.api#documentation": "Defines the maximum size of the pool. Note that this field is only used when autoscaling is enabled on the pool.",
+            "smithy.api#required": {}
           }
         },
         "container_runtime": {
           "target": "com.scaleway.k8s_v1#Runtime",
           "traits": {
-            "smithy.api#documentation": "Customization of the container runtime is available for each pool."
+            "smithy.api#documentation": "Customization of the container runtime is available for each pool.",
+            "smithy.api#required": {}
           }
         },
         "autohealing": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the autohealing feature is enabled for the pool."
+            "smithy.api#documentation": "Defines whether the autohealing feature is enabled for the pool.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.k8s_v1#PoolTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the pool, see [managing tags](https://www.scaleway.com/en/docs/kubernetes/api-cli/managing-tags)."
+            "smithy.api#documentation": "Tags associated with the pool, see [managing tags](https://www.scaleway.com/en/docs/kubernetes/api-cli/managing-tags).",
+            "smithy.api#required": {}
           }
         },
         "placement_group_id": {
@@ -3973,7 +4082,8 @@
         "kubelet_args": {
           "target": "com.scaleway.k8s_v1#PoolKubeletArgsMap",
           "traits": {
-            "smithy.api#documentation": "Kubelet arguments to be used by this pool. Note that this feature is experimental."
+            "smithy.api#documentation": "Kubelet arguments to be used by this pool. Note that this feature is experimental.",
+            "smithy.api#required": {}
           }
         },
         "upgrade_policy": {
@@ -3985,13 +4095,15 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which the pool's nodes will be spawned."
+            "smithy.api#documentation": "Zone in which the pool's nodes will be spawned.",
+            "smithy.api#required": {}
           }
         },
         "root_volume_type": {
           "target": "com.scaleway.k8s_v1#PoolVolumeType",
           "traits": {
-            "smithy.api#documentation": "Defines the system volume disk type. Several types of volume (`volume_type`) are provided:.\n* `l_ssd` is a local block storage which means your system is stored locally on your node's hypervisor. This type is not available for all node types\n* `sbs_5k` is a remote block storage which means your system is stored on a centralized and resilient cluster with 5k IOPS limits\n* `sbs_15k` is a faster remote block storage which means your system is stored on a centralized and resilient cluster with 15k IOPS limits\n* `b_ssd` is the legacy remote block storage which means your system is stored on a centralized and resilient cluster. Not available for new pools, use `sbs_5k` or `sbs_15k` instead."
+            "smithy.api#documentation": "Defines the system volume disk type. Several types of volume (`volume_type`) are provided:.\n* `l_ssd` is a local block storage which means your system is stored locally on your node's hypervisor. This type is not available for all node types\n* `sbs_5k` is a remote block storage which means your system is stored on a centralized and resilient cluster with 5k IOPS limits\n* `sbs_15k` is a faster remote block storage which means your system is stored on a centralized and resilient cluster with 15k IOPS limits\n* `b_ssd` is the legacy remote block storage which means your system is stored on a centralized and resilient cluster. Not available for new pools, use `sbs_5k` or `sbs_15k` instead.",
+            "smithy.api#required": {}
           }
         },
         "root_volume_size": {
@@ -4004,31 +4116,36 @@
         "public_ip_disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines if the public IP should be removed from Nodes. To use this feature, your Cluster must have an attached Private Network set up with a Public Gateway."
+            "smithy.api#documentation": "Defines if the public IP should be removed from Nodes. To use this feature, your Cluster must have an attached Private Network set up with a Public Gateway.",
+            "smithy.api#required": {}
           }
         },
         "security_group_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Security group ID in which all the nodes of the pool will be created. If unset, the pool will use default Kapsule security group in current zone. (UUID format)"
+            "smithy.api#documentation": "Security group ID in which all the nodes of the pool will be created. If unset, the pool will use default Kapsule security group in current zone. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "labels": {
           "target": "com.scaleway.k8s_v1#PoolLabelsMap",
           "traits": {
-            "smithy.api#documentation": "Kubernetes labels applied and reconciled on the nodes."
+            "smithy.api#documentation": "Kubernetes labels applied and reconciled on the nodes.",
+            "smithy.api#required": {}
           }
         },
         "taints": {
           "target": "com.scaleway.k8s_v1#PoolTaintsList",
           "traits": {
-            "smithy.api#documentation": "Kubernetes taints applied and reconciled on the nodes."
+            "smithy.api#documentation": "Kubernetes taints applied and reconciled on the nodes.",
+            "smithy.api#required": {}
           }
         },
         "startup_taints": {
           "target": "com.scaleway.k8s_v1#PoolStartupTaintsList",
           "traits": {
-            "smithy.api#documentation": "Kubernetes taints applied at node creation but not reconciled afterwards."
+            "smithy.api#documentation": "Kubernetes taints applied at node creation but not reconciled afterwards.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -4048,13 +4165,15 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the pool."
+            "smithy.api#documentation": "The SRN of the pool.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster region of the pool."
+            "smithy.api#documentation": "Cluster region of the pool.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4087,13 +4206,15 @@
         "max_unavailable": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum number of nodes that can be `upgrading` at the same time."
+            "smithy.api#documentation": "The maximum number of nodes that can be `upgrading` at the same time.",
+            "smithy.api#required": {}
           }
         },
         "max_surge": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum number of nodes to be created during the upgrade, e.g. the pool will scale up to reach `size`+`max_surge` before downscaling to `size` after node upgrades."
+            "smithy.api#documentation": "The maximum number of nodes to be created during the upgrade, e.g. the pool will scale up to reach `size`+`max_surge` before downscaling to `size` after node upgrades.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5698,7 +5819,8 @@
         "user_data": {
           "target": "com.scaleway.k8s_v1#ListUserDataResponseUserDataList",
           "traits": {
-            "smithy.api#documentation": "User data information."
+            "smithy.api#documentation": "User data information.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5710,7 +5832,8 @@
         "key": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Key name of a given user data."
+            "smithy.api#documentation": "Key name of a given user data.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5873,7 +5996,8 @@
         "versions": {
           "target": "com.scaleway.k8s_v1#ListVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available Kubernetes versions."
+            "smithy.api#documentation": "Available Kubernetes versions.",
+            "smithy.api#required": {}
           }
         }
       },

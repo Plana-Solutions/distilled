@@ -48,17 +48,17 @@ export const ServerPrivateNetworkStatus = S.String;
 
 export interface ServerPrivateNetwork {
   /** The Private Network ID. */
-  id?: string;
+  id: string;
   /** The Private Network Project ID. */
-  project_id?: string;
+  project_id: string;
   /** The server ID. */
-  server_id?: string;
+  server_id: string;
   /** The Private Network ID. */
-  private_network_id?: string;
+  private_network_id: string;
   /** The VLAN ID associated to the Private Network. */
   vlan?: number | null;
   /** The configuration status of the Private Network. */
-  status?: ServerPrivateNetworkStatus;
+  status: ServerPrivateNetworkStatus;
   /** The Private Network creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** The date the Private Network was last modified. (RFC 3339 format) */
@@ -66,12 +66,12 @@ export interface ServerPrivateNetwork {
 }
 export const ServerPrivateNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    server_id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
+    id: S.String,
+    project_id: S.String,
+    server_id: S.String,
+    private_network_id: S.String,
     vlan: S.optional(S.NullOr(S.Number)),
-    status: S.optional(ServerPrivateNetworkStatus),
+    status: ServerPrivateNetworkStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -170,12 +170,12 @@ export const ListServerPrivateNetworksResponseServerPrivateNetworksList = /*@__P
 
 export interface ListServerPrivateNetworksResponse {
   server_private_networks: ListServerPrivateNetworksResponseServerPrivateNetworksList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListServerPrivateNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     server_private_networks: ListServerPrivateNetworksResponseServerPrivateNetworksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListServerPrivateNetworksResponse",
@@ -221,11 +221,11 @@ export const SetServerPrivateNetworksResponseServerPrivateNetworksList = /*@__PU
 ) as any as S.Schema<SetServerPrivateNetworksResponseServerPrivateNetworksList>;
 
 export interface SetServerPrivateNetworksResponse {
-  server_private_networks?: SetServerPrivateNetworksResponseServerPrivateNetworksList;
+  server_private_networks: SetServerPrivateNetworksResponseServerPrivateNetworksList;
 }
 export const SetServerPrivateNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server_private_networks: S.optional(SetServerPrivateNetworksResponseServerPrivateNetworksList),
+    server_private_networks: SetServerPrivateNetworksResponseServerPrivateNetworksList,
   }),
 ).annotate({
   identifier: "SetServerPrivateNetworksResponse",

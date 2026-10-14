@@ -128,9 +128,9 @@ export interface RouteRule {
   /** ID of the backend stage that requests matching the rule should be forwarded to. (UUID format) */
   backend_stage_id?: string | null;
   /** Position of the rule which determines the order of processing within the route stage. */
-  position?: number;
+  position: number;
   /** Route stage ID the route rule belongs to. */
-  route_stage_id?: string;
+  route_stage_id: string;
   /** ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format) */
   waf_stage_id?: string | null;
 }
@@ -138,8 +138,8 @@ export const RouteRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     rule_http_match: S.optional(S.NullOr(RuleHttpMatch)),
     backend_stage_id: S.optional(S.NullOr(S.String)),
-    position: S.optional(S.Number),
-    route_stage_id: S.optional(S.String),
+    position: S.Number,
+    route_stage_id: S.String,
     waf_stage_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "RouteRule" }) as any as S.Schema<RouteRule>;
@@ -152,11 +152,11 @@ export const AddRouteRulesResponseRouteRulesList = /*@__PURE__*/ S.Array(
 
 export interface AddRouteRulesResponse {
   /** List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`. */
-  route_rules?: AddRouteRulesResponseRouteRulesList;
+  route_rules: AddRouteRulesResponseRouteRulesList;
 }
 export const AddRouteRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    route_rules: S.optional(AddRouteRulesResponseRouteRulesList),
+    route_rules: AddRouteRulesResponseRouteRulesList,
   }),
 ).annotate({ identifier: "AddRouteRulesResponse" }) as any as S.Schema<AddRouteRulesResponse>;
 
@@ -283,11 +283,11 @@ export const StageStatus = S.String;
 
 export interface BackendStage {
   /** ID of the backend stage. */
-  id?: string;
+  id: string;
   /** Pipeline ID the backend stage belongs to. */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** Current status of the stage. */
-  status?: StageStatus;
+  status: StageStatus;
   /** Date the backend stage was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the backend stage was last updated. (RFC 3339 format) */
@@ -303,9 +303,9 @@ export interface BackendStage {
 }
 export const BackendStage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    pipeline_id: S.optional(S.String),
-    status: S.optional(StageStatus),
+    id: S.String,
+    pipeline_id: S.String,
+    status: StageStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     scaleway_s3: S.optional(S.NullOr(ScalewayS3BackendConfig)),
@@ -349,15 +349,15 @@ export const CreateCacheStageRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface CacheStage {
   /** ID of the cache stage. */
-  id?: string;
+  id: string;
   /** Pipeline ID the cache stage belongs to. */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** Time To Live (TTL) in seconds. Defines how long content is cached. (in seconds) */
   fallback_ttl?: string | null;
   /** Defines whether responses to requests with cookies must be stored in the cache. */
-  include_cookies?: boolean;
+  include_cookies: boolean;
   /** Current status of the stage. */
-  status?: StageStatus;
+  status: StageStatus;
   /** Date the cache stage was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the cache stage was last updated. (RFC 3339 format) */
@@ -371,11 +371,11 @@ export interface CacheStage {
 }
 export const CacheStage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    pipeline_id: S.optional(S.String),
+    id: S.String,
+    pipeline_id: S.String,
     fallback_ttl: S.optional(S.NullOr(S.String)),
-    include_cookies: S.optional(S.Boolean),
-    status: S.optional(StageStatus),
+    include_cookies: S.Boolean,
+    status: StageStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     waf_stage_id: S.optional(S.NullOr(S.String)),
@@ -433,17 +433,17 @@ export const DNSStageType = S.String;
 
 export interface DNSStage {
   /** ID of the DNS stage. */
-  id?: string;
+  id: string;
   /** Default Fully Qualified Domain Name provided for the Pipeline. */
-  default_fqdn?: string;
+  default_fqdn: string;
   /** Custom Fully Qualified Domain Names configured (only the first one is valid). */
-  fqdns?: DNSStageFqdnsList;
+  fqdns: DNSStageFqdnsList;
   /** Type of the stage. */
-  type?: DNSStageType;
+  type: DNSStageType;
   /** Pipeline ID the DNS stage belongs to. */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** Current status of the stage. */
-  status?: StageStatus;
+  status: StageStatus;
   /** Date the DNS stage was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the DNS stage was last updated. (RFC 3339 format) */
@@ -455,22 +455,22 @@ export interface DNSStage {
   /** Backend stage ID the DNS stage is linked to. (UUID format) */
   backend_stage_id?: string | null;
   /** Support of wildcard (subdomains) for the given domain (a wildcard certificate is required to make it work). */
-  wildcard_domain?: boolean;
+  wildcard_domain: boolean;
 }
 export const DNSStage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    default_fqdn: S.optional(S.String),
-    fqdns: S.optional(DNSStageFqdnsList),
-    type: S.optional(DNSStageType),
-    pipeline_id: S.optional(S.String),
-    status: S.optional(StageStatus),
+    id: S.String,
+    default_fqdn: S.String,
+    fqdns: DNSStageFqdnsList,
+    type: DNSStageType,
+    pipeline_id: S.String,
+    status: StageStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     tls_stage_id: S.optional(S.NullOr(S.String)),
     cache_stage_id: S.optional(S.NullOr(S.String)),
     backend_stage_id: S.optional(S.NullOr(S.String)),
-    wildcard_domain: S.optional(S.Boolean),
+    wildcard_domain: S.Boolean,
   }),
 ).annotate({ identifier: "DNSStage" }) as any as S.Schema<DNSStage>;
 
@@ -553,19 +553,19 @@ export type PipelineErrorType = "unknown_type" | "runtime" | "config";
 export const PipelineErrorType = S.String;
 
 export interface PipelineError {
-  stage?: PipelineErrorStage;
-  code?: PipelineErrorCode;
-  severity?: PipelineErrorSeverity;
-  message?: string;
-  type?: PipelineErrorType;
+  stage: PipelineErrorStage;
+  code: PipelineErrorCode;
+  severity: PipelineErrorSeverity;
+  message: string;
+  type: PipelineErrorType;
 }
 export const PipelineError = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    stage: S.optional(PipelineErrorStage),
-    code: S.optional(PipelineErrorCode),
-    severity: S.optional(PipelineErrorSeverity),
-    message: S.optional(S.String),
-    type: S.optional(PipelineErrorType),
+    stage: PipelineErrorStage,
+    code: PipelineErrorCode,
+    severity: PipelineErrorSeverity,
+    message: S.String,
+    type: PipelineErrorType,
   }),
 ).annotate({ identifier: "PipelineError" }) as any as S.Schema<PipelineError>;
 
@@ -577,19 +577,19 @@ export const PipelineErrorsList = /*@__PURE__*/ S.Array(
 
 export interface Pipeline {
   /** ID of the pipeline. */
-  id?: string;
+  id: string;
   /** Name of the pipeline. */
-  name?: string;
+  name: string;
   /** Description of the pipeline. */
-  description?: string;
+  description: string;
   /** Status of the pipeline. */
-  status?: PipelineStatus;
+  status: PipelineStatus;
   /** Errors of the pipeline. */
-  errors?: PipelineErrorsList;
+  errors: PipelineErrorsList;
   /** Project ID of the pipeline. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID of the pipeline. */
-  organization_id?: string;
+  organization_id: string;
   /** Date the pipeline was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the pipeline was last updated. (RFC 3339 format) */
@@ -597,13 +597,13 @@ export interface Pipeline {
 }
 export const Pipeline = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    status: S.optional(PipelineStatus),
-    errors: S.optional(PipelineErrorsList),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    status: PipelineStatus,
+    errors: PipelineErrorsList,
+    project_id: S.String,
+    organization_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -651,11 +651,11 @@ export const PurgeRequestAssetsList = /*@__PURE__*/ S.Array(
 
 export interface PurgeRequest {
   /** ID of the purge request. (UUID format) */
-  id?: string;
+  id: string;
   /** Pipeline ID the purge request belongs to. (UUID format) */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** Status of the purge request. */
-  status?: PurgeRequestStatus;
+  status: PurgeRequestStatus;
   /** List of asserts to purge. */
   assets?: PurgeRequestAssetsList | null;
   /** Defines whether to purge all content. */
@@ -667,9 +667,9 @@ export interface PurgeRequest {
 }
 export const PurgeRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    pipeline_id: S.optional(S.String),
-    status: S.optional(PurgeRequestStatus),
+    id: S.String,
+    pipeline_id: S.String,
+    status: PurgeRequestStatus,
     assets: S.optional(S.NullOr(PurgeRequestAssetsList)),
     all: S.optional(S.NullOr(S.Boolean)),
     created_at: S.optional(S.NullOr(S.String)),
@@ -702,15 +702,15 @@ export const CreateRouteStageRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface RouteStage {
   /** ID of the route stage. */
-  id?: string;
+  id: string;
   /** Pipeline ID the route stage belongs to. */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
   waf_stage_id?: string | null;
   /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
   backend_stage_id?: string | null;
   /** Current status of the stage. */
-  status?: StageStatus;
+  status: StageStatus;
   /** Date the route stage was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the route stage was last updated. (RFC 3339 format) */
@@ -718,11 +718,11 @@ export interface RouteStage {
 }
 export const RouteStage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    pipeline_id: S.optional(S.String),
+    id: S.String,
+    pipeline_id: S.String,
     waf_stage_id: S.optional(S.NullOr(S.String)),
     backend_stage_id: S.optional(S.NullOr(S.String)),
-    status: S.optional(StageStatus),
+    status: StageStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -790,17 +790,17 @@ export const TLSStageSecretsList = /*@__PURE__*/ S.Array(
 
 export interface TLSStage {
   /** ID of the TLS stage. */
-  id?: string;
+  id: string;
   /** Secret (from Scaleway Secret Manager) containing your custom certificate. */
-  secrets?: TLSStageSecretsList;
+  secrets: TLSStageSecretsList;
   /** True when Scaleway generates and manages a Let's Encrypt certificate for the TLS stage/custom endpoint. */
-  managed_certificate?: boolean;
+  managed_certificate: boolean;
   /** Pipeline ID the TLS stage belongs to. */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** Expiration date of the certificate. (RFC 3339 format) */
   certificate_expires_at?: string | null;
   /** Current status of the stage. */
-  status?: StageStatus;
+  status: StageStatus;
   /** Date the TLS stage was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the TLS stage was last updated. (RFC 3339 format) */
@@ -816,12 +816,12 @@ export interface TLSStage {
 }
 export const TLSStage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    secrets: S.optional(TLSStageSecretsList),
-    managed_certificate: S.optional(S.Boolean),
-    pipeline_id: S.optional(S.String),
+    id: S.String,
+    secrets: TLSStageSecretsList,
+    managed_certificate: S.Boolean,
+    pipeline_id: S.String,
     certificate_expires_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(StageStatus),
+    status: StageStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     cache_stage_id: S.optional(S.NullOr(S.String)),
@@ -942,15 +942,15 @@ export const WafStageExclusionRulesList = /*@__PURE__*/ S.Array(
 
 export interface WafStage {
   /** ID of the WAF stage. */
-  id?: string;
+  id: string;
   /** Pipeline ID the WAF stage belongs to. */
-  pipeline_id?: string;
+  pipeline_id: string;
   /** Mode defining WAF behavior (`disable`/`log_only`/`enable`). */
-  mode?: WafStageMode;
+  mode: WafStageMode;
   /** Sensitivity level (`1`,`2`,`3`,`4`) to use when classifying requests as malicious. With a high level, requests are more likely to be classed as malicious, and false positives are expected. With a lower level, requests are more likely to be classed as benign. */
-  paranoia_level?: number;
+  paranoia_level: number;
   /** Current status of the stage. */
-  status?: StageStatus;
+  status: StageStatus;
   /** Date the WAF stage was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the WAF stage was last updated. (RFC 3339 format) */
@@ -958,19 +958,19 @@ export interface WafStage {
   /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) */
   backend_stage_id?: string | null;
   /** List of OWASP® CRS rule IDs excluded from WAF. */
-  exclusion_rules?: WafStageExclusionRulesList;
+  exclusion_rules: WafStageExclusionRulesList;
 }
 export const WafStage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    pipeline_id: S.optional(S.String),
-    mode: S.optional(WafStageMode),
-    paranoia_level: S.optional(S.Number),
-    status: S.optional(StageStatus),
+    id: S.String,
+    pipeline_id: S.String,
+    mode: WafStageMode,
+    paranoia_level: S.Number,
+    status: StageStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     backend_stage_id: S.optional(S.NullOr(S.String)),
-    exclusion_rules: S.optional(WafStageExclusionRulesList),
+    exclusion_rules: WafStageExclusionRulesList,
   }),
 ).annotate({ identifier: "WafStage" }) as any as S.Schema<WafStage>;
 
@@ -1213,39 +1213,39 @@ export const PlanName = S.String;
 
 export interface PlanDetails {
   /** Subscription plan name. */
-  plan_name?: PlanName;
+  plan_name: PlanName;
   /** Amount of egress data from cache included in subscription plan. */
-  package_gb?: number;
+  package_gb: number;
   /** Number of pipelines included in subscription plan. */
-  pipeline_limit?: number;
+  pipeline_limit: number;
   /** Number of WAF requests included in subscription plan. */
-  waf_requests?: number;
+  waf_requests: number;
   /** Number of backends per pipeline included in subscription plan. */
-  backend_limit?: number;
+  backend_limit: number;
   /** Support of wildcard subdomains for the customized domain. */
-  wildcard_domain?: boolean;
+  wildcard_domain: boolean;
 }
 export const PlanDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    plan_name: S.optional(PlanName),
-    package_gb: S.optional(S.Number),
-    pipeline_limit: S.optional(S.Number),
-    waf_requests: S.optional(S.Number),
-    backend_limit: S.optional(S.Number),
-    wildcard_domain: S.optional(S.Boolean),
+    plan_name: PlanName,
+    package_gb: S.Number,
+    pipeline_limit: S.Number,
+    waf_requests: S.Number,
+    backend_limit: S.Number,
+    wildcard_domain: S.Boolean,
   }),
 ).annotate({ identifier: "PlanDetails" }) as any as S.Schema<PlanDetails>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
@@ -1274,25 +1274,25 @@ export interface GetBillingResponse {
   /** Cost to date (this month) for Edge Service subscription plans. This comprises the pro-rata cost of the current subscription plan, and any previous subscription plans that were active earlier in the month. */
   plan_cost?: GoogleTypeMoney;
   /** Total number of pipelines currently configured. */
-  pipeline_number?: number;
+  pipeline_number: number;
   /** Cost to date (this month) of pipelines not included in the subscription plans. */
   extra_pipelines_cost?: GoogleTypeMoney;
   /** Total amount of data egressed from the cache in gigabytes from the beginning of the month, for the active subscription plan. */
-  current_plan_cache_usage?: number;
+  current_plan_cache_usage: number;
   /** Total amount of extra data egressed from cache in gigabytes from the beginning of the month, not included in the subscription plans. */
-  extra_cache_usage?: number;
+  extra_cache_usage: number;
   /** Cost to date (this month) of the data egressed from the cache that is not included in the subscription plans. */
   extra_cache_cost?: GoogleTypeMoney;
   /** Total number of requests processed by the WAF since the beginning of the current month, for the active subscription plan. */
-  current_plan_waf_usage?: number;
+  current_plan_waf_usage: number;
   /** Total number of extra requests processed by the WAF from the beginning of the month, not included in the subscription plans. */
-  extra_waf_usage?: number;
+  extra_waf_usage: number;
   /** Cost to date (this month) of the extra requests processed by the WAF that were not included in the subscription plans. */
   extra_waf_cost?: GoogleTypeMoney;
   /** Cost of activating WAF add-on (where subscription plan does not include WAF). */
   waf_add_on?: GoogleTypeMoney;
   /** Detailed costs and usage for all Edge Services subscription plans that were activated during the month. */
-  plans_usage_details?: GetBillingResponsePlansUsageDetailsMap;
+  plans_usage_details: GetBillingResponsePlansUsageDetailsMap;
   /** Total cost to date (this month) of all Edge Services resources including active subscription plan, previously active plans, extra pipelines and extra egress cache data. */
   total_cost?: GoogleTypeMoney;
 }
@@ -1300,16 +1300,16 @@ export const GetBillingResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     current_plan: S.optional(PlanDetails),
     plan_cost: S.optional(GoogleTypeMoney),
-    pipeline_number: S.optional(S.Number),
+    pipeline_number: S.Number,
     extra_pipelines_cost: S.optional(GoogleTypeMoney),
-    current_plan_cache_usage: S.optional(S.Number),
-    extra_cache_usage: S.optional(S.Number),
+    current_plan_cache_usage: S.Number,
+    extra_cache_usage: S.Number,
     extra_cache_cost: S.optional(GoogleTypeMoney),
-    current_plan_waf_usage: S.optional(S.Number),
-    extra_waf_usage: S.optional(S.Number),
+    current_plan_waf_usage: S.Number,
+    extra_waf_usage: S.Number,
     extra_waf_cost: S.optional(GoogleTypeMoney),
     waf_add_on: S.optional(GoogleTypeMoney),
-    plans_usage_details: S.optional(GetBillingResponsePlansUsageDetailsMap),
+    plans_usage_details: GetBillingResponsePlansUsageDetailsMap,
     total_cost: S.optional(GoogleTypeMoney),
   }),
 ).annotate({ identifier: "GetBillingResponse" }) as any as S.Schema<GetBillingResponse>;
@@ -1349,11 +1349,11 @@ export const GetCurrentPlanRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetCurrentPlanRequest" }) as any as S.Schema<GetCurrentPlanRequest>;
 
 export interface Plan {
-  plan_name?: PlanName;
+  plan_name: PlanName;
 }
 export const Plan = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    plan_name: S.optional(PlanName),
+    plan_name: PlanName,
   }),
 ).annotate({ identifier: "Plan" }) as any as S.Schema<Plan>;
 
@@ -1524,12 +1524,12 @@ export interface ListBackendStagesResponse {
   /** Paginated list of backend stages. */
   stages: ListBackendStagesResponseStagesList;
   /** Count of all backend stages matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListBackendStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     stages: ListBackendStagesResponseStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListBackendStagesResponse",
@@ -1574,12 +1574,12 @@ export interface ListCacheStagesResponse {
   /** Paginated list of cache stages. */
   stages: ListCacheStagesResponseStagesList;
   /** Count of all cache stages matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListCacheStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     stages: ListCacheStagesResponseStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListCacheStagesResponse" }) as any as S.Schema<ListCacheStagesResponse>;
 
@@ -1625,12 +1625,12 @@ export interface ListDNSStagesResponse {
   /** Paginated list of DNS stages. */
   stages: ListDNSStagesResponseStagesList;
   /** Count of all DNS stages matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDNSStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     stages: ListDNSStagesResponseStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDNSStagesResponse" }) as any as S.Schema<ListDNSStagesResponse>;
 
@@ -1679,12 +1679,12 @@ export interface ListHeadStagesResponse {
   /** Number of head stages to return per page. */
   head_stages: ListHeadStagesResponseHeadStagesList;
   /** Count of all head stages matching the requested pipeline_id. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListHeadStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     head_stages: ListHeadStagesResponseHeadStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListHeadStagesResponse" }) as any as S.Schema<ListHeadStagesResponse>;
 
@@ -1702,11 +1702,11 @@ export const ListNodesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Node {
   /** (IP address) */
-  ip?: string;
+  ip: string;
 }
 export const Node = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip: S.optional(S.String),
+    ip: S.String,
   }),
 ).annotate({ identifier: "Node" }) as any as S.Schema<Node>;
 
@@ -1716,13 +1716,13 @@ export const ListNodesResponseNodesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListNodesResponseNodesList>;
 
 export interface ListNodesResponse {
-  nodes?: ListNodesResponseNodesList;
-  total_count?: number;
+  nodes: ListNodesResponseNodesList;
+  total_count: number;
 }
 export const ListNodesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    nodes: S.optional(ListNodesResponseNodesList),
-    total_count: S.optional(S.Number),
+    nodes: ListNodesResponseNodesList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodesResponse" }) as any as S.Schema<ListNodesResponse>;
 
@@ -1778,12 +1778,12 @@ export interface ListPipelinesResponse {
   /** Paginated list of pipelines. */
   pipelines: ListPipelinesResponsePipelinesList;
   /** Count of all pipelines matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPipelinesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     pipelines: ListPipelinesResponsePipelinesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPipelinesResponse" }) as any as S.Schema<ListPipelinesResponse>;
 
@@ -1805,13 +1805,13 @@ export const ListPlansResponsePlansList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListPlansResponsePlansList>;
 
 export interface ListPlansResponse {
-  total_count?: number;
-  plans?: ListPlansResponsePlansList;
+  total_count: number;
+  plans: ListPlansResponsePlansList;
 }
 export const ListPlansResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    plans: S.optional(ListPlansResponsePlansList),
+    total_count: S.Number,
+    plans: ListPlansResponsePlansList,
   }),
 ).annotate({ identifier: "ListPlansResponse" }) as any as S.Schema<ListPlansResponse>;
 
@@ -1860,12 +1860,12 @@ export interface ListPurgeRequestsResponse {
   /** Paginated list of purge requests. */
   purge_requests: ListPurgeRequestsResponsePurgeRequestsList;
   /** Count of all purge requests matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPurgeRequestsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     purge_requests: ListPurgeRequestsResponsePurgeRequestsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPurgeRequestsResponse",
@@ -1896,14 +1896,14 @@ export const ListRouteRulesResponseRouteRulesList = /*@__PURE__*/ S.Array(
 
 export interface ListRouteRulesResponse {
   /** List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`. */
-  route_rules?: ListRouteRulesResponseRouteRulesList;
+  route_rules: ListRouteRulesResponseRouteRulesList;
   /** Count of all route rules matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListRouteRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    route_rules: S.optional(ListRouteRulesResponseRouteRulesList),
-    total_count: S.optional(S.Number),
+    route_rules: ListRouteRulesResponseRouteRulesList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListRouteRulesResponse" }) as any as S.Schema<ListRouteRulesResponse>;
 
@@ -1946,12 +1946,12 @@ export interface ListRouteStagesResponse {
   /** Paginated list of summarized route stages. */
   stages: ListRouteStagesResponseStagesList;
   /** Count of all route stages matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListRouteStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     stages: ListRouteStagesResponseStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListRouteStagesResponse" }) as any as S.Schema<ListRouteStagesResponse>;
 
@@ -2000,12 +2000,12 @@ export interface ListTLSStagesResponse {
   /** Paginated list of TLS stages. */
   stages: ListTLSStagesResponseStagesList;
   /** Count of all TLS stages matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListTLSStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     stages: ListTLSStagesResponseStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListTLSStagesResponse" }) as any as S.Schema<ListTLSStagesResponse>;
 
@@ -2103,12 +2103,12 @@ export interface ListWafStagesResponse {
   /** Paginated list of WAF stages. */
   stages: ListWafStagesResponseStagesList;
   /** Count of all WAF stages matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListWafStagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     stages: ListWafStagesResponseStagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListWafStagesResponse" }) as any as S.Schema<ListWafStagesResponse>;
 
@@ -2295,11 +2295,11 @@ export const SetRouteRulesResponseRouteRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetRouteRulesResponse {
   /** List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`. */
-  route_rules?: SetRouteRulesResponseRouteRulesList;
+  route_rules: SetRouteRulesResponseRouteRulesList;
 }
 export const SetRouteRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    route_rules: S.optional(SetRouteRulesResponseRouteRulesList),
+    route_rules: SetRouteRulesResponseRouteRulesList,
   }),
 ).annotate({ identifier: "SetRouteRulesResponse" }) as any as S.Schema<SetRouteRulesResponse>;
 

@@ -106,9 +106,9 @@ export const ResourceType = S.String;
 
 export interface Resource {
   /** Type of resource the IP is attached to. */
-  type?: ResourceType;
+  type: ResourceType;
   /** ID of the resource the IP is attached to. (UUID format) */
-  id?: string;
+  id: string;
   /** MAC of the resource the IP is attached to. */
   mac_address?: string | null;
   /** Name of the resource the IP is attached to. When the IP is in a Private Network, then a DNS record is available to resolve the resource name to this IP. */
@@ -116,8 +116,8 @@ export interface Resource {
 }
 export const Resource = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(ResourceType),
-    id: S.optional(S.String),
+    type: ResourceType,
+    id: S.String,
     mac_address: S.optional(S.NullOr(S.String)),
     name: S.optional(S.NullOr(S.String)),
   }),
@@ -146,15 +146,15 @@ export const IPReversesList = /*@__PURE__*/ S.Array(Reverse) as any as S.Schema<
 
 export interface IP {
   /** IP ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the IP. */
-  srn?: string;
+  srn: string;
   /** IPv4 or IPv6 address in CIDR notation. (IP network) */
-  address?: string;
+  address: string;
   /** Scaleway Project the IP belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Defines whether the IP is an IPv6 (false = IPv4). */
-  is_ipv6?: boolean;
+  is_ipv6: boolean;
   /** Date the IP was reserved. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the IP was last modified. (RFC 3339 format) */
@@ -164,29 +164,29 @@ export interface IP {
   /** Resource which the IP is attached to. */
   resource?: Resource;
   /** Tags for the IP. */
-  tags?: IPTagsList;
+  tags: IPTagsList;
   /** Array of reverses associated with the IP. */
-  reverses?: IPReversesList;
+  reverses: IPReversesList;
   /** Region of the IP. */
-  region?: string;
+  region: string;
   /** Zone of the IP, if zonal. */
-  zone?: string;
+  zone: string;
 }
 export const IP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    address: S.optional(S.String),
-    project_id: S.optional(S.String),
-    is_ipv6: S.optional(S.Boolean),
+    id: S.String,
+    srn: S.String,
+    address: S.String,
+    project_id: S.String,
+    is_ipv6: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     source: S.optional(Source),
     resource: S.optional(Resource),
-    tags: S.optional(IPTagsList),
-    reverses: S.optional(IPReversesList),
-    region: S.optional(S.String),
-    zone: S.optional(S.String),
+    tags: IPTagsList,
+    reverses: IPReversesList,
+    region: S.String,
+    zone: S.String,
   }),
 ).annotate({ identifier: "IP" }) as any as S.Schema<IP>;
 
@@ -405,12 +405,12 @@ export const ListIPsResponseIpsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListIPsResponseIpsList>;
 
 export interface ListIPsResponse {
-  total_count?: number;
+  total_count: number;
   ips: ListIPsResponseIpsList;
 }
 export const ListIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     ips: ListIPsResponseIpsList,
   }),
 ).annotate({ identifier: "ListIPsResponse" }) as any as S.Schema<ListIPsResponse>;

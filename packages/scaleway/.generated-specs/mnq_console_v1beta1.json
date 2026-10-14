@@ -45,7 +45,10 @@
       "type": "structure",
       "members": {
         "protocols": {
-          "target": "com.scaleway.mnq_console_v1beta1#GetProtocolsResponseProtocolsList"
+          "target": "com.scaleway.mnq_console_v1beta1#GetProtocolsResponseProtocolsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

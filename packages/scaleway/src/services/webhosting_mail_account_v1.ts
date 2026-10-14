@@ -46,14 +46,14 @@ export const ChangeMailAccountPasswordRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface MailAccount {
   /** Domain part of the mail account address. */
-  domain?: string;
+  domain: string;
   /** Username part address of the mail account address. */
-  username?: string;
+  username: string;
 }
 export const MailAccount = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    username: S.optional(S.String),
+    domain: S.String,
+    username: S.String,
   }),
 ).annotate({ identifier: "MailAccount" }) as any as S.Schema<MailAccount>;
 
@@ -139,13 +139,13 @@ export const ListMailAccountsResponseMailAccountsList = /*@__PURE__*/ S.Array(
 
 export interface ListMailAccountsResponse {
   /** Total number of mail accounts. */
-  total_count?: number;
+  total_count: number;
   /** List of mail accounts. */
   mail_accounts: ListMailAccountsResponseMailAccountsList;
 }
 export const ListMailAccountsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     mail_accounts: ListMailAccountsResponseMailAccountsList,
   }),
 ).annotate({ identifier: "ListMailAccountsResponse" }) as any as S.Schema<ListMailAccountsResponse>;

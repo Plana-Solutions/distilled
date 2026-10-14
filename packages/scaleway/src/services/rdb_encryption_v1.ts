@@ -32,11 +32,11 @@ export const GetEncryptionKeyRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetEncryptionKeyRequest" }) as any as S.Schema<GetEncryptionKeyRequest>;
 
 export interface EncryptionKey {
-  encryption_key?: string;
+  encryption_key: string;
 }
 export const EncryptionKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    encryption_key: S.optional(S.String),
+    encryption_key: S.String,
   }),
 ).annotate({ identifier: "EncryptionKey" }) as any as S.Schema<EncryptionKey>;
 

@@ -120,13 +120,15 @@
         "alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#ListAlertRulesResponseAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "Single page of preconfigured alert rules matching the requested criteria."
+            "smithy.api#documentation": "Single page of preconfigured alert rules matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of alert rules matching the requested criteria."
+            "smithy.api#documentation": "Total count of alert rules matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -138,25 +140,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the alert rule. (UUID format)"
+            "smithy.api#documentation": "ID of the alert rule. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the alert rule."
+            "smithy.api#documentation": "Name of the alert rule.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the alert rule."
+            "smithy.api#documentation": "Description of the alert rule.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.audit_trail_v1alpha1#AlertRuleStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the alert rule."
+            "smithy.api#documentation": "Current status of the alert rule.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -256,7 +262,8 @@
         "alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#SetEnabledAlertRulesResponseAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "List of the preconfigured rules that were enabled."
+            "smithy.api#documentation": "List of the preconfigured rules that were enabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -383,7 +390,10 @@
       "type": "structure",
       "members": {
         "events": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ListAuthenticationEventsResponseEventsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#ListAuthenticationEventsResponseEventsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "next_page_token": {
           "target": "smithy.api#String",
@@ -400,7 +410,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the event. (UUID format)"
+            "smithy.api#documentation": "ID of the event. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "recorded_at": {
@@ -413,13 +424,15 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID containing the event. (UUID format)"
+            "smithy.api#documentation": "Organization ID containing the event. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "source_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address at the origin of the event. (IP address)"
+            "smithy.api#documentation": "IP address at the origin of the event. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "user_agent": {
@@ -432,43 +445,50 @@
         "resources": {
           "target": "com.scaleway.audit_trail_v1alpha1#AuthenticationEventResourcesList",
           "traits": {
-            "smithy.api#documentation": "Resources attached to the event."
+            "smithy.api#documentation": "Resources attached to the event.",
+            "smithy.api#required": {}
           }
         },
         "result": {
           "target": "com.scaleway.audit_trail_v1alpha1#AuthenticationEventResult",
           "traits": {
-            "smithy.api#documentation": "Result of the authentication attempt."
+            "smithy.api#documentation": "Result of the authentication attempt.",
+            "smithy.api#required": {}
           }
         },
         "failure_reason": {
           "target": "com.scaleway.audit_trail_v1alpha1#AuthenticationEventFailureReason",
           "traits": {
-            "smithy.api#documentation": "(Optional) Reason for authentication failure."
+            "smithy.api#documentation": "(Optional) Reason for authentication failure.",
+            "smithy.api#required": {}
           }
         },
         "country_code": {
           "target": "com.scaleway.audit_trail_v1alpha1#ScalewayStdCountryCode",
           "traits": {
-            "smithy.api#documentation": "(Optional) ISO 3166-1 alpha-2 country code of the source IP."
+            "smithy.api#documentation": "(Optional) ISO 3166-1 alpha-2 country code of the source IP.",
+            "smithy.api#required": {}
           }
         },
         "method": {
           "target": "com.scaleway.audit_trail_v1alpha1#AuthenticationEventMethod",
           "traits": {
-            "smithy.api#documentation": "Authentication method used."
+            "smithy.api#documentation": "Authentication method used.",
+            "smithy.api#required": {}
           }
         },
         "origin": {
           "target": "com.scaleway.audit_trail_v1alpha1#AuthenticationEventOrigin",
           "traits": {
-            "smithy.api#documentation": "Origin of the authentication attempt."
+            "smithy.api#documentation": "Origin of the authentication attempt.",
+            "smithy.api#required": {}
           }
         },
         "mfa_type": {
           "target": "com.scaleway.audit_trail_v1alpha1#AuthenticationEventMFAType",
           "traits": {
-            "smithy.api#documentation": "(Optional) MFA type used for the authentication attempt."
+            "smithy.api#documentation": "(Optional) MFA type used for the authentication attempt.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -478,10 +498,16 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "type": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ResourceType"
+          "target": "com.scaleway.audit_trail_v1alpha1#ResourceType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -511,7 +537,10 @@
           }
         },
         "action": {
-          "target": "com.scaleway.audit_trail_v1alpha1#Action"
+          "target": "com.scaleway.audit_trail_v1alpha1#Action",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "secm_secret_info": {
           "target": "com.scaleway.audit_trail_v1alpha1#SecretManagerSecretInfo",
@@ -1630,7 +1659,10 @@
       "type": "structure",
       "members": {
         "path": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "key_id": {
           "target": "smithy.api#String",
@@ -1645,7 +1677,10 @@
       "type": "structure",
       "members": {
         "revision": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1654,10 +1689,16 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1666,10 +1707,16 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1678,7 +1725,10 @@
       "type": "structure",
       "members": {
         "email": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "phone_number": {
           "target": "smithy.api#String",
@@ -1693,7 +1743,10 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1702,10 +1755,16 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1714,7 +1773,10 @@
       "type": "structure",
       "members": {
         "description": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1723,10 +1785,16 @@
       "type": "structure",
       "members": {
         "description": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "tags": {
-          "target": "com.scaleway.audit_trail_v1alpha1#BaremetalServerInfoTagsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#BaremetalServerInfoTagsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1742,7 +1810,10 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1753,7 +1824,8 @@
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP network)"
+            "smithy.api#documentation": "(IP network)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1763,7 +1835,10 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1772,7 +1847,10 @@
       "type": "structure",
       "members": {
         "ip_address": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "lb_id": {
           "target": "smithy.api#String",
@@ -1787,10 +1865,16 @@
       "type": "structure",
       "members": {
         "lb_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1799,10 +1883,16 @@
       "type": "structure",
       "members": {
         "lb_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1811,10 +1901,16 @@
       "type": "structure",
       "members": {
         "frontend_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "backend_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1823,7 +1919,10 @@
       "type": "structure",
       "members": {
         "frontend_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1832,10 +1931,16 @@
       "type": "structure",
       "members": {
         "lb_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1844,7 +1949,10 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1901,7 +2009,10 @@
       "type": "structure",
       "members": {
         "route_stage_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1941,7 +2052,10 @@
           }
         },
         "signed_by_account_root_user_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "expires_at": {
           "target": "smithy.api#String",
@@ -1960,16 +2074,28 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "version": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -1994,13 +2120,15 @@
         "subnet_cidr": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP network)"
+            "smithy.api#documentation": "(IP network)",
+            "smithy.api#required": {}
           }
         },
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2012,13 +2140,15 @@
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "destination": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP network)"
+            "smithy.api#documentation": "(IP network)",
+            "smithy.api#required": {}
           }
         },
         "nexthop_resource_key": {
@@ -2044,11 +2174,15 @@
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "push_default_route": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2066,7 +2200,8 @@
         "gateway_type_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "public_ip_id": {
@@ -2085,13 +2220,15 @@
         "gateway_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "pn_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "address": {
@@ -2108,10 +2245,16 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2122,13 +2265,15 @@
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "target_vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2138,7 +2283,10 @@
       "type": "structure",
       "members": {
         "private_network_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "server_id": {
           "target": "smithy.api#String",
@@ -2161,25 +2309,29 @@
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "source": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP network)"
+            "smithy.api#documentation": "(IP network)",
+            "smithy.api#required": {}
           }
         },
         "nexthop_private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "nexthop_resource_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP address)"
+            "smithy.api#documentation": "(IP address)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2189,7 +2341,10 @@
       "type": "structure",
       "members": {
         "email": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2200,7 +2355,8 @@
         "rule_ids": {
           "target": "com.scaleway.audit_trail_v1alpha1#ObservabilityAlertRuleInfoRuleIdsList",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2221,7 +2377,8 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2233,7 +2390,8 @@
         "namespace_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2245,7 +2403,8 @@
         "container_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2257,11 +2416,15 @@
         "container_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "source_type": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ServerlessContainersTriggerInfoSourceType"
+          "target": "com.scaleway.audit_trail_v1alpha1#ServerlessContainersTriggerInfoSourceType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2302,7 +2465,8 @@
         "namespace_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2314,7 +2478,8 @@
         "function_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2326,7 +2491,8 @@
         "function_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2338,11 +2504,15 @@
         "function_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "input_type": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ServerlessFunctionsTriggerInfoInputType"
+          "target": "com.scaleway.audit_trail_v1alpha1#ServerlessFunctionsTriggerInfoInputType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2375,7 +2545,10 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "description": {
           "target": "smithy.api#String",
@@ -2390,7 +2563,10 @@
       "type": "structure",
       "members": {
         "workflow_definition_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "workflow_definition_name": {
           "target": "smithy.api#String",
@@ -2399,7 +2575,10 @@
           }
         },
         "status": {
-          "target": "com.scaleway.audit_trail_v1alpha1#RunStatus"
+          "target": "com.scaleway.audit_trail_v1alpha1#RunStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2480,7 +2659,10 @@
       "type": "structure",
       "members": {
         "workflow_definition_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "workflow_definition_name": {
           "target": "smithy.api#String",
@@ -2489,7 +2671,10 @@
           }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4333,7 +4518,10 @@
       "type": "structure",
       "members": {
         "events": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ListCombinedEventsResponseEventsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#ListCombinedEventsResponseEventsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "next_page_token": {
           "target": "smithy.api#String",
@@ -4374,7 +4562,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the event. (UUID format)"
+            "smithy.api#documentation": "ID of the event. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "recorded_at": {
@@ -4387,7 +4576,8 @@
         "locality": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Locality of the resource attached to the event."
+            "smithy.api#documentation": "Locality of the resource attached to the event.",
+            "smithy.api#required": {}
           }
         },
         "principal": {
@@ -4400,7 +4590,8 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID containing the event. (UUID format)"
+            "smithy.api#documentation": "Organization ID containing the event. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
@@ -4413,7 +4604,8 @@
         "source_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address at the origin of the event. (IP address)"
+            "smithy.api#documentation": "IP address at the origin of the event. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "user_agent": {
@@ -4426,43 +4618,50 @@
         "product_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Product name of the resource attached to the event."
+            "smithy.api#documentation": "Product name of the resource attached to the event.",
+            "smithy.api#required": {}
           }
         },
         "service_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "API name called to trigger the event."
+            "smithy.api#documentation": "API name called to trigger the event.",
+            "smithy.api#required": {}
           }
         },
         "method_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "API method called to trigger the event."
+            "smithy.api#documentation": "API method called to trigger the event.",
+            "smithy.api#required": {}
           }
         },
         "resources": {
           "target": "com.scaleway.audit_trail_v1alpha1#EventResourcesList",
           "traits": {
-            "smithy.api#documentation": "Resources attached to the event."
+            "smithy.api#documentation": "Resources attached to the event.",
+            "smithy.api#required": {}
           }
         },
         "request_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the request at the origin of the event. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the request at the origin of the event. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "request_body": {
           "target": "com.scaleway.audit_trail_v1alpha1#EventRequestBodyMap",
           "traits": {
-            "smithy.api#documentation": "Request at the origin of the event."
+            "smithy.api#documentation": "Request at the origin of the event.",
+            "smithy.api#required": {}
           }
         },
         "status_code": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "HTTP status code resulting of the API call."
+            "smithy.api#documentation": "HTTP status code resulting of the API call.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4474,7 +4673,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4507,7 +4707,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the system event. (UUID format)"
+            "smithy.api#documentation": "ID of the system event. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "recorded_at": {
@@ -4520,13 +4721,15 @@
         "locality": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Locality of the system event."
+            "smithy.api#documentation": "Locality of the system event.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID containing the system event."
+            "smithy.api#documentation": "Organization ID containing the system event.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
@@ -4539,31 +4742,36 @@
         "product_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Scaleway product in a hyphenated format."
+            "smithy.api#documentation": "Name of the Scaleway product in a hyphenated format.",
+            "smithy.api#required": {}
           }
         },
         "source": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Source of the system event."
+            "smithy.api#documentation": "Source of the system event.",
+            "smithy.api#required": {}
           }
         },
         "system_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the jobs, notification, etc."
+            "smithy.api#documentation": "Name of the jobs, notification, etc.",
+            "smithy.api#required": {}
           }
         },
         "resources": {
           "target": "com.scaleway.audit_trail_v1alpha1#SystemEventResourcesList",
           "traits": {
-            "smithy.api#documentation": "Resources attached to the event."
+            "smithy.api#documentation": "Resources attached to the event.",
+            "smithy.api#required": {}
           }
         },
         "kind": {
           "target": "com.scaleway.audit_trail_v1alpha1#SystemEventKind",
           "traits": {
-            "smithy.api#documentation": "Source of the event (unknown, cron or notification)."
+            "smithy.api#documentation": "Source of the event (unknown, cron or notification).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4680,13 +4888,15 @@
         "fields": {
           "target": "com.scaleway.audit_trail_v1alpha1#RetrieveAvailableFieldsForCustomAlertRulesResponseFieldsList",
           "traits": {
-            "smithy.api#documentation": "A list of fields that are authorized to be used in a CEL expression."
+            "smithy.api#documentation": "A list of fields that are authorized to be used in a CEL expression.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of fields."
+            "smithy.api#documentation": "Number of fields.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4698,13 +4908,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The field name to be used in the CEL expression (e.g., `productName`, `status`)."
+            "smithy.api#documentation": "The field name to be used in the CEL expression (e.g., `productName`, `status`).",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleFieldFieldType",
           "traits": {
-            "smithy.api#documentation": "The expected data type of the field within the CEL environment."
+            "smithy.api#documentation": "The expected data type of the field within the CEL environment.",
+            "smithy.api#required": {}
           }
         },
         "string_operators": {
@@ -4752,7 +4964,10 @@
       "type": "structure",
       "members": {
         "operators": {
-          "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleFieldStringOperatorsOperatorsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleFieldStringOperatorsOperatorsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4816,7 +5031,10 @@
       "type": "structure",
       "members": {
         "operators": {
-          "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleFieldIntOperatorsOperatorsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleFieldIntOperatorsOperatorsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5005,13 +5223,15 @@
         "custom_alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#ListCustomAlertRulesResponseCustomAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "Single page of custom alert rules matching the requested criteria."
+            "smithy.api#documentation": "Single page of custom alert rules matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of custom alert rules matching the requested criteria."
+            "smithy.api#documentation": "Total count of custom alert rules matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5023,19 +5243,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the alert rule. (UUID format)"
+            "smithy.api#documentation": "ID of the alert rule. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the alert rule."
+            "smithy.api#documentation": "The SRN of the alert rule.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the alert rule."
+            "smithy.api#documentation": "Name of the alert rule.",
+            "smithy.api#required": {}
           }
         },
         "description": {
@@ -5048,13 +5271,15 @@
         "status": {
           "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the alert rule."
+            "smithy.api#documentation": "Current status of the alert rule.",
+            "smithy.api#required": {}
           }
         },
         "query": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Common Expression Language (CEL) string defining the logic for the alert rule."
+            "smithy.api#documentation": "The Common Expression Language (CEL) string defining the logic for the alert rule.",
+            "smithy.api#required": {}
           }
         },
         "evaluation_window": {
@@ -5067,13 +5292,15 @@
         "occurrences": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The minimum number of matched occurrences required within the evaluation window to trigger the alert."
+            "smithy.api#documentation": "The minimum number of matched occurrences required within the evaluation window to trigger the alert.",
+            "smithy.api#required": {}
           }
         },
         "severity": {
           "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRuleSeverity",
           "traits": {
-            "smithy.api#documentation": "The severity level assigned to the custom alert rule."
+            "smithy.api#documentation": "The severity level assigned to the custom alert rule.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -5093,7 +5320,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the alert rule."
+            "smithy.api#documentation": "Region of the alert rule.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5324,7 +5552,8 @@
         "custom_alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#SetEnabledCustomAlertRulesResponseCustomAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "List of the custom rules that were enabled."
+            "smithy.api#documentation": "List of the custom rules that were enabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5549,7 +5778,8 @@
         "alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#DisableAlertRulesResponseAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "List of the preconfigured rules that were disabled."
+            "smithy.api#documentation": "List of the preconfigured rules that were disabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5642,7 +5872,8 @@
         "custom_alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#DisableCustomAlertRulesResponseCustomAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "List of the custom rules that were disabled."
+            "smithy.api#documentation": "List of the custom rules that were disabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5735,7 +5966,8 @@
         "alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#EnableAlertRulesResponseAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "List of the preconfigured rules that were enabled."
+            "smithy.api#documentation": "List of the preconfigured rules that were enabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5828,7 +6060,8 @@
         "custom_alert_rules": {
           "target": "com.scaleway.audit_trail_v1alpha1#EnableCustomAlertRulesResponseCustomAlertRulesList",
           "traits": {
-            "smithy.api#documentation": "List of the custom rules that were enabled."
+            "smithy.api#documentation": "List of the custom rules that were enabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6021,7 +6254,8 @@
         "events": {
           "target": "com.scaleway.audit_trail_v1alpha1#ListEventsResponseEventsList",
           "traits": {
-            "smithy.api#documentation": "Single page of events matching the requested criteria."
+            "smithy.api#documentation": "Single page of events matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -6184,13 +6418,15 @@
         "export_jobs": {
           "target": "com.scaleway.audit_trail_v1alpha1#ListExportJobsResponseExportJobsList",
           "traits": {
-            "smithy.api#documentation": "Single page of export jobs matching the requested criteria."
+            "smithy.api#documentation": "Single page of export jobs matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of export jobs matching the requested criteria."
+            "smithy.api#documentation": "Total count of export jobs matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6202,25 +6438,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the export job. (UUID format)"
+            "smithy.api#documentation": "ID of the export job. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the export job."
+            "smithy.api#documentation": "The SRN of the export job.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the targeted Organization. (UUID format)"
+            "smithy.api#documentation": "ID of the targeted Organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the export job."
+            "smithy.api#documentation": "Name of the export job.",
+            "smithy.api#required": {}
           }
         },
         "s3": {
@@ -6247,7 +6487,8 @@
         "tags": {
           "target": "com.scaleway.audit_trail_v1alpha1#ExportJobTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags of the export job."
+            "smithy.api#documentation": "Tags of the export job.",
+            "smithy.api#required": {}
           }
         },
         "last_status": {
@@ -6259,7 +6500,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the export job."
+            "smithy.api#documentation": "Region of the export job.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6306,7 +6548,10 @@
       "type": "structure",
       "members": {
         "code": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ExportJobStatusCode"
+          "target": "com.scaleway.audit_trail_v1alpha1#ExportJobStatusCode",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "message": {
           "target": "smithy.api#String",
@@ -6568,7 +6813,10 @@
       "type": "structure",
       "members": {
         "last_events": {
-          "target": "com.scaleway.audit_trail_v1alpha1#EventsOverviewLastEventsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#EventsOverviewLastEventsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -6644,13 +6892,15 @@
         "products": {
           "target": "com.scaleway.audit_trail_v1alpha1#ListProductsResponseProductsList",
           "traits": {
-            "smithy.api#documentation": "List of all products integrated with Audit Trail."
+            "smithy.api#documentation": "List of all products integrated with Audit Trail.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of integrated products."
+            "smithy.api#documentation": "Number of integrated products.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6662,19 +6912,22 @@
         "title": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Product title."
+            "smithy.api#documentation": "Product title.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Product name."
+            "smithy.api#documentation": "Product name.",
+            "smithy.api#required": {}
           }
         },
         "services": {
           "target": "com.scaleway.audit_trail_v1alpha1#ProductServicesList",
           "traits": {
-            "smithy.api#documentation": "Specifies the API versions of the products integrated with Audit Trail. Each version defines the methods logged by Audit Trail."
+            "smithy.api#documentation": "Specifies the API versions of the products integrated with Audit Trail. Each version defines the methods logged by Audit Trail.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6684,10 +6937,16 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "methods": {
-          "target": "com.scaleway.audit_trail_v1alpha1#ProductServiceMethodsList"
+          "target": "com.scaleway.audit_trail_v1alpha1#ProductServiceMethodsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -6832,7 +7091,8 @@
         "events": {
           "target": "com.scaleway.audit_trail_v1alpha1#ListSystemEventsResponseEventsList",
           "traits": {
-            "smithy.api#documentation": "Single page of system events matching the requested criteria."
+            "smithy.api#documentation": "Single page of system events matching the requested criteria.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -6943,7 +7203,8 @@
         "firing": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True when the alert rule's condition is currently satisfied, false otherwise.\nA false return value does not mean the alert rule is incorrect, only that it is not currently firing."
+            "smithy.api#documentation": "True when the alert rule's condition is currently satisfied, false otherwise.\nA false return value does not mean the alert rule is incorrect, only that it is not currently firing.",
+            "smithy.api#required": {}
           }
         }
       },

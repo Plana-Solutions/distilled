@@ -61,47 +61,47 @@ export const FileSystemTagsList = /*@__PURE__*/ S.Array(
 
 export interface FileSystem {
   /** UUID of the filesystem. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the filesystem. */
-  name?: string;
+  name: string;
   /** Filesystem size in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** Current status of the filesystem (e.g. creating, available, ...). */
-  status?: FileSystemStatus;
+  status: FileSystemStatus;
   /** UUID of the project to which the filesystem belongs. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** UUID of the organization to which the filesystem belongs. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** List of tags assigned to the filesystem. */
-  tags?: FileSystemTagsList;
+  tags: FileSystemTagsList;
   /** The current number of attachments (mounts) that the filesystem has. */
-  number_of_attachments?: number;
+  number_of_attachments: number;
   /** Region where the filesystem is located. */
-  region?: string;
+  region: string;
   /** Creation date of the filesystem. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the properties of the filesystem. (RFC 3339 format) */
   updated_at?: string | null;
   /** UUID of the filesystem type. (UUID format) */
-  filesystem_type_id?: string;
+  filesystem_type_id: string;
   /** The SRN of the filesystem. */
-  srn?: string;
+  srn: string;
 }
 export const FileSystem = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    size: S.optional(S.Number),
-    status: S.optional(FileSystemStatus),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    tags: S.optional(FileSystemTagsList),
-    number_of_attachments: S.optional(S.Number),
-    region: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    size: S.Number,
+    status: FileSystemStatus,
+    project_id: S.String,
+    organization_id: S.String,
+    tags: FileSystemTagsList,
+    number_of_attachments: S.Number,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    filesystem_type_id: S.optional(S.String),
-    srn: S.optional(S.String),
+    filesystem_type_id: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "FileSystem" }) as any as S.Schema<FileSystem>;
 
@@ -199,29 +199,29 @@ export const ListAttachmentsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Attachment {
   /** UUID of the attachment. (UUID format) */
-  id?: string;
+  id: string;
   /** UUID of the filesystem. (UUID format) */
-  filesystem_id?: string;
+  filesystem_id: string;
   /** UUID of the attached resource. (UUID format) */
-  resource_id?: string;
+  resource_id: string;
   /** The type of the attached resource. */
-  resource_type?: AttachmentResourceType;
+  resource_type: AttachmentResourceType;
   /** The zone where the resource is located. */
   zone?: string | null;
   /** The region where the attachment is located. */
-  region?: string;
+  region: string;
   /** The SRN of the attachment. */
-  srn?: string;
+  srn: string;
 }
 export const Attachment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    filesystem_id: S.optional(S.String),
-    resource_id: S.optional(S.String),
-    resource_type: S.optional(AttachmentResourceType),
+    id: S.String,
+    filesystem_id: S.String,
+    resource_id: S.String,
+    resource_type: AttachmentResourceType,
     zone: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
-    srn: S.optional(S.String),
+    region: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Attachment" }) as any as S.Schema<Attachment>;
 
@@ -235,12 +235,12 @@ export interface ListAttachmentsResponse {
   /** List of filesystem attachments matching the request criteria. */
   attachments: ListAttachmentsResponseAttachmentsList;
   /** Total number of filesystem attachments matching the criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListAttachmentsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     attachments: ListAttachmentsResponseAttachmentsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListAttachmentsResponse" }) as any as S.Schema<ListAttachmentsResponse>;
 
@@ -318,12 +318,12 @@ export interface ListFileSystemsResponse {
   /** List of filesystems matching the request criteria. */
   filesystems: ListFileSystemsResponseFilesystemsList;
   /** Total number of filesystems matching the criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListFileSystemsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     filesystems: ListFileSystemsResponseFilesystemsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListFileSystemsResponse" }) as any as S.Schema<ListFileSystemsResponse>;
 
@@ -356,21 +356,21 @@ export const ListFileSystemTypesRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<ListFileSystemTypesRequest>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface FileSystemType {
   /** Filesystem type name. */
-  name?: string;
+  name: string;
   /** Price of the filesystem billed in GB/hour. */
   filesystem_price_gb_per_hour?: GoogleTypeMoney;
   /** Price of the snapshot billed in GB/hour. */
@@ -378,7 +378,7 @@ export interface FileSystemType {
 }
 export const FileSystemType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
     filesystem_price_gb_per_hour: S.optional(GoogleTypeMoney),
     snapshot_price_gb_per_hour: S.optional(GoogleTypeMoney),
   }),
@@ -394,12 +394,12 @@ export interface ListFileSystemTypesResponse {
   /** Returns paginated list of filesystem-types. */
   filesystem_types: ListFileSystemTypesResponseFilesystemTypesList;
   /** Total number of file system types. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListFileSystemTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     filesystem_types: ListFileSystemTypesResponseFilesystemTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListFileSystemTypesResponse",

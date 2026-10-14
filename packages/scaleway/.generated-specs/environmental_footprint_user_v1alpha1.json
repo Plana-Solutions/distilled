@@ -312,7 +312,8 @@
         "projects": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#ImpactDataResponseProjectsList",
           "traits": {
-            "smithy.api#documentation": "List of estimated impact values per Project."
+            "smithy.api#documentation": "List of estimated impact values per Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -324,13 +325,15 @@
         "kg_co2_equivalent": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "The estimated carbon emissions in kilograms of CO₂ equivalent (kgCO₂e)."
+            "smithy.api#documentation": "The estimated carbon emissions in kilograms of CO₂ equivalent (kgCO₂e).",
+            "smithy.api#required": {}
           }
         },
         "m3_water_usage": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "The estimated water consumption in cubic meters (m³)."
+            "smithy.api#documentation": "The estimated water consumption in cubic meters (m³).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -342,7 +345,8 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the project."
+            "smithy.api#documentation": "ID of the project.",
+            "smithy.api#required": {}
           }
         },
         "total_project_impact": {
@@ -354,7 +358,8 @@
         "regions": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#ProjectImpactRegionsList",
           "traits": {
-            "smithy.api#documentation": "List of estimated impact values per region."
+            "smithy.api#documentation": "List of estimated impact values per region.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -366,7 +371,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the region."
+            "smithy.api#documentation": "ID of the region.",
+            "smithy.api#required": {}
           }
         },
         "total_region_impact": {
@@ -378,13 +384,15 @@
         "zones": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#RegionImpactZonesList",
           "traits": {
-            "smithy.api#documentation": "List of estimated impact values per zone."
+            "smithy.api#documentation": "List of estimated impact values per zone.",
+            "smithy.api#required": {}
           }
         },
         "skus": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#RegionImpactSkusList",
           "traits": {
-            "smithy.api#documentation": "List of estimated impact values per SKU for this region."
+            "smithy.api#documentation": "List of estimated impact values per SKU for this region.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -396,7 +404,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the zone."
+            "smithy.api#documentation": "ID of the zone.",
+            "smithy.api#required": {}
           }
         },
         "total_zone_impact": {
@@ -408,7 +417,8 @@
         "skus": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#ZoneImpactSkusList",
           "traits": {
-            "smithy.api#documentation": "List of estimated impact values per SKU for this zone."
+            "smithy.api#documentation": "List of estimated impact values per SKU for this zone.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -420,7 +430,8 @@
         "sku": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the combination of product, region and zone."
+            "smithy.api#documentation": "Unique ID of the combination of product, region and zone.",
+            "smithy.api#required": {}
           }
         },
         "total_sku_impact": {
@@ -432,13 +443,15 @@
         "service_category": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#ServiceCategory",
           "traits": {
-            "smithy.api#documentation": "The service category associated with this SKU."
+            "smithy.api#documentation": "The service category associated with this SKU.",
+            "smithy.api#required": {}
           }
         },
         "product_category": {
           "target": "com.scaleway.environmental_footprint_user_v1alpha1#ProductCategory",
           "traits": {
-            "smithy.api#documentation": "The product category associated with this SKU."
+            "smithy.api#documentation": "The product category associated with this SKU.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -655,13 +668,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

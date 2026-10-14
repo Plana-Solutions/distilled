@@ -254,13 +254,15 @@
         "connections": {
           "target": "com.scaleway.interlink_v1beta1#ListDedicatedConnectionsResponseConnectionsList",
           "traits": {
-            "smithy.api#documentation": "List of connections on current page."
+            "smithy.api#documentation": "List of connections on current page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of connections returned."
+            "smithy.api#documentation": "Total number of connections returned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -272,61 +274,71 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the dedicated connection. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the dedicated connection. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the dedicated connection."
+            "smithy.api#documentation": "The SRN of the dedicated connection.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID. (UUID format)"
+            "smithy.api#documentation": "Organization ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.interlink_v1beta1#DedicatedConnectionStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the dedicated connection."
+            "smithy.api#documentation": "Status of the dedicated connection.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the dedicated connection."
+            "smithy.api#documentation": "Name of the dedicated connection.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.interlink_v1beta1#DedicatedConnectionTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags associated with the dedicated connection."
+            "smithy.api#documentation": "List of tags associated with the dedicated connection.",
+            "smithy.api#required": {}
           }
         },
         "pop_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the PoP where the dedicated connection is located. (UUID format)"
+            "smithy.api#documentation": "ID of the PoP where the dedicated connection is located. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "bandwidth_mbps": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Bandwidth size of the dedicated connection."
+            "smithy.api#documentation": "Bandwidth size of the dedicated connection.",
+            "smithy.api#required": {}
           }
         },
         "available_link_bandwidths": {
           "target": "com.scaleway.interlink_v1beta1#DedicatedConnectionAvailableLinkBandwidthsList",
           "traits": {
-            "smithy.api#documentation": "Size of the links supported on this dedicated connection."
+            "smithy.api#documentation": "Size of the links supported on this dedicated connection.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -359,7 +371,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the dedicated connection."
+            "smithy.api#documentation": "Region of the dedicated connection.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -387,10 +400,16 @@
       "type": "structure",
       "members": {
         "start": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "end": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -876,13 +895,15 @@
         "links": {
           "target": "com.scaleway.interlink_v1beta1#ListLinksResponseLinksList",
           "traits": {
-            "smithy.api#documentation": "List of links on the current page."
+            "smithy.api#documentation": "List of links on the current page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of links."
+            "smithy.api#documentation": "Total number of links.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -894,67 +915,78 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the link. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the link. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the link."
+            "smithy.api#documentation": "The SRN of the link.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID. (UUID format)"
+            "smithy.api#documentation": "Organization ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the link."
+            "smithy.api#documentation": "Name of the link.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.interlink_v1beta1#LinkTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags associated with the link."
+            "smithy.api#documentation": "List of tags associated with the link.",
+            "smithy.api#required": {}
           }
         },
         "pop_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the PoP where the link's corresponding connection is located. (UUID format)"
+            "smithy.api#documentation": "ID of the PoP where the link's corresponding connection is located. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "bandwidth_mbps": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Rate limited bandwidth of the link."
+            "smithy.api#documentation": "Rate limited bandwidth of the link.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.interlink_v1beta1#LinkStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the link."
+            "smithy.api#documentation": "Status of the link.",
+            "smithy.api#required": {}
           }
         },
         "bgp_v4_status": {
           "target": "com.scaleway.interlink_v1beta1#BgpStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the link's BGP IPv4 session."
+            "smithy.api#documentation": "Status of the link's BGP IPv4 session.",
+            "smithy.api#required": {}
           }
         },
         "bgp_v6_status": {
           "target": "com.scaleway.interlink_v1beta1#BgpStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the link's BGP IPv6 session."
+            "smithy.api#documentation": "Status of the link's BGP IPv6 session.",
+            "smithy.api#required": {}
           }
         },
         "vpc_id": {
@@ -974,7 +1006,8 @@
         "enable_route_propagation": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether route propagation is enabled or not. To enable or disable route propagation, use the dedicated endpoint."
+            "smithy.api#documentation": "Defines whether route propagation is enabled or not. To enable or disable route propagation, use the dedicated endpoint.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1008,7 +1041,8 @@
         "vlan": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "VLAN of the link."
+            "smithy.api#documentation": "VLAN of the link.",
+            "smithy.api#required": {}
           }
         },
         "scw_bgp_config": {
@@ -1040,7 +1074,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the link."
+            "smithy.api#documentation": "Region of the link.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1061,13 +1096,15 @@
         "partner_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the partner facilitating the link. (UUID format)"
+            "smithy.api#documentation": "ID of the partner facilitating the link. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "pairing_key": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Used to identify a link from a user or partner's point of view."
+            "smithy.api#documentation": "Used to identify a link from a user or partner's point of view.",
+            "smithy.api#required": {}
           }
         },
         "disapproved_reason": {
@@ -1080,7 +1117,8 @@
         "l3_connectivity": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the partner supports L3 connectivity."
+            "smithy.api#documentation": "Whether or not the partner supports L3 connectivity.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1092,7 +1130,8 @@
         "connection_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Dedicated physical connection supporting the link. (UUID format)"
+            "smithy.api#documentation": "Dedicated physical connection supporting the link. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1104,19 +1143,22 @@
         "asn": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "AS Number of the BGP peer."
+            "smithy.api#documentation": "AS Number of the BGP peer.",
+            "smithy.api#required": {}
           }
         },
         "ipv4": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv4 address of the BGP peer. (IP network)"
+            "smithy.api#documentation": "IPv4 address of the BGP peer. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "ipv6": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv6 address of the BGP peer. (IP network)"
+            "smithy.api#documentation": "IPv6 address of the BGP peer. (IP network)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2182,13 +2224,15 @@
         "partners": {
           "target": "com.scaleway.interlink_v1beta1#ListPartnersResponsePartnersList",
           "traits": {
-            "smithy.api#documentation": "List of partners on current page."
+            "smithy.api#documentation": "List of partners on current page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of partners returned."
+            "smithy.api#documentation": "Total number of partners returned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2200,37 +2244,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the partner. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the partner. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the partner."
+            "smithy.api#documentation": "The SRN of the partner.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the partner."
+            "smithy.api#documentation": "Name of the partner.",
+            "smithy.api#required": {}
           }
         },
         "contact_email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Contact email address of partner."
+            "smithy.api#documentation": "Contact email address of partner.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image URL of the partner's logo."
+            "smithy.api#documentation": "Image URL of the partner's logo.",
+            "smithy.api#required": {}
           }
         },
         "portal_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the partner's portal."
+            "smithy.api#documentation": "URL of the partner's portal.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2250,13 +2300,15 @@
         "l3_connectivity": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the partner supports L3 connectivity."
+            "smithy.api#documentation": "Whether or not the partner supports L3 connectivity.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the partner."
+            "smithy.api#documentation": "Region of the partner.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2499,13 +2551,15 @@
         "pops": {
           "target": "com.scaleway.interlink_v1beta1#ListPopsResponsePopsList",
           "traits": {
-            "smithy.api#documentation": "List of PoPs on the current page."
+            "smithy.api#documentation": "List of PoPs on the current page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of PoPs."
+            "smithy.api#documentation": "Total number of PoPs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2517,61 +2571,71 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the PoP. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the PoP. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the pop."
+            "smithy.api#documentation": "The SRN of the pop.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the PoP. It is the common reference of Hosting DC (ex: TH2)."
+            "smithy.api#documentation": "Name of the PoP. It is the common reference of Hosting DC (ex: TH2).",
+            "smithy.api#required": {}
           }
         },
         "hosting_provider_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the PoP's hosting provider, e.g. Telehouse for TH2 or OpCore for DC3."
+            "smithy.api#documentation": "Name of the PoP's hosting provider, e.g. Telehouse for TH2 or OpCore for DC3.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Physical address of the PoP."
+            "smithy.api#documentation": "Physical address of the PoP.",
+            "smithy.api#required": {}
           }
         },
         "city": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "City where PoP is located."
+            "smithy.api#documentation": "City where PoP is located.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image URL of the PoP's logo."
+            "smithy.api#documentation": "Image URL of the PoP's logo.",
+            "smithy.api#required": {}
           }
         },
         "available_link_bandwidths_mbps": {
           "target": "com.scaleway.interlink_v1beta1#PopAvailableLinkBandwidthsMbpsList",
           "traits": {
-            "smithy.api#documentation": "Available bandwidth in Mbits/s for future hosted links from available connections in this PoP."
+            "smithy.api#documentation": "Available bandwidth in Mbits/s for future hosted links from available connections in this PoP.",
+            "smithy.api#required": {}
           }
         },
         "display_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pretty name of the PoP. Includes name, hosting provider and location information (ex: Paris - TeleHouse TH2)."
+            "smithy.api#documentation": "Pretty name of the PoP. Includes name, hosting provider and location information (ex: Paris - TeleHouse TH2).",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the PoP."
+            "smithy.api#documentation": "Region of the PoP.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2833,10 +2897,16 @@
       "type": "structure",
       "members": {
         "routing_policies": {
-          "target": "com.scaleway.interlink_v1beta1#ListRoutingPoliciesResponseRoutingPoliciesList"
+          "target": "com.scaleway.interlink_v1beta1#ListRoutingPoliciesResponseRoutingPoliciesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2847,49 +2917,57 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the routing policy. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the routing policy. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the routing policy."
+            "smithy.api#documentation": "The SRN of the routing policy.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID. (UUID format)"
+            "smithy.api#documentation": "Organization ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the routing policy."
+            "smithy.api#documentation": "Name of the routing policy.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.interlink_v1beta1#RoutingPolicyTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags associated with the routing policy."
+            "smithy.api#documentation": "List of tags associated with the routing policy.",
+            "smithy.api#required": {}
           }
         },
         "prefix_filter_in": {
           "target": "com.scaleway.interlink_v1beta1#RoutingPolicyPrefixFilterInList",
           "traits": {
-            "smithy.api#documentation": "IP prefixes to accept from the peer (ranges of route announcements to accept). (IP network)"
+            "smithy.api#documentation": "IP prefixes to accept from the peer (ranges of route announcements to accept). (IP network)",
+            "smithy.api#required": {}
           }
         },
         "prefix_filter_out": {
           "target": "com.scaleway.interlink_v1beta1#RoutingPolicyPrefixFilterOutList",
           "traits": {
-            "smithy.api#documentation": "IP prefix filters to advertise to the peer (ranges of routes to advertise). (IP network)"
+            "smithy.api#documentation": "IP prefix filters to advertise to the peer (ranges of routes to advertise). (IP network)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2909,13 +2987,15 @@
         "is_ipv6": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "IP prefixes version of the routing policy."
+            "smithy.api#documentation": "IP prefixes version of the routing policy.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the routing policy."
+            "smithy.api#documentation": "Region of the routing policy.",
+            "smithy.api#required": {}
           }
         }
       },

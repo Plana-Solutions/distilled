@@ -109,29 +109,29 @@ export type DatalabTagsList = Array<string>;
 export const DatalabTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<DatalabTagsList>;
 
 export interface DatalabSparkMain {
-  node_type?: string;
-  spark_ui_url?: string;
-  spark_master_url?: string;
+  node_type: string;
+  spark_ui_url: string;
+  spark_master_url: string;
   root_volume?: Volume;
 }
 export const DatalabSparkMain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    node_type: S.optional(S.String),
-    spark_ui_url: S.optional(S.String),
-    spark_master_url: S.optional(S.String),
+    node_type: S.String,
+    spark_ui_url: S.String,
+    spark_master_url: S.String,
     root_volume: S.optional(Volume),
   }),
 ).annotate({ identifier: "DatalabSparkMain" }) as any as S.Schema<DatalabSparkMain>;
 
 export interface DatalabSparkWorker {
-  node_type?: string;
-  node_count?: number;
+  node_type: string;
+  node_count: number;
   root_volume?: Volume;
 }
 export const DatalabSparkWorker = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    node_type: S.optional(S.String),
-    node_count: S.optional(S.Number),
+    node_type: S.String,
+    node_count: S.Number,
     root_volume: S.optional(Volume),
   }),
 ).annotate({ identifier: "DatalabSparkWorker" }) as any as S.Schema<DatalabSparkWorker>;
@@ -149,58 +149,58 @@ export const DatalabStatus = S.String;
 
 export interface Datalab {
   /** The unique identifier of the cluster. (UUID format) */
-  id?: string;
+  id: string;
   /** The unique identifier of the project where the cluster has been created. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** The name of the cluster. */
-  name?: string;
+  name: string;
   /** The description of the cluster. */
-  description?: string;
+  description: string;
   /** The tags of the cluster. */
-  tags?: DatalabTagsList;
+  tags: DatalabTagsList;
   /** The Apache Spark™ Main node specification of cluster. It holds the parameters `node_type`, `spark_ui_url` (available to reach Apache Spark™ UI), `spark_master_url` (used to reach the cluster within a VPC), `root_volume` (size of the volume assigned to the cluster). */
   main?: DatalabSparkMain;
   /** The cluster worker nodes specification. It holds the parameters `node_type`, `node_count`, `root_volume` (size of the volume assigned to the cluster). */
   worker?: DatalabSparkWorker;
   /** The status of the cluster. For a working cluster the status is marked as `ready`. */
-  status?: DatalabStatus;
+  status: DatalabStatus;
   /** The creation timestamp of the cluster. (RFC 3339 format) */
   created_at?: string | null;
   /** The last update date of the cluster. (RFC 3339 format) */
   updated_at?: string | null;
   /** The region of the cluster. */
-  region?: string;
+  region: string;
   /** Whether a JupyterLab notebook is associated with the cluster or not. */
-  has_notebook?: boolean;
+  has_notebook: boolean;
   /** The URL of the notebook if available. */
   notebook_url?: string | null;
   /** The version of Apache Spark™ running inside the cluster. */
-  spark_version?: string;
+  spark_version: string;
   /** The total persistent volume storage selected to run Apache Spark™. */
   total_storage?: Volume;
   /** The unique identifier of the private network to which the cluster is attached to. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
   /** The URL that is used to reach the cluster from the notebook when available. This URL cannot be used to reach the cluster from a server. */
   notebook_master_url?: string | null;
 }
 export const Datalab = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    tags: S.optional(DatalabTagsList),
+    id: S.String,
+    project_id: S.String,
+    name: S.String,
+    description: S.String,
+    tags: DatalabTagsList,
     main: S.optional(DatalabSparkMain),
     worker: S.optional(DatalabSparkWorker),
-    status: S.optional(DatalabStatus),
+    status: DatalabStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
-    has_notebook: S.optional(S.Boolean),
+    region: S.String,
+    has_notebook: S.Boolean,
     notebook_url: S.optional(S.NullOr(S.String)),
-    spark_version: S.optional(S.String),
+    spark_version: S.String,
     total_storage: S.optional(Volume),
-    private_network_id: S.optional(S.String),
+    private_network_id: S.String,
     notebook_master_url: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Datalab" }) as any as S.Schema<Datalab>;
@@ -287,7 +287,7 @@ export const ListClusterVersionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ClusterVersion {
   /** The version of the cluster. */
-  version?: string;
+  version: string;
   /** The end of life date of the cluster version. (RFC 3339 format) */
   end_of_life?: string | null;
   /** The creation date of the cluster version. (RFC 3339 format) */
@@ -295,18 +295,18 @@ export interface ClusterVersion {
   /** The last update date of the cluster version. (RFC 3339 format) */
   updated_at?: string | null;
   /** Whether the cluster version is disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Whether the cluster version is in beta. */
-  beta?: boolean;
+  beta: boolean;
 }
 export const ClusterVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
+    disabled: S.Boolean,
+    beta: S.Boolean,
   }),
 ).annotate({ identifier: "ClusterVersion" }) as any as S.Schema<ClusterVersion>;
 
@@ -318,17 +318,17 @@ export const ClusterVersionsList = /*@__PURE__*/ S.Array(
 
 export interface Cluster {
   /** The name of the cluster. */
-  name?: string;
+  name: string;
   /** The description of the cluster. */
-  description?: string;
+  description: string;
   /** The versions of the cluster. */
-  versions?: ClusterVersionsList;
+  versions: ClusterVersionsList;
 }
 export const Cluster = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    versions: S.optional(ClusterVersionsList),
+    name: S.String,
+    description: S.String,
+    versions: ClusterVersionsList,
   }),
 ).annotate({ identifier: "Cluster" }) as any as S.Schema<Cluster>;
 
@@ -342,12 +342,12 @@ export interface ListClusterVersionsResponse {
   /** The list of cluster versions. */
   clusters: ListClusterVersionsResponseClustersList;
   /** The total count of cluster versions. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListClusterVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     clusters: ListClusterVersionsResponseClustersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListClusterVersionsResponse",
@@ -418,12 +418,12 @@ export interface ListDatalabsResponse {
   /** The list of clusters. This is a list composed of messages of type `DataLab`. */
   datalabs: ListDatalabsResponseDatalabsList;
   /** The total count of clusters. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatalabsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     datalabs: ListDatalabsResponseDatalabsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDatalabsResponse" }) as any as S.Schema<ListDatalabsResponse>;
 
@@ -497,44 +497,44 @@ export const NodeTypeTargetsList = /*@__PURE__*/ S.Array(
 
 export interface NodeType {
   /** The stock status of the node type. */
-  stock_status?: NodeTypeStock;
+  stock_status: NodeTypeStock;
   /** The name of the node type. */
-  name?: string;
+  name: string;
   /** The description of the node type. */
-  description?: string;
+  description: string;
   /** The number of vCPUs. */
-  vcpus?: number;
+  vcpus: number;
   /** The amount of memory. */
-  memory_gigabytes?: number;
+  memory_gigabytes: number;
   /** The amount of VRAM. */
-  vram_gigabytes?: number;
+  vram_gigabytes: number;
   /** The number of GPUs. */
-  gpus?: number;
+  gpus: number;
   /** Whether the node type is disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Whether the node type is in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** The creation date of the node type. (RFC 3339 format) */
   created_at?: string | null;
   /** The last update date of the node type. (RFC 3339 format) */
   updated_at?: string | null;
   /** The targets of the node type. */
-  targets?: NodeTypeTargetsList;
+  targets: NodeTypeTargetsList;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    stock_status: S.optional(NodeTypeStock),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory_gigabytes: S.optional(S.Number),
-    vram_gigabytes: S.optional(S.Number),
-    gpus: S.optional(S.Number),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
+    stock_status: NodeTypeStock,
+    name: S.String,
+    description: S.String,
+    vcpus: S.Number,
+    memory_gigabytes: S.Number,
+    vram_gigabytes: S.Number,
+    gpus: S.Number,
+    disabled: S.Boolean,
+    beta: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    targets: S.optional(NodeTypeTargetsList),
+    targets: NodeTypeTargetsList,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -548,12 +548,12 @@ export interface ListNodeTypesResponse {
   /** The list of node types. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** The total count of node types. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -593,7 +593,7 @@ export const ListNotebookVersionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface NotebookVersion {
   /** The version of the notebook. */
-  version?: string;
+  version: string;
   /** The end of life date of the notebook version. (RFC 3339 format) */
   end_of_life?: string | null;
   /** The creation date of the notebook version. (RFC 3339 format) */
@@ -601,18 +601,18 @@ export interface NotebookVersion {
   /** The last update date of the notebook version. (RFC 3339 format) */
   updated_at?: string | null;
   /** Whether the notebook version is disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Whether the notebook version is in beta. */
-  beta?: boolean;
+  beta: boolean;
 }
 export const NotebookVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
+    disabled: S.Boolean,
+    beta: S.Boolean,
   }),
 ).annotate({ identifier: "NotebookVersion" }) as any as S.Schema<NotebookVersion>;
 
@@ -624,17 +624,17 @@ export const NotebookVersionsList = /*@__PURE__*/ S.Array(
 
 export interface Notebook {
   /** The name of the notebook. */
-  name?: string;
+  name: string;
   /** The description of the notebook. */
-  description?: string;
+  description: string;
   /** The versions of the notebook. */
-  versions?: NotebookVersionsList;
+  versions: NotebookVersionsList;
 }
 export const Notebook = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    versions: S.optional(NotebookVersionsList),
+    name: S.String,
+    description: S.String,
+    versions: NotebookVersionsList,
   }),
 ).annotate({ identifier: "Notebook" }) as any as S.Schema<Notebook>;
 
@@ -648,12 +648,12 @@ export interface ListNotebookVersionsResponse {
   /** The list of notebook versions. */
   notebooks: ListNotebookVersionsResponseNotebooksList;
   /** The total count of notebook versions. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNotebookVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     notebooks: ListNotebookVersionsResponseNotebooksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListNotebookVersionsResponse",

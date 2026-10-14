@@ -112,13 +112,15 @@
         "backups": {
           "target": "com.scaleway.serverless_sqldb_v1alpha1#ListDatabaseBackupsResponseBackupsList",
           "traits": {
-            "smithy.api#documentation": "List of the backups."
+            "smithy.api#documentation": "List of the backups.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Length of the backups list."
+            "smithy.api#documentation": "Length of the backups list.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -130,37 +132,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID that uniquely identifies a Serverless SQL Database backup."
+            "smithy.api#documentation": "UUID that uniquely identifies a Serverless SQL Database backup.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the database backup."
+            "smithy.api#documentation": "The SRN of the database backup.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.serverless_sqldb_v1alpha1#DatabaseBackupStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Serverless SQL Database backup. One of `unknown_status` | `error` | `ready` | `locked`."
+            "smithy.api#documentation": "Status of the Serverless SQL Database backup. One of `unknown_status` | `error` | `ready` | `locked`.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The ID of your Scaleway organization."
+            "smithy.api#documentation": "The ID of your Scaleway organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Scaleway project."
+            "smithy.api#documentation": "UUID of the Scaleway project.",
+            "smithy.api#required": {}
           }
         },
         "database_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the source Serverless SQL Database the backup is created from."
+            "smithy.api#documentation": "UUID of the source Serverless SQL Database the backup is created from.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -208,7 +216,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the database backup."
+            "smithy.api#documentation": "Region of the database backup.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -490,13 +499,15 @@
         "databases": {
           "target": "com.scaleway.serverless_sqldb_v1alpha1#ListDatabasesResponseDatabasesList",
           "traits": {
-            "smithy.api#documentation": "List of the databases."
+            "smithy.api#documentation": "List of the databases.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Serverless SQL Databases."
+            "smithy.api#documentation": "Total count of Serverless SQL Databases.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -508,49 +519,57 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID that uniquely identifies your Serverless SQL DB Database."
+            "smithy.api#documentation": "UUID that uniquely identifies your Serverless SQL DB Database.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the database."
+            "smithy.api#documentation": "The SRN of the database.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database."
+            "smithy.api#documentation": "Name of the database.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.serverless_sqldb_v1alpha1#DatabaseStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Serverless SQL Ddatabase. One of `unknown_status` | `ready` | `creating` | `deleting` | `error` | `restoring` | `locked`."
+            "smithy.api#documentation": "Status of the Serverless SQL Ddatabase. One of `unknown_status` | `ready` | `creating` | `deleting` | `error` | `restoring` | `locked`.",
+            "smithy.api#required": {}
           }
         },
         "endpoint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint of the database."
+            "smithy.api#documentation": "Endpoint of the database.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The ID of your Scaleway organization."
+            "smithy.api#documentation": "The ID of your Scaleway organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the database belongs to."
+            "smithy.api#documentation": "Project ID the database belongs to.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the database."
+            "smithy.api#documentation": "Region of the database.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -563,25 +582,29 @@
         "cpu_min": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The minimum number of CPU units for your Serverless SQL Database."
+            "smithy.api#documentation": "The minimum number of CPU units for your Serverless SQL Database.",
+            "smithy.api#required": {}
           }
         },
         "cpu_max": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum number of CPU units for your Serverless SQL Database."
+            "smithy.api#documentation": "The maximum number of CPU units for your Serverless SQL Database.",
+            "smithy.api#required": {}
           }
         },
         "cpu_current": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The current number of CPU units allocated to your Serverless SQL Database."
+            "smithy.api#documentation": "The current number of CPU units allocated to your Serverless SQL Database.",
+            "smithy.api#required": {}
           }
         },
         "started": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether your Serverless SQL Database is running or not."
+            "smithy.api#documentation": "Whether your Serverless SQL Database is running or not.",
+            "smithy.api#required": {}
           }
         },
         "engine_major_version": {
@@ -653,13 +676,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Major number of the PostgreSQL engine."
+            "smithy.api#documentation": "Major number of the PostgreSQL engine.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the version."
+            "smithy.api#documentation": "The SRN of the version.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life_at": {
@@ -672,7 +697,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "The region you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1082,13 +1108,15 @@
         "versions": {
           "target": "com.scaleway.serverless_sqldb_v1alpha1#ListVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available PostgreSQL versions."
+            "smithy.api#documentation": "Available PostgreSQL versions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of versions available."
+            "smithy.api#documentation": "Total count of versions available.",
+            "smithy.api#required": {}
           }
         }
       },

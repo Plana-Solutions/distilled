@@ -40,7 +40,8 @@
         "grafana_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to access your Cockpit's Grafana."
+            "smithy.api#documentation": "URL to access your Cockpit's Grafana.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -114,13 +115,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Grafana dashboards."
+            "smithy.api#documentation": "Total count of Grafana dashboards.",
+            "smithy.api#required": {}
           }
         },
         "dashboards": {
           "target": "com.scaleway.cockpit_global_v1#ListGrafanaProductDashboardsResponseDashboardsList",
           "traits": {
-            "smithy.api#documentation": "Grafana dashboards information."
+            "smithy.api#documentation": "Grafana dashboards information.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -132,31 +135,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Dashboard name."
+            "smithy.api#documentation": "Dashboard name.",
+            "smithy.api#required": {}
           }
         },
         "title": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Dashboard title."
+            "smithy.api#documentation": "Dashboard title.",
+            "smithy.api#required": {}
           }
         },
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Dashboard URL."
+            "smithy.api#documentation": "Dashboard URL.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.cockpit_global_v1#GrafanaProductDashboardTagsList",
           "traits": {
-            "smithy.api#documentation": "Dashboard tags."
+            "smithy.api#documentation": "Dashboard tags.",
+            "smithy.api#required": {}
           }
         },
         "variables": {
           "target": "com.scaleway.cockpit_global_v1#GrafanaProductDashboardVariablesList",
           "traits": {
-            "smithy.api#documentation": "Dashboard variables."
+            "smithy.api#documentation": "Dashboard variables.",
+            "smithy.api#required": {}
           }
         }
       },

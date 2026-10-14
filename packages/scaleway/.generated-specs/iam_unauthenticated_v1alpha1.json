@@ -124,13 +124,15 @@
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to redirect the user to."
+            "smithy.api#documentation": "URL to redirect the user to.",
+            "smithy.api#required": {}
           }
         },
         "security_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Security token to check when receiving a code from the identity provider."
+            "smithy.api#documentation": "Security token to check when receiving a code from the identity provider.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -179,19 +181,22 @@
         "saml_request": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SAML AuthnRequest to send to the identity provider."
+            "smithy.api#documentation": "The SAML AuthnRequest to send to the identity provider.",
+            "smithy.api#required": {}
           }
         },
         "relay_state": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The relay state to send to the identity provider."
+            "smithy.api#documentation": "The relay state to send to the identity provider.",
+            "smithy.api#required": {}
           }
         },
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to redirect the user to for SAML authentication."
+            "smithy.api#documentation": "URL to redirect the user to for SAML authentication.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -249,13 +254,15 @@
         "token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The encoded token of the renewed JWT."
+            "smithy.api#documentation": "The encoded token of the renewed JWT.",
+            "smithy.api#required": {}
           }
         },
         "renew_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The encoded renew token. This token is necessary to renew the JWT."
+            "smithy.api#documentation": "The encoded renew token. This token is necessary to renew the JWT.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -267,19 +274,22 @@
         "jti": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "JWT ID."
+            "smithy.api#documentation": "JWT ID.",
+            "smithy.api#required": {}
           }
         },
         "issuer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user who issued the JWT."
+            "smithy.api#documentation": "ID of the user who issued the JWT.",
+            "smithy.api#required": {}
           }
         },
         "audience_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user targeted by the JWT."
+            "smithy.api#documentation": "ID of the user targeted by the JWT.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -306,19 +316,22 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address used during the creation of the JWT. (IP address)"
+            "smithy.api#documentation": "IP address used during the creation of the JWT. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "user_agent": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "User-agent used during the creation of the JWT."
+            "smithy.api#documentation": "User-agent used during the creation of the JWT.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the JWT."
+            "smithy.api#documentation": "The SRN of the JWT.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -411,13 +424,15 @@
         "token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The plain text content of the JWT."
+            "smithy.api#documentation": "The plain text content of the JWT.",
+            "smithy.api#required": {}
           }
         },
         "renew_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A token that can be used to renew the JWT."
+            "smithy.api#documentation": "A token that can be used to renew the JWT.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -539,13 +554,15 @@
         "ceremony_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the ceremony which will be needed for completion."
+            "smithy.api#documentation": "ID of the ceremony which will be needed for completion.",
+            "smithy.api#required": {}
           }
         },
         "challenge": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Random bytes constituting the challenge to solve for the credentials creation."
+            "smithy.api#documentation": "Random bytes constituting the challenge to solve for the credentials creation.",
+            "smithy.api#required": {}
           }
         },
         "timeout": {
@@ -558,7 +575,8 @@
         "allow_credentials": {
           "target": "com.scaleway.iam_unauthenticated_v1alpha1#StartLoginMFAWebAuthnResponseAllowCredentialsList",
           "traits": {
-            "smithy.api#documentation": "List of credentials, if any, which can be used to perform the ceremony."
+            "smithy.api#documentation": "List of credentials, if any, which can be used to perform the ceremony.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -623,13 +641,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A UUID representing the login attempt."
+            "smithy.api#documentation": "A UUID representing the login attempt.",
+            "smithy.api#required": {}
           }
         },
         "mfa_required": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the login attempt expects a MFA token."
+            "smithy.api#documentation": "Whether the login attempt expects a MFA token.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -800,13 +820,22 @@
       "type": "structure",
       "members": {
         "status_code": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "headers": {
-          "target": "com.scaleway.iam_unauthenticated_v1alpha1#ScalewayStdHTTPResponseHeadersMap"
+          "target": "com.scaleway.iam_unauthenticated_v1alpha1#ScalewayStdHTTPResponseHeadersMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "body": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -859,13 +888,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -894,37 +932,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The ID of the organization."
+            "smithy.api#documentation": "The ID of the organization.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the organization."
+            "smithy.api#documentation": "The name of the organization.",
+            "smithy.api#required": {}
           }
         },
         "login_password_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the organization supports login via Password."
+            "smithy.api#documentation": "Defines whether the organization supports login via Password.",
+            "smithy.api#required": {}
           }
         },
         "login_magic_code_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the organization supports login via Magic Code."
+            "smithy.api#documentation": "Defines whether the organization supports login via Magic Code.",
+            "smithy.api#required": {}
           }
         },
         "login_oauth2_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the organization supports login via OAuth2 SSO."
+            "smithy.api#documentation": "Defines whether the organization supports login via OAuth2 SSO.",
+            "smithy.api#required": {}
           }
         },
         "login_saml_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the organization supports login via SAML SSO."
+            "smithy.api#documentation": "Defines whether the organization supports login via SAML SSO.",
+            "smithy.api#required": {}
           }
         }
       },

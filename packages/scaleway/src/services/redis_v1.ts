@@ -63,7 +63,7 @@ export const AddAclRulesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ACLRule {
   /** ID of the rule. (UUID format) */
-  id?: string;
+  id: string;
   /** IPv4 network address of the rule. (IP network) */
   ip_cidr?: string | null;
   /** Description of the rule. */
@@ -71,7 +71,7 @@ export interface ACLRule {
 }
 export const ACLRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     ip_cidr: S.optional(S.NullOr(S.String)),
     description: S.optional(S.NullOr(S.String)),
   }),
@@ -85,14 +85,14 @@ export const AddAclRulesResponseAclRulesList = /*@__PURE__*/ S.Array(
 
 export interface AddAclRulesResponse {
   /** ACL Rules enabled for the Database Instance. */
-  acl_rules?: AddAclRulesResponseAclRulesList;
+  acl_rules: AddAclRulesResponseAclRulesList;
   /** Total count of ACL rules of the Database Instance. */
-  total_count?: number;
+  total_count: number;
 }
 export const AddAclRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    acl_rules: S.optional(AddAclRulesResponseAclRulesList),
-    total_count: S.optional(S.Number),
+    acl_rules: AddAclRulesResponseAclRulesList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "AddAclRulesResponse" }) as any as S.Schema<AddAclRulesResponse>;
 
@@ -157,11 +157,11 @@ export const ClusterSettingsResponseSettingsList = /*@__PURE__*/ S.Array(
 
 export interface ClusterSettingsResponse {
   /** Settings configured for a given Database Instance. */
-  settings?: ClusterSettingsResponseSettingsList;
+  settings: ClusterSettingsResponseSettingsList;
 }
 export const ClusterSettingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    settings: S.optional(ClusterSettingsResponseSettingsList),
+    settings: ClusterSettingsResponseSettingsList,
   }),
 ).annotate({ identifier: "ClusterSettingsResponse" }) as any as S.Schema<ClusterSettingsResponse>;
 
@@ -251,20 +251,20 @@ export const PrivateNetworkProvisioningMode = S.String;
 
 export interface PrivateNetwork {
   /** UUID of the Private Network. (UUID format) */
-  id?: string;
+  id: string;
   /** List of IPv4 CIDR notation addresses of the endpoint. (IP network) */
-  service_ips?: PrivateNetworkServiceIpsList;
+  service_ips: PrivateNetworkServiceIpsList;
   /** Zone of the Private Network. */
-  zone?: string;
+  zone: string;
   /** How your endpoint ips are provisioned. */
-  provisioning_mode?: PrivateNetworkProvisioningMode;
+  provisioning_mode: PrivateNetworkProvisioningMode;
 }
 export const PrivateNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    service_ips: S.optional(PrivateNetworkServiceIpsList),
-    zone: S.optional(S.String),
-    provisioning_mode: S.optional(PrivateNetworkProvisioningMode),
+    id: S.String,
+    service_ips: PrivateNetworkServiceIpsList,
+    zone: S.String,
+    provisioning_mode: PrivateNetworkProvisioningMode,
   }),
 ).annotate({ identifier: "PrivateNetwork" }) as any as S.Schema<PrivateNetwork>;
 
@@ -274,23 +274,23 @@ export const EndpointIpsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schem
 
 export interface Endpoint {
   /** TCP port of the endpoint. */
-  port?: number;
+  port: number;
   /** Private Network details. */
   private_network?: PrivateNetwork | null;
   /** Public network details. */
   public_network?: unknown | null;
   /** List of IPv4 addresses of the endpoint. (IP address) */
-  ips?: EndpointIpsList;
+  ips: EndpointIpsList;
   /** UUID of the endpoint. (UUID format) */
-  id?: string;
+  id: string;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    port: S.optional(S.Number),
+    port: S.Number,
     private_network: S.optional(S.NullOr(PrivateNetwork)),
     public_network: S.optional(S.NullOr(S.Unknown)),
-    ips: S.optional(EndpointIpsList),
-    id: S.optional(S.String),
+    ips: EndpointIpsList,
+    id: S.String,
   }),
 ).annotate({ identifier: "Endpoint" }) as any as S.Schema<Endpoint>;
 
@@ -302,14 +302,14 @@ export const AddEndpointsResponseEndpointsList = /*@__PURE__*/ S.Array(
 
 export interface AddEndpointsResponse {
   /** Endpoints defined on the Database Instance. */
-  endpoints?: AddEndpointsResponseEndpointsList;
+  endpoints: AddEndpointsResponseEndpointsList;
   /** Total count of endpoints of the Database Instance. */
-  total_count?: number;
+  total_count: number;
 }
 export const AddEndpointsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    endpoints: S.optional(AddEndpointsResponseEndpointsList),
-    total_count: S.optional(S.Number),
+    endpoints: AddEndpointsResponseEndpointsList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "AddEndpointsResponse" }) as any as S.Schema<AddEndpointsResponse>;
 
@@ -442,62 +442,62 @@ export const ClusterUpgradableVersionsList = /*@__PURE__*/ S.Array(
 
 export interface Cluster {
   /** UUID of the Database Instance. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Database Instance. */
-  name?: string;
+  name: string;
   /** Project ID the Database Instance belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Status of the Database Instance. */
-  status?: ClusterStatus;
+  status: ClusterStatus;
   /** Redis™ engine version of the Database Instance. */
-  version?: string;
+  version: string;
   /** List of Database Instance endpoints. */
-  endpoints?: ClusterEndpointsList;
+  endpoints: ClusterEndpointsList;
   /** List of tags applied to the Database Instance. */
-  tags?: ClusterTagsList;
+  tags: ClusterTagsList;
   /** Node type of the Database Instance. */
-  node_type?: string;
+  node_type: string;
   /** Creation date (Format ISO 8601). (RFC 3339 format) */
   created_at?: string | null;
   /** Update date (Format ISO 8601). (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether or not TLS is enabled. */
-  tls_enabled?: boolean;
+  tls_enabled: boolean;
   /** List of Database Instance settings. */
-  cluster_settings?: ClusterClusterSettingsList;
+  cluster_settings: ClusterClusterSettingsList;
   /** List of ACL rules. */
-  acl_rules?: ClusterAclRulesList;
+  acl_rules: ClusterAclRulesList;
   /** Number of nodes of the Database Instance cluster. */
-  cluster_size?: number;
+  cluster_size: number;
   /** Zone of the Database Instance. */
-  zone?: string;
+  zone: string;
   /** Name of the user associated to the cluster. */
-  user_name?: string;
+  user_name: string;
   /** List of engine versions the Database Instance can upgrade to. */
-  upgradable_versions?: ClusterUpgradableVersionsList;
+  upgradable_versions: ClusterUpgradableVersionsList;
   /** Scaleway Resource Name of the Database Instance. */
-  srn?: string;
+  srn: string;
 }
 export const Cluster = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(ClusterStatus),
-    version: S.optional(S.String),
-    endpoints: S.optional(ClusterEndpointsList),
-    tags: S.optional(ClusterTagsList),
-    node_type: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    status: ClusterStatus,
+    version: S.String,
+    endpoints: ClusterEndpointsList,
+    tags: ClusterTagsList,
+    node_type: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    tls_enabled: S.optional(S.Boolean),
-    cluster_settings: S.optional(ClusterClusterSettingsList),
-    acl_rules: S.optional(ClusterAclRulesList),
-    cluster_size: S.optional(S.Number),
-    zone: S.optional(S.String),
-    user_name: S.optional(S.String),
-    upgradable_versions: S.optional(ClusterUpgradableVersionsList),
-    srn: S.optional(S.String),
+    tls_enabled: S.Boolean,
+    cluster_settings: ClusterClusterSettingsList,
+    acl_rules: ClusterAclRulesList,
+    cluster_size: S.Number,
+    zone: S.String,
+    user_name: S.String,
+    upgradable_versions: ClusterUpgradableVersionsList,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Cluster" }) as any as S.Schema<Cluster>;
 
@@ -712,15 +712,15 @@ export const GetClusterCertificateRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetClusterCertificateRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -811,15 +811,15 @@ export const ScalewayStdTimeSeriesMetadataMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<ScalewayStdTimeSeriesMetadataMap>;
 
 export interface ScalewayStdTimeSeries {
-  name?: string;
-  points?: ScalewayStdTimeSeriesPointsList;
-  metadata?: ScalewayStdTimeSeriesMetadataMap;
+  name: string;
+  points: ScalewayStdTimeSeriesPointsList;
+  metadata: ScalewayStdTimeSeriesMetadataMap;
 }
 export const ScalewayStdTimeSeries = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    points: S.optional(ScalewayStdTimeSeriesPointsList),
-    metadata: S.optional(ScalewayStdTimeSeriesMetadataMap),
+    name: S.String,
+    points: ScalewayStdTimeSeriesPointsList,
+    metadata: ScalewayStdTimeSeriesMetadataMap,
   }),
 ).annotate({ identifier: "ScalewayStdTimeSeries" }) as any as S.Schema<ScalewayStdTimeSeries>;
 
@@ -831,11 +831,11 @@ export const ClusterMetricsResponseTimeseriesList = /*@__PURE__*/ S.Array(
 
 export interface ClusterMetricsResponse {
   /** Time series of metrics of a given cluster. */
-  timeseries?: ClusterMetricsResponseTimeseriesList;
+  timeseries: ClusterMetricsResponseTimeseriesList;
 }
 export const ClusterMetricsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    timeseries: S.optional(ClusterMetricsResponseTimeseriesList),
+    timeseries: ClusterMetricsResponseTimeseriesList,
   }),
 ).annotate({ identifier: "ClusterMetricsResponse" }) as any as S.Schema<ClusterMetricsResponse>;
 
@@ -938,12 +938,12 @@ export interface ListClustersResponse {
   /** List all Database Instances. */
   clusters: ListClustersResponseClustersList;
   /** Total count of Database Instances. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListClustersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     clusters: ListClustersResponseClustersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListClustersResponse" }) as any as S.Schema<ListClustersResponse>;
 
@@ -996,13 +996,13 @@ export const AvailableClusterSettingPropertyType = S.String;
 
 export interface AvailableClusterSetting {
   /** Name of the setting. */
-  name?: string;
+  name: string;
   /** Default value of the setting. */
   default_value?: string | null;
   /** Type of setting. */
-  type?: AvailableClusterSettingPropertyType;
+  type: AvailableClusterSettingPropertyType;
   /** Description of the setting. */
-  description?: string;
+  description: string;
   /** Optional maximum value of the setting. */
   max_value?: number | null;
   /** Optional minimum value of the setting. */
@@ -1010,18 +1010,18 @@ export interface AvailableClusterSetting {
   /** Optional validation rule of the setting. */
   regex?: string | null;
   /** Defines whether or not the setting is deprecated. */
-  deprecated?: boolean;
+  deprecated: boolean;
 }
 export const AvailableClusterSetting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
     default_value: S.optional(S.NullOr(S.String)),
-    type: S.optional(AvailableClusterSettingPropertyType),
-    description: S.optional(S.String),
+    type: AvailableClusterSettingPropertyType,
+    description: S.String,
     max_value: S.optional(S.NullOr(S.Number)),
     min_value: S.optional(S.NullOr(S.Number)),
     regex: S.optional(S.NullOr(S.String)),
-    deprecated: S.optional(S.Boolean),
+    deprecated: S.Boolean,
   }),
 ).annotate({ identifier: "AvailableClusterSetting" }) as any as S.Schema<AvailableClusterSetting>;
 
@@ -1033,26 +1033,26 @@ export const ClusterVersionAvailableSettingsList = /*@__PURE__*/ S.Array(
 
 export interface ClusterVersion {
   /** Redis™ engine version. */
-  version?: string;
+  version: string;
   /** Date of End of Life. (RFC 3339 format) */
   end_of_life_at?: string | null;
   /** Cluster settings available to be updated. */
-  available_settings?: ClusterVersionAvailableSettingsList;
+  available_settings: ClusterVersionAvailableSettingsList;
   /** Redis™ logo url. */
-  logo_url?: string;
+  logo_url: string;
   /** Date of Release. (RFC 3339 format) */
   released_at?: string | null;
   /** Zone of the Redis™ Database Instance. */
-  zone?: string;
+  zone: string;
 }
 export const ClusterVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life_at: S.optional(S.NullOr(S.String)),
-    available_settings: S.optional(ClusterVersionAvailableSettingsList),
-    logo_url: S.optional(S.String),
+    available_settings: ClusterVersionAvailableSettingsList,
+    logo_url: S.String,
     released_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "ClusterVersion" }) as any as S.Schema<ClusterVersion>;
 
@@ -1066,12 +1066,12 @@ export interface ListClusterVersionsResponse {
   /** List of available Redis™ engine versions. */
   versions: ListClusterVersionsResponseVersionsList;
   /** Total count of available Redis™ engine versions. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListClusterVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListClusterVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListClusterVersionsResponse",
@@ -1115,32 +1115,32 @@ export const NodeTypeStock = S.String;
 
 export interface NodeType {
   /** Node type name. */
-  name?: string;
+  name: string;
   /** Current stock status of the node type. */
-  stock_status?: NodeTypeStock;
+  stock_status: NodeTypeStock;
   /** Current specifications of the offer. */
-  description?: string;
+  description: string;
   /** Number of virtual CPUs. */
-  vcpus?: number;
+  vcpus: number;
   /** Quantity of RAM. (in bytes) */
-  memory?: number;
+  memory: number;
   /** Defines whether node type is currently disabled or not. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Defines whether node type is currently in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** Zone of the node type. */
-  zone?: string;
+  zone: string;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    stock_status: S.optional(NodeTypeStock),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory: S.optional(S.Number),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
-    zone: S.optional(S.String),
+    name: S.String,
+    stock_status: NodeTypeStock,
+    description: S.String,
+    vcpus: S.Number,
+    memory: S.Number,
+    disabled: S.Boolean,
+    beta: S.Boolean,
+    zone: S.String,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -1154,12 +1154,12 @@ export interface ListNodeTypesResponse {
   /** Types of node. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** Total count of node types available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -1278,11 +1278,11 @@ export const SetAclRulesResponseAclRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetAclRulesResponse {
   /** ACL Rules enabled for the Database Instance. */
-  acl_rules?: SetAclRulesResponseAclRulesList;
+  acl_rules: SetAclRulesResponseAclRulesList;
 }
 export const SetAclRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    acl_rules: S.optional(SetAclRulesResponseAclRulesList),
+    acl_rules: SetAclRulesResponseAclRulesList,
   }),
 ).annotate({ identifier: "SetAclRulesResponse" }) as any as S.Schema<SetAclRulesResponse>;
 
@@ -1372,11 +1372,11 @@ export const SetEndpointsResponseEndpointsList = /*@__PURE__*/ S.Array(
 
 export interface SetEndpointsResponse {
   /** Endpoints defined on the Database Instance. */
-  endpoints?: SetEndpointsResponseEndpointsList;
+  endpoints: SetEndpointsResponseEndpointsList;
 }
 export const SetEndpointsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    endpoints: S.optional(SetEndpointsResponseEndpointsList),
+    endpoints: SetEndpointsResponseEndpointsList,
   }),
 ).annotate({ identifier: "SetEndpointsResponse" }) as any as S.Schema<SetEndpointsResponse>;
 

@@ -75,20 +75,20 @@ export const VolumeStatus = S.String;
 
 export interface SnapshotParentVolume {
   /** Parent volume UUID (volume from which the snapshot originates). (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the parent volume. */
-  name?: string;
+  name: string;
   /** Volume type of the parent volume. */
-  type?: string;
+  type: string;
   /** Current status the parent volume. */
-  status?: VolumeStatus;
+  status: VolumeStatus;
 }
 export const SnapshotParentVolume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    type: S.optional(S.String),
-    status: S.optional(VolumeStatus),
+    id: S.String,
+    name: S.String,
+    type: S.String,
+    status: VolumeStatus,
   }),
 ).annotate({ identifier: "SnapshotParentVolume" }) as any as S.Schema<SnapshotParentVolume>;
 
@@ -107,26 +107,26 @@ export const ReferenceStatus = S.String;
 
 export interface Reference {
   /** UUID of the reference. (UUID format) */
-  id?: string;
+  id: string;
   /** Type of resource to which the reference is associated. */
-  product_resource_type?: string;
+  product_resource_type: string;
   /** UUID of the product resource it refers to (according to the product_resource_type). (UUID format) */
-  product_resource_id?: string;
+  product_resource_id: string;
   /** Creation date of the reference. (RFC 3339 format) */
   created_at?: string | null;
   /** Type of reference (link, exclusive, read_only). */
-  type?: ReferenceType;
+  type: ReferenceType;
   /** Status of the reference. Statuses include `attaching`, `attached`, and `detaching`. */
-  status?: ReferenceStatus;
+  status: ReferenceStatus;
 }
 export const Reference = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    product_resource_type: S.optional(S.String),
-    product_resource_id: S.optional(S.String),
+    id: S.String,
+    product_resource_type: S.String,
+    product_resource_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
-    type: S.optional(ReferenceType),
-    status: S.optional(ReferenceStatus),
+    type: ReferenceType,
+    status: ReferenceStatus,
   }),
 ).annotate({ identifier: "Reference" }) as any as S.Schema<Reference>;
 
@@ -159,53 +159,53 @@ export const StorageClass = S.String;
 
 export interface Snapshot {
   /** UUID of the snapshot. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the snapshot. */
-  name?: string;
+  name: string;
   /** Information about the parent volume. If the parent volume was deleted, value is null. */
   parent_volume?: SnapshotParentVolume;
   /** Size in bytes of the snapshot. (in bytes) */
-  size?: number;
+  size: number;
   /** UUID of the project the snapshot belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Creation date of the snapshot. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the properties of a snapshot. (RFC 3339 format) */
   updated_at?: string | null;
   /** List of the references to the snapshot. */
-  references?: SnapshotReferencesList;
+  references: SnapshotReferencesList;
   /** Current status of the snapshot (available, in_use, ...). */
-  status?: SnapshotStatus;
+  status: SnapshotStatus;
   /** List of tags assigned to the volume. */
-  tags?: SnapshotTagsList;
+  tags: SnapshotTagsList;
   /** Snapshot zone. */
-  zone?: string;
+  zone: string;
   /** Storage class of the snapshot. */
-  class?: StorageClass;
+  class: StorageClass;
   /** True if the snapshot can be used by anyone to create a volume from. */
-  public?: boolean;
+  public: boolean;
   /** KMS Key used for securing the parent volume's encryption. (UUID format) */
   kms_key_id?: string | null;
   /** The SRN of the snapshot. */
-  srn?: string;
+  srn: string;
 }
 export const Snapshot = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     parent_volume: S.optional(SnapshotParentVolume),
-    size: S.optional(S.Number),
-    project_id: S.optional(S.String),
+    size: S.Number,
+    project_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    references: S.optional(SnapshotReferencesList),
-    status: S.optional(SnapshotStatus),
-    tags: S.optional(SnapshotTagsList),
-    zone: S.optional(S.String),
-    class: S.optional(StorageClass),
-    public: S.optional(S.Boolean),
+    references: SnapshotReferencesList,
+    status: SnapshotStatus,
+    tags: SnapshotTagsList,
+    zone: S.String,
+    class: StorageClass,
+    public: S.Boolean,
     kms_key_id: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Snapshot" }) as any as S.Schema<Snapshot>;
 
@@ -306,40 +306,40 @@ export interface VolumeSpecifications {
   /** The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`). */
   perf_iops?: number | null;
   /** The storage class of the volume. */
-  class?: StorageClass;
+  class: StorageClass;
 }
 export const VolumeSpecifications = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     perf_iops: S.optional(S.NullOr(S.Number)),
-    class: S.optional(StorageClass),
+    class: StorageClass,
   }),
 ).annotate({ identifier: "VolumeSpecifications" }) as any as S.Schema<VolumeSpecifications>;
 
 export interface Volume {
   /** UUID of the volume. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the volume. */
-  name?: string;
+  name: string;
   /** Volume type. */
-  type?: string;
+  type: string;
   /** Volume size in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** UUID of the project to which the volume belongs. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Creation date of the volume. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update of the properties of a volume. (RFC 3339 format) */
   updated_at?: string | null;
   /** List of the references to the volume. */
-  references?: VolumeReferencesList;
+  references: VolumeReferencesList;
   /** When a volume is created from a snapshot, is the UUID of the snapshot from which the volume has been created. (UUID format) */
   parent_snapshot_id?: string | null;
   /** Current status of the volume (available, in_use, ...). */
-  status?: VolumeStatus;
+  status: VolumeStatus;
   /** List of tags assigned to the volume. */
-  tags?: VolumeTagsList;
+  tags: VolumeTagsList;
   /** Volume zone. */
-  zone?: string;
+  zone: string;
   /** Specifications of the volume. */
   specs?: VolumeSpecifications;
   /** Last time the volume was detached. (RFC 3339 format) */
@@ -347,26 +347,26 @@ export interface Volume {
   /** KMS Key used for securing the volume's encryption. (UUID format) */
   kms_key_id?: string | null;
   /** The SRN of the volume. */
-  srn?: string;
+  srn: string;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    type: S.optional(S.String),
-    size: S.optional(S.Number),
-    project_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    type: S.String,
+    size: S.Number,
+    project_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    references: S.optional(VolumeReferencesList),
+    references: VolumeReferencesList,
     parent_snapshot_id: S.optional(S.NullOr(S.String)),
-    status: S.optional(VolumeStatus),
-    tags: S.optional(VolumeTagsList),
-    zone: S.optional(S.String),
+    status: VolumeStatus,
+    tags: VolumeTagsList,
+    zone: S.String,
     specs: S.optional(VolumeSpecifications),
     last_detached_at: S.optional(S.NullOr(S.String)),
     kms_key_id: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 
@@ -681,12 +681,12 @@ export interface ListSnapshotsResponse {
   /** Paginated returned list of snapshots. */
   snapshots: ListSnapshotsResponseSnapshotsList;
   /** Total number of snapshots in the project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSnapshotsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     snapshots: ListSnapshotsResponseSnapshotsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSnapshotsResponse" }) as any as S.Schema<ListSnapshotsResponse>;
 
@@ -779,12 +779,12 @@ export interface ListVolumesResponse {
   /** Paginated returned list of volumes. */
   volumes: ListVolumesResponseVolumesList;
   /** Total number of volumes in the project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVolumesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     volumes: ListVolumesResponseVolumesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVolumesResponse" }) as any as S.Schema<ListVolumesResponse>;
 
@@ -824,21 +824,21 @@ export const ListVolumeTypesRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListVolumeTypesRequest" }) as any as S.Schema<ListVolumeTypesRequest>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface VolumeType {
   /** Volume type. */
-  type?: string;
+  type: string;
   /** Price of the volume billed in GB/hour. */
   pricing?: GoogleTypeMoney;
   /** Price of the snapshot billed in GB/hour. */
@@ -846,18 +846,18 @@ export interface VolumeType {
   /** Volume specifications of the volume type. */
   specs?: VolumeSpecifications;
   /** Zone of the volume type. */
-  zone?: string;
+  zone: string;
   /** The SRN of the volume type. */
-  srn?: string;
+  srn: string;
 }
 export const VolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(S.String),
+    type: S.String,
     pricing: S.optional(GoogleTypeMoney),
     snapshot_pricing: S.optional(GoogleTypeMoney),
     specs: S.optional(VolumeSpecifications),
-    zone: S.optional(S.String),
-    srn: S.optional(S.String),
+    zone: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "VolumeType" }) as any as S.Schema<VolumeType>;
 
@@ -871,12 +871,12 @@ export interface ListVolumeTypesResponse {
   /** Returns paginated list of volume-types. */
   volume_types: ListVolumeTypesResponseVolumeTypesList;
   /** Total number of volume-types currently available in stock. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVolumeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     volume_types: ListVolumeTypesResponseVolumeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVolumeTypesResponse" }) as any as S.Schema<ListVolumeTypesResponse>;
 

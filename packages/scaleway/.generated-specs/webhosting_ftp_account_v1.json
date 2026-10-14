@@ -117,13 +117,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of FTP accounts."
+            "smithy.api#documentation": "Total number of FTP accounts.",
+            "smithy.api#required": {}
           }
         },
         "ftp_accounts": {
           "target": "com.scaleway.webhosting_ftp_account_v1#ListFtpAccountsResponseFtpAccountsList",
           "traits": {
-            "smithy.api#documentation": "List of FTP accounts."
+            "smithy.api#documentation": "List of FTP accounts.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -135,13 +137,15 @@
         "username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The username of the FTP account."
+            "smithy.api#documentation": "The username of the FTP account.",
+            "smithy.api#required": {}
           }
         },
         "path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The path associated with the FTP account."
+            "smithy.api#documentation": "The path associated with the FTP account.",
+            "smithy.api#required": {}
           }
         }
       },

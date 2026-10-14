@@ -95,25 +95,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the endpoint. (UUID format)"
+            "smithy.api#documentation": "UUID of the endpoint. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "ips": {
           "target": "com.scaleway.mongodb_v1alpha1#EndpointIpsList",
           "traits": {
-            "smithy.api#documentation": "List of IPv4 addresses of the endpoint. (IP address)"
+            "smithy.api#documentation": "List of IPv4 addresses of the endpoint. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "dns_records": {
           "target": "com.scaleway.mongodb_v1alpha1#EndpointDnsRecordsList",
           "traits": {
-            "smithy.api#documentation": "List of DNS records of the endpoint."
+            "smithy.api#documentation": "List of DNS records of the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "TCP port of the endpoint."
+            "smithy.api#documentation": "TCP port of the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "private_network": {
@@ -157,7 +161,8 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Private Network. (UUID format)"
+            "smithy.api#documentation": "UUID of the Private Network. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -363,13 +368,15 @@
         "instances": {
           "target": "com.scaleway.mongodb_v1alpha1#ListInstancesResponseInstancesList",
           "traits": {
-            "smithy.api#documentation": "List of all Database Instances available in an Organization or Project."
+            "smithy.api#documentation": "List of all Database Instances available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Database Instances available in an Organization or Project."
+            "smithy.api#documentation": "Total count of Database Instances available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -381,55 +388,64 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)"
+            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Database Instance."
+            "smithy.api#documentation": "Name of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the Database Instance belongs to. (UUID format)"
+            "smithy.api#documentation": "Project ID the Database Instance belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mongodb_v1alpha1#InstanceStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Database Instance."
+            "smithy.api#documentation": "Status of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MongoDB® engine version of the Database Instance."
+            "smithy.api#documentation": "MongoDB® engine version of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.mongodb_v1alpha1#InstanceTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the Database Instance."
+            "smithy.api#documentation": "List of tags applied to the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "settings": {
           "target": "com.scaleway.mongodb_v1alpha1#InstanceSettingsList",
           "traits": {
-            "smithy.api#documentation": "Advanced settings of the Database Instance."
+            "smithy.api#documentation": "Advanced settings of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "node_number": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of node in the Database Instance."
+            "smithy.api#documentation": "Number of node in the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type of the Database Instance."
+            "smithy.api#documentation": "Node type of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "volume": {
@@ -441,7 +457,8 @@
         "endpoints": {
           "target": "com.scaleway.mongodb_v1alpha1#InstanceEndpointsList",
           "traits": {
-            "smithy.api#documentation": "List of Database Instance endpoints."
+            "smithy.api#documentation": "List of Database Instance endpoints.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -460,7 +477,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Database Instance is in."
+            "smithy.api#documentation": "Region the Database Instance is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -541,13 +559,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the settings."
+            "smithy.api#documentation": "Name of the settings.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value of the settings."
+            "smithy.api#documentation": "Value of the settings.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -568,13 +588,15 @@
         "type": {
           "target": "com.scaleway.mongodb_v1alpha1#VolumeType",
           "traits": {
-            "smithy.api#documentation": "Type of volume where data is stored."
+            "smithy.api#documentation": "Type of volume where data is stored.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Volume size. (in bytes)"
+            "smithy.api#documentation": "Volume size. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -617,13 +639,22 @@
       "type": "structure",
       "members": {
         "frequency_hours": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "retention_days": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "enabled": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "next_update": {
           "target": "smithy.api#String",
@@ -1044,13 +1075,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1197,13 +1237,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the user (Length must be between 1 and 63 characters. First character must be an alphabet character (a-zA-Z). Only a-zA-Z0-9_$- characters are accepted)."
+            "smithy.api#documentation": "Name of the user (Length must be between 1 and 63 characters. First character must be an alphabet character (a-zA-Z). Only a-zA-Z0-9_$- characters are accepted).",
+            "smithy.api#required": {}
           }
         },
         "roles": {
           "target": "com.scaleway.mongodb_v1alpha1#UserRolesList",
           "traits": {
-            "smithy.api#documentation": "List of roles assigned to the user, along with the corresponding database where each role is granted."
+            "smithy.api#documentation": "List of roles assigned to the user, along with the corresponding database where each role is granted.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1290,31 +1332,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the snapshot. (UUID format)"
+            "smithy.api#documentation": "UUID of the snapshot. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "instance_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)"
+            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the snapshot."
+            "smithy.api#documentation": "Name of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mongodb_v1alpha1#SnapshotStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the snapshot."
+            "smithy.api#documentation": "Status of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Size of the snapshot. (in bytes)"
+            "smithy.api#documentation": "Size of the snapshot. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "expires_at": {
@@ -1341,13 +1388,15 @@
         "instance_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Database Instance of the snapshot."
+            "smithy.api#documentation": "Name of the Database Instance of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Source node type."
+            "smithy.api#documentation": "Source node type.",
+            "smithy.api#required": {}
           }
         },
         "volume_type": {
@@ -1359,7 +1408,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the snapshot."
+            "smithy.api#documentation": "Region of the snapshot.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1417,7 +1467,10 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.scaleway.mongodb_v1alpha1#VolumeType"
+          "target": "com.scaleway.mongodb_v1alpha1#VolumeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1585,13 +1638,15 @@
         "users": {
           "target": "com.scaleway.mongodb_v1alpha1#ListUsersResponseUsersList",
           "traits": {
-            "smithy.api#documentation": "List of users in a Database Instance."
+            "smithy.api#documentation": "List of users in a Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of users present on a Database Instance."
+            "smithy.api#documentation": "Total count of users present on a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1879,13 +1934,15 @@
         "node_types": {
           "target": "com.scaleway.mongodb_v1alpha1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "Types of the node."
+            "smithy.api#documentation": "Types of the node.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of node-types available."
+            "smithy.api#documentation": "Total count of node-types available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1897,55 +1954,64 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type name identifier."
+            "smithy.api#documentation": "Node type name identifier.",
+            "smithy.api#required": {}
           }
         },
         "stock_status": {
           "target": "com.scaleway.mongodb_v1alpha1#NodeTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock status for the node type."
+            "smithy.api#documentation": "Current stock status for the node type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Current specs of the offer."
+            "smithy.api#documentation": "Current specs of the offer.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of virtual CPUs."
+            "smithy.api#documentation": "Number of virtual CPUs.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quantity of RAM. (in bytes)"
+            "smithy.api#documentation": "Quantity of RAM. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "available_volume_types": {
           "target": "com.scaleway.mongodb_v1alpha1#NodeTypeAvailableVolumeTypesList",
           "traits": {
-            "smithy.api#documentation": "Available storage options for the node type."
+            "smithy.api#documentation": "Available storage options for the node type.",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The node type is currently disabled."
+            "smithy.api#documentation": "The node type is currently disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The node type is currently in beta."
+            "smithy.api#documentation": "The node type is currently in beta.",
+            "smithy.api#required": {}
           }
         },
         "instance_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Instance range associated with the node type offer."
+            "smithy.api#documentation": "Instance range associated with the node type offer.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1987,31 +2053,36 @@
         "type": {
           "target": "com.scaleway.mongodb_v1alpha1#VolumeType",
           "traits": {
-            "smithy.api#documentation": "Volume Type."
+            "smithy.api#documentation": "Volume Type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the volume."
+            "smithy.api#documentation": "The description of the volume.",
+            "smithy.api#required": {}
           }
         },
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum size required for the volume. (in bytes)"
+            "smithy.api#documentation": "Minimum size required for the volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum size required for the volume. (in bytes)"
+            "smithy.api#documentation": "Maximum size required for the volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "chunk_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum increment level for a Block Storage volume size. (in bytes)"
+            "smithy.api#documentation": "Minimum increment level for a Block Storage volume size. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2182,13 +2253,15 @@
         "snapshots": {
           "target": "com.scaleway.mongodb_v1alpha1#ListSnapshotsResponseSnapshotsList",
           "traits": {
-            "smithy.api#documentation": "List of all database snapshots available in an Organization or Project."
+            "smithy.api#documentation": "List of all database snapshots available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of database snapshots available in a Organization or Project."
+            "smithy.api#documentation": "Total count of database snapshots available in a Organization or Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2545,13 +2618,15 @@
         "versions": {
           "target": "com.scaleway.mongodb_v1alpha1#ListVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available MongoDB® engine version."
+            "smithy.api#documentation": "Available MongoDB® engine version.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of MongoDB® engine version available."
+            "smithy.api#documentation": "Total count of MongoDB® engine version available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2563,7 +2638,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MongoDB® engine version."
+            "smithy.api#documentation": "MongoDB® engine version.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life_at": {
@@ -2576,7 +2652,8 @@
         "available_settings": {
           "target": "com.scaleway.mongodb_v1alpha1#VersionAvailableSettingsList",
           "traits": {
-            "smithy.api#documentation": "Instance settings available to be updated."
+            "smithy.api#documentation": "Instance settings available to be updated.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2588,31 +2665,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Setting name from the database engine."
+            "smithy.api#documentation": "Setting name from the database engine.",
+            "smithy.api#required": {}
           }
         },
         "default_value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value set when not specified."
+            "smithy.api#documentation": "Value set when not specified.",
+            "smithy.api#required": {}
           }
         },
         "hot_configurable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Setting can be applied without restarting."
+            "smithy.api#documentation": "Setting can be applied without restarting.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Setting description."
+            "smithy.api#documentation": "Setting description.",
+            "smithy.api#required": {}
           }
         },
         "property_type": {
           "target": "com.scaleway.mongodb_v1alpha1#SettingPropertyType",
           "traits": {
-            "smithy.api#documentation": "Setting type."
+            "smithy.api#documentation": "Setting type.",
+            "smithy.api#required": {}
           }
         },
         "unit": {

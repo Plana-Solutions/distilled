@@ -50,14 +50,14 @@ export const CheckContractSignatureRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface CheckContractSignatureResponse {
   /** Whether a signature has been requested for this contract. */
-  created?: boolean;
+  created: boolean;
   /** Whether the signature for this contract has been validated. */
-  validated?: boolean;
+  validated: boolean;
 }
 export const CheckContractSignatureResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    created: S.optional(S.Boolean),
-    validated: S.optional(S.Boolean),
+    created: S.Boolean,
+    validated: S.Boolean,
   }),
 ).annotate({
   identifier: "CheckContractSignatureResponse",
@@ -93,37 +93,37 @@ export const CreateContractSignatureRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Contract {
   /** ID of the contract. (UUID format) */
-  id?: string;
+  id: string;
   /** The type of the contract. */
-  type?: ContractType;
+  type: ContractType;
   /** The name of the contract. */
-  name?: string;
+  name: string;
   /** The version of the contract. */
-  version?: number;
+  version: number;
   /** The creation date of the contract. (RFC 3339 format) */
   created_at?: string | null;
   /** The last modification date of the contract. (RFC 3339 format) */
   updated_at?: string | null;
   /** The SRN of the contract. */
-  srn?: string;
+  srn: string;
 }
 export const Contract = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(ContractType),
-    name: S.optional(S.String),
-    version: S.optional(S.Number),
+    id: S.String,
+    type: ContractType,
+    name: S.String,
+    version: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Contract" }) as any as S.Schema<Contract>;
 
 export interface ContractSignature {
   /** ID of the contract signature. (UUID format) */
-  id?: string;
+  id: string;
   /** The Organization ID which signed the contract. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** The creation date of the contract signature. (RFC 3339 format) */
   created_at?: string | null;
   /** The signing date of the contract signature. (RFC 3339 format) */
@@ -135,8 +135,8 @@ export interface ContractSignature {
 }
 export const ContractSignature = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    organization_id: S.optional(S.String),
+    id: S.String,
+    organization_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     signed_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
@@ -170,15 +170,15 @@ export const DownloadContractSignatureRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<DownloadContractSignatureRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -255,13 +255,13 @@ export const ListContractSignaturesResponseContractSignaturesList = /*@__PURE__*
 
 export interface ListContractSignaturesResponse {
   /** The total number of contract signatures. */
-  total_count?: number;
+  total_count: number;
   /** The paginated returned contract signatures. */
   contract_signatures: ListContractSignaturesResponseContractSignaturesList;
 }
 export const ListContractSignaturesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     contract_signatures: ListContractSignaturesResponseContractSignaturesList,
   }),
 ).annotate({

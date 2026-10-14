@@ -79,13 +79,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of backup item groups."
+            "smithy.api#documentation": "Total number of backup item groups.",
+            "smithy.api#required": {}
           }
         },
         "groups": {
           "target": "com.scaleway.webhosting_backup_v1#ListBackupItemsResponseGroupsList",
           "traits": {
-            "smithy.api#documentation": "List of backup item groups categorized by type."
+            "smithy.api#documentation": "List of backup item groups categorized by type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -97,13 +99,15 @@
         "type": {
           "target": "com.scaleway.webhosting_backup_v1#BackupItemType",
           "traits": {
-            "smithy.api#documentation": "Type of items (e.g., email, database, FTP)."
+            "smithy.api#documentation": "Type of items (e.g., email, database, FTP).",
+            "smithy.api#required": {}
           }
         },
         "items": {
           "target": "com.scaleway.webhosting_backup_v1#BackupItemGroupItemsList",
           "traits": {
-            "smithy.api#documentation": "List of individual backup items of this type."
+            "smithy.api#documentation": "List of individual backup items of this type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -181,31 +185,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the item."
+            "smithy.api#documentation": "ID of the item.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the item (e.g., `database name`, `email address`)."
+            "smithy.api#documentation": "Name of the item (e.g., `database name`, `email address`).",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.webhosting_backup_v1#BackupItemType",
           "traits": {
-            "smithy.api#documentation": "Type of the item (e.g., email, database, FTP)."
+            "smithy.api#documentation": "Type of the item (e.g., email, database, FTP).",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Size of the item in bytes. (in bytes)"
+            "smithy.api#documentation": "Size of the item in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_backup_v1#BackupStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the item. Available values are `active`, `damaged`, and `restoring`."
+            "smithy.api#documentation": "Status of the item. Available values are `active`, `damaged`, and `restoring`.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -388,13 +397,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of available backups."
+            "smithy.api#documentation": "Total number of available backups.",
+            "smithy.api#required": {}
           }
         },
         "backups": {
           "target": "com.scaleway.webhosting_backup_v1#ListBackupsResponseBackupsList",
           "traits": {
-            "smithy.api#documentation": "List of available backups."
+            "smithy.api#documentation": "List of available backups.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -406,13 +417,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backup."
+            "smithy.api#documentation": "ID of the backup.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total size of the backup in bytes. (in bytes)"
+            "smithy.api#documentation": "Total size of the backup in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -425,13 +438,15 @@
         "status": {
           "target": "com.scaleway.webhosting_backup_v1#BackupStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the backup. Available values are `active`, `locked`, and `restoring`."
+            "smithy.api#documentation": "Status of the backup. Available values are `active`, `locked`, and `restoring`.",
+            "smithy.api#required": {}
           }
         },
         "total_items": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of restorable items in the backup."
+            "smithy.api#documentation": "Total number of restorable items in the backup.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -605,7 +620,8 @@
         "progress_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Identifier used to track the backup restoration progress."
+            "smithy.api#documentation": "Identifier used to track the backup restoration progress.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -682,7 +698,8 @@
         "progresses": {
           "target": "com.scaleway.webhosting_backup_v1#ListRecentProgressesResponseProgressesList",
           "traits": {
-            "smithy.api#documentation": "List of summarized progress entries."
+            "smithy.api#documentation": "List of summarized progress entries.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -694,25 +711,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the progress."
+            "smithy.api#documentation": "ID of the progress.",
+            "smithy.api#required": {}
           }
         },
         "backup_items_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of backup items included in the progress."
+            "smithy.api#documentation": "Total number of backup items included in the progress.",
+            "smithy.api#required": {}
           }
         },
         "percentage": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Completion percentage of the progress."
+            "smithy.api#documentation": "Completion percentage of the progress.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_backup_v1#ProgressStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the progress operation."
+            "smithy.api#documentation": "Current status of the progress operation.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -860,25 +881,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the progress."
+            "smithy.api#documentation": "ID of the progress.",
+            "smithy.api#required": {}
           }
         },
         "backup_item_groups": {
           "target": "com.scaleway.webhosting_backup_v1#ProgressBackupItemGroupsList",
           "traits": {
-            "smithy.api#documentation": "Groups of backup items included in this progress."
+            "smithy.api#documentation": "Groups of backup items included in this progress.",
+            "smithy.api#required": {}
           }
         },
         "percentage": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Completion percentage of the progress."
+            "smithy.api#documentation": "Completion percentage of the progress.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_backup_v1#ProgressStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the progress operation."
+            "smithy.api#documentation": "Current status of the progress operation.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -979,7 +1004,8 @@
         "progress_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Identifier used to track the item restoration progress."
+            "smithy.api#documentation": "Identifier used to track the item restoration progress.",
+            "smithy.api#required": {}
           }
         }
       },

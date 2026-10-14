@@ -62,11 +62,11 @@ export const GetProtocolsResponseProtocolsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<GetProtocolsResponseProtocolsList>;
 
 export interface GetProtocolsResponse {
-  protocols?: GetProtocolsResponseProtocolsList;
+  protocols: GetProtocolsResponseProtocolsList;
 }
 export const GetProtocolsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    protocols: S.optional(GetProtocolsResponseProtocolsList),
+    protocols: GetProtocolsResponseProtocolsList,
   }),
 ).annotate({ identifier: "GetProtocolsResponse" }) as any as S.Schema<GetProtocolsResponse>;
 

@@ -109,10 +109,16 @@
       "type": "structure",
       "members": {
         "job_definitions": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#ListJobDefinitionsResponseJobDefinitionsList"
+          "target": "com.scaleway.serverless_jobs_v1alpha1#ListJobDefinitionsResponseJobDefinitionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -123,11 +129,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -144,28 +154,47 @@
           }
         },
         "cpu_limit": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "memory_limit": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "image_uri": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "command": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "environment_variables": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#JobDefinitionEnvironmentVariablesMap"
+          "target": "com.scaleway.serverless_jobs_v1alpha1#JobDefinitionEnvironmentVariablesMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "description": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "job_timeout": {
           "target": "smithy.api#String",
@@ -178,12 +207,16 @@
           "target": "com.scaleway.serverless_jobs_v1alpha1#CronSchedule"
         },
         "local_storage_capacity": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "The region you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -749,13 +782,15 @@
         "secrets": {
           "target": "com.scaleway.serverless_jobs_v1alpha1#ListJobDefinitionSecretsResponseSecretsList",
           "traits": {
-            "smithy.api#documentation": "List of secret references within a job definition."
+            "smithy.api#documentation": "List of secret references within a job definition.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of secret references within a job definition."
+            "smithy.api#documentation": "Total count of secret references within a job definition.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -767,19 +802,22 @@
         "secret_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the secret reference within the job."
+            "smithy.api#documentation": "UUID of the secret reference within the job.",
+            "smithy.api#required": {}
           }
         },
         "secret_manager_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the secret in Secret Manager."
+            "smithy.api#documentation": "UUID of the secret in Secret Manager.",
+            "smithy.api#required": {}
           }
         },
         "secret_manager_version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Version of the secret in Secret Manager."
+            "smithy.api#documentation": "Version of the secret in Secret Manager.",
+            "smithy.api#required": {}
           }
         },
         "file": {
@@ -803,7 +841,10 @@
       "type": "structure",
       "members": {
         "path": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -812,7 +853,10 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -937,7 +981,8 @@
         "secrets": {
           "target": "com.scaleway.serverless_jobs_v1alpha1#CreateJobDefinitionSecretsResponseSecretsList",
           "traits": {
-            "smithy.api#documentation": "List of secrets created."
+            "smithy.api#documentation": "List of secrets created.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1294,7 +1339,10 @@
       "type": "structure",
       "members": {
         "job_runs": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#StartJobDefinitionResponseJobRunsList"
+          "target": "com.scaleway.serverless_jobs_v1alpha1#StartJobDefinitionResponseJobRunsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1305,17 +1353,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "job_definition_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "state": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#JobRunState"
+          "target": "com.scaleway.serverless_jobs_v1alpha1#JobRunState",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "created_at": {
           "target": "smithy.api#String",
@@ -1352,22 +1405,40 @@
           }
         },
         "error_message": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "cpu_limit": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "memory_limit": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "command": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "environment_variables": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#JobRunEnvironmentVariablesMap"
+          "target": "com.scaleway.serverless_jobs_v1alpha1#JobRunEnvironmentVariablesMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "local_storage_capacity": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "started_at": {
           "target": "smithy.api#String",
@@ -1379,7 +1450,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "The region you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1590,10 +1662,16 @@
       "type": "structure",
       "members": {
         "job_runs": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#ListJobRunsResponseJobRunsList"
+          "target": "com.scaleway.serverless_jobs_v1alpha1#ListJobRunsResponseJobRunsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

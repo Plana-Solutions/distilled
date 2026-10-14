@@ -59,50 +59,50 @@ export const DatabaseStatus = S.String;
 
 export interface Version {
   /** Major number of the PostgreSQL engine. */
-  name?: string;
+  name: string;
   /** The SRN of the version. */
-  srn?: string;
+  srn: string;
   /** Date of End Of Life. (RFC 3339 format) */
   end_of_life_at?: string | null;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    srn: S.optional(S.String),
+    name: S.String,
+    srn: S.String,
     end_of_life_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
 
 export interface Database {
   /** UUID that uniquely identifies your Serverless SQL DB Database. */
-  id?: string;
+  id: string;
   /** The SRN of the database. */
-  srn?: string;
+  srn: string;
   /** Name of the database. */
-  name?: string;
+  name: string;
   /** Status of the Serverless SQL Ddatabase. One of `unknown_status` | `ready` | `creating` | `deleting` | `error` | `restoring` | `locked`. */
-  status?: DatabaseStatus;
+  status: DatabaseStatus;
   /** Endpoint of the database. */
-  endpoint?: string;
+  endpoint: string;
   /** The ID of your Scaleway organization. */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID the database belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Region of the database. */
-  region?: string;
+  region: string;
   /** Creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** The minimum number of CPU units for your Serverless SQL Database. */
-  cpu_min?: number;
+  cpu_min: number;
   /** The maximum number of CPU units for your Serverless SQL Database. */
-  cpu_max?: number;
+  cpu_max: number;
   /** The current number of CPU units allocated to your Serverless SQL Database. */
-  cpu_current?: number;
+  cpu_current: number;
   /** Whether your Serverless SQL Database is running or not. */
-  started?: boolean;
+  started: boolean;
   /** The major version of the underlying database engine. (deprecated in favor of `version`). */
   engine_major_version?: number;
   /** The major version of the underlying database engine. */
@@ -110,19 +110,19 @@ export interface Database {
 }
 export const Database = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(DatabaseStatus),
-    endpoint: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    status: DatabaseStatus,
+    endpoint: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
-    cpu_min: S.optional(S.Number),
-    cpu_max: S.optional(S.Number),
-    cpu_current: S.optional(S.Number),
-    started: S.optional(S.Boolean),
+    cpu_min: S.Number,
+    cpu_max: S.Number,
+    cpu_current: S.Number,
+    started: S.Boolean,
     engine_major_version: S.optional(S.Number),
     version: S.optional(Version),
   }),
@@ -181,17 +181,17 @@ export const DatabaseBackupStatus = S.String;
 
 export interface DatabaseBackup {
   /** UUID that uniquely identifies a Serverless SQL Database backup. */
-  id?: string;
+  id: string;
   /** The SRN of the database backup. */
-  srn?: string;
+  srn: string;
   /** Status of the Serverless SQL Database backup. One of `unknown_status` | `error` | `ready` | `locked`. */
-  status?: DatabaseBackupStatus;
+  status: DatabaseBackupStatus;
   /** The ID of your Scaleway organization. */
-  organization_id?: string;
+  organization_id: string;
   /** UUID of the Scaleway project. */
-  project_id?: string;
+  project_id: string;
   /** UUID of the source Serverless SQL Database the backup is created from. */
-  database_id?: string;
+  database_id: string;
   /** Creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Expiration date. (RFC 3339 format) */
@@ -205,23 +205,23 @@ export interface DatabaseBackup {
   /** Expiration date of the download URL. (RFC 3339 format) */
   download_url_expires_at?: string | null;
   /** Region of the database backup. */
-  region?: string;
+  region: string;
 }
 export const DatabaseBackup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    status: S.optional(DatabaseBackupStatus),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    database_id: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    status: DatabaseBackupStatus,
+    organization_id: S.String,
+    project_id: S.String,
+    database_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
     size: S.optional(S.NullOr(S.Number)),
     db_size: S.optional(S.NullOr(S.Number)),
     download_url: S.optional(S.NullOr(S.String)),
     download_url_expires_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "DatabaseBackup" }) as any as S.Schema<DatabaseBackup>;
 
@@ -324,12 +324,12 @@ export interface ListDatabaseBackupsResponse {
   /** List of the backups. */
   backups: ListDatabaseBackupsResponseBackupsList;
   /** Length of the backups list. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatabaseBackupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     backups: ListDatabaseBackupsResponseBackupsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListDatabaseBackupsResponse",
@@ -390,12 +390,12 @@ export interface ListDatabasesResponse {
   /** List of the databases. */
   databases: ListDatabasesResponseDatabasesList;
   /** Total count of Serverless SQL Databases. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatabasesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     databases: ListDatabasesResponseDatabasesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDatabasesResponse" }) as any as S.Schema<ListDatabasesResponse>;
 
@@ -435,12 +435,12 @@ export interface ListVersionsResponse {
   /** Available PostgreSQL versions. */
   versions: ListVersionsResponseVersionsList;
   /** Total count of versions available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 

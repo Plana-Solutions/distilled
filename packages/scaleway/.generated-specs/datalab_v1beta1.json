@@ -96,13 +96,15 @@
         "clusters": {
           "target": "com.scaleway.datalab_v1beta1#ListClusterVersionsResponseClustersList",
           "traits": {
-            "smithy.api#documentation": "The list of cluster versions."
+            "smithy.api#documentation": "The list of cluster versions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total count of cluster versions."
+            "smithy.api#documentation": "The total count of cluster versions.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -114,19 +116,22 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the cluster."
+            "smithy.api#documentation": "The name of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the cluster."
+            "smithy.api#documentation": "The description of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "versions": {
           "target": "com.scaleway.datalab_v1beta1#ClusterVersionsList",
           "traits": {
-            "smithy.api#documentation": "The versions of the cluster."
+            "smithy.api#documentation": "The versions of the cluster.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -138,7 +143,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The version of the cluster."
+            "smithy.api#documentation": "The version of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life": {
@@ -165,13 +171,15 @@
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the cluster version is disabled."
+            "smithy.api#documentation": "Whether the cluster version is disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the cluster version is in beta."
+            "smithy.api#documentation": "Whether the cluster version is in beta.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -357,13 +365,15 @@
         "datalabs": {
           "target": "com.scaleway.datalab_v1beta1#ListDatalabsResponseDatalabsList",
           "traits": {
-            "smithy.api#documentation": "The list of clusters. This is a list composed of messages of type `DataLab`."
+            "smithy.api#documentation": "The list of clusters. This is a list composed of messages of type `DataLab`.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total count of clusters."
+            "smithy.api#documentation": "The total count of clusters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -375,31 +385,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the cluster. (UUID format)"
+            "smithy.api#documentation": "The unique identifier of the cluster. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the project where the cluster has been created. (UUID format)"
+            "smithy.api#documentation": "The unique identifier of the project where the cluster has been created. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the cluster."
+            "smithy.api#documentation": "The name of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the cluster."
+            "smithy.api#documentation": "The description of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.datalab_v1beta1#DatalabTagsList",
           "traits": {
-            "smithy.api#documentation": "The tags of the cluster."
+            "smithy.api#documentation": "The tags of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "main": {
@@ -417,7 +432,8 @@
         "status": {
           "target": "com.scaleway.datalab_v1beta1#DatalabStatus",
           "traits": {
-            "smithy.api#documentation": "The status of the cluster. For a working cluster the status is marked as `ready`."
+            "smithy.api#documentation": "The status of the cluster. For a working cluster the status is marked as `ready`.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -437,13 +453,15 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region of the cluster."
+            "smithy.api#documentation": "The region of the cluster.",
+            "smithy.api#required": {}
           }
         },
         "has_notebook": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether a JupyterLab notebook is associated with the cluster or not."
+            "smithy.api#documentation": "Whether a JupyterLab notebook is associated with the cluster or not.",
+            "smithy.api#required": {}
           }
         },
         "notebook_url": {
@@ -456,7 +474,8 @@
         "spark_version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The version of Apache Spark™ running inside the cluster."
+            "smithy.api#documentation": "The version of Apache Spark™ running inside the cluster.",
+            "smithy.api#required": {}
           }
         },
         "total_storage": {
@@ -468,7 +487,8 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the private network to which the cluster is attached to. (UUID format)"
+            "smithy.api#documentation": "The unique identifier of the private network to which the cluster is attached to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "notebook_master_url": {
@@ -494,13 +514,22 @@
       "type": "structure",
       "members": {
         "node_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "spark_ui_url": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "spark_master_url": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "root_volume": {
           "target": "com.scaleway.datalab_v1beta1#Volume"
@@ -545,10 +574,16 @@
       "type": "structure",
       "members": {
         "node_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "node_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "root_volume": {
           "target": "com.scaleway.datalab_v1beta1#Volume"
@@ -1193,13 +1228,15 @@
         "node_types": {
           "target": "com.scaleway.datalab_v1beta1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "The list of node types."
+            "smithy.api#documentation": "The list of node types.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total count of node types."
+            "smithy.api#documentation": "The total count of node types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1211,55 +1248,64 @@
         "stock_status": {
           "target": "com.scaleway.datalab_v1beta1#NodeTypeStock",
           "traits": {
-            "smithy.api#documentation": "The stock status of the node type."
+            "smithy.api#documentation": "The stock status of the node type.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the node type."
+            "smithy.api#documentation": "The name of the node type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the node type."
+            "smithy.api#documentation": "The description of the node type.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of vCPUs."
+            "smithy.api#documentation": "The number of vCPUs.",
+            "smithy.api#required": {}
           }
         },
         "memory_gigabytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The amount of memory."
+            "smithy.api#documentation": "The amount of memory.",
+            "smithy.api#required": {}
           }
         },
         "vram_gigabytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The amount of VRAM."
+            "smithy.api#documentation": "The amount of VRAM.",
+            "smithy.api#required": {}
           }
         },
         "gpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of GPUs."
+            "smithy.api#documentation": "The number of GPUs.",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the node type is disabled."
+            "smithy.api#documentation": "Whether the node type is disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the node type is in beta."
+            "smithy.api#documentation": "Whether the node type is in beta.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1279,7 +1325,8 @@
         "targets": {
           "target": "com.scaleway.datalab_v1beta1#NodeTypeTargetsList",
           "traits": {
-            "smithy.api#documentation": "The targets of the node type."
+            "smithy.api#documentation": "The targets of the node type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1436,13 +1483,15 @@
         "notebooks": {
           "target": "com.scaleway.datalab_v1beta1#ListNotebookVersionsResponseNotebooksList",
           "traits": {
-            "smithy.api#documentation": "The list of notebook versions."
+            "smithy.api#documentation": "The list of notebook versions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total count of notebook versions."
+            "smithy.api#documentation": "The total count of notebook versions.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1454,19 +1503,22 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the notebook."
+            "smithy.api#documentation": "The name of the notebook.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the notebook."
+            "smithy.api#documentation": "The description of the notebook.",
+            "smithy.api#required": {}
           }
         },
         "versions": {
           "target": "com.scaleway.datalab_v1beta1#NotebookVersionsList",
           "traits": {
-            "smithy.api#documentation": "The versions of the notebook."
+            "smithy.api#documentation": "The versions of the notebook.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1478,7 +1530,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The version of the notebook."
+            "smithy.api#documentation": "The version of the notebook.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life": {
@@ -1505,13 +1558,15 @@
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the notebook version is disabled."
+            "smithy.api#documentation": "Whether the notebook version is disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the notebook version is in beta."
+            "smithy.api#documentation": "Whether the notebook version is in beta.",
+            "smithy.api#required": {}
           }
         }
       },

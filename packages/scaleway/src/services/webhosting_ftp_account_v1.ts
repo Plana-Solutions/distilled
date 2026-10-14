@@ -43,14 +43,14 @@ export const ChangeFtpAccountPasswordRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface FtpAccount {
   /** The username of the FTP account. */
-  username?: string;
+  username: string;
   /** The path associated with the FTP account. */
-  path?: string;
+  path: string;
 }
 export const FtpAccount = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    username: S.optional(S.String),
-    path: S.optional(S.String),
+    username: S.String,
+    path: S.String,
   }),
 ).annotate({ identifier: "FtpAccount" }) as any as S.Schema<FtpAccount>;
 
@@ -132,13 +132,13 @@ export const ListFtpAccountsResponseFtpAccountsList = /*@__PURE__*/ S.Array(
 
 export interface ListFtpAccountsResponse {
   /** Total number of FTP accounts. */
-  total_count?: number;
+  total_count: number;
   /** List of FTP accounts. */
   ftp_accounts: ListFtpAccountsResponseFtpAccountsList;
 }
 export const ListFtpAccountsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     ftp_accounts: ListFtpAccountsResponseFtpAccountsList,
   }),
 ).annotate({ identifier: "ListFtpAccountsResponse" }) as any as S.Schema<ListFtpAccountsResponse>;

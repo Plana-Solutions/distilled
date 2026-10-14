@@ -78,19 +78,22 @@
         "alert_manager_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The Alert manager is enabled."
+            "smithy.api#documentation": "The Alert manager is enabled.",
+            "smithy.api#required": {}
           }
         },
         "managed_alerts_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Managed alerts are enabled."
+            "smithy.api#documentation": "Managed alerts are enabled.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Regions where the Alert manager is enabled."
+            "smithy.api#documentation": "Regions where the Alert manager is enabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -181,25 +184,29 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of contact points associated with the default receiver."
+            "smithy.api#documentation": "Total count of contact points associated with the default receiver.",
+            "smithy.api#required": {}
           }
         },
         "contact_points": {
           "target": "com.scaleway.cockpit_regional_v1#ListContactPointsResponseContactPointsList",
           "traits": {
-            "smithy.api#documentation": "List of contact points associated with the default receiver."
+            "smithy.api#documentation": "List of contact points associated with the default receiver.",
+            "smithy.api#required": {}
           }
         },
         "has_additional_receivers": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether the Alert manager has other receivers than the default one."
+            "smithy.api#documentation": "Indicates whether the Alert manager has other receivers than the default one.",
+            "smithy.api#required": {}
           }
         },
         "has_additional_contact_points": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether there are unmanaged contact points on the default receiver."
+            "smithy.api#documentation": "Indicates whether there are unmanaged contact points on the default receiver.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -218,13 +225,15 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region."
+            "smithy.api#documentation": "Region.",
+            "smithy.api#required": {}
           }
         },
         "send_resolved_notifications": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Send an email notification when an alert is marked as resolved."
+            "smithy.api#documentation": "Send an email notification when an alert is marked as resolved.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -630,7 +639,8 @@
         "disabled_rule_ids": {
           "target": "com.scaleway.cockpit_regional_v1#DisableAlertRulesResponseDisabledRuleIdsList",
           "traits": {
-            "smithy.api#documentation": "List of IDs of the rules that were disabled.\nOnly newly disabled rules are listed. Rules that were already disabled are not returned in the output. (UUID format)"
+            "smithy.api#documentation": "List of IDs of the rules that were disabled.\nOnly newly disabled rules are listed. Rules that were already disabled are not returned in the output. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -794,7 +804,8 @@
         "enabled_rule_ids": {
           "target": "com.scaleway.cockpit_regional_v1#EnableAlertRulesResponseEnabledRuleIdsList",
           "traits": {
-            "smithy.api#documentation": "List of IDs of the rules that were enabled.\nOnly newly enabled rules are listed. Rules that were already enabled are not returned in the output. (UUID format)"
+            "smithy.api#documentation": "List of IDs of the rules that were enabled.\nOnly newly enabled rules are listed. Rules that were already enabled are not returned in the output. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1038,13 +1049,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of alerts matching the request."
+            "smithy.api#documentation": "Total count of alerts matching the request.",
+            "smithy.api#required": {}
           }
         },
         "alerts": {
           "target": "com.scaleway.cockpit_regional_v1#ListAlertsResponseAlertsList",
           "traits": {
-            "smithy.api#documentation": "List of alerts matching the applied filters."
+            "smithy.api#documentation": "List of alerts matching the applied filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1056,49 +1069,57 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region in which the alert is defined."
+            "smithy.api#documentation": "The region in which the alert is defined.",
+            "smithy.api#required": {}
           }
         },
         "preconfigured": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if the alert is preconfigured or custom."
+            "smithy.api#documentation": "Indicates if the alert is preconfigured or custom.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the alert."
+            "smithy.api#documentation": "Name of the alert.",
+            "smithy.api#required": {}
           }
         },
         "rule": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Rule defining the alert condition."
+            "smithy.api#documentation": "Rule defining the alert condition.",
+            "smithy.api#required": {}
           }
         },
         "duration": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Duration for which the alert must be active before firing. The format of this duration follows the prometheus duration format."
+            "smithy.api#documentation": "Duration for which the alert must be active before firing. The format of this duration follows the prometheus duration format.",
+            "smithy.api#required": {}
           }
         },
         "rule_status": {
           "target": "com.scaleway.cockpit_regional_v1#AlertStatus",
           "traits": {
-            "smithy.api#documentation": "Indicates if the alert is enabled, enabling, disabled or disabling. Preconfigured alerts can have any of these values, whereas custom alerts can only have the status \"enabled\"."
+            "smithy.api#documentation": "Indicates if the alert is enabled, enabling, disabled or disabling. Preconfigured alerts can have any of these values, whereas custom alerts can only have the status \"enabled\".",
+            "smithy.api#required": {}
           }
         },
         "state": {
           "target": "com.scaleway.cockpit_regional_v1#AlertState",
           "traits": {
-            "smithy.api#documentation": "Current state of the alert. Possible states are `inactive`, `pending`, and `firing`."
+            "smithy.api#documentation": "Current state of the alert. Possible states are `inactive`, `pending`, and `firing`.",
+            "smithy.api#required": {}
           }
         },
         "annotations": {
           "target": "com.scaleway.cockpit_regional_v1#AlertAnnotationsMap",
           "traits": {
-            "smithy.api#documentation": "Annotations for the alert, used to provide additional information about the alert."
+            "smithy.api#documentation": "Annotations for the alert, used to provide additional information about the alert.",
+            "smithy.api#required": {}
           }
         },
         "preconfigured_data": {
@@ -1110,7 +1131,8 @@
         "data_source_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the data source containing the alert rule. (UUID format)"
+            "smithy.api#documentation": "ID of the data source containing the alert rule. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1134,31 +1156,36 @@
         "preconfigured_rule_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the preconfigured rule if the alert is preconfigured. (UUID format)"
+            "smithy.api#documentation": "ID of the preconfigured rule if the alert is preconfigured. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "display_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Human readable name of the alert."
+            "smithy.api#documentation": "Human readable name of the alert.",
+            "smithy.api#required": {}
           }
         },
         "display_description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Human readable description of the alert."
+            "smithy.api#documentation": "Human readable description of the alert.",
+            "smithy.api#required": {}
           }
         },
         "product_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Product associated with the alert."
+            "smithy.api#documentation": "Product associated with the alert.",
+            "smithy.api#required": {}
           }
         },
         "product_family": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Family of the product associated with the alert."
+            "smithy.api#documentation": "Family of the product associated with the alert.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1270,13 +1297,22 @@
       "type": "structure",
       "members": {
         "min_days": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "max_days": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default_days": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1496,13 +1532,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of data sources matching the request."
+            "smithy.api#documentation": "Total count of data sources matching the request.",
+            "smithy.api#required": {}
           }
         },
         "data_sources": {
           "target": "com.scaleway.cockpit_regional_v1#ListDataSourcesResponseDataSourcesList",
           "traits": {
-            "smithy.api#documentation": "Data sources matching the request within the pagination."
+            "smithy.api#documentation": "Data sources matching the request within the pagination.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1514,37 +1552,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the data source. (UUID format)"
+            "smithy.api#documentation": "ID of the data source. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project the data source belongs to. (UUID format)"
+            "smithy.api#documentation": "ID of the Project the data source belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Data source name."
+            "smithy.api#documentation": "Data source name.",
+            "smithy.api#required": {}
           }
         },
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Data source URL."
+            "smithy.api#documentation": "Data source URL.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.cockpit_regional_v1#DataSourceType",
           "traits": {
-            "smithy.api#documentation": "Data source type."
+            "smithy.api#documentation": "Data source type.",
+            "smithy.api#required": {}
           }
         },
         "origin": {
           "target": "com.scaleway.cockpit_regional_v1#DataSourceOrigin",
           "traits": {
-            "smithy.api#documentation": "Data source origin."
+            "smithy.api#documentation": "Data source origin.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1564,19 +1608,22 @@
         "synchronized_with_grafana": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether the data source is synchronized with Grafana."
+            "smithy.api#documentation": "Indicates whether the data source is synchronized with Grafana.",
+            "smithy.api#required": {}
           }
         },
         "retention_days": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Duration for which the data will be retained in the data source."
+            "smithy.api#documentation": "Duration for which the data will be retained in the data source.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the data source."
+            "smithy.api#documentation": "Region of the data source.",
+            "smithy.api#required": {}
           }
         },
         "current_month_usage": {
@@ -2028,13 +2075,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of data exports matching the request."
+            "smithy.api#documentation": "Total count of data exports matching the request.",
+            "smithy.api#required": {}
           }
         },
         "exporters": {
           "target": "com.scaleway.cockpit_regional_v1#ListExportersResponseExportersList",
           "traits": {
-            "smithy.api#documentation": "Data exports matching the request within the pagination."
+            "smithy.api#documentation": "Data exports matching the request within the pagination.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2046,25 +2095,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the data export. (UUID format)"
+            "smithy.api#documentation": "ID of the data export. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the data export."
+            "smithy.api#documentation": "Name of the data export.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the data export."
+            "smithy.api#documentation": "Description of the data export.",
+            "smithy.api#required": {}
           }
         },
         "datasource_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the data source linked to the data export. (UUID format)"
+            "smithy.api#documentation": "ID of the data source linked to the data export. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "datadog_destination": {
@@ -2084,13 +2137,15 @@
         "status": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the data export."
+            "smithy.api#documentation": "Status of the data export.",
+            "smithy.api#required": {}
           }
         },
         "exported_products": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterExportedProductsList",
           "traits": {
-            "smithy.api#documentation": "List of Scaleway products name exported by the data export."
+            "smithy.api#documentation": "List of Scaleway products name exported by the data export.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2110,7 +2165,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region in which the export is located."
+            "smithy.api#documentation": "The region in which the export is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2689,10 +2745,16 @@
       "type": "structure",
       "members": {
         "products_list": {
-          "target": "com.scaleway.cockpit_regional_v1#ListProductsResponseProductsListList"
+          "target": "com.scaleway.cockpit_regional_v1#ListProductsResponseProductsListList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2701,16 +2763,28 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "display_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "family_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "resource_types": {
-          "target": "com.scaleway.cockpit_regional_v1#ProductResourceTypesList"
+          "target": "com.scaleway.cockpit_regional_v1#ProductResourceTypesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2807,19 +2881,22 @@
         "rules_count_by_datasource": {
           "target": "com.scaleway.cockpit_regional_v1#GetRulesCountResponseRulesCountByDatasourceList",
           "traits": {
-            "smithy.api#documentation": "Total count of rules grouped by data source."
+            "smithy.api#documentation": "Total count of rules grouped by data source.",
+            "smithy.api#required": {}
           }
         },
         "preconfigured_rules_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of preconfigured rules."
+            "smithy.api#documentation": "Total count of preconfigured rules.",
+            "smithy.api#required": {}
           }
         },
         "custom_rules_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of custom rules."
+            "smithy.api#documentation": "Total count of custom rules.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2831,19 +2908,22 @@
         "data_source_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the data source. (UUID format)"
+            "smithy.api#documentation": "ID of the data source. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "data_source_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the data source."
+            "smithy.api#documentation": "Name of the data source.",
+            "smithy.api#required": {}
           }
         },
         "rules_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of rules associated with this data source."
+            "smithy.api#documentation": "Total count of rules associated with this data source.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3060,13 +3140,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of tokens matching the request."
+            "smithy.api#documentation": "Total count of tokens matching the request.",
+            "smithy.api#required": {}
           }
         },
         "tokens": {
           "target": "com.scaleway.cockpit_regional_v1#ListTokensResponseTokensList",
           "traits": {
-            "smithy.api#documentation": "Tokens matching the request within the pagination."
+            "smithy.api#documentation": "Tokens matching the request within the pagination.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3078,19 +3160,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the token."
+            "smithy.api#documentation": "ID of the token.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project the token belongs to."
+            "smithy.api#documentation": "ID of the Project the token belongs to.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the token."
+            "smithy.api#documentation": "Name of the token.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3110,7 +3195,8 @@
         "scopes": {
           "target": "com.scaleway.cockpit_regional_v1#TokenScopesList",
           "traits": {
-            "smithy.api#documentation": "Token permission scopes."
+            "smithy.api#documentation": "Token permission scopes.",
+            "smithy.api#required": {}
           }
         },
         "secret_key": {
@@ -3124,7 +3210,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Regions where the token is located."
+            "smithy.api#documentation": "Regions where the token is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3476,25 +3563,29 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project the data source belongs to. (UUID format)"
+            "smithy.api#documentation": "ID of the Project the data source belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "data_source_origin": {
           "target": "com.scaleway.cockpit_regional_v1#DataSourceOrigin",
           "traits": {
-            "smithy.api#documentation": "Origin of the data source."
+            "smithy.api#documentation": "Origin of the data source.",
+            "smithy.api#required": {}
           }
         },
         "data_source_type": {
           "target": "com.scaleway.cockpit_regional_v1#DataSourceType",
           "traits": {
-            "smithy.api#documentation": "Type of the data source."
+            "smithy.api#documentation": "Type of the data source.",
+            "smithy.api#required": {}
           }
         },
         "unit": {
           "target": "com.scaleway.cockpit_regional_v1#UsageUnit",
           "traits": {
-            "smithy.api#documentation": "Unit of the data source usage."
+            "smithy.api#documentation": "Unit of the data source usage.",
+            "smithy.api#required": {}
           }
         },
         "interval": {
@@ -3507,13 +3598,15 @@
         "quantity_over_interval": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Data source usage for the given interval."
+            "smithy.api#documentation": "Data source usage for the given interval.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the data source usage."
+            "smithy.api#documentation": "Region of the data source usage.",
+            "smithy.api#required": {}
           }
         }
       },

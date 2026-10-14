@@ -79,19 +79,19 @@ export const AutoConfigDomainDns = /*@__PURE__*/ S.suspend(() =>
 
 export interface HostingDomainCustomDomain {
   /** Custom domain linked to the hosting plan. */
-  domain?: string;
+  domain: string;
   /** Status of the custom domain verification. */
-  domain_status?: DomainStatus;
+  domain_status: DomainStatus;
   /** Status of the DNS configuration for the custom domain. */
-  dns_status?: DnsRecordsStatus;
+  dns_status: DnsRecordsStatus;
   /** Indicates whether to auto-configure DNS for this domain. */
   auto_config_domain_dns?: AutoConfigDomainDns;
 }
 export const HostingDomainCustomDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    domain_status: S.optional(DomainStatus),
-    dns_status: S.optional(DnsRecordsStatus),
+    domain: S.String,
+    domain_status: DomainStatus,
+    dns_status: DnsRecordsStatus,
     auto_config_domain_dns: S.optional(AutoConfigDomainDns),
   }),
 ).annotate({
@@ -100,56 +100,56 @@ export const HostingDomainCustomDomain = /*@__PURE__*/ S.suspend(() =>
 
 export interface HostingDomain {
   /** Optional free subdomain linked to the Web Hosting plan. */
-  subdomain?: string;
+  subdomain: string;
   /** Optional custom domain linked to the Web Hosting plan. */
   custom_domain?: HostingDomainCustomDomain;
 }
 export const HostingDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    subdomain: S.optional(S.String),
+    subdomain: S.String,
     custom_domain: S.optional(HostingDomainCustomDomain),
   }),
 ).annotate({ identifier: "HostingDomain" }) as any as S.Schema<HostingDomain>;
 
 export interface HostingSummary {
   /** ID of the Web Hosting plan. */
-  id?: string;
+  id: string;
   /** ID of the Scaleway Project the Web Hosting plan belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Date on which the Web Hosting plan was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the Web Hosting plan was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Status of the Web Hosting plan. */
-  status?: HostingStatus;
+  status: HostingStatus;
   /** Main domain associated with the Web Hosting plan (deprecated, use domain_info). */
   domain?: string;
   /** Whether the hosting is protected or not. */
-  protected?: boolean;
+  protected: boolean;
   /** DNS status of the Web Hosting plan. */
   dns_status?: DnsRecordsStatus;
   /** Name of the active offer for the Web Hosting plan. */
-  offer_name?: string;
+  offer_name: string;
   /** Main domain status of the Web Hosting plan. */
   domain_status?: DomainStatus;
   /** Region where the Web Hosting plan is hosted. */
-  region?: string;
+  region: string;
   /** Domain configuration block (subdomain, optional custom domain, and DNS settings). */
   domain_info?: HostingDomain;
 }
 export const HostingSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
+    id: S.String,
+    project_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(HostingStatus),
+    status: HostingStatus,
     domain: S.optional(S.String),
-    protected: S.optional(S.Boolean),
+    protected: S.Boolean,
     dns_status: S.optional(DnsRecordsStatus),
-    offer_name: S.optional(S.String),
+    offer_name: S.String,
     domain_status: S.optional(DomainStatus),
-    region: S.optional(S.String),
+    region: S.String,
     domain_info: S.optional(HostingDomain),
   }),
 ).annotate({ identifier: "HostingSummary" }) as any as S.Schema<HostingSummary>;
@@ -274,45 +274,45 @@ export type OfferOptionWarning = "unknown_warning" | "quota_exceeded_warning" | 
 export const OfferOptionWarning = S.String;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface OfferOption {
   /** Option ID. */
-  id?: string;
+  id: string;
   /** Name of the option. */
-  name?: OfferOptionName;
+  name: OfferOptionName;
   /** Unique identifier used for billing. */
-  billing_operation_path?: string;
+  billing_operation_path: string;
   /** Minimum value for the option in the offer. */
-  min_value?: number;
+  min_value: number;
   /** If a hosting_id was specified in the call, defines the current value of the option in the hosting. */
-  current_value?: number;
+  current_value: number;
   /** Maximum value for the option in the offer. */
-  max_value?: number;
+  max_value: number;
   /** Defines a warning if the maximum value for the option has been reached. */
-  quota_warning?: OfferOptionWarning;
+  quota_warning: OfferOptionWarning;
   /** Price of the option for 1 value. */
   price?: GoogleTypeMoney;
 }
 export const OfferOption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(OfferOptionName),
-    billing_operation_path: S.optional(S.String),
-    min_value: S.optional(S.Number),
-    current_value: S.optional(S.Number),
-    max_value: S.optional(S.Number),
-    quota_warning: S.optional(OfferOptionWarning),
+    id: S.String,
+    name: OfferOptionName,
+    billing_operation_path: S.String,
+    min_value: S.Number,
+    current_value: S.Number,
+    max_value: S.Number,
+    quota_warning: OfferOptionWarning,
     price: S.optional(GoogleTypeMoney),
   }),
 ).annotate({ identifier: "OfferOption" }) as any as S.Schema<OfferOption>;
@@ -331,20 +331,20 @@ export const ControlPanelAvailableLanguagesList = /*@__PURE__*/ S.Array(
 
 export interface ControlPanel {
   /** Control panel name. */
-  name?: string;
+  name: string;
   /** Define if the control panel type is available to order. */
-  available?: boolean;
+  available: boolean;
   /** URL of the control panel's logo. */
-  logo_url?: string;
+  logo_url: string;
   /** List of available languages for the control panel. */
-  available_languages?: ControlPanelAvailableLanguagesList;
+  available_languages: ControlPanelAvailableLanguagesList;
 }
 export const ControlPanel = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    available: S.optional(S.Boolean),
-    logo_url: S.optional(S.String),
-    available_languages: S.optional(ControlPanelAvailableLanguagesList),
+    name: S.String,
+    available: S.Boolean,
+    logo_url: S.String,
+    available_languages: ControlPanelAvailableLanguagesList,
   }),
 ).annotate({ identifier: "ControlPanel" }) as any as S.Schema<ControlPanel>;
 
@@ -362,31 +362,31 @@ export const BillingMode = S.String;
 
 export interface OfferCommitment {
   /** Offer commitment ID. */
-  id?: string;
+  id: string;
   /** Offer commitment type. */
-  type?: CommitmentType;
+  type: CommitmentType;
   /** True if the commitment is the default one for that offer. */
-  is_default?: boolean;
+  is_default: boolean;
   /** Offer commitment name. */
-  billing_mode?: BillingMode;
+  billing_mode: BillingMode;
   /** Unique identifier used for billing. */
-  billing_operation_path?: string;
+  billing_operation_path: string;
   /** Price of the offer commitment. */
   price?: GoogleTypeMoney;
   /** Duration of the offer commitment in months. */
-  duration_in_month?: number;
+  duration_in_month: number;
   /** Next offer commitment. */
   next?: OfferCommitment;
 }
 export const OfferCommitment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(CommitmentType),
-    is_default: S.optional(S.Boolean),
-    billing_mode: S.optional(BillingMode),
-    billing_operation_path: S.optional(S.String),
+    id: S.String,
+    type: CommitmentType,
+    is_default: S.Boolean,
+    billing_mode: BillingMode,
+    billing_operation_path: S.String,
     price: S.optional(GoogleTypeMoney),
-    duration_in_month: S.optional(S.Number),
+    duration_in_month: S.Number,
     next: S.optional(OfferCommitment),
   }),
 ).annotate({ identifier: "OfferCommitment" }) as any as S.Schema<OfferCommitment>;
@@ -399,44 +399,44 @@ export const OfferCommitmentsList = /*@__PURE__*/ S.Array(
 
 export interface Offer {
   /** Offer ID. */
-  id?: string;
+  id: string;
   /** Offer name. */
-  name?: string;
+  name: string;
   /** Unique identifier used for billing. */
-  billing_operation_path?: string;
+  billing_operation_path: string;
   /** Options available for the offer. */
-  options?: OfferOptionsList;
+  options: OfferOptionsList;
   /** Price of the offer. */
   price?: GoogleTypeMoney;
   /** If a hosting_id was specified in the call, defines whether the offer is available for a specified hosting plan to migrate (update) to. */
-  available?: boolean;
+  available: boolean;
   /** Name of the control panel. */
-  control_panel_name?: string;
+  control_panel_name: string;
   /** Indicates if the offer has reached its end of life. */
-  end_of_life?: boolean;
+  end_of_life: boolean;
   /** Defines a warning if the maximum value for an option in the offer is exceeded. */
-  quota_warning?: OfferOptionWarning;
+  quota_warning: OfferOptionWarning;
   /** Lists available control panels for the specified offer. */
-  control_panels?: OfferControlPanelsList;
+  control_panels: OfferControlPanelsList;
   /** Lists available offer commitments for the specified offer. */
-  commitments?: OfferCommitmentsList;
+  commitments: OfferCommitmentsList;
   /** Region where the offer is hosted. */
-  region?: string;
+  region: string;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    billing_operation_path: S.optional(S.String),
-    options: S.optional(OfferOptionsList),
+    id: S.String,
+    name: S.String,
+    billing_operation_path: S.String,
+    options: OfferOptionsList,
     price: S.optional(GoogleTypeMoney),
-    available: S.optional(S.Boolean),
-    control_panel_name: S.optional(S.String),
-    end_of_life: S.optional(S.Boolean),
-    quota_warning: S.optional(OfferOptionWarning),
-    control_panels: S.optional(OfferControlPanelsList),
-    commitments: S.optional(OfferCommitmentsList),
-    region: S.optional(S.String),
+    available: S.Boolean,
+    control_panel_name: S.String,
+    end_of_life: S.Boolean,
+    quota_warning: OfferOptionWarning,
+    control_panels: OfferControlPanelsList,
+    commitments: OfferCommitmentsList,
+    region: S.String,
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
 
@@ -445,51 +445,51 @@ export const PlatformPlatformGroup = S.String;
 
 export interface PlatformControlPanelUrls {
   /** URL to connect to the hosting control panel dashboard. */
-  dashboard?: string;
+  dashboard: string;
   /** URL to connect to the hosting Webmail interface. */
-  webmail?: string;
+  webmail: string;
 }
 export const PlatformControlPanelUrls = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    dashboard: S.optional(S.String),
-    webmail: S.optional(S.String),
+    dashboard: S.String,
+    webmail: S.String,
   }),
 ).annotate({ identifier: "PlatformControlPanelUrls" }) as any as S.Schema<PlatformControlPanelUrls>;
 
 export interface PlatformControlPanel {
   /** Name of the control panel. */
-  name?: string;
+  name: string;
   /** URL to connect to control panel dashboard and to Webmail interface. */
   urls?: PlatformControlPanelUrls;
 }
 export const PlatformControlPanel = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
     urls: S.optional(PlatformControlPanelUrls),
   }),
 ).annotate({ identifier: "PlatformControlPanel" }) as any as S.Schema<PlatformControlPanel>;
 
 export interface Platform {
   /** Hostname of the host platform. */
-  hostname?: string;
+  hostname: string;
   /** Number of the host platform. */
-  number?: number;
+  number: number;
   /** Group name of the hosting's host platform. */
-  group_name?: PlatformPlatformGroup;
+  group_name: PlatformPlatformGroup;
   /** IPv4 address of the hosting's host platform. (IPv4 address) */
-  ipv4?: string;
+  ipv4: string;
   /** IPv6 address of the hosting's host platform. (IPv6 address) */
-  ipv6?: string;
+  ipv6: string;
   /** Details of the platform control panel. */
   control_panel?: PlatformControlPanel;
 }
 export const Platform = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    hostname: S.optional(S.String),
-    number: S.optional(S.Number),
-    group_name: S.optional(PlatformPlatformGroup),
-    ipv4: S.optional(S.String),
-    ipv6: S.optional(S.String),
+    hostname: S.String,
+    number: S.Number,
+    group_name: PlatformPlatformGroup,
+    ipv4: S.String,
+    ipv6: S.String,
     control_panel: S.optional(PlatformControlPanel),
   }),
 ).annotate({ identifier: "Platform" }) as any as S.Schema<Platform>;
@@ -500,19 +500,19 @@ export const HostingTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schem
 
 export interface HostingUser {
   /** Main Web Hosting control panel username. */
-  username?: string;
+  username: string;
   /** One-time-password used for the first login to the control panel, cleared after first use (deprecated, use password_b64 instead). */
   one_time_password?: string | Redacted.Redacted<string> | null;
   /** Contact email used for the hosting. */
-  contact_email?: string;
+  contact_email: string;
   /** One-time-password used for the first login to the control panel, cleared after first use, encoded in base64. */
   one_time_password_b64?: string | null;
 }
 export const HostingUser = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    username: S.optional(S.String),
+    username: S.String,
     one_time_password: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
-    contact_email: S.optional(S.String),
+    contact_email: S.String,
     one_time_password_b64: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "HostingUser" }) as any as S.Schema<HostingUser>;
@@ -525,14 +525,14 @@ export interface HostingCommitment {
   /** Date and time the commitment ends. (RFC 3339 format) */
   end_at?: string | null;
   /** Determines what happens at the end of the commitment period:. The hosting may be deleted, automatically renewed, or switched to its configured post-commitment offer, which may have a different price and billing period. */
-  delete_hosting_at_end?: boolean;
+  delete_hosting_at_end: boolean;
 }
 export const HostingCommitment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     offer_commitment: S.optional(OfferCommitment),
     start_at: S.optional(S.NullOr(S.String)),
     end_at: S.optional(S.NullOr(S.String)),
-    delete_hosting_at_end: S.optional(S.Boolean),
+    delete_hosting_at_end: S.Boolean,
   }),
 ).annotate({ identifier: "HostingCommitment" }) as any as S.Schema<HostingCommitment>;
 
@@ -541,15 +541,15 @@ export const HostingProvider = S.String;
 
 export interface Hosting {
   /** ID of the Web Hosting plan. */
-  id?: string;
+  id: string;
   /** ID of the Scaleway Project the Web Hosting plan belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Date on which the Web Hosting plan was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Date on which the Web Hosting plan was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Status of the Web Hosting plan. */
-  status?: HostingStatus;
+  status: HostingStatus;
   /** Main domain associated with the Web Hosting plan (deprecated, use domain_info). */
   domain?: string;
   /** Details of the Web Hosting plan offer and options. */
@@ -557,46 +557,46 @@ export interface Hosting {
   /** Details of the hosting platform. */
   platform?: Platform;
   /** List of tags associated with the Web Hosting plan. */
-  tags?: HostingTagsList;
+  tags: HostingTagsList;
   /** DNS status of the Web Hosting plan (deprecated, use domain_info). */
   dns_status?: DnsRecordsStatus;
   /** Current IPv4 address of the hosting. (IPv4 address) */
-  ipv4?: string;
+  ipv4: string;
   /** Whether the hosting is protected or not. */
-  protected?: boolean;
+  protected: boolean;
   /** Details of the hosting user. */
   user?: HostingUser;
   /** Main domain status of the Web Hosting plan (deprecated, use domain_info). */
   domain_status?: DomainStatus;
   /** Region where the Web Hosting plan is hosted. */
-  region?: string;
+  region: string;
   /** Domain configuration block (subdomain, optional custom domain, and DNS settings). */
   domain_info?: HostingDomain;
   /** Commitment details to which the hosting is engaged. */
   commitment?: HostingCommitment;
   /** Provider where the Web Hosting plan is managed (elements, dedibox). */
-  provider?: HostingProvider;
+  provider: HostingProvider;
 }
 export const Hosting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
+    id: S.String,
+    project_id: S.String,
     updated_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(HostingStatus),
+    status: HostingStatus,
     domain: S.optional(S.String),
     offer: S.optional(Offer),
     platform: S.optional(Platform),
-    tags: S.optional(HostingTagsList),
+    tags: HostingTagsList,
     dns_status: S.optional(DnsRecordsStatus),
-    ipv4: S.optional(S.String),
-    protected: S.optional(S.Boolean),
+    ipv4: S.String,
+    protected: S.Boolean,
     user: S.optional(HostingUser),
     domain_status: S.optional(DomainStatus),
-    region: S.optional(S.String),
+    region: S.String,
     domain_info: S.optional(HostingDomain),
     commitment: S.optional(HostingCommitment),
-    provider: S.optional(HostingProvider),
+    provider: HostingProvider,
   }),
 ).annotate({ identifier: "Hosting" }) as any as S.Schema<Hosting>;
 
@@ -625,11 +625,11 @@ export const CreateSessionRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Session {
   /** Logged user's session URL. */
-  url?: string;
+  url: string;
 }
 export const Session = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
+    url: S.String,
   }),
 ).annotate({ identifier: "Session" }) as any as S.Schema<Session>;
 
@@ -740,20 +740,20 @@ export const GetResourceSummaryRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ResourceSummary {
   /** Total number of active databases in the Web Hosting plan. */
-  databases_count?: number;
+  databases_count: number;
   /** Total number of active email accounts in the Web Hosting plan. */
-  mail_accounts_count?: number;
+  mail_accounts_count: number;
   /** Total number of active FTP accounts in the Web Hosting plan. */
-  ftp_accounts_count?: number;
+  ftp_accounts_count: number;
   /** Total number of active domains in the Web Hosting plan. */
-  websites_count?: number;
+  websites_count: number;
 }
 export const ResourceSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    databases_count: S.optional(S.Number),
-    mail_accounts_count: S.optional(S.Number),
-    ftp_accounts_count: S.optional(S.Number),
-    websites_count: S.optional(S.Number),
+    databases_count: S.Number,
+    mail_accounts_count: S.Number,
+    ftp_accounts_count: S.Number,
+    websites_count: S.Number,
   }),
 ).annotate({ identifier: "ResourceSummary" }) as any as S.Schema<ResourceSummary>;
 
@@ -833,13 +833,13 @@ export const ListHostingsResponseHostingsList = /*@__PURE__*/ S.Array(
 
 export interface ListHostingsResponse {
   /** Number of Web Hosting plans returned. */
-  total_count?: number;
+  total_count: number;
   /** List of Web Hosting plans. */
   hostings: ListHostingsResponseHostingsList;
 }
 export const ListHostingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     hostings: ListHostingsResponseHostingsList,
   }),
 ).annotate({ identifier: "ListHostingsResponse" }) as any as S.Schema<ListHostingsResponse>;
@@ -955,12 +955,12 @@ export interface ResetHostingPasswordResponse {
   /** New temporary password (deprecated, use password_b64 instead). */
   one_time_password?: string | Redacted.Redacted<string>;
   /** New temporary password, encoded in base64. */
-  one_time_password_b64?: string;
+  one_time_password_b64: string;
 }
 export const ResetHostingPasswordResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     one_time_password: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    one_time_password_b64: S.optional(S.String),
+    one_time_password_b64: S.String,
   }),
 ).annotate({
   identifier: "ResetHostingPasswordResponse",

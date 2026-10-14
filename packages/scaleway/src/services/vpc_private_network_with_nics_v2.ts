@@ -39,35 +39,35 @@ export const PrivateNetworkTagsList = /*@__PURE__*/ S.Array(
 
 export interface Subnet {
   /** ID of the subnet. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the subnet. */
-  srn?: string;
+  srn: string;
   /** Subnet creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Subnet last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Subnet CIDR. (IP network) */
-  subnet?: string;
+  subnet: string;
   /** Scaleway Project the subnet belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Private Network the subnet belongs to. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
   /** VPC the subnet belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Region in which the Subnet can be used. */
-  region?: string;
+  region: string;
 }
 export const Subnet = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    subnet: S.optional(S.String),
-    project_id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    vpc_id: S.optional(S.String),
-    region: S.optional(S.String),
+    subnet: S.String,
+    project_id: S.String,
+    private_network_id: S.String,
+    vpc_id: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "Subnet" }) as any as S.Schema<Subnet>;
 
@@ -79,63 +79,63 @@ export const PrivateNetworkSubnetsList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNetwork {
   /** Private Network ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the private network. */
-  srn?: string;
+  srn: string;
   /** Private Network name. */
-  name?: string;
+  name: string;
   /** Scaleway Organization the Private Network belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Scaleway Project the Private Network belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Region in which the Private Network is available. */
-  region?: string;
+  region: string;
   /** Tags of the Private Network. */
-  tags?: PrivateNetworkTagsList;
+  tags: PrivateNetworkTagsList;
   /** Date the Private Network was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the Private Network was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Private Network subnets. */
-  subnets?: PrivateNetworkSubnetsList;
+  subnets: PrivateNetworkSubnetsList;
   /** VPC the Private Network belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Defines whether managed DHCP is enabled for this Private Network. */
-  dhcp_enabled?: boolean;
+  dhcp_enabled: boolean;
   /** Defines whether default v4 and v6 routes are propagated for this Private Network. */
-  default_route_propagation_enabled?: boolean;
+  default_route_propagation_enabled: boolean;
   /** Defines whether this Private Network is enabled for Object Storage private access. */
-  has_object_storage_private_access?: boolean;
+  has_object_storage_private_access: boolean;
 }
 export const PrivateNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
-    tags: S.optional(PrivateNetworkTagsList),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    region: S.String,
+    tags: PrivateNetworkTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    subnets: S.optional(PrivateNetworkSubnetsList),
-    vpc_id: S.optional(S.String),
-    dhcp_enabled: S.optional(S.Boolean),
-    default_route_propagation_enabled: S.optional(S.Boolean),
-    has_object_storage_private_access: S.optional(S.Boolean),
+    subnets: PrivateNetworkSubnetsList,
+    vpc_id: S.String,
+    dhcp_enabled: S.Boolean,
+    default_route_propagation_enabled: S.Boolean,
+    has_object_storage_private_access: S.Boolean,
   }),
 ).annotate({ identifier: "PrivateNetwork" }) as any as S.Schema<PrivateNetwork>;
 
 export interface PrivateNICMetadata {
-  product_type?: string;
-  resource_type?: string;
-  resource_id?: string;
+  product_type: string;
+  resource_type: string;
+  resource_id: string;
 }
 export const PrivateNICMetadata = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    product_type: S.optional(S.String),
-    resource_type: S.optional(S.String),
-    resource_id: S.optional(S.String),
+    product_type: S.String,
+    resource_type: S.String,
+    resource_id: S.String,
   }),
 ).annotate({ identifier: "PrivateNICMetadata" }) as any as S.Schema<PrivateNICMetadata>;
 
@@ -143,26 +143,26 @@ export type PrivateNICStatus = "unknown_status" | "stopped" | "available" | "con
 export const PrivateNICStatus = S.String;
 
 export interface PrivateNIC {
-  id?: string;
-  private_network_id?: string;
-  server_id?: string;
-  mac_address?: string;
-  vlan?: number;
+  id: string;
+  private_network_id: string;
+  server_id: string;
+  mac_address: string;
+  vlan: number;
   metadata?: PrivateNICMetadata;
-  status?: PrivateNICStatus;
+  status: PrivateNICStatus;
   /** The zone you want to target */
-  zone?: string;
+  zone: string;
 }
 export const PrivateNIC = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    server_id: S.optional(S.String),
-    mac_address: S.optional(S.String),
-    vlan: S.optional(S.Number),
+    id: S.String,
+    private_network_id: S.String,
+    server_id: S.String,
+    mac_address: S.String,
+    vlan: S.Number,
     metadata: S.optional(PrivateNICMetadata),
-    status: S.optional(PrivateNICStatus),
-    zone: S.optional(S.String),
+    status: PrivateNICStatus,
+    zone: S.String,
   }),
 ).annotate({ identifier: "PrivateNIC" }) as any as S.Schema<PrivateNIC>;
 
@@ -173,12 +173,12 @@ export const PrivateNetworkWithNicsPrivateNicsList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNetworkWithNics {
   private_network: PrivateNetwork;
-  private_nics?: PrivateNetworkWithNicsPrivateNicsList;
+  private_nics: PrivateNetworkWithNicsPrivateNicsList;
 }
 export const PrivateNetworkWithNics = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_network: PrivateNetwork,
-    private_nics: S.optional(PrivateNetworkWithNicsPrivateNicsList),
+    private_nics: PrivateNetworkWithNicsPrivateNicsList,
   }),
 ).annotate({ identifier: "PrivateNetworkWithNics" }) as any as S.Schema<PrivateNetworkWithNics>;
 
@@ -248,12 +248,12 @@ export const ListPrivateNetworksWithNicsResponsePrivateNetworksList = /*@__PURE_
 
 export interface ListPrivateNetworksWithNicsResponse {
   private_networks: ListPrivateNetworksWithNicsResponsePrivateNetworksList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListPrivateNetworksWithNicsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_networks: ListPrivateNetworksWithNicsResponsePrivateNetworksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPrivateNetworksWithNicsResponse",

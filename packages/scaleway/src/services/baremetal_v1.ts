@@ -73,26 +73,26 @@ export const IPReverseStatus = S.String;
 
 export interface IP {
   /** ID of the IP. */
-  id?: string;
+  id: string;
   /** Address of the IP. (IP address) */
-  address?: string;
+  address: string;
   /** Reverse IP value. */
-  reverse?: string;
+  reverse: string;
   /** Version of IP (v4 or v6). */
-  version?: IPVersion;
+  version: IPVersion;
   /** Status of the reverse. */
-  reverse_status?: IPReverseStatus;
+  reverse_status: IPReverseStatus;
   /** A message related to the reverse status, e.g. in case of an error. */
-  reverse_status_message?: string;
+  reverse_status_message: string;
 }
 export const IP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    address: S.optional(S.String),
-    reverse: S.optional(S.String),
-    version: S.optional(IPVersion),
-    reverse_status: S.optional(IPReverseStatus),
-    reverse_status_message: S.optional(S.String),
+    id: S.String,
+    address: S.String,
+    reverse: S.String,
+    version: IPVersion,
+    reverse_status: IPReverseStatus,
+    reverse_status_message: S.String,
   }),
 ).annotate({ identifier: "IP" }) as any as S.Schema<IP>;
 
@@ -281,31 +281,31 @@ export const Schema = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerInstall {
   /** ID of the OS. */
-  os_id?: string;
+  os_id: string;
   /** Host defined during the server installation. */
-  hostname?: string;
+  hostname: string;
   /** SSH public key IDs defined during server installation. */
-  ssh_key_ids?: ServerInstallSshKeyIdsList;
+  ssh_key_ids: ServerInstallSshKeyIdsList;
   /** Status of the server installation. */
-  status?: ServerInstallStatus;
+  status: ServerInstallStatus;
   /** User defined in the server installation, or the default user if none were specified. */
-  user?: string;
+  user: string;
   /** Service user defined in the server installation, or the default user if none were specified. */
-  service_user?: string;
+  service_user: string;
   /** Address of the installed service. */
-  service_url?: string;
+  service_url: string;
   /** Partitioning schema. */
   partitioning_schema?: Schema;
 }
 export const ServerInstall = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    os_id: S.optional(S.String),
-    hostname: S.optional(S.String),
-    ssh_key_ids: S.optional(ServerInstallSshKeyIdsList),
-    status: S.optional(ServerInstallStatus),
-    user: S.optional(S.String),
-    service_user: S.optional(S.String),
-    service_url: S.optional(S.String),
+    os_id: S.String,
+    hostname: S.String,
+    ssh_key_ids: ServerInstallSshKeyIdsList,
+    status: ServerInstallStatus,
+    user: S.String,
+    service_user: S.String,
+    service_url: S.String,
     partitioning_schema: S.optional(Schema),
   }),
 ).annotate({ identifier: "ServerInstall" }) as any as S.Schema<ServerInstall>;
@@ -322,20 +322,20 @@ export type ServerOptionOptionStatus =
 export const ServerOptionOptionStatus = S.String;
 
 export interface LicenseOption {
-  os_id?: string;
+  os_id: string;
 }
 export const LicenseOption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    os_id: S.optional(S.String),
+    os_id: S.String,
   }),
 ).annotate({ identifier: "LicenseOption" }) as any as S.Schema<LicenseOption>;
 
 export interface PublicBandwidthOption {
-  bandwidth_in_bps?: number;
+  bandwidth_in_bps: number;
 }
 export const PublicBandwidthOption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    bandwidth_in_bps: S.optional(S.Number),
+    bandwidth_in_bps: S.Number,
   }),
 ).annotate({ identifier: "PublicBandwidthOption" }) as any as S.Schema<PublicBandwidthOption>;
 
@@ -344,13 +344,13 @@ export const PrivateNetworkOption = PublicBandwidthOption;
 
 export interface ServerOption {
   /** ID of the option. */
-  id?: string;
+  id: string;
   /** Name of the option. */
-  name?: string;
+  name: string;
   /** Status of the option on this server. */
-  status?: ServerOptionOptionStatus;
+  status: ServerOptionOptionStatus;
   /** Defines whether the option can be managed (added or removed). */
-  manageable?: boolean;
+  manageable: boolean;
   /** Auto expiration date for compatible options. (RFC 3339 format) */
   expires_at?: string | null;
   /** License option, contains the ID of the OS linked to the option. */
@@ -366,10 +366,10 @@ export interface ServerOption {
 }
 export const ServerOption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(ServerOptionOptionStatus),
-    manageable: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    status: ServerOptionOptionStatus,
+    manageable: S.Boolean,
     expires_at: S.optional(S.NullOr(S.String)),
     license: S.optional(S.NullOr(LicenseOption)),
     public_bandwidth: S.optional(S.NullOr(PublicBandwidthOption)),
@@ -387,83 +387,83 @@ export const ServerOptionsList = /*@__PURE__*/ S.Array(
 
 export interface ServerRescueServer {
   /** Rescue user name. */
-  user?: string;
+  user: string;
   /** Rescue password. */
-  password?: string | Redacted.Redacted<string>;
+  password: string | Redacted.Redacted<string>;
 }
 export const ServerRescueServer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    user: S.optional(S.String),
-    password: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    user: S.String,
+    password: S.String.pipe(T.SensitiveValue({})),
   }),
 ).annotate({ identifier: "ServerRescueServer" }) as any as S.Schema<ServerRescueServer>;
 
 export interface Server {
   /** ID of the server. */
-  id?: string;
+  id: string;
   /** Organization ID the server is attached to. */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID the server is attached to. */
-  project_id?: string;
+  project_id: string;
   /** Name of the server. */
-  name?: string;
+  name: string;
   /** Description of the server. */
-  description?: string;
+  description: string;
   /** Last modification date of the server. (RFC 3339 format) */
   updated_at?: string | null;
   /** Creation date of the server. (RFC 3339 format) */
   created_at?: string | null;
   /** Status of the server. */
-  status?: ServerStatus;
+  status: ServerStatus;
   /** Offer ID of the server. */
-  offer_id?: string;
+  offer_id: string;
   /** Offer name of the server. */
-  offer_name?: string;
+  offer_name: string;
   /** Array of custom tags attached to the server. */
-  tags?: ServerTagsList;
+  tags: ServerTagsList;
   /** Array of IPs attached to the server. */
-  ips?: ServerIpsList;
+  ips: ServerIpsList;
   /** Domain of the server. */
-  domain?: string;
+  domain: string;
   /** Boot type of the server. */
-  boot_type?: ServerBootType;
+  boot_type: ServerBootType;
   /** Zone in which is the server located. */
-  zone?: string;
+  zone: string;
   /** Configuration of the installation. */
   install?: ServerInstall;
   /** Status of server ping. */
-  ping_status?: ServerPingStatus;
+  ping_status: ServerPingStatus;
   /** Options enabled on the server. */
-  options?: ServerOptionsList;
+  options: ServerOptionsList;
   /** Configuration of rescue boot. */
   rescue_server?: ServerRescueServer;
   /** If enabled, the server can not be deleted. */
-  protected?: boolean;
+  protected: boolean;
   /** Optional configuration data passed to cloud-init. */
   user_data?: string | null;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
+    id: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    name: S.String,
+    description: S.String,
     updated_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(ServerStatus),
-    offer_id: S.optional(S.String),
-    offer_name: S.optional(S.String),
-    tags: S.optional(ServerTagsList),
-    ips: S.optional(ServerIpsList),
-    domain: S.optional(S.String),
-    boot_type: S.optional(ServerBootType),
-    zone: S.optional(S.String),
+    status: ServerStatus,
+    offer_id: S.String,
+    offer_name: S.String,
+    tags: ServerTagsList,
+    ips: ServerIpsList,
+    domain: S.String,
+    boot_type: ServerBootType,
+    zone: S.String,
     install: S.optional(ServerInstall),
-    ping_status: S.optional(ServerPingStatus),
-    options: S.optional(ServerOptionsList),
+    ping_status: ServerPingStatus,
+    options: ServerOptionsList,
     rescue_server: S.optional(ServerRescueServer),
-    protected: S.optional(S.Boolean),
+    protected: S.Boolean,
     user_data: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
@@ -635,11 +635,11 @@ export const BatchCreateServersResponseServersList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<BatchCreateServersResponseServersList>;
 
 export interface BatchCreateServersResponse {
-  servers?: BatchCreateServersResponseServersList;
+  servers: BatchCreateServersResponseServersList;
 }
 export const BatchCreateServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(BatchCreateServersResponseServersList),
+    servers: BatchCreateServersResponseServersList,
   }),
 ).annotate({
   identifier: "BatchCreateServersResponse",
@@ -807,19 +807,19 @@ export const GetBMCAccessRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface BMCAccess {
   /** URL to access to the server console. */
-  url?: string;
+  url: string;
   /** The login to use for the BMC (Baseboard Management Controller) access authentication. */
-  login?: string;
+  login: string;
   /** The password to use for the BMC (Baseboard Management Controller) access authentication. */
-  password?: string | Redacted.Redacted<string>;
+  password: string | Redacted.Redacted<string>;
   /** The date after which the BMC (Baseboard Management Controller) access will be closed. (RFC 3339 format) */
   expires_at?: string | null;
 }
 export const BMCAccess = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    login: S.optional(S.String),
-    password: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    url: S.String,
+    login: S.String,
+    password: S.String.pipe(T.SensitiveValue({})),
     expires_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "BMCAccess" }) as any as S.Schema<BMCAccess>;
@@ -891,28 +891,28 @@ export type OfferStock = "empty" | "low" | "available";
 export const OfferStock = S.String;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface Disk {
   /** Capacity of the disk in bytes. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Type of the disk. */
-  type?: string;
+  type: string;
 }
 export const Disk = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    type: S.optional(S.String),
+    capacity: S.Number,
+    type: S.String,
   }),
 ).annotate({ identifier: "Disk" }) as any as S.Schema<Disk>;
 
@@ -922,23 +922,23 @@ export const OfferDisksList = /*@__PURE__*/ S.Array(Disk) as any as S.Schema<Off
 
 export interface CPU {
   /** Name of the CPU. */
-  name?: string;
+  name: string;
   /** Number of CPU cores. */
-  core_count?: number;
+  core_count: number;
   /** Number CPU threads. */
-  thread_count?: number;
+  thread_count: number;
   /** Frequency of the CPU in MHz. */
-  frequency?: number;
+  frequency: number;
   /** Benchmark of the CPU. */
-  benchmark?: string;
+  benchmark: string;
 }
 export const CPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    core_count: S.optional(S.Number),
-    thread_count: S.optional(S.Number),
-    frequency: S.optional(S.Number),
-    benchmark: S.optional(S.String),
+    name: S.String,
+    core_count: S.Number,
+    thread_count: S.Number,
+    frequency: S.Number,
+    benchmark: S.String,
   }),
 ).annotate({ identifier: "CPU" }) as any as S.Schema<CPU>;
 
@@ -951,23 +951,23 @@ export const MemoryEccType = S.String;
 
 export interface Memory {
   /** Capacity of the memory in bytes. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Type of the memory. */
-  type?: string;
+  type: string;
   /** Frequency of the memory in MHz. */
-  frequency?: number;
+  frequency: number;
   /** True if the memory is an error-correcting code memory. */
-  is_ecc?: boolean;
+  is_ecc: boolean;
   /** Type of ECC memory. */
-  ecc_type?: MemoryEccType;
+  ecc_type: MemoryEccType;
 }
 export const Memory = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    type: S.optional(S.String),
-    frequency: S.optional(S.Number),
-    is_ecc: S.optional(S.Boolean),
-    ecc_type: S.optional(MemoryEccType),
+    capacity: S.Number,
+    type: S.String,
+    frequency: S.Number,
+    is_ecc: S.Boolean,
+    ecc_type: MemoryEccType,
   }),
 ).annotate({ identifier: "Memory" }) as any as S.Schema<Memory>;
 
@@ -979,17 +979,17 @@ export const OfferMemoriesList = /*@__PURE__*/ S.Array(
 
 export interface PersistentMemory {
   /** Capacity of the memory in bytes. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Type of the memory. */
-  type?: string;
+  type: string;
   /** Frequency of the memory in MHz. */
-  frequency?: number;
+  frequency: number;
 }
 export const PersistentMemory = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    type: S.optional(S.String),
-    frequency: S.optional(S.Number),
+    capacity: S.Number,
+    type: S.String,
+    frequency: S.Number,
   }),
 ).annotate({ identifier: "PersistentMemory" }) as any as S.Schema<PersistentMemory>;
 
@@ -1005,13 +1005,13 @@ export const RaidControllerRaidLevelList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<RaidControllerRaidLevelList>;
 
 export interface RaidController {
-  model?: string;
-  raid_level?: RaidControllerRaidLevelList;
+  model: string;
+  raid_level: RaidControllerRaidLevelList;
 }
 export const RaidController = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    model: S.optional(S.String),
-    raid_level: S.optional(RaidControllerRaidLevelList),
+    model: S.String,
+    raid_level: RaidControllerRaidLevelList,
   }),
 ).annotate({ identifier: "RaidController" }) as any as S.Schema<RaidController>;
 
@@ -1032,17 +1032,17 @@ export const OfferSubscriptionPeriod = S.String;
 
 export interface OfferOptionOffer {
   /** ID of the option. */
-  id?: string;
+  id: string;
   /** Name of the option. */
-  name?: string;
+  name: string;
   /** If true the option is enabled and included by default in the offer. If true the option is enabled and included by default in the offer If false the option is available for the offer but not included by default. */
-  enabled?: boolean;
+  enabled: boolean;
   /** Period of subscription for the offer. */
-  subscription_period?: OfferSubscriptionPeriod;
+  subscription_period: OfferSubscriptionPeriod;
   /** Price of the option. */
   price?: GoogleTypeMoney;
   /** Boolean to know if option could be managed. */
-  manageable?: boolean;
+  manageable: boolean;
   /** Deprecated, use LicenseOptionVars.os_id instead. */
   os_id?: string | null;
   /** License option, contains the ID of the OS linked to the option. */
@@ -1058,12 +1058,12 @@ export interface OfferOptionOffer {
 }
 export const OfferOptionOffer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    enabled: S.optional(S.Boolean),
-    subscription_period: S.optional(OfferSubscriptionPeriod),
+    id: S.String,
+    name: S.String,
+    enabled: S.Boolean,
+    subscription_period: OfferSubscriptionPeriod,
     price: S.optional(GoogleTypeMoney),
-    manageable: S.optional(S.Boolean),
+    manageable: S.Boolean,
     os_id: S.optional(S.NullOr(S.String)),
     license: S.optional(S.NullOr(LicenseOption)),
     public_bandwidth: S.optional(S.NullOr(PublicBandwidthOption)),
@@ -1085,14 +1085,14 @@ export const OfferTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<
 
 export interface GPU {
   /** Name of the GPU. */
-  name?: string;
+  name: string;
   /** Capacity of the vram in bytes. */
-  vram?: number;
+  vram: number;
 }
 export const GPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    vram: S.optional(S.Number),
+    name: S.String,
+    vram: S.Number,
   }),
 ).annotate({ identifier: "GPU" }) as any as S.Schema<GPU>;
 
@@ -1102,88 +1102,88 @@ export const OfferGpusList = /*@__PURE__*/ S.Array(GPU) as any as S.Schema<Offer
 
 export interface Offer {
   /** ID of the offer. */
-  id?: string;
+  id: string;
   /** Name of the offer. */
-  name?: string;
+  name: string;
   /** Stock level. */
-  stock?: OfferStock;
+  stock: OfferStock;
   /** Public bandwidth available (in bits/s) with the offer. */
-  bandwidth?: number;
+  bandwidth: number;
   /** Maximum public bandwidth available (in bits/s) depending on available options. */
-  max_bandwidth?: number;
+  max_bandwidth: number;
   /** Commercial range of the offer. */
-  commercial_range?: string;
+  commercial_range: string;
   /** Price of the offer for the next 60 minutes (a server order at 11h32 will be paid until 12h32). */
   price_per_hour?: GoogleTypeMoney;
   /** Monthly price of the offer, if subscribing on a monthly basis. */
   price_per_month?: GoogleTypeMoney;
   /** Disks specifications of the offer. */
-  disks?: OfferDisksList;
+  disks: OfferDisksList;
   /** Defines whether the offer is currently available. */
-  enable?: boolean;
+  enable: boolean;
   /** CPU specifications of the offer. */
-  cpus?: OfferCpusList;
+  cpus: OfferCpusList;
   /** Memory specifications of the offer. */
-  memories?: OfferMemoriesList;
+  memories: OfferMemoriesList;
   /** Name of the quota associated to the offer. */
-  quota_name?: string;
+  quota_name: string;
   /** Persistent memory specifications of the offer. */
-  persistent_memories?: OfferPersistentMemoriesList;
+  persistent_memories: OfferPersistentMemoriesList;
   /** Raid controller specifications of the offer. */
-  raid_controllers?: OfferRaidControllersList;
+  raid_controllers: OfferRaidControllersList;
   /** Array of OS images IDs incompatible with the server. */
-  incompatible_os_ids?: OfferIncompatibleOsIdsList;
+  incompatible_os_ids: OfferIncompatibleOsIdsList;
   /** Period of subscription for the offer. */
-  subscription_period?: OfferSubscriptionPeriod;
+  subscription_period: OfferSubscriptionPeriod;
   /** Operation path of the service. */
-  operation_path?: string;
+  operation_path: string;
   /** One time fee invoiced by Scaleway for the setup and activation of the server. */
   fee?: GoogleTypeMoney;
   /** Available options for customization of the server. */
-  options?: OfferOptionsList;
+  options: OfferOptionsList;
   /** Private bandwidth available in bits/s with the offer. */
-  private_bandwidth?: number;
+  private_bandwidth: number;
   /** Defines whether the offer's bandwidth is shared or not. */
-  shared_bandwidth?: boolean;
+  shared_bandwidth: boolean;
   /** Array of tags attached to the offer. */
-  tags?: OfferTagsList;
+  tags: OfferTagsList;
   /** GPU specifications of the offer. */
-  gpus?: OfferGpusList;
+  gpus: OfferGpusList;
   /** Exist only for hourly offers, to migrate to the monthly offer. */
   monthly_offer_id?: string | null;
   /** Zone in which is the offer is available. */
-  zone?: string;
+  zone: string;
   /** Describe the network topology of the offer. */
   dual_attach?: boolean | null;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    stock: S.optional(OfferStock),
-    bandwidth: S.optional(S.Number),
-    max_bandwidth: S.optional(S.Number),
-    commercial_range: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    stock: OfferStock,
+    bandwidth: S.Number,
+    max_bandwidth: S.Number,
+    commercial_range: S.String,
     price_per_hour: S.optional(GoogleTypeMoney),
     price_per_month: S.optional(GoogleTypeMoney),
-    disks: S.optional(OfferDisksList),
-    enable: S.optional(S.Boolean),
-    cpus: S.optional(OfferCpusList),
-    memories: S.optional(OfferMemoriesList),
-    quota_name: S.optional(S.String),
-    persistent_memories: S.optional(OfferPersistentMemoriesList),
-    raid_controllers: S.optional(OfferRaidControllersList),
-    incompatible_os_ids: S.optional(OfferIncompatibleOsIdsList),
-    subscription_period: S.optional(OfferSubscriptionPeriod),
-    operation_path: S.optional(S.String),
+    disks: OfferDisksList,
+    enable: S.Boolean,
+    cpus: OfferCpusList,
+    memories: OfferMemoriesList,
+    quota_name: S.String,
+    persistent_memories: OfferPersistentMemoriesList,
+    raid_controllers: OfferRaidControllersList,
+    incompatible_os_ids: OfferIncompatibleOsIdsList,
+    subscription_period: OfferSubscriptionPeriod,
+    operation_path: S.String,
     fee: S.optional(GoogleTypeMoney),
-    options: S.optional(OfferOptionsList),
-    private_bandwidth: S.optional(S.Number),
-    shared_bandwidth: S.optional(S.Boolean),
-    tags: S.optional(OfferTagsList),
-    gpus: S.optional(OfferGpusList),
+    options: OfferOptionsList,
+    private_bandwidth: S.Number,
+    shared_bandwidth: S.Boolean,
+    tags: OfferTagsList,
+    gpus: OfferGpusList,
     monthly_offer_id: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
     dual_attach: S.optional(S.NullOr(S.Boolean)),
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
@@ -1219,11 +1219,11 @@ export const GetOptionRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Option {
   /** ID of the option. */
-  id?: string;
+  id: string;
   /** Name of the option. */
-  name?: string;
+  name: string;
   /** Defines whether the option is manageable (could be added or removed). */
-  manageable?: boolean;
+  manageable: boolean;
   /** License option, contains the ID of the OS linked to the option. */
   license?: LicenseOption | null;
   /** Public_bandwidth option, contains the bandwidth_in_bps. */
@@ -1237,9 +1237,9 @@ export interface Option {
 }
 export const Option = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    manageable: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    manageable: S.Boolean,
     license: S.optional(S.NullOr(LicenseOption)),
     public_bandwidth: S.optional(S.NullOr(PublicBandwidthOption)),
     private_network: S.optional(S.NullOr(PublicBandwidthOption)),
@@ -1278,27 +1278,27 @@ export const GetOSRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetOSRequest" }) as any as S.Schema<GetOSRequest>;
 
 export interface OSOSField {
-  editable?: boolean;
-  required?: boolean;
+  editable: boolean;
+  required: boolean;
   default_value?: string | null;
 }
 export const OSOSField = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    editable: S.optional(S.Boolean),
-    required: S.optional(S.Boolean),
+    editable: S.Boolean,
+    required: S.Boolean,
     default_value: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "OSOSField" }) as any as S.Schema<OSOSField>;
 
 export interface OS {
   /** ID of the OS. */
-  id?: string;
+  id: string;
   /** Name of the OS. */
-  name?: string;
+  name: string;
   /** Version of the OS. */
-  version?: string;
+  version: string;
   /** URL of this OS's logo. */
-  logo_url?: string;
+  logo_url: string;
   /** Object defining the SSH requirements to install the OS. */
   ssh?: OSOSField;
   /** Object defining the username requirements to install the OS. */
@@ -1310,38 +1310,38 @@ export interface OS {
   /** Object defining the password requirements to install the service. */
   service_password?: OSOSField;
   /** Defines if the operating system is enabled or not. */
-  enabled?: boolean;
+  enabled: boolean;
   /** License required (check server options for pricing details). */
-  license_required?: boolean;
+  license_required: boolean;
   /** Defines if a specific Organization is allowed to install this OS type. */
-  allowed?: boolean;
+  allowed: boolean;
   /** Defines if custom partitioning is supported by this OS. */
-  custom_partitioning_supported?: boolean;
+  custom_partitioning_supported: boolean;
   /** Defines if cloud-init is supported by this OS. */
-  cloud_init_supported?: boolean;
+  cloud_init_supported: boolean;
   /** Defines the cloud-init API version used by this OS. */
   cloud_init_version?: string | null;
   /** Zone in which is the OS is available. */
-  zone?: string;
+  zone: string;
 }
 export const OS = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    version: S.optional(S.String),
-    logo_url: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    version: S.String,
+    logo_url: S.String,
     ssh: S.optional(OSOSField),
     user: S.optional(OSOSField),
     password: S.optional(OSOSField),
     service_user: S.optional(OSOSField),
     service_password: S.optional(OSOSField),
-    enabled: S.optional(S.Boolean),
-    license_required: S.optional(S.Boolean),
-    allowed: S.optional(S.Boolean),
-    custom_partitioning_supported: S.optional(S.Boolean),
-    cloud_init_supported: S.optional(S.Boolean),
+    enabled: S.Boolean,
+    license_required: S.Boolean,
+    allowed: S.Boolean,
+    custom_partitioning_supported: S.Boolean,
+    cloud_init_supported: S.Boolean,
     cloud_init_version: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
 
@@ -1424,15 +1424,15 @@ export const ScalewayStdTimeSeriesMetadataMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<ScalewayStdTimeSeriesMetadataMap>;
 
 export interface ScalewayStdTimeSeries {
-  name?: string;
-  points?: ScalewayStdTimeSeriesPointsList;
-  metadata?: ScalewayStdTimeSeriesMetadataMap;
+  name: string;
+  points: ScalewayStdTimeSeriesPointsList;
+  metadata: ScalewayStdTimeSeriesMetadataMap;
 }
 export const ScalewayStdTimeSeries = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    points: S.optional(ScalewayStdTimeSeriesPointsList),
-    metadata: S.optional(ScalewayStdTimeSeriesMetadataMap),
+    name: S.String,
+    points: ScalewayStdTimeSeriesPointsList,
+    metadata: ScalewayStdTimeSeriesMetadataMap,
   }),
 ).annotate({ identifier: "ScalewayStdTimeSeries" }) as any as S.Schema<ScalewayStdTimeSeries>;
 
@@ -1567,13 +1567,13 @@ export const ListOffersResponseOffersList = /*@__PURE__*/ S.Array(
 
 export interface ListOffersResponse {
   /** Total count of matching offers. */
-  total_count?: number;
+  total_count: number;
   /** Offers that match filters. */
   offers: ListOffersResponseOffersList;
 }
 export const ListOffersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     offers: ListOffersResponseOffersList,
   }),
 ).annotate({ identifier: "ListOffersResponse" }) as any as S.Schema<ListOffersResponse>;
@@ -1624,13 +1624,13 @@ export const ListOptionsResponseOptionsList = /*@__PURE__*/ S.Array(
 
 export interface ListOptionsResponse {
   /** Total count of matching options. */
-  total_count?: number;
+  total_count: number;
   /** Options that match filters. */
   options: ListOptionsResponseOptionsList;
 }
 export const ListOptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     options: ListOptionsResponseOptionsList,
   }),
 ).annotate({ identifier: "ListOptionsResponse" }) as any as S.Schema<ListOptionsResponse>;
@@ -1678,13 +1678,13 @@ export const ListOSResponseOsList = /*@__PURE__*/ S.Array(
 
 export interface ListOSResponse {
   /** Total count of matching OS. */
-  total_count?: number;
+  total_count: number;
   /** OS that match filters. */
   os: ListOSResponseOsList;
 }
 export const ListOSResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     os: ListOSResponseOsList,
   }),
 ).annotate({ identifier: "ListOSResponse" }) as any as S.Schema<ListOSResponse>;
@@ -1732,9 +1732,9 @@ export const ListServerEventsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerEvent {
   /** ID of the server to which the action will be applied. */
-  id?: string;
+  id: string;
   /** The action that will be applied to the server. */
-  action?: string;
+  action: string;
   /** Date of last modification of the action. (RFC 3339 format) */
   updated_at?: string | null;
   /** Date of creation of the action. (RFC 3339 format) */
@@ -1742,8 +1742,8 @@ export interface ServerEvent {
 }
 export const ServerEvent = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    action: S.optional(S.String),
+    id: S.String,
+    action: S.String,
     updated_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
   }),
@@ -1757,13 +1757,13 @@ export const ListServerEventsResponseEventsList = /*@__PURE__*/ S.Array(
 
 export interface ListServerEventsResponse {
   /** Total count of matching events. */
-  total_count?: number;
+  total_count: number;
   /** Server events that match filters. */
   events: ListServerEventsResponseEventsList;
 }
 export const ListServerEventsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     events: ListServerEventsResponseEventsList,
   }),
 ).annotate({ identifier: "ListServerEventsResponse" }) as any as S.Schema<ListServerEventsResponse>;
@@ -1842,13 +1842,13 @@ export const ListServersResponseServersList = /*@__PURE__*/ S.Array(
 
 export interface ListServersResponse {
   /** Total count of matching servers. */
-  total_count?: number;
+  total_count: number;
   /** Array of Elastic Metal server objects matching the filters in the request. */
   servers: ListServersResponseServersList;
 }
 export const ListServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     servers: ListServersResponseServersList,
   }),
 ).annotate({ identifier: "ListServersResponse" }) as any as S.Schema<ListServersResponse>;
@@ -1899,20 +1899,20 @@ export const SettingType = S.String;
 
 export interface Setting {
   /** ID of the setting. */
-  id?: string;
+  id: string;
   /** Type of the setting. */
-  type?: SettingType;
+  type: SettingType;
   /** ID of the Project ID. */
-  project_id?: string;
+  project_id: string;
   /** Defines whether the setting is enabled. */
-  enabled?: boolean;
+  enabled: boolean;
 }
 export const Setting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(SettingType),
-    project_id: S.optional(S.String),
-    enabled: S.optional(S.Boolean),
+    id: S.String,
+    type: SettingType,
+    project_id: S.String,
+    enabled: S.Boolean,
   }),
 ).annotate({ identifier: "Setting" }) as any as S.Schema<Setting>;
 
@@ -1924,13 +1924,13 @@ export const ListSettingsResponseSettingsList = /*@__PURE__*/ S.Array(
 
 export interface ListSettingsResponse {
   /** Total count of matching settings. */
-  total_count?: number;
+  total_count: number;
   /** Settings that match filters. */
   settings: ListSettingsResponseSettingsList;
 }
 export const ListSettingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     settings: ListSettingsResponseSettingsList,
   }),
 ).annotate({ identifier: "ListSettingsResponse" }) as any as S.Schema<ListSettingsResponse>;

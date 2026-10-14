@@ -103,13 +103,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of contract signatures."
+            "smithy.api#documentation": "The total number of contract signatures.",
+            "smithy.api#required": {}
           }
         },
         "contract_signatures": {
           "target": "com.scaleway.account_contract_v3#ListContractSignaturesResponseContractSignaturesList",
           "traits": {
-            "smithy.api#documentation": "The paginated returned contract signatures."
+            "smithy.api#documentation": "The paginated returned contract signatures.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -121,13 +123,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the contract signature. (UUID format)"
+            "smithy.api#documentation": "ID of the contract signature. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Organization ID which signed the contract. (UUID format)"
+            "smithy.api#documentation": "The Organization ID which signed the contract. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -166,25 +170,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the contract. (UUID format)"
+            "smithy.api#documentation": "ID of the contract. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.account_contract_v3#ContractType",
           "traits": {
-            "smithy.api#documentation": "The type of the contract."
+            "smithy.api#documentation": "The type of the contract.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the contract."
+            "smithy.api#documentation": "The name of the contract.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The version of the contract."
+            "smithy.api#documentation": "The version of the contract.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -204,7 +212,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the contract."
+            "smithy.api#documentation": "The SRN of the contract.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -423,13 +432,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -518,13 +536,15 @@
         "created": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether a signature has been requested for this contract."
+            "smithy.api#documentation": "Whether a signature has been requested for this contract.",
+            "smithy.api#required": {}
           }
         },
         "validated": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the signature for this contract has been validated."
+            "smithy.api#documentation": "Whether the signature for this contract has been validated.",
+            "smithy.api#required": {}
           }
         }
       },

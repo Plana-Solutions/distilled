@@ -40,7 +40,8 @@
         "keys": {
           "target": "com.scaleway.annotations_v1#ListAllKeysAndValuesResponseKeysList",
           "traits": {
-            "smithy.api#documentation": "List of keys with values for an organization, sorted alphabetically by name."
+            "smithy.api#documentation": "List of keys with values for an organization, sorted alphabetically by name.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -52,31 +53,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the key. (UUID format)"
+            "smithy.api#documentation": "ID of the key. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the key."
+            "smithy.api#documentation": "SRN of the key.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the key."
+            "smithy.api#documentation": "Name of the key.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the key."
+            "smithy.api#documentation": "Description of the key.",
+            "smithy.api#required": {}
           }
         },
         "values": {
           "target": "com.scaleway.annotations_v1#ListAllKeysAndValuesResponseKeyValuesList",
           "traits": {
-            "smithy.api#documentation": "List of values associated with the key, sorted alphabetically by name."
+            "smithy.api#documentation": "List of values associated with the key, sorted alphabetically by name.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -88,25 +94,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the value. (UUID format)"
+            "smithy.api#documentation": "ID of the value. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the value."
+            "smithy.api#documentation": "SRN of the value.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the value."
+            "smithy.api#documentation": "Name of the value.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the value."
+            "smithy.api#documentation": "Description of the value.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -198,13 +208,15 @@
         "bindings": {
           "target": "com.scaleway.annotations_v1#ListBindingsResponseBindingsList",
           "traits": {
-            "smithy.api#documentation": "List of bindings for the organization. Response order by ID."
+            "smithy.api#documentation": "List of bindings for the organization. Response order by ID.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of bindings returned."
+            "smithy.api#documentation": "Total number of bindings returned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -216,19 +228,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the binding. (UUID format)"
+            "smithy.api#documentation": "ID of the binding. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the binding."
+            "smithy.api#documentation": "SRN of the binding.",
+            "smithy.api#required": {}
           }
         },
         "target_srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the resource the binding is attached to."
+            "smithy.api#documentation": "SRN of the resource the binding is attached to.",
+            "smithy.api#required": {}
           }
         },
         "key": {
@@ -252,19 +267,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the key. (UUID format)"
+            "smithy.api#documentation": "ID of the key. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the key."
+            "smithy.api#documentation": "SRN of the key.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the key."
+            "smithy.api#documentation": "Name of the key.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -276,19 +294,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the value. (UUID format)"
+            "smithy.api#documentation": "ID of the value. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the value."
+            "smithy.api#documentation": "SRN of the value.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the value."
+            "smithy.api#documentation": "Name of the value.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -430,7 +451,8 @@
         "total_deleted": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of bindings deleted."
+            "smithy.api#documentation": "Total number of bindings deleted.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -476,7 +498,8 @@
         "total_deleted": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of bindings deleted."
+            "smithy.api#documentation": "Total number of bindings deleted.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -536,13 +559,15 @@
         "keys": {
           "target": "com.scaleway.annotations_v1#ListKeysResponseKeysList",
           "traits": {
-            "smithy.api#documentation": "List of keys for an organization, sorted alphabetically by name."
+            "smithy.api#documentation": "List of keys for an organization, sorted alphabetically by name.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of keys returned."
+            "smithy.api#documentation": "Total number of keys returned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -554,25 +579,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the annotation key. (UUID format)"
+            "smithy.api#documentation": "ID of the annotation key. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the annotation key."
+            "smithy.api#documentation": "SRN of the annotation key.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the annotation key."
+            "smithy.api#documentation": "Name of the annotation key.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the annotation key."
+            "smithy.api#documentation": "Description of the annotation key.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -815,13 +844,15 @@
         "values": {
           "target": "com.scaleway.annotations_v1#ListValuesResponseValuesList",
           "traits": {
-            "smithy.api#documentation": "List of values for a key, sorted alphabetically by name."
+            "smithy.api#documentation": "List of values for a key, sorted alphabetically by name.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of values returned."
+            "smithy.api#documentation": "Total number of values returned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -833,31 +864,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the value. (UUID format)"
+            "smithy.api#documentation": "ID of the value. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the annotation value."
+            "smithy.api#documentation": "SRN of the annotation value.",
+            "smithy.api#required": {}
           }
         },
         "key_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the key the value is associated to. (UUID format)"
+            "smithy.api#documentation": "ID of the key the value is associated to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the value (e.g. \"production\" for a key \"environment\")."
+            "smithy.api#documentation": "Name of the value (e.g. \"production\" for a key \"environment\").",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the value."
+            "smithy.api#documentation": "Description of the value.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1079,7 +1115,8 @@
         "total_deleted": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of values deleted."
+            "smithy.api#documentation": "Total number of values deleted.",
+            "smithy.api#required": {}
           }
         }
       },

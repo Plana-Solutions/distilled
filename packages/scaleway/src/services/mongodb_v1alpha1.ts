@@ -71,11 +71,11 @@ export const EndpointDnsRecordsList = /*@__PURE__*/ S.Array(
 
 export interface EndpointPrivateNetworkDetails {
   /** UUID of the Private Network. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
 }
 export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
+    private_network_id: S.String,
   }),
 ).annotate({
   identifier: "EndpointPrivateNetworkDetails",
@@ -83,13 +83,13 @@ export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 
 export interface Endpoint {
   /** UUID of the endpoint. (UUID format) */
-  id?: string;
+  id: string;
   /** List of IPv4 addresses of the endpoint. (IP address) */
-  ips?: EndpointIpsList;
+  ips: EndpointIpsList;
   /** List of DNS records of the endpoint. */
-  dns_records?: EndpointDnsRecordsList;
+  dns_records: EndpointDnsRecordsList;
   /** TCP port of the endpoint. */
-  port?: number;
+  port: number;
   /** Private Network endpoint details. */
   private_network?: EndpointPrivateNetworkDetails | null;
   /** Public endpoint details. */
@@ -97,10 +97,10 @@ export interface Endpoint {
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    ips: S.optional(EndpointIpsList),
-    dns_records: S.optional(EndpointDnsRecordsList),
-    port: S.optional(S.Number),
+    id: S.String,
+    ips: EndpointIpsList,
+    dns_records: EndpointDnsRecordsList,
+    port: S.Number,
     private_network: S.optional(S.NullOr(EndpointPrivateNetworkDetails)),
     public: S.optional(S.NullOr(S.Unknown)),
   }),
@@ -206,14 +206,14 @@ export const InstanceTagsList = /*@__PURE__*/ S.Array(
 
 export interface InstanceSetting {
   /** Name of the settings. */
-  name?: string;
+  name: string;
   /** Value of the settings. */
-  value?: string;
+  value: string;
 }
 export const InstanceSetting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    value: S.optional(S.String),
+    name: S.String,
+    value: S.String,
   }),
 ).annotate({ identifier: "InstanceSetting" }) as any as S.Schema<InstanceSetting>;
 
@@ -225,14 +225,14 @@ export const InstanceSettingsList = /*@__PURE__*/ S.Array(
 
 export interface Volume {
   /** Type of volume where data is stored. */
-  type?: VolumeType;
+  type: VolumeType;
   /** Volume size. (in bytes) */
-  size?: number;
+  size: number;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    size: S.optional(S.Number),
+    type: VolumeType,
+    size: S.Number,
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 
@@ -243,9 +243,9 @@ export const InstanceEndpointsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<InstanceEndpointsList>;
 
 export interface InstanceSnapshotSchedule {
-  frequency_hours?: number;
-  retention_days?: number;
-  enabled?: boolean;
+  frequency_hours: number;
+  retention_days: number;
+  enabled: boolean;
   /** (RFC 3339 format) */
   next_update?: string | null;
   /** (RFC 3339 format) */
@@ -253,9 +253,9 @@ export interface InstanceSnapshotSchedule {
 }
 export const InstanceSnapshotSchedule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    frequency_hours: S.optional(S.Number),
-    retention_days: S.optional(S.Number),
-    enabled: S.optional(S.Boolean),
+    frequency_hours: S.Number,
+    retention_days: S.Number,
+    enabled: S.Boolean,
     next_update: S.optional(S.NullOr(S.String)),
     last_run: S.optional(S.NullOr(S.String)),
   }),
@@ -263,50 +263,50 @@ export const InstanceSnapshotSchedule = /*@__PURE__*/ S.suspend(() =>
 
 export interface Instance {
   /** UUID of the Database Instance. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Database Instance. */
-  name?: string;
+  name: string;
   /** Project ID the Database Instance belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Status of the Database Instance. */
-  status?: InstanceStatus;
+  status: InstanceStatus;
   /** MongoDB® engine version of the Database Instance. */
-  version?: string;
+  version: string;
   /** List of tags applied to the Database Instance. */
-  tags?: InstanceTagsList;
+  tags: InstanceTagsList;
   /** Advanced settings of the Database Instance. */
-  settings?: InstanceSettingsList;
+  settings: InstanceSettingsList;
   /** Number of node in the Database Instance. */
-  node_number?: number;
+  node_number: number;
   /** Node type of the Database Instance. */
-  node_type?: string;
+  node_type: string;
   /** Volumes of the Database Instance. */
   volume?: Volume;
   /** List of Database Instance endpoints. */
-  endpoints?: InstanceEndpointsList;
+  endpoints: InstanceEndpointsList;
   /** Creation date (must follow the ISO 8601 format). (RFC 3339 format) */
   created_at?: string | null;
   /** Snapshot schedule configuration of the Database Instance. */
   snapshot_schedule?: InstanceSnapshotSchedule;
   /** Region the Database Instance is in. */
-  region?: string;
+  region: string;
 }
 export const Instance = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(InstanceStatus),
-    version: S.optional(S.String),
-    tags: S.optional(InstanceTagsList),
-    settings: S.optional(InstanceSettingsList),
-    node_number: S.optional(S.Number),
-    node_type: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    status: InstanceStatus,
+    version: S.String,
+    tags: InstanceTagsList,
+    settings: InstanceSettingsList,
+    node_number: S.Number,
+    node_type: S.String,
     volume: S.optional(Volume),
-    endpoints: S.optional(InstanceEndpointsList),
+    endpoints: InstanceEndpointsList,
     created_at: S.optional(S.NullOr(S.String)),
     snapshot_schedule: S.optional(InstanceSnapshotSchedule),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Instance" }) as any as S.Schema<Instance>;
 
@@ -350,25 +350,25 @@ export type SnapshotStatus =
 export const SnapshotStatus = S.String;
 
 export interface SnapshotVolumeType {
-  type?: VolumeType;
+  type: VolumeType;
 }
 export const SnapshotVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
+    type: VolumeType,
   }),
 ).annotate({ identifier: "SnapshotVolumeType" }) as any as S.Schema<SnapshotVolumeType>;
 
 export interface Snapshot {
   /** UUID of the snapshot. (UUID format) */
-  id?: string;
+  id: string;
   /** UUID of the Database Instance. (UUID format) */
-  instance_id?: string;
+  instance_id: string;
   /** Name of the snapshot. */
-  name?: string;
+  name: string;
   /** Status of the snapshot. */
-  status?: SnapshotStatus;
+  status: SnapshotStatus;
   /** Size of the snapshot. (in bytes) */
-  size?: number;
+  size: number;
   /** Expiration date (must follow the ISO 8601 format). (RFC 3339 format) */
   expires_at?: string | null;
   /** Creation date (must follow the ISO 8601 format). (RFC 3339 format) */
@@ -376,28 +376,28 @@ export interface Snapshot {
   /** Updated date (must follow the ISO 8601 format). (RFC 3339 format) */
   updated_at?: string | null;
   /** Name of the Database Instance of the snapshot. */
-  instance_name?: string;
+  instance_name: string;
   /** Source node type. */
-  node_type?: string;
+  node_type: string;
   /** Type of volume where data is stored - sbs_5k or sbs_15k. */
   volume_type?: SnapshotVolumeType;
   /** Region of the snapshot. */
-  region?: string;
+  region: string;
 }
 export const Snapshot = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    instance_id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(SnapshotStatus),
-    size: S.optional(S.Number),
+    id: S.String,
+    instance_id: S.String,
+    name: S.String,
+    status: SnapshotStatus,
+    size: S.Number,
     expires_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    instance_name: S.optional(S.String),
-    node_type: S.optional(S.String),
+    instance_name: S.String,
+    node_type: S.String,
     volume_type: S.optional(SnapshotVolumeType),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Snapshot" }) as any as S.Schema<Snapshot>;
 
@@ -455,14 +455,14 @@ export const UserRolesList = /*@__PURE__*/ S.Array(UserRole) as any as S.Schema<
 
 export interface User {
   /** Name of the user (Length must be between 1 and 63 characters. First character must be an alphabet character (a-zA-Z). Only a-zA-Z0-9_$- characters are accepted). */
-  name?: string;
+  name: string;
   /** List of roles assigned to the user, along with the corresponding database where each role is granted. */
-  roles?: UserRolesList;
+  roles: UserRolesList;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    roles: S.optional(UserRolesList),
+    name: S.String,
+    roles: UserRolesList,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -620,15 +620,15 @@ export const GetInstanceCertificateRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetInstanceCertificateRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -746,12 +746,12 @@ export interface ListInstancesResponse {
   /** List of all Database Instances available in an Organization or Project. */
   instances: ListInstancesResponseInstancesList;
   /** Total count of Database Instances available in an Organization or Project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListInstancesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     instances: ListInstancesResponseInstancesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListInstancesResponse" }) as any as S.Schema<ListInstancesResponse>;
 
@@ -787,23 +787,23 @@ export const NodeTypeStock = S.String;
 
 export interface NodeTypeVolumeType {
   /** Volume Type. */
-  type?: VolumeType;
+  type: VolumeType;
   /** The description of the volume. */
-  description?: string;
+  description: string;
   /** Minimum size required for the volume. (in bytes) */
-  min_size?: number;
+  min_size: number;
   /** Maximum size required for the volume. (in bytes) */
-  max_size?: number;
+  max_size: number;
   /** Minimum increment level for a Block Storage volume size. (in bytes) */
-  chunk_size?: number;
+  chunk_size: number;
 }
 export const NodeTypeVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    description: S.optional(S.String),
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
-    chunk_size: S.optional(S.Number),
+    type: VolumeType,
+    description: S.String,
+    min_size: S.Number,
+    max_size: S.Number,
+    chunk_size: S.Number,
   }),
 ).annotate({ identifier: "NodeTypeVolumeType" }) as any as S.Schema<NodeTypeVolumeType>;
 
@@ -815,35 +815,35 @@ export const NodeTypeAvailableVolumeTypesList = /*@__PURE__*/ S.Array(
 
 export interface NodeType {
   /** Node type name identifier. */
-  name?: string;
+  name: string;
   /** Current stock status for the node type. */
-  stock_status?: NodeTypeStock;
+  stock_status: NodeTypeStock;
   /** Current specs of the offer. */
-  description?: string;
+  description: string;
   /** Number of virtual CPUs. */
-  vcpus?: number;
+  vcpus: number;
   /** Quantity of RAM. (in bytes) */
-  memory?: number;
+  memory: number;
   /** Available storage options for the node type. */
-  available_volume_types?: NodeTypeAvailableVolumeTypesList;
+  available_volume_types: NodeTypeAvailableVolumeTypesList;
   /** The node type is currently disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** The node type is currently in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** Instance range associated with the node type offer. */
-  instance_range?: string;
+  instance_range: string;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    stock_status: S.optional(NodeTypeStock),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory: S.optional(S.Number),
-    available_volume_types: S.optional(NodeTypeAvailableVolumeTypesList),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
-    instance_range: S.optional(S.String),
+    name: S.String,
+    stock_status: NodeTypeStock,
+    description: S.String,
+    vcpus: S.Number,
+    memory: S.Number,
+    available_volume_types: NodeTypeAvailableVolumeTypesList,
+    disabled: S.Boolean,
+    beta: S.Boolean,
+    instance_range: S.String,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -857,12 +857,12 @@ export interface ListNodeTypesResponse {
   /** Types of the node. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** Total count of node-types available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -924,12 +924,12 @@ export interface ListSnapshotsResponse {
   /** List of all database snapshots available in an Organization or Project. */
   snapshots: ListSnapshotsResponseSnapshotsList;
   /** Total count of database snapshots available in a Organization or Project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSnapshotsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     snapshots: ListSnapshotsResponseSnapshotsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSnapshotsResponse" }) as any as S.Schema<ListSnapshotsResponse>;
 
@@ -979,12 +979,12 @@ export interface ListUsersResponse {
   /** List of users in a Database Instance. */
   users: ListUsersResponseUsersList;
   /** Total count of users present on a Database Instance. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     users: ListUsersResponseUsersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUsersResponse" }) as any as S.Schema<ListUsersResponse>;
 
@@ -1019,15 +1019,15 @@ export const SettingPropertyType = S.String;
 
 export interface Setting {
   /** Setting name from the database engine. */
-  name?: string;
+  name: string;
   /** Value set when not specified. */
-  default_value?: string;
+  default_value: string;
   /** Setting can be applied without restarting. */
-  hot_configurable?: boolean;
+  hot_configurable: boolean;
   /** Setting description. */
-  description?: string;
+  description: string;
   /** Setting type. */
-  property_type?: SettingPropertyType;
+  property_type: SettingPropertyType;
   /** Setting base unit. */
   unit?: string | null;
   /** Validation regex for string type settings. */
@@ -1043,11 +1043,11 @@ export interface Setting {
 }
 export const Setting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    default_value: S.optional(S.String),
-    hot_configurable: S.optional(S.Boolean),
-    description: S.optional(S.String),
-    property_type: S.optional(SettingPropertyType),
+    name: S.String,
+    default_value: S.String,
+    hot_configurable: S.Boolean,
+    description: S.String,
+    property_type: SettingPropertyType,
     unit: S.optional(S.NullOr(S.String)),
     string_constraint: S.optional(S.NullOr(S.String)),
     int_min: S.optional(S.NullOr(S.Number)),
@@ -1065,17 +1065,17 @@ export const VersionAvailableSettingsList = /*@__PURE__*/ S.Array(
 
 export interface Version {
   /** MongoDB® engine version. */
-  version?: string;
+  version: string;
   /** Date of End of Life. (RFC 3339 format) */
   end_of_life_at?: string | null;
   /** Instance settings available to be updated. */
-  available_settings?: VersionAvailableSettingsList;
+  available_settings: VersionAvailableSettingsList;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life_at: S.optional(S.NullOr(S.String)),
-    available_settings: S.optional(VersionAvailableSettingsList),
+    available_settings: VersionAvailableSettingsList,
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
 
@@ -1089,12 +1089,12 @@ export interface ListVersionsResponse {
   /** Available MongoDB® engine version. */
   versions: ListVersionsResponseVersionsList;
   /** Total count of MongoDB® engine version available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 

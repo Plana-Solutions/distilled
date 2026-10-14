@@ -201,35 +201,35 @@ export const ProjectStatus = S.String;
 
 export interface Project {
   /** ID of the Project. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Project. */
-  name?: string;
+  name: string;
   /** Organization ID of the Project. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Creation date of the Project. (RFC 3339 format) */
   created_at?: string | null;
   /** Update date of the Project. (RFC 3339 format) */
   updated_at?: string | null;
   /** Description of the Project. */
-  description?: string;
+  description: string;
   /** Qualification of the Project. */
   qualification?: Qualification;
   /** Status of the Project. */
-  status?: ProjectStatus;
+  status: ProjectStatus;
   /** The SRN of the Project. */
-  srn?: string;
+  srn: string;
 }
 export const Project = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    organization_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    description: S.optional(S.String),
+    description: S.String,
     qualification: S.optional(Qualification),
-    status: S.optional(ProjectStatus),
-    srn: S.optional(S.String),
+    status: ProjectStatus,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Project" }) as any as S.Schema<Project>;
 
@@ -346,13 +346,13 @@ export const ListProjectsResponseProjectsList = /*@__PURE__*/ S.Array(
 
 export interface ListProjectsResponse {
   /** Total number of Projects. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned Projects. */
   projects: ListProjectsResponseProjectsList;
 }
 export const ListProjectsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     projects: ListProjectsResponseProjectsList,
   }),
 ).annotate({ identifier: "ListProjectsResponse" }) as any as S.Schema<ListProjectsResponse>;
@@ -381,13 +381,13 @@ export const SetProjectQualificationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ProjectQualification {
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Qualification of the Project. */
   qualification?: Qualification;
 }
 export const ProjectQualification = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
+    project_id: S.String,
     qualification: S.optional(Qualification),
   }),
 ).annotate({ identifier: "ProjectQualification" }) as any as S.Schema<ProjectQualification>;

@@ -135,15 +135,15 @@ export const PublicCatalogProductLocality = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<PublicCatalogProductLocality>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
@@ -169,11 +169,11 @@ export const PublicCatalogProductPropertiesHardwareCPUArch = S.String;
 
 export interface PublicCatalogProductPropertiesHardwareCPUVirtual {
   /** The number of vCPUs. */
-  count?: number;
+  count: number;
 }
 export const PublicCatalogProductPropertiesHardwareCPUVirtual = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    count: S.optional(S.Number),
+    count: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareCPUVirtual",
@@ -181,23 +181,23 @@ export const PublicCatalogProductPropertiesHardwareCPUVirtual = /*@__PURE__*/ S.
 
 export interface PublicCatalogProductPropertiesHardwareCPUPhysical {
   /** The number of sockets of the CPU. */
-  sockets?: number;
+  sockets: number;
   /** The number of cores per socket. */
-  cores_per_socket?: number;
+  cores_per_socket: number;
   /** The number of threads per core. */
-  threads_per_core?: number;
+  threads_per_core: number;
   /** The frequency of the CPU in Hertz. */
-  frequency?: number;
+  frequency: number;
   /** The benchmark score of the CPU. */
-  benchmark?: number;
+  benchmark: number;
 }
 export const PublicCatalogProductPropertiesHardwareCPUPhysical = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    sockets: S.optional(S.Number),
-    cores_per_socket: S.optional(S.Number),
-    threads_per_core: S.optional(S.Number),
-    frequency: S.optional(S.Number),
-    benchmark: S.optional(S.Number),
+    sockets: S.Number,
+    cores_per_socket: S.Number,
+    threads_per_core: S.Number,
+    frequency: S.Number,
+    benchmark: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareCPUPhysical",
@@ -205,29 +205,29 @@ export const PublicCatalogProductPropertiesHardwareCPUPhysical = /*@__PURE__*/ S
 
 export interface PublicCatalogProductPropertiesHardwareCPU {
   /** A human readable description of the CPU. */
-  description?: string;
+  description: string;
   /** The architecture of the CPU. */
-  arch?: PublicCatalogProductPropertiesHardwareCPUArch;
+  arch: PublicCatalogProductPropertiesHardwareCPUArch;
   /** The type of the CPU. */
-  type?: string;
+  type: string;
   /** Properties if the CPU is virtual. */
   virtual?: PublicCatalogProductPropertiesHardwareCPUVirtual | null;
   /** Properties if the CPU is physical. */
   physical?: PublicCatalogProductPropertiesHardwareCPUPhysical | null;
   /** The total number of threads. */
-  threads?: number;
+  threads: number;
   /** Indicates whether the CPU is shared or not. */
-  shared?: boolean;
+  shared: boolean;
 }
 export const PublicCatalogProductPropertiesHardwareCPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    arch: S.optional(PublicCatalogProductPropertiesHardwareCPUArch),
-    type: S.optional(S.String),
+    description: S.String,
+    arch: PublicCatalogProductPropertiesHardwareCPUArch,
+    type: S.String,
     virtual: S.optional(S.NullOr(PublicCatalogProductPropertiesHardwareCPUVirtual)),
     physical: S.optional(S.NullOr(PublicCatalogProductPropertiesHardwareCPUPhysical)),
-    threads: S.optional(S.Number),
-    shared: S.optional(S.Boolean),
+    threads: S.Number,
+    shared: S.Boolean,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareCPU",
@@ -241,20 +241,20 @@ export const PublicCatalogProductPropertiesHardwareRAMECCType = S.String;
 
 export interface PublicCatalogProductPropertiesHardwareRAM {
   /** A human-readable description of the RAM. */
-  description?: string;
+  description: string;
   /** The size of the RAM in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** The type of the RAM. */
-  type?: string;
+  type: string;
   /** ECC type. */
-  ecc_type?: PublicCatalogProductPropertiesHardwareRAMECCType;
+  ecc_type: PublicCatalogProductPropertiesHardwareRAMECCType;
 }
 export const PublicCatalogProductPropertiesHardwareRAM = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    size: S.optional(S.Number),
-    type: S.optional(S.String),
-    ecc_type: S.optional(PublicCatalogProductPropertiesHardwareRAMECCType),
+    description: S.String,
+    size: S.Number,
+    type: S.String,
+    ecc_type: PublicCatalogProductPropertiesHardwareRAMECCType,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareRAM",
@@ -262,14 +262,14 @@ export const PublicCatalogProductPropertiesHardwareRAM = /*@__PURE__*/ S.suspend
 
 export interface PublicCatalogProductPropertiesHardwareStorage {
   /** A human-readable description of the storage. */
-  description?: string;
+  description: string;
   /** The total size of the storage in bytes. (in bytes) */
-  total?: number;
+  total: number;
 }
 export const PublicCatalogProductPropertiesHardwareStorage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    total: S.optional(S.Number),
+    description: S.String,
+    total: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareStorage",
@@ -277,20 +277,20 @@ export const PublicCatalogProductPropertiesHardwareStorage = /*@__PURE__*/ S.sus
 
 export interface PublicCatalogProductPropertiesHardwareNetwork {
   /** A human-readable description of the network. */
-  description?: string;
+  description: string;
   /** The internal bandwidth in bits per second. */
-  internal_bandwidth?: number;
+  internal_bandwidth: number;
   /** The default public bandwidth in bits per second. */
-  public_bandwidth?: number;
+  public_bandwidth: number;
   /** The maximum public bandwidth in bits per second (may require subscription to options). */
-  max_public_bandwidth?: number;
+  max_public_bandwidth: number;
 }
 export const PublicCatalogProductPropertiesHardwareNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    internal_bandwidth: S.optional(S.Number),
-    public_bandwidth: S.optional(S.Number),
-    max_public_bandwidth: S.optional(S.Number),
+    description: S.String,
+    internal_bandwidth: S.Number,
+    public_bandwidth: S.Number,
+    max_public_bandwidth: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareNetwork",
@@ -298,17 +298,17 @@ export const PublicCatalogProductPropertiesHardwareNetwork = /*@__PURE__*/ S.sus
 
 export interface PublicCatalogProductPropertiesHardwareGPU {
   /** A human-readable description of the GPU. */
-  description?: string;
+  description: string;
   /** The number of GPUs. */
-  count?: number;
+  count: number;
   /** The type of the GPU. */
-  type?: string;
+  type: string;
 }
 export const PublicCatalogProductPropertiesHardwareGPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    count: S.optional(S.Number),
-    type: S.optional(S.String),
+    description: S.String,
+    count: S.Number,
+    type: S.String,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesHardwareGPU",
@@ -340,14 +340,14 @@ export const PublicCatalogProductPropertiesHardware = /*@__PURE__*/ S.suspend(()
 
 export interface PublicCatalogProductPropertiesDedibox {
   /** The range of the Dedibox server. */
-  range?: string;
+  range: string;
   /** The offer ID of the Dedibox server. */
-  offer_id?: number;
+  offer_id: number;
 }
 export const PublicCatalogProductPropertiesDedibox = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    range: S.optional(S.String),
-    offer_id: S.optional(S.Number),
+    range: S.String,
+    offer_id: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesDedibox",
@@ -355,14 +355,14 @@ export const PublicCatalogProductPropertiesDedibox = /*@__PURE__*/ S.suspend(() 
 
 export interface PublicCatalogProductPropertiesElasticMetal {
   /** The range of the Elastic Metal server. */
-  range?: string;
+  range: string;
   /** The offer ID of the Elastic Metal server. */
-  offer_id?: string;
+  offer_id: string;
 }
 export const PublicCatalogProductPropertiesElasticMetal = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    range: S.optional(S.String),
-    offer_id: S.optional(S.String),
+    range: S.String,
+    offer_id: S.String,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesElasticMetal",
@@ -370,14 +370,14 @@ export const PublicCatalogProductPropertiesElasticMetal = /*@__PURE__*/ S.suspen
 
 export interface PublicCatalogProductPropertiesAppleSilicon {
   /** The range of the Apple Silicon server. */
-  range?: string;
+  range: string;
   /** The server type of the Apple Silicon server. */
-  server_type?: string;
+  server_type: string;
 }
 export const PublicCatalogProductPropertiesAppleSilicon = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    range: S.optional(S.String),
-    server_type: S.optional(S.String),
+    range: S.String,
+    server_type: S.String,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesAppleSilicon",
@@ -393,19 +393,18 @@ export const PublicCatalogProductPropertiesInstanceRecommendedReplacementOfferId
 
 export interface PublicCatalogProductPropertiesInstance {
   /** The range of the Instance server. */
-  range?: string;
+  range: string;
   /** The offer ID of the Instance server. */
-  offer_id?: string;
+  offer_id: string;
   /** The recommended replacement offer IDs of the Instance server. */
-  recommended_replacement_offer_ids?: PublicCatalogProductPropertiesInstanceRecommendedReplacementOfferIdsList;
+  recommended_replacement_offer_ids: PublicCatalogProductPropertiesInstanceRecommendedReplacementOfferIdsList;
 }
 export const PublicCatalogProductPropertiesInstance = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    range: S.optional(S.String),
-    offer_id: S.optional(S.String),
-    recommended_replacement_offer_ids: S.optional(
+    range: S.String,
+    offer_id: S.String,
+    recommended_replacement_offer_ids:
       PublicCatalogProductPropertiesInstanceRecommendedReplacementOfferIdsList,
-    ),
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesInstance",
@@ -413,14 +412,14 @@ export const PublicCatalogProductPropertiesInstance = /*@__PURE__*/ S.suspend(()
 
 export interface PublicCatalogProductPropertiesBlockStorageVolumeType {
   /** The minimum size of storage volume for this product in bytes. (in bytes) */
-  min_size?: number;
+  min_size: number;
   /** The maximum size of storage volume for this product in bytes. (in bytes) */
-  max_size?: number;
+  max_size: number;
 }
 export const PublicCatalogProductPropertiesBlockStorageVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
+    min_size: S.Number,
+    max_size: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesBlockStorageVolumeType",
@@ -456,11 +455,11 @@ export const PublicCatalogProductPropertiesObjectStorageClassTypeStorageClass = 
 
 export interface PublicCatalogProductPropertiesObjectStorageClassType {
   /** The storage class. */
-  storage_class?: PublicCatalogProductPropertiesObjectStorageClassTypeStorageClass;
+  storage_class: PublicCatalogProductPropertiesObjectStorageClassTypeStorageClass;
 }
 export const PublicCatalogProductPropertiesObjectStorageClassType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    storage_class: S.optional(PublicCatalogProductPropertiesObjectStorageClassTypeStorageClass),
+    storage_class: PublicCatalogProductPropertiesObjectStorageClassTypeStorageClass,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesObjectStorageClassType",
@@ -473,11 +472,11 @@ export const PublicCatalogProductPropertiesObjectStorageRestoreTypeRestoreType =
 
 export interface PublicCatalogProductPropertiesObjectStorageRestoreType {
   /** The type of restore. */
-  restore_type?: PublicCatalogProductPropertiesObjectStorageRestoreTypeRestoreType;
+  restore_type: PublicCatalogProductPropertiesObjectStorageRestoreTypeRestoreType;
 }
 export const PublicCatalogProductPropertiesObjectStorageRestoreType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    restore_type: S.optional(PublicCatalogProductPropertiesObjectStorageRestoreTypeRestoreType),
+    restore_type: PublicCatalogProductPropertiesObjectStorageRestoreTypeRestoreType,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesObjectStorageRestoreType",
@@ -491,14 +490,12 @@ export const PublicCatalogProductPropertiesObjectStorageInternetTrafficTypeTraff
 
 export interface PublicCatalogProductPropertiesObjectStorageInternetTrafficType {
   /** The type of internet traffic. */
-  traffic_type?: PublicCatalogProductPropertiesObjectStorageInternetTrafficTypeTrafficType;
+  traffic_type: PublicCatalogProductPropertiesObjectStorageInternetTrafficTypeTrafficType;
 }
 export const PublicCatalogProductPropertiesObjectStorageInternetTrafficType =
   /*@__PURE__*/ S.suspend(() =>
     S.Struct({
-      traffic_type: S.optional(
-        PublicCatalogProductPropertiesObjectStorageInternetTrafficTypeTrafficType,
-      ),
+      traffic_type: PublicCatalogProductPropertiesObjectStorageInternetTrafficTypeTrafficType,
     }),
   ).annotate({
     identifier: "PublicCatalogProductPropertiesObjectStorageInternetTrafficType",
@@ -506,12 +503,12 @@ export const PublicCatalogProductPropertiesObjectStorageInternetTrafficType =
 
 export interface PublicCatalogProductPropertiesObjectStorageRegionTrafficType {
   /** The destination region for the region traffic. */
-  region_destination?: string;
+  region_destination: string;
 }
 export const PublicCatalogProductPropertiesObjectStorageRegionTrafficType = /*@__PURE__*/ S.suspend(
   () =>
     S.Struct({
-      region_destination: S.optional(S.String),
+      region_destination: S.String,
     }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesObjectStorageRegionTrafficType",
@@ -544,12 +541,12 @@ export const PublicCatalogProductPropertiesObjectStorage = /*@__PURE__*/ S.suspe
 
 export interface PublicCatalogProductPropertiesManagedInferenceManagedInferenceDeployment {
   /** The name of the associated instance GPU to this deployment. */
-  instance_gpu_name?: string;
+  instance_gpu_name: string;
 }
 export const PublicCatalogProductPropertiesManagedInferenceManagedInferenceDeployment =
   /*@__PURE__*/ S.suspend(() =>
     S.Struct({
-      instance_gpu_name: S.optional(S.String),
+      instance_gpu_name: S.String,
     }),
   ).annotate({
     identifier: "PublicCatalogProductPropertiesManagedInferenceManagedInferenceDeployment",
@@ -617,26 +614,25 @@ export const PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValue
   ) as any as S.Schema<PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValuesList>;
 
 export interface PublicCatalogProductPropertiesGenerativeApis {
-  reasoning?: boolean;
-  supported_apis?: PublicCatalogProductPropertiesGenerativeApisSupportedApisList;
-  consumption_mode?: PublicCatalogProductPropertiesGenerativeApisConsumptionMode;
-  provider_name?: string;
-  tasks?: PublicCatalogProductPropertiesGenerativeApisTasksList;
-  token_type?: PublicCatalogProductPropertiesGenerativeApisTokenType;
-  supported_reasoning_values?: PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValuesList;
+  reasoning: boolean;
+  supported_apis: PublicCatalogProductPropertiesGenerativeApisSupportedApisList;
+  consumption_mode: PublicCatalogProductPropertiesGenerativeApisConsumptionMode;
+  provider_name: string;
+  tasks: PublicCatalogProductPropertiesGenerativeApisTasksList;
+  token_type: PublicCatalogProductPropertiesGenerativeApisTokenType;
+  supported_reasoning_values: PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValuesList;
   default_reasoning_value?: string | null;
 }
 export const PublicCatalogProductPropertiesGenerativeApis = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    reasoning: S.optional(S.Boolean),
-    supported_apis: S.optional(PublicCatalogProductPropertiesGenerativeApisSupportedApisList),
-    consumption_mode: S.optional(PublicCatalogProductPropertiesGenerativeApisConsumptionMode),
-    provider_name: S.optional(S.String),
-    tasks: S.optional(PublicCatalogProductPropertiesGenerativeApisTasksList),
-    token_type: S.optional(PublicCatalogProductPropertiesGenerativeApisTokenType),
-    supported_reasoning_values: S.optional(
+    reasoning: S.Boolean,
+    supported_apis: PublicCatalogProductPropertiesGenerativeApisSupportedApisList,
+    consumption_mode: PublicCatalogProductPropertiesGenerativeApisConsumptionMode,
+    provider_name: S.String,
+    tasks: PublicCatalogProductPropertiesGenerativeApisTasksList,
+    token_type: PublicCatalogProductPropertiesGenerativeApisTokenType,
+    supported_reasoning_values:
       PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValuesList,
-    ),
     default_reasoning_value: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -645,17 +641,17 @@ export const PublicCatalogProductPropertiesGenerativeApis = /*@__PURE__*/ S.susp
 
 export interface PublicCatalogProductPropertiesLoadBalancerNodeType {
   /** The offer ID of the Load Balancer product. */
-  offer_id?: string;
+  offer_id: string;
   /** Whether the Load Balancer product is available for multi-cloud providers. */
-  multi_cloud_provider?: boolean;
+  multi_cloud_provider: boolean;
   /** The bandwidth of the Load Balancer product in bits per second. */
-  bandwidth?: number;
+  bandwidth: number;
 }
 export const PublicCatalogProductPropertiesLoadBalancerNodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    offer_id: S.optional(S.String),
-    multi_cloud_provider: S.optional(S.Boolean),
-    bandwidth: S.optional(S.Number),
+    offer_id: S.String,
+    multi_cloud_provider: S.Boolean,
+    bandwidth: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesLoadBalancerNodeType",
@@ -709,14 +705,12 @@ export const PublicCatalogProductPropertiesManagedRelationalDatabaseStorageTypeS
 
 export interface PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType {
   /** The type of Storage class. */
-  storage_class?: PublicCatalogProductPropertiesManagedRelationalDatabaseStorageTypeStorageClass;
+  storage_class: PublicCatalogProductPropertiesManagedRelationalDatabaseStorageTypeStorageClass;
 }
 export const PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType =
   /*@__PURE__*/ S.suspend(() =>
     S.Struct({
-      storage_class: S.optional(
-        PublicCatalogProductPropertiesManagedRelationalDatabaseStorageTypeStorageClass,
-      ),
+      storage_class: PublicCatalogProductPropertiesManagedRelationalDatabaseStorageTypeStorageClass,
     }),
   ).annotate({
     identifier: "PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType",
@@ -747,15 +741,15 @@ export const PublicCatalogProductPropertiesManagedRelationalDatabase = /*@__PURE
 
 export interface PublicCatalogProductPropertiesServerlessFunctionsRuntimeResource {
   /** The memory size in bytes. (in bytes) */
-  memory_size?: number;
+  memory_size: number;
   /** The number of milli-vCPUs. */
-  mvcpu_count?: number;
+  mvcpu_count: number;
 }
 export const PublicCatalogProductPropertiesServerlessFunctionsRuntimeResource =
   /*@__PURE__*/ S.suspend(() =>
     S.Struct({
-      memory_size: S.optional(S.Number),
-      mvcpu_count: S.optional(S.Number),
+      memory_size: S.Number,
+      mvcpu_count: S.Number,
     }),
   ).annotate({
     identifier: "PublicCatalogProductPropertiesServerlessFunctionsRuntimeResource",
@@ -770,7 +764,7 @@ export const PublicCatalogProductPropertiesServerlessFunctionsResourcesList = /*
 
 export interface PublicCatalogProductPropertiesServerlessFunctions {
   /** The serverless functions runtime resources sorted by memory size and then by milli-vCPU count. */
-  resources?: PublicCatalogProductPropertiesServerlessFunctionsResourcesList;
+  resources: PublicCatalogProductPropertiesServerlessFunctionsResourcesList;
   /** The properties related to Serverless functions consumption products. */
   consumption?: unknown | null;
   /** The properties related to Serverless functions request products. */
@@ -782,7 +776,7 @@ export interface PublicCatalogProductPropertiesServerlessFunctions {
 }
 export const PublicCatalogProductPropertiesServerlessFunctions = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    resources: S.optional(PublicCatalogProductPropertiesServerlessFunctionsResourcesList),
+    resources: PublicCatalogProductPropertiesServerlessFunctionsResourcesList,
     consumption: S.optional(S.NullOr(S.Unknown)),
     request: S.optional(S.NullOr(S.Unknown)),
     provision: S.optional(S.NullOr(S.Unknown)),
@@ -801,12 +795,12 @@ export const PublicCatalogProductPropertiesServerlessContainersMemoryTypeSizesLi
 
 export interface PublicCatalogProductPropertiesServerlessContainersMemoryType {
   /** The list of available memory size in bytes. (in bytes) */
-  sizes?: PublicCatalogProductPropertiesServerlessContainersMemoryTypeSizesList;
+  sizes: PublicCatalogProductPropertiesServerlessContainersMemoryTypeSizesList;
 }
 export const PublicCatalogProductPropertiesServerlessContainersMemoryType = /*@__PURE__*/ S.suspend(
   () =>
     S.Struct({
-      sizes: S.optional(PublicCatalogProductPropertiesServerlessContainersMemoryTypeSizesList),
+      sizes: PublicCatalogProductPropertiesServerlessContainersMemoryTypeSizesList,
     }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesServerlessContainersMemoryType",
@@ -822,14 +816,12 @@ export const PublicCatalogProductPropertiesServerlessContainersCPUTypeMvcpuCount
 
 export interface PublicCatalogProductPropertiesServerlessContainersCPUType {
   /** The list of available number of milli-vCPUs. */
-  mvcpu_counts?: PublicCatalogProductPropertiesServerlessContainersCPUTypeMvcpuCountsList;
+  mvcpu_counts: PublicCatalogProductPropertiesServerlessContainersCPUTypeMvcpuCountsList;
 }
 export const PublicCatalogProductPropertiesServerlessContainersCPUType = /*@__PURE__*/ S.suspend(
   () =>
     S.Struct({
-      mvcpu_counts: S.optional(
-        PublicCatalogProductPropertiesServerlessContainersCPUTypeMvcpuCountsList,
-      ),
+      mvcpu_counts: PublicCatalogProductPropertiesServerlessContainersCPUTypeMvcpuCountsList,
     }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesServerlessContainersCPUType",
@@ -860,11 +852,11 @@ export const PublicCatalogProductPropertiesManagedMongoDBStorageTypeStorageClass
 
 export interface PublicCatalogProductPropertiesManagedMongoDBStorageType {
   /** The type of Storage class. */
-  storage_class?: PublicCatalogProductPropertiesManagedMongoDBStorageTypeStorageClass;
+  storage_class: PublicCatalogProductPropertiesManagedMongoDBStorageTypeStorageClass;
 }
 export const PublicCatalogProductPropertiesManagedMongoDBStorageType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    storage_class: S.optional(PublicCatalogProductPropertiesManagedMongoDBStorageTypeStorageClass),
+    storage_class: PublicCatalogProductPropertiesManagedMongoDBStorageTypeStorageClass,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesManagedMongoDBStorageType",
@@ -897,11 +889,11 @@ export const PublicCatalogProductPropertiesServerlessJobsMemoryTypeSizesList =
 
 export interface PublicCatalogProductPropertiesServerlessJobsMemoryType {
   /** The list of available memory size in bytes. (in bytes) */
-  sizes?: PublicCatalogProductPropertiesServerlessJobsMemoryTypeSizesList;
+  sizes: PublicCatalogProductPropertiesServerlessJobsMemoryTypeSizesList;
 }
 export const PublicCatalogProductPropertiesServerlessJobsMemoryType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    sizes: S.optional(PublicCatalogProductPropertiesServerlessJobsMemoryTypeSizesList),
+    sizes: PublicCatalogProductPropertiesServerlessJobsMemoryTypeSizesList,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesServerlessJobsMemoryType",
@@ -916,11 +908,11 @@ export const PublicCatalogProductPropertiesServerlessJobsCPUTypeMvcpuCountsList 
 
 export interface PublicCatalogProductPropertiesServerlessJobsCPUType {
   /** The list of available number of milli-vCPUs. */
-  mvcpu_counts?: PublicCatalogProductPropertiesServerlessJobsCPUTypeMvcpuCountsList;
+  mvcpu_counts: PublicCatalogProductPropertiesServerlessJobsCPUTypeMvcpuCountsList;
 }
 export const PublicCatalogProductPropertiesServerlessJobsCPUType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    mvcpu_counts: S.optional(PublicCatalogProductPropertiesServerlessJobsCPUTypeMvcpuCountsList),
+    mvcpu_counts: PublicCatalogProductPropertiesServerlessJobsCPUTypeMvcpuCountsList,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesServerlessJobsCPUType",
@@ -949,20 +941,20 @@ export const PublicCatalogProductPropertiesApacheKafkaNodeTypeVersionsList = /*@
 
 export interface PublicCatalogProductPropertiesApacheKafkaNodeType {
   /** The list of available versions for the Kafka node. */
-  versions?: PublicCatalogProductPropertiesApacheKafkaNodeTypeVersionsList;
+  versions: PublicCatalogProductPropertiesApacheKafkaNodeTypeVersionsList;
   /** Number of virtual CPUs. */
-  vcpu_count?: number;
+  vcpu_count: number;
   /** Whether or not this Kafka product is multi AZ. */
-  is_multi_az?: boolean;
+  is_multi_az: boolean;
   /** Memory size in bytes. (in bytes) */
-  memory_size?: number;
+  memory_size: number;
 }
 export const PublicCatalogProductPropertiesApacheKafkaNodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    versions: S.optional(PublicCatalogProductPropertiesApacheKafkaNodeTypeVersionsList),
-    vcpu_count: S.optional(S.Number),
-    is_multi_az: S.optional(S.Boolean),
-    memory_size: S.optional(S.Number),
+    versions: PublicCatalogProductPropertiesApacheKafkaNodeTypeVersionsList,
+    vcpu_count: S.Number,
+    is_multi_az: S.Boolean,
+    memory_size: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesApacheKafkaNodeType",
@@ -976,20 +968,20 @@ export const PublicCatalogProductPropertiesApacheKafkaAvailableVolumeType = S.St
 
 export interface PublicCatalogProductPropertiesApacheKafkaStorageType {
   /** The type of volume. */
-  type?: PublicCatalogProductPropertiesApacheKafkaAvailableVolumeType;
+  type: PublicCatalogProductPropertiesApacheKafkaAvailableVolumeType;
   /** The minimum size of the volume in bytes. (in bytes) */
-  min_size?: number;
+  min_size: number;
   /** The maximum size of the volume in bytes. (in bytes) */
-  max_size?: number;
+  max_size: number;
   /** Whether or not this Kafka product is multi AZ. */
-  is_multi_az?: boolean;
+  is_multi_az: boolean;
 }
 export const PublicCatalogProductPropertiesApacheKafkaStorageType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(PublicCatalogProductPropertiesApacheKafkaAvailableVolumeType),
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
-    is_multi_az: S.optional(S.Boolean),
+    type: PublicCatalogProductPropertiesApacheKafkaAvailableVolumeType,
+    min_size: S.Number,
+    max_size: S.Number,
+    is_multi_az: S.Boolean,
   }),
 ).annotate({
   identifier: "PublicCatalogProductPropertiesApacheKafkaStorageType",
@@ -1146,13 +1138,13 @@ export type PublicCatalogProductUnitOfMeasureCountableUnit =
 export const PublicCatalogProductUnitOfMeasureCountableUnit = S.String;
 
 export interface PublicCatalogProductUnitOfMeasure {
-  unit?: PublicCatalogProductUnitOfMeasureCountableUnit;
-  size?: number;
+  unit: PublicCatalogProductUnitOfMeasureCountableUnit;
+  size: number;
 }
 export const PublicCatalogProductUnitOfMeasure = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    unit: S.optional(PublicCatalogProductUnitOfMeasureCountableUnit),
-    size: S.optional(S.Number),
+    unit: PublicCatalogProductUnitOfMeasureCountableUnit,
+    size: S.Number,
   }),
 ).annotate({
   identifier: "PublicCatalogProductUnitOfMeasure",
@@ -1189,17 +1181,17 @@ export const PublicCatalogProductBadgesList = /*@__PURE__*/ S.Array(
 
 export interface PublicCatalogProduct {
   /** The unique identifier of the product. */
-  sku?: string;
+  sku: string;
   /** The category of the product. */
-  service_category?: string;
+  service_category: string;
   /** The product category of the product. */
-  product_category?: string;
+  product_category: string;
   /** The product name. */
-  product?: string;
+  product: string;
   /** The product variant. */
-  variant?: string;
+  variant: string;
   /** The product description. */
-  description?: string;
+  description: string;
   /** The locality of the product. */
   locality?: PublicCatalogProductLocality;
   /** The price of the product. */
@@ -1211,7 +1203,7 @@ export interface PublicCatalogProduct {
   /** The unit of measure of the product. */
   unit_of_measure?: PublicCatalogProductUnitOfMeasure;
   /** The status of the product. */
-  status?: PublicCatalogProductStatus;
+  status: PublicCatalogProductStatus;
   /** The end of life date of the product. (RFC 3339 format) */
   end_of_life_at?: string | null;
   /** The end of growth date of the product. (RFC 3339 format) */
@@ -1219,26 +1211,26 @@ export interface PublicCatalogProduct {
   /** The end of sale date of the product. (RFC 3339 format) */
   end_of_sale_at?: string | null;
   /** Different badges that can be associated with the product. */
-  badges?: PublicCatalogProductBadgesList;
+  badges: PublicCatalogProductBadgesList;
 }
 export const PublicCatalogProduct = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    sku: S.optional(S.String),
-    service_category: S.optional(S.String),
-    product_category: S.optional(S.String),
-    product: S.optional(S.String),
-    variant: S.optional(S.String),
-    description: S.optional(S.String),
+    sku: S.String,
+    service_category: S.String,
+    product_category: S.String,
+    product: S.String,
+    variant: S.String,
+    description: S.String,
     locality: S.optional(PublicCatalogProductLocality),
     price: S.optional(PublicCatalogProductPrice),
     properties: S.optional(PublicCatalogProductProperties),
     environmental_impact_estimation: S.optional(PublicCatalogProductEnvironmentalImpactEstimation),
     unit_of_measure: S.optional(PublicCatalogProductUnitOfMeasure),
-    status: S.optional(PublicCatalogProductStatus),
+    status: PublicCatalogProductStatus,
     end_of_life_at: S.optional(S.NullOr(S.String)),
     end_of_growth_at: S.optional(S.NullOr(S.String)),
     end_of_sale_at: S.optional(S.NullOr(S.String)),
-    badges: S.optional(PublicCatalogProductBadgesList),
+    badges: PublicCatalogProductBadgesList,
   }),
 ).annotate({ identifier: "PublicCatalogProduct" }) as any as S.Schema<PublicCatalogProduct>;
 
@@ -1252,12 +1244,12 @@ export interface ListPublicCatalogProductsResponse {
   /** The list of products. */
   products: ListPublicCatalogProductsResponseProductsList;
   /** The total number of products in the catalog. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPublicCatalogProductsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     products: ListPublicCatalogProductsResponseProductsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPublicCatalogProductsResponse",

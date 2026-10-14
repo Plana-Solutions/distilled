@@ -33,14 +33,14 @@ export const ListSuggestionsResponseSuggestionsList = /*@__PURE__*/ S.Array(
 
 export interface ListSuggestionsResponse {
   /** Domain name suggestions. */
-  suggestions?: ListSuggestionsResponseSuggestionsList;
+  suggestions: ListSuggestionsResponseSuggestionsList;
   /** Number of suggestions. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSuggestionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    suggestions: S.optional(ListSuggestionsResponseSuggestionsList),
-    total_count: S.optional(S.Number),
+    suggestions: ListSuggestionsResponseSuggestionsList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSuggestionsResponse" }) as any as S.Schema<ListSuggestionsResponse>;
 

@@ -90,13 +90,15 @@
         "domain": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain part of the mail account address."
+            "smithy.api#documentation": "Domain part of the mail account address.",
+            "smithy.api#required": {}
           }
         },
         "username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Username part address of the mail account address."
+            "smithy.api#documentation": "Username part address of the mail account address.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -231,13 +233,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of mail accounts."
+            "smithy.api#documentation": "Total number of mail accounts.",
+            "smithy.api#required": {}
           }
         },
         "mail_accounts": {
           "target": "com.scaleway.webhosting_mail_account_v1#ListMailAccountsResponseMailAccountsList",
           "traits": {
-            "smithy.api#documentation": "List of mail accounts."
+            "smithy.api#documentation": "List of mail accounts.",
+            "smithy.api#required": {}
           }
         }
       },

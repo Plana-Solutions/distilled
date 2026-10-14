@@ -142,13 +142,15 @@
         "images": {
           "target": "com.scaleway.registry_v1#ListImagesResponseImagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of images that match the selected filters."
+            "smithy.api#documentation": "Paginated list of images that match the selected filters.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of images that match the selected filters."
+            "smithy.api#documentation": "Total number of images that match the selected filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -160,25 +162,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the image."
+            "smithy.api#documentation": "UUID of the image.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the image, it must be unique within the namespace."
+            "smithy.api#documentation": "Name of the image, it must be unique within the namespace.",
+            "smithy.api#required": {}
           }
         },
         "namespace_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the namespace the image belongs to."
+            "smithy.api#documentation": "UUID of the namespace the image belongs to.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.registry_v1#ImageStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the image."
+            "smithy.api#documentation": "Status of the image.",
+            "smithy.api#required": {}
           }
         },
         "status_message": {
@@ -191,13 +197,15 @@
         "visibility": {
           "target": "com.scaleway.registry_v1#ImageVisibility",
           "traits": {
-            "smithy.api#documentation": "Set to `public` to allow the image to be pulled without authentication. Else, set to `private`. Set to `inherit` to keep the same visibility configuration as the namespace."
+            "smithy.api#documentation": "Set to `public` to allow the image to be pulled without authentication. Else, set to `private`. Set to `inherit` to keep the same visibility configuration as the namespace.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Image size in bytes, calculated from the size of image layers.\nImage size in bytes, calculated from the size of image layers. One layer used in two tags of the same image is counted once but one layer used in two images is counted twice. (in bytes)"
+            "smithy.api#documentation": "Image size in bytes, calculated from the size of image layers.\nImage size in bytes, calculated from the size of image layers. One layer used in two tags of the same image is counted once but one layer used in two images is counted twice. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -217,7 +225,8 @@
         "tags": {
           "target": "com.scaleway.registry_v1#ImageTagsList",
           "traits": {
-            "smithy.api#documentation": "List of docker tags of the image."
+            "smithy.api#documentation": "List of docker tags of the image.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -644,13 +653,15 @@
         "tags": {
           "target": "com.scaleway.registry_v1#ListTagsResponseTagsList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of tags that match the selected filters."
+            "smithy.api#documentation": "Paginated list of tags that match the selected filters.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of tags that match the selected filters."
+            "smithy.api#documentation": "Total number of tags that match the selected filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -662,31 +673,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the tag."
+            "smithy.api#documentation": "UUID of the tag.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Tag name, unique to an image."
+            "smithy.api#documentation": "Tag name, unique to an image.",
+            "smithy.api#required": {}
           }
         },
         "image_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image ID the of the image the tag belongs to."
+            "smithy.api#documentation": "Image ID the of the image the tag belongs to.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.registry_v1#TagStatus",
           "traits": {
-            "smithy.api#documentation": "Tag status."
+            "smithy.api#documentation": "Tag status.",
+            "smithy.api#required": {}
           }
         },
         "digest": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hash of the tag content. Several tags of a same image may have the same digest."
+            "smithy.api#documentation": "Hash of the tag content. Several tags of a same image may have the same digest.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -905,13 +921,15 @@
         "namespaces": {
           "target": "com.scaleway.registry_v1#ListNamespacesResponseNamespacesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of namespaces that match the selected filters."
+            "smithy.api#documentation": "Paginated list of namespaces that match the selected filters.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of namespaces that match the selected filters."
+            "smithy.api#documentation": "Total number of namespaces that match the selected filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -923,61 +941,71 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the namespace."
+            "smithy.api#documentation": "UUID of the namespace.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the namespace, unique in a region across all organizations."
+            "smithy.api#documentation": "Name of the namespace, unique in a region across all organizations.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the namespace."
+            "smithy.api#documentation": "Description of the namespace.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Owner of the namespace."
+            "smithy.api#documentation": "Owner of the namespace.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project of the namespace."
+            "smithy.api#documentation": "Project of the namespace.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.registry_v1#NamespaceStatus",
           "traits": {
-            "smithy.api#documentation": "Namespace status."
+            "smithy.api#documentation": "Namespace status.",
+            "smithy.api#required": {}
           }
         },
         "status_message": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Namespace status details."
+            "smithy.api#documentation": "Namespace status details.",
+            "smithy.api#required": {}
           }
         },
         "endpoint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint reachable by docker."
+            "smithy.api#documentation": "Endpoint reachable by docker.",
+            "smithy.api#required": {}
           }
         },
         "is_public": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not namespace is public."
+            "smithy.api#documentation": "Defines whether or not namespace is public.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total size of the namespace, calculated as the sum of the size of all images in the namespace. (in bytes)"
+            "smithy.api#documentation": "Total size of the namespace, calculated as the sum of the size of all images in the namespace. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -997,13 +1025,15 @@
         "image_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of images in the namespace."
+            "smithy.api#documentation": "Number of images in the namespace.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the namespace belongs to."
+            "smithy.api#documentation": "Region the namespace belongs to.",
+            "smithy.api#required": {}
           }
         }
       },

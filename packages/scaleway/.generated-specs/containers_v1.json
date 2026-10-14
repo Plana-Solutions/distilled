@@ -139,10 +139,16 @@
       "type": "structure",
       "members": {
         "containers": {
-          "target": "com.scaleway.containers_v1#ListContainersResponseContainersList"
+          "target": "com.scaleway.containers_v1#ListContainersResponseContainersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -153,37 +159,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Container unique ID. (UUID format)"
+            "smithy.api#documentation": "Container unique ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Container SRN."
+            "smithy.api#documentation": "Container SRN.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Container name."
+            "smithy.api#documentation": "Container name.",
+            "smithy.api#required": {}
           }
         },
         "namespace_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the namespace the container belongs to. (UUID format)"
+            "smithy.api#documentation": "Unique ID of the namespace the container belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Container description."
+            "smithy.api#documentation": "Container description.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.containers_v1#ContainerStatus",
           "traits": {
-            "smithy.api#documentation": "Container status."
+            "smithy.api#documentation": "Container status.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -210,43 +222,50 @@
         "environment_variables": {
           "target": "com.scaleway.containers_v1#ContainerEnvironmentVariablesMap",
           "traits": {
-            "smithy.api#documentation": "Environment variables of the container."
+            "smithy.api#documentation": "Environment variables of the container.",
+            "smithy.api#required": {}
           }
         },
         "secret_environment_variables": {
           "target": "com.scaleway.containers_v1#ContainerSecretEnvironmentVariablesMap",
           "traits": {
-            "smithy.api#documentation": "Secret environment variables of the container."
+            "smithy.api#documentation": "Secret environment variables of the container.",
+            "smithy.api#required": {}
           }
         },
         "min_scale": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum number of instances to scale the container to."
+            "smithy.api#documentation": "Minimum number of instances to scale the container to.",
+            "smithy.api#required": {}
           }
         },
         "max_scale": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum number of instances to scale the container to."
+            "smithy.api#documentation": "Maximum number of instances to scale the container to.",
+            "smithy.api#required": {}
           }
         },
         "memory_limit_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Memory limit of the container in bytes. (in bytes)"
+            "smithy.api#documentation": "Memory limit of the container in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "mvcpu_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "CPU limit of the container in mvCPU."
+            "smithy.api#documentation": "CPU limit of the container in mvCPU.",
+            "smithy.api#required": {}
           }
         },
         "local_storage_limit_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Local storage limit of the container (in bytes). (in bytes)"
+            "smithy.api#documentation": "Local storage limit of the container (in bytes). (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "timeout": {
@@ -259,37 +278,43 @@
         "privacy": {
           "target": "com.scaleway.containers_v1#ContainerPrivacy",
           "traits": {
-            "smithy.api#documentation": "Privacy policy of the container."
+            "smithy.api#documentation": "Privacy policy of the container.",
+            "smithy.api#required": {}
           }
         },
         "image": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\")."
+            "smithy.api#documentation": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\").",
+            "smithy.api#required": {}
           }
         },
         "protocol": {
           "target": "com.scaleway.containers_v1#ContainerProtocol",
           "traits": {
-            "smithy.api#documentation": "Protocol the container uses."
+            "smithy.api#documentation": "Protocol the container uses.",
+            "smithy.api#required": {}
           }
         },
         "port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Port the container listens on."
+            "smithy.api#documentation": "Port the container listens on.",
+            "smithy.api#required": {}
           }
         },
         "https_connections_only": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "If true, it will allow only HTTPS connections to access your container to prevent it from being triggered by insecure connections (HTTP)."
+            "smithy.api#documentation": "If true, it will allow only HTTPS connections to access your container to prevent it from being triggered by insecure connections (HTTP).",
+            "smithy.api#required": {}
           }
         },
         "sandbox": {
           "target": "com.scaleway.containers_v1#ContainerSandbox",
           "traits": {
-            "smithy.api#documentation": "Execution environment of the container."
+            "smithy.api#documentation": "Execution environment of the container.",
+            "smithy.api#required": {}
           }
         },
         "scaling_option": {
@@ -313,7 +338,8 @@
         "tags": {
           "target": "com.scaleway.containers_v1#ContainerTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags of the Serverless Container."
+            "smithy.api#documentation": "Tags of the Serverless Container.",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
@@ -326,19 +352,22 @@
         "command": {
           "target": "com.scaleway.containers_v1#ContainerCommandList",
           "traits": {
-            "smithy.api#documentation": "Container command.\nCommand executed when the container starts. This overrides the default command defined in the container image. This is usually the main executable, or ENTRYPOINT script to run."
+            "smithy.api#documentation": "Container command.\nCommand executed when the container starts. This overrides the default command defined in the container image. This is usually the main executable, or ENTRYPOINT script to run.",
+            "smithy.api#required": {}
           }
         },
         "args": {
           "target": "com.scaleway.containers_v1#ContainerArgsList",
           "traits": {
-            "smithy.api#documentation": "Container arguments.\nArguments passed to the command specified in the \"command\" field. These override the default arguments from the container image, and behave like command-line parameters."
+            "smithy.api#documentation": "Container arguments.\nArguments passed to the command specified in the \"command\" field. These override the default arguments from the container image, and behave like command-line parameters.",
+            "smithy.api#required": {}
           }
         },
         "public_endpoint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Public URL of the container.\nThis is the default endpoint generated by Scaleway to access the container from the Internet."
+            "smithy.api#documentation": "Public URL of the container.\nThis is the default endpoint generated by Scaleway to access the container from the Internet.",
+            "smithy.api#required": {}
           }
         },
         "private_endpoint": {
@@ -351,13 +380,15 @@
         "default_public_endpoint_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether default public endpoint is enabled or not."
+            "smithy.api#documentation": "Whether default public endpoint is enabled or not.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the container exists."
+            "smithy.api#documentation": "Region in which the container exists.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1612,10 +1643,16 @@
       "type": "structure",
       "members": {
         "domains": {
-          "target": "com.scaleway.containers_v1#ListDomainsResponseDomainsList"
+          "target": "com.scaleway.containers_v1#ListDomainsResponseDomainsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1626,31 +1663,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain unique ID. (UUID format)"
+            "smithy.api#documentation": "Domain unique ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain SRN."
+            "smithy.api#documentation": "Domain SRN.",
+            "smithy.api#required": {}
           }
         },
         "container_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the container the domain is assigned to. (UUID format)"
+            "smithy.api#documentation": "Unique ID of the container the domain is assigned to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain assigned to the container."
+            "smithy.api#documentation": "Domain assigned to the container.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.containers_v1#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "Domain status."
+            "smithy.api#documentation": "Domain status.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -1677,13 +1719,15 @@
         "tags": {
           "target": "com.scaleway.containers_v1#DomainTagsList",
           "traits": {
-            "smithy.api#documentation": "A list of arbitrary tags associated with the domain."
+            "smithy.api#documentation": "A list of arbitrary tags associated with the domain.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the domain exists."
+            "smithy.api#documentation": "Region in which the domain exists.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2226,10 +2270,16 @@
       "type": "structure",
       "members": {
         "namespaces": {
-          "target": "com.scaleway.containers_v1#ListNamespacesResponseNamespacesList"
+          "target": "com.scaleway.containers_v1#ListNamespacesResponseNamespacesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2240,43 +2290,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Namespace unique ID. (UUID format)"
+            "smithy.api#documentation": "Namespace unique ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Namespace SRN."
+            "smithy.api#documentation": "Namespace SRN.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Namespace name."
+            "smithy.api#documentation": "Namespace name.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the Organization the namespace belongs to. (UUID format)"
+            "smithy.api#documentation": "Unique ID of the Organization the namespace belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique ID of the Project the namespace belongs to. (UUID format)"
+            "smithy.api#documentation": "Unique ID of the Project the namespace belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Namespace description."
+            "smithy.api#documentation": "Namespace description.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.containers_v1#NamespaceStatus",
           "traits": {
-            "smithy.api#documentation": "Namespace status."
+            "smithy.api#documentation": "Namespace status.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -2289,19 +2346,22 @@
         "environment_variables": {
           "target": "com.scaleway.containers_v1#NamespaceEnvironmentVariablesMap",
           "traits": {
-            "smithy.api#documentation": "Namespace environment variables."
+            "smithy.api#documentation": "Namespace environment variables.",
+            "smithy.api#required": {}
           }
         },
         "secret_environment_variables": {
           "target": "com.scaleway.containers_v1#NamespaceSecretEnvironmentVariablesMap",
           "traits": {
-            "smithy.api#documentation": "Namespace secret environment variables."
+            "smithy.api#documentation": "Namespace secret environment variables.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.containers_v1#NamespaceTagsList",
           "traits": {
-            "smithy.api#documentation": "A list of arbitrary tags associated with the namespace."
+            "smithy.api#documentation": "A list of arbitrary tags associated with the namespace.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2321,7 +2381,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the namespace will be created."
+            "smithy.api#documentation": "Region in which the namespace will be created.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2912,13 +2973,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3098,10 +3168,16 @@
       "type": "structure",
       "members": {
         "triggers": {
-          "target": "com.scaleway.containers_v1#ListTriggersResponseTriggersList"
+          "target": "com.scaleway.containers_v1#ListTriggersResponseTriggersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3112,37 +3188,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Trigger unique ID. (UUID format)"
+            "smithy.api#documentation": "Trigger unique ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Trigger SRN."
+            "smithy.api#documentation": "Trigger SRN.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the trigger."
+            "smithy.api#documentation": "Name of the trigger.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the trigger."
+            "smithy.api#documentation": "Description of the trigger.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.containers_v1#TriggerTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags of the trigger."
+            "smithy.api#documentation": "Tags of the trigger.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.containers_v1#TriggerStatus",
           "traits": {
-            "smithy.api#documentation": "Trigger status."
+            "smithy.api#documentation": "Trigger status.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -3155,7 +3237,8 @@
         "container_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the container to trigger. (UUID format)"
+            "smithy.api#documentation": "ID of the container to trigger. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "destination_config": {
@@ -3167,7 +3250,8 @@
         "source_type": {
           "target": "com.scaleway.containers_v1#TriggerSourceType",
           "traits": {
-            "smithy.api#documentation": "Type of source that will trigger the container."
+            "smithy.api#documentation": "Type of source that will trigger the container.",
+            "smithy.api#required": {}
           }
         },
         "cron_config": {
@@ -3208,7 +3292,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region in which the trigger exists."
+            "smithy.api#documentation": "Region in which the trigger exists.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3289,13 +3374,15 @@
         "http_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The HTTP path to send the request to (e.g., \"/my-webhook-endpoint\")."
+            "smithy.api#documentation": "The HTTP path to send the request to (e.g., \"/my-webhook-endpoint\").",
+            "smithy.api#required": {}
           }
         },
         "http_method": {
           "target": "com.scaleway.containers_v1#TriggerDestinationConfigHttpMethod",
           "traits": {
-            "smithy.api#documentation": "The HTTP method to use when sending the request (e.g., get, post, put, patch, delete). Must be specified as lowercase."
+            "smithy.api#documentation": "The HTTP method to use when sending the request (e.g., get, post, put, patch, delete). Must be specified as lowercase.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3349,25 +3436,29 @@
         "schedule": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UNIX cron schedule to run job (e.g., \"* * * * *\")."
+            "smithy.api#documentation": "UNIX cron schedule to run job (e.g., \"* * * * *\").",
+            "smithy.api#required": {}
           }
         },
         "timezone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Timezone for the cron schedule, in tz database format (e.g., \"Europe/Paris\")."
+            "smithy.api#documentation": "Timezone for the cron schedule, in tz database format (e.g., \"Europe/Paris\").",
+            "smithy.api#required": {}
           }
         },
         "body": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Body to send to the container when the trigger is invoked."
+            "smithy.api#documentation": "Body to send to the container when the trigger is invoked.",
+            "smithy.api#required": {}
           }
         },
         "headers": {
           "target": "com.scaleway.containers_v1#TriggerCronConfigHeadersMap",
           "traits": {
-            "smithy.api#documentation": "Additional headers to send to the container when the trigger is invoked."
+            "smithy.api#documentation": "Additional headers to send to the container when the trigger is invoked.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3391,26 +3482,30 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region where the SQS queue is hosted (e.g., \"fr-par\", \"nl-ams\")."
+            "smithy.api#documentation": "The region where the SQS queue is hosted (e.g., \"fr-par\", \"nl-ams\").",
+            "smithy.api#required": {}
           }
         },
         "endpoint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint URL to use to access SQS (e.g., \"https://sqs.mnq.fr-par.scaleway.com\")."
+            "smithy.api#documentation": "Endpoint URL to use to access SQS (e.g., \"https://sqs.mnq.fr-par.scaleway.com\").",
+            "smithy.api#required": {}
           }
         },
         "access_key_id": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "The access key for accessing the SQS queue.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "queue_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The URL of the SQS queue to monitor for messages."
+            "smithy.api#documentation": "The URL of the SQS queue to monitor for messages.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3422,13 +3517,15 @@
         "server_urls": {
           "target": "com.scaleway.containers_v1#TriggerNATSConfigServerUrlsList",
           "traits": {
-            "smithy.api#documentation": "The URLs of the NATS servers (e.g., \"nats://nats.mnq.fr-par.scaleway.com:4222\")."
+            "smithy.api#documentation": "The URLs of the NATS servers (e.g., \"nats://nats.mnq.fr-par.scaleway.com:4222\").",
+            "smithy.api#required": {}
           }
         },
         "subject": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "NATS subject to subscribe to (e.g., \"my-subject\")."
+            "smithy.api#documentation": "NATS subject to subscribe to (e.g., \"my-subject\").",
+            "smithy.api#required": {}
           }
         }
       },

@@ -89,7 +89,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the rule. (UUID format)"
+            "smithy.api#documentation": "ID of the rule. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "ip_cidr": {
@@ -198,49 +199,57 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)"
+            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Database Instance."
+            "smithy.api#documentation": "Name of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the Database Instance belongs to. (UUID format)"
+            "smithy.api#documentation": "Project ID the Database Instance belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.redis_v1#ClusterStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Database Instance."
+            "smithy.api#documentation": "Status of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Redis™ engine version of the Database Instance."
+            "smithy.api#documentation": "Redis™ engine version of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "endpoints": {
           "target": "com.scaleway.redis_v1#ClusterEndpointsList",
           "traits": {
-            "smithy.api#documentation": "List of Database Instance endpoints."
+            "smithy.api#documentation": "List of Database Instance endpoints.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.redis_v1#ClusterTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the Database Instance."
+            "smithy.api#documentation": "List of tags applied to the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type of the Database Instance."
+            "smithy.api#documentation": "Node type of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -260,49 +269,57 @@
         "tls_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not TLS is enabled."
+            "smithy.api#documentation": "Defines whether or not TLS is enabled.",
+            "smithy.api#required": {}
           }
         },
         "cluster_settings": {
           "target": "com.scaleway.redis_v1#ClusterClusterSettingsList",
           "traits": {
-            "smithy.api#documentation": "List of Database Instance settings."
+            "smithy.api#documentation": "List of Database Instance settings.",
+            "smithy.api#required": {}
           }
         },
         "acl_rules": {
           "target": "com.scaleway.redis_v1#ClusterAclRulesList",
           "traits": {
-            "smithy.api#documentation": "List of ACL rules."
+            "smithy.api#documentation": "List of ACL rules.",
+            "smithy.api#required": {}
           }
         },
         "cluster_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of nodes of the Database Instance cluster."
+            "smithy.api#documentation": "Number of nodes of the Database Instance cluster.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the Database Instance."
+            "smithy.api#documentation": "Zone of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "user_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the user associated to the cluster."
+            "smithy.api#documentation": "Name of the user associated to the cluster.",
+            "smithy.api#required": {}
           }
         },
         "upgradable_versions": {
           "target": "com.scaleway.redis_v1#ClusterUpgradableVersionsList",
           "traits": {
-            "smithy.api#documentation": "List of engine versions the Database Instance can upgrade to."
+            "smithy.api#documentation": "List of engine versions the Database Instance can upgrade to.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Resource Name of the Database Instance."
+            "smithy.api#documentation": "Scaleway Resource Name of the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -380,7 +397,8 @@
         "port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "TCP port of the endpoint."
+            "smithy.api#documentation": "TCP port of the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "private_network": {
@@ -400,13 +418,15 @@
         "ips": {
           "target": "com.scaleway.redis_v1#EndpointIpsList",
           "traits": {
-            "smithy.api#documentation": "List of IPv4 addresses of the endpoint. (IP address)"
+            "smithy.api#documentation": "List of IPv4 addresses of the endpoint. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the endpoint. (UUID format)"
+            "smithy.api#documentation": "UUID of the endpoint. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -418,25 +438,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Private Network. (UUID format)"
+            "smithy.api#documentation": "UUID of the Private Network. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "service_ips": {
           "target": "com.scaleway.redis_v1#PrivateNetworkServiceIpsList",
           "traits": {
-            "smithy.api#documentation": "List of IPv4 CIDR notation addresses of the endpoint. (IP network)"
+            "smithy.api#documentation": "List of IPv4 CIDR notation addresses of the endpoint. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the Private Network."
+            "smithy.api#documentation": "Zone of the Private Network.",
+            "smithy.api#required": {}
           }
         },
         "provisioning_mode": {
           "target": "com.scaleway.redis_v1#PrivateNetworkProvisioningMode",
           "traits": {
-            "smithy.api#documentation": "How your endpoint ips are provisioned."
+            "smithy.api#documentation": "How your endpoint ips are provisioned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -665,13 +689,15 @@
         "versions": {
           "target": "com.scaleway.redis_v1#ListClusterVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "List of available Redis™ engine versions."
+            "smithy.api#documentation": "List of available Redis™ engine versions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of available Redis™ engine versions."
+            "smithy.api#documentation": "Total count of available Redis™ engine versions.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -683,7 +709,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Redis™ engine version."
+            "smithy.api#documentation": "Redis™ engine version.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life_at": {
@@ -696,13 +723,15 @@
         "available_settings": {
           "target": "com.scaleway.redis_v1#ClusterVersionAvailableSettingsList",
           "traits": {
-            "smithy.api#documentation": "Cluster settings available to be updated."
+            "smithy.api#documentation": "Cluster settings available to be updated.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Redis™ logo url."
+            "smithy.api#documentation": "Redis™ logo url.",
+            "smithy.api#required": {}
           }
         },
         "released_at": {
@@ -715,7 +744,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the Redis™ Database Instance."
+            "smithy.api#documentation": "Zone of the Redis™ Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -727,7 +757,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the setting."
+            "smithy.api#documentation": "Name of the setting.",
+            "smithy.api#required": {}
           }
         },
         "default_value": {
@@ -740,13 +771,15 @@
         "type": {
           "target": "com.scaleway.redis_v1#AvailableClusterSettingPropertyType",
           "traits": {
-            "smithy.api#documentation": "Type of setting."
+            "smithy.api#documentation": "Type of setting.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the setting."
+            "smithy.api#documentation": "Description of the setting.",
+            "smithy.api#required": {}
           }
         },
         "max_value": {
@@ -773,7 +806,8 @@
         "deprecated": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the setting is deprecated."
+            "smithy.api#documentation": "Defines whether or not the setting is deprecated.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1006,13 +1040,15 @@
         "clusters": {
           "target": "com.scaleway.redis_v1#ListClustersResponseClustersList",
           "traits": {
-            "smithy.api#documentation": "List all Database Instances."
+            "smithy.api#documentation": "List all Database Instances.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Database Instances."
+            "smithy.api#documentation": "Total count of Database Instances.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1687,13 +1723,15 @@
         "acl_rules": {
           "target": "com.scaleway.redis_v1#AddAclRulesResponseAclRulesList",
           "traits": {
-            "smithy.api#documentation": "ACL Rules enabled for the Database Instance."
+            "smithy.api#documentation": "ACL Rules enabled for the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of ACL rules of the Database Instance."
+            "smithy.api#documentation": "Total count of ACL rules of the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1813,7 +1851,8 @@
         "acl_rules": {
           "target": "com.scaleway.redis_v1#SetAclRulesResponseAclRulesList",
           "traits": {
-            "smithy.api#documentation": "ACL Rules enabled for the Database Instance."
+            "smithy.api#documentation": "ACL Rules enabled for the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1915,13 +1954,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2031,13 +2079,15 @@
         "endpoints": {
           "target": "com.scaleway.redis_v1#AddEndpointsResponseEndpointsList",
           "traits": {
-            "smithy.api#documentation": "Endpoints defined on the Database Instance."
+            "smithy.api#documentation": "Endpoints defined on the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of endpoints of the Database Instance."
+            "smithy.api#documentation": "Total count of endpoints of the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2157,7 +2207,8 @@
         "endpoints": {
           "target": "com.scaleway.redis_v1#SetEndpointsResponseEndpointsList",
           "traits": {
-            "smithy.api#documentation": "Endpoints defined on the Database Instance."
+            "smithy.api#documentation": "Endpoints defined on the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2282,7 +2333,8 @@
         "timeseries": {
           "target": "com.scaleway.redis_v1#ClusterMetricsResponseTimeseriesList",
           "traits": {
-            "smithy.api#documentation": "Time series of metrics of a given cluster."
+            "smithy.api#documentation": "Time series of metrics of a given cluster.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2292,13 +2344,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "points": {
-          "target": "com.scaleway.redis_v1#ScalewayStdTimeSeriesPointsList"
+          "target": "com.scaleway.redis_v1#ScalewayStdTimeSeriesPointsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "metadata": {
-          "target": "com.scaleway.redis_v1#ScalewayStdTimeSeriesMetadataMap"
+          "target": "com.scaleway.redis_v1#ScalewayStdTimeSeriesMetadataMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2640,7 +2701,8 @@
         "settings": {
           "target": "com.scaleway.redis_v1#ClusterSettingsResponseSettingsList",
           "traits": {
-            "smithy.api#documentation": "Settings configured for a given Database Instance."
+            "smithy.api#documentation": "Settings configured for a given Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3209,13 +3271,15 @@
         "node_types": {
           "target": "com.scaleway.redis_v1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "Types of node."
+            "smithy.api#documentation": "Types of node.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of node types available."
+            "smithy.api#documentation": "Total count of node types available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3227,49 +3291,57 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type name."
+            "smithy.api#documentation": "Node type name.",
+            "smithy.api#required": {}
           }
         },
         "stock_status": {
           "target": "com.scaleway.redis_v1#NodeTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock status of the node type."
+            "smithy.api#documentation": "Current stock status of the node type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Current specifications of the offer."
+            "smithy.api#documentation": "Current specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of virtual CPUs."
+            "smithy.api#documentation": "Number of virtual CPUs.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quantity of RAM. (in bytes)"
+            "smithy.api#documentation": "Quantity of RAM. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether node type is currently disabled or not."
+            "smithy.api#documentation": "Defines whether node type is currently disabled or not.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether node type is currently in beta."
+            "smithy.api#documentation": "Defines whether node type is currently in beta.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the node type."
+            "smithy.api#documentation": "Zone of the node type.",
+            "smithy.api#required": {}
           }
         }
       },

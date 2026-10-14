@@ -105,35 +105,35 @@ export const IPStatus = S.String;
 
 export interface IP {
   /** ID of the IP. */
-  ip_id?: number;
+  ip_id: number;
   /** Address of the IP. (IP address) */
-  address?: string;
+  address: string;
   /** Reverse IP value. */
-  reverse?: string;
+  reverse: string;
   /** Version of IP (v4 or v6). */
-  version?: IPVersion;
+  version: IPVersion;
   /** Classless InterDomain Routing notation of the IP. */
-  cidr?: number;
+  cidr: number;
   /** Network mask of IP. (IP address) */
-  netmask?: string;
+  netmask: string;
   /** Semantic of IP. */
-  semantic?: IPSemantic;
+  semantic: IPSemantic;
   /** Gateway of IP. (IP address) */
-  gateway?: string;
+  gateway: string;
   /** Status of the IP. */
-  status?: IPStatus;
+  status: IPStatus;
 }
 export const IP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip_id: S.optional(S.Number),
-    address: S.optional(S.String),
-    reverse: S.optional(S.String),
-    version: S.optional(IPVersion),
-    cidr: S.optional(S.Number),
-    netmask: S.optional(S.String),
-    semantic: S.optional(IPSemantic),
-    gateway: S.optional(S.String),
-    status: S.optional(IPStatus),
+    ip_id: S.Number,
+    address: S.String,
+    reverse: S.String,
+    version: IPVersion,
+    cidr: S.Number,
+    netmask: S.String,
+    semantic: IPSemantic,
+    gateway: S.String,
+    status: IPStatus,
   }),
 ).annotate({ identifier: "IP" }) as any as S.Schema<IP>;
 
@@ -220,15 +220,15 @@ export type OfferPaymentFrequency = "monthly" | "oneshot";
 export const OfferPaymentFrequency = S.String;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
@@ -240,14 +240,14 @@ export const ServerDiskType = S.String;
 
 export interface Disk {
   /** Capacity of the disk. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Type of the disk. */
-  type?: ServerDiskType;
+  type: ServerDiskType;
 }
 export const Disk = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    type: S.optional(ServerDiskType),
+    capacity: S.Number,
+    type: ServerDiskType,
   }),
 ).annotate({ identifier: "Disk" }) as any as S.Schema<Disk>;
 
@@ -258,20 +258,20 @@ export const OfferServerInfoDisksList = /*@__PURE__*/ S.Array(
 
 export interface CPU {
   /** Name of CPU. */
-  name?: string;
+  name: string;
   /** Number of cores of the CPU. */
-  core_count?: number;
+  core_count: number;
   /** Number of threads of the CPU. */
-  thread_count?: number;
+  thread_count: number;
   /** Frequency of the CPU. */
-  frequency?: number;
+  frequency: number;
 }
 export const CPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    core_count: S.optional(S.Number),
-    thread_count: S.optional(S.Number),
-    frequency: S.optional(S.Number),
+    name: S.String,
+    core_count: S.Number,
+    thread_count: S.Number,
+    frequency: S.Number,
   }),
 ).annotate({ identifier: "CPU" }) as any as S.Schema<CPU>;
 
@@ -285,20 +285,20 @@ export const MemoryType = S.String;
 
 export interface Memory {
   /** Capacity of the memory. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Type of the memory. */
-  type?: MemoryType;
+  type: MemoryType;
   /** Frequency of the memory. */
-  frequency?: number;
+  frequency: number;
   /** True if the memory is an error-correcting code memory. */
-  is_ecc?: boolean;
+  is_ecc: boolean;
 }
 export const Memory = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    type: S.optional(MemoryType),
-    frequency: S.optional(S.Number),
-    is_ecc: S.optional(S.Boolean),
+    capacity: S.Number,
+    type: MemoryType,
+    frequency: S.Number,
+    is_ecc: S.Boolean,
   }),
 ).annotate({ identifier: "Memory" }) as any as S.Schema<Memory>;
 
@@ -309,17 +309,17 @@ export const OfferServerInfoMemoriesList = /*@__PURE__*/ S.Array(
 
 export interface PersistentMemory {
   /** Capacity of the persistent memory. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Frequency of the persistent memory. */
-  frequency?: number;
+  frequency: number;
   /** Model of the persistent memory. */
-  model?: string;
+  model: string;
 }
 export const PersistentMemory = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    capacity: S.optional(S.Number),
-    frequency: S.optional(S.Number),
-    model: S.optional(S.String),
+    capacity: S.Number,
+    frequency: S.Number,
+    model: S.String,
   }),
 ).annotate({ identifier: "PersistentMemory" }) as any as S.Schema<PersistentMemory>;
 
@@ -336,14 +336,14 @@ export const RaidControllerRaidLevelList = /*@__PURE__*/ S.Array(
 
 export interface RaidController {
   /** Model of the RAID controller. */
-  model?: string;
+  model: string;
   /** RAID level of the RAID controller. */
-  raid_level?: RaidControllerRaidLevelList;
+  raid_level: RaidControllerRaidLevelList;
 }
 export const RaidController = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    model: S.optional(S.String),
-    raid_level: S.optional(RaidControllerRaidLevelList),
+    model: S.String,
+    raid_level: RaidControllerRaidLevelList,
   }),
 ).annotate({ identifier: "RaidController" }) as any as S.Schema<RaidController>;
 
@@ -366,35 +366,35 @@ export const OfferServerInfoStockByDatacenterMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<OfferServerInfoStockByDatacenterMap>;
 
 export interface OfferServerInfo {
-  bandwidth?: number;
-  stock?: OfferServerInfoStock;
-  commercial_range?: string;
-  disks?: OfferServerInfoDisksList;
-  cpus?: OfferServerInfoCpusList;
-  memories?: OfferServerInfoMemoriesList;
-  persistent_memories?: OfferServerInfoPersistentMemoriesList;
-  raid_controllers?: OfferServerInfoRaidControllersList;
-  available_options?: OfferServerInfoAvailableOptionsList;
+  bandwidth: number;
+  stock: OfferServerInfoStock;
+  commercial_range: string;
+  disks: OfferServerInfoDisksList;
+  cpus: OfferServerInfoCpusList;
+  memories: OfferServerInfoMemoriesList;
+  persistent_memories: OfferServerInfoPersistentMemoriesList;
+  raid_controllers: OfferServerInfoRaidControllersList;
+  available_options: OfferServerInfoAvailableOptionsList;
   rpn_version?: number | null;
-  connectivity?: number;
+  connectivity: number;
   onetime_fees?: Offer;
-  stock_by_datacenter?: OfferServerInfoStockByDatacenterMap;
+  stock_by_datacenter: OfferServerInfoStockByDatacenterMap;
 }
 export const OfferServerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    bandwidth: S.optional(S.Number),
-    stock: S.optional(OfferServerInfoStock),
-    commercial_range: S.optional(S.String),
-    disks: S.optional(OfferServerInfoDisksList),
-    cpus: S.optional(OfferServerInfoCpusList),
-    memories: S.optional(OfferServerInfoMemoriesList),
-    persistent_memories: S.optional(OfferServerInfoPersistentMemoriesList),
-    raid_controllers: S.optional(OfferServerInfoRaidControllersList),
-    available_options: S.optional(OfferServerInfoAvailableOptionsList),
+    bandwidth: S.Number,
+    stock: OfferServerInfoStock,
+    commercial_range: S.String,
+    disks: OfferServerInfoDisksList,
+    cpus: OfferServerInfoCpusList,
+    memories: OfferServerInfoMemoriesList,
+    persistent_memories: OfferServerInfoPersistentMemoriesList,
+    raid_controllers: OfferServerInfoRaidControllersList,
+    available_options: OfferServerInfoAvailableOptionsList,
     rpn_version: S.optional(S.NullOr(S.Number)),
-    connectivity: S.optional(S.Number),
+    connectivity: S.Number,
     onetime_fees: S.optional(S.suspend(() => Offer)),
-    stock_by_datacenter: S.optional(OfferServerInfoStockByDatacenterMap),
+    stock_by_datacenter: OfferServerInfoStockByDatacenterMap,
   }),
 ).annotate({ identifier: "OfferServerInfo" }) as any as S.Schema<OfferServerInfo>;
 
@@ -404,40 +404,40 @@ export const OfferServiceLevelInfoAvailableOptionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<OfferServiceLevelInfoAvailableOptionsList>;
 
 export interface OfferServiceLevelInfo {
-  support_ticket?: boolean;
-  support_phone?: boolean;
-  sales_support?: boolean;
-  git?: string;
-  sla?: number;
-  priority_support?: boolean;
-  high_rpn_bandwidth?: boolean;
-  customization?: boolean;
-  antidos?: boolean;
-  extra_failover_quota?: number;
-  available_options?: OfferServiceLevelInfoAvailableOptionsList;
+  support_ticket: boolean;
+  support_phone: boolean;
+  sales_support: boolean;
+  git: string;
+  sla: number;
+  priority_support: boolean;
+  high_rpn_bandwidth: boolean;
+  customization: boolean;
+  antidos: boolean;
+  extra_failover_quota: number;
+  available_options: OfferServiceLevelInfoAvailableOptionsList;
 }
 export const OfferServiceLevelInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    support_ticket: S.optional(S.Boolean),
-    support_phone: S.optional(S.Boolean),
-    sales_support: S.optional(S.Boolean),
-    git: S.optional(S.String),
-    sla: S.optional(S.Number),
-    priority_support: S.optional(S.Boolean),
-    high_rpn_bandwidth: S.optional(S.Boolean),
-    customization: S.optional(S.Boolean),
-    antidos: S.optional(S.Boolean),
-    extra_failover_quota: S.optional(S.Number),
-    available_options: S.optional(OfferServiceLevelInfoAvailableOptionsList),
+    support_ticket: S.Boolean,
+    support_phone: S.Boolean,
+    sales_support: S.Boolean,
+    git: S.String,
+    sla: S.Number,
+    priority_support: S.Boolean,
+    high_rpn_bandwidth: S.Boolean,
+    customization: S.Boolean,
+    antidos: S.Boolean,
+    extra_failover_quota: S.Number,
+    available_options: OfferServiceLevelInfoAvailableOptionsList,
   }),
 ).annotate({ identifier: "OfferServiceLevelInfo" }) as any as S.Schema<OfferServiceLevelInfo>;
 
 export interface OfferRPNInfo {
-  speed?: number;
+  speed: number;
 }
 export const OfferRPNInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    speed: S.optional(S.Number),
+    speed: S.Number,
   }),
 ).annotate({ identifier: "OfferRPNInfo" }) as any as S.Schema<OfferRPNInfo>;
 
@@ -446,17 +446,17 @@ export const OfferSANInfoType = S.String;
 
 export interface OfferSANInfo {
   /** SAN size (in bytes). */
-  size?: number;
+  size: number;
   /** High availability offer. */
-  ha?: boolean;
+  ha: boolean;
   /** Type of SAN device (hdd / ssd). */
-  device_type?: OfferSANInfoType;
+  device_type: OfferSANInfoType;
 }
 export const OfferSANInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    size: S.optional(S.Number),
-    ha: S.optional(S.Boolean),
-    device_type: S.optional(OfferSANInfoType),
+    size: S.Number,
+    ha: S.Boolean,
+    device_type: OfferSANInfoType,
   }),
 ).annotate({ identifier: "OfferSANInfo" }) as any as S.Schema<OfferSANInfo>;
 
@@ -464,42 +464,42 @@ export type OfferAntiDosInfoType = "minimal" | "preventive" | "curative";
 export const OfferAntiDosInfoType = S.String;
 
 export interface OfferAntiDosInfo {
-  type?: OfferAntiDosInfoType;
+  type: OfferAntiDosInfoType;
 }
 export const OfferAntiDosInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(OfferAntiDosInfoType),
+    type: OfferAntiDosInfoType,
   }),
 ).annotate({ identifier: "OfferAntiDosInfo" }) as any as S.Schema<OfferAntiDosInfo>;
 
 export interface OfferBackupInfo {
   /** (in bytes) */
-  size?: number;
+  size: number;
 }
 export const OfferBackupInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    size: S.optional(S.Number),
+    size: S.Number,
   }),
 ).annotate({ identifier: "OfferBackupInfo" }) as any as S.Schema<OfferBackupInfo>;
 
 export interface OfferStorageInfo {
-  max_quota?: number;
+  max_quota: number;
   /** (in bytes) */
-  size?: number;
+  size: number;
 }
 export const OfferStorageInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    max_quota: S.optional(S.Number),
-    size: S.optional(S.Number),
+    max_quota: S.Number,
+    size: S.Number,
   }),
 ).annotate({ identifier: "OfferStorageInfo" }) as any as S.Schema<OfferStorageInfo>;
 
 export interface OfferLicenseInfo {
-  bound_to_ip?: boolean;
+  bound_to_ip: boolean;
 }
 export const OfferLicenseInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    bound_to_ip: S.optional(S.Boolean),
+    bound_to_ip: S.Boolean,
   }),
 ).annotate({ identifier: "OfferLicenseInfo" }) as any as S.Schema<OfferLicenseInfo>;
 
@@ -520,13 +520,13 @@ export const OfferBandwidthInfo = OfferRPNInfo;
 
 export interface Offer {
   /** ID of the offer (aka product.id). */
-  id?: number;
+  id: number;
   /** Name of the offer. */
-  name?: string;
+  name: string;
   /** Catalog of the offer. */
-  catalog?: OfferCatalog;
+  catalog: OfferCatalog;
   /** Payment frequency of the offer. */
-  payment_frequency?: OfferPaymentFrequency;
+  payment_frequency: OfferPaymentFrequency;
   /** Price of the offer. */
   pricing?: GoogleTypeMoney;
   /** Original Dedibox ID of the offer. */
@@ -558,10 +558,10 @@ export interface Offer {
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    name: S.optional(S.String),
-    catalog: S.optional(OfferCatalog),
-    payment_frequency: S.optional(OfferPaymentFrequency),
+    id: S.Number,
+    name: S.String,
+    catalog: OfferCatalog,
+    payment_frequency: OfferPaymentFrequency,
     pricing: S.optional(GoogleTypeMoney),
     offer_id: S.optional(S.NullOr(S.Number)),
     server_info: S.optional(S.NullOr(OfferServerInfo)),
@@ -584,11 +584,11 @@ export const ServiceType = S.String;
 
 export interface Service {
   /** ID of the service. */
-  id?: number;
+  id: number;
   /** Resource ID of the service. */
   resource_id?: number | null;
   /** Provisioning status of the service. */
-  provisioning_status?: ServiceProvisioningStatus;
+  provisioning_status: ServiceProvisioningStatus;
   /** Offer of the service. */
   offer?: Offer;
   /** Creation date of the service. (RFC 3339 format) */
@@ -600,19 +600,19 @@ export interface Service {
   /** Expiration date of the service. (RFC 3339 format) */
   expires_at?: string | null;
   /** Service type, either order or service. */
-  type?: ServiceType;
+  type: ServiceType;
 }
 export const Service = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
+    id: S.Number,
     resource_id: S.optional(S.NullOr(S.Number)),
-    provisioning_status: S.optional(ServiceProvisioningStatus),
+    provisioning_status: ServiceProvisioningStatus,
     offer: S.optional(Offer),
     created_at: S.optional(S.NullOr(S.String)),
     delivered_at: S.optional(S.NullOr(S.String)),
     terminated_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
-    type: S.optional(ServiceType),
+    type: ServiceType,
   }),
 ).annotate({ identifier: "Service" }) as any as S.Schema<Service>;
 
@@ -622,13 +622,13 @@ export const CreateFailoverIPsResponseServicesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<CreateFailoverIPsResponseServicesList>;
 
 export interface CreateFailoverIPsResponse {
-  total_count?: number;
-  services?: CreateFailoverIPsResponseServicesList;
+  total_count: number;
+  services: CreateFailoverIPsResponseServicesList;
 }
 export const CreateFailoverIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    services: S.optional(CreateFailoverIPsResponseServicesList),
+    total_count: S.Number,
+    services: CreateFailoverIPsResponseServicesList,
   }),
 ).annotate({
   identifier: "CreateFailoverIPsResponse",
@@ -838,23 +838,23 @@ export const BMCAccessStatus = S.String;
 
 export interface BMCAccess {
   /** URL to access to the server console. */
-  url?: string;
+  url: string;
   /** The login to use for the BMC (Baseboard Management Controller) access authentication. */
-  login?: string;
+  login: string;
   /** The password to use for the BMC (Baseboard Management Controller) access authentication. */
-  password?: string | Redacted.Redacted<string>;
+  password: string | Redacted.Redacted<string>;
   /** The date after which the BMC (Baseboard Management Controller) access will be closed. (RFC 3339 format) */
   expires_at?: string | null;
   /** Status of the connection. */
-  status?: BMCAccessStatus;
+  status: BMCAccessStatus;
 }
 export const BMCAccess = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    login: S.optional(S.String),
-    password: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    url: S.String,
+    login: S.String,
+    password: S.String.pipe(T.SensitiveValue({})),
     expires_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(BMCAccessStatus),
+    status: BMCAccessStatus,
   }),
 ).annotate({ identifier: "BMCAccess" }) as any as S.Schema<BMCAccess>;
 
@@ -898,29 +898,29 @@ export const FailoverBlockVersion = S.String;
 
 export interface FailoverBlock {
   /** ID of the failover block. */
-  id?: number;
+  id: number;
   /** IP of the failover block. (IP address) */
-  address?: string;
+  address: string;
   /** Name servers. */
-  nameservers?: FailoverBlockNameserversList;
+  nameservers: FailoverBlockNameserversList;
   /** IP version of the failover block. */
-  ip_version?: FailoverBlockVersion;
+  ip_version: FailoverBlockVersion;
   /** Classless InterDomain Routing notation of the failover block. */
-  cidr?: number;
+  cidr: number;
   /** Netmask of the failover block. (IP address) */
-  netmask?: string;
+  netmask: string;
   /** Gateway IP of the failover block. (IP address) */
-  gateway_ip?: string;
+  gateway_ip: string;
 }
 export const FailoverBlock = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    address: S.optional(S.String),
-    nameservers: S.optional(FailoverBlockNameserversList),
-    ip_version: S.optional(FailoverBlockVersion),
-    cidr: S.optional(S.Number),
-    netmask: S.optional(S.String),
-    gateway_ip: S.optional(S.String),
+    id: S.Number,
+    address: S.String,
+    nameservers: FailoverBlockNameserversList,
+    ip_version: FailoverBlockVersion,
+    cidr: S.Number,
+    netmask: S.String,
+    gateway_ip: S.String,
   }),
 ).annotate({ identifier: "FailoverBlock" }) as any as S.Schema<FailoverBlock>;
 
@@ -929,46 +929,46 @@ export const FailoverIPInterfaceType = S.String;
 
 export interface FailoverIP {
   /** ID of the failover IP. */
-  id?: number;
+  id: number;
   /** IP of the failover IP. (IP address) */
-  address?: string;
+  address: string;
   /** Reverse IP value. */
-  reverse?: string;
+  reverse: string;
   /** IP version of the failover IP. */
-  ip_version?: FailoverIPVersion;
+  ip_version: FailoverIPVersion;
   /** Classless InterDomain Routing notation of the failover IP. */
-  cidr?: number;
+  cidr: number;
   /** Netmask of the failover IP. (IP address) */
-  netmask?: string;
+  netmask: string;
   /** Gateway IP of the failover IP. (IP address) */
-  gateway_ip?: string;
+  gateway_ip: string;
   /** MAC address of the IP failover. */
   mac?: string | null;
   /** Server ID linked to the IP failover. */
   server_id?: number | null;
   /** Status of the IP failover. */
-  status?: FailoverIPStatus;
+  status: FailoverIPStatus;
   /** Block of the IP failover. */
   block?: FailoverBlock;
   /** The interface type. */
-  type?: FailoverIPInterfaceType;
+  type: FailoverIPInterfaceType;
   /** The server zone (if assigned). */
   server_zone?: string | null;
 }
 export const FailoverIP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    address: S.optional(S.String),
-    reverse: S.optional(S.String),
-    ip_version: S.optional(FailoverIPVersion),
-    cidr: S.optional(S.Number),
-    netmask: S.optional(S.String),
-    gateway_ip: S.optional(S.String),
+    id: S.Number,
+    address: S.String,
+    reverse: S.String,
+    ip_version: FailoverIPVersion,
+    cidr: S.Number,
+    netmask: S.String,
+    gateway_ip: S.String,
     mac: S.optional(S.NullOr(S.String)),
     server_id: S.optional(S.NullOr(S.Number)),
-    status: S.optional(FailoverIPStatus),
+    status: FailoverIPStatus,
     block: S.optional(FailoverBlock),
-    type: S.optional(FailoverIPInterfaceType),
+    type: FailoverIPInterfaceType,
     server_zone: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "FailoverIP" }) as any as S.Schema<FailoverIP>;
@@ -1090,37 +1090,37 @@ export const OSLicenseOffersList = /*@__PURE__*/ S.Array(
 
 export interface OS {
   /** ID of the OS. */
-  id?: number;
+  id: number;
   /** Name of the OS. */
-  name?: string;
+  name: string;
   /** Type of the OS. */
-  type?: OSType;
+  type: OSType;
   /** Version of the OS. */
-  version?: string;
+  version: string;
   /** Architecture of the OS. */
-  arch?: OSArch;
+  arch: OSArch;
   /** True if the OS allow custom partitioning. */
-  allow_custom_partitioning?: boolean;
+  allow_custom_partitioning: boolean;
   /** True if the OS allow SSH Keys. */
-  allow_ssh_keys?: boolean;
+  allow_ssh_keys: boolean;
   /** True if the OS requires user. */
-  requires_user?: boolean;
+  requires_user: boolean;
   /** True if the OS requires admin password. */
-  requires_admin_password?: boolean;
+  requires_admin_password: boolean;
   /** True if the OS requires panel password. */
-  requires_panel_password?: boolean;
+  requires_panel_password: boolean;
   /** True if the OS allow file systems. */
-  allowed_filesystems?: OSAllowedFilesystemsList;
+  allowed_filesystems: OSAllowedFilesystemsList;
   /** True if the OS requires license. */
-  requires_license?: boolean;
+  requires_license: boolean;
   /** License offers available with the OS. */
-  license_offers?: OSLicenseOffersList;
+  license_offers: OSLicenseOffersList;
   /** Maximum number of partitions which can be created. */
   max_partitions?: number | null;
   /** Display name of the OS. */
-  display_name?: string;
+  display_name: string;
   /** Regex used to validate the installation passwords. */
-  password_regex?: string;
+  password_regex: string;
   /** Regex used to validate the panel installation password. */
   panel_password_regex?: string | null;
   /** Whether or not the installation requires a valid hostname (ex: my.scaleway.com). If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid. */
@@ -1128,32 +1128,32 @@ export interface OS {
   /** Regex used to validate the hostname during the installation. If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid. */
   hostname_regex?: string | null;
   /** Hostname max length. */
-  hostname_max_length?: number;
+  hostname_max_length: number;
   /** OS release date. (RFC 3339 format) */
   released_at?: string | null;
 }
 export const OS = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    name: S.optional(S.String),
-    type: S.optional(OSType),
-    version: S.optional(S.String),
-    arch: S.optional(OSArch),
-    allow_custom_partitioning: S.optional(S.Boolean),
-    allow_ssh_keys: S.optional(S.Boolean),
-    requires_user: S.optional(S.Boolean),
-    requires_admin_password: S.optional(S.Boolean),
-    requires_panel_password: S.optional(S.Boolean),
-    allowed_filesystems: S.optional(OSAllowedFilesystemsList),
-    requires_license: S.optional(S.Boolean),
-    license_offers: S.optional(OSLicenseOffersList),
+    id: S.Number,
+    name: S.String,
+    type: OSType,
+    version: S.String,
+    arch: OSArch,
+    allow_custom_partitioning: S.Boolean,
+    allow_ssh_keys: S.Boolean,
+    requires_user: S.Boolean,
+    requires_admin_password: S.Boolean,
+    requires_panel_password: S.Boolean,
+    allowed_filesystems: OSAllowedFilesystemsList,
+    requires_license: S.Boolean,
+    license_offers: OSLicenseOffersList,
     max_partitions: S.optional(S.NullOr(S.Number)),
-    display_name: S.optional(S.String),
-    password_regex: S.optional(S.String),
+    display_name: S.String,
+    password_regex: S.String,
     panel_password_regex: S.optional(S.NullOr(S.String)),
     requires_valid_hostname: S.optional(S.NullOr(S.Boolean)),
     hostname_regex: S.optional(S.NullOr(S.String)),
-    hostname_max_length: S.optional(S.Number),
+    hostname_max_length: S.Number,
     released_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
@@ -1185,20 +1185,20 @@ export type RaidArrayRaidLevel = "no_raid" | "raid0" | "raid1" | "raid5" | "raid
 export const RaidArrayRaidLevel = S.String;
 
 export interface ServerDisk {
-  id?: number;
-  connector?: string;
-  type?: ServerDiskType;
+  id: number;
+  connector: string;
+  type: ServerDiskType;
   /** (in bytes) */
-  capacity?: number;
-  is_addon?: boolean;
+  capacity: number;
+  is_addon: boolean;
 }
 export const ServerDisk = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    connector: S.optional(S.String),
-    type: S.optional(ServerDiskType),
-    capacity: S.optional(S.Number),
-    is_addon: S.optional(S.Boolean),
+    id: S.Number,
+    connector: S.String,
+    type: ServerDiskType,
+    capacity: S.Number,
+    is_addon: S.Boolean,
   }),
 ).annotate({ identifier: "ServerDisk" }) as any as S.Schema<ServerDisk>;
 
@@ -1210,14 +1210,14 @@ export const RaidArrayDisksList = /*@__PURE__*/ S.Array(
 
 export interface RaidArray {
   /** The RAID level. */
-  raid_level?: RaidArrayRaidLevel;
+  raid_level: RaidArrayRaidLevel;
   /** Disks on the RAID controller. */
-  disks?: RaidArrayDisksList;
+  disks: RaidArrayDisksList;
 }
 export const RaidArray = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    raid_level: S.optional(RaidArrayRaidLevel),
-    disks: S.optional(RaidArrayDisksList),
+    raid_level: RaidArrayRaidLevel,
+    disks: RaidArrayDisksList,
   }),
 ).annotate({ identifier: "RaidArray" }) as any as S.Schema<RaidArray>;
 
@@ -1229,11 +1229,11 @@ export const RaidRaidArraysList = /*@__PURE__*/ S.Array(
 
 export interface Raid {
   /** Details about the RAID controller. */
-  raid_arrays?: RaidRaidArraysList;
+  raid_arrays: RaidRaidArraysList;
 }
 export const Raid = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    raid_arrays: S.optional(RaidRaidArraysList),
+    raid_arrays: RaidRaidArraysList,
   }),
 ).annotate({ identifier: "Raid" }) as any as S.Schema<Raid>;
 
@@ -1262,20 +1262,20 @@ export const GetRemainingQuotaRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface GetRemainingQuotaResponse {
   /** Current failover IP quota. */
-  failover_ip_quota?: number;
+  failover_ip_quota: number;
   /** Remaining failover IP quota. */
-  failover_ip_remaining_quota?: number;
+  failover_ip_remaining_quota: number;
   /** Current failover block quota. */
-  failover_block_quota?: number;
+  failover_block_quota: number;
   /** Remaining failover block quota. */
-  failover_block_remaining_quota?: number;
+  failover_block_remaining_quota: number;
 }
 export const GetRemainingQuotaResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    failover_ip_quota: S.optional(S.Number),
-    failover_ip_remaining_quota: S.optional(S.Number),
-    failover_block_quota: S.optional(S.Number),
-    failover_block_remaining_quota: S.optional(S.Number),
+    failover_ip_quota: S.Number,
+    failover_ip_remaining_quota: S.Number,
+    failover_block_quota: S.Number,
+    failover_block_remaining_quota: S.Number,
   }),
 ).annotate({
   identifier: "GetRemainingQuotaResponse",
@@ -1309,20 +1309,20 @@ export const RescueProtocol = S.String;
 
 export interface Rescue {
   /** OS ID of the rescue. */
-  os_id?: number;
+  os_id: number;
   /** Login of the rescue. */
-  login?: string;
+  login: string;
   /** Password of the rescue. */
-  password?: string | Redacted.Redacted<string>;
+  password: string | Redacted.Redacted<string>;
   /** Protocol of the rescue. */
-  protocol?: RescueProtocol;
+  protocol: RescueProtocol;
 }
 export const Rescue = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    os_id: S.optional(S.Number),
-    login: S.optional(S.String),
-    password: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    protocol: S.optional(RescueProtocol),
+    os_id: S.Number,
+    login: S.String,
+    password: S.String.pipe(T.SensitiveValue({})),
+    protocol: RescueProtocol,
   }),
 ).annotate({ identifier: "Rescue" }) as any as S.Schema<Rescue>;
 
@@ -1362,15 +1362,15 @@ export type ServerStatus =
 export const ServerStatus = S.String;
 
 export interface ServerLocation {
-  rack?: string;
-  room?: string;
-  datacenter_name?: string;
+  rack: string;
+  room: string;
+  datacenter_name: string;
 }
 export const ServerLocation = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rack: S.optional(S.String),
-    room: S.optional(S.String),
-    datacenter_name: S.optional(S.String),
+    rack: S.String,
+    room: S.String,
+    datacenter_name: S.String,
   }),
 ).annotate({ identifier: "ServerLocation" }) as any as S.Schema<ServerLocation>;
 
@@ -1385,23 +1385,23 @@ export const NetworkInterfaceIpsList = /*@__PURE__*/ S.Array(
 
 export interface NetworkInterface {
   /** Card ID of the network interface. */
-  card_id?: number;
+  card_id: number;
   /** Device ID of the network interface. */
-  device_id?: number;
+  device_id: number;
   /** MAC address of the network interface. */
-  mac?: string;
+  mac: string;
   /** Network interface type. */
-  type?: NetworkInterfaceInterfaceType;
+  type: NetworkInterfaceInterfaceType;
   /** IPs of the network interface. */
-  ips?: NetworkInterfaceIpsList;
+  ips: NetworkInterfaceIpsList;
 }
 export const NetworkInterface = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    card_id: S.optional(S.Number),
-    device_id: S.optional(S.Number),
-    mac: S.optional(S.String),
-    type: S.optional(NetworkInterfaceInterfaceType),
-    ips: S.optional(NetworkInterfaceIpsList),
+    card_id: S.Number,
+    device_id: S.Number,
+    mac: S.String,
+    type: NetworkInterfaceInterfaceType,
+    ips: NetworkInterfaceIpsList,
   }),
 ).annotate({ identifier: "NetworkInterface" }) as any as S.Schema<NetworkInterface>;
 
@@ -1424,7 +1424,7 @@ export interface ServerOption {
   updated_at?: string | null;
   /** (RFC 3339 format) */
   expired_at?: string | null;
-  options?: ServerOptionOptionsList;
+  options: ServerOptionOptionsList;
 }
 export const ServerOption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1432,7 +1432,7 @@ export const ServerOption = /*@__PURE__*/ S.suspend(() =>
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expired_at: S.optional(S.NullOr(S.String)),
-    options: S.optional(ServerOptionOptionsList),
+    options: ServerOptionOptionsList,
   }),
 ).annotate({ identifier: "ServerOption" }) as any as S.Schema<ServerOption>;
 
@@ -1447,14 +1447,14 @@ export const ServiceLevelLevel = S.String;
 
 export interface ServiceLevel {
   /** Offer ID of service level. */
-  offer_id?: number;
+  offer_id: number;
   /** Level type of service level. */
-  level?: ServiceLevelLevel;
+  level: ServiceLevelLevel;
 }
 export const ServiceLevel = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    offer_id: S.optional(S.Number),
-    level: S.optional(ServiceLevelLevel),
+    offer_id: S.Number,
+    level: ServiceLevelLevel,
   }),
 ).annotate({ identifier: "ServiceLevel" }) as any as S.Schema<ServiceLevel>;
 
@@ -1464,13 +1464,13 @@ export const ServerTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema
 
 export interface Server {
   /** ID of the server. */
-  id?: number;
+  id: number;
   /** Organization ID the server is attached to. */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID the server is attached to. */
-  project_id?: string;
+  project_id: string;
   /** Hostname of the server. */
-  hostname?: string;
+  hostname: string;
   /** Date of last reboot of the server. (RFC 3339 format) */
   rebooted_at?: string | null;
   /** Date of creation of the server. (RFC 3339 format) */
@@ -1482,65 +1482,65 @@ export interface Server {
   /** Offer of the server. */
   offer?: Offer;
   /** Status of the server. */
-  status?: ServerStatus;
+  status: ServerStatus;
   /** Location of the server. */
   location?: ServerLocation;
   /** Abuse contact of the server. */
-  abuse_contact?: string;
+  abuse_contact: string;
   /** OS installed on the server. */
   os?: OS;
   /** Network interfaces of the server. */
-  interfaces?: ServerInterfacesList;
+  interfaces: ServerInterfacesList;
   /** The zone in which is the server. */
-  zone?: string;
+  zone: string;
   /** Options subscribe on the server. */
-  options?: ServerOptionsList;
+  options: ServerOptionsList;
   /** Service level of the server. */
   level?: ServiceLevel;
   /** Boolean if the server has a BMC. */
-  has_bmc?: boolean;
+  has_bmc: boolean;
   /** Rescue OS of the server. */
   rescue_os?: OS;
   /** Array of customs tags attached to the server. */
-  tags?: ServerTagsList;
+  tags: ServerTagsList;
   /** Whether the server is outsourced or not. */
-  is_outsourced?: boolean;
+  is_outsourced: boolean;
   /** Whether or not you can enable/disable the IPv6. */
-  ipv6_slaac?: boolean;
+  ipv6_slaac: boolean;
   /** Whether the server is compatible with QinQ. */
-  qinq?: boolean;
+  qinq: boolean;
   /** Whether or not the server is already part of an rpnv2 group. */
-  is_rpnv2_member?: boolean;
+  is_rpnv2_member: boolean;
   /** Whether or not the server is HDS. */
-  is_hds?: boolean;
+  is_hds: boolean;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    hostname: S.optional(S.String),
+    id: S.Number,
+    organization_id: S.String,
+    project_id: S.String,
+    hostname: S.String,
     rebooted_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expired_at: S.optional(S.NullOr(S.String)),
     offer: S.optional(Offer),
-    status: S.optional(ServerStatus),
+    status: ServerStatus,
     location: S.optional(ServerLocation),
-    abuse_contact: S.optional(S.String),
+    abuse_contact: S.String,
     os: S.optional(OS),
-    interfaces: S.optional(ServerInterfacesList),
-    zone: S.optional(S.String),
-    options: S.optional(ServerOptionsList),
+    interfaces: ServerInterfacesList,
+    zone: S.String,
+    options: ServerOptionsList,
     level: S.optional(ServiceLevel),
-    has_bmc: S.optional(S.Boolean),
+    has_bmc: S.Boolean,
     rescue_os: S.optional(OS),
-    tags: S.optional(ServerTagsList),
-    is_outsourced: S.optional(S.Boolean),
-    ipv6_slaac: S.optional(S.Boolean),
-    qinq: S.optional(S.Boolean),
-    is_rpnv2_member: S.optional(S.Boolean),
-    is_hds: S.optional(S.Boolean),
+    tags: ServerTagsList,
+    is_outsourced: S.Boolean,
+    ipv6_slaac: S.Boolean,
+    qinq: S.Boolean,
+    is_rpnv2_member: S.Boolean,
+    is_hds: S.Boolean,
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
 
@@ -1572,38 +1572,38 @@ export const BackupStatus = S.String;
 
 export interface Backup {
   /** ID of the backup. */
-  id?: number;
+  id: number;
   /** Login of the backup. */
-  login?: string;
+  login: string;
   /** Server of the backup. */
-  server?: string;
+  server: string;
   /** Status of the backup. */
-  status?: BackupStatus;
+  status: BackupStatus;
   /** ACL enable boolean of the backup. */
-  acl_enabled?: boolean;
+  acl_enabled: boolean;
   /** Autologin boolean of the backup. */
-  autologin?: boolean;
+  autologin: boolean;
   /** Total quota space of the backup. */
-  quota_space?: number;
+  quota_space: number;
   /** Quota space used of the backup. */
-  quota_space_used?: number;
+  quota_space_used: number;
   /** Total quota files of the backup. */
-  quota_files?: number;
+  quota_files: number;
   /** Quota files used of the backup. */
-  quota_files_used?: number;
+  quota_files_used: number;
 }
 export const Backup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    login: S.optional(S.String),
-    server: S.optional(S.String),
-    status: S.optional(BackupStatus),
-    acl_enabled: S.optional(S.Boolean),
-    autologin: S.optional(S.Boolean),
-    quota_space: S.optional(S.Number),
-    quota_space_used: S.optional(S.Number),
-    quota_files: S.optional(S.Number),
-    quota_files_used: S.optional(S.Number),
+    id: S.Number,
+    login: S.String,
+    server: S.String,
+    status: BackupStatus,
+    acl_enabled: S.Boolean,
+    autologin: S.Boolean,
+    quota_space: S.Number,
+    quota_space_used: S.Number,
+    quota_files: S.Number,
+    quota_files_used: S.Number,
   }),
 ).annotate({ identifier: "Backup" }) as any as S.Schema<Backup>;
 
@@ -1646,26 +1646,26 @@ export const PartitionConnectorsList = /*@__PURE__*/ S.Array(
 
 export interface Partition {
   /** Type of the partition. */
-  type?: PartitionType;
+  type: PartitionType;
   /** File system of the partition. */
-  file_system?: PartitionFileSystem;
+  file_system: PartitionFileSystem;
   /** Mount point of the partition. */
   mount_point?: string | null;
   /** Raid level of the partition. */
-  raid_level?: RaidArrayRaidLevel;
+  raid_level: RaidArrayRaidLevel;
   /** Capacity of the partition. (in bytes) */
-  capacity?: number;
+  capacity: number;
   /** Connectors of the partition. */
-  connectors?: PartitionConnectorsList;
+  connectors: PartitionConnectorsList;
 }
 export const Partition = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(PartitionType),
-    file_system: S.optional(PartitionFileSystem),
+    type: PartitionType,
+    file_system: PartitionFileSystem,
     mount_point: S.optional(S.NullOr(S.String)),
-    raid_level: S.optional(RaidArrayRaidLevel),
-    capacity: S.optional(S.Number),
-    connectors: S.optional(PartitionConnectorsList),
+    raid_level: RaidArrayRaidLevel,
+    capacity: S.Number,
+    connectors: PartitionConnectorsList,
   }),
 ).annotate({ identifier: "Partition" }) as any as S.Schema<Partition>;
 
@@ -1677,11 +1677,11 @@ export const ServerDefaultPartitioningPartitionsList = /*@__PURE__*/ S.Array(
 
 export interface ServerDefaultPartitioning {
   /** Default partitions. */
-  partitions?: ServerDefaultPartitioningPartitionsList;
+  partitions: ServerDefaultPartitioningPartitionsList;
 }
 export const ServerDefaultPartitioning = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    partitions: S.optional(ServerDefaultPartitioningPartitionsList),
+    partitions: ServerDefaultPartitioningPartitionsList,
   }),
 ).annotate({
   identifier: "ServerDefaultPartitioning",
@@ -1734,22 +1734,22 @@ export type ServerInstallStatus =
 export const ServerInstallStatus = S.String;
 
 export interface ServerInstall {
-  os_id?: number;
-  hostname?: string;
+  os_id: number;
+  hostname: string;
   user_login?: string | null;
-  partitions?: ServerInstallPartitionsList;
-  ssh_key_ids?: ServerInstallSshKeyIdsList;
-  status?: ServerInstallStatus;
+  partitions: ServerInstallPartitionsList;
+  ssh_key_ids: ServerInstallSshKeyIdsList;
+  status: ServerInstallStatus;
   panel_url?: string | null;
 }
 export const ServerInstall = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    os_id: S.optional(S.Number),
-    hostname: S.optional(S.String),
+    os_id: S.Number,
+    hostname: S.String,
     user_login: S.optional(S.NullOr(S.String)),
-    partitions: S.optional(ServerInstallPartitionsList),
-    ssh_key_ids: S.optional(ServerInstallSshKeyIdsList),
-    status: S.optional(ServerInstallStatus),
+    partitions: ServerInstallPartitionsList,
+    ssh_key_ids: ServerInstallSshKeyIdsList,
+    status: ServerInstallStatus,
     panel_url: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "ServerInstall" }) as any as S.Schema<ServerInstall>;
@@ -1919,13 +1919,13 @@ export const ListFailoverIPsResponseFailoverIpsList = /*@__PURE__*/ S.Array(
 
 export interface ListFailoverIPsResponse {
   /** Total count of matching failovers IP. */
-  total_count?: number;
+  total_count: number;
   /** List of failover IPs that match filters. */
   failover_ips: ListFailoverIPsResponseFailoverIpsList;
 }
 export const ListFailoverIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     failover_ips: ListFailoverIPsResponseFailoverIpsList,
   }),
 ).annotate({ identifier: "ListFailoverIPsResponse" }) as any as S.Schema<ListFailoverIPsResponse>;
@@ -2000,13 +2000,13 @@ export const ListOffersResponseOffersList = /*@__PURE__*/ S.Array(
 
 export interface ListOffersResponse {
   /** Total count of matching offers. */
-  total_count?: number;
+  total_count: number;
   /** Offers that match filters. */
   offers: ListOffersResponseOffersList;
 }
 export const ListOffersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     offers: ListOffersResponseOffersList,
   }),
 ).annotate({ identifier: "ListOffersResponse" }) as any as S.Schema<ListOffersResponse>;
@@ -2067,13 +2067,13 @@ export const ListOSResponseOsList = /*@__PURE__*/ S.Array(
 
 export interface ListOSResponse {
   /** Total count of matching OS. */
-  total_count?: number;
+  total_count: number;
   /** OS that match filters. */
   os: ListOSResponseOsList;
 }
 export const ListOSResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     os: ListOSResponseOsList,
   }),
 ).annotate({ identifier: "ListOSResponse" }) as any as S.Schema<ListOSResponse>;
@@ -2121,13 +2121,13 @@ export const ListServerDisksResponseDisksList = /*@__PURE__*/ S.Array(
 
 export interface ListServerDisksResponse {
   /** Total count of matching server disks. */
-  total_count?: number;
+  total_count: number;
   /** Server disks that match filters. */
   disks: ListServerDisksResponseDisksList;
 }
 export const ListServerDisksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     disks: ListServerDisksResponseDisksList,
   }),
 ).annotate({ identifier: "ListServerDisksResponse" }) as any as S.Schema<ListServerDisksResponse>;
@@ -2169,16 +2169,16 @@ export const ListServerEventsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerEvent {
   /** ID of the event. */
-  event_id?: number;
+  event_id: number;
   /** Description of the event. */
-  description?: string;
+  description: string;
   /** Date of the event. (RFC 3339 format) */
   date?: string | null;
 }
 export const ServerEvent = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    event_id: S.optional(S.Number),
-    description: S.optional(S.String),
+    event_id: S.Number,
+    description: S.String,
     date: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "ServerEvent" }) as any as S.Schema<ServerEvent>;
@@ -2191,13 +2191,13 @@ export const ListServerEventsResponseEventsList = /*@__PURE__*/ S.Array(
 
 export interface ListServerEventsResponse {
   /** Total count of matching server events. */
-  total_count?: number;
+  total_count: number;
   /** Server events that match filters. */
   events: ListServerEventsResponseEventsList;
 }
 export const ListServerEventsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     events: ListServerEventsResponseEventsList,
   }),
 ).annotate({ identifier: "ListServerEventsResponse" }) as any as S.Schema<ListServerEventsResponse>;
@@ -2248,15 +2248,15 @@ export const ServerSummaryInterfacesList = /*@__PURE__*/ S.Array(
 
 export interface ServerSummary {
   /** ID of the server. */
-  id?: number;
+  id: number;
   /** Datacenter of the server. */
-  datacenter_name?: string;
+  datacenter_name: string;
   /** Organization ID the server is attached to. */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID the server is attached to. */
-  project_id?: string;
+  project_id: string;
   /** Hostname of the server. */
-  hostname?: string;
+  hostname: string;
   /** Date of creation of the server. (RFC 3339 format) */
   created_at?: string | null;
   /** Date of last modification of the server. (RFC 3339 format) */
@@ -2264,49 +2264,49 @@ export interface ServerSummary {
   /** Date of release of the server. (RFC 3339 format) */
   expired_at?: string | null;
   /** Offer ID of the server. */
-  offer_id?: number;
+  offer_id: number;
   /** Offer name of the server. */
-  offer_name?: string;
+  offer_name: string;
   /** Status of the server. */
-  status?: ServerStatus;
+  status: ServerStatus;
   /** OS ID installed on server. */
   os_id?: number | null;
   /** Network interfaces of the server. */
-  interfaces?: ServerSummaryInterfacesList;
+  interfaces: ServerSummaryInterfacesList;
   /** The zone in which is the server. */
-  zone?: string;
+  zone: string;
   /** Service level of the server. */
   level?: ServiceLevel;
   /** Whether the server is outsourced or not. */
-  is_outsourced?: boolean;
+  is_outsourced: boolean;
   /** Whether the server is compatible with QinQ. */
-  qinq?: boolean;
+  qinq: boolean;
   /** Supported RPN version. */
   rpn_version?: number | null;
   /** Whether or not the server is HDS. */
-  is_hds?: boolean;
+  is_hds: boolean;
 }
 export const ServerSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
-    datacenter_name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    hostname: S.optional(S.String),
+    id: S.Number,
+    datacenter_name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    hostname: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expired_at: S.optional(S.NullOr(S.String)),
-    offer_id: S.optional(S.Number),
-    offer_name: S.optional(S.String),
-    status: S.optional(ServerStatus),
+    offer_id: S.Number,
+    offer_name: S.String,
+    status: ServerStatus,
     os_id: S.optional(S.NullOr(S.Number)),
-    interfaces: S.optional(ServerSummaryInterfacesList),
-    zone: S.optional(S.String),
+    interfaces: ServerSummaryInterfacesList,
+    zone: S.String,
     level: S.optional(ServiceLevel),
-    is_outsourced: S.optional(S.Boolean),
-    qinq: S.optional(S.Boolean),
+    is_outsourced: S.Boolean,
+    qinq: S.Boolean,
     rpn_version: S.optional(S.NullOr(S.Number)),
-    is_hds: S.optional(S.Boolean),
+    is_hds: S.Boolean,
   }),
 ).annotate({ identifier: "ServerSummary" }) as any as S.Schema<ServerSummary>;
 
@@ -2318,13 +2318,13 @@ export const ListServersResponseServersList = /*@__PURE__*/ S.Array(
 
 export interface ListServersResponse {
   /** Total count of matching servers. */
-  total_count?: number;
+  total_count: number;
   /** Servers that match filters. */
   servers: ListServersResponseServersList;
 }
 export const ListServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     servers: ListServersResponseServersList,
   }),
 ).annotate({ identifier: "ListServersResponse" }) as any as S.Schema<ListServersResponse>;
@@ -2372,13 +2372,13 @@ export const ListServicesResponseServicesList = /*@__PURE__*/ S.Array(
 
 export interface ListServicesResponse {
   /** Total count of matching services. */
-  total_count?: number;
+  total_count: number;
   /** Services that match filters. */
   services: ListServicesResponseServicesList;
 }
 export const ListServicesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     services: ListServicesResponseServicesList,
   }),
 ).annotate({ identifier: "ListServicesResponse" }) as any as S.Schema<ListServicesResponse>;
@@ -2422,13 +2422,13 @@ export const ListSubscribableServerOptionsResponseServerOptionsList = /*@__PURE_
 
 export interface ListSubscribableServerOptionsResponse {
   /** Total count of matching subscribable server options. */
-  total_count?: number;
+  total_count: number;
   /** Server options that match filters. */
   server_options: ListSubscribableServerOptionsResponseServerOptionsList;
 }
 export const ListSubscribableServerOptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     server_options: ListSubscribableServerOptionsResponseServerOptionsList,
   }),
 ).annotate({
@@ -2702,11 +2702,11 @@ export const SubscribeStorageOptionsResponseServicesList = /*@__PURE__*/ S.Array
 
 export interface SubscribeStorageOptionsResponse {
   /** Services subscribe storage options. */
-  services?: SubscribeStorageOptionsResponseServicesList;
+  services: SubscribeStorageOptionsResponseServicesList;
 }
 export const SubscribeStorageOptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    services: S.optional(SubscribeStorageOptionsResponseServicesList),
+    services: SubscribeStorageOptionsResponseServicesList,
   }),
 ).annotate({
   identifier: "SubscribeStorageOptionsResponse",

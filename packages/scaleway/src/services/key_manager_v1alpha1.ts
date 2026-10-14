@@ -147,65 +147,65 @@ export const KeyTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<Ke
 
 export interface Key {
   /** ID of the key. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the key. */
-  srn?: string;
+  srn: string;
   /** ID of the Project containing the key. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Name of the key. */
-  name?: string;
+  name: string;
   /** Key usage. See the `Key.Usage` enum for a description of possible values. */
   usage?: KeyUsage;
   /** Key state. See the `Key.State` enum for a description of possible values. */
-  state?: KeyState;
+  state: KeyState;
   /** Number of key rotations. The rotation count tracks the number of times the key has been rotated. */
-  rotation_count?: number;
+  rotation_count: number;
   /** Key creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Key last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Returns `true` if key protection is applied to the key. */
-  protected?: boolean;
+  protected: boolean;
   /** Returns `true` if the key is locked. */
-  locked?: boolean;
+  locked: boolean;
   /** Description of the key. */
   description?: string | null;
   /** List of the key's tags. */
-  tags?: KeyTagsList;
+  tags: KeyTagsList;
   /** Key last rotation date. (RFC 3339 format) */
   rotated_at?: string | null;
   /** Key rotation policy. */
   rotation_policy?: KeyRotationPolicy;
   /** Key origin. Refer to the `Key.Origin` enum for a description of values. */
-  origin?: KeyOrigin;
+  origin: KeyOrigin;
   /** Returns the time at which deletion was requested. (RFC 3339 format) */
   deletion_requested_at?: string | null;
   /** Key protection level. Refer to the `Key.ProtectionLevel` enum for a description of values. */
-  protection_level?: KeyProtectionLevel;
+  protection_level: KeyProtectionLevel;
   /** Region where the key is stored. */
-  region?: string;
+  region: string;
 }
 export const Key = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    name: S.String,
     usage: S.optional(KeyUsage),
-    state: S.optional(KeyState),
-    rotation_count: S.optional(S.Number),
+    state: KeyState,
+    rotation_count: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    protected: S.optional(S.Boolean),
-    locked: S.optional(S.Boolean),
+    protected: S.Boolean,
+    locked: S.Boolean,
     description: S.optional(S.NullOr(S.String)),
-    tags: S.optional(KeyTagsList),
+    tags: KeyTagsList,
     rotated_at: S.optional(S.NullOr(S.String)),
     rotation_policy: S.optional(KeyRotationPolicy),
-    origin: S.optional(KeyOrigin),
+    origin: KeyOrigin,
     deletion_requested_at: S.optional(S.NullOr(S.String)),
-    protection_level: S.optional(KeyProtectionLevel),
-    region: S.optional(S.String),
+    protection_level: KeyProtectionLevel,
+    region: S.String,
   }),
 ).annotate({ identifier: "Key" }) as any as S.Schema<Key>;
 
@@ -240,16 +240,16 @@ export const DecryptRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface DecryptResponse {
   /** ID of the key used for decryption. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** Key's decrypted data. */
-  plaintext?: string | Redacted.Redacted<string>;
+  plaintext: string | Redacted.Redacted<string>;
   /** (Optional) Data encrypted with the latest key rotation. If the data was already encrypted with the latest key rotation, no output will be returned in the response object. */
   ciphertext?: string | null;
 }
 export const DecryptResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    plaintext: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    key_id: S.String,
+    plaintext: S.String.pipe(T.SensitiveValue({})),
     ciphertext: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "DecryptResponse" }) as any as S.Schema<DecryptResponse>;
@@ -390,14 +390,14 @@ export const EncryptRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface EncryptResponse {
   /** ID of the key used for encryption. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** Key's encrypted data. */
-  ciphertext?: string;
+  ciphertext: string;
 }
 export const EncryptResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    ciphertext: S.optional(S.String),
+    key_id: S.String,
+    ciphertext: S.String,
   }),
 ).annotate({ identifier: "EncryptResponse" }) as any as S.Schema<EncryptResponse>;
 
@@ -435,11 +435,11 @@ export const GenerateDataKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface DataKey {
   /** ID of the data encryption key. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** Symmetric encryption algorithm of the data encryption key (`AES-256-GCM`). */
-  algorithm?: DataKeyAlgorithmSymmetricEncryption;
+  algorithm: DataKeyAlgorithmSymmetricEncryption;
   /** Data encryption key ciphertext. Your data encryption key's ciphertext can be stored safely. It can only be decrypted through the keys you create in Key Manager, using the relevant key ID. */
-  ciphertext?: string;
+  ciphertext: string;
   /** Data encryption key plaintext. (Optional) Your data encryption key's plaintext allows you to use the key immediately upon creation. It must neither be stored or shared. */
   plaintext?: string | Redacted.Redacted<string> | null;
   /** Data encryption key creation date. (RFC 3339 format) */
@@ -447,9 +447,9 @@ export interface DataKey {
 }
 export const DataKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    algorithm: S.optional(DataKeyAlgorithmSymmetricEncryption),
-    ciphertext: S.optional(S.String),
+    key_id: S.String,
+    algorithm: DataKeyAlgorithmSymmetricEncryption,
+    ciphertext: S.String,
     plaintext: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
     created_at: S.optional(S.NullOr(S.String)),
   }),
@@ -495,17 +495,17 @@ export const GenerateKeyMaterialImportParametersRequest = /*@__PURE__*/ S.suspen
 
 export interface GenerateKeyMaterialImportParametersResponse {
   /** ID of the target key. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** The public key to wrap the key material. */
-  public_key?: string;
+  public_key: string;
   /** The token generated to authorize the import operation. */
-  import_token?: string;
+  import_token: string;
 }
 export const GenerateKeyMaterialImportParametersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    public_key: S.optional(S.String),
-    import_token: S.optional(S.String),
+    key_id: S.String,
+    public_key: S.String,
+    import_token: S.String,
   }),
 ).annotate({
   identifier: "GenerateKeyMaterialImportParametersResponse",
@@ -558,11 +558,11 @@ export const GetPublicKeyRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetPublicKeyRequest" }) as any as S.Schema<GetPublicKeyRequest>;
 
 export interface PublicKey {
-  pem?: string;
+  pem: string;
 }
 export const PublicKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    pem: S.optional(S.String),
+    pem: S.String,
   }),
 ).annotate({ identifier: "PublicKey" }) as any as S.Schema<PublicKey>;
 
@@ -650,15 +650,15 @@ export const ListAlgorithmsRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListAlgorithmsRequest" }) as any as S.Schema<ListAlgorithmsRequest>;
 
 export interface ListAlgorithmsResponseAlgorithm {
-  usage?: string;
-  name?: string;
-  recommended?: boolean;
+  usage: string;
+  name: string;
+  recommended: boolean;
 }
 export const ListAlgorithmsResponseAlgorithm = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    usage: S.optional(S.String),
-    name: S.optional(S.String),
-    recommended: S.optional(S.Boolean),
+    usage: S.String,
+    name: S.String,
+    recommended: S.Boolean,
   }),
 ).annotate({
   identifier: "ListAlgorithmsResponseAlgorithm",
@@ -672,11 +672,11 @@ export const ListAlgorithmsResponseAlgorithmsList = /*@__PURE__*/ S.Array(
 
 export interface ListAlgorithmsResponse {
   /** Returns a list of algorithms matching the requested criteria. */
-  algorithms?: ListAlgorithmsResponseAlgorithmsList;
+  algorithms: ListAlgorithmsResponseAlgorithmsList;
 }
 export const ListAlgorithmsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    algorithms: S.optional(ListAlgorithmsResponseAlgorithmsList),
+    algorithms: ListAlgorithmsResponseAlgorithmsList,
   }),
 ).annotate({ identifier: "ListAlgorithmsResponse" }) as any as S.Schema<ListAlgorithmsResponse>;
 
@@ -725,13 +725,13 @@ export const ListKeyRotationsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface KeyRotation {
   /** ID of the associated key. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** Index of the key rotation. The rotation index tracks the specific version of the key material. */
-  index?: number;
+  index: number;
   /** Status of the key rotation. See the `KeyRotation.Status` enum for a description of possible values. */
-  status?: KeyRotationStatus;
+  status: KeyRotationStatus;
   /** Returns `true` if the key was rotated manually, or `false` if it was rotated automatically by a rotation policy. */
-  manually_rotated?: boolean;
+  manually_rotated: boolean;
   /** Key rotation creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Key rotation last modification date. (RFC 3339 format) */
@@ -741,10 +741,10 @@ export interface KeyRotation {
 }
 export const KeyRotation = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    index: S.optional(S.Number),
-    status: S.optional(KeyRotationStatus),
-    manually_rotated: S.optional(S.Boolean),
+    key_id: S.String,
+    index: S.Number,
+    status: KeyRotationStatus,
+    manually_rotated: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     deleted_at: S.optional(S.NullOr(S.String)),
@@ -761,12 +761,12 @@ export interface ListKeyRotationsResponse {
   /** Single page of key rotations matching the requested criteria. */
   rotations: ListKeyRotationsResponseRotationsList;
   /** Total count of key rotations matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListKeyRotationsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     rotations: ListKeyRotationsResponseRotationsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListKeyRotationsResponse" }) as any as S.Schema<ListKeyRotationsResponse>;
 
@@ -849,12 +849,12 @@ export interface ListKeysResponse {
   /** Single page of keys matching the requested criteria. */
   keys: ListKeysResponseKeysList;
   /** Total count of keys matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListKeysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     keys: ListKeysResponseKeysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListKeysResponse" }) as any as S.Schema<ListKeysResponse>;
 
@@ -954,14 +954,14 @@ export const SignRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface SignResponse {
   /** ID of the key used to generate the signature. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** The message signature. */
-  signature?: string;
+  signature: string;
 }
 export const SignResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    signature: S.optional(S.String),
+    key_id: S.String,
+    signature: S.String,
   }),
 ).annotate({ identifier: "SignResponse" }) as any as S.Schema<SignResponse>;
 
@@ -1016,13 +1016,13 @@ export const UnwrapKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface UnwrapKeyResponse {
   /** (UUID format) */
-  key_id?: string;
-  plaintext?: string | Redacted.Redacted<string>;
+  key_id: string;
+  plaintext: string | Redacted.Redacted<string>;
 }
 export const UnwrapKeyResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    plaintext: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    key_id: S.String,
+    plaintext: S.String.pipe(T.SensitiveValue({})),
   }),
 ).annotate({ identifier: "UnwrapKeyResponse" }) as any as S.Schema<UnwrapKeyResponse>;
 
@@ -1098,14 +1098,14 @@ export const VerifyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface VerifyResponse {
   /** ID of the key used for verification. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** Defines whether the signature is valid. Returns `true` if the signature is valid for the digest and key, and `false` otherwise. */
-  valid?: boolean;
+  valid: boolean;
 }
 export const VerifyResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    valid: S.optional(S.Boolean),
+    key_id: S.String,
+    valid: S.Boolean,
   }),
 ).annotate({ identifier: "VerifyResponse" }) as any as S.Schema<VerifyResponse>;
 
@@ -1137,13 +1137,13 @@ export const WrapKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface WrapKeyResponse {
   /** (UUID format) */
-  key_id?: string;
-  ciphertext?: string;
+  key_id: string;
+  ciphertext: string;
 }
 export const WrapKeyResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key_id: S.optional(S.String),
-    ciphertext: S.optional(S.String),
+    key_id: S.String,
+    ciphertext: S.String,
   }),
 ).annotate({ identifier: "WrapKeyResponse" }) as any as S.Schema<WrapKeyResponse>;
 

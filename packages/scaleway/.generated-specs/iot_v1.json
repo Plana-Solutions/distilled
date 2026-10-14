@@ -208,13 +208,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of devices."
+            "smithy.api#documentation": "Total number of devices.",
+            "smithy.api#required": {}
           }
         },
         "devices": {
           "target": "com.scaleway.iot_v1#ListDevicesResponseDevicesList",
           "traits": {
-            "smithy.api#documentation": "Page of devices."
+            "smithy.api#documentation": "Page of devices.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -226,31 +228,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Device ID, also used as MQTT Client ID or username."
+            "smithy.api#documentation": "Device ID, also used as MQTT Client ID or username.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Device name."
+            "smithy.api#documentation": "Device name.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Device description."
+            "smithy.api#documentation": "Device description.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.iot_v1#DeviceStatus",
           "traits": {
-            "smithy.api#documentation": "Device status."
+            "smithy.api#documentation": "Device status.",
+            "smithy.api#required": {}
           }
         },
         "hub_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub ID."
+            "smithy.api#documentation": "Hub ID.",
+            "smithy.api#required": {}
           }
         },
         "last_activity_at": {
@@ -263,19 +270,22 @@
         "is_connected": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the device is connected to the Hub."
+            "smithy.api#documentation": "Defines whether the device is connected to the Hub.",
+            "smithy.api#required": {}
           }
         },
         "allow_insecure": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to allow the device to connect to the Hub without TLS mutual authentication."
+            "smithy.api#documentation": "Defines whether to allow the device to connect to the Hub without TLS mutual authentication.",
+            "smithy.api#required": {}
           }
         },
         "allow_multiple_connections": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to allow multiple physical devices to connect to the Hub with this device's credentials."
+            "smithy.api#documentation": "Defines whether to allow multiple physical devices to connect to the Hub with this device's credentials.",
+            "smithy.api#required": {}
           }
         },
         "message_filters": {
@@ -287,7 +297,8 @@
         "has_custom_certificate": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the device was assigned a custom certificate.\nAssigning a custom certificate allows a device to authenticate using that specific certificate without checking the Hub's CA certificate."
+            "smithy.api#documentation": "Defines whether the device was assigned a custom certificate.\nAssigning a custom certificate allows a device to authenticate using that specific certificate without checking the Hub's CA certificate.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -307,7 +318,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the device."
+            "smithy.api#documentation": "Region of the device.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -505,10 +517,16 @@
       "type": "structure",
       "members": {
         "crt": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "key": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -771,7 +789,8 @@
         "certificate_pem": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Device certificate."
+            "smithy.api#documentation": "Device certificate.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -844,7 +863,10 @@
           "target": "com.scaleway.iot_v1#Device"
         },
         "certificate_pem": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1185,13 +1207,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of Hubs."
+            "smithy.api#documentation": "Total number of Hubs.",
+            "smithy.api#required": {}
           }
         },
         "hubs": {
           "target": "com.scaleway.iot_v1#ListHubsResponseHubsList",
           "traits": {
-            "smithy.api#documentation": "A page of hubs."
+            "smithy.api#documentation": "A page of hubs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1203,67 +1227,78 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub ID."
+            "smithy.api#documentation": "Hub ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub name."
+            "smithy.api#documentation": "Hub name.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.iot_v1#HubStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the Hub."
+            "smithy.api#documentation": "Current status of the Hub.",
+            "smithy.api#required": {}
           }
         },
         "product_plan": {
           "target": "com.scaleway.iot_v1#HubProductPlan",
           "traits": {
-            "smithy.api#documentation": "Hub feature set."
+            "smithy.api#documentation": "Hub feature set.",
+            "smithy.api#required": {}
           }
         },
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the hub has been enabled."
+            "smithy.api#documentation": "Defines whether the hub has been enabled.",
+            "smithy.api#required": {}
           }
         },
         "device_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of registered devices."
+            "smithy.api#documentation": "Number of registered devices.",
+            "smithy.api#required": {}
           }
         },
         "connected_device_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of currently connected devices."
+            "smithy.api#documentation": "Number of currently connected devices.",
+            "smithy.api#required": {}
           }
         },
         "endpoint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Host to connect your devices to.\nDevices should be connected to this host. Port may be 1883 (MQTT), 8883 (MQTT over TLS), 80 (MQTT over Websocket) or 443 (MQTT over Websocket over TLS)."
+            "smithy.api#documentation": "Host to connect your devices to.\nDevices should be connected to this host. Port may be 1883 (MQTT), 8883 (MQTT over TLS), 80 (MQTT over Websocket) or 443 (MQTT over Websocket over TLS).",
+            "smithy.api#required": {}
           }
         },
         "disable_events": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to disable Hub events."
+            "smithy.api#documentation": "Defines whether to disable Hub events.",
+            "smithy.api#required": {}
           }
         },
         "events_topic_prefix": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub events topic prefix."
+            "smithy.api#documentation": "Hub events topic prefix.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the Hub."
+            "smithy.api#documentation": "Region of the Hub.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1283,25 +1318,29 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project owning the resource."
+            "smithy.api#documentation": "Project owning the resource.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization owning the resource."
+            "smithy.api#documentation": "Organization owning the resource.",
+            "smithy.api#required": {}
           }
         },
         "enable_device_auto_provisioning": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to enable device auto provisioning.\nWhen an unknown device connects to your hub using a valid certificate chain, it will be automatically provisioned inside your Hub. The Hub uses the common name of the device certificate to find out if a device with the same name already exists. This setting can only be enabled on a hub with a custom certificate authority."
+            "smithy.api#documentation": "Defines whether to enable device auto provisioning.\nWhen an unknown device connects to your hub using a valid certificate chain, it will be automatically provisioned inside your Hub. The Hub uses the common name of the device certificate to find out if a device with the same name already exists. This setting can only be enabled on a hub with a custom certificate authority.",
+            "smithy.api#required": {}
           }
         },
         "has_custom_ca": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the hub is using a custom certificate authority.\nFlag is automatically set to `false` after Hub creation, as Hub certificates are managed by Scaleway. Once a custom certificate authority is set, the flag will be set to `true`."
+            "smithy.api#documentation": "Defines whether the hub is using a custom certificate authority.\nFlag is automatically set to `false` after Hub creation, as Hub certificates are managed by Scaleway. Once a custom certificate authority is set, the flag will be set to `true`.",
+            "smithy.api#required": {}
           }
         },
         "twins_graphite_config": {
@@ -1761,7 +1800,10 @@
       "type": "structure",
       "members": {
         "ca_cert_pem": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2074,13 +2116,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of Networks."
+            "smithy.api#documentation": "Total number of Networks.",
+            "smithy.api#required": {}
           }
         },
         "networks": {
           "target": "com.scaleway.iot_v1#ListNetworksResponseNetworksList",
           "traits": {
-            "smithy.api#documentation": "Page of networks."
+            "smithy.api#documentation": "Page of networks.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2092,31 +2136,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Network ID."
+            "smithy.api#documentation": "Network ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Network name."
+            "smithy.api#documentation": "Network name.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.iot_v1#NetworkNetworkType",
           "traits": {
-            "smithy.api#documentation": "Type of network to connect with."
+            "smithy.api#documentation": "Type of network to connect with.",
+            "smithy.api#required": {}
           }
         },
         "endpoint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint to use for interacting with the network."
+            "smithy.api#documentation": "Endpoint to use for interacting with the network.",
+            "smithy.api#required": {}
           }
         },
         "hub_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub ID to connect the Network to."
+            "smithy.api#documentation": "Hub ID to connect the Network to.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2129,13 +2178,15 @@
         "topic_prefix": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Topic prefix for the Network.\nThis prefix will be prepended to all topics for this Network."
+            "smithy.api#documentation": "Topic prefix for the Network.\nThis prefix will be prepended to all topics for this Network.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the network."
+            "smithy.api#documentation": "Region of the network.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2267,6 +2318,7 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Endpoint Key to keep secret. This cannot be retrieved later.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         }
@@ -2519,13 +2571,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of routes."
+            "smithy.api#documentation": "Total number of routes.",
+            "smithy.api#required": {}
           }
         },
         "routes": {
           "target": "com.scaleway.iot_v1#ListRoutesResponseRoutesList",
           "traits": {
-            "smithy.api#documentation": "Page of routes."
+            "smithy.api#documentation": "Page of routes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2537,31 +2591,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route ID."
+            "smithy.api#documentation": "Route ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route name."
+            "smithy.api#documentation": "Route name.",
+            "smithy.api#required": {}
           }
         },
         "hub_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub ID of the route."
+            "smithy.api#documentation": "Hub ID of the route.",
+            "smithy.api#required": {}
           }
         },
         "topic": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters."
+            "smithy.api#documentation": "Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.iot_v1#RouteRouteType",
           "traits": {
-            "smithy.api#documentation": "Route type."
+            "smithy.api#documentation": "Route type.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2581,7 +2640,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the route."
+            "smithy.api#documentation": "Region of the route.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2886,31 +2946,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route ID."
+            "smithy.api#documentation": "Route ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route name."
+            "smithy.api#documentation": "Route name.",
+            "smithy.api#required": {}
           }
         },
         "hub_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hub ID of the route."
+            "smithy.api#documentation": "Hub ID of the route.",
+            "smithy.api#required": {}
           }
         },
         "topic": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters."
+            "smithy.api#documentation": "Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.iot_v1#RouteRouteType",
           "traits": {
-            "smithy.api#documentation": "Route type."
+            "smithy.api#documentation": "Route type.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2951,7 +3016,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the route."
+            "smithy.api#documentation": "Region of the route.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2963,25 +3029,29 @@
         "bucket_region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the Amazon S3 route's destination bucket (e.g., 'fr-par')."
+            "smithy.api#documentation": "Region of the Amazon S3 route's destination bucket (e.g., 'fr-par').",
+            "smithy.api#required": {}
           }
         },
         "bucket_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Destination bucket name of the Amazon S3 route."
+            "smithy.api#documentation": "Destination bucket name of the Amazon S3 route.",
+            "smithy.api#required": {}
           }
         },
         "object_prefix": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Optional string to prefix object names with."
+            "smithy.api#documentation": "Optional string to prefix object names with.",
+            "smithy.api#required": {}
           }
         },
         "strategy": {
           "target": "com.scaleway.iot_v1#RouteS3ConfigS3Strategy",
           "traits": {
-            "smithy.api#documentation": "How the Amazon S3 route's objects will be created: one per topic or one per message."
+            "smithy.api#documentation": "How the Amazon S3 route's objects will be created: one per topic or one per message.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2993,7 +3063,8 @@
         "engine": {
           "target": "com.scaleway.iot_v1#RouteDatabaseConfigEngine",
           "traits": {
-            "smithy.api#documentation": "Database engine the route will connect to. If not specified, the default database will be 'PostgreSQL'."
+            "smithy.api#documentation": "Database engine the route will connect to. If not specified, the default database will be 'PostgreSQL'.",
+            "smithy.api#required": {}
           }
         },
         "host": {
@@ -3035,7 +3106,8 @@
         "query": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SQL query to be executed ($TOPIC and $PAYLOAD variables are available, see documentation)."
+            "smithy.api#documentation": "SQL query to be executed ($TOPIC and $PAYLOAD variables are available, see documentation).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3047,19 +3119,22 @@
         "verb": {
           "target": "com.scaleway.iot_v1#RouteRestConfigHttpVerb",
           "traits": {
-            "smithy.api#documentation": "HTTP verb used to call REST URI."
+            "smithy.api#documentation": "HTTP verb used to call REST URI.",
+            "smithy.api#required": {}
           }
         },
         "uri": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URI of the REST endpoint."
+            "smithy.api#documentation": "URI of the REST endpoint.",
+            "smithy.api#required": {}
           }
         },
         "headers": {
           "target": "com.scaleway.iot_v1#RouteRestConfigHeadersMap",
           "traits": {
-            "smithy.api#documentation": "HTTP call extra headers."
+            "smithy.api#documentation": "HTTP call extra headers.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3434,7 +3509,8 @@
         "documents": {
           "target": "com.scaleway.iot_v1#ListTwinDocumentsResponseDocumentsList",
           "traits": {
-            "smithy.api#documentation": "List of the twin document."
+            "smithy.api#documentation": "List of the twin document.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3446,7 +3522,8 @@
         "document_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the document."
+            "smithy.api#documentation": "Name of the document.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3581,25 +3658,29 @@
         "twin_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Parent twin ID of the document."
+            "smithy.api#documentation": "Parent twin ID of the document.",
+            "smithy.api#required": {}
           }
         },
         "document_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the document."
+            "smithy.api#documentation": "Name of the document.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "New version of the document."
+            "smithy.api#documentation": "New version of the document.",
+            "smithy.api#required": {}
           }
         },
         "data": {
           "target": "com.scaleway.iot_v1#TwinDocumentDataMap",
           "traits": {
-            "smithy.api#documentation": "New data related to the document."
+            "smithy.api#documentation": "New data related to the document.",
+            "smithy.api#required": {}
           }
         }
       },

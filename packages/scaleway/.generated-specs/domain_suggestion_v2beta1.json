@@ -40,13 +40,15 @@
         "suggestions": {
           "target": "com.scaleway.domain_suggestion_v2beta1#ListSuggestionsResponseSuggestionsList",
           "traits": {
-            "smithy.api#documentation": "Domain name suggestions."
+            "smithy.api#documentation": "Domain name suggestions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of suggestions."
+            "smithy.api#documentation": "Number of suggestions.",
+            "smithy.api#required": {}
           }
         }
       },

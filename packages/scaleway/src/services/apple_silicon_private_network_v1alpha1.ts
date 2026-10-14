@@ -63,35 +63,35 @@ export const ServerPrivateNetworkIpamIpIdsList = /*@__PURE__*/ S.Array(
 
 export interface ServerPrivateNetwork {
   /** ID of the Server-to-Private Network mapping. */
-  id?: string;
+  id: string;
   /** Private Network Project ID. */
-  project_id?: string;
+  project_id: string;
   /** Apple silicon server ID. */
-  server_id?: string;
+  server_id: string;
   /** Private Network ID. */
-  private_network_id?: string;
+  private_network_id: string;
   /** ID of the VLAN associated with the Private Network. */
   vlan?: number | null;
   /** Configuration status of the Private Network. */
-  status?: ServerPrivateNetworkServerStatus;
+  status: ServerPrivateNetworkServerStatus;
   /** Private Network creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the Private Network was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** IPAM IP IDs of the server, if it has any. */
-  ipam_ip_ids?: ServerPrivateNetworkIpamIpIdsList;
+  ipam_ip_ids: ServerPrivateNetworkIpamIpIdsList;
 }
 export const ServerPrivateNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    server_id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
+    id: S.String,
+    project_id: S.String,
+    server_id: S.String,
+    private_network_id: S.String,
     vlan: S.optional(S.NullOr(S.Number)),
-    status: S.optional(ServerPrivateNetworkServerStatus),
+    status: ServerPrivateNetworkServerStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    ipam_ip_ids: S.optional(ServerPrivateNetworkIpamIpIdsList),
+    ipam_ip_ids: ServerPrivateNetworkIpamIpIdsList,
   }),
 ).annotate({ identifier: "ServerPrivateNetwork" }) as any as S.Schema<ServerPrivateNetwork>;
 
@@ -222,12 +222,12 @@ export const ListServerPrivateNetworksResponseServerPrivateNetworksList = /*@__P
 
 export interface ListServerPrivateNetworksResponse {
   server_private_networks: ListServerPrivateNetworksResponseServerPrivateNetworksList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListServerPrivateNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     server_private_networks: ListServerPrivateNetworksResponseServerPrivateNetworksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListServerPrivateNetworksResponse",
@@ -286,11 +286,11 @@ export const SetServerPrivateNetworksResponseServerPrivateNetworksList = /*@__PU
 ) as any as S.Schema<SetServerPrivateNetworksResponseServerPrivateNetworksList>;
 
 export interface SetServerPrivateNetworksResponse {
-  server_private_networks?: SetServerPrivateNetworksResponseServerPrivateNetworksList;
+  server_private_networks: SetServerPrivateNetworksResponseServerPrivateNetworksList;
 }
 export const SetServerPrivateNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server_private_networks: S.optional(SetServerPrivateNetworksResponseServerPrivateNetworksList),
+    server_private_networks: SetServerPrivateNetworksResponseServerPrivateNetworksList,
   }),
 ).annotate({
   identifier: "SetServerPrivateNetworksResponse",

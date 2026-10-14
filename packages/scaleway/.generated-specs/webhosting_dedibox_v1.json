@@ -77,13 +77,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Web Hosting plan."
+            "smithy.api#documentation": "ID of the Web Hosting plan.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Scaleway Project the Web Hosting plan belongs to."
+            "smithy.api#documentation": "ID of the Scaleway Project the Web Hosting plan belongs to.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -103,7 +105,8 @@
         "status": {
           "target": "com.scaleway.webhosting_dedibox_v1#HostingStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Web Hosting plan."
+            "smithy.api#documentation": "Status of the Web Hosting plan.",
+            "smithy.api#required": {}
           }
         },
         "domain": {
@@ -127,7 +130,8 @@
         "tags": {
           "target": "com.scaleway.webhosting_dedibox_v1#HostingTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags associated with the Web Hosting plan."
+            "smithy.api#documentation": "List of tags associated with the Web Hosting plan.",
+            "smithy.api#required": {}
           }
         },
         "dns_status": {
@@ -139,13 +143,15 @@
         "ipv4": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Current IPv4 address of the hosting. (IPv4 address)"
+            "smithy.api#documentation": "Current IPv4 address of the hosting. (IPv4 address)",
+            "smithy.api#required": {}
           }
         },
         "protected": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the hosting is protected or not."
+            "smithy.api#documentation": "Whether the hosting is protected or not.",
+            "smithy.api#required": {}
           }
         },
         "user": {
@@ -163,7 +169,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region where the Web Hosting plan is hosted."
+            "smithy.api#documentation": "Region where the Web Hosting plan is hosted.",
+            "smithy.api#required": {}
           }
         },
         "domain_info": {
@@ -181,7 +188,8 @@
         "provider": {
           "target": "com.scaleway.webhosting_dedibox_v1#HostingProvider",
           "traits": {
-            "smithy.api#documentation": "Provider where the Web Hosting plan is managed (elements, dedibox)."
+            "smithy.api#documentation": "Provider where the Web Hosting plan is managed (elements, dedibox).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -259,25 +267,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer ID."
+            "smithy.api#documentation": "Offer ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer name."
+            "smithy.api#documentation": "Offer name.",
+            "smithy.api#required": {}
           }
         },
         "billing_operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier used for billing."
+            "smithy.api#documentation": "Unique identifier used for billing.",
+            "smithy.api#required": {}
           }
         },
         "options": {
           "target": "com.scaleway.webhosting_dedibox_v1#OfferOptionsList",
           "traits": {
-            "smithy.api#documentation": "Options available for the offer."
+            "smithy.api#documentation": "Options available for the offer.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -289,43 +301,50 @@
         "available": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "If a hosting_id was specified in the call, defines whether the offer is available for a specified hosting plan to migrate (update) to."
+            "smithy.api#documentation": "If a hosting_id was specified in the call, defines whether the offer is available for a specified hosting plan to migrate (update) to.",
+            "smithy.api#required": {}
           }
         },
         "control_panel_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the control panel."
+            "smithy.api#documentation": "Name of the control panel.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if the offer has reached its end of life."
+            "smithy.api#documentation": "Indicates if the offer has reached its end of life.",
+            "smithy.api#required": {}
           }
         },
         "quota_warning": {
           "target": "com.scaleway.webhosting_dedibox_v1#OfferOptionWarning",
           "traits": {
-            "smithy.api#documentation": "Defines a warning if the maximum value for an option in the offer is exceeded."
+            "smithy.api#documentation": "Defines a warning if the maximum value for an option in the offer is exceeded.",
+            "smithy.api#required": {}
           }
         },
         "control_panels": {
           "target": "com.scaleway.webhosting_dedibox_v1#OfferControlPanelsList",
           "traits": {
-            "smithy.api#documentation": "Lists available control panels for the specified offer."
+            "smithy.api#documentation": "Lists available control panels for the specified offer.",
+            "smithy.api#required": {}
           }
         },
         "commitments": {
           "target": "com.scaleway.webhosting_dedibox_v1#OfferCommitmentsList",
           "traits": {
-            "smithy.api#documentation": "Lists available offer commitments for the specified offer."
+            "smithy.api#documentation": "Lists available offer commitments for the specified offer.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region where the offer is hosted."
+            "smithy.api#documentation": "Region where the offer is hosted.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -337,43 +356,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Option ID."
+            "smithy.api#documentation": "Option ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "com.scaleway.webhosting_dedibox_v1#OfferOptionName",
           "traits": {
-            "smithy.api#documentation": "Name of the option."
+            "smithy.api#documentation": "Name of the option.",
+            "smithy.api#required": {}
           }
         },
         "billing_operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier used for billing."
+            "smithy.api#documentation": "Unique identifier used for billing.",
+            "smithy.api#required": {}
           }
         },
         "min_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum value for the option in the offer."
+            "smithy.api#documentation": "Minimum value for the option in the offer.",
+            "smithy.api#required": {}
           }
         },
         "current_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "If a hosting_id was specified in the call, defines the current value of the option in the hosting."
+            "smithy.api#documentation": "If a hosting_id was specified in the call, defines the current value of the option in the hosting.",
+            "smithy.api#required": {}
           }
         },
         "max_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum value for the option in the offer."
+            "smithy.api#documentation": "Maximum value for the option in the offer.",
+            "smithy.api#required": {}
           }
         },
         "quota_warning": {
           "target": "com.scaleway.webhosting_dedibox_v1#OfferOptionWarning",
           "traits": {
-            "smithy.api#documentation": "Defines a warning if the maximum value for the option has been reached."
+            "smithy.api#documentation": "Defines a warning if the maximum value for the option has been reached.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -491,13 +517,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -517,25 +552,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Control panel name."
+            "smithy.api#documentation": "Control panel name.",
+            "smithy.api#required": {}
           }
         },
         "available": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Define if the control panel type is available to order."
+            "smithy.api#documentation": "Define if the control panel type is available to order.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the control panel's logo."
+            "smithy.api#documentation": "URL of the control panel's logo.",
+            "smithy.api#required": {}
           }
         },
         "available_languages": {
           "target": "com.scaleway.webhosting_dedibox_v1#ControlPanelAvailableLanguagesList",
           "traits": {
-            "smithy.api#documentation": "List of available languages for the control panel."
+            "smithy.api#documentation": "List of available languages for the control panel.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -595,31 +634,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer commitment ID."
+            "smithy.api#documentation": "Offer commitment ID.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.webhosting_dedibox_v1#CommitmentType",
           "traits": {
-            "smithy.api#documentation": "Offer commitment type."
+            "smithy.api#documentation": "Offer commitment type.",
+            "smithy.api#required": {}
           }
         },
         "is_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the commitment is the default one for that offer."
+            "smithy.api#documentation": "True if the commitment is the default one for that offer.",
+            "smithy.api#required": {}
           }
         },
         "billing_mode": {
           "target": "com.scaleway.webhosting_dedibox_v1#BillingMode",
           "traits": {
-            "smithy.api#documentation": "Offer commitment name."
+            "smithy.api#documentation": "Offer commitment name.",
+            "smithy.api#required": {}
           }
         },
         "billing_operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier used for billing."
+            "smithy.api#documentation": "Unique identifier used for billing.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -631,7 +675,8 @@
         "duration_in_month": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Duration of the offer commitment in months."
+            "smithy.api#documentation": "Duration of the offer commitment in months.",
+            "smithy.api#required": {}
           }
         },
         "next": {
@@ -706,31 +751,36 @@
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hostname of the host platform."
+            "smithy.api#documentation": "Hostname of the host platform.",
+            "smithy.api#required": {}
           }
         },
         "number": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of the host platform."
+            "smithy.api#documentation": "Number of the host platform.",
+            "smithy.api#required": {}
           }
         },
         "group_name": {
           "target": "com.scaleway.webhosting_dedibox_v1#PlatformPlatformGroup",
           "traits": {
-            "smithy.api#documentation": "Group name of the hosting's host platform."
+            "smithy.api#documentation": "Group name of the hosting's host platform.",
+            "smithy.api#required": {}
           }
         },
         "ipv4": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv4 address of the hosting's host platform. (IPv4 address)"
+            "smithy.api#documentation": "IPv4 address of the hosting's host platform. (IPv4 address)",
+            "smithy.api#required": {}
           }
         },
         "ipv6": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv6 address of the hosting's host platform. (IPv6 address)"
+            "smithy.api#documentation": "IPv6 address of the hosting's host platform. (IPv6 address)",
+            "smithy.api#required": {}
           }
         },
         "control_panel": {
@@ -772,7 +822,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the control panel."
+            "smithy.api#documentation": "Name of the control panel.",
+            "smithy.api#required": {}
           }
         },
         "urls": {
@@ -790,13 +841,15 @@
         "dashboard": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to connect to the hosting control panel dashboard."
+            "smithy.api#documentation": "URL to connect to the hosting control panel dashboard.",
+            "smithy.api#required": {}
           }
         },
         "webmail": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to connect to the hosting Webmail interface."
+            "smithy.api#documentation": "URL to connect to the hosting Webmail interface.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -841,7 +894,8 @@
         "username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Main Web Hosting control panel username."
+            "smithy.api#documentation": "Main Web Hosting control panel username.",
+            "smithy.api#required": {}
           }
         },
         "one_time_password": {
@@ -855,7 +909,8 @@
         "contact_email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Contact email used for the hosting."
+            "smithy.api#documentation": "Contact email used for the hosting.",
+            "smithy.api#required": {}
           }
         },
         "one_time_password_b64": {
@@ -910,7 +965,8 @@
         "subdomain": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Optional free subdomain linked to the Web Hosting plan."
+            "smithy.api#documentation": "Optional free subdomain linked to the Web Hosting plan.",
+            "smithy.api#required": {}
           }
         },
         "custom_domain": {
@@ -928,19 +984,22 @@
         "domain": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Custom domain linked to the hosting plan."
+            "smithy.api#documentation": "Custom domain linked to the hosting plan.",
+            "smithy.api#required": {}
           }
         },
         "domain_status": {
           "target": "com.scaleway.webhosting_dedibox_v1#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the custom domain verification."
+            "smithy.api#documentation": "Status of the custom domain verification.",
+            "smithy.api#required": {}
           }
         },
         "dns_status": {
           "target": "com.scaleway.webhosting_dedibox_v1#DnsRecordsStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the DNS configuration for the custom domain."
+            "smithy.api#documentation": "Status of the DNS configuration for the custom domain.",
+            "smithy.api#required": {}
           }
         },
         "auto_config_domain_dns": {
@@ -958,31 +1017,36 @@
         "nameservers": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not to synchronize domain nameservers."
+            "smithy.api#documentation": "Whether or not to synchronize domain nameservers.",
+            "smithy.api#required": {}
           }
         },
         "web_records": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not to synchronize web records."
+            "smithy.api#documentation": "Whether or not to synchronize web records.",
+            "smithy.api#required": {}
           }
         },
         "mail_records": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not to synchronize mail records."
+            "smithy.api#documentation": "Whether or not to synchronize mail records.",
+            "smithy.api#required": {}
           }
         },
         "all_records": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not to synchronize all types of records. Takes priority over the other fields."
+            "smithy.api#documentation": "Whether or not to synchronize all types of records. Takes priority over the other fields.",
+            "smithy.api#required": {}
           }
         },
         "none": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "No automatic domain configuration. Users must configure their domain for the Web Hosting to work."
+            "smithy.api#documentation": "No automatic domain configuration. Users must configure their domain for the Web Hosting to work.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1014,7 +1078,8 @@
         "delete_hosting_at_end": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Determines what happens at the end of the commitment period:.\nThe hosting may be deleted, automatically renewed, or switched to\nits configured post-commitment offer, which may have a different \nprice and billing period."
+            "smithy.api#documentation": "Determines what happens at the end of the commitment period:.\nThe hosting may be deleted, automatically renewed, or switched to\nits configured post-commitment offer, which may have a different \nprice and billing period.",
+            "smithy.api#required": {}
           }
         }
       },

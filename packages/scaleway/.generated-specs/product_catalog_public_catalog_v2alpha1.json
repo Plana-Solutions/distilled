@@ -344,13 +344,15 @@
         "products": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#ListPublicCatalogProductsResponseProductsList",
           "traits": {
-            "smithy.api#documentation": "The list of products."
+            "smithy.api#documentation": "The list of products.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of products in the catalog."
+            "smithy.api#documentation": "The total number of products in the catalog.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -362,37 +364,43 @@
         "sku": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unique identifier of the product."
+            "smithy.api#documentation": "The unique identifier of the product.",
+            "smithy.api#required": {}
           }
         },
         "service_category": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The category of the product."
+            "smithy.api#documentation": "The category of the product.",
+            "smithy.api#required": {}
           }
         },
         "product_category": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The product category of the product."
+            "smithy.api#documentation": "The product category of the product.",
+            "smithy.api#required": {}
           }
         },
         "product": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The product name."
+            "smithy.api#documentation": "The product name.",
+            "smithy.api#required": {}
           }
         },
         "variant": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The product variant."
+            "smithy.api#documentation": "The product variant.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The product description."
+            "smithy.api#documentation": "The product description.",
+            "smithy.api#required": {}
           }
         },
         "locality": {
@@ -428,7 +436,8 @@
         "status": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductStatus",
           "traits": {
-            "smithy.api#documentation": "The status of the product."
+            "smithy.api#documentation": "The status of the product.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life_at": {
@@ -455,7 +464,8 @@
         "badges": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductBadgesList",
           "traits": {
-            "smithy.api#documentation": "Different badges that can be associated with the product."
+            "smithy.api#documentation": "Different badges that can be associated with the product.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -511,13 +521,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -741,19 +760,22 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A human readable description of the CPU."
+            "smithy.api#documentation": "A human readable description of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "arch": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesHardwareCPUArch",
           "traits": {
-            "smithy.api#documentation": "The architecture of the CPU."
+            "smithy.api#documentation": "The architecture of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The type of the CPU."
+            "smithy.api#documentation": "The type of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "virtual": {
@@ -773,13 +795,15 @@
         "threads": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of threads."
+            "smithy.api#documentation": "The total number of threads.",
+            "smithy.api#required": {}
           }
         },
         "shared": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether the CPU is shared or not."
+            "smithy.api#documentation": "Indicates whether the CPU is shared or not.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -827,7 +851,8 @@
         "count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of vCPUs."
+            "smithy.api#documentation": "The number of vCPUs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -839,31 +864,36 @@
         "sockets": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of sockets of the CPU."
+            "smithy.api#documentation": "The number of sockets of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "cores_per_socket": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of cores per socket."
+            "smithy.api#documentation": "The number of cores per socket.",
+            "smithy.api#required": {}
           }
         },
         "threads_per_core": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of threads per core."
+            "smithy.api#documentation": "The number of threads per core.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The frequency of the CPU in Hertz."
+            "smithy.api#documentation": "The frequency of the CPU in Hertz.",
+            "smithy.api#required": {}
           }
         },
         "benchmark": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The benchmark score of the CPU."
+            "smithy.api#documentation": "The benchmark score of the CPU.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -875,25 +905,29 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A human-readable description of the RAM."
+            "smithy.api#documentation": "A human-readable description of the RAM.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The size of the RAM in bytes. (in bytes)"
+            "smithy.api#documentation": "The size of the RAM in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The type of the RAM."
+            "smithy.api#documentation": "The type of the RAM.",
+            "smithy.api#required": {}
           }
         },
         "ecc_type": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesHardwareRAMECCType",
           "traits": {
-            "smithy.api#documentation": "ECC type."
+            "smithy.api#documentation": "ECC type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -929,13 +963,15 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A human-readable description of the storage."
+            "smithy.api#documentation": "A human-readable description of the storage.",
+            "smithy.api#required": {}
           }
         },
         "total": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total size of the storage in bytes. (in bytes)"
+            "smithy.api#documentation": "The total size of the storage in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -947,25 +983,29 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A human-readable description of the network."
+            "smithy.api#documentation": "A human-readable description of the network.",
+            "smithy.api#required": {}
           }
         },
         "internal_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The internal bandwidth in bits per second."
+            "smithy.api#documentation": "The internal bandwidth in bits per second.",
+            "smithy.api#required": {}
           }
         },
         "public_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The default public bandwidth in bits per second."
+            "smithy.api#documentation": "The default public bandwidth in bits per second.",
+            "smithy.api#required": {}
           }
         },
         "max_public_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum public bandwidth in bits per second (may require subscription to options)."
+            "smithy.api#documentation": "The maximum public bandwidth in bits per second (may require subscription to options).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -977,19 +1017,22 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A human-readable description of the GPU."
+            "smithy.api#documentation": "A human-readable description of the GPU.",
+            "smithy.api#required": {}
           }
         },
         "count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of GPUs."
+            "smithy.api#documentation": "The number of GPUs.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The type of the GPU."
+            "smithy.api#documentation": "The type of the GPU.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1001,13 +1044,15 @@
         "range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The range of the Dedibox server."
+            "smithy.api#documentation": "The range of the Dedibox server.",
+            "smithy.api#required": {}
           }
         },
         "offer_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The offer ID of the Dedibox server."
+            "smithy.api#documentation": "The offer ID of the Dedibox server.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1019,13 +1064,15 @@
         "range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The range of the Elastic Metal server."
+            "smithy.api#documentation": "The range of the Elastic Metal server.",
+            "smithy.api#required": {}
           }
         },
         "offer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The offer ID of the Elastic Metal server."
+            "smithy.api#documentation": "The offer ID of the Elastic Metal server.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1037,13 +1084,15 @@
         "range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The range of the Apple Silicon server."
+            "smithy.api#documentation": "The range of the Apple Silicon server.",
+            "smithy.api#required": {}
           }
         },
         "server_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The server type of the Apple Silicon server."
+            "smithy.api#documentation": "The server type of the Apple Silicon server.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1055,19 +1104,22 @@
         "range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The range of the Instance server."
+            "smithy.api#documentation": "The range of the Instance server.",
+            "smithy.api#required": {}
           }
         },
         "offer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The offer ID of the Instance server."
+            "smithy.api#documentation": "The offer ID of the Instance server.",
+            "smithy.api#required": {}
           }
         },
         "recommended_replacement_offer_ids": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesInstanceRecommendedReplacementOfferIdsList",
           "traits": {
-            "smithy.api#documentation": "The recommended replacement offer IDs of the Instance server."
+            "smithy.api#documentation": "The recommended replacement offer IDs of the Instance server.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1120,13 +1172,15 @@
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The minimum size of storage volume for this product in bytes. (in bytes)"
+            "smithy.api#documentation": "The minimum size of storage volume for this product in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum size of storage volume for this product in bytes. (in bytes)"
+            "smithy.api#documentation": "The maximum size of storage volume for this product in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1172,7 +1226,8 @@
         "storage_class": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageClassTypeStorageClass",
           "traits": {
-            "smithy.api#documentation": "The storage class."
+            "smithy.api#documentation": "The storage class.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1214,7 +1269,8 @@
         "restore_type": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageRestoreTypeRestoreType",
           "traits": {
-            "smithy.api#documentation": "The type of restore."
+            "smithy.api#documentation": "The type of restore.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1244,7 +1300,8 @@
         "traffic_type": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageInternetTrafficTypeTrafficType",
           "traits": {
-            "smithy.api#documentation": "The type of internet traffic."
+            "smithy.api#documentation": "The type of internet traffic.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1280,7 +1337,8 @@
         "region_destination": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The destination region for the region traffic."
+            "smithy.api#documentation": "The destination region for the region traffic.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1318,7 +1376,8 @@
         "instance_gpu_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the associated instance GPU to this deployment."
+            "smithy.api#documentation": "The name of the associated instance GPU to this deployment.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1328,25 +1387,46 @@
       "type": "structure",
       "members": {
         "reasoning": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "supported_apis": {
-          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisSupportedApisList"
+          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisSupportedApisList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "consumption_mode": {
-          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisConsumptionMode"
+          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisConsumptionMode",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "provider_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "tasks": {
-          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisTasksList"
+          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisTasksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "token_type": {
-          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisTokenType"
+          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisTokenType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "supported_reasoning_values": {
-          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValuesList"
+          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApisSupportedReasoningValuesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default_reasoning_value": {
           "target": "smithy.api#String",
@@ -1506,19 +1586,22 @@
         "offer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The offer ID of the Load Balancer product."
+            "smithy.api#documentation": "The offer ID of the Load Balancer product.",
+            "smithy.api#required": {}
           }
         },
         "multi_cloud_provider": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the Load Balancer product is available for multi-cloud providers."
+            "smithy.api#documentation": "Whether the Load Balancer product is available for multi-cloud providers.",
+            "smithy.api#required": {}
           }
         },
         "bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The bandwidth of the Load Balancer product in bits per second."
+            "smithy.api#documentation": "The bandwidth of the Load Balancer product in bits per second.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1591,7 +1674,8 @@
         "storage_class": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedRelationalDatabaseStorageTypeStorageClass",
           "traits": {
-            "smithy.api#documentation": "The type of Storage class."
+            "smithy.api#documentation": "The type of Storage class.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1663,7 +1747,8 @@
         "resources": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessFunctionsResourcesList",
           "traits": {
-            "smithy.api#documentation": "The serverless functions runtime resources sorted by memory size and then by milli-vCPU count."
+            "smithy.api#documentation": "The serverless functions runtime resources sorted by memory size and then by milli-vCPU count.",
+            "smithy.api#required": {}
           }
         },
         "consumption": {
@@ -1703,13 +1788,15 @@
         "memory_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The memory size in bytes. (in bytes)"
+            "smithy.api#documentation": "The memory size in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "mvcpu_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The number of milli-vCPUs."
+            "smithy.api#documentation": "The number of milli-vCPUs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1750,7 +1837,8 @@
         "sizes": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessContainersMemoryTypeSizesList",
           "traits": {
-            "smithy.api#documentation": "The list of available memory size in bytes. (in bytes)"
+            "smithy.api#documentation": "The list of available memory size in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1771,7 +1859,8 @@
         "mvcpu_counts": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessContainersCPUTypeMvcpuCountsList",
           "traits": {
-            "smithy.api#documentation": "The list of available number of milli-vCPUs."
+            "smithy.api#documentation": "The list of available number of milli-vCPUs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1819,7 +1908,8 @@
         "storage_class": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedMongoDBStorageTypeStorageClass",
           "traits": {
-            "smithy.api#documentation": "The type of Storage class."
+            "smithy.api#documentation": "The type of Storage class.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1887,7 +1977,8 @@
         "sizes": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessJobsMemoryTypeSizesList",
           "traits": {
-            "smithy.api#documentation": "The list of available memory size in bytes. (in bytes)"
+            "smithy.api#documentation": "The list of available memory size in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1908,7 +1999,8 @@
         "mvcpu_counts": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessJobsCPUTypeMvcpuCountsList",
           "traits": {
-            "smithy.api#documentation": "The list of available number of milli-vCPUs."
+            "smithy.api#documentation": "The list of available number of milli-vCPUs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1949,25 +2041,29 @@
         "versions": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesApacheKafkaNodeTypeVersionsList",
           "traits": {
-            "smithy.api#documentation": "The list of available versions for the Kafka node."
+            "smithy.api#documentation": "The list of available versions for the Kafka node.",
+            "smithy.api#required": {}
           }
         },
         "vcpu_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of virtual CPUs."
+            "smithy.api#documentation": "Number of virtual CPUs.",
+            "smithy.api#required": {}
           }
         },
         "is_multi_az": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not this Kafka product is multi AZ."
+            "smithy.api#documentation": "Whether or not this Kafka product is multi AZ.",
+            "smithy.api#required": {}
           }
         },
         "memory_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Memory size in bytes. (in bytes)"
+            "smithy.api#documentation": "Memory size in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1988,25 +2084,29 @@
         "type": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesApacheKafkaAvailableVolumeType",
           "traits": {
-            "smithy.api#documentation": "The type of volume."
+            "smithy.api#documentation": "The type of volume.",
+            "smithy.api#required": {}
           }
         },
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The minimum size of the volume in bytes. (in bytes)"
+            "smithy.api#documentation": "The minimum size of the volume in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum size of the volume in bytes. (in bytes)"
+            "smithy.api#documentation": "The maximum size of the volume in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "is_multi_az": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not this Kafka product is multi AZ."
+            "smithy.api#documentation": "Whether or not this Kafka product is multi AZ.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2042,13 +2142,15 @@
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The minimum size of storage volume for this product in bytes. (in bytes)"
+            "smithy.api#documentation": "The minimum size of storage volume for this product in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum size of storage volume for this product in bytes. (in bytes)"
+            "smithy.api#documentation": "The maximum size of storage volume for this product in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2076,10 +2178,16 @@
       "type": "structure",
       "members": {
         "unit": {
-          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductUnitOfMeasureCountableUnit"
+          "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductUnitOfMeasureCountableUnit",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "size": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

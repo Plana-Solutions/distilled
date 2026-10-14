@@ -46,23 +46,23 @@ export const BackupStatus = S.String;
 
 export interface Backup {
   /** ID of the backup. */
-  id?: string;
+  id: string;
   /** Total size of the backup in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** Creation date of the backup. (RFC 3339 format) */
   created_at?: string | null;
   /** Status of the backup. Available values are `active`, `locked`, and `restoring`. */
-  status?: BackupStatus;
+  status: BackupStatus;
   /** Total number of restorable items in the backup. */
-  total_items?: number;
+  total_items: number;
 }
 export const Backup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    size: S.optional(S.Number),
+    id: S.String,
+    size: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(BackupStatus),
-    total_items: S.optional(S.Number),
+    status: BackupStatus,
+    total_items: S.Number,
   }),
 ).annotate({ identifier: "Backup" }) as any as S.Schema<Backup>;
 
@@ -107,25 +107,25 @@ export const BackupItemType = S.String;
 
 export interface BackupItem {
   /** ID of the item. */
-  id?: string;
+  id: string;
   /** Name of the item (e.g., `database name`, `email address`). */
-  name?: string;
+  name: string;
   /** Type of the item (e.g., email, database, FTP). */
-  type?: BackupItemType;
+  type: BackupItemType;
   /** Size of the item in bytes. (in bytes) */
-  size?: number;
+  size: number;
   /** Status of the item. Available values are `active`, `damaged`, and `restoring`. */
-  status?: BackupStatus;
+  status: BackupStatus;
   /** Date and time at which this item was backed up. (RFC 3339 format) */
   created_at?: string | null;
 }
 export const BackupItem = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    type: S.optional(BackupItemType),
-    size: S.optional(S.Number),
-    status: S.optional(BackupStatus),
+    id: S.String,
+    name: S.String,
+    type: BackupItemType,
+    size: S.Number,
+    status: BackupStatus,
     created_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "BackupItem" }) as any as S.Schema<BackupItem>;
@@ -138,14 +138,14 @@ export const BackupItemGroupItemsList = /*@__PURE__*/ S.Array(
 
 export interface BackupItemGroup {
   /** Type of items (e.g., email, database, FTP). */
-  type?: BackupItemType;
+  type: BackupItemType;
   /** List of individual backup items of this type. */
-  items?: BackupItemGroupItemsList;
+  items: BackupItemGroupItemsList;
 }
 export const BackupItemGroup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(BackupItemType),
-    items: S.optional(BackupItemGroupItemsList),
+    type: BackupItemType,
+    items: BackupItemGroupItemsList,
   }),
 ).annotate({ identifier: "BackupItemGroup" }) as any as S.Schema<BackupItemGroup>;
 
@@ -168,20 +168,20 @@ export const ProgressStatus = S.String;
 
 export interface Progress {
   /** ID of the progress. */
-  id?: string;
+  id: string;
   /** Groups of backup items included in this progress. */
-  backup_item_groups?: ProgressBackupItemGroupsList;
+  backup_item_groups: ProgressBackupItemGroupsList;
   /** Completion percentage of the progress. */
-  percentage?: number;
+  percentage: number;
   /** Current status of the progress operation. */
-  status?: ProgressStatus;
+  status: ProgressStatus;
 }
 export const Progress = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    backup_item_groups: S.optional(ProgressBackupItemGroupsList),
-    percentage: S.optional(S.Number),
-    status: S.optional(ProgressStatus),
+    id: S.String,
+    backup_item_groups: ProgressBackupItemGroupsList,
+    percentage: S.Number,
+    status: ProgressStatus,
   }),
 ).annotate({ identifier: "Progress" }) as any as S.Schema<Progress>;
 
@@ -219,14 +219,14 @@ export const ListBackupItemsResponseGroupsList = /*@__PURE__*/ S.Array(
 
 export interface ListBackupItemsResponse {
   /** Total number of backup item groups. */
-  total_count?: number;
+  total_count: number;
   /** List of backup item groups categorized by type. */
-  groups?: ListBackupItemsResponseGroupsList;
+  groups: ListBackupItemsResponseGroupsList;
 }
 export const ListBackupItemsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    groups: S.optional(ListBackupItemsResponseGroupsList),
+    total_count: S.Number,
+    groups: ListBackupItemsResponseGroupsList,
   }),
 ).annotate({ identifier: "ListBackupItemsResponse" }) as any as S.Schema<ListBackupItemsResponse>;
 
@@ -273,13 +273,13 @@ export const ListBackupsResponseBackupsList = /*@__PURE__*/ S.Array(
 
 export interface ListBackupsResponse {
   /** Total number of available backups. */
-  total_count?: number;
+  total_count: number;
   /** List of available backups. */
   backups: ListBackupsResponseBackupsList;
 }
 export const ListBackupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     backups: ListBackupsResponseBackupsList,
   }),
 ).annotate({ identifier: "ListBackupsResponse" }) as any as S.Schema<ListBackupsResponse>;
@@ -311,20 +311,20 @@ export const ListRecentProgressesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ProgressSummary {
   /** ID of the progress. */
-  id?: string;
+  id: string;
   /** Total number of backup items included in the progress. */
-  backup_items_count?: number;
+  backup_items_count: number;
   /** Completion percentage of the progress. */
-  percentage?: number;
+  percentage: number;
   /** Current status of the progress operation. */
-  status?: ProgressStatus;
+  status: ProgressStatus;
 }
 export const ProgressSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    backup_items_count: S.optional(S.Number),
-    percentage: S.optional(S.Number),
-    status: S.optional(ProgressStatus),
+    id: S.String,
+    backup_items_count: S.Number,
+    percentage: S.Number,
+    status: ProgressStatus,
   }),
 ).annotate({ identifier: "ProgressSummary" }) as any as S.Schema<ProgressSummary>;
 
@@ -336,11 +336,11 @@ export const ListRecentProgressesResponseProgressesList = /*@__PURE__*/ S.Array(
 
 export interface ListRecentProgressesResponse {
   /** List of summarized progress entries. */
-  progresses?: ListRecentProgressesResponseProgressesList;
+  progresses: ListRecentProgressesResponseProgressesList;
 }
 export const ListRecentProgressesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    progresses: S.optional(ListRecentProgressesResponseProgressesList),
+    progresses: ListRecentProgressesResponseProgressesList,
   }),
 ).annotate({
   identifier: "ListRecentProgressesResponse",
@@ -374,11 +374,11 @@ export const RestoreBackupRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface RestoreBackupResponse {
   /** Identifier used to track the backup restoration progress. */
-  progress_id?: string;
+  progress_id: string;
 }
 export const RestoreBackupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    progress_id: S.optional(S.String),
+    progress_id: S.String,
   }),
 ).annotate({ identifier: "RestoreBackupResponse" }) as any as S.Schema<RestoreBackupResponse>;
 
@@ -418,11 +418,11 @@ export const RestoreBackupItemsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface RestoreBackupItemsResponse {
   /** Identifier used to track the item restoration progress. */
-  progress_id?: string;
+  progress_id: string;
 }
 export const RestoreBackupItemsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    progress_id: S.optional(S.String),
+    progress_id: S.String,
   }),
 ).annotate({
   identifier: "RestoreBackupItemsResponse",

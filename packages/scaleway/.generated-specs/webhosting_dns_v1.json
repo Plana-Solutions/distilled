@@ -79,31 +79,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the domain."
+            "smithy.api#documentation": "Name of the domain.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_dns_v1#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the domain."
+            "smithy.api#documentation": "Current status of the domain.",
+            "smithy.api#required": {}
           }
         },
         "owner": {
           "target": "com.scaleway.webhosting_dns_v1#DomainZoneOwner",
           "traits": {
-            "smithy.api#documentation": "Zone owner of the domain."
+            "smithy.api#documentation": "Zone owner of the domain.",
+            "smithy.api#required": {}
           }
         },
         "zone_domain_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Main domain for this zone."
+            "smithy.api#documentation": "Main domain for this zone.",
+            "smithy.api#required": {}
           }
         },
         "available_actions": {
           "target": "com.scaleway.webhosting_dns_v1#DomainAvailableActionsList",
           "traits": {
-            "smithy.api#documentation": "A list of actions that can be performed on the domain."
+            "smithy.api#documentation": "A list of actions that can be performed on the domain.",
+            "smithy.api#required": {}
           }
         },
         "available_dns_actions": {
@@ -390,19 +395,22 @@
         "records": {
           "target": "com.scaleway.webhosting_dns_v1#DnsRecordsRecordsList",
           "traits": {
-            "smithy.api#documentation": "List of DNS records."
+            "smithy.api#documentation": "List of DNS records.",
+            "smithy.api#required": {}
           }
         },
         "name_servers": {
           "target": "com.scaleway.webhosting_dns_v1#DnsRecordsNameServersList",
           "traits": {
-            "smithy.api#documentation": "List of nameservers."
+            "smithy.api#documentation": "List of nameservers.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_dns_v1#DnsRecordsStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the records."
+            "smithy.api#documentation": "Status of the records.",
+            "smithy.api#required": {}
           }
         },
         "dns_config": {
@@ -426,25 +434,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Record name."
+            "smithy.api#documentation": "Record name.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.webhosting_dns_v1#DnsRecordType",
           "traits": {
-            "smithy.api#documentation": "Record type."
+            "smithy.api#documentation": "Record type.",
+            "smithy.api#required": {}
           }
         },
         "ttl": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Record time-to-live."
+            "smithy.api#documentation": "Record time-to-live.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Record value."
+            "smithy.api#documentation": "Record value.",
+            "smithy.api#required": {}
           }
         },
         "priority": {
@@ -457,13 +469,15 @@
         "status": {
           "target": "com.scaleway.webhosting_dns_v1#DnsRecordStatus",
           "traits": {
-            "smithy.api#documentation": "Record status."
+            "smithy.api#documentation": "Record status.",
+            "smithy.api#required": {}
           }
         },
         "raw_data": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Record representation as it appears in the zone file or DNS management system."
+            "smithy.api#documentation": "Record representation as it appears in the zone file or DNS management system.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -556,19 +570,22 @@
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hostname of the nameserver."
+            "smithy.api#documentation": "Hostname of the nameserver.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_dns_v1#NameserverStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the nameserver."
+            "smithy.api#documentation": "Status of the nameserver.",
+            "smithy.api#required": {}
           }
         },
         "is_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the nameserver is the default one."
+            "smithy.api#documentation": "Defines whether the nameserver is the default one.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -841,7 +858,8 @@
         "domains_available": {
           "target": "com.scaleway.webhosting_dns_v1#SearchDomainsResponseDomainsAvailableList",
           "traits": {
-            "smithy.api#documentation": "List of domains availability."
+            "smithy.api#documentation": "List of domains availability.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -853,31 +871,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Fully qualified domain name (FQDN)."
+            "smithy.api#documentation": "Fully qualified domain name (FQDN).",
+            "smithy.api#required": {}
           }
         },
         "zone_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "DNS zone associated with the domain."
+            "smithy.api#documentation": "DNS zone associated with the domain.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.webhosting_dns_v1#DomainAvailabilityStatus",
           "traits": {
-            "smithy.api#documentation": "Availability status of the domain."
+            "smithy.api#documentation": "Availability status of the domain.",
+            "smithy.api#required": {}
           }
         },
         "available_actions": {
           "target": "com.scaleway.webhosting_dns_v1#DomainAvailabilityAvailableActionsList",
           "traits": {
-            "smithy.api#documentation": "A list of actions that can be performed on the domain."
+            "smithy.api#documentation": "A list of actions that can be performed on the domain.",
+            "smithy.api#required": {}
           }
         },
         "can_create_hosting": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether a hosting can be created for this domain."
+            "smithy.api#documentation": "Whether a hosting can be created for this domain.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -974,13 +997,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

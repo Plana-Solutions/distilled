@@ -63,13 +63,15 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the Project containing the service."
+            "smithy.api#documentation": "Project ID of the Project containing the service.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the service."
+            "smithy.api#documentation": "Region of the service.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -89,13 +91,15 @@
         "status": {
           "target": "com.scaleway.mnq_sqs_v1beta1#SqsInfoStatus",
           "traits": {
-            "smithy.api#documentation": "Queues activation status."
+            "smithy.api#documentation": "Queues activation status.",
+            "smithy.api#required": {}
           }
         },
         "sqs_endpoint_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint of the Queues service for this region and project."
+            "smithy.api#documentation": "Endpoint of the Queues service for this region and project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -309,13 +313,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of existing credentials (matching any filters specified)."
+            "smithy.api#documentation": "Total count of existing credentials (matching any filters specified).",
+            "smithy.api#required": {}
           }
         },
         "sqs_credentials": {
           "target": "com.scaleway.mnq_sqs_v1beta1#ListSqsCredentialsResponseSqsCredentialsList",
           "traits": {
-            "smithy.api#documentation": "Queues credentials on this page."
+            "smithy.api#documentation": "Queues credentials on this page.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -327,25 +333,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the credentials."
+            "smithy.api#documentation": "ID of the credentials.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the credentials."
+            "smithy.api#documentation": "Name of the credentials.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the Project containing the credentials."
+            "smithy.api#documentation": "Project ID of the Project containing the credentials.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region where the credentials exists."
+            "smithy.api#documentation": "Region where the credentials exists.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -365,20 +375,23 @@
         "access_key": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Access key ID."
+            "smithy.api#documentation": "Access key ID.",
+            "smithy.api#required": {}
           }
         },
         "secret_key": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Secret key ID (Only returned by **Create Queues Credentials** call).",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "secret_checksum": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Checksum of the Secret key."
+            "smithy.api#documentation": "Checksum of the Secret key.",
+            "smithy.api#required": {}
           }
         },
         "permissions": {

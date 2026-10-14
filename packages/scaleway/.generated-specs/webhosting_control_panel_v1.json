@@ -77,13 +77,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of control panels returned."
+            "smithy.api#documentation": "Number of control panels returned.",
+            "smithy.api#required": {}
           }
         },
         "control_panels": {
           "target": "com.scaleway.webhosting_control_panel_v1#ListControlPanelsResponseControlPanelsList",
           "traits": {
-            "smithy.api#documentation": "List of control panels."
+            "smithy.api#documentation": "List of control panels.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -95,25 +97,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Control panel name."
+            "smithy.api#documentation": "Control panel name.",
+            "smithy.api#required": {}
           }
         },
         "available": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Define if the control panel type is available to order."
+            "smithy.api#documentation": "Define if the control panel type is available to order.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the control panel's logo."
+            "smithy.api#documentation": "URL of the control panel's logo.",
+            "smithy.api#required": {}
           }
         },
         "available_languages": {
           "target": "com.scaleway.webhosting_control_panel_v1#ControlPanelAvailableLanguagesList",
           "traits": {
-            "smithy.api#documentation": "List of available languages for the control panel."
+            "smithy.api#documentation": "List of available languages for the control panel.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -109,10 +109,16 @@
       "type": "structure",
       "members": {
         "job_definitions": {
-          "target": "com.scaleway.serverless_jobs_v1alpha2#ListJobDefinitionsResponseJobDefinitionsList"
+          "target": "com.scaleway.serverless_jobs_v1alpha2#ListJobDefinitionsResponseJobDefinitionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -123,19 +129,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the job definition. (UUID format)"
+            "smithy.api#documentation": "UUID of the job definition. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the job definition."
+            "smithy.api#documentation": "Name of the job definition.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Scaleway Project containing the job. (UUID format)"
+            "smithy.api#documentation": "UUID of the Scaleway Project containing the job. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -155,25 +164,29 @@
         "cpu_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "CPU limit of the job (in mvCPU)."
+            "smithy.api#documentation": "CPU limit of the job (in mvCPU).",
+            "smithy.api#required": {}
           }
         },
         "memory_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Memory limit of the job (in MiB)."
+            "smithy.api#documentation": "Memory limit of the job (in MiB).",
+            "smithy.api#required": {}
           }
         },
         "local_storage_capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Local storage capacity of the job (in MiB)."
+            "smithy.api#documentation": "Local storage capacity of the job (in MiB).",
+            "smithy.api#required": {}
           }
         },
         "image_uri": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image to use for the job."
+            "smithy.api#documentation": "Image to use for the job.",
+            "smithy.api#required": {}
           }
         },
         "command": {
@@ -185,7 +198,8 @@
         "environment_variables": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobDefinitionEnvironmentVariablesMap",
           "traits": {
-            "smithy.api#documentation": "Environment variables of the job."
+            "smithy.api#documentation": "Environment variables of the job.",
+            "smithy.api#required": {}
           }
         },
         "job_timeout": {
@@ -198,7 +212,8 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the job."
+            "smithy.api#documentation": "Description of the job.",
+            "smithy.api#required": {}
           }
         },
         "cron_schedule": {
@@ -210,13 +225,15 @@
         "startup_command": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobDefinitionStartupCommandList",
           "traits": {
-            "smithy.api#documentation": "Job startup command."
+            "smithy.api#documentation": "Job startup command.",
+            "smithy.api#required": {}
           }
         },
         "args": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobDefinitionArgsList",
           "traits": {
-            "smithy.api#documentation": "Job arguments passed to the startup command at runtime."
+            "smithy.api#documentation": "Job arguments passed to the startup command at runtime.",
+            "smithy.api#required": {}
           }
         },
         "retry_policy": {
@@ -228,7 +245,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "The region you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -994,13 +1012,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the job run. (UUID format)"
+            "smithy.api#documentation": "UUID of the job run. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "job_definition_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the job definition. (UUID format)"
+            "smithy.api#documentation": "UUID of the job definition. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1041,13 +1061,15 @@
         "state": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobRunState",
           "traits": {
-            "smithy.api#documentation": "State of the job run."
+            "smithy.api#documentation": "State of the job run.",
+            "smithy.api#required": {}
           }
         },
         "reason": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobRunReason",
           "traits": {
-            "smithy.api#documentation": "Reason for failure if the job failed."
+            "smithy.api#documentation": "Reason for failure if the job failed.",
+            "smithy.api#required": {}
           }
         },
         "exit_code": {
@@ -1067,19 +1089,22 @@
         "cpu_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "CPU limit of the job (in mvCPU)."
+            "smithy.api#documentation": "CPU limit of the job (in mvCPU).",
+            "smithy.api#required": {}
           }
         },
         "memory_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Memory limit of the job (in MiB)."
+            "smithy.api#documentation": "Memory limit of the job (in MiB).",
+            "smithy.api#required": {}
           }
         },
         "local_storage_capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Local storage capacity of the job (in MiB)."
+            "smithy.api#documentation": "Local storage capacity of the job (in MiB).",
+            "smithy.api#required": {}
           }
         },
         "command": {
@@ -1091,19 +1116,22 @@
         "environment_variables": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobRunEnvironmentVariablesMap",
           "traits": {
-            "smithy.api#documentation": "Environment variables of the job run."
+            "smithy.api#documentation": "Environment variables of the job run.",
+            "smithy.api#required": {}
           }
         },
         "startup_command": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobRunStartupCommandList",
           "traits": {
-            "smithy.api#documentation": "Job startup command."
+            "smithy.api#documentation": "Job startup command.",
+            "smithy.api#required": {}
           }
         },
         "args": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#JobRunArgsList",
           "traits": {
-            "smithy.api#documentation": "Job arguments passed to the startup command at runtime."
+            "smithy.api#documentation": "Job arguments passed to the startup command at runtime.",
+            "smithy.api#required": {}
           }
         },
         "attempts": {
@@ -1116,7 +1144,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "The region you want to target",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1464,10 +1493,16 @@
       "type": "structure",
       "members": {
         "job_runs": {
-          "target": "com.scaleway.serverless_jobs_v1alpha2#ListJobRunsResponseJobRunsList"
+          "target": "com.scaleway.serverless_jobs_v1alpha2#ListJobRunsResponseJobRunsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1687,13 +1722,15 @@
         "secrets": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#ListSecretsResponseSecretsList",
           "traits": {
-            "smithy.api#documentation": "List of secret references within a job definition."
+            "smithy.api#documentation": "List of secret references within a job definition.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of secret references within a job definition."
+            "smithy.api#documentation": "Total count of secret references within a job definition.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1705,19 +1742,22 @@
         "secret_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the secret reference within the job. (UUID format)"
+            "smithy.api#documentation": "UUID of the secret reference within the job. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "secret_manager_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the secret in Secret Manager. (UUID format)"
+            "smithy.api#documentation": "UUID of the secret in Secret Manager. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "secret_manager_version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Version of the secret in Secret Manager."
+            "smithy.api#documentation": "Version of the secret in Secret Manager.",
+            "smithy.api#required": {}
           }
         },
         "job_definition_id": {
@@ -1748,7 +1788,10 @@
       "type": "structure",
       "members": {
         "path": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1757,7 +1800,10 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1881,7 +1927,8 @@
         "secrets": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#CreateSecretsResponseSecretsList",
           "traits": {
-            "smithy.api#documentation": "List of secrets created."
+            "smithy.api#documentation": "List of secrets created.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2222,13 +2269,15 @@
         "triggers": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#ListTriggersResponseTriggersList",
           "traits": {
-            "smithy.api#documentation": "List of triggers."
+            "smithy.api#documentation": "List of triggers.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of triggers."
+            "smithy.api#documentation": "Total count of triggers.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2240,19 +2289,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the trigger. (UUID format)"
+            "smithy.api#documentation": "UUID of the trigger. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "job_definition_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the job definition. (UUID format)"
+            "smithy.api#documentation": "UUID of the job definition. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Human readable name of the trigger."
+            "smithy.api#documentation": "Human readable name of the trigger.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2285,25 +2337,29 @@
         "schedule": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "CRON schedule in UNIX format."
+            "smithy.api#documentation": "CRON schedule in UNIX format.",
+            "smithy.api#required": {}
           }
         },
         "timezone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Time zone for the CRON schedule."
+            "smithy.api#documentation": "Time zone for the CRON schedule.",
+            "smithy.api#required": {}
           }
         },
         "startup_command": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#TriggerCronConfigStartupCommandList",
           "traits": {
-            "smithy.api#documentation": "Startup command that will be used by the triggered job."
+            "smithy.api#documentation": "Startup command that will be used by the triggered job.",
+            "smithy.api#required": {}
           }
         },
         "args": {
           "target": "com.scaleway.serverless_jobs_v1alpha2#TriggerCronConfigArgsList",
           "traits": {
-            "smithy.api#documentation": "Arguments passed to the startup command used by the triggered job."
+            "smithy.api#documentation": "Arguments passed to the startup command used by the triggered job.",
+            "smithy.api#required": {}
           }
         }
       },

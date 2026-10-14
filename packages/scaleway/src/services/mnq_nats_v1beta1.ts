@@ -38,15 +38,15 @@ export const CreateNatsAccountRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface NatsAccount {
   /** NATS account ID. */
-  id?: string;
+  id: string;
   /** NATS account name. */
-  name?: string;
+  name: string;
   /** Endpoint of the NATS service for this account. */
-  endpoint?: string;
+  endpoint: string;
   /** Project ID of the Project containing the NATS account. */
-  project_id?: string;
+  project_id: string;
   /** Region where the NATS account is deployed. */
-  region?: string;
+  region: string;
   /** NATS account creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** NATS account last modification date. (RFC 3339 format) */
@@ -54,11 +54,11 @@ export interface NatsAccount {
 }
 export const NatsAccount = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    endpoint: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    endpoint: S.String,
+    project_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -94,26 +94,26 @@ export const CreateNatsCredentialsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface File {
   /** File name. */
-  name?: string;
+  name: string;
   /** File content. */
-  content?: string | Redacted.Redacted<string>;
+  content: string | Redacted.Redacted<string>;
 }
 export const File = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    name: S.String,
+    content: S.String.pipe(T.SensitiveValue({})),
   }),
 ).annotate({ identifier: "File" }) as any as S.Schema<File>;
 
 export interface NatsCredentials {
   /** ID of the credentials. */
-  id?: string;
+  id: string;
   /** Name of the credentials. */
-  name?: string;
+  name: string;
   /** NATS account containing the credentials. */
-  nats_account_id?: string;
+  nats_account_id: string;
   /** Region where the NATS account is deployed. */
-  region?: string;
+  region: string;
   /** NATS credentials creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** NATS credentials last modification date. (RFC 3339 format) */
@@ -121,18 +121,18 @@ export interface NatsCredentials {
   /** Object containing the credentials file (Only returned by **Create Nats Credentials** call). */
   credentials?: File;
   /** Checksum of the credentials file. */
-  checksum?: string;
+  checksum: string;
 }
 export const NatsCredentials = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    nats_account_id: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    nats_account_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     credentials: S.optional(File),
-    checksum: S.optional(S.String),
+    checksum: S.String,
   }),
 ).annotate({ identifier: "NatsCredentials" }) as any as S.Schema<NatsCredentials>;
 
@@ -291,13 +291,13 @@ export const ListNatsAccountsResponseNatsAccountsList = /*@__PURE__*/ S.Array(
 
 export interface ListNatsAccountsResponse {
   /** Total count of existing NATS accounts (matching any filters specified). */
-  total_count?: number;
+  total_count: number;
   /** NATS accounts on this page. */
   nats_accounts: ListNatsAccountsResponseNatsAccountsList;
 }
 export const ListNatsAccountsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     nats_accounts: ListNatsAccountsResponseNatsAccountsList,
   }),
 ).annotate({ identifier: "ListNatsAccountsResponse" }) as any as S.Schema<ListNatsAccountsResponse>;
@@ -356,13 +356,13 @@ export const ListNatsCredentialsResponseNatsCredentialsList = /*@__PURE__*/ S.Ar
 
 export interface ListNatsCredentialsResponse {
   /** Total count of existing credentials (matching any filters specified). */
-  total_count?: number;
+  total_count: number;
   /** Credentials on this page. */
   nats_credentials: ListNatsCredentialsResponseNatsCredentialsList;
 }
 export const ListNatsCredentialsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     nats_credentials: ListNatsCredentialsResponseNatsCredentialsList,
   }),
 ).annotate({

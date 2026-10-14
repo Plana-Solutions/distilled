@@ -583,10 +583,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ips": {
-          "target": "com.scaleway.ipam_v1#ListIPsResponseIpsList"
+          "target": "com.scaleway.ipam_v1#ListIPsResponseIpsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -597,31 +603,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP ID. (UUID format)"
+            "smithy.api#documentation": "IP ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the IP."
+            "smithy.api#documentation": "The SRN of the IP.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv4 or IPv6 address in CIDR notation. (IP network)"
+            "smithy.api#documentation": "IPv4 or IPv6 address in CIDR notation. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Project the IP belongs to. (UUID format)"
+            "smithy.api#documentation": "Scaleway Project the IP belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "is_ipv6": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the IP is an IPv6 (false = IPv4)."
+            "smithy.api#documentation": "Defines whether the IP is an IPv6 (false = IPv4).",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -653,25 +664,29 @@
         "tags": {
           "target": "com.scaleway.ipam_v1#IPTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags for the IP."
+            "smithy.api#documentation": "Tags for the IP.",
+            "smithy.api#required": {}
           }
         },
         "reverses": {
           "target": "com.scaleway.ipam_v1#IPReversesList",
           "traits": {
-            "smithy.api#documentation": "Array of reverses associated with the IP."
+            "smithy.api#documentation": "Array of reverses associated with the IP.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the IP."
+            "smithy.api#documentation": "Region of the IP.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone of the IP, if zonal."
+            "smithy.api#documentation": "Zone of the IP, if zonal.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -723,13 +738,15 @@
         "type": {
           "target": "com.scaleway.ipam_v1#ResourceType",
           "traits": {
-            "smithy.api#documentation": "Type of resource the IP is attached to."
+            "smithy.api#documentation": "Type of resource the IP is attached to.",
+            "smithy.api#required": {}
           }
         },
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the resource the IP is attached to. (UUID format)"
+            "smithy.api#documentation": "ID of the resource the IP is attached to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "mac_address": {

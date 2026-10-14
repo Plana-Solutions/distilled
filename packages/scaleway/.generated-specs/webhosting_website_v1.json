@@ -110,13 +110,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of websites."
+            "smithy.api#documentation": "Total number of websites.",
+            "smithy.api#required": {}
           }
         },
         "websites": {
           "target": "com.scaleway.webhosting_website_v1#ListWebsitesResponseWebsitesList",
           "traits": {
-            "smithy.api#documentation": "List of websites."
+            "smithy.api#documentation": "List of websites.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -128,19 +130,22 @@
         "domain": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The domain of the website."
+            "smithy.api#documentation": "The domain of the website.",
+            "smithy.api#required": {}
           }
         },
         "path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The directory path of the website."
+            "smithy.api#documentation": "The directory path of the website.",
+            "smithy.api#required": {}
           }
         },
         "ssl_status": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The SSL status of the website."
+            "smithy.api#documentation": "The SSL status of the website.",
+            "smithy.api#required": {}
           }
         }
       },

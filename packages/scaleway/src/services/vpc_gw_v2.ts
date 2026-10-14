@@ -54,11 +54,11 @@ export const AddBastionAllowedIPsResponseIpRangesList = /*@__PURE__*/ S.Array(
 
 export interface AddBastionAllowedIPsResponse {
   /** Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network) */
-  ip_ranges?: AddBastionAllowedIPsResponseIpRangesList;
+  ip_ranges: AddBastionAllowedIPsResponseIpRangesList;
 }
 export const AddBastionAllowedIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip_ranges: S.optional(AddBastionAllowedIPsResponseIpRangesList),
+    ip_ranges: AddBastionAllowedIPsResponseIpRangesList,
   }),
 ).annotate({
   identifier: "AddBastionAllowedIPsResponse",
@@ -145,41 +145,41 @@ export const IPTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<IPT
 
 export interface IP {
   /** IP address ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the ip. */
-  srn?: string;
+  srn: string;
   /** Owning Organization. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Owning Project. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** IP address creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** IP address last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Tags associated with the IP address. */
-  tags?: IPTagsList;
+  tags: IPTagsList;
   /** The IP address itself. (IP address) */
-  address?: string;
+  address: string;
   /** Reverse domain name for the IP address. */
   reverse?: string | null;
   /** Public Gateway associated with the IP address. (UUID format) */
   gateway_id?: string | null;
   /** Zone of the IP address. */
-  zone?: string;
+  zone: string;
 }
 export const IP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    organization_id: S.String,
+    project_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    tags: S.optional(IPTagsList),
-    address: S.optional(S.String),
+    tags: IPTagsList,
+    address: S.String,
     reverse: S.optional(S.NullOr(S.String)),
     gateway_id: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "IP" }) as any as S.Schema<IP>;
 
@@ -194,44 +194,44 @@ export const GatewayNetworkStatus = S.String;
 
 export interface GatewayNetwork {
   /** ID of the Public Gateway-Private Network connection. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the gateway network. */
-  srn?: string;
+  srn: string;
   /** Connection creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Connection last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** ID of the connected Public Gateway. (UUID format) */
-  gateway_id?: string;
+  gateway_id: string;
   /** ID of the connected Private Network. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
   /** MAC address of the gateway in the Private Network (if the gateway is up and running). */
   mac_address?: string | null;
   /** Defines whether the gateway masquerades traffic for this Private Network (Dynamic NAT). */
-  masquerade_enabled?: boolean;
+  masquerade_enabled: boolean;
   /** Current status of the Public Gateway's connection to the Private Network. */
-  status?: GatewayNetworkStatus;
+  status: GatewayNetworkStatus;
   /** Enabling the default route also enables masquerading. */
-  push_default_route?: boolean;
+  push_default_route: boolean;
   /** Use this IPAM-booked IP ID as the Gateway's IP in this Private Network. (UUID format) */
-  ipam_ip_id?: string;
+  ipam_ip_id: string;
   /** Zone of the GatewayNetwork connection. */
-  zone?: string;
+  zone: string;
 }
 export const GatewayNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    gateway_id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
+    gateway_id: S.String,
+    private_network_id: S.String,
     mac_address: S.optional(S.NullOr(S.String)),
-    masquerade_enabled: S.optional(S.Boolean),
-    status: S.optional(GatewayNetworkStatus),
-    push_default_route: S.optional(S.Boolean),
-    ipam_ip_id: S.optional(S.String),
-    zone: S.optional(S.String),
+    masquerade_enabled: S.Boolean,
+    status: GatewayNetworkStatus,
+    push_default_route: S.Boolean,
+    ipam_ip_id: S.String,
+    zone: S.String,
   }),
 ).annotate({ identifier: "GatewayNetwork" }) as any as S.Schema<GatewayNetwork>;
 
@@ -249,71 +249,71 @@ export const GatewayBastionAllowedIpsList = /*@__PURE__*/ S.Array(
 
 export interface Gateway {
   /** ID of the gateway. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the gateway. */
-  srn?: string;
+  srn: string;
   /** Owning Organization. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Owning Project. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Gateway creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Gateway last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Gateway type name (commercial offer). */
-  type?: string;
+  type: string;
   /** Bandwidth available of the gateway. */
-  bandwidth?: number;
+  bandwidth: number;
   /** Current status of the gateway. */
-  status?: GatewayStatus;
+  status: GatewayStatus;
   /** Name of the gateway. */
-  name?: string;
+  name: string;
   /** Tags associated with the gateway. */
-  tags?: GatewayTagsList;
+  tags: GatewayTagsList;
   /** Public IPv4 address of the gateway. */
   ipv4?: IP;
   /** GatewayNetwork objects attached to the gateway (each one represents a connection to a Private Network). */
-  gateway_networks?: GatewayGatewayNetworksList;
+  gateway_networks: GatewayGatewayNetworksList;
   /** Version of the running gateway software. */
   version?: string | null;
   /** Newly available gateway software version that can be updated to. */
   can_upgrade_to?: string | null;
   /** Defines whether SSH bastion is enabled on the gateway. */
-  bastion_enabled?: boolean;
+  bastion_enabled: boolean;
   /** Port of the SSH bastion. */
-  bastion_port?: number;
+  bastion_port: number;
   /** Defines whether SMTP traffic is allowed to pass through the gateway. */
-  smtp_enabled?: boolean;
+  smtp_enabled: boolean;
   /** Defines whether the gateway uses non-IPAM IP configurations. */
-  is_legacy?: boolean;
+  is_legacy: boolean;
   /** Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network) */
-  bastion_allowed_ips?: GatewayBastionAllowedIpsList;
+  bastion_allowed_ips: GatewayBastionAllowedIpsList;
   /** Zone of the gateway. */
-  zone?: string;
+  zone: string;
 }
 export const Gateway = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    organization_id: S.String,
+    project_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    type: S.optional(S.String),
-    bandwidth: S.optional(S.Number),
-    status: S.optional(GatewayStatus),
-    name: S.optional(S.String),
-    tags: S.optional(GatewayTagsList),
+    type: S.String,
+    bandwidth: S.Number,
+    status: GatewayStatus,
+    name: S.String,
+    tags: GatewayTagsList,
     ipv4: S.optional(IP),
-    gateway_networks: S.optional(GatewayGatewayNetworksList),
+    gateway_networks: GatewayGatewayNetworksList,
     version: S.optional(S.NullOr(S.String)),
     can_upgrade_to: S.optional(S.NullOr(S.String)),
-    bastion_enabled: S.optional(S.Boolean),
-    bastion_port: S.optional(S.Number),
-    smtp_enabled: S.optional(S.Boolean),
-    is_legacy: S.optional(S.Boolean),
-    bastion_allowed_ips: S.optional(GatewayBastionAllowedIpsList),
-    zone: S.optional(S.String),
+    bastion_enabled: S.Boolean,
+    bastion_port: S.Number,
+    smtp_enabled: S.Boolean,
+    is_legacy: S.Boolean,
+    bastion_allowed_ips: GatewayBastionAllowedIpsList,
+    zone: S.String,
   }),
 ).annotate({ identifier: "Gateway" }) as any as S.Schema<Gateway>;
 
@@ -453,38 +453,38 @@ export const CreatePatRuleRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface PatRule {
   /** PAT rule ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the PAT rule. */
-  srn?: string;
+  srn: string;
   /** Gateway the PAT rule applies to. (UUID format) */
-  gateway_id?: string;
+  gateway_id: string;
   /** PAT rule creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** PAT rule last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Public port to listen on. */
-  public_port?: number;
+  public_port: number;
   /** Private IP address to forward data to. (IP address) */
-  private_ip?: string;
+  private_ip: string;
   /** Private port to translate to. */
-  private_port?: number;
+  private_port: number;
   /** Protocol the rule applies to. */
-  protocol?: PatRuleProtocol;
+  protocol: PatRuleProtocol;
   /** Zone of the PAT rule. */
-  zone?: string;
+  zone: string;
 }
 export const PatRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    gateway_id: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    gateway_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    public_port: S.optional(S.Number),
-    private_ip: S.optional(S.String),
-    private_port: S.optional(S.Number),
-    protocol: S.optional(PatRuleProtocol),
-    zone: S.optional(S.String),
+    public_port: S.Number,
+    private_ip: S.String,
+    private_port: S.Number,
+    protocol: PatRuleProtocol,
+    zone: S.String,
   }),
 ).annotate({ identifier: "PatRule" }) as any as S.Schema<PatRule>;
 
@@ -887,12 +887,12 @@ export interface ListGatewayNetworksResponse {
   /** GatewayNetworks on this page. */
   gateway_networks: ListGatewayNetworksResponseGatewayNetworksList;
   /** Total GatewayNetworks count matching the filter. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListGatewayNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     gateway_networks: ListGatewayNetworksResponseGatewayNetworksList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListGatewayNetworksResponse",
@@ -1001,12 +1001,12 @@ export interface ListGatewaysResponse {
   /** Gateways on this page. */
   gateways: ListGatewaysResponseGatewaysList;
   /** Total count of gateways matching the filter. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListGatewaysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     gateways: ListGatewaysResponseGatewaysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListGatewaysResponse" }) as any as S.Schema<ListGatewaysResponse>;
 
@@ -1041,17 +1041,17 @@ export const ListGatewayTypesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface GatewayType {
   /** Public Gateway type name. */
-  name?: string;
+  name: string;
   /** Bandwidth, in bps, of the Public Gateway. This is the public bandwidth to the outer Internet, and the internal bandwidth to each connected Private Networks. */
-  bandwidth?: number;
+  bandwidth: number;
   /** Zone the Public Gateway type is available in. */
-  zone?: string;
+  zone: string;
 }
 export const GatewayType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    bandwidth: S.optional(S.Number),
-    zone: S.optional(S.String),
+    name: S.String,
+    bandwidth: S.Number,
+    zone: S.String,
   }),
 ).annotate({ identifier: "GatewayType" }) as any as S.Schema<GatewayType>;
 
@@ -1063,11 +1063,11 @@ export const ListGatewayTypesResponseTypesList = /*@__PURE__*/ S.Array(
 
 export interface ListGatewayTypesResponse {
   /** Available types of Public Gateway. */
-  types?: ListGatewayTypesResponseTypesList;
+  types: ListGatewayTypesResponseTypesList;
 }
 export const ListGatewayTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    types: S.optional(ListGatewayTypesResponseTypesList),
+    types: ListGatewayTypesResponseTypesList,
   }),
 ).annotate({ identifier: "ListGatewayTypesResponse" }) as any as S.Schema<ListGatewayTypesResponse>;
 
@@ -1148,12 +1148,12 @@ export interface ListIPsResponse {
   /** IP addresses on this page. */
   ips: ListIPsResponseIpsList;
   /** Total count of IP addresses matching the filter. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     ips: ListIPsResponseIpsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListIPsResponse" }) as any as S.Schema<ListIPsResponse>;
 
@@ -1231,12 +1231,12 @@ export interface ListPatRulesResponse {
   /** Array of PAT rules matching the filter. */
   pat_rules: ListPatRulesResponsePatRulesList;
   /** Total count of PAT rules matching the filter. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPatRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     pat_rules: ListPatRulesResponsePatRulesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPatRulesResponse" }) as any as S.Schema<ListPatRulesResponse>;
 
@@ -1323,11 +1323,11 @@ export const SetBastionAllowedIPsResponseIpRangesList = /*@__PURE__*/ S.Array(
 
 export interface SetBastionAllowedIPsResponse {
   /** Ranges of IP addresses allowed to connect to the gateway's SSH bastion. (IP network) */
-  ip_ranges?: SetBastionAllowedIPsResponseIpRangesList;
+  ip_ranges: SetBastionAllowedIPsResponseIpRangesList;
 }
 export const SetBastionAllowedIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip_ranges: S.optional(SetBastionAllowedIPsResponseIpRangesList),
+    ip_ranges: SetBastionAllowedIPsResponseIpRangesList,
   }),
 ).annotate({
   identifier: "SetBastionAllowedIPsResponse",
@@ -1401,11 +1401,11 @@ export const SetPatRulesResponsePatRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetPatRulesResponse {
   /** List of PAT rules. */
-  pat_rules?: SetPatRulesResponsePatRulesList;
+  pat_rules: SetPatRulesResponsePatRulesList;
 }
 export const SetPatRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    pat_rules: S.optional(SetPatRulesResponsePatRulesList),
+    pat_rules: SetPatRulesResponsePatRulesList,
   }),
 ).annotate({ identifier: "SetPatRulesResponse" }) as any as S.Schema<SetPatRulesResponse>;
 

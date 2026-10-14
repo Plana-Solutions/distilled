@@ -50,23 +50,23 @@ export const SecretType = S.String;
 
 export interface AccessSecretVersionResponse {
   /** ID of the secret. (UUID format) */
-  secret_id?: string;
+  secret_id: string;
   /** Version number. The first version of the secret is numbered 1, and all subsequent revisions augment by 1. */
-  revision?: number;
+  revision: number;
   /** The base64-encoded secret payload of the version. */
-  data?: string | Redacted.Redacted<string>;
+  data: string | Redacted.Redacted<string>;
   /** The CRC32 checksum of the data as a base-10 integer. This field is only available if a CRC32 was supplied during the creation of the version. */
   data_crc32?: number | null;
   /** Type of the secret. See the `Secret.Type` enum for a description of values. */
-  type?: SecretType;
+  type: SecretType;
 }
 export const AccessSecretVersionResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secret_id: S.optional(S.String),
-    revision: S.optional(S.Number),
-    data: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    secret_id: S.String,
+    revision: S.Number,
+    data: S.String.pipe(T.SensitiveValue({})),
     data_crc32: S.optional(S.NullOr(S.Number)),
-    type: S.optional(SecretType),
+    type: SecretType,
   }),
 ).annotate({
   identifier: "AccessSecretVersionResponse",
@@ -225,65 +225,65 @@ export const SecretUsedByList = /*@__PURE__*/ S.Array(Product) as any as S.Schem
 
 export interface Secret {
   /** ID of the secret. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the secret. */
-  srn?: string;
+  srn: string;
   /** ID of the Project containing the secret. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Name of the secret. */
-  name?: string;
+  name: string;
   /** Current status of the secret. * `ready`: the secret can be read, modified and deleted. * `locked`: no action can be performed on the secret. This status can only be applied and removed by Scaleway. */
-  status?: SecretStatus;
+  status: SecretStatus;
   /** Date and time of the secret's creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update of the secret. (RFC 3339 format) */
   updated_at?: string | null;
   /** List of the secret's tags. */
-  tags?: SecretTagsList;
+  tags: SecretTagsList;
   /** Number of versions for this secret. */
-  version_count?: number;
+  version_count: number;
   /** Updated description of the secret. */
   description?: string | null;
   /** Returns `true` for secrets that are managed by another product. */
-  managed?: boolean;
+  managed: boolean;
   /** Returns `true` for protected secrets that cannot be deleted. */
-  protected?: boolean;
+  protected: boolean;
   /** Type of the secret. See the `Secret.Type` enum for a description of values. */
-  type?: SecretType;
+  type: SecretType;
   /** Path of the secret. Location of the secret in the directory structure. */
-  path?: string;
+  path: string;
   /** Ephemeral policy of the secret. (Optional.) Policy that defines whether/when a secret's versions expire. By default, the policy is applied to all the secret's versions. */
   ephemeral_policy?: EphemeralPolicy;
   /** List of Scaleway resources that can access and manage the secret. */
-  used_by?: SecretUsedByList;
+  used_by: SecretUsedByList;
   /** Returns the time at which deletion was requested. (RFC 3339 format) */
   deletion_requested_at?: string | null;
   /** ID of the Scaleway Key Manager key. (Optional.) The Scaleway Key Manager key ID used to encrypt and decrypt secret versions. (UUID format) */
   key_id?: string | null;
   /** Region of the secret. */
-  region?: string;
+  region: string;
 }
 export const Secret = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(SecretStatus),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    name: S.String,
+    status: SecretStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    tags: S.optional(SecretTagsList),
-    version_count: S.optional(S.Number),
+    tags: SecretTagsList,
+    version_count: S.Number,
     description: S.optional(S.NullOr(S.String)),
-    managed: S.optional(S.Boolean),
-    protected: S.optional(S.Boolean),
-    type: S.optional(SecretType),
-    path: S.optional(S.String),
+    managed: S.Boolean,
+    protected: S.Boolean,
+    type: SecretType,
+    path: S.String,
     ephemeral_policy: S.optional(EphemeralPolicy),
-    used_by: S.optional(SecretUsedByList),
+    used_by: SecretUsedByList,
     deletion_requested_at: S.optional(S.NullOr(S.String)),
     key_id: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Secret" }) as any as S.Schema<Secret>;
 
@@ -350,13 +350,13 @@ export const EphemeralProperties = /*@__PURE__*/ S.suspend(() =>
 
 export interface SecretVersion {
   /** Version number. The first version of the secret is numbered 1, and all subsequent revisions augment by 1. */
-  revision?: number;
+  revision: number;
   /** The SRN of the secret version. */
-  srn?: string;
+  srn: string;
   /** ID of the secret. (UUID format) */
-  secret_id?: string;
+  secret_id: string;
   /** Current status of the version. * `unknown_status`: the version is in an invalid state. * `enabled`: the version is accessible. * `disabled`: the version is not accessible but can be enabled. * `scheduled_for_deletion`: the version is scheduled for deletion. It will be deleted in 7 days. * `deleted`: the version is permanently deleted. It is not possible to recover it. */
-  status?: SecretVersionStatus;
+  status: SecretVersionStatus;
   /** Date and time of the version's creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update of the version. (RFC 3339 format) */
@@ -366,28 +366,28 @@ export interface SecretVersion {
   /** Description of the version. */
   description?: string | null;
   /** Returns `true` if the version is the latest. */
-  latest?: boolean;
+  latest: boolean;
   /** Properties of the ephemeral version. Returns the version's expiration date, whether it expires after being accessed once, and the action to perform (disable or delete) once the version expires. */
   ephemeral_properties?: EphemeralProperties;
   /** Returns the time at which deletion was requested. (RFC 3339 format) */
   deletion_requested_at?: string | null;
   /** Region of the version. */
-  region?: string;
+  region: string;
 }
 export const SecretVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    revision: S.optional(S.Number),
-    srn: S.optional(S.String),
-    secret_id: S.optional(S.String),
-    status: S.optional(SecretVersionStatus),
+    revision: S.Number,
+    srn: S.String,
+    secret_id: S.String,
+    status: SecretVersionStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     deleted_at: S.optional(S.NullOr(S.String)),
     description: S.optional(S.NullOr(S.String)),
-    latest: S.optional(S.Boolean),
+    latest: S.Boolean,
     ephemeral_properties: S.optional(EphemeralProperties),
     deletion_requested_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "SecretVersion" }) as any as S.Schema<SecretVersion>;
 
@@ -631,12 +631,12 @@ export interface ListSecretsResponse {
   /** Single page of secrets matching the requested criteria. */
   secrets: ListSecretsResponseSecretsList;
   /** Count of all secrets matching the requested criteria. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSecretsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     secrets: ListSecretsResponseSecretsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSecretsResponse" }) as any as S.Schema<ListSecretsResponse>;
 
@@ -687,12 +687,12 @@ export interface ListSecretVersionsResponse {
   /** Single page of versions. */
   versions: ListSecretVersionsResponseVersionsList;
   /** Number of versions. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSecretVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListSecretVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListSecretVersionsResponse",

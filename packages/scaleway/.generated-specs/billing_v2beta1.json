@@ -111,19 +111,22 @@
         "consumptions": {
           "target": "com.scaleway.billing_v2beta1#ListConsumptionsResponseConsumptionsList",
           "traits": {
-            "smithy.api#documentation": "Detailed consumption list."
+            "smithy.api#documentation": "Detailed consumption list.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of returned items."
+            "smithy.api#documentation": "Total number of returned items.",
+            "smithy.api#required": {}
           }
         },
         "total_discount_untaxed_value": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Sum of all discounts, displayed only when no category or project ID filter is applied."
+            "smithy.api#documentation": "Sum of all discounts, displayed only when no category or project ID filter is applied.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -148,61 +151,71 @@
         "product_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The product name. For example, \"VPC Public Gateway S\", \"VPC Public Gateway M\" for the VPC product."
+            "smithy.api#documentation": "The product name. For example, \"VPC Public Gateway S\", \"VPC Public Gateway M\" for the VPC product.",
+            "smithy.api#required": {}
           }
         },
         "resource_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Identifies the reference based on the category."
+            "smithy.api#documentation": "Identifies the reference based on the category.",
+            "smithy.api#required": {}
           }
         },
         "sku": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the product."
+            "smithy.api#documentation": "Unique identifier of the product.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the consumption."
+            "smithy.api#documentation": "Project ID of the consumption.",
+            "smithy.api#required": {}
           }
         },
         "category_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of consumption category."
+            "smithy.api#documentation": "Name of consumption category.",
+            "smithy.api#required": {}
           }
         },
         "unit": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unit of consumed quantity."
+            "smithy.api#documentation": "Unit of consumed quantity.",
+            "smithy.api#required": {}
           }
         },
         "billed_quantity": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Consumed quantity."
+            "smithy.api#documentation": "Consumed quantity.",
+            "smithy.api#required": {}
           }
         },
         "consumer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the consumer for this consumption."
+            "smithy.api#documentation": "Organization ID of the consumer for this consumption.",
+            "smithy.api#required": {}
           }
         },
         "project_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project name of the consumpiton."
+            "smithy.api#documentation": "Project name of the consumpiton.",
+            "smithy.api#required": {}
           }
         },
         "organization_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization name of the consumer for this consumption."
+            "smithy.api#documentation": "Organization name of the consumer for this consumption.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -212,13 +225,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -341,13 +363,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of discounts."
+            "smithy.api#documentation": "Total number of discounts.",
+            "smithy.api#required": {}
           }
         },
         "discounts": {
           "target": "com.scaleway.billing_v2beta1#ListDiscountsResponseDiscountsList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned discounts."
+            "smithy.api#documentation": "Paginated returned discounts.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -359,7 +383,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The ID of the discount."
+            "smithy.api#documentation": "The ID of the discount.",
+            "smithy.api#required": {}
           }
         },
         "creation_date": {
@@ -372,37 +397,43 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Organization ID of the discount."
+            "smithy.api#documentation": "The Organization ID of the discount.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the discount."
+            "smithy.api#documentation": "The description of the discount.",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "The initial value of the discount."
+            "smithy.api#documentation": "The initial value of the discount.",
+            "smithy.api#required": {}
           }
         },
         "value_used": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "The value indicating how much of the discount has been used."
+            "smithy.api#documentation": "The value indicating how much of the discount has been used.",
+            "smithy.api#required": {}
           }
         },
         "value_remaining": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "The remaining value of the discount."
+            "smithy.api#documentation": "The remaining value of the discount.",
+            "smithy.api#required": {}
           }
         },
         "mode": {
           "target": "com.scaleway.billing_v2beta1#DiscountDiscountMode",
           "traits": {
-            "smithy.api#documentation": "The mode of the discount."
+            "smithy.api#documentation": "The mode of the discount.",
+            "smithy.api#required": {}
           }
         },
         "start_date": {
@@ -428,7 +459,8 @@
         "filters": {
           "target": "com.scaleway.billing_v2beta1#DiscountFiltersList",
           "traits": {
-            "smithy.api#documentation": "List of the discount scopes."
+            "smithy.api#documentation": "List of the discount scopes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -483,19 +515,22 @@
         "type": {
           "target": "com.scaleway.billing_v2beta1#DiscountFilterType",
           "traits": {
-            "smithy.api#documentation": "Type of the filter (category name, product name, product range, resource name, region or zone)."
+            "smithy.api#documentation": "Type of the filter (category name, product name, product range, resource name, region or zone).",
+            "smithy.api#required": {}
           }
         },
         "value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value of filter."
+            "smithy.api#documentation": "Value of filter.",
+            "smithy.api#required": {}
           }
         },
         "exclude": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Boolean to describe if filter is an excluding filter."
+            "smithy.api#documentation": "Boolean to describe if filter is an excluding filter.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -792,13 +827,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -974,13 +1018,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of invoices."
+            "smithy.api#documentation": "Total number of invoices.",
+            "smithy.api#required": {}
           }
         },
         "invoices": {
           "target": "com.scaleway.billing_v2beta1#ListInvoicesResponseInvoicesList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned invoices."
+            "smithy.api#documentation": "Paginated returned invoices.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -992,17 +1038,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Invoice ID. (UUID format)"
+            "smithy.api#documentation": "Invoice ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "start_date": {
           "target": "smithy.api#String",
@@ -1072,25 +1123,29 @@
         "type": {
           "target": "com.scaleway.billing_v2beta1#InvoiceType",
           "traits": {
-            "smithy.api#documentation": "Type of invoice, either periodic or purchase."
+            "smithy.api#documentation": "Type of invoice, either periodic or purchase.",
+            "smithy.api#required": {}
           }
         },
         "state": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The state of the Invoice."
+            "smithy.api#documentation": "The state of the Invoice.",
+            "smithy.api#required": {}
           }
         },
         "number": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Invoice number."
+            "smithy.api#documentation": "Invoice number.",
+            "smithy.api#required": {}
           }
         },
         "seller_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The name of the seller (Scaleway)."
+            "smithy.api#documentation": "The name of the seller (Scaleway).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1339,13 +1394,15 @@
         "taxes": {
           "target": "com.scaleway.billing_v2beta1#ListTaxesResponseTaxesList",
           "traits": {
-            "smithy.api#documentation": "Detailed consumption tax."
+            "smithy.api#documentation": "Detailed consumption tax.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of returned items."
+            "smithy.api#documentation": "Total number of returned items.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -1364,13 +1421,15 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the tax applied."
+            "smithy.api#documentation": "Description of the tax applied.",
+            "smithy.api#required": {}
           }
         },
         "currency": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The three-letter currency code."
+            "smithy.api#documentation": "The three-letter currency code.",
+            "smithy.api#required": {}
           }
         },
         "rate": {

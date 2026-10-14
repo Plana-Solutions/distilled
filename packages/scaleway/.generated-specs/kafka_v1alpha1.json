@@ -147,13 +147,15 @@
         "clusters": {
           "target": "com.scaleway.kafka_v1alpha1#ListClustersResponseClustersList",
           "traits": {
-            "smithy.api#documentation": "List of all Kafka cluster available in an Organization or Project."
+            "smithy.api#documentation": "List of all Kafka cluster available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Kafka cluster available in an Organization or Project."
+            "smithy.api#documentation": "Total count of Kafka cluster available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -165,61 +167,71 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Kafka cluster. (UUID format)"
+            "smithy.api#documentation": "UUID of the Kafka cluster. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Kafka cluster."
+            "smithy.api#documentation": "Name of the Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the Kafka cluster belongs to. (UUID format)"
+            "smithy.api#documentation": "Project ID the Kafka cluster belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organisation ID the Kafka cluster belongs to. (UUID format)"
+            "smithy.api#documentation": "Organisation ID the Kafka cluster belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.kafka_v1alpha1#ClusterStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Kafka cluster."
+            "smithy.api#documentation": "Status of the Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Kafka version of the Kafka cluster."
+            "smithy.api#documentation": "Kafka version of the Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.kafka_v1alpha1#ClusterTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the Kafka cluster."
+            "smithy.api#documentation": "List of tags applied to the Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "settings": {
           "target": "com.scaleway.kafka_v1alpha1#ClusterSettingsList",
           "traits": {
-            "smithy.api#documentation": "Advanced settings of the Kafka cluster."
+            "smithy.api#documentation": "Advanced settings of the Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "node_amount": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of nodes in Kafka cluster."
+            "smithy.api#documentation": "Number of nodes in Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type of the Kafka cluster."
+            "smithy.api#documentation": "Node type of the Kafka cluster.",
+            "smithy.api#required": {}
           }
         },
         "volume": {
@@ -231,7 +243,8 @@
         "endpoints": {
           "target": "com.scaleway.kafka_v1alpha1#ClusterEndpointsList",
           "traits": {
-            "smithy.api#documentation": "List of Kafka cluster endpoints."
+            "smithy.api#documentation": "List of Kafka cluster endpoints.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -251,7 +264,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Kafka cluster is in."
+            "smithy.api#documentation": "Region the Kafka cluster is in.",
+            "smithy.api#required": {}
           }
         },
         "multi_az": {
@@ -346,7 +360,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the setting."
+            "smithy.api#documentation": "Name of the setting.",
+            "smithy.api#required": {}
           }
         },
         "bool_value": {
@@ -395,13 +410,15 @@
         "type": {
           "target": "com.scaleway.kafka_v1alpha1#VolumeType",
           "traits": {
-            "smithy.api#documentation": "Type of volume where data is stored."
+            "smithy.api#documentation": "Type of volume where data is stored.",
+            "smithy.api#required": {}
           }
         },
         "size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Volume size. (in bytes)"
+            "smithy.api#documentation": "Volume size. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -437,19 +454,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the endpoint. (UUID format)"
+            "smithy.api#documentation": "UUID of the endpoint. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "dns_records": {
           "target": "com.scaleway.kafka_v1alpha1#EndpointDnsRecordsList",
           "traits": {
-            "smithy.api#documentation": "List of DNS records of the endpoint."
+            "smithy.api#documentation": "List of DNS records of the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "TCP port of the endpoint."
+            "smithy.api#documentation": "TCP port of the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "private_network": {
@@ -484,7 +504,8 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Private Network. (UUID format)"
+            "smithy.api#documentation": "UUID of the Private Network. (UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -965,13 +986,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1127,10 +1157,16 @@
       "type": "structure",
       "members": {
         "users": {
-          "target": "com.scaleway.kafka_v1alpha1#ListUsersResponseUsersList"
+          "target": "com.scaleway.kafka_v1alpha1#ListUsersResponseUsersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1139,7 +1175,10 @@
       "type": "structure",
       "members": {
         "username": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1409,13 +1448,15 @@
         "node_types": {
           "target": "com.scaleway.kafka_v1alpha1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "Types of the node."
+            "smithy.api#documentation": "Types of the node.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of node types available."
+            "smithy.api#documentation": "Total count of node types available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1427,55 +1468,64 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type name identifier."
+            "smithy.api#documentation": "Node type name identifier.",
+            "smithy.api#required": {}
           }
         },
         "stock_status": {
           "target": "com.scaleway.kafka_v1alpha1#NodeTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock status for the node type."
+            "smithy.api#documentation": "Current stock status for the node type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Current specifications of the node type offer."
+            "smithy.api#documentation": "Current specifications of the node type offer.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of virtual CPUs of the node type."
+            "smithy.api#documentation": "Number of virtual CPUs of the node type.",
+            "smithy.api#required": {}
           }
         },
         "memory_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quantity of RAM. (in bytes)"
+            "smithy.api#documentation": "Quantity of RAM. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "available_volume_types": {
           "target": "com.scaleway.kafka_v1alpha1#NodeTypeAvailableVolumeTypesList",
           "traits": {
-            "smithy.api#documentation": "Available storage options for the node type."
+            "smithy.api#documentation": "Available storage options for the node type.",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the node type is currently disabled."
+            "smithy.api#documentation": "Defines whether the node type is currently disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the node type is currently in beta."
+            "smithy.api#documentation": "Defines whether the node type is currently in beta.",
+            "smithy.api#required": {}
           }
         },
         "cluster_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cluster range associated with the node type offer."
+            "smithy.api#documentation": "Cluster range associated with the node type offer.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1517,31 +1567,36 @@
         "type": {
           "target": "com.scaleway.kafka_v1alpha1#VolumeType",
           "traits": {
-            "smithy.api#documentation": "Volume type."
+            "smithy.api#documentation": "Volume type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the volume."
+            "smithy.api#documentation": "The description of the volume.",
+            "smithy.api#required": {}
           }
         },
         "min_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum size required for the volume. (in bytes)"
+            "smithy.api#documentation": "Minimum size required for the volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum size required for the volume. (in bytes)"
+            "smithy.api#documentation": "Maximum size required for the volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "chunk_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum increment level for a Block Storage volume size. (in bytes)"
+            "smithy.api#documentation": "Minimum increment level for a Block Storage volume size. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1644,13 +1699,15 @@
         "versions": {
           "target": "com.scaleway.kafka_v1alpha1#ListVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available Kafka versions."
+            "smithy.api#documentation": "Available Kafka versions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Kafka versions available."
+            "smithy.api#documentation": "Total count of Kafka versions available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1662,7 +1719,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Kafka version."
+            "smithy.api#documentation": "Kafka version.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life_at": {
@@ -1675,7 +1733,8 @@
         "available_settings": {
           "target": "com.scaleway.kafka_v1alpha1#VersionAvailableSettingsList",
           "traits": {
-            "smithy.api#documentation": "Cluster configuration settings you are able to change for clusters running this version. Each item in `available_settings` describes one configurable cluster setting."
+            "smithy.api#documentation": "Cluster configuration settings you are able to change for clusters running this version. Each item in `available_settings` describes one configurable cluster setting.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1687,19 +1746,22 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Kafka cluster setting name."
+            "smithy.api#documentation": "Kafka cluster setting name.",
+            "smithy.api#required": {}
           }
         },
         "hot_configurable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether this setting can be applied without needing a restart."
+            "smithy.api#documentation": "Defines whether this setting can be applied without needing a restart.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Setting description."
+            "smithy.api#documentation": "Setting description.",
+            "smithy.api#required": {}
           }
         },
         "bool_property": {
@@ -1737,7 +1799,10 @@
       "type": "structure",
       "members": {
         "default_value": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1752,7 +1817,10 @@
           }
         },
         "default_value": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1761,13 +1829,22 @@
       "type": "structure",
       "members": {
         "min": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "max": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default_value": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "unit": {
           "target": "smithy.api#String",
@@ -1782,13 +1859,22 @@
       "type": "structure",
       "members": {
         "min": {
-          "target": "smithy.api#Double"
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "max": {
-          "target": "smithy.api#Double"
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default_value": {
-          "target": "smithy.api#Double"
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "unit": {
           "target": "smithy.api#String",

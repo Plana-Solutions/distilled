@@ -67,20 +67,20 @@ export const ACLRuleAction = S.String;
 
 export interface ACLRule {
   /** (IP network) */
-  ip?: string;
-  protocol?: ACLRuleProtocol;
-  direction?: ACLRuleDirection;
-  action?: ACLRuleAction;
-  description?: string;
+  ip: string;
+  protocol: ACLRuleProtocol;
+  direction: ACLRuleDirection;
+  action: ACLRuleAction;
+  description: string;
   port?: number;
 }
 export const ACLRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip: S.optional(S.String),
-    protocol: S.optional(ACLRuleProtocol),
-    direction: S.optional(ACLRuleDirection),
-    action: S.optional(ACLRuleAction),
-    description: S.optional(S.String),
+    ip: S.String,
+    protocol: ACLRuleProtocol,
+    direction: ACLRuleDirection,
+    action: ACLRuleAction,
+    description: S.String,
     port: S.optional(S.Number),
   }),
 ).annotate({ identifier: "ACLRule" }) as any as S.Schema<ACLRule>;
@@ -93,11 +93,11 @@ export const AddInstanceACLRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface AddInstanceACLRulesResponse {
   /** ACL Rules enabled for the Database Instance. */
-  rules?: AddInstanceACLRulesResponseRulesList;
+  rules: AddInstanceACLRulesResponseRulesList;
 }
 export const AddInstanceACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(AddInstanceACLRulesResponseRulesList),
+    rules: AddInstanceACLRulesResponseRulesList,
   }),
 ).annotate({
   identifier: "AddInstanceACLRulesResponse",
@@ -156,11 +156,11 @@ export const AddInstanceSettingsResponseSettingsList = /*@__PURE__*/ S.Array(
 
 export interface AddInstanceSettingsResponse {
   /** Settings available on the Database Instance. */
-  settings?: AddInstanceSettingsResponseSettingsList;
+  settings: AddInstanceSettingsResponseSettingsList;
 }
 export const AddInstanceSettingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    settings: S.optional(AddInstanceSettingsResponseSettingsList),
+    settings: AddInstanceSettingsResponseSettingsList,
   }),
 ).annotate({
   identifier: "AddInstanceSettingsResponse",
@@ -202,23 +202,23 @@ export interface Maintenance {
   /** Closed maintenance date. (RFC 3339 format) */
   closed_at?: string | null;
   /** Maintenance information message. */
-  reason?: string;
+  reason: string;
   /** Status of the maintenance. */
-  status?: MaintenanceStatus;
+  status: MaintenanceStatus;
   /** Time when Scaleway-side maintenance will be applied. (RFC 3339 format) */
   forced_at?: string | null;
   /** Indicate if the maintenance can be applied by the user. */
-  is_applicable?: boolean;
+  is_applicable: boolean;
 }
 export const Maintenance = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     starts_at: S.optional(S.NullOr(S.String)),
     stops_at: S.optional(S.NullOr(S.String)),
     closed_at: S.optional(S.NullOr(S.String)),
-    reason: S.optional(S.String),
-    status: S.optional(MaintenanceStatus),
+    reason: S.String,
+    status: MaintenanceStatus,
     forced_at: S.optional(S.NullOr(S.String)),
-    is_applicable: S.optional(S.Boolean),
+    is_applicable: S.Boolean,
   }),
 ).annotate({ identifier: "Maintenance" }) as any as S.Schema<Maintenance>;
 
@@ -258,16 +258,16 @@ export type StorageClass = "unknown_storage_class" | "lssd" | "bssd" | "sbs";
 export const StorageClass = S.String;
 
 export interface Volume {
-  type?: VolumeType;
+  type: VolumeType;
   /** (in bytes) */
-  size?: number;
-  class?: StorageClass;
+  size: number;
+  class: StorageClass;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    size: S.optional(S.Number),
-    class: S.optional(StorageClass),
+    type: VolumeType,
+    size: S.Number,
+    class: StorageClass,
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 
@@ -289,17 +289,17 @@ export const InstanceStatus = S.String;
 
 export interface UpgradableVersion {
   /** (UUID format) */
-  id?: string;
-  name?: string;
-  version?: string;
-  minor_version?: string;
+  id: string;
+  name: string;
+  version: string;
+  minor_version: string;
 }
 export const UpgradableVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    version: S.optional(S.String),
-    minor_version: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    version: S.String,
+    minor_version: S.String,
   }),
 ).annotate({ identifier: "UpgradableVersion" }) as any as S.Schema<UpgradableVersion>;
 
@@ -314,20 +314,20 @@ export const EndpointPrivateNetworkDetailsProvisioningMode = S.String;
 
 export interface EndpointPrivateNetworkDetails {
   /** UUID of the private network. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
   /** CIDR notation of the endpoint IPv4 address. (IP network) */
-  service_ip?: string;
+  service_ip: string;
   /** Private network zone. */
-  zone?: string;
+  zone: string;
   /** How endpoint ips are provisioned. */
-  provisioning_mode?: EndpointPrivateNetworkDetailsProvisioningMode;
+  provisioning_mode: EndpointPrivateNetworkDetailsProvisioningMode;
 }
 export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
-    service_ip: S.optional(S.String),
-    zone: S.optional(S.String),
-    provisioning_mode: S.optional(EndpointPrivateNetworkDetailsProvisioningMode),
+    private_network_id: S.String,
+    service_ip: S.String,
+    zone: S.String,
+    provisioning_mode: EndpointPrivateNetworkDetailsProvisioningMode,
   }),
 ).annotate({
   identifier: "EndpointPrivateNetworkDetails",
@@ -335,11 +335,11 @@ export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 
 export interface Endpoint {
   /** UUID of the endpoint. (UUID format) */
-  id?: string;
+  id: string;
   /** IPv4 address of the endpoint. (IP address) */
   ip?: string | null;
   /** TCP port of the endpoint. */
-  port?: number;
+  port: number;
   /** Name of the endpoint. */
   name?: string | null;
   /** Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). */
@@ -353,9 +353,9 @@ export interface Endpoint {
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     ip: S.optional(S.NullOr(S.String)),
-    port: S.optional(S.Number),
+    port: S.Number,
     name: S.optional(S.NullOr(S.String)),
     private_network: S.optional(S.NullOr(EndpointPrivateNetworkDetails)),
     load_balancer: S.optional(S.NullOr(S.Unknown)),
@@ -378,19 +378,19 @@ export const InstanceSettingsList = /*@__PURE__*/ S.Array(
 
 export interface BackupSchedule {
   /** Frequency of the backup schedule (in hours). */
-  frequency?: number;
+  frequency: number;
   /** Default retention period of backups (in days). */
-  retention?: number;
+  retention: number;
   /** Defines whether the backup schedule feature is disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Next run of the backup schedule (accurate to 10 minutes). (RFC 3339 format) */
   next_run_at?: string | null;
 }
 export const BackupSchedule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    frequency: S.optional(S.Number),
-    retention: S.optional(S.Number),
-    disabled: S.optional(S.Boolean),
+    frequency: S.Number,
+    retention: S.Number,
+    disabled: S.Boolean,
     next_run_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "BackupSchedule" }) as any as S.Schema<BackupSchedule>;
@@ -422,26 +422,26 @@ export const ReadReplicaStatus = S.String;
 
 export interface ReadReplica {
   /** UUID of the Read Replica. (UUID format) */
-  id?: string;
+  id: string;
   /** Display Read Replica connection information. */
-  endpoints?: ReadReplicaEndpointsList;
+  endpoints: ReadReplicaEndpointsList;
   /** Read replica status. */
-  status?: ReadReplicaStatus;
+  status: ReadReplicaStatus;
   /** Region the Read Replica is in. */
-  region?: string;
+  region: string;
   /** Whether the replica is in the same availability zone as the main instance nodes or not. */
-  same_zone?: boolean;
+  same_zone: boolean;
   /** UUID of the Database Instance. */
-  instance_id?: string;
+  instance_id: string;
 }
 export const ReadReplica = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    endpoints: S.optional(ReadReplicaEndpointsList),
-    status: S.optional(ReadReplicaStatus),
-    region: S.optional(S.String),
-    same_zone: S.optional(S.Boolean),
-    instance_id: S.optional(S.String),
+    id: S.String,
+    endpoints: ReadReplicaEndpointsList,
+    status: ReadReplicaStatus,
+    region: S.String,
+    same_zone: S.Boolean,
+    instance_id: S.String,
   }),
 ).annotate({ identifier: "ReadReplica" }) as any as S.Schema<ReadReplica>;
 
@@ -497,47 +497,47 @@ export interface Instance {
   /** Volumes of the Database Instance. */
   volume?: Volume;
   /** Region the Database Instance is in. */
-  region?: string;
+  region: string;
   /** UUID of the Database Instance. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Database Instance. */
-  name?: string;
+  name: string;
   /** Organization ID the Database Instance belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID the Database Instance belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Status of the Database Instance. */
-  status?: InstanceStatus;
+  status: InstanceStatus;
   /** Database engine of the database (PostgreSQL, MySQL, ...). */
-  engine?: string;
+  engine: string;
   /** Available database engine versions for upgrade. */
-  upgradable_version?: InstanceUpgradableVersionList;
+  upgradable_version: InstanceUpgradableVersionList;
   /** Endpoint of the Database Instance. */
   endpoint?: Endpoint;
   /** List of tags applied to the Database Instance. */
-  tags?: InstanceTagsList;
+  tags: InstanceTagsList;
   /** Advanced settings of the Database Instance. */
-  settings?: InstanceSettingsList;
+  settings: InstanceSettingsList;
   /** Backup schedule of the Database Instance. */
   backup_schedule?: BackupSchedule;
   /** Defines whether or not High-Availability is enabled. */
-  is_ha_cluster?: boolean;
+  is_ha_cluster: boolean;
   /** Defines the High-Availability mode of the instance. */
-  high_availability_mode?: HighAvailabilityMode;
+  high_availability_mode: HighAvailabilityMode;
   /** Read Replicas of the Database Instance. */
-  read_replicas?: InstanceReadReplicasList;
+  read_replicas: InstanceReadReplicasList;
   /** Node type of the Database Instance. */
-  node_type?: string;
+  node_type: string;
   /** List of engine settings to be set at database initialization. */
-  init_settings?: InstanceInitSettingsList;
+  init_settings: InstanceInitSettingsList;
   /** List of Database Instance endpoints. */
-  endpoints?: InstanceEndpointsList;
+  endpoints: InstanceEndpointsList;
   /** Logs policy of the Database Instance. */
   logs_policy?: LogsPolicy;
   /** Store logical backups in the same region as the Database Instance. */
-  backup_same_region?: boolean;
+  backup_same_region: boolean;
   /** List of Database Instance maintenance events. */
-  maintenances?: InstanceMaintenancesList;
+  maintenances: InstanceMaintenancesList;
   /** Encryption at rest settings for your Database Instance. */
   encryption?: EncryptionAtRest;
 }
@@ -545,27 +545,27 @@ export const Instance = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     created_at: S.optional(S.NullOr(S.String)),
     volume: S.optional(Volume),
-    region: S.optional(S.String),
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(InstanceStatus),
-    engine: S.optional(S.String),
-    upgradable_version: S.optional(InstanceUpgradableVersionList),
+    region: S.String,
+    id: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    status: InstanceStatus,
+    engine: S.String,
+    upgradable_version: InstanceUpgradableVersionList,
     endpoint: S.optional(Endpoint),
-    tags: S.optional(InstanceTagsList),
-    settings: S.optional(InstanceSettingsList),
+    tags: InstanceTagsList,
+    settings: InstanceSettingsList,
     backup_schedule: S.optional(BackupSchedule),
-    is_ha_cluster: S.optional(S.Boolean),
-    high_availability_mode: S.optional(HighAvailabilityMode),
-    read_replicas: S.optional(InstanceReadReplicasList),
-    node_type: S.optional(S.String),
-    init_settings: S.optional(InstanceInitSettingsList),
-    endpoints: S.optional(InstanceEndpointsList),
+    is_ha_cluster: S.Boolean,
+    high_availability_mode: HighAvailabilityMode,
+    read_replicas: InstanceReadReplicasList,
+    node_type: S.String,
+    init_settings: InstanceInitSettingsList,
+    endpoints: InstanceEndpointsList,
     logs_policy: S.optional(LogsPolicy),
-    backup_same_region: S.optional(S.Boolean),
-    maintenances: S.optional(InstanceMaintenancesList),
+    backup_same_region: S.Boolean,
+    maintenances: InstanceMaintenancesList,
     encryption: S.optional(EncryptionAtRest),
   }),
 ).annotate({ identifier: "Instance" }) as any as S.Schema<Instance>;
@@ -598,20 +598,20 @@ export const CreateDatabaseRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Database {
   /** Name of the database. */
-  name?: string;
+  name: string;
   /** Name of the database owner. */
-  owner?: string;
+  owner: string;
   /** Defines whether the database is managed or not. */
-  managed?: boolean;
+  managed: boolean;
   /** Size of the database. Set to 0 if the size retrieval is too time-consuming or `skip_size_retrieval` is set to true. (in bytes) */
-  size?: number;
+  size: number;
 }
 export const Database = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    owner: S.optional(S.String),
-    managed: S.optional(S.Boolean),
-    size: S.optional(S.Number),
+    name: S.String,
+    owner: S.String,
+    managed: S.Boolean,
+    size: S.Number,
   }),
 ).annotate({ identifier: "Database" }) as any as S.Schema<Database>;
 
@@ -662,15 +662,15 @@ export const DatabaseBackupStatus = S.String;
 
 export interface DatabaseBackup {
   /** UUID of the database backup. */
-  id?: string;
+  id: string;
   /** UUID of the Database Instance. */
-  instance_id?: string;
+  instance_id: string;
   /** Name of backed up database. */
-  database_name?: string;
+  database_name: string;
   /** Name of the backup. */
-  name?: string;
+  name: string;
   /** Status of the backup. */
-  status?: DatabaseBackupStatus;
+  status: DatabaseBackupStatus;
   /** Size of the database backup. (in bytes) */
   size?: number | null;
   /** Expiration date (must follow the ISO 8601 format). (RFC 3339 format) */
@@ -680,32 +680,32 @@ export interface DatabaseBackup {
   /** Updated date (must follow the ISO 8601 format). (RFC 3339 format) */
   updated_at?: string | null;
   /** Name of the Database Instance of the backup. */
-  instance_name?: string;
+  instance_name: string;
   /** URL you can download the backup from. */
   download_url?: string | null;
   /** Expiration date of the download link. (RFC 3339 format) */
   download_url_expires_at?: string | null;
   /** Region of the database backup. */
-  region?: string;
+  region: string;
   /** Store logical backups in the same region as the source Database Instance. */
-  same_region?: boolean;
+  same_region: boolean;
 }
 export const DatabaseBackup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    instance_id: S.optional(S.String),
-    database_name: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(DatabaseBackupStatus),
+    id: S.String,
+    instance_id: S.String,
+    database_name: S.String,
+    name: S.String,
+    status: DatabaseBackupStatus,
     size: S.optional(S.NullOr(S.Number)),
     expires_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    instance_name: S.optional(S.String),
+    instance_name: S.String,
     download_url: S.optional(S.NullOr(S.String)),
     download_url_expires_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
-    same_region: S.optional(S.Boolean),
+    region: S.String,
+    same_region: S.Boolean,
   }),
 ).annotate({ identifier: "DatabaseBackup" }) as any as S.Schema<DatabaseBackup>;
 
@@ -1032,25 +1032,25 @@ export type SnapshotStatus =
 export const SnapshotStatus = S.String;
 
 export interface SnapshotVolumeType {
-  type?: VolumeType;
-  class?: StorageClass;
+  type: VolumeType;
+  class: StorageClass;
 }
 export const SnapshotVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    class: S.optional(StorageClass),
+    type: VolumeType,
+    class: StorageClass,
   }),
 ).annotate({ identifier: "SnapshotVolumeType" }) as any as S.Schema<SnapshotVolumeType>;
 
 export interface Snapshot {
   /** UUID of the snapshot. */
-  id?: string;
+  id: string;
   /** UUID of the Database Instance. */
-  instance_id?: string;
+  instance_id: string;
   /** Name of the snapshot. */
-  name?: string;
+  name: string;
   /** Status of the snapshot. */
-  status?: SnapshotStatus;
+  status: SnapshotStatus;
   /** Size of the snapshot. (in bytes) */
   size?: number | null;
   /** Expiration date (must follow the ISO 8601 format). (RFC 3339 format) */
@@ -1060,28 +1060,28 @@ export interface Snapshot {
   /** Updated date (must follow the ISO 8601 format). (RFC 3339 format) */
   updated_at?: string | null;
   /** Name of the Database Instance of the snapshot. */
-  instance_name?: string;
+  instance_name: string;
   /** Source node type. */
-  node_type?: string;
+  node_type: string;
   /** Type of volume where data is stored (lssd, bssd or sbs). */
   volume_type?: SnapshotVolumeType;
   /** Region of this snapshot. */
-  region?: string;
+  region: string;
 }
 export const Snapshot = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    instance_id: S.optional(S.String),
-    name: S.optional(S.String),
-    status: S.optional(SnapshotStatus),
+    id: S.String,
+    instance_id: S.String,
+    name: S.String,
+    status: SnapshotStatus,
     size: S.optional(S.NullOr(S.Number)),
     expires_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    instance_name: S.optional(S.String),
-    node_type: S.optional(S.String),
+    instance_name: S.String,
+    node_type: S.String,
     volume_type: S.optional(SnapshotVolumeType),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Snapshot" }) as any as S.Schema<Snapshot>;
 
@@ -1119,14 +1119,14 @@ export const CreateUserRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface User {
   /** Name of the user (Length must be between 1 and 63 characters for PostgreSQL and between 1 and 32 characters for MySQL. First character must be an alphabet character (a-zA-Z). Your username cannot start with '_rdb' or in PostgreSQL, 'pg_'. Only a-zA-Z0-9_$- characters are accepted). */
-  name?: string;
+  name: string;
   /** Defines whether or not a user got administrative privileges on the Database Instance. */
-  is_admin?: boolean;
+  is_admin: boolean;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    is_admin: S.optional(S.Boolean),
+    name: S.String,
+    is_admin: S.Boolean,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -1279,11 +1279,11 @@ export const DeleteInstanceACLRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface DeleteInstanceACLRulesResponse {
   /** IP addresses defined in the ACL rules of the Database Instance. */
-  rules?: DeleteInstanceACLRulesResponseRulesList;
+  rules: DeleteInstanceACLRulesResponseRulesList;
 }
 export const DeleteInstanceACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(DeleteInstanceACLRulesResponseRulesList),
+    rules: DeleteInstanceACLRulesResponseRulesList,
   }),
 ).annotate({
   identifier: "DeleteInstanceACLRulesResponse",
@@ -1331,11 +1331,11 @@ export const DeleteInstanceSettingsResponseSettingsList = /*@__PURE__*/ S.Array(
 
 export interface DeleteInstanceSettingsResponse {
   /** Settings names to delete from the Database Instance. */
-  settings?: DeleteInstanceSettingsResponseSettingsList;
+  settings: DeleteInstanceSettingsResponseSettingsList;
 }
 export const DeleteInstanceSettingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    settings: S.optional(DeleteInstanceSettingsResponseSettingsList),
+    settings: DeleteInstanceSettingsResponseSettingsList,
   }),
 ).annotate({
   identifier: "DeleteInstanceSettingsResponse",
@@ -1538,15 +1538,15 @@ export const GetInstanceCertificateRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetInstanceCertificateRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -1608,27 +1608,27 @@ export interface InstanceLog {
   /** Presigned Object Storage URL to download your log file. */
   download_url?: string | null;
   /** UUID of the Database Instance log. */
-  id?: string;
+  id: string;
   /** Status of the logs in a Database Instance. */
-  status?: InstanceLogStatus;
+  status: InstanceLogStatus;
   /** Name of the underlying node. */
-  node_name?: string;
+  node_name: string;
   /** Expiration date (must follow the ISO 8601 format). (RFC 3339 format) */
   expires_at?: string | null;
   /** Creation date (must follow the ISO 8601 format). (RFC 3339 format) */
   created_at?: string | null;
   /** Region the Database Instance is in. */
-  region?: string;
+  region: string;
 }
 export const InstanceLog = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     download_url: S.optional(S.NullOr(S.String)),
-    id: S.optional(S.String),
-    status: S.optional(InstanceLogStatus),
-    node_name: S.optional(S.String),
+    id: S.String,
+    status: InstanceLogStatus,
+    node_name: S.String,
     expires_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "InstanceLog" }) as any as S.Schema<InstanceLog>;
 
@@ -1738,12 +1738,12 @@ export interface ListDatabaseBackupsResponse {
   /** List of database backups. */
   database_backups: ListDatabaseBackupsResponseDatabaseBackupsList;
   /** Total count of database backups available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatabaseBackupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     database_backups: ListDatabaseBackupsResponseDatabaseBackupsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListDatabaseBackupsResponse",
@@ -1786,15 +1786,15 @@ export const EngineSettingPropertyType = S.String;
 
 export interface EngineSetting {
   /** Setting name from the database engine. */
-  name?: string;
+  name: string;
   /** Value set when not specified. */
-  default_value?: string;
+  default_value: string;
   /** Setting can be applied without restarting. */
-  hot_configurable?: boolean;
+  hot_configurable: boolean;
   /** Setting description. */
-  description?: string;
+  description: string;
   /** Setting type. */
-  property_type?: EngineSettingPropertyType;
+  property_type: EngineSettingPropertyType;
   /** Setting base unit. */
   unit?: string | null;
   /** Validation regex for string type settings. */
@@ -1810,11 +1810,11 @@ export interface EngineSetting {
 }
 export const EngineSetting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    default_value: S.optional(S.String),
-    hot_configurable: S.optional(S.Boolean),
-    description: S.optional(S.String),
-    property_type: S.optional(EngineSettingPropertyType),
+    name: S.String,
+    default_value: S.String,
+    hot_configurable: S.Boolean,
+    description: S.String,
+    property_type: EngineSettingPropertyType,
     unit: S.optional(S.NullOr(S.String)),
     string_constraint: S.optional(S.NullOr(S.String)),
     int_min: S.optional(S.NullOr(S.Number)),
@@ -1838,31 +1838,31 @@ export const EngineVersionAvailableInitSettingsList = /*@__PURE__*/ S.Array(
 
 export interface EngineVersion {
   /** Database engine version. */
-  version?: string;
+  version: string;
   /** Database engine name. */
-  name?: string;
+  name: string;
   /** End of life date. (RFC 3339 format) */
   end_of_life?: string | null;
   /** Engine settings available to be set. */
-  available_settings?: EngineVersionAvailableSettingsList;
+  available_settings: EngineVersionAvailableSettingsList;
   /** Disabled versions cannot be created. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Beta status of engine version. */
-  beta?: boolean;
+  beta: boolean;
   /** Engine settings available to be set at database initialization. */
-  available_init_settings?: EngineVersionAvailableInitSettingsList;
+  available_init_settings: EngineVersionAvailableInitSettingsList;
   /** Version release date. (RFC 3339 format) */
   release_date?: string | null;
 }
 export const EngineVersion = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
-    name: S.optional(S.String),
+    version: S.String,
+    name: S.String,
     end_of_life: S.optional(S.NullOr(S.String)),
-    available_settings: S.optional(EngineVersionAvailableSettingsList),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
-    available_init_settings: S.optional(EngineVersionAvailableInitSettingsList),
+    available_settings: EngineVersionAvailableSettingsList,
+    disabled: S.Boolean,
+    beta: S.Boolean,
+    available_init_settings: EngineVersionAvailableInitSettingsList,
     release_date: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "EngineVersion" }) as any as S.Schema<EngineVersion>;
@@ -1875,20 +1875,20 @@ export const DatabaseEngineVersionsList = /*@__PURE__*/ S.Array(
 
 export interface DatabaseEngine {
   /** Engine name. */
-  name?: string;
+  name: string;
   /** Engine logo URL. */
-  logo_url?: string;
+  logo_url: string;
   /** Available versions. */
-  versions?: DatabaseEngineVersionsList;
+  versions: DatabaseEngineVersionsList;
   /** Region of this Database Instance. */
-  region?: string;
+  region: string;
 }
 export const DatabaseEngine = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    logo_url: S.optional(S.String),
-    versions: S.optional(DatabaseEngineVersionsList),
-    region: S.optional(S.String),
+    name: S.String,
+    logo_url: S.String,
+    versions: DatabaseEngineVersionsList,
+    region: S.String,
   }),
 ).annotate({ identifier: "DatabaseEngine" }) as any as S.Schema<DatabaseEngine>;
 
@@ -1902,12 +1902,12 @@ export interface ListDatabaseEnginesResponse {
   /** List of the available database engines. */
   engines: ListDatabaseEnginesResponseEnginesList;
   /** Total count of database engines available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatabaseEnginesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     engines: ListDatabaseEnginesResponseEnginesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListDatabaseEnginesResponse",
@@ -1968,12 +1968,12 @@ export interface ListDatabasesResponse {
   /** List of the databases. */
   databases: ListDatabasesResponseDatabasesList;
   /** Total count of databases present on a Database Instance. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatabasesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     databases: ListDatabasesResponseDatabasesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDatabasesResponse" }) as any as S.Schema<ListDatabasesResponse>;
 
@@ -2016,12 +2016,12 @@ export interface ListInstanceACLRulesResponse {
   /** List of ACL rules present on a Database Instance. */
   rules: ListInstanceACLRulesResponseRulesList;
   /** Total count of ACL rules present on a Database Instance. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListInstanceACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     rules: ListInstanceACLRulesResponseRulesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListInstanceACLRulesResponse",
@@ -2064,11 +2064,11 @@ export const ListInstanceLogsResponseInstanceLogsList = /*@__PURE__*/ S.Array(
 
 export interface ListInstanceLogsResponse {
   /** Available logs in a Database Instance. */
-  instance_logs?: ListInstanceLogsResponseInstanceLogsList;
+  instance_logs: ListInstanceLogsResponseInstanceLogsList;
 }
 export const ListInstanceLogsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    instance_logs: S.optional(ListInstanceLogsResponseInstanceLogsList),
+    instance_logs: ListInstanceLogsResponseInstanceLogsList,
   }),
 ).annotate({ identifier: "ListInstanceLogsResponse" }) as any as S.Schema<ListInstanceLogsResponse>;
 
@@ -2098,13 +2098,13 @@ export const ListInstanceLogsDetailsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<ListInstanceLogsDetailsRequest>;
 
 export interface ListInstanceLogsDetailsResponseInstanceLogDetail {
-  log_name?: string;
-  size?: number;
+  log_name: string;
+  size: number;
 }
 export const ListInstanceLogsDetailsResponseInstanceLogDetail = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    log_name: S.optional(S.String),
-    size: S.optional(S.Number),
+    log_name: S.String,
+    size: S.Number,
   }),
 ).annotate({
   identifier: "ListInstanceLogsDetailsResponseInstanceLogDetail",
@@ -2119,11 +2119,11 @@ export const ListInstanceLogsDetailsResponseDetailsList = /*@__PURE__*/ S.Array(
 
 export interface ListInstanceLogsDetailsResponse {
   /** Remote Database Instance logs details. */
-  details?: ListInstanceLogsDetailsResponseDetailsList;
+  details: ListInstanceLogsDetailsResponseDetailsList;
 }
 export const ListInstanceLogsDetailsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    details: S.optional(ListInstanceLogsDetailsResponseDetailsList),
+    details: ListInstanceLogsDetailsResponseDetailsList,
   }),
 ).annotate({
   identifier: "ListInstanceLogsDetailsResponse",
@@ -2196,12 +2196,12 @@ export interface ListInstancesResponse {
   /** List of all Database Instances available in an Organization or Project. */
   instances: ListInstancesResponseInstancesList;
   /** Total count of Database Instances available in a Organization or Project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListInstancesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     instances: ListInstancesResponseInstancesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListInstancesResponse" }) as any as S.Schema<ListInstancesResponse>;
 
@@ -2237,14 +2237,14 @@ export const NodeTypeStock = S.String;
 
 export interface NodeTypeVolumeConstraintSizes {
   /** [deprecated] Minimum size required for the Volume. (in bytes) */
-  min_size?: number;
+  min_size: number;
   /** [deprecated] Maximum size required for the Volume. (in bytes) */
-  max_size?: number;
+  max_size: number;
 }
 export const NodeTypeVolumeConstraintSizes = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
+    min_size: S.Number,
+    max_size: S.Number,
   }),
 ).annotate({
   identifier: "NodeTypeVolumeConstraintSizes",
@@ -2252,26 +2252,26 @@ export const NodeTypeVolumeConstraintSizes = /*@__PURE__*/ S.suspend(() =>
 
 export interface NodeTypeVolumeType {
   /** Volume Type. */
-  type?: VolumeType;
+  type: VolumeType;
   /** The description of the Volume. */
-  description?: string;
+  description: string;
   /** Minimum size required for the Volume. (in bytes) */
-  min_size?: number;
+  min_size: number;
   /** Maximum size required for the Volume. (in bytes) */
-  max_size?: number;
+  max_size: number;
   /** Minimum increment level for a Block Storage volume size. (in bytes) */
-  chunk_size?: number;
+  chunk_size: number;
   /** The storage class of the volume. */
-  class?: StorageClass;
+  class: StorageClass;
 }
 export const NodeTypeVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    description: S.optional(S.String),
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
-    chunk_size: S.optional(S.Number),
-    class: S.optional(StorageClass),
+    type: VolumeType,
+    description: S.String,
+    min_size: S.Number,
+    max_size: S.Number,
+    chunk_size: S.Number,
+    class: StorageClass,
   }),
 ).annotate({ identifier: "NodeTypeVolumeType" }) as any as S.Schema<NodeTypeVolumeType>;
 
@@ -2290,50 +2290,50 @@ export const NodeTypeGeneration = S.String;
 
 export interface NodeType {
   /** Node Type name identifier. */
-  name?: string;
+  name: string;
   /** Current stock status for the Node Type. */
-  stock_status?: NodeTypeStock;
+  stock_status: NodeTypeStock;
   /** Current specs of the offer. */
-  description?: string;
+  description: string;
   /** Number of virtual CPUs. */
-  vcpus?: number;
+  vcpus: number;
   /** Quantity of RAM. (in bytes) */
-  memory?: number;
+  memory: number;
   /** [deprecated] Node Type volume constraints. */
   volume_constraint?: NodeTypeVolumeConstraintSizes;
   /** The Node Type is compliant with Block Storage. */
   is_bssd_compatible?: boolean;
   /** The Node Type is currently disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** The Node Type is currently in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** Available storage options for the Node Type. */
-  available_volume_types?: NodeTypeAvailableVolumeTypesList;
+  available_volume_types: NodeTypeAvailableVolumeTypesList;
   /** The Node Type can be used only with high availability option. */
-  is_ha_required?: boolean;
+  is_ha_required: boolean;
   /** Generation associated with the NodeType offer. */
-  generation?: NodeTypeGeneration;
+  generation: NodeTypeGeneration;
   /** Instance range associated with the NodeType offer. */
-  instance_range?: string;
+  instance_range: string;
   /** Region the Node Type is in. */
-  region?: string;
+  region: string;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    stock_status: S.optional(NodeTypeStock),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory: S.optional(S.Number),
+    name: S.String,
+    stock_status: NodeTypeStock,
+    description: S.String,
+    vcpus: S.Number,
+    memory: S.Number,
     volume_constraint: S.optional(NodeTypeVolumeConstraintSizes),
     is_bssd_compatible: S.optional(S.Boolean),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
-    available_volume_types: S.optional(NodeTypeAvailableVolumeTypesList),
-    is_ha_required: S.optional(S.Boolean),
-    generation: S.optional(NodeTypeGeneration),
-    instance_range: S.optional(S.String),
-    region: S.optional(S.String),
+    disabled: S.Boolean,
+    beta: S.Boolean,
+    available_volume_types: NodeTypeAvailableVolumeTypesList,
+    is_ha_required: S.Boolean,
+    generation: NodeTypeGeneration,
+    instance_range: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -2347,12 +2347,12 @@ export interface ListNodeTypesResponse {
   /** Types of the node. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** Total count of node-types available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -2404,17 +2404,17 @@ export const Permission = S.String;
 
 export interface Privilege {
   /** Permission (Read, Read/Write, All, Custom). */
-  permission?: Permission;
+  permission: Permission;
   /** Name of the database. */
-  database_name?: string;
+  database_name: string;
   /** Name of the user. */
-  user_name?: string;
+  user_name: string;
 }
 export const Privilege = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    permission: S.optional(Permission),
-    database_name: S.optional(S.String),
-    user_name: S.optional(S.String),
+    permission: Permission,
+    database_name: S.String,
+    user_name: S.String,
   }),
 ).annotate({ identifier: "Privilege" }) as any as S.Schema<Privilege>;
 
@@ -2428,12 +2428,12 @@ export interface ListPrivilegesResponse {
   /** Privileges of a user in a database in a Database Instance. */
   privileges: ListPrivilegesResponsePrivilegesList;
   /** Total count of privileges present on a database. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPrivilegesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     privileges: ListPrivilegesResponsePrivilegesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPrivilegesResponse" }) as any as S.Schema<ListPrivilegesResponse>;
 
@@ -2495,12 +2495,12 @@ export interface ListSnapshotsResponse {
   /** List of snapshots. */
   snapshots: ListSnapshotsResponseSnapshotsList;
   /** Total count of snapshots available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSnapshotsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     snapshots: ListSnapshotsResponseSnapshotsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSnapshotsResponse" }) as any as S.Schema<ListSnapshotsResponse>;
 
@@ -2550,12 +2550,12 @@ export interface ListUsersResponse {
   /** List of users in a Database Instance. */
   users: ListUsersResponseUsersList;
   /** Total count of users present on a Database Instance. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     users: ListUsersResponseUsersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUsersResponse" }) as any as S.Schema<ListUsersResponse>;
 
@@ -2624,11 +2624,11 @@ export const PrepareInstanceLogsResponseInstanceLogsList = /*@__PURE__*/ S.Array
 
 export interface PrepareInstanceLogsResponse {
   /** Instance logs for a Database Instance between a start and an end date. */
-  instance_logs?: PrepareInstanceLogsResponseInstanceLogsList;
+  instance_logs: PrepareInstanceLogsResponseInstanceLogsList;
 }
 export const PrepareInstanceLogsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    instance_logs: S.optional(PrepareInstanceLogsResponseInstanceLogsList),
+    instance_logs: PrepareInstanceLogsResponseInstanceLogsList,
   }),
 ).annotate({
   identifier: "PrepareInstanceLogsResponse",
@@ -2841,11 +2841,11 @@ export const SetInstanceACLRulesResponseRulesList = /*@__PURE__*/ S.Array(
 
 export interface SetInstanceACLRulesResponse {
   /** ACLs rules configured for a Database Instance. */
-  rules?: SetInstanceACLRulesResponseRulesList;
+  rules: SetInstanceACLRulesResponseRulesList;
 }
 export const SetInstanceACLRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(SetInstanceACLRulesResponseRulesList),
+    rules: SetInstanceACLRulesResponseRulesList,
   }),
 ).annotate({
   identifier: "SetInstanceACLRulesResponse",
@@ -2893,11 +2893,11 @@ export const SetInstanceSettingsResponseSettingsList = /*@__PURE__*/ S.Array(
 
 export interface SetInstanceSettingsResponse {
   /** Settings configured for a Database Instance. */
-  settings?: SetInstanceSettingsResponseSettingsList;
+  settings: SetInstanceSettingsResponseSettingsList;
 }
 export const SetInstanceSettingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    settings: S.optional(SetInstanceSettingsResponseSettingsList),
+    settings: SetInstanceSettingsResponseSettingsList,
   }),
 ).annotate({
   identifier: "SetInstanceSettingsResponse",

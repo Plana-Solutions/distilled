@@ -130,23 +130,23 @@ export const DeploymentTagsList = /*@__PURE__*/ S.Array(
 
 export interface Endpoint {
   /** Unique identifier. (UUID format) */
-  id?: string;
+  id: string;
   /** URL of the endpoint. For private endpoints, the URL will be accessible only from the Private Network. In addition, private endpoints will expose a CA certificate that can be used to verify the server's identity. This CA certificate can be retrieved using the `GetDeploymentCertificate` API call. */
-  url?: string;
+  url: string;
   /** Defines whether the endpoint is public. */
   public_network?: unknown | null;
   /** Details of the Private Network. */
   private_network?: EndpointPrivateNetworkDetails | null;
   /** Defines whether the authentication is disabled. */
-  disable_auth?: boolean;
+  disable_auth: boolean;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    url: S.optional(S.String),
+    id: S.String,
+    url: S.String,
     public_network: S.optional(S.NullOr(S.Unknown)),
     private_network: S.optional(S.NullOr(EndpointPrivateNetworkDetails)),
-    disable_auth: S.optional(S.Boolean),
+    disable_auth: S.Boolean,
   }),
 ).annotate({ identifier: "Endpoint" }) as any as S.Schema<Endpoint>;
 
@@ -158,59 +158,59 @@ export const DeploymentEndpointsList = /*@__PURE__*/ S.Array(
 
 export interface Deployment {
   /** Unique identifier. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the deployment. */
-  name?: string;
+  name: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Status of the deployment. */
-  status?: DeploymentStatus;
+  status: DeploymentStatus;
   /** List of tags applied to the deployment. */
-  tags?: DeploymentTagsList;
+  tags: DeploymentTagsList;
   /** Node type of the deployment. */
-  node_type_name?: string;
+  node_type_name: string;
   /** List of endpoints. */
-  endpoints?: DeploymentEndpointsList;
+  endpoints: DeploymentEndpointsList;
   /** Current size of the pool. */
-  size?: number;
+  size: number;
   /** Defines the minimum size of the pool. */
-  min_size?: number;
+  min_size: number;
   /** Defines the maximum size of the pool. Currently, autoscaling is not yet supported, and this value must be equal to `min_size`. */
-  max_size?: number;
+  max_size: number;
   /** Displays information if your deployment is in error state. */
   error_message?: string | null;
   /** ID of the model used for the deployment. (UUID format) */
-  model_id?: string;
+  model_id: string;
   /** Quantization parameters for this deployment. */
   quantization?: DeploymentQuantization;
   /** Name of the deployed model. */
-  model_name?: string;
+  model_name: string;
   /** Creation date of the deployment. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the deployment. (RFC 3339 format) */
   updated_at?: string | null;
   /** Region of the deployment. */
-  region?: string;
+  region: string;
 }
 export const Deployment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(DeploymentStatus),
-    tags: S.optional(DeploymentTagsList),
-    node_type_name: S.optional(S.String),
-    endpoints: S.optional(DeploymentEndpointsList),
-    size: S.optional(S.Number),
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    status: DeploymentStatus,
+    tags: DeploymentTagsList,
+    node_type_name: S.String,
+    endpoints: DeploymentEndpointsList,
+    size: S.Number,
+    min_size: S.Number,
+    max_size: S.Number,
     error_message: S.optional(S.NullOr(S.String)),
-    model_id: S.optional(S.String),
+    model_id: S.String,
     quantization: S.optional(DeploymentQuantization),
-    model_name: S.optional(S.String),
+    model_name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Deployment" }) as any as S.Schema<Deployment>;
 
@@ -289,17 +289,17 @@ export const ModelStatus = S.String;
 
 export interface ModelSupportedQuantization {
   /** Number of bits for this supported quantization. */
-  quantization_bits?: number;
+  quantization_bits: number;
   /** Tells whether this quantization is allowed for this node type. */
-  allowed?: boolean;
+  allowed: boolean;
   /** Maximum inference context size available for this node type and quantization. */
-  max_context_size?: number;
+  max_context_size: number;
 }
 export const ModelSupportedQuantization = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    quantization_bits: S.optional(S.Number),
-    allowed: S.optional(S.Boolean),
-    max_context_size: S.optional(S.Number),
+    quantization_bits: S.Number,
+    allowed: S.Boolean,
+    max_context_size: S.Number,
   }),
 ).annotate({
   identifier: "ModelSupportedQuantization",
@@ -313,14 +313,14 @@ export const ModelSupportedNodeQuantizationsList = /*@__PURE__*/ S.Array(
 
 export interface ModelSupportedNode {
   /** Supported node type. */
-  node_type_name?: string;
+  node_type_name: string;
   /** Supported quantizations. */
-  quantizations?: ModelSupportedNodeQuantizationsList;
+  quantizations: ModelSupportedNodeQuantizationsList;
 }
 export const ModelSupportedNode = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    node_type_name: S.optional(S.String),
-    quantizations: S.optional(ModelSupportedNodeQuantizationsList),
+    node_type_name: S.String,
+    quantizations: ModelSupportedNodeQuantizationsList,
   }),
 ).annotate({ identifier: "ModelSupportedNode" }) as any as S.Schema<ModelSupportedNode>;
 
@@ -332,11 +332,11 @@ export const ModelSupportInfoNodesList = /*@__PURE__*/ S.Array(
 
 export interface ModelSupportInfo {
   /** List of supported node types. */
-  nodes?: ModelSupportInfoNodesList;
+  nodes: ModelSupportInfoNodesList;
 }
 export const ModelSupportInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    nodes: S.optional(ModelSupportInfoNodesList),
+    nodes: ModelSupportInfoNodesList,
   }),
 ).annotate({ identifier: "ModelSupportInfo" }) as any as S.Schema<ModelSupportInfo>;
 
@@ -348,50 +348,50 @@ export const ModelNodesSupportList = /*@__PURE__*/ S.Array(
 
 export interface Model {
   /** Unique identifier. (UUID format) */
-  id?: string;
+  id: string;
   /** Unique Name identifier. */
-  name?: string;
+  name: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** List of tags applied to the model. */
-  tags?: ModelTagsList;
+  tags: ModelTagsList;
   /** Status of the model. */
-  status?: ModelStatus;
+  status: ModelStatus;
   /** Purpose of the model. */
-  description?: string;
+  description: string;
   /** Displays information if your model is in error state. */
   error_message?: string | null;
   /** Defines whether the model has an end user license agreement. */
-  has_eula?: boolean;
+  has_eula: boolean;
   /** Creation date of the model. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the model. (RFC 3339 format) */
   updated_at?: string | null;
   /** Region of the model. */
-  region?: string;
+  region: string;
   /** Supported nodes types with quantization options and context lengths. */
-  nodes_support?: ModelNodesSupportList;
+  nodes_support: ModelNodesSupportList;
   /** Size, in bits, of the model parameters. */
-  parameter_size_bits?: number;
+  parameter_size_bits: number;
   /** Total size, in bytes, of the model files. */
-  size_bytes?: number;
+  size_bytes: number;
 }
 export const Model = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    tags: S.optional(ModelTagsList),
-    status: S.optional(ModelStatus),
-    description: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    tags: ModelTagsList,
+    status: ModelStatus,
+    description: S.String,
     error_message: S.optional(S.NullOr(S.String)),
-    has_eula: S.optional(S.Boolean),
+    has_eula: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
-    nodes_support: S.optional(ModelNodesSupportList),
-    parameter_size_bits: S.optional(S.Number),
-    size_bytes: S.optional(S.Number),
+    region: S.String,
+    nodes_support: ModelNodesSupportList,
+    parameter_size_bits: S.Number,
+    size_bytes: S.Number,
   }),
 ).annotate({ identifier: "Model" }) as any as S.Schema<Model>;
 
@@ -523,15 +523,15 @@ export const GetDeploymentCertificateRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetDeploymentCertificateRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -611,11 +611,11 @@ export const GetModelEulaRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Eula {
   /** Content of the end user license agreement. */
-  content?: string;
+  content: string;
 }
 export const Eula = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    content: S.optional(S.String),
+    content: S.String,
   }),
 ).annotate({ identifier: "Eula" }) as any as S.Schema<Eula>;
 
@@ -682,12 +682,12 @@ export interface ListDeploymentsResponse {
   /** List of deployments on the current page. */
   deployments: ListDeploymentsResponseDeploymentsList;
   /** Total number of deployments. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDeploymentsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     deployments: ListDeploymentsResponseDeploymentsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDeploymentsResponse" }) as any as S.Schema<ListDeploymentsResponse>;
 
@@ -755,12 +755,12 @@ export interface ListModelsResponse {
   /** List of models on the current page. */
   models: ListModelsResponseModelsList;
   /** Total number of models. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListModelsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     models: ListModelsResponseModelsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListModelsResponse" }) as any as S.Schema<ListModelsResponse>;
 
@@ -798,44 +798,44 @@ export const NodeTypeStock = S.String;
 
 export interface NodeType {
   /** Name of the node type. */
-  name?: string;
+  name: string;
   /** Current stock status for the node type. */
-  stock_status?: NodeTypeStock;
+  stock_status: NodeTypeStock;
   /** Current specs of the offer. */
-  description?: string;
+  description: string;
   /** Number of virtual CPUs. */
-  vcpus?: number;
+  vcpus: number;
   /** Quantity of RAM. (in bytes) */
-  memory?: number;
+  memory: number;
   /** Quantity of GPU RAM. (in bytes) */
-  vram?: number;
+  vram: number;
   /** The node type is currently disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** The node type is currently in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** Creation date of the node type. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the node type. (RFC 3339 format) */
   updated_at?: string | null;
   /** Number of GPUs. */
-  gpus?: number;
+  gpus: number;
   /** Region of the node type. */
-  region?: string;
+  region: string;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    stock_status: S.optional(NodeTypeStock),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory: S.optional(S.Number),
-    vram: S.optional(S.Number),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
+    name: S.String,
+    stock_status: NodeTypeStock,
+    description: S.String,
+    vcpus: S.Number,
+    memory: S.Number,
+    vram: S.Number,
+    disabled: S.Boolean,
+    beta: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    gpus: S.optional(S.Number),
-    region: S.optional(S.String),
+    gpus: S.Number,
+    region: S.String,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -849,12 +849,12 @@ export interface ListNodeTypesResponse {
   /** List of node types. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** Total number of node types. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -960,13 +960,13 @@ export const VerifyModelResponseNodesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<VerifyModelResponseNodesList>;
 
 export interface VerifyModelResponse {
-  nodes?: VerifyModelResponseNodesList;
-  size_bytes?: number;
+  nodes: VerifyModelResponseNodesList;
+  size_bytes: number;
 }
 export const VerifyModelResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    nodes: S.optional(VerifyModelResponseNodesList),
-    size_bytes: S.optional(S.Number),
+    nodes: VerifyModelResponseNodesList,
+    size_bytes: S.Number,
   }),
 ).annotate({ identifier: "VerifyModelResponse" }) as any as S.Schema<VerifyModelResponse>;
 

@@ -71,45 +71,45 @@ export type OfferOptionWarning = "unknown_warning" | "quota_exceeded_warning" | 
 export const OfferOptionWarning = S.String;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface OfferOption {
   /** Option ID. */
-  id?: string;
+  id: string;
   /** Name of the option. */
-  name?: OfferOptionName;
+  name: OfferOptionName;
   /** Unique identifier used for billing. */
-  billing_operation_path?: string;
+  billing_operation_path: string;
   /** Minimum value for the option in the offer. */
-  min_value?: number;
+  min_value: number;
   /** If a hosting_id was specified in the call, defines the current value of the option in the hosting. */
-  current_value?: number;
+  current_value: number;
   /** Maximum value for the option in the offer. */
-  max_value?: number;
+  max_value: number;
   /** Defines a warning if the maximum value for the option has been reached. */
-  quota_warning?: OfferOptionWarning;
+  quota_warning: OfferOptionWarning;
   /** Price of the option for 1 value. */
   price?: GoogleTypeMoney;
 }
 export const OfferOption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(OfferOptionName),
-    billing_operation_path: S.optional(S.String),
-    min_value: S.optional(S.Number),
-    current_value: S.optional(S.Number),
-    max_value: S.optional(S.Number),
-    quota_warning: S.optional(OfferOptionWarning),
+    id: S.String,
+    name: OfferOptionName,
+    billing_operation_path: S.String,
+    min_value: S.Number,
+    current_value: S.Number,
+    max_value: S.Number,
+    quota_warning: OfferOptionWarning,
     price: S.optional(GoogleTypeMoney),
   }),
 ).annotate({ identifier: "OfferOption" }) as any as S.Schema<OfferOption>;
@@ -131,20 +131,20 @@ export const ControlPanelAvailableLanguagesList = /*@__PURE__*/ S.Array(
 
 export interface ControlPanel {
   /** Control panel name. */
-  name?: string;
+  name: string;
   /** Define if the control panel type is available to order. */
-  available?: boolean;
+  available: boolean;
   /** URL of the control panel's logo. */
-  logo_url?: string;
+  logo_url: string;
   /** List of available languages for the control panel. */
-  available_languages?: ControlPanelAvailableLanguagesList;
+  available_languages: ControlPanelAvailableLanguagesList;
 }
 export const ControlPanel = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    available: S.optional(S.Boolean),
-    logo_url: S.optional(S.String),
-    available_languages: S.optional(ControlPanelAvailableLanguagesList),
+    name: S.String,
+    available: S.Boolean,
+    logo_url: S.String,
+    available_languages: ControlPanelAvailableLanguagesList,
   }),
 ).annotate({ identifier: "ControlPanel" }) as any as S.Schema<ControlPanel>;
 
@@ -162,31 +162,31 @@ export const BillingMode = S.String;
 
 export interface OfferCommitment {
   /** Offer commitment ID. */
-  id?: string;
+  id: string;
   /** Offer commitment type. */
-  type?: CommitmentType;
+  type: CommitmentType;
   /** True if the commitment is the default one for that offer. */
-  is_default?: boolean;
+  is_default: boolean;
   /** Offer commitment name. */
-  billing_mode?: BillingMode;
+  billing_mode: BillingMode;
   /** Unique identifier used for billing. */
-  billing_operation_path?: string;
+  billing_operation_path: string;
   /** Price of the offer commitment. */
   price?: GoogleTypeMoney;
   /** Duration of the offer commitment in months. */
-  duration_in_month?: number;
+  duration_in_month: number;
   /** Next offer commitment. */
   next?: OfferCommitment;
 }
 export const OfferCommitment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    type: S.optional(CommitmentType),
-    is_default: S.optional(S.Boolean),
-    billing_mode: S.optional(BillingMode),
-    billing_operation_path: S.optional(S.String),
+    id: S.String,
+    type: CommitmentType,
+    is_default: S.Boolean,
+    billing_mode: BillingMode,
+    billing_operation_path: S.String,
     price: S.optional(GoogleTypeMoney),
-    duration_in_month: S.optional(S.Number),
+    duration_in_month: S.Number,
     next: S.optional(OfferCommitment),
   }),
 ).annotate({ identifier: "OfferCommitment" }) as any as S.Schema<OfferCommitment>;
@@ -199,44 +199,44 @@ export const OfferCommitmentsList = /*@__PURE__*/ S.Array(
 
 export interface Offer {
   /** Offer ID. */
-  id?: string;
+  id: string;
   /** Offer name. */
-  name?: string;
+  name: string;
   /** Unique identifier used for billing. */
-  billing_operation_path?: string;
+  billing_operation_path: string;
   /** Options available for the offer. */
-  options?: OfferOptionsList;
+  options: OfferOptionsList;
   /** Price of the offer. */
   price?: GoogleTypeMoney;
   /** If a hosting_id was specified in the call, defines whether the offer is available for a specified hosting plan to migrate (update) to. */
-  available?: boolean;
+  available: boolean;
   /** Name of the control panel. */
-  control_panel_name?: string;
+  control_panel_name: string;
   /** Indicates if the offer has reached its end of life. */
-  end_of_life?: boolean;
+  end_of_life: boolean;
   /** Defines a warning if the maximum value for an option in the offer is exceeded. */
-  quota_warning?: OfferOptionWarning;
+  quota_warning: OfferOptionWarning;
   /** Lists available control panels for the specified offer. */
-  control_panels?: OfferControlPanelsList;
+  control_panels: OfferControlPanelsList;
   /** Lists available offer commitments for the specified offer. */
-  commitments?: OfferCommitmentsList;
+  commitments: OfferCommitmentsList;
   /** Region where the offer is hosted. */
-  region?: string;
+  region: string;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    billing_operation_path: S.optional(S.String),
-    options: S.optional(OfferOptionsList),
+    id: S.String,
+    name: S.String,
+    billing_operation_path: S.String,
+    options: OfferOptionsList,
     price: S.optional(GoogleTypeMoney),
-    available: S.optional(S.Boolean),
-    control_panel_name: S.optional(S.String),
-    end_of_life: S.optional(S.Boolean),
-    quota_warning: S.optional(OfferOptionWarning),
-    control_panels: S.optional(OfferControlPanelsList),
-    commitments: S.optional(OfferCommitmentsList),
-    region: S.optional(S.String),
+    available: S.Boolean,
+    control_panel_name: S.String,
+    end_of_life: S.Boolean,
+    quota_warning: OfferOptionWarning,
+    control_panels: OfferControlPanelsList,
+    commitments: OfferCommitmentsList,
+    region: S.String,
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
 
@@ -248,13 +248,13 @@ export const ListOffersResponseOffersList = /*@__PURE__*/ S.Array(
 
 export interface ListOffersResponse {
   /** Total number of offers. */
-  total_count?: number;
+  total_count: number;
   /** List of offers. */
   offers: ListOffersResponseOffersList;
 }
 export const ListOffersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     offers: ListOffersResponseOffersList,
   }),
 ).annotate({ identifier: "ListOffersResponse" }) as any as S.Schema<ListOffersResponse>;

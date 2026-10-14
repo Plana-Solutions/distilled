@@ -137,13 +137,15 @@
         "deployments": {
           "target": "com.scaleway.inference_v1#ListDeploymentsResponseDeploymentsList",
           "traits": {
-            "smithy.api#documentation": "List of deployments on the current page."
+            "smithy.api#documentation": "List of deployments on the current page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of deployments."
+            "smithy.api#documentation": "Total number of deployments.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -155,61 +157,71 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier. (UUID format)"
+            "smithy.api#documentation": "Unique identifier. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the deployment."
+            "smithy.api#documentation": "Name of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.inference_v1#DeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the deployment."
+            "smithy.api#documentation": "Status of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.inference_v1#DeploymentTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the deployment."
+            "smithy.api#documentation": "List of tags applied to the deployment.",
+            "smithy.api#required": {}
           }
         },
         "node_type_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type of the deployment."
+            "smithy.api#documentation": "Node type of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "endpoints": {
           "target": "com.scaleway.inference_v1#DeploymentEndpointsList",
           "traits": {
-            "smithy.api#documentation": "List of endpoints."
+            "smithy.api#documentation": "List of endpoints.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Current size of the pool."
+            "smithy.api#documentation": "Current size of the pool.",
+            "smithy.api#required": {}
           }
         },
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Defines the minimum size of the pool."
+            "smithy.api#documentation": "Defines the minimum size of the pool.",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Defines the maximum size of the pool. Currently, autoscaling is not yet supported, and this value must be equal to `min_size`."
+            "smithy.api#documentation": "Defines the maximum size of the pool. Currently, autoscaling is not yet supported, and this value must be equal to `min_size`.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -222,7 +234,8 @@
         "model_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the model used for the deployment. (UUID format)"
+            "smithy.api#documentation": "ID of the model used for the deployment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "quantization": {
@@ -234,7 +247,8 @@
         "model_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the deployed model."
+            "smithy.api#documentation": "Name of the deployed model.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -254,7 +268,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the deployment."
+            "smithy.api#documentation": "Region of the deployment.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -335,13 +350,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier. (UUID format)"
+            "smithy.api#documentation": "Unique identifier. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the endpoint.\nFor private endpoints, the URL will be accessible only from the Private Network.\nIn addition, private endpoints will expose a CA certificate that can be used to verify the server's identity.\nThis CA certificate can be retrieved using the `GetDeploymentCertificate` API call."
+            "smithy.api#documentation": "URL of the endpoint.\nFor private endpoints, the URL will be accessible only from the Private Network.\nIn addition, private endpoints will expose a CA certificate that can be used to verify the server's identity.\nThis CA certificate can be retrieved using the `GetDeploymentCertificate` API call.",
+            "smithy.api#required": {}
           }
         },
         "public_network": {
@@ -361,7 +378,8 @@
         "disable_auth": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the authentication is disabled."
+            "smithy.api#documentation": "Defines whether the authentication is disabled.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -840,13 +858,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1166,13 +1193,15 @@
         "models": {
           "target": "com.scaleway.inference_v1#ListModelsResponseModelsList",
           "traits": {
-            "smithy.api#documentation": "List of models on the current page."
+            "smithy.api#documentation": "List of models on the current page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of models."
+            "smithy.api#documentation": "Total number of models.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1184,37 +1213,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier. (UUID format)"
+            "smithy.api#documentation": "Unique identifier. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique Name identifier."
+            "smithy.api#documentation": "Unique Name identifier.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.inference_v1#ModelTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the model."
+            "smithy.api#documentation": "List of tags applied to the model.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.inference_v1#ModelStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the model."
+            "smithy.api#documentation": "Status of the model.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Purpose of the model."
+            "smithy.api#documentation": "Purpose of the model.",
+            "smithy.api#required": {}
           }
         },
         "error_message": {
@@ -1227,7 +1262,8 @@
         "has_eula": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the model has an end user license agreement."
+            "smithy.api#documentation": "Defines whether the model has an end user license agreement.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1247,25 +1283,29 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the model."
+            "smithy.api#documentation": "Region of the model.",
+            "smithy.api#required": {}
           }
         },
         "nodes_support": {
           "target": "com.scaleway.inference_v1#ModelNodesSupportList",
           "traits": {
-            "smithy.api#documentation": "Supported nodes types with quantization options and context lengths."
+            "smithy.api#documentation": "Supported nodes types with quantization options and context lengths.",
+            "smithy.api#required": {}
           }
         },
         "parameter_size_bits": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Size, in bits, of the model parameters."
+            "smithy.api#documentation": "Size, in bits, of the model parameters.",
+            "smithy.api#required": {}
           }
         },
         "size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total size, in bytes, of the model files."
+            "smithy.api#documentation": "Total size, in bytes, of the model files.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1322,7 +1362,8 @@
         "nodes": {
           "target": "com.scaleway.inference_v1#ModelSupportInfoNodesList",
           "traits": {
-            "smithy.api#documentation": "List of supported node types."
+            "smithy.api#documentation": "List of supported node types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1334,13 +1375,15 @@
         "node_type_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Supported node type."
+            "smithy.api#documentation": "Supported node type.",
+            "smithy.api#required": {}
           }
         },
         "quantizations": {
           "target": "com.scaleway.inference_v1#ModelSupportedNodeQuantizationsList",
           "traits": {
-            "smithy.api#documentation": "Supported quantizations."
+            "smithy.api#documentation": "Supported quantizations.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1352,19 +1395,22 @@
         "quantization_bits": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of bits for this supported quantization."
+            "smithy.api#documentation": "Number of bits for this supported quantization.",
+            "smithy.api#required": {}
           }
         },
         "allowed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Tells whether this quantization is allowed for this node type."
+            "smithy.api#documentation": "Tells whether this quantization is allowed for this node type.",
+            "smithy.api#required": {}
           }
         },
         "max_context_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum inference context size available for this node type and quantization."
+            "smithy.api#documentation": "Maximum inference context size available for this node type and quantization.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1660,7 +1706,8 @@
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Content of the end user license agreement."
+            "smithy.api#documentation": "Content of the end user license agreement.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1739,13 +1786,15 @@
         "node_types": {
           "target": "com.scaleway.inference_v1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "List of node types."
+            "smithy.api#documentation": "List of node types.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of node types."
+            "smithy.api#documentation": "Total number of node types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1757,49 +1806,57 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the node type."
+            "smithy.api#documentation": "Name of the node type.",
+            "smithy.api#required": {}
           }
         },
         "stock_status": {
           "target": "com.scaleway.inference_v1#NodeTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock status for the node type."
+            "smithy.api#documentation": "Current stock status for the node type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Current specs of the offer."
+            "smithy.api#documentation": "Current specs of the offer.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of virtual CPUs."
+            "smithy.api#documentation": "Number of virtual CPUs.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quantity of RAM. (in bytes)"
+            "smithy.api#documentation": "Quantity of RAM. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "vram": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quantity of GPU RAM. (in bytes)"
+            "smithy.api#documentation": "Quantity of GPU RAM. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The node type is currently disabled."
+            "smithy.api#documentation": "The node type is currently disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The node type is currently in beta."
+            "smithy.api#documentation": "The node type is currently in beta.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1819,13 +1876,15 @@
         "gpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of GPUs."
+            "smithy.api#documentation": "Number of GPUs.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the node type."
+            "smithy.api#documentation": "Region of the node type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1933,10 +1992,16 @@
       "type": "structure",
       "members": {
         "nodes": {
-          "target": "com.scaleway.inference_v1#VerifyModelResponseNodesList"
+          "target": "com.scaleway.inference_v1#VerifyModelResponseNodesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "size_bytes": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

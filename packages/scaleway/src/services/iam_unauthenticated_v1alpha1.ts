@@ -53,11 +53,11 @@ export const CommitLoginRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface JWT {
   /** JWT ID. */
-  jti?: string;
+  jti: string;
   /** ID of the user who issued the JWT. */
-  issuer_id?: string;
+  issuer_id: string;
   /** ID of the user targeted by the JWT. */
-  audience_id?: string;
+  audience_id: string;
   /** Creation date of the JWT. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date of the JWT. (RFC 3339 format) */
@@ -65,23 +65,23 @@ export interface JWT {
   /** Expiration date of the JWT. (RFC 3339 format) */
   expires_at?: string | null;
   /** IP address used during the creation of the JWT. (IP address) */
-  ip?: string;
+  ip: string;
   /** User-agent used during the creation of the JWT. */
-  user_agent?: string;
+  user_agent: string;
   /** The SRN of the JWT. */
-  srn?: string;
+  srn: string;
 }
 export const JWT = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    jti: S.optional(S.String),
-    issuer_id: S.optional(S.String),
-    audience_id: S.optional(S.String),
+    jti: S.String,
+    issuer_id: S.String,
+    audience_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
-    ip: S.optional(S.String),
-    user_agent: S.optional(S.String),
-    srn: S.optional(S.String),
+    ip: S.String,
+    user_agent: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "JWT" }) as any as S.Schema<JWT>;
 
@@ -89,15 +89,15 @@ export interface CommitLoginResponse {
   /** A JWT authenticating the user. */
   jwt?: JWT;
   /** The plain text content of the JWT. */
-  token?: string;
+  token: string;
   /** A token that can be used to renew the JWT. */
-  renew_token?: string;
+  renew_token: string;
 }
 export const CommitLoginResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     jwt: S.optional(JWT),
-    token: S.optional(S.String),
-    renew_token: S.optional(S.String),
+    token: S.String,
+    renew_token: S.String,
   }),
 ).annotate({ identifier: "CommitLoginResponse" }) as any as S.Schema<CommitLoginResponse>;
 
@@ -128,14 +128,14 @@ export const CreateMagicCodeLoginRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Login {
   /** A UUID representing the login attempt. */
-  id?: string;
+  id: string;
   /** Whether the login attempt expects a MFA token. */
-  mfa_required?: boolean;
+  mfa_required: boolean;
 }
 export const Login = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    mfa_required: S.optional(S.Boolean),
+    id: S.String,
+    mfa_required: S.Boolean,
   }),
 ).annotate({ identifier: "Login" }) as any as S.Schema<Login>;
 
@@ -252,15 +252,15 @@ export const ScalewayStdHTTPResponseHeadersMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<ScalewayStdHTTPResponseHeadersMap>;
 
 export interface ScalewayStdHTTPResponse {
-  status_code?: number;
-  headers?: ScalewayStdHTTPResponseHeadersMap;
-  body?: string;
+  status_code: number;
+  headers: ScalewayStdHTTPResponseHeadersMap;
+  body: string;
 }
 export const ScalewayStdHTTPResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status_code: S.optional(S.Number),
-    headers: S.optional(ScalewayStdHTTPResponseHeadersMap),
-    body: S.optional(S.String),
+    status_code: S.Number,
+    headers: ScalewayStdHTTPResponseHeadersMap,
+    body: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdHTTPResponse" }) as any as S.Schema<ScalewayStdHTTPResponse>;
 
@@ -324,15 +324,15 @@ export const GetSamlMetadataRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetSamlMetadataRequest" }) as any as S.Schema<GetSamlMetadataRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -393,14 +393,14 @@ export const LoginInitiateOAuth2Request = /*@__PURE__*/ S.suspend(() =>
 
 export interface InitiateOAuth2LoginResponse {
   /** URL to redirect the user to. */
-  url?: string;
+  url: string;
   /** Security token to check when receiving a code from the identity provider. */
-  security_token?: string;
+  security_token: string;
 }
 export const InitiateOAuth2LoginResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    security_token: S.optional(S.String),
+    url: S.String,
+    security_token: S.String,
   }),
 ).annotate({
   identifier: "InitiateOAuth2LoginResponse",
@@ -428,17 +428,17 @@ export const LoginInitiateSamlRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface InitiateSamlLoginResponse {
   /** The SAML AuthnRequest to send to the identity provider. */
-  saml_request?: string;
+  saml_request: string;
   /** The relay state to send to the identity provider. */
-  relay_state?: string;
+  relay_state: string;
   /** URL to redirect the user to for SAML authentication. */
-  url?: string;
+  url: string;
 }
 export const InitiateSamlLoginResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    saml_request: S.optional(S.String),
-    relay_state: S.optional(S.String),
-    url: S.optional(S.String),
+    saml_request: S.String,
+    relay_state: S.String,
+    url: S.String,
   }),
 ).annotate({
   identifier: "InitiateSamlLoginResponse",
@@ -468,15 +468,15 @@ export interface EncodedJWT {
   /** The renewed JWT. */
   jwt?: JWT;
   /** The encoded token of the renewed JWT. */
-  token?: string;
+  token: string;
   /** The encoded renew token. This token is necessary to renew the JWT. */
-  renew_token?: string;
+  renew_token: string;
 }
 export const EncodedJWT = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     jwt: S.optional(JWT),
-    token: S.optional(S.String),
-    renew_token: S.optional(S.String),
+    token: S.String,
+    renew_token: S.String,
   }),
 ).annotate({ identifier: "EncodedJWT" }) as any as S.Schema<EncodedJWT>;
 
@@ -496,26 +496,26 @@ export const SearchOrganizationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface OrganizationSummary {
   /** The ID of the organization. */
-  id?: string;
+  id: string;
   /** The name of the organization. */
-  name?: string;
+  name: string;
   /** Defines whether the organization supports login via Password. */
-  login_password_enabled?: boolean;
+  login_password_enabled: boolean;
   /** Defines whether the organization supports login via Magic Code. */
-  login_magic_code_enabled?: boolean;
+  login_magic_code_enabled: boolean;
   /** Defines whether the organization supports login via OAuth2 SSO. */
-  login_oauth2_enabled?: boolean;
+  login_oauth2_enabled: boolean;
   /** Defines whether the organization supports login via SAML SSO. */
-  login_saml_enabled?: boolean;
+  login_saml_enabled: boolean;
 }
 export const OrganizationSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    login_password_enabled: S.optional(S.Boolean),
-    login_magic_code_enabled: S.optional(S.Boolean),
-    login_oauth2_enabled: S.optional(S.Boolean),
-    login_saml_enabled: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    login_password_enabled: S.Boolean,
+    login_magic_code_enabled: S.Boolean,
+    login_oauth2_enabled: S.Boolean,
+    login_saml_enabled: S.Boolean,
   }),
 ).annotate({ identifier: "OrganizationSummary" }) as any as S.Schema<OrganizationSummary>;
 
@@ -549,20 +549,20 @@ export const StartLoginMFAWebAuthnResponseAllowCredentialsList = /*@__PURE__*/ S
 
 export interface StartLoginMFAWebAuthnResponse {
   /** ID of the ceremony which will be needed for completion. */
-  ceremony_id?: string;
+  ceremony_id: string;
   /** Random bytes constituting the challenge to solve for the credentials creation. */
-  challenge?: string;
+  challenge: string;
   /** Maximum duration of the authentication ceremony (milliseconds). (in seconds) */
   timeout?: string | null;
   /** List of credentials, if any, which can be used to perform the ceremony. */
-  allow_credentials?: StartLoginMFAWebAuthnResponseAllowCredentialsList;
+  allow_credentials: StartLoginMFAWebAuthnResponseAllowCredentialsList;
 }
 export const StartLoginMFAWebAuthnResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ceremony_id: S.optional(S.String),
-    challenge: S.optional(S.String),
+    ceremony_id: S.String,
+    challenge: S.String,
     timeout: S.optional(S.NullOr(S.String)),
-    allow_credentials: S.optional(StartLoginMFAWebAuthnResponseAllowCredentialsList),
+    allow_credentials: StartLoginMFAWebAuthnResponseAllowCredentialsList,
   }),
 ).annotate({
   identifier: "StartLoginMFAWebAuthnResponse",

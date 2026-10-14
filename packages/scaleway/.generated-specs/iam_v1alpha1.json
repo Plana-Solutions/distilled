@@ -208,13 +208,15 @@
         "api_keys": {
           "target": "com.scaleway.iam_v1alpha1#ListAPIKeysResponseApiKeysList",
           "traits": {
-            "smithy.api#documentation": "List of API keys."
+            "smithy.api#documentation": "List of API keys.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of API Keys."
+            "smithy.api#documentation": "Total count of API Keys.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -226,7 +228,8 @@
         "access_key": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Access key of the API key."
+            "smithy.api#documentation": "Access key of the API key.",
+            "smithy.api#required": {}
           }
         },
         "secret_key": {
@@ -254,7 +257,8 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of API key."
+            "smithy.api#documentation": "Description of API key.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -281,37 +285,43 @@
         "default_project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Default Project ID specified for this API key."
+            "smithy.api#documentation": "Default Project ID specified for this API key.",
+            "smithy.api#required": {}
           }
         },
         "editable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the API key is editable."
+            "smithy.api#documentation": "Defines whether or not the API key is editable.",
+            "smithy.api#required": {}
           }
         },
         "deletable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the API key is deletable."
+            "smithy.api#documentation": "Defines whether or not the API key is deletable.",
+            "smithy.api#required": {}
           }
         },
         "managed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the API key is managed."
+            "smithy.api#documentation": "Defines whether or not the API key is managed.",
+            "smithy.api#required": {}
           }
         },
         "creation_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address of the device that created the API key."
+            "smithy.api#documentation": "IP address of the device that created the API key.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the API key."
+            "smithy.api#documentation": "The SRN of the API key.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -653,13 +663,15 @@
         "applications": {
           "target": "com.scaleway.iam_v1alpha1#ListApplicationsResponseApplicationsList",
           "traits": {
-            "smithy.api#documentation": "List of applications."
+            "smithy.api#documentation": "List of applications.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of applications."
+            "smithy.api#documentation": "Total count of applications.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -671,19 +683,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the application."
+            "smithy.api#documentation": "ID of the application.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the application."
+            "smithy.api#documentation": "Name of the application.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the application."
+            "smithy.api#documentation": "Description of the application.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -703,43 +718,50 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization."
+            "smithy.api#documentation": "ID of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "editable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the application is editable."
+            "smithy.api#documentation": "Defines whether or not the application is editable.",
+            "smithy.api#required": {}
           }
         },
         "deletable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the application is deletable."
+            "smithy.api#documentation": "Defines whether or not the application is deletable.",
+            "smithy.api#required": {}
           }
         },
         "managed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the application is managed."
+            "smithy.api#documentation": "Defines whether or not the application is managed.",
+            "smithy.api#required": {}
           }
         },
         "nb_api_keys": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of API keys attributed to the application."
+            "smithy.api#documentation": "Number of API keys attributed to the application.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.iam_v1alpha1#ApplicationTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the user."
+            "smithy.api#documentation": "Tags associated with the user.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "SRN of the application."
+            "smithy.api#documentation": "SRN of the application.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1029,7 +1051,10 @@
       "type": "structure",
       "members": {
         "responses": {
-          "target": "com.scaleway.iam_v1alpha1#CheckPermissionsResponseResponsesList"
+          "target": "com.scaleway.iam_v1alpha1#CheckPermissionsResponseResponsesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1038,7 +1063,10 @@
       "type": "structure",
       "members": {
         "decision": {
-          "target": "com.scaleway.iam_v1alpha1#CheckPermissionsResponseResponseDecision"
+          "target": "com.scaleway.iam_v1alpha1#CheckPermissionsResponseResponseDecision",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1106,7 +1134,8 @@
         "grace_periods": {
           "target": "com.scaleway.iam_v1alpha1#ListGracePeriodsResponseGracePeriodsList",
           "traits": {
-            "smithy.api#documentation": "List of grace periods."
+            "smithy.api#documentation": "List of grace periods.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1118,7 +1147,8 @@
         "type": {
           "target": "com.scaleway.iam_v1alpha1#GracePeriodType",
           "traits": {
-            "smithy.api#documentation": "Type of grace period."
+            "smithy.api#documentation": "Type of grace period.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1329,13 +1359,15 @@
         "groups": {
           "target": "com.scaleway.iam_v1alpha1#ListGroupsResponseGroupsList",
           "traits": {
-            "smithy.api#documentation": "List of groups."
+            "smithy.api#documentation": "List of groups.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of groups."
+            "smithy.api#documentation": "Total count of groups.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1347,7 +1379,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the group."
+            "smithy.api#documentation": "ID of the group.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1367,73 +1400,85 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of Organization linked to the group."
+            "smithy.api#documentation": "ID of Organization linked to the group.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the group."
+            "smithy.api#documentation": "Name of the group.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the group."
+            "smithy.api#documentation": "Description of the group.",
+            "smithy.api#required": {}
           }
         },
         "user_ids": {
           "target": "com.scaleway.iam_v1alpha1#GroupUserIdsList",
           "traits": {
-            "smithy.api#documentation": "IDs of users attached to this group."
+            "smithy.api#documentation": "IDs of users attached to this group.",
+            "smithy.api#required": {}
           }
         },
         "application_ids": {
           "target": "com.scaleway.iam_v1alpha1#GroupApplicationIdsList",
           "traits": {
-            "smithy.api#documentation": "IDs of applications attached to this group."
+            "smithy.api#documentation": "IDs of applications attached to this group.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.iam_v1alpha1#GroupTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated to the group."
+            "smithy.api#documentation": "Tags associated to the group.",
+            "smithy.api#required": {}
           }
         },
         "editable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the group is editable."
+            "smithy.api#documentation": "Defines whether or not the group is editable.",
+            "smithy.api#required": {}
           }
         },
         "deletable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the group is deletable."
+            "smithy.api#documentation": "Defines whether or not the group is deletable.",
+            "smithy.api#required": {}
           }
         },
         "managed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the group is managed."
+            "smithy.api#documentation": "Defines whether or not the group is managed.",
+            "smithy.api#required": {}
           }
         },
         "all_users": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if the group is the special \"All Users\" group that contains all users of the organization."
+            "smithy.api#documentation": "Indicates if the group is the special \"All Users\" group that contains all users of the organization.",
+            "smithy.api#required": {}
           }
         },
         "all_applications": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if the group is the special \"All Applications\" group that contains all non-managed applications of the organization."
+            "smithy.api#documentation": "Indicates if the group is the special \"All Applications\" group that contains all non-managed applications of the organization.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the group."
+            "smithy.api#documentation": "The SRN of the group.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1989,10 +2034,16 @@
       "type": "structure",
       "members": {
         "jwts": {
-          "target": "com.scaleway.iam_v1alpha1#ListJWTsResponseJwtsList"
+          "target": "com.scaleway.iam_v1alpha1#ListJWTsResponseJwtsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2003,19 +2054,22 @@
         "jti": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "JWT ID."
+            "smithy.api#documentation": "JWT ID.",
+            "smithy.api#required": {}
           }
         },
         "issuer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user who issued the JWT."
+            "smithy.api#documentation": "ID of the user who issued the JWT.",
+            "smithy.api#required": {}
           }
         },
         "audience_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user targeted by the JWT."
+            "smithy.api#documentation": "ID of the user targeted by the JWT.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2042,19 +2096,22 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address used during the creation of the JWT. (IP address)"
+            "smithy.api#documentation": "IP address used during the creation of the JWT. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "user_agent": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "User-agent used during the creation of the JWT."
+            "smithy.api#documentation": "User-agent used during the creation of the JWT.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the JWT."
+            "smithy.api#documentation": "The SRN of the JWT.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2327,13 +2384,15 @@
         "logs": {
           "target": "com.scaleway.iam_v1alpha1#ListLogsResponseLogsList",
           "traits": {
-            "smithy.api#documentation": "List of logs."
+            "smithy.api#documentation": "List of logs.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of logs."
+            "smithy.api#documentation": "Total count of logs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2345,7 +2404,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Log ID. (UUID format)"
+            "smithy.api#documentation": "Log ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2358,49 +2418,57 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address of the HTTP request linked to the log. (IP address)"
+            "smithy.api#documentation": "IP address of the HTTP request linked to the log. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "user_agent": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "User-Agent of the HTTP request linked to the log."
+            "smithy.api#documentation": "User-Agent of the HTTP request linked to the log.",
+            "smithy.api#required": {}
           }
         },
         "action": {
           "target": "com.scaleway.iam_v1alpha1#LogAction",
           "traits": {
-            "smithy.api#documentation": "Action linked to the log."
+            "smithy.api#documentation": "Action linked to the log.",
+            "smithy.api#required": {}
           }
         },
         "bearer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the principal at the origin of the log. (UUID format)"
+            "smithy.api#documentation": "ID of the principal at the origin of the log. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of Organization linked to the log. (UUID format)"
+            "smithy.api#documentation": "ID of Organization linked to the log. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "resource_type": {
           "target": "com.scaleway.iam_v1alpha1#LogResourceType",
           "traits": {
-            "smithy.api#documentation": "Type of the resource linked to the log."
+            "smithy.api#documentation": "Type of the resource linked to the log.",
+            "smithy.api#required": {}
           }
         },
         "resource_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the resource linked to the log."
+            "smithy.api#documentation": "ID of the resource linked to the log.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the log."
+            "smithy.api#documentation": "The SRN of the log.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2496,43 +2564,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization."
+            "smithy.api#documentation": "ID of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Organization."
+            "smithy.api#documentation": "Name of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "alias": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Alias of the Organization."
+            "smithy.api#documentation": "Alias of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "login_password_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether login with a password is enabled for the Organization."
+            "smithy.api#documentation": "Defines whether login with a password is enabled for the Organization.",
+            "smithy.api#required": {}
           }
         },
         "login_magic_code_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether login with an authentication code is enabled for the Organization."
+            "smithy.api#documentation": "Defines whether login with an authentication code is enabled for the Organization.",
+            "smithy.api#required": {}
           }
         },
         "login_oauth2_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether login through OAuth2 is enabled for the Organization."
+            "smithy.api#documentation": "Defines whether login through OAuth2 is enabled for the Organization.",
+            "smithy.api#required": {}
           }
         },
         "login_saml_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether login through SAML is enabled for the Organization."
+            "smithy.api#documentation": "Defines whether login through SAML is enabled for the Organization.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2680,13 +2755,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the SAML configuration."
+            "smithy.api#documentation": "ID of the SAML configuration.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.iam_v1alpha1#SamlStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the SAML configuration."
+            "smithy.api#documentation": "Status of the SAML configuration.",
+            "smithy.api#required": {}
           }
         },
         "service_provider": {
@@ -2698,19 +2775,22 @@
         "entity_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Entity ID of the SAML Identity Provider."
+            "smithy.api#documentation": "Entity ID of the SAML Identity Provider.",
+            "smithy.api#required": {}
           }
         },
         "single_sign_on_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Single Sign-On URL of the SAML Identity Provider."
+            "smithy.api#documentation": "Single Sign-On URL of the SAML Identity Provider.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the SAML."
+            "smithy.api#documentation": "The SRN of the SAML.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2756,10 +2836,16 @@
       "type": "structure",
       "members": {
         "entity_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "assertion_consumer_service_url": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2837,7 +2923,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the SCIM configuration."
+            "smithy.api#documentation": "ID of the SCIM configuration.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -2924,7 +3011,8 @@
         "enforce_password_renewal": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether password renewal is enforced during first login."
+            "smithy.api#documentation": "Defines whether password renewal is enforced during first login.",
+            "smithy.api#required": {}
           }
         },
         "grace_period_duration": {
@@ -2937,7 +3025,8 @@
         "login_attempts_before_locked": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of login attempts before the account is locked."
+            "smithy.api#documentation": "Number of login attempts before the account is locked.",
+            "smithy.api#required": {}
           }
         },
         "max_login_session_duration": {
@@ -3117,13 +3206,15 @@
         "permission_sets": {
           "target": "com.scaleway.iam_v1alpha1#ListPermissionSetsResponsePermissionSetsList",
           "traits": {
-            "smithy.api#documentation": "List of permission sets."
+            "smithy.api#documentation": "List of permission sets.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of permission sets."
+            "smithy.api#documentation": "Total count of permission sets.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3135,25 +3226,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Id of the permission set."
+            "smithy.api#documentation": "Id of the permission set.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the permission set."
+            "smithy.api#documentation": "Name of the permission set.",
+            "smithy.api#required": {}
           }
         },
         "scope_type": {
           "target": "com.scaleway.iam_v1alpha1#PermissionSetScopeType",
           "traits": {
-            "smithy.api#documentation": "Scope of the permission set."
+            "smithy.api#documentation": "Scope of the permission set.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the permission set."
+            "smithy.api#documentation": "Description of the permission set.",
+            "smithy.api#required": {}
           }
         },
         "categories": {
@@ -3395,13 +3490,15 @@
         "policies": {
           "target": "com.scaleway.iam_v1alpha1#ListPoliciesResponsePoliciesList",
           "traits": {
-            "smithy.api#documentation": "List of policies."
+            "smithy.api#documentation": "List of policies.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of policies."
+            "smithy.api#documentation": "Total count of policies.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3413,25 +3510,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Id of the policy."
+            "smithy.api#documentation": "Id of the policy.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the policy."
+            "smithy.api#documentation": "Name of the policy.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the policy."
+            "smithy.api#documentation": "Description of the policy.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the policy."
+            "smithy.api#documentation": "Organization ID of the policy.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3451,43 +3552,50 @@
         "editable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not a policy is editable."
+            "smithy.api#documentation": "Defines whether or not a policy is editable.",
+            "smithy.api#required": {}
           }
         },
         "deletable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not a policy is deletable."
+            "smithy.api#documentation": "Defines whether or not a policy is deletable.",
+            "smithy.api#required": {}
           }
         },
         "managed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not a policy is managed."
+            "smithy.api#documentation": "Defines whether or not a policy is managed.",
+            "smithy.api#required": {}
           }
         },
         "nb_rules": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of rules of the policy."
+            "smithy.api#documentation": "Number of rules of the policy.",
+            "smithy.api#required": {}
           }
         },
         "nb_scopes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of policy scopes."
+            "smithy.api#documentation": "Number of policy scopes.",
+            "smithy.api#required": {}
           }
         },
         "nb_permission_sets": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of permission sets of the policy."
+            "smithy.api#documentation": "Number of permission sets of the policy.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.iam_v1alpha1#PolicyTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the policy."
+            "smithy.api#documentation": "Tags associated with the policy.",
+            "smithy.api#required": {}
           }
         },
         "user_id": {
@@ -3521,7 +3629,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the policy."
+            "smithy.api#documentation": "The SRN of the policy.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3992,13 +4101,15 @@
         "quota": {
           "target": "com.scaleway.iam_v1alpha1#ListQuotaResponseQuotaList",
           "traits": {
-            "smithy.api#documentation": "List of quota."
+            "smithy.api#documentation": "List of quota.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of quota."
+            "smithy.api#documentation": "Total count of quota.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4010,7 +4121,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the quota."
+            "smithy.api#documentation": "Name of the quota.",
+            "smithy.api#required": {}
           }
         },
         "limit": {
@@ -4030,37 +4142,43 @@
         "pretty_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A human-readable name for the quota."
+            "smithy.api#documentation": "A human-readable name for the quota.",
+            "smithy.api#required": {}
           }
         },
         "unit": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The unit in which the quota is expressed."
+            "smithy.api#documentation": "The unit in which the quota is expressed.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Details about the quota."
+            "smithy.api#documentation": "Details about the quota.",
+            "smithy.api#required": {}
           }
         },
         "locality_type": {
           "target": "com.scaleway.iam_v1alpha1#LocalityType",
           "traits": {
-            "smithy.api#documentation": "Whether this quotum is applied on at the zone level, region level, or globally."
+            "smithy.api#documentation": "Whether this quotum is applied on at the zone level, region level, or globally.",
+            "smithy.api#required": {}
           }
         },
         "limits": {
           "target": "com.scaleway.iam_v1alpha1#QuotumLimitsList",
           "traits": {
-            "smithy.api#documentation": "Limits per locality."
+            "smithy.api#documentation": "Limits per locality.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the quotum."
+            "smithy.api#documentation": "The SRN of the quotum.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4251,13 +4369,15 @@
         "rules": {
           "target": "com.scaleway.iam_v1alpha1#ListRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "Rules of the policy."
+            "smithy.api#documentation": "Rules of the policy.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of rules."
+            "smithy.api#documentation": "Total count of rules.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4269,7 +4389,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Id of rule."
+            "smithy.api#documentation": "Id of rule.",
+            "smithy.api#required": {}
           }
         },
         "permission_set_names": {
@@ -4282,13 +4403,15 @@
         "permission_sets_scope_type": {
           "target": "com.scaleway.iam_v1alpha1#PermissionSetScopeType",
           "traits": {
-            "smithy.api#documentation": "Permission_set_names have the same scope_type."
+            "smithy.api#documentation": "Permission_set_names have the same scope_type.",
+            "smithy.api#required": {}
           }
         },
         "condition": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Condition expression to evaluate."
+            "smithy.api#documentation": "Condition expression to evaluate.",
+            "smithy.api#required": {}
           }
         },
         "project_ids": {
@@ -4315,7 +4438,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the rule."
+            "smithy.api#documentation": "The SRN of the rule.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4410,7 +4534,8 @@
         "rules": {
           "target": "com.scaleway.iam_v1alpha1#SetRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "Rules of the policy."
+            "smithy.api#documentation": "Rules of the policy.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4465,25 +4590,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the SAML certificate."
+            "smithy.api#documentation": "ID of the SAML certificate.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.iam_v1alpha1#SamlCertificateType",
           "traits": {
-            "smithy.api#documentation": "Type of the SAML certificate."
+            "smithy.api#documentation": "Type of the SAML certificate.",
+            "smithy.api#required": {}
           }
         },
         "origin": {
           "target": "com.scaleway.iam_v1alpha1#SamlCertificateOrigin",
           "traits": {
-            "smithy.api#documentation": "Origin of the SAML certificate."
+            "smithy.api#documentation": "Origin of the SAML certificate.",
+            "smithy.api#required": {}
           }
         },
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Content of the SAML certificate."
+            "smithy.api#documentation": "Content of the SAML certificate.",
+            "smithy.api#required": {}
           }
         },
         "expires_at": {
@@ -4496,7 +4625,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the SAML certificate."
+            "smithy.api#documentation": "The SRN of the SAML certificate.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4706,7 +4836,8 @@
         "certificates": {
           "target": "com.scaleway.iam_v1alpha1#ListSamlCertificatesResponseCertificatesList",
           "traits": {
-            "smithy.api#documentation": "List of SAML certificates."
+            "smithy.api#documentation": "List of SAML certificates.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4808,13 +4939,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "scim_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -4980,13 +5113,15 @@
         "scim_tokens": {
           "target": "com.scaleway.iam_v1alpha1#ListScimTokensResponseScimTokensList",
           "traits": {
-            "smithy.api#documentation": "List of SCIM tokens."
+            "smithy.api#documentation": "List of SCIM tokens.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of SCIM tokens."
+            "smithy.api#documentation": "Total count of SCIM tokens.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5054,7 +5189,8 @@
         "bearer_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Bearer Token to use to authenticate to SCIM endpoints."
+            "smithy.api#documentation": "The Bearer Token to use to authenticate to SCIM endpoints.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5183,13 +5319,15 @@
         "ssh_keys": {
           "target": "com.scaleway.iam_v1alpha1#ListSSHKeysResponseSshKeysList",
           "traits": {
-            "smithy.api#documentation": "List of SSH keys."
+            "smithy.api#documentation": "List of SSH keys.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of SSH keys."
+            "smithy.api#documentation": "Total count of SSH keys.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5201,25 +5339,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of SSH key."
+            "smithy.api#documentation": "ID of SSH key.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of SSH key."
+            "smithy.api#documentation": "Name of SSH key.",
+            "smithy.api#required": {}
           }
         },
         "public_key": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Public key of SSH key."
+            "smithy.api#documentation": "Public key of SSH key.",
+            "smithy.api#required": {}
           }
         },
         "fingerprint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Fingerprint of the SSH key."
+            "smithy.api#documentation": "Fingerprint of the SSH key.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -5239,25 +5381,29 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of Organization linked to the SSH key."
+            "smithy.api#documentation": "ID of Organization linked to the SSH key.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of Project linked to the SSH key."
+            "smithy.api#documentation": "ID of Project linked to the SSH key.",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "SSH key status."
+            "smithy.api#documentation": "SSH key status.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the SSH key."
+            "smithy.api#documentation": "The SRN of the SSH key.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5625,13 +5771,15 @@
         "users": {
           "target": "com.scaleway.iam_v1alpha1#ListUsersResponseUsersList",
           "traits": {
-            "smithy.api#documentation": "List of users."
+            "smithy.api#documentation": "List of users.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of users."
+            "smithy.api#documentation": "Total count of users.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5643,43 +5791,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of user."
+            "smithy.api#documentation": "ID of user.",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email of user."
+            "smithy.api#documentation": "Email of user.",
+            "smithy.api#required": {}
           }
         },
         "username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "User identifier unique to the Organization."
+            "smithy.api#documentation": "User identifier unique to the Organization.",
+            "smithy.api#required": {}
           }
         },
         "first_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "First name of the user."
+            "smithy.api#documentation": "First name of the user.",
+            "smithy.api#required": {}
           }
         },
         "last_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Last name of the user."
+            "smithy.api#documentation": "Last name of the user.",
+            "smithy.api#required": {}
           }
         },
         "phone_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Phone number of the user."
+            "smithy.api#documentation": "Phone number of the user.",
+            "smithy.api#required": {}
           }
         },
         "locale": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Locale of the user."
+            "smithy.api#documentation": "Locale of the user.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -5699,13 +5854,15 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization."
+            "smithy.api#documentation": "ID of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "deletable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Deletion status of user. Owners cannot be deleted."
+            "smithy.api#documentation": "Deletion status of user. Owners cannot be deleted.",
+            "smithy.api#required": {}
           }
         },
         "last_login_at": {
@@ -5718,7 +5875,8 @@
         "type": {
           "target": "com.scaleway.iam_v1alpha1#UserType",
           "traits": {
-            "smithy.api#documentation": "Type of user."
+            "smithy.api#documentation": "Type of user.",
+            "smithy.api#required": {}
           }
         },
         "two_factor_enabled": {
@@ -5736,31 +5894,36 @@
         "mfa": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether MFA is enabled."
+            "smithy.api#documentation": "Defines whether MFA is enabled.",
+            "smithy.api#required": {}
           }
         },
         "account_root_user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the account root user associated with the user."
+            "smithy.api#documentation": "ID of the account root user associated with the user.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.iam_v1alpha1#UserTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags associated with the user."
+            "smithy.api#documentation": "Tags associated with the user.",
+            "smithy.api#required": {}
           }
         },
         "locked": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the user is locked."
+            "smithy.api#documentation": "Defines whether the user is locked.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the user."
+            "smithy.api#documentation": "The SRN of the user.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6131,7 +6294,8 @@
         "connections": {
           "target": "com.scaleway.iam_v1alpha1#GetUserConnectionsResponseConnectionsList",
           "traits": {
-            "smithy.api#documentation": "List of connections."
+            "smithy.api#documentation": "List of connections.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6159,13 +6323,22 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "locked": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -6174,13 +6347,22 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "username": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "type": {
-          "target": "com.scaleway.iam_v1alpha1#UserType"
+          "target": "com.scaleway.iam_v1alpha1#UserType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -6234,6 +6416,7 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Token to be used in JoinUserConnection.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         }
@@ -6353,6 +6536,7 @@
         "secret": {
           "target": "smithy.api#String",
           "traits": {
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         }
@@ -6596,7 +6780,8 @@
         "recovery_codes": {
           "target": "com.scaleway.iam_v1alpha1#ValidateUserMFAOTPResponseRecoveryCodesList",
           "traits": {
-            "smithy.api#documentation": "List of recovery codes usable for this OTP method."
+            "smithy.api#documentation": "List of recovery codes usable for this OTP method.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -187,13 +187,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Request creation id. (UUID format)"
+            "smithy.api#documentation": "Request creation id. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email used for the account request."
+            "smithy.api#documentation": "Email used for the account request.",
+            "smithy.api#required": {}
           }
         },
         "token": {
@@ -206,7 +208,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the account."
+            "smithy.api#documentation": "The SRN of the account.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -340,7 +343,8 @@
         "organizations_login_information": {
           "target": "com.scaleway.account_unauthenticated_user_v3#LogInOrganizationsResponseOrganizationsLoginInformationList",
           "traits": {
-            "smithy.api#documentation": "List of organizations and their associated login information."
+            "smithy.api#documentation": "List of organizations and their associated login information.",
+            "smithy.api#required": {}
           }
         },
         "webauthn": {
@@ -358,13 +362,15 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the organization. (UUID format)"
+            "smithy.api#documentation": "ID of the organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the organization."
+            "smithy.api#documentation": "Name of the organization.",
+            "smithy.api#required": {}
           }
         },
         "jwt": {
@@ -376,13 +382,15 @@
         "token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Encoded JWT token."
+            "smithy.api#documentation": "Encoded JWT token.",
+            "smithy.api#required": {}
           }
         },
         "renew_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Encoded JWT renew token."
+            "smithy.api#documentation": "Encoded JWT renew token.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -394,19 +402,22 @@
         "jti": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "JTI of the JWT."
+            "smithy.api#documentation": "JTI of the JWT.",
+            "smithy.api#required": {}
           }
         },
         "issuer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IAM user ID of the JWT issuer."
+            "smithy.api#documentation": "IAM user ID of the JWT issuer.",
+            "smithy.api#required": {}
           }
         },
         "audience_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IAM user ID of the JWT audience."
+            "smithy.api#documentation": "IAM user ID of the JWT audience.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -433,13 +444,15 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Source IP address for the JWT creation. (IP address)"
+            "smithy.api#documentation": "Source IP address for the JWT creation. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "user_agent": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "User agent for the JWT creation."
+            "smithy.api#documentation": "User agent for the JWT creation.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -458,7 +471,10 @@
       "type": "structure",
       "members": {
         "uv_verified_set": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -560,13 +576,15 @@
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to redirect the user to."
+            "smithy.api#documentation": "URL to redirect the user to.",
+            "smithy.api#required": {}
           }
         },
         "security_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Security token to check when receiving a code from the identity provider."
+            "smithy.api#documentation": "Security token to check when receiving a code from the identity provider.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -670,13 +688,15 @@
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to redirect the user to."
+            "smithy.api#documentation": "URL to redirect the user to.",
+            "smithy.api#required": {}
           }
         },
         "security_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Security token to check when receiving a code from the identity provider."
+            "smithy.api#documentation": "Security token to check when receiving a code from the identity provider.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -810,13 +830,15 @@
         "token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Encoded JWT token."
+            "smithy.api#documentation": "Encoded JWT token.",
+            "smithy.api#required": {}
           }
         },
         "renew_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Encoded JWT renew token."
+            "smithy.api#documentation": "Encoded JWT renew token.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1019,7 +1041,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the login session."
+            "smithy.api#documentation": "ID of the login session.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1209,7 +1232,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the ceremony which will be needed for completion."
+            "smithy.api#documentation": "ID of the ceremony which will be needed for completion.",
+            "smithy.api#required": {}
           }
         },
         "public_key_credential_request": {
@@ -1227,25 +1251,29 @@
         "challenge": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Random bytes constituting the challenge to solve for the credentials assertion."
+            "smithy.api#documentation": "Random bytes constituting the challenge to solve for the credentials assertion.",
+            "smithy.api#required": {}
           }
         },
         "timeout": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum duration of the authentication ceremony (milliseconds)."
+            "smithy.api#documentation": "Maximum duration of the authentication ceremony (milliseconds).",
+            "smithy.api#required": {}
           }
         },
         "allow_credentials": {
           "target": "com.scaleway.account_unauthenticated_user_v3#PublicKeyCredentialRequestOptionsAllowCredentialsList",
           "traits": {
-            "smithy.api#documentation": "List of credentials, if any, which can be used to perform the ceremony."
+            "smithy.api#documentation": "List of credentials, if any, which can be used to perform the ceremony.",
+            "smithy.api#required": {}
           }
         },
         "user_verification": {
           "target": "com.scaleway.account_unauthenticated_user_v3#UserVerificationRequirement",
           "traits": {
-            "smithy.api#documentation": "User verification requirement for this authentication ceremony."
+            "smithy.api#documentation": "User verification requirement for this authentication ceremony.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1257,7 +1285,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the key."
+            "smithy.api#documentation": "Unique identifier of the key.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1637,7 +1666,8 @@
         "login_informations": {
           "target": "com.scaleway.account_unauthenticated_user_v3#ValidateAccountResponseLoginInformationsList",
           "traits": {
-            "smithy.api#documentation": "List of organizations with their login information (JWT tokens) for auto-login after account validation."
+            "smithy.api#documentation": "List of organizations with their login information (JWT tokens) for auto-login after account validation.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1649,31 +1679,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user. (UUID format)"
+            "smithy.api#documentation": "ID of the user. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "first_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "First name of the user."
+            "smithy.api#documentation": "First name of the user.",
+            "smithy.api#required": {}
           }
         },
         "last_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Last name of the user."
+            "smithy.api#documentation": "Last name of the user.",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email of the user."
+            "smithy.api#documentation": "Email of the user.",
+            "smithy.api#required": {}
           }
         },
         "phone_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Phone number of the user."
+            "smithy.api#documentation": "Phone number of the user.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1693,7 +1728,8 @@
         "mfa": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether multi-factor authentication is enabled for the user."
+            "smithy.api#documentation": "Defines whether multi-factor authentication is enabled for the user.",
+            "smithy.api#required": {}
           }
         },
         "mfa_methods": {
@@ -1705,25 +1741,29 @@
         "locale": {
           "target": "com.scaleway.account_unauthenticated_user_v3#ScalewayStdLanguageCode",
           "traits": {
-            "smithy.api#documentation": "Locale of the user."
+            "smithy.api#documentation": "Locale of the user.",
+            "smithy.api#required": {}
           }
         },
         "has_password": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the user has a password set."
+            "smithy.api#documentation": "Defines whether the user has a password set.",
+            "smithy.api#required": {}
           }
         },
         "is_professional_email": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the user has a professional email or not."
+            "smithy.api#documentation": "Defines whether the user has a professional email or not.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the usr."
+            "smithy.api#documentation": "The SRN of the usr.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1735,13 +1775,15 @@
         "totp": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the user has setup a TOTP."
+            "smithy.api#documentation": "True if the user has setup a TOTP.",
+            "smithy.api#required": {}
           }
         },
         "web_authn": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the user has at least one WebAuthn authenticator."
+            "smithy.api#documentation": "True if the user has at least one WebAuthn authenticator.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1783,31 +1825,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization. (UUID format)"
+            "smithy.api#documentation": "ID of the Organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Organization."
+            "smithy.api#documentation": "Name of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "owner": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the user_id created the Organization."
+            "smithy.api#documentation": "Defines whether the user_id created the Organization.",
+            "smithy.api#required": {}
           }
         },
         "locked": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether we have locking warnings."
+            "smithy.api#documentation": "Defines whether we have locking warnings.",
+            "smithy.api#required": {}
           }
         },
         "mfa_enforced": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether MFA is required for the Organization."
+            "smithy.api#documentation": "Defines whether MFA is required for the Organization.",
+            "smithy.api#required": {}
           }
         },
         "picture_link": {
@@ -1820,13 +1867,15 @@
         "organization_type": {
           "target": "com.scaleway.account_unauthenticated_user_v3#OrganizationType",
           "traits": {
-            "smithy.api#documentation": "Organization Type."
+            "smithy.api#documentation": "Organization Type.",
+            "smithy.api#required": {}
           }
         },
         "corporate_industry": {
           "target": "com.scaleway.account_unauthenticated_user_v3#OrganizationCorporateIndustry",
           "traits": {
-            "smithy.api#documentation": "Organization Corporate Industry."
+            "smithy.api#documentation": "Organization Corporate Industry.",
+            "smithy.api#required": {}
           }
         },
         "is_startup": {
@@ -1838,7 +1887,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the organization."
+            "smithy.api#documentation": "The SRN of the organization.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1928,19 +1978,22 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Secret authenticating the user.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "first_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "First name of the user."
+            "smithy.api#documentation": "First name of the user.",
+            "smithy.api#required": {}
           }
         },
         "last_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Last name of the user."
+            "smithy.api#documentation": "Last name of the user.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2002,13 +2055,15 @@
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email to sign-up."
+            "smithy.api#documentation": "Email to sign-up.",
+            "smithy.api#required": {}
           }
         },
         "access_token": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Access token to get user's protected resources.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },

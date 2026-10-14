@@ -26,7 +26,8 @@
  *   2. Nullable properties are not required — the protocol drops `null`
  *      properties, so such a member arrives absent ({@link unrequireNullable}).
  *      The `Float`/`Double`/`BytesValue` wrappers become the bare scalars
- *      proto3 JSON sends ({@link WRAPPERS}).
+ *      proto3 JSON sends ({@link WRAPPERS}). The reverse: response members
+ *      proto3 JSON always emits become required ({@link requireEmitted}).
  *   3. Component names. Schemas are named by their proto message
  *      (`scaleway.instance.v1.Server.State`); the document's own package
  *      prefix is dropped (`Server.State`), so shapes read `ServerState`
@@ -176,8 +177,129 @@ const WRAPPERS: Record<string, Record<string, unknown>> = {
   "google.protobuf.BytesValue": { type: ["string", "null"], format: "byte" },
 };
 
+/**
+ * Documents whose responses do not follow proto3 JSON, so
+ * {@link requireEmitted} leaves them alone.
+ */
+const NOT_PROTO_JSON: Record<string, string> = {
+  // The legacy Instance API answers `null` for members the document types
+  // as plain strings (`SecurityGroup.description`, 2026-10-14).
+  instance_v1: "legacy API, sends null for non-nullable members",
+  // OpenAI-shaped schemas, not generated from protos.
+  generative_apis_openai_v1: "OpenAI-compatible schemas",
+};
+
+/** Components a schema node references, directly or through nested schemas. */
+const refsOf = (node: unknown, into: Set<string>): void =>
+  walk(node, (obj) => {
+    if (typeof obj.$ref === "string" && obj.$ref.startsWith(COMPONENT_PREFIX)) {
+      into.add(obj.$ref.slice(COMPONENT_PREFIX.length));
+    }
+  });
+
+/** `names` plus every component they reach through `$ref`. */
+const closure = (spec: any, names: Set<string>): Set<string> => {
+  const queue = [...names];
+  for (let name = queue.pop(); name !== undefined; name = queue.pop()) {
+    const found = new Set<string>();
+    refsOf(spec.components?.schemas?.[name], found);
+    for (const ref of found) {
+      if (names.has(ref)) continue;
+      names.add(ref);
+      queue.push(ref);
+    }
+  }
+  return names;
+};
+
+/**
+ * A property proto3 JSON writes even at its zero value: a scalar (`""`,
+ * `0`, `false`), an enum (its `unknown_…` default), a repeated field
+ * (`[]`) or a map (`{}`). Messages are excluded: an unset message is
+ * `null` (RDB `NodeType.volume_constraint`, Instance `ServerType.gpu_info`
+ * and Secret Manager `Secret.ephemeral_policy` were absent in 2026-10-14
+ * probes), as are nullable types and `oneOf` members, which the document
+ * already marks `null`-able.
+ */
+const isEmitted = (spec: any, prop: any): boolean => {
+  if (prop === null || typeof prop !== "object" || prop.deprecated === true) return false;
+  if (prop["x-one-of"] !== undefined) return false;
+  if (prop.$ref !== undefined) {
+    const target = deref(spec, prop);
+    return target !== prop && target?.type === "string" && Array.isArray(target.enum);
+  }
+  if (prop.type === "object") {
+    return prop.additionalProperties !== undefined && prop.properties === undefined;
+  }
+  return ["string", "integer", "number", "boolean", "array"].includes(prop.type);
+};
+
+/**
+ * Response members Scaleway always sends → required, so a caller reads
+ * `vpc.id` as `string` rather than `string | undefined`. The document marks
+ * almost nothing required (99 of 7,794 properties), but its APIs are
+ * proto3 services whose JSON gateway emits every non-message field, zero
+ * values included.
+ *
+ * Evidence (2026-10-14, live Project, SDK calls with nulls dropped as the
+ * protocol drops them): 55 list/get calls across 19 APIs (Account, VPC,
+ * Instance, Containers, Functions, Registry, Secret Manager, NATS, IPAM,
+ * RDB, Kubernetes, Load Balancer, IAM, Marketplace, Block, Redis, Cockpit,
+ * Domain, TEM) on catalogues and on freshly created VPCs, Private Networks,
+ * security groups, placement groups, namespaces, secrets and NATS
+ * accounts. Outside Instance v1, all 291 observed members this rule
+ * selects (66 shapes, 4,229 observations) were present every time; 4 of 20
+ * message members were sometimes absent, hence messages stay optional.
+ *
+ * Only components reached from 2xx responses and never from a request
+ * (parameters or body) are touched, so no caller is made to send more;
+ * documents derived from scaleway-sdk-js and {@link NOT_PROTO_JSON} ones
+ * are skipped. In `ResponseValidation.strict` a member the wire omits after
+ * all fails with `ScalewayParseError`; the remedy is a patch removing
+ * `smithy.api#required` from that member.
+ */
+const requireEmitted = (spec: any, skip: ReadonlySet<string>): void => {
+  const responses = new Set<string>();
+  const requests = new Set<string>();
+  const inlineResponses: any[] = [];
+  for (const pathItem of Object.values<any>(spec.paths ?? {})) {
+    refsOf(pathItem?.parameters, requests);
+    for (const method of HTTP_METHODS) {
+      const op = pathItem?.[method];
+      if (op === undefined) continue;
+      refsOf(op.parameters, requests);
+      refsOf(op.requestBody, requests);
+      for (const [status, response] of Object.entries<any>(op.responses ?? {})) {
+        if (!status.startsWith("2")) continue;
+        const schema = response?.content?.["application/json"]?.schema;
+        if (schema === undefined) continue;
+        refsOf(schema, responses);
+        if (schema.$ref === undefined) inlineResponses.push(schema);
+      }
+    }
+  }
+  closure(spec, requests);
+  closure(spec, responses);
+  const schemas: Record<string, any> = spec.components?.schemas ?? {};
+  const targets = [
+    ...[...responses]
+      .filter((name) => !requests.has(name) && !skip.has(name))
+      .map((name) => schemas[name]),
+    ...inlineResponses,
+  ];
+  for (const schema of targets) {
+    const props = schema?.properties;
+    if (props === null || typeof props !== "object") continue;
+    const required = new Set<string>(Array.isArray(schema.required) ? schema.required : []);
+    for (const [name, prop] of Object.entries(props)) {
+      if (isEmitted(spec, prop)) required.add(name);
+    }
+    if (required.size > 0) schema.required = [...required];
+  }
+};
+
 /** Add a derived document's routes and schemas to a published one. */
-const mergeDerived = (spec: any, extra: ManifestEntry): void => {
+const mergeDerived = (spec: any, extra: ManifestEntry): string[] => {
   const derived = JSON.parse(fs.readFileSync(path.join(specsDir, extra.output), "utf8"));
   for (const [route, item] of Object.entries<any>(derived.paths ?? {})) {
     for (const [method, op] of Object.entries<any>(item)) {
@@ -187,16 +309,26 @@ const mergeDerived = (spec: any, extra: ManifestEntry): void => {
       spec.paths[route] = { ...spec.paths[route], [method]: op };
     }
   }
+  const added = Object.keys(derived.components?.schemas ?? {}).filter(
+    (name) => !(name in spec.components.schemas),
+  );
   spec.components.schemas = { ...derived.components?.schemas, ...spec.components.schemas };
+  return added;
 };
 
 const preprocess = (entry: ManifestEntry) => (spec: any) => {
   const slug = entry.output.replace(/\.json$/, "");
-  for (const extra of merges.get(slug) ?? []) mergeDerived(spec, extra);
+  const derived = new Set<string>();
+  for (const extra of merges.get(slug) ?? []) {
+    for (const name of mergeDerived(spec, extra)) derived.add(name);
+  }
   walk(spec, mapPlaceholder);
   walk(spec, unrequireNullable);
   for (const [name, schema] of Object.entries(WRAPPERS)) {
     if (spec.components?.schemas?.[name] !== undefined) spec.components.schemas[name] = schema;
+  }
+  if (entry.source === undefined && NOT_PROTO_JSON[slug] === undefined) {
+    requireEmitted(spec, derived);
   }
 
   // `scaleway.instance.v1.` is this document's own package.

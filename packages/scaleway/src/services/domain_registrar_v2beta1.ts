@@ -286,19 +286,19 @@ export const OrderResponseDomainsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<OrderResponseDomainsList>;
 
 export interface OrderResponse {
-  domains?: OrderResponseDomainsList;
-  organization_id?: string;
-  project_id?: string;
-  task_id?: string;
+  domains: OrderResponseDomainsList;
+  organization_id: string;
+  project_id: string;
+  task_id: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
 }
 export const OrderResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domains: S.optional(OrderResponseDomainsList),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    task_id: S.optional(S.String),
+    domains: OrderResponseDomainsList,
+    organization_id: S.String,
+    project_id: S.String,
+    task_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "OrderResponse" }) as any as S.Schema<OrderResponse>;
@@ -346,12 +346,12 @@ export const CheckContactsCompatibilityRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<CheckContactsCompatibilityRequest>;
 
 export interface CheckContactsCompatibilityResponseContactCheckResult {
-  compatible?: boolean;
+  compatible: boolean;
   error_message?: string | null;
 }
 export const CheckContactsCompatibilityResponseContactCheckResult = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    compatible: S.optional(S.Boolean),
+    compatible: S.Boolean,
     error_message: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -359,14 +359,14 @@ export const CheckContactsCompatibilityResponseContactCheckResult = /*@__PURE__*
 }) as any as S.Schema<CheckContactsCompatibilityResponseContactCheckResult>;
 
 export interface CheckContactsCompatibilityResponse {
-  compatible?: boolean;
+  compatible: boolean;
   owner_check_result?: CheckContactsCompatibilityResponseContactCheckResult;
   administrative_check_result?: CheckContactsCompatibilityResponseContactCheckResult;
   technical_check_result?: CheckContactsCompatibilityResponseContactCheckResult;
 }
 export const CheckContactsCompatibilityResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    compatible: S.optional(S.Boolean),
+    compatible: S.Boolean,
     owner_check_result: S.optional(CheckContactsCompatibilityResponseContactCheckResult),
     administrative_check_result: S.optional(CheckContactsCompatibilityResponseContactCheckResult),
     technical_check_result: S.optional(CheckContactsCompatibilityResponseContactCheckResult),
@@ -410,18 +410,18 @@ export type HostStatus = "unknown_status" | "active" | "updating" | "deleting";
 export const HostStatus = S.String;
 
 export interface Host {
-  domain?: string;
-  name?: string;
+  domain: string;
+  name: string;
   /** (IP address) */
-  ips?: HostIpsList;
-  status?: HostStatus;
+  ips: HostIpsList;
+  status: HostStatus;
 }
 export const Host = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    name: S.optional(S.String),
-    ips: S.optional(HostIpsList),
-    status: S.optional(HostStatus),
+    domain: S.String,
+    name: S.String,
+    ips: HostIpsList,
+    status: HostStatus,
   }),
 ).annotate({ identifier: "Host" }) as any as S.Schema<Host>;
 
@@ -556,13 +556,13 @@ export const DomainDNSSECDsRecordsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DomainDNSSECDsRecordsList>;
 
 export interface DomainDNSSEC {
-  status?: DomainFeatureStatus;
-  ds_records?: DomainDNSSECDsRecordsList;
+  status: DomainFeatureStatus;
+  ds_records: DomainDNSSECDsRecordsList;
 }
 export const DomainDNSSEC = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainFeatureStatus),
-    ds_records: S.optional(DomainDNSSECDsRecordsList),
+    status: DomainFeatureStatus,
+    ds_records: DomainDNSSECDsRecordsList,
   }),
 ).annotate({ identifier: "DomainDNSSEC" }) as any as S.Schema<DomainDNSSEC>;
 
@@ -614,30 +614,30 @@ export const DNSZoneLinkedProductsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DNSZoneLinkedProductsList>;
 
 export interface DNSZone {
-  domain?: string;
-  subdomain?: string;
-  ns?: DNSZoneNsList;
-  ns_default?: DNSZoneNsDefaultList;
-  ns_master?: DNSZoneNsMasterList;
-  status?: DNSZoneStatus;
+  domain: string;
+  subdomain: string;
+  ns: DNSZoneNsList;
+  ns_default: DNSZoneNsDefaultList;
+  ns_master: DNSZoneNsMasterList;
+  status: DNSZoneStatus;
   message?: string | null;
   /** (RFC 3339 format) */
   updated_at?: string | null;
-  project_id?: string;
-  linked_products?: DNSZoneLinkedProductsList;
+  project_id: string;
+  linked_products: DNSZoneLinkedProductsList;
 }
 export const DNSZone = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    subdomain: S.optional(S.String),
-    ns: S.optional(DNSZoneNsList),
-    ns_default: S.optional(DNSZoneNsDefaultList),
-    ns_master: S.optional(DNSZoneNsMasterList),
-    status: S.optional(DNSZoneStatus),
+    domain: S.String,
+    subdomain: S.String,
+    ns: DNSZoneNsList,
+    ns_default: DNSZoneNsDefaultList,
+    ns_master: DNSZoneNsMasterList,
+    status: DNSZoneStatus,
     message: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
-    linked_products: S.optional(DNSZoneLinkedProductsList),
+    project_id: S.String,
+    linked_products: DNSZoneLinkedProductsList,
   }),
 ).annotate({ identifier: "DNSZone" }) as any as S.Schema<DNSZone>;
 
@@ -663,72 +663,72 @@ export const ContactQuestionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ContactQuestionsList>;
 
 export interface Contact {
-  id?: string;
-  legal_form?: ContactLegalForm;
-  firstname?: string;
-  lastname?: string;
-  company_name?: string;
-  email?: string;
-  email_alt?: string;
-  phone_number?: string;
-  fax_number?: string;
-  address_line_1?: string;
-  address_line_2?: string;
-  zip?: string;
-  city?: string;
-  country?: string;
-  vat_identification_code?: string;
-  company_identification_code?: string;
-  lang?: ScalewayStdLanguageCode;
-  resale?: boolean;
+  id: string;
+  legal_form: ContactLegalForm;
+  firstname: string;
+  lastname: string;
+  company_name: string;
+  email: string;
+  email_alt: string;
+  phone_number: string;
+  fax_number: string;
+  address_line_1: string;
+  address_line_2: string;
+  zip: string;
+  city: string;
+  country: string;
+  vat_identification_code: string;
+  company_identification_code: string;
+  lang: ScalewayStdLanguageCode;
+  resale: boolean;
   extension_fr?: ContactExtensionFR;
   extension_eu?: ContactExtensionEU;
-  whois_opt_in?: boolean;
-  email_status?: ContactEmailStatus;
-  state?: string;
+  whois_opt_in: boolean;
+  email_status: ContactEmailStatus;
+  state: string;
   extension_nl?: ContactExtensionNL;
-  status?: ContactStatus;
+  status: ContactStatus;
   extension_it?: ContactExtensionIT;
   questions?: ContactQuestionsList;
 }
 export const Contact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    legal_form: S.optional(ContactLegalForm),
-    firstname: S.optional(S.String),
-    lastname: S.optional(S.String),
-    company_name: S.optional(S.String),
-    email: S.optional(S.String),
-    email_alt: S.optional(S.String),
-    phone_number: S.optional(S.String),
-    fax_number: S.optional(S.String),
-    address_line_1: S.optional(S.String),
-    address_line_2: S.optional(S.String),
-    zip: S.optional(S.String),
-    city: S.optional(S.String),
-    country: S.optional(S.String),
-    vat_identification_code: S.optional(S.String),
-    company_identification_code: S.optional(S.String),
-    lang: S.optional(ScalewayStdLanguageCode),
-    resale: S.optional(S.Boolean),
+    id: S.String,
+    legal_form: ContactLegalForm,
+    firstname: S.String,
+    lastname: S.String,
+    company_name: S.String,
+    email: S.String,
+    email_alt: S.String,
+    phone_number: S.String,
+    fax_number: S.String,
+    address_line_1: S.String,
+    address_line_2: S.String,
+    zip: S.String,
+    city: S.String,
+    country: S.String,
+    vat_identification_code: S.String,
+    company_identification_code: S.String,
+    lang: ScalewayStdLanguageCode,
+    resale: S.Boolean,
     extension_fr: S.optional(ContactExtensionFR),
     extension_eu: S.optional(ContactExtensionEU),
-    whois_opt_in: S.optional(S.Boolean),
-    email_status: S.optional(ContactEmailStatus),
-    state: S.optional(S.String),
+    whois_opt_in: S.Boolean,
+    email_status: ContactEmailStatus,
+    state: S.String,
     extension_nl: S.optional(ContactExtensionNL),
-    status: S.optional(ContactStatus),
+    status: ContactStatus,
     extension_it: S.optional(ContactExtensionIT),
     questions: S.optional(ContactQuestionsList),
   }),
 ).annotate({ identifier: "Contact" }) as any as S.Schema<Contact>;
 
 export interface DomainRegistrationStatusExternalDomain {
-  validation_token?: string;
+  validation_token: string;
 }
 export const DomainRegistrationStatusExternalDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    validation_token: S.optional(S.String),
+    validation_token: S.String,
   }),
 ).annotate({
   identifier: "DomainRegistrationStatusExternalDomain",
@@ -744,42 +744,42 @@ export type DomainRegistrationStatusTransferStatus =
 export const DomainRegistrationStatusTransferStatus = S.String;
 
 export interface DomainRegistrationStatusTransfer {
-  status?: DomainRegistrationStatusTransferStatus;
-  vote_current_owner?: boolean;
-  vote_new_owner?: boolean;
+  status: DomainRegistrationStatusTransferStatus;
+  vote_current_owner: boolean;
+  vote_new_owner: boolean;
 }
 export const DomainRegistrationStatusTransfer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(DomainRegistrationStatusTransferStatus),
-    vote_current_owner: S.optional(S.Boolean),
-    vote_new_owner: S.optional(S.Boolean),
+    status: DomainRegistrationStatusTransferStatus,
+    vote_current_owner: S.Boolean,
+    vote_new_owner: S.Boolean,
   }),
 ).annotate({
   identifier: "DomainRegistrationStatusTransfer",
 }) as any as S.Schema<DomainRegistrationStatusTransfer>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface TldOffer {
-  action?: string;
-  operation_path?: string;
+  action: string;
+  operation_path: string;
   price?: GoogleTypeMoney;
 }
 export const TldOffer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    action: S.optional(S.String),
-    operation_path: S.optional(S.String),
+    action: S.String,
+    operation_path: S.String,
     price: S.optional(GoogleTypeMoney),
   }),
 ).annotate({ identifier: "TldOffer" }) as any as S.Schema<TldOffer>;
@@ -797,23 +797,23 @@ export const TldSpecificationsMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<TldSpecificationsMap>;
 
 export interface Tld {
-  name?: string;
-  dnssec_support?: boolean;
-  duration_in_years_min?: number;
-  duration_in_years_max?: number;
-  idn_support?: boolean;
-  offers?: TldOffersMap;
-  specifications?: TldSpecificationsMap;
+  name: string;
+  dnssec_support: boolean;
+  duration_in_years_min: number;
+  duration_in_years_max: number;
+  idn_support: boolean;
+  offers: TldOffersMap;
+  specifications: TldSpecificationsMap;
 }
 export const Tld = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    dnssec_support: S.optional(S.Boolean),
-    duration_in_years_min: S.optional(S.Number),
-    duration_in_years_max: S.optional(S.Number),
-    idn_support: S.optional(S.Boolean),
-    offers: S.optional(TldOffersMap),
-    specifications: S.optional(TldSpecificationsMap),
+    name: S.String,
+    dnssec_support: S.Boolean,
+    duration_in_years_min: S.Number,
+    duration_in_years_max: S.Number,
+    idn_support: S.Boolean,
+    offers: TldOffersMap,
+    specifications: TldSpecificationsMap,
   }),
 ).annotate({ identifier: "Tld" }) as any as S.Schema<Tld>;
 
@@ -824,26 +824,26 @@ export const DomainLinkedProductsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DomainLinkedProductsList>;
 
 export interface Domain {
-  domain?: string;
-  organization_id?: string;
-  project_id?: string;
+  domain: string;
+  organization_id: string;
+  project_id: string;
   /** Status of the automatic renewal of the domain. */
-  auto_renew_status?: DomainFeatureStatus;
+  auto_renew_status: DomainFeatureStatus;
   /** Status of the DNSSEC configuration of the domain. */
   dnssec?: DomainDNSSEC;
   /** List of the domain's EPP codes. */
-  epp_code?: DomainEppCodeList;
+  epp_code: DomainEppCodeList;
   /** Date of expiration of the domain. (RFC 3339 format) */
   expired_at?: string | null;
   /** Domain's last modification date. (RFC 3339 format) */
   updated_at?: string | null;
-  registrar?: string;
+  registrar: string;
   /** Indicates whether Scaleway is the domain's registrar. */
-  is_external?: boolean;
+  is_external: boolean;
   /** Status of the domain. */
-  status?: DomainStatus;
+  status: DomainStatus;
   /** List of the domain's DNS zones. */
-  dns_zones?: DomainDnsZonesList;
+  dns_zones: DomainDnsZonesList;
   /** Contact information of the domain's owner. */
   owner_contact?: Contact;
   /** Contact information of the domain's technical contact. */
@@ -857,24 +857,24 @@ export interface Domain {
   /** Domain's TLD information. */
   tld?: Tld;
   /** List of Scaleway resources linked to the domain. */
-  linked_products?: DomainLinkedProductsList;
+  linked_products: DomainLinkedProductsList;
   /** Indicates if a trade is ongoing. */
-  pending_trade?: boolean;
+  pending_trade: boolean;
 }
 export const Domain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    auto_renew_status: S.optional(DomainFeatureStatus),
+    domain: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    auto_renew_status: DomainFeatureStatus,
     dnssec: S.optional(DomainDNSSEC),
-    epp_code: S.optional(DomainEppCodeList),
+    epp_code: DomainEppCodeList,
     expired_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    registrar: S.optional(S.String),
-    is_external: S.optional(S.Boolean),
-    status: S.optional(DomainStatus),
-    dns_zones: S.optional(DomainDnsZonesList),
+    registrar: S.String,
+    is_external: S.Boolean,
+    status: DomainStatus,
+    dns_zones: DomainDnsZonesList,
     owner_contact: S.optional(Contact),
     technical_contact: S.optional(Contact),
     administrative_contact: S.optional(Contact),
@@ -883,8 +883,8 @@ export const Domain = /*@__PURE__*/ S.suspend(() =>
     ),
     transfer_registration_status: S.optional(S.NullOr(DomainRegistrationStatusTransfer)),
     tld: S.optional(Tld),
-    linked_products: S.optional(DomainLinkedProductsList),
-    pending_trade: S.optional(S.Boolean),
+    linked_products: DomainLinkedProductsList,
+    pending_trade: S.Boolean,
   }),
 ).annotate({ identifier: "Domain" }) as any as S.Schema<Domain>;
 
@@ -993,11 +993,11 @@ export const GetDomainAuthCodeRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetDomainAuthCodeRequest" }) as any as S.Schema<GetDomainAuthCodeRequest>;
 
 export interface GetDomainAuthCodeResponse {
-  auth_code?: string;
+  auth_code: string;
 }
 export const GetDomainAuthCodeResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    auth_code: S.optional(S.String),
+    auth_code: S.String,
   }),
 ).annotate({
   identifier: "GetDomainAuthCodeResponse",
@@ -1035,15 +1035,15 @@ export const ListContactsRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListContactsRequest" }) as any as S.Schema<ListContactsRequest>;
 
 export interface ContactRolesRoles {
-  is_owner?: boolean;
-  is_administrative?: boolean;
-  is_technical?: boolean;
+  is_owner: boolean;
+  is_administrative: boolean;
+  is_technical: boolean;
 }
 export const ContactRolesRoles = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    is_owner: S.optional(S.Boolean),
-    is_administrative: S.optional(S.Boolean),
-    is_technical: S.optional(S.Boolean),
+    is_owner: S.Boolean,
+    is_administrative: S.Boolean,
+    is_technical: S.Boolean,
   }),
 ).annotate({ identifier: "ContactRolesRoles" }) as any as S.Schema<ContactRolesRoles>;
 
@@ -1055,12 +1055,12 @@ export const ContactRolesRolesMap = /*@__PURE__*/ S.Record(
 
 export interface ContactRoles {
   contact?: Contact;
-  roles?: ContactRolesRolesMap;
+  roles: ContactRolesRolesMap;
 }
 export const ContactRoles = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     contact: S.optional(Contact),
-    roles: S.optional(ContactRolesRolesMap),
+    roles: ContactRolesRolesMap,
   }),
 ).annotate({ identifier: "ContactRoles" }) as any as S.Schema<ContactRoles>;
 
@@ -1070,12 +1070,12 @@ export const ListContactsResponseContactsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListContactsResponseContactsList>;
 
 export interface ListContactsResponse {
-  total_count?: number;
+  total_count: number;
   contacts: ListContactsResponseContactsList;
 }
 export const ListContactsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     contacts: ListContactsResponseContactsList,
   }),
 ).annotate({ identifier: "ListContactsResponse" }) as any as S.Schema<ListContactsResponse>;
@@ -1106,12 +1106,12 @@ export const ListDomainHostsResponseHostsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListDomainHostsResponseHostsList>;
 
 export interface ListDomainHostsResponse {
-  total_count?: number;
+  total_count: number;
   hosts: ListDomainHostsResponseHostsList;
 }
 export const ListDomainHostsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     hosts: ListDomainHostsResponseHostsList,
   }),
 ).annotate({ identifier: "ListDomainHostsResponse" }) as any as S.Schema<ListDomainHostsResponse>;
@@ -1157,44 +1157,44 @@ export const DomainSummaryEppCodeList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DomainSummaryEppCodeList>;
 
 export interface DomainSummary {
-  domain?: string;
-  project_id?: string;
-  auto_renew_status?: DomainFeatureStatus;
-  dnssec_status?: DomainFeatureStatus;
-  epp_code?: DomainSummaryEppCodeList;
+  domain: string;
+  project_id: string;
+  auto_renew_status: DomainFeatureStatus;
+  dnssec_status: DomainFeatureStatus;
+  epp_code: DomainSummaryEppCodeList;
   /** (RFC 3339 format) */
   expired_at?: string | null;
   /** (RFC 3339 format) */
   updated_at?: string | null;
-  registrar?: string;
-  is_external?: boolean;
-  status?: DomainStatus;
+  registrar: string;
+  is_external: boolean;
+  status: DomainStatus;
   external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
   transfer_registration_status?: DomainRegistrationStatusTransfer | null;
-  organization_id?: string;
+  organization_id: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
-  pending_trade?: boolean;
+  pending_trade: boolean;
 }
 export const DomainSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    project_id: S.optional(S.String),
-    auto_renew_status: S.optional(DomainFeatureStatus),
-    dnssec_status: S.optional(DomainFeatureStatus),
-    epp_code: S.optional(DomainSummaryEppCodeList),
+    domain: S.String,
+    project_id: S.String,
+    auto_renew_status: DomainFeatureStatus,
+    dnssec_status: DomainFeatureStatus,
+    epp_code: DomainSummaryEppCodeList,
     expired_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    registrar: S.optional(S.String),
-    is_external: S.optional(S.Boolean),
-    status: S.optional(DomainStatus),
+    registrar: S.String,
+    is_external: S.Boolean,
+    status: DomainStatus,
     external_domain_registration_status: S.optional(
       S.NullOr(DomainRegistrationStatusExternalDomain),
     ),
     transfer_registration_status: S.optional(S.NullOr(DomainRegistrationStatusTransfer)),
-    organization_id: S.optional(S.String),
+    organization_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
-    pending_trade: S.optional(S.Boolean),
+    pending_trade: S.Boolean,
   }),
 ).annotate({ identifier: "DomainSummary" }) as any as S.Schema<DomainSummary>;
 
@@ -1204,12 +1204,12 @@ export const ListDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListDomainsResponseDomainsList>;
 
 export interface ListDomainsResponse {
-  total_count?: number;
+  total_count: number;
   domains: ListDomainsResponseDomainsList;
 }
 export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     domains: ListDomainsResponseDomainsList,
   }),
 ).annotate({ identifier: "ListDomainsResponse" }) as any as S.Schema<ListDomainsResponse>;
@@ -1256,32 +1256,32 @@ export const InboundTransferStatus = S.String;
 
 export interface InboundTransfer {
   /** The unique identifier of the inbound transfer. */
-  id?: string;
+  id: string;
   /** The creation date of the inbound transfer. (RFC 3339 format) */
   created_at?: string | null;
   /** The last modification date of the inbound transfer. (RFC 3339 format) */
   last_updated_at?: string | null;
   /** The project ID associated with the inbound transfer. */
-  project_id?: string;
+  project_id: string;
   /** The domain associated with the inbound transfer. */
-  domain?: string;
+  domain: string;
   /** Inbound transfer status. */
-  status?: InboundTransferStatus;
+  status: InboundTransferStatus;
   /** Human-friendly message to describe the current inbound transfer status. */
-  message?: string;
+  message: string;
   /** The unique identifier of the associated task. */
-  task_id?: string;
+  task_id: string;
 }
 export const InboundTransfer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     last_updated_at: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
-    domain: S.optional(S.String),
-    status: S.optional(InboundTransferStatus),
-    message: S.optional(S.String),
-    task_id: S.optional(S.String),
+    project_id: S.String,
+    domain: S.String,
+    status: InboundTransferStatus,
+    message: S.String,
+    task_id: S.String,
   }),
 ).annotate({ identifier: "InboundTransfer" }) as any as S.Schema<InboundTransfer>;
 
@@ -1291,12 +1291,12 @@ export const ListInboundTransfersResponseInboundTransfersList = /*@__PURE__*/ S.
 ) as any as S.Schema<ListInboundTransfersResponseInboundTransfersList>;
 
 export interface ListInboundTransfersResponse {
-  total_count?: number;
+  total_count: number;
   inbound_transfers: ListInboundTransfersResponseInboundTransfersList;
 }
 export const ListInboundTransfersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     inbound_transfers: ListInboundTransfersResponseInboundTransfersList,
   }),
 ).annotate({
@@ -1336,10 +1336,10 @@ export type RenewableDomainStatus = "unknown" | "renewable" | "late_reneweable" 
 export const RenewableDomainStatus = S.String;
 
 export interface RenewableDomain {
-  domain?: string;
-  project_id?: string;
-  organization_id?: string;
-  status?: RenewableDomainStatus;
+  domain: string;
+  project_id: string;
+  organization_id: string;
+  status: RenewableDomainStatus;
   renewable_duration_in_years?: number | null;
   /** (RFC 3339 format) */
   expired_at?: string | null;
@@ -1353,10 +1353,10 @@ export interface RenewableDomain {
 }
 export const RenewableDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    status: S.optional(RenewableDomainStatus),
+    domain: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    status: RenewableDomainStatus,
     renewable_duration_in_years: S.optional(S.NullOr(S.Number)),
     expired_at: S.optional(S.NullOr(S.String)),
     limit_renew_at: S.optional(S.NullOr(S.String)),
@@ -1372,12 +1372,12 @@ export const ListRenewableDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListRenewableDomainsResponseDomainsList>;
 
 export interface ListRenewableDomainsResponse {
-  total_count?: number;
+  total_count: number;
   domains: ListRenewableDomainsResponseDomainsList;
 }
 export const ListRenewableDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     domains: ListRenewableDomainsResponseDomainsList,
   }),
 ).annotate({
@@ -1473,17 +1473,17 @@ export const ListTasksRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Task {
   /** The unique identifier of the task. */
-  id?: string;
+  id: string;
   /** The project ID associated to the task. */
-  project_id?: string;
+  project_id: string;
   /** The organization ID associated to the task. */
-  organization_id?: string;
+  organization_id: string;
   /** The domain name associated to the task. */
   domain?: string | null;
   /** The type of the task. */
-  type?: TaskType;
+  type: TaskType;
   /** The status of the task. */
-  status?: TaskStatus;
+  status: TaskStatus;
   /** Start date of the task. (RFC 3339 format) */
   started_at?: string | null;
   /** Last update of the task. (RFC 3339 format) */
@@ -1495,12 +1495,12 @@ export interface Task {
 }
 export const Task = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
+    id: S.String,
+    project_id: S.String,
+    organization_id: S.String,
     domain: S.optional(S.NullOr(S.String)),
-    type: S.optional(TaskType),
-    status: S.optional(TaskStatus),
+    type: TaskType,
+    status: TaskStatus,
     started_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     message: S.optional(S.NullOr(S.String)),
@@ -1514,12 +1514,12 @@ export const ListTasksResponseTasksList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListTasksResponseTasksList>;
 
 export interface ListTasksResponse {
-  total_count?: number;
+  total_count: number;
   tasks: ListTasksResponseTasksList;
 }
 export const ListTasksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     tasks: ListTasksResponseTasksList,
   }),
 ).annotate({ identifier: "ListTasksResponse" }) as any as S.Schema<ListTasksResponse>;
@@ -1568,12 +1568,12 @@ export interface ListTldsResponse {
   /** Array of TLDs. */
   tlds: ListTldsResponseTldsList;
   /** Total count of TLDs returned. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListTldsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     tlds: ListTldsResponseTldsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListTldsResponse" }) as any as S.Schema<ListTldsResponse>;
 
@@ -1616,20 +1616,20 @@ export const RegisterExternalDomainRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<RegisterExternalDomainRequest>;
 
 export interface RegisterExternalDomainResponse {
-  domain?: string;
-  organization_id?: string;
-  validation_token?: string;
+  domain: string;
+  organization_id: string;
+  validation_token: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
-  project_id?: string;
+  project_id: string;
 }
 export const RegisterExternalDomainResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    validation_token: S.optional(S.String),
+    domain: S.String,
+    organization_id: S.String,
+    validation_token: S.String,
     created_at: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
+    project_id: S.String,
   }),
 ).annotate({
   identifier: "RegisterExternalDomainResponse",
@@ -1731,14 +1731,14 @@ export const SearchAvailableDomainsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<SearchAvailableDomainsRequest>;
 
 export interface AvailableDomain {
-  domain?: string;
-  available?: boolean;
+  domain: string;
+  available: boolean;
   tld?: Tld;
 }
 export const AvailableDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    available: S.optional(S.Boolean),
+    domain: S.String,
+    available: S.Boolean,
     tld: S.optional(Tld),
   }),
 ).annotate({ identifier: "AvailableDomain" }) as any as S.Schema<AvailableDomain>;
@@ -1751,13 +1751,13 @@ export const SearchAvailableDomainsResponseAvailableDomainsList = /*@__PURE__*/ 
 
 export interface SearchAvailableDomainsResponse {
   /** Array of available domains. */
-  available_domains?: SearchAvailableDomainsResponseAvailableDomainsList;
+  available_domains: SearchAvailableDomainsResponseAvailableDomainsList;
   /** If an exact match was asked and found, the result is in this field. */
   exact_match_domain?: AvailableDomain;
 }
 export const SearchAvailableDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    available_domains: S.optional(SearchAvailableDomainsResponseAvailableDomainsList),
+    available_domains: SearchAvailableDomainsResponseAvailableDomainsList,
     exact_match_domain: S.optional(AvailableDomain),
   }),
 ).annotate({

@@ -101,13 +101,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ACL ID."
+            "smithy.api#documentation": "ACL ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ACL name."
+            "smithy.api#documentation": "ACL name.",
+            "smithy.api#required": {}
           }
         },
         "match": {
@@ -131,7 +133,8 @@
         "index": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Priority of this ACL (ACLs are applied in ascending order, 0 is the first ACL executed)."
+            "smithy.api#documentation": "Priority of this ACL (ACLs are applied in ascending order, 0 is the first ACL executed).",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -151,7 +154,8 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ACL description."
+            "smithy.api#documentation": "ACL description.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -351,19 +355,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Frontend ID."
+            "smithy.api#documentation": "Frontend ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the frontend."
+            "smithy.api#documentation": "Name of the frontend.",
+            "smithy.api#required": {}
           }
         },
         "inbound_port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Port the frontend listens on."
+            "smithy.api#documentation": "Port the frontend listens on.",
+            "smithy.api#required": {}
           }
         },
         "backend": {
@@ -381,7 +388,8 @@
         "timeout_client": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Maximum allowed inactivity time on the client side. (in milliseconds)"
+            "smithy.api#documentation": "Maximum allowed inactivity time on the client side. (in milliseconds)",
+            "smithy.api#required": {}
           }
         },
         "certificate": {
@@ -393,7 +401,8 @@
         "certificate_ids": {
           "target": "com.scaleway.lb_zoned_v1#FrontendCertificateIdsList",
           "traits": {
-            "smithy.api#documentation": "List of SSL/TLS certificate IDs to bind to the frontend."
+            "smithy.api#documentation": "List of SSL/TLS certificate IDs to bind to the frontend.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -413,7 +422,8 @@
         "enable_http3": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to enable HTTP/3 protocol on the frontend."
+            "smithy.api#documentation": "Defines whether to enable HTTP/3 protocol on the frontend.",
+            "smithy.api#required": {}
           }
         },
         "connection_rate_limit": {
@@ -426,7 +436,8 @@
         "enable_access_logs": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to enable access logs on the frontend."
+            "smithy.api#documentation": "Defines whether to enable access logs on the frontend.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -438,43 +449,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend ID."
+            "smithy.api#documentation": "Backend ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the backend."
+            "smithy.api#documentation": "Name of the backend.",
+            "smithy.api#required": {}
           }
         },
         "forward_protocol": {
           "target": "com.scaleway.lb_zoned_v1#Protocol",
           "traits": {
-            "smithy.api#documentation": "Protocol used by the backend when forwarding traffic to backend servers."
+            "smithy.api#documentation": "Protocol used by the backend when forwarding traffic to backend servers.",
+            "smithy.api#required": {}
           }
         },
         "forward_port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Port used by the backend when forwarding traffic to backend servers."
+            "smithy.api#documentation": "Port used by the backend when forwarding traffic to backend servers.",
+            "smithy.api#required": {}
           }
         },
         "forward_port_algorithm": {
           "target": "com.scaleway.lb_zoned_v1#ForwardPortAlgorithm",
           "traits": {
-            "smithy.api#documentation": "Load balancing algorithm to use when determining which backend server to forward new traffic to."
+            "smithy.api#documentation": "Load balancing algorithm to use when determining which backend server to forward new traffic to.",
+            "smithy.api#required": {}
           }
         },
         "sticky_sessions": {
           "target": "com.scaleway.lb_zoned_v1#StickySessionsType",
           "traits": {
-            "smithy.api#documentation": "Defines whether sticky sessions (binding a particular session to a particular backend server) are activated and the method to use if so. None disables sticky sessions. Cookie-based uses an HTTP cookie to stick a session to a backend server. Table-based uses the source (client) IP address to stick a session to a backend server."
+            "smithy.api#documentation": "Defines whether sticky sessions (binding a particular session to a particular backend server) are activated and the method to use if so. None disables sticky sessions. Cookie-based uses an HTTP cookie to stick a session to a backend server. Table-based uses the source (client) IP address to stick a session to a backend server.",
+            "smithy.api#required": {}
           }
         },
         "sticky_sessions_cookie_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cookie name for cookie-based sticky sessions."
+            "smithy.api#documentation": "Cookie name for cookie-based sticky sessions.",
+            "smithy.api#required": {}
           }
         },
         "health_check": {
@@ -486,7 +504,8 @@
         "pool": {
           "target": "com.scaleway.lb_zoned_v1#BackendPoolList",
           "traits": {
-            "smithy.api#documentation": "List of IP addresses of backend servers attached to this backend."
+            "smithy.api#documentation": "List of IP addresses of backend servers attached to this backend.",
+            "smithy.api#required": {}
           }
         },
         "lb": {
@@ -504,31 +523,36 @@
         "timeout_server": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Maximum allowed time for a backend server to process a request. (in milliseconds)"
+            "smithy.api#documentation": "Maximum allowed time for a backend server to process a request. (in milliseconds)",
+            "smithy.api#required": {}
           }
         },
         "timeout_connect": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Maximum allowed time for establishing a connection to a backend server. (in milliseconds)"
+            "smithy.api#documentation": "Maximum allowed time for establishing a connection to a backend server. (in milliseconds)",
+            "smithy.api#required": {}
           }
         },
         "timeout_tunnel": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Maximum allowed tunnel inactivity time after Websocket is established (takes precedence over client and server timeout). (in milliseconds)"
+            "smithy.api#documentation": "Maximum allowed tunnel inactivity time after Websocket is established (takes precedence over client and server timeout). (in milliseconds)",
+            "smithy.api#required": {}
           }
         },
         "on_marked_down_action": {
           "target": "com.scaleway.lb_zoned_v1#OnMarkedDownAction",
           "traits": {
-            "smithy.api#documentation": "Action to take when a backend server is marked as down."
+            "smithy.api#documentation": "Action to take when a backend server is marked as down.",
+            "smithy.api#required": {}
           }
         },
         "proxy_protocol": {
           "target": "com.scaleway.lb_zoned_v1#ProxyProtocol",
           "traits": {
-            "smithy.api#documentation": "Protocol to use between the Load Balancer and backend servers. Allows the backend servers to be informed of the client's real IP address. The PROXY protocol must be supported by the backend servers' software."
+            "smithy.api#documentation": "Protocol to use between the Load Balancer and backend servers. Allows the backend servers to be informed of the client's real IP address. The PROXY protocol must be supported by the backend servers' software.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -869,73 +893,85 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Underlying Instance ID."
+            "smithy.api#documentation": "Underlying Instance ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Load Balancer name."
+            "smithy.api#documentation": "Load Balancer name.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Load Balancer description."
+            "smithy.api#documentation": "Load Balancer description.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.lb_zoned_v1#LbStatus",
           "traits": {
-            "smithy.api#documentation": "Load Balancer status."
+            "smithy.api#documentation": "Load Balancer status.",
+            "smithy.api#required": {}
           }
         },
         "instances": {
           "target": "com.scaleway.lb_zoned_v1#LbInstancesList",
           "traits": {
-            "smithy.api#documentation": "List of underlying Instances."
+            "smithy.api#documentation": "List of underlying Instances.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Organization ID."
+            "smithy.api#documentation": "Scaleway Organization ID.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Project ID."
+            "smithy.api#documentation": "Scaleway Project ID.",
+            "smithy.api#required": {}
           }
         },
         "ip": {
           "target": "com.scaleway.lb_zoned_v1#LbIpList",
           "traits": {
-            "smithy.api#documentation": "List of IP addresses attached to the Load Balancer."
+            "smithy.api#documentation": "List of IP addresses attached to the Load Balancer.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.lb_zoned_v1#LbTagsList",
           "traits": {
-            "smithy.api#documentation": "Load Balancer tags."
+            "smithy.api#documentation": "Load Balancer tags.",
+            "smithy.api#required": {}
           }
         },
         "frontend_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of frontends the Load Balancer has."
+            "smithy.api#documentation": "Number of frontends the Load Balancer has.",
+            "smithy.api#required": {}
           }
         },
         "backend_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of backends the Load Balancer has."
+            "smithy.api#documentation": "Number of backends the Load Balancer has.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Load Balancer offer type."
+            "smithy.api#documentation": "Load Balancer offer type.",
+            "smithy.api#required": {}
           }
         },
         "subscriber": {
@@ -947,7 +983,8 @@
         "ssl_compatibility_level": {
           "target": "com.scaleway.lb_zoned_v1#SSLCompatibilityLevel",
           "traits": {
-            "smithy.api#documentation": "Determines the minimal SSL version which needs to be supported on client side."
+            "smithy.api#documentation": "Determines the minimal SSL version which needs to be supported on client side.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -967,13 +1004,15 @@
         "private_network_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of Private Networks attached to the Load Balancer."
+            "smithy.api#documentation": "Number of Private Networks attached to the Load Balancer.",
+            "smithy.api#required": {}
           }
         },
         "route_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of routes configured on the Load Balancer."
+            "smithy.api#documentation": "Number of routes configured on the Load Balancer.",
+            "smithy.api#required": {}
           }
         },
         "region": {
@@ -985,7 +1024,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone the Load Balancer is in."
+            "smithy.api#documentation": "The zone the Load Balancer is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1069,19 +1109,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Underlying Instance ID."
+            "smithy.api#documentation": "Underlying Instance ID.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.lb_zoned_v1#InstanceStatus",
           "traits": {
-            "smithy.api#documentation": "Instance status."
+            "smithy.api#documentation": "Instance status.",
+            "smithy.api#required": {}
           }
         },
         "ip_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Instance IP address."
+            "smithy.api#documentation": "Instance IP address.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1107,7 +1150,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone the Instance is in."
+            "smithy.api#documentation": "The zone the Instance is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1176,25 +1220,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address ID."
+            "smithy.api#documentation": "IP address ID.",
+            "smithy.api#required": {}
           }
         },
         "ip_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP address."
+            "smithy.api#documentation": "IP address.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the Scaleway Organization the IP address is in."
+            "smithy.api#documentation": "Organization ID of the Scaleway Organization the IP address is in.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the Scaleway Project the IP address is in."
+            "smithy.api#documentation": "Project ID of the Scaleway Project the IP address is in.",
+            "smithy.api#required": {}
           }
         },
         "lb_id": {
@@ -1207,13 +1255,15 @@
         "reverse": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Reverse DNS (domain name) of the IP address."
+            "smithy.api#documentation": "Reverse DNS (domain name) of the IP address.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.lb_zoned_v1#IpTagsList",
           "traits": {
-            "smithy.api#documentation": "IP tags."
+            "smithy.api#documentation": "IP tags.",
+            "smithy.api#required": {}
           }
         },
         "region": {
@@ -1225,7 +1275,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone the IP address is in."
+            "smithy.api#documentation": "The zone the IP address is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1264,13 +1315,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subscriber ID."
+            "smithy.api#documentation": "Subscriber ID.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Subscriber name."
+            "smithy.api#documentation": "Subscriber name.",
+            "smithy.api#required": {}
           }
         },
         "email_config": {
@@ -1410,31 +1463,36 @@
         "type": {
           "target": "com.scaleway.lb_zoned_v1#CertificateType",
           "traits": {
-            "smithy.api#documentation": "Certificate type (Let's Encrypt or custom)."
+            "smithy.api#documentation": "Certificate type (Let's Encrypt or custom).",
+            "smithy.api#required": {}
           }
         },
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Certificate ID."
+            "smithy.api#documentation": "Certificate ID.",
+            "smithy.api#required": {}
           }
         },
         "common_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Main domain name of certificate."
+            "smithy.api#documentation": "Main domain name of certificate.",
+            "smithy.api#required": {}
           }
         },
         "subject_alternative_name": {
           "target": "com.scaleway.lb_zoned_v1#CertificateSubjectAlternativeNameList",
           "traits": {
-            "smithy.api#documentation": "Alternative domain names."
+            "smithy.api#documentation": "Alternative domain names.",
+            "smithy.api#required": {}
           }
         },
         "fingerprint": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Identifier (SHA-1) of the certificate."
+            "smithy.api#documentation": "Identifier (SHA-1) of the certificate.",
+            "smithy.api#required": {}
           }
         },
         "not_valid_before": {
@@ -1454,7 +1512,8 @@
         "status": {
           "target": "com.scaleway.lb_zoned_v1#CertificateStatus",
           "traits": {
-            "smithy.api#documentation": "Certificate status."
+            "smithy.api#documentation": "Certificate status.",
+            "smithy.api#required": {}
           }
         },
         "lb": {
@@ -1466,7 +1525,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Certificate name."
+            "smithy.api#documentation": "Certificate name.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3525,13 +3585,15 @@
         "acls": {
           "target": "com.scaleway.lb_zoned_v1#ListAclResponseAclsList",
           "traits": {
-            "smithy.api#documentation": "List of ACL objects."
+            "smithy.api#documentation": "List of ACL objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of objects."
+            "smithy.api#documentation": "The total number of objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3837,13 +3899,15 @@
         "acls": {
           "target": "com.scaleway.lb_zoned_v1#SetAclsResponseAclsList",
           "traits": {
-            "smithy.api#documentation": "List of ACL objects."
+            "smithy.api#documentation": "List of ACL objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of ACL objects."
+            "smithy.api#documentation": "The total number of ACL objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4031,13 +4095,15 @@
         "ips": {
           "target": "com.scaleway.lb_zoned_v1#ListIpsResponseIpsList",
           "traits": {
-            "smithy.api#documentation": "List of IP address objects."
+            "smithy.api#documentation": "List of IP address objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of IP address objects, without pagination."
+            "smithy.api#documentation": "Total count of IP address objects, without pagination.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4610,13 +4676,15 @@
         "lb_types": {
           "target": "com.scaleway.lb_zoned_v1#ListLbTypesResponseLbTypesList",
           "traits": {
-            "smithy.api#documentation": "List of Load Balancer commercial offer type objects."
+            "smithy.api#documentation": "List of Load Balancer commercial offer type objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of Load Balancer offer type objects."
+            "smithy.api#documentation": "Total number of Load Balancer offer type objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4628,31 +4696,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Load Balancer commercial offer type name."
+            "smithy.api#documentation": "Load Balancer commercial offer type name.",
+            "smithy.api#required": {}
           }
         },
         "stock_status": {
           "target": "com.scaleway.lb_zoned_v1#LbTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock status for a given Load Balancer type."
+            "smithy.api#documentation": "Current stock status for a given Load Balancer type.",
+            "smithy.api#required": {}
           }
         },
         "bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum bandwidth for a given Load Balancer type."
+            "smithy.api#documentation": "Maximum bandwidth for a given Load Balancer type.",
+            "smithy.api#required": {}
           }
         },
         "multicloud": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Ability to handle backend servers outside Scaleway for a given Load Balancer type."
+            "smithy.api#documentation": "Ability to handle backend servers outside Scaleway for a given Load Balancer type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Load Balancer commercial offer type description."
+            "smithy.api#documentation": "Load Balancer commercial offer type description.",
+            "smithy.api#required": {}
           }
         },
         "region": {
@@ -4664,7 +4737,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone the Load Balancer stock is in."
+            "smithy.api#documentation": "The zone the Load Balancer stock is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5201,13 +5275,15 @@
         "lbs": {
           "target": "com.scaleway.lb_zoned_v1#ListLbsResponseLbsList",
           "traits": {
-            "smithy.api#documentation": "List of Load Balancer objects."
+            "smithy.api#documentation": "List of Load Balancer objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of Load Balancer objects."
+            "smithy.api#documentation": "The total number of Load Balancer objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5863,7 +5939,8 @@
         "ipam_ids": {
           "target": "com.scaleway.lb_zoned_v1#PrivateNetworkIpamIdsList",
           "traits": {
-            "smithy.api#documentation": "IPAM IDs of the booked IP addresses. (UUID format)"
+            "smithy.api#documentation": "IPAM IDs of the booked IP addresses. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "static_config": {
@@ -5883,13 +5960,15 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network ID."
+            "smithy.api#documentation": "Private Network ID.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.lb_zoned_v1#PrivateNetworkStatus",
           "traits": {
-            "smithy.api#documentation": "Status of Private Network connection."
+            "smithy.api#documentation": "Status of Private Network connection.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -6104,13 +6183,15 @@
         "backend_servers_stats": {
           "target": "com.scaleway.lb_zoned_v1#ListBackendStatsResponseBackendServersStatsList",
           "traits": {
-            "smithy.api#documentation": "List of objects containing backend server statistics."
+            "smithy.api#documentation": "List of objects containing backend server statistics.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of objects."
+            "smithy.api#documentation": "The total number of objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6122,25 +6203,29 @@
         "instance_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of your Load Balancer's underlying Instance."
+            "smithy.api#documentation": "ID of your Load Balancer's underlying Instance.",
+            "smithy.api#required": {}
           }
         },
         "backend_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend ID."
+            "smithy.api#documentation": "Backend ID.",
+            "smithy.api#required": {}
           }
         },
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv4 or IPv6 address of the backend server."
+            "smithy.api#documentation": "IPv4 or IPv6 address of the backend server.",
+            "smithy.api#required": {}
           }
         },
         "server_state": {
           "target": "com.scaleway.lb_zoned_v1#BackendServerStatsServerState",
           "traits": {
-            "smithy.api#documentation": "Server operational state (stopped/starting/running/stopping)."
+            "smithy.api#documentation": "Server operational state (stopped/starting/running/stopping).",
+            "smithy.api#required": {}
           }
         },
         "server_state_changed_at": {
@@ -6153,7 +6238,8 @@
         "last_health_check_status": {
           "target": "com.scaleway.lb_zoned_v1#BackendServerStatsHealthCheckStatus",
           "traits": {
-            "smithy.api#documentation": "Last health check status (unknown/neutral/failed/passed/condpass)."
+            "smithy.api#documentation": "Last health check status (unknown/neutral/failed/passed/condpass).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6400,13 +6486,15 @@
         "backends": {
           "target": "com.scaleway.lb_zoned_v1#ListBackendsResponseBackendsList",
           "traits": {
-            "smithy.api#documentation": "List of backend objects of a given Load Balancer."
+            "smithy.api#documentation": "List of backend objects of a given Load Balancer.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of backend objects, without pagination."
+            "smithy.api#documentation": "Total count of backend objects, without pagination.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6838,13 +6926,15 @@
         "certificates": {
           "target": "com.scaleway.lb_zoned_v1#ListCertificatesResponseCertificatesList",
           "traits": {
-            "smithy.api#documentation": "List of certificate objects."
+            "smithy.api#documentation": "List of certificate objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of objects."
+            "smithy.api#documentation": "The total number of objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -7284,13 +7374,15 @@
         "frontends": {
           "target": "com.scaleway.lb_zoned_v1#ListFrontendsResponseFrontendsList",
           "traits": {
-            "smithy.api#documentation": "List of frontend objects of a given Load Balancer."
+            "smithy.api#documentation": "List of frontend objects of a given Load Balancer.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of frontend objects, without pagination."
+            "smithy.api#documentation": "Total count of frontend objects, without pagination.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -7718,13 +7810,15 @@
         "private_network": {
           "target": "com.scaleway.lb_zoned_v1#ListLbPrivateNetworksResponsePrivateNetworkList",
           "traits": {
-            "smithy.api#documentation": "List of Private Network objects attached to the Load Balancer."
+            "smithy.api#documentation": "List of Private Network objects attached to the Load Balancer.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of objects in the response."
+            "smithy.api#documentation": "Total number of objects in the response.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -7885,13 +7979,15 @@
         "routes": {
           "target": "com.scaleway.lb_zoned_v1#ListRoutesResponseRoutesList",
           "traits": {
-            "smithy.api#documentation": "List of route objects."
+            "smithy.api#documentation": "List of route objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of route objects."
+            "smithy.api#documentation": "The total number of route objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -7903,19 +7999,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route ID."
+            "smithy.api#documentation": "Route ID.",
+            "smithy.api#required": {}
           }
         },
         "frontend_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the source frontend."
+            "smithy.api#documentation": "ID of the source frontend.",
+            "smithy.api#required": {}
           }
         },
         "backend_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the target backend."
+            "smithy.api#documentation": "ID of the target backend.",
+            "smithy.api#required": {}
           }
         },
         "match": {
@@ -8557,13 +8656,15 @@
         "subscribers": {
           "target": "com.scaleway.lb_zoned_v1#ListSubscriberResponseSubscribersList",
           "traits": {
-            "smithy.api#documentation": "List of subscriber objects."
+            "smithy.api#documentation": "List of subscriber objects.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The total number of objects."
+            "smithy.api#documentation": "The total number of objects.",
+            "smithy.api#required": {}
           }
         }
       },

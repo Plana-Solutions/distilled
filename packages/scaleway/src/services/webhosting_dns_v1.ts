@@ -93,15 +93,15 @@ export const AutoConfigDomainDns = /*@__PURE__*/ S.suspend(() =>
 
 export interface Domain {
   /** Name of the domain. */
-  name?: string;
+  name: string;
   /** Current status of the domain. */
-  status?: DomainStatus;
+  status: DomainStatus;
   /** Zone owner of the domain. */
-  owner?: DomainZoneOwner;
+  owner: DomainZoneOwner;
   /** Main domain for this zone. */
-  zone_domain_name?: string;
+  zone_domain_name: string;
   /** A list of actions that can be performed on the domain. */
-  available_actions?: DomainAvailableActionsList;
+  available_actions: DomainAvailableActionsList;
   /** A list of DNS-related actions that can be auto configured for the domain (deprecated, use auto_config_domain_dns instead). */
   available_dns_actions?: DomainAvailableDnsActionsList;
   /** Whether or not to synchronize each type of record. */
@@ -109,11 +109,11 @@ export interface Domain {
 }
 export const Domain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    status: S.optional(DomainStatus),
-    owner: S.optional(DomainZoneOwner),
-    zone_domain_name: S.optional(S.String),
-    available_actions: S.optional(DomainAvailableActionsList),
+    name: S.String,
+    status: DomainStatus,
+    owner: DomainZoneOwner,
+    zone_domain_name: S.String,
+    available_actions: DomainAvailableActionsList,
     available_dns_actions: S.optional(DomainAvailableDnsActionsList),
     auto_config_domain_dns: S.optional(AutoConfigDomainDns),
   }),
@@ -152,29 +152,29 @@ export const DnsRecordStatus = S.String;
 
 export interface DnsRecord {
   /** Record name. */
-  name?: string;
+  name: string;
   /** Record type. */
-  type?: DnsRecordType;
+  type: DnsRecordType;
   /** Record time-to-live. */
-  ttl?: number;
+  ttl: number;
   /** Record value. */
-  value?: string;
+  value: string;
   /** Record priority level. */
   priority?: number | null;
   /** Record status. */
-  status?: DnsRecordStatus;
+  status: DnsRecordStatus;
   /** Record representation as it appears in the zone file or DNS management system. */
-  raw_data?: string;
+  raw_data: string;
 }
 export const DnsRecord = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    type: S.optional(DnsRecordType),
-    ttl: S.optional(S.Number),
-    value: S.optional(S.String),
+    name: S.String,
+    type: DnsRecordType,
+    ttl: S.Number,
+    value: S.String,
     priority: S.optional(S.NullOr(S.Number)),
-    status: S.optional(DnsRecordStatus),
-    raw_data: S.optional(S.String),
+    status: DnsRecordStatus,
+    raw_data: S.String,
   }),
 ).annotate({ identifier: "DnsRecord" }) as any as S.Schema<DnsRecord>;
 
@@ -189,17 +189,17 @@ export const NameserverStatus = S.String;
 
 export interface Nameserver {
   /** Hostname of the nameserver. */
-  hostname?: string;
+  hostname: string;
   /** Status of the nameserver. */
-  status?: NameserverStatus;
+  status: NameserverStatus;
   /** Defines whether the nameserver is the default one. */
-  is_default?: boolean;
+  is_default: boolean;
 }
 export const Nameserver = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    hostname: S.optional(S.String),
-    status: S.optional(NameserverStatus),
-    is_default: S.optional(S.Boolean),
+    hostname: S.String,
+    status: NameserverStatus,
+    is_default: S.Boolean,
   }),
 ).annotate({ identifier: "Nameserver" }) as any as S.Schema<Nameserver>;
 
@@ -220,11 +220,11 @@ export const DnsRecordsDnsConfigList = /*@__PURE__*/ S.Array(
 
 export interface DnsRecords {
   /** List of DNS records. */
-  records?: DnsRecordsRecordsList;
+  records: DnsRecordsRecordsList;
   /** List of nameservers. */
-  name_servers?: DnsRecordsNameServersList;
+  name_servers: DnsRecordsNameServersList;
   /** Status of the records. */
-  status?: DnsRecordsStatus;
+  status: DnsRecordsStatus;
   /** Records dns auto configuration settings (deprecated, use auto_config_domain_dns). */
   dns_config?: DnsRecordsDnsConfigList;
   /** Whether or not to synchronize each types of records. */
@@ -232,9 +232,9 @@ export interface DnsRecords {
 }
 export const DnsRecords = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    records: S.optional(DnsRecordsRecordsList),
-    name_servers: S.optional(DnsRecordsNameServersList),
-    status: S.optional(DnsRecordsStatus),
+    records: DnsRecordsRecordsList,
+    name_servers: DnsRecordsNameServersList,
+    status: DnsRecordsStatus,
     dns_config: S.optional(DnsRecordsDnsConfigList),
     auto_config_domain_dns: S.optional(AutoConfigDomainDns),
   }),
@@ -289,39 +289,39 @@ export const DomainAvailabilityAvailableActionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DomainAvailabilityAvailableActionsList>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface DomainAvailability {
   /** Fully qualified domain name (FQDN). */
-  name?: string;
+  name: string;
   /** DNS zone associated with the domain. */
-  zone_name?: string;
+  zone_name: string;
   /** Availability status of the domain. */
-  status?: DomainAvailabilityStatus;
+  status: DomainAvailabilityStatus;
   /** A list of actions that can be performed on the domain. */
-  available_actions?: DomainAvailabilityAvailableActionsList;
+  available_actions: DomainAvailabilityAvailableActionsList;
   /** Whether a hosting can be created for this domain. */
-  can_create_hosting?: boolean;
+  can_create_hosting: boolean;
   /** Price for registering the domain. */
   price?: GoogleTypeMoney;
 }
 export const DomainAvailability = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    zone_name: S.optional(S.String),
-    status: S.optional(DomainAvailabilityStatus),
-    available_actions: S.optional(DomainAvailabilityAvailableActionsList),
-    can_create_hosting: S.optional(S.Boolean),
+    name: S.String,
+    zone_name: S.String,
+    status: DomainAvailabilityStatus,
+    available_actions: DomainAvailabilityAvailableActionsList,
+    can_create_hosting: S.Boolean,
     price: S.optional(GoogleTypeMoney),
   }),
 ).annotate({ identifier: "DomainAvailability" }) as any as S.Schema<DomainAvailability>;
@@ -334,11 +334,11 @@ export const SearchDomainsResponseDomainsAvailableList = /*@__PURE__*/ S.Array(
 
 export interface SearchDomainsResponse {
   /** List of domains availability. */
-  domains_available?: SearchDomainsResponseDomainsAvailableList;
+  domains_available: SearchDomainsResponseDomainsAvailableList;
 }
 export const SearchDomainsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domains_available: S.optional(SearchDomainsResponseDomainsAvailableList),
+    domains_available: SearchDomainsResponseDomainsAvailableList,
   }),
 ).annotate({ identifier: "SearchDomainsResponse" }) as any as S.Schema<SearchDomainsResponse>;
 

@@ -111,13 +111,15 @@
         "attachments": {
           "target": "com.scaleway.file_v1alpha1#ListAttachmentsResponseAttachmentsList",
           "traits": {
-            "smithy.api#documentation": "List of filesystem attachments matching the request criteria."
+            "smithy.api#documentation": "List of filesystem attachments matching the request criteria.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of filesystem attachments matching the criteria."
+            "smithy.api#documentation": "Total number of filesystem attachments matching the criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -129,25 +131,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the attachment. (UUID format)"
+            "smithy.api#documentation": "UUID of the attachment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "filesystem_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the filesystem. (UUID format)"
+            "smithy.api#documentation": "UUID of the filesystem. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "resource_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the attached resource. (UUID format)"
+            "smithy.api#documentation": "UUID of the attached resource. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "resource_type": {
           "target": "com.scaleway.file_v1alpha1#AttachmentResourceType",
           "traits": {
-            "smithy.api#documentation": "The type of the attached resource."
+            "smithy.api#documentation": "The type of the attached resource.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
@@ -160,13 +166,15 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region where the attachment is located."
+            "smithy.api#documentation": "The region where the attachment is located.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the attachment."
+            "smithy.api#documentation": "The SRN of the attachment.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -253,13 +261,15 @@
         "filesystem_types": {
           "target": "com.scaleway.file_v1alpha1#ListFileSystemTypesResponseFilesystemTypesList",
           "traits": {
-            "smithy.api#documentation": "Returns paginated list of filesystem-types."
+            "smithy.api#documentation": "Returns paginated list of filesystem-types.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of file system types."
+            "smithy.api#documentation": "Total number of file system types.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -271,7 +281,8 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Filesystem type name."
+            "smithy.api#documentation": "Filesystem type name.",
+            "smithy.api#required": {}
           }
         },
         "filesystem_price_gb_per_hour": {
@@ -293,13 +304,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -478,13 +498,15 @@
         "filesystems": {
           "target": "com.scaleway.file_v1alpha1#ListFileSystemsResponseFilesystemsList",
           "traits": {
-            "smithy.api#documentation": "List of filesystems matching the request criteria."
+            "smithy.api#documentation": "List of filesystems matching the request criteria.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of filesystems matching the criteria."
+            "smithy.api#documentation": "Total number of filesystems matching the criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -496,55 +518,64 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the filesystem. (UUID format)"
+            "smithy.api#documentation": "UUID of the filesystem. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the filesystem."
+            "smithy.api#documentation": "Name of the filesystem.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Filesystem size in bytes. (in bytes)"
+            "smithy.api#documentation": "Filesystem size in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.file_v1alpha1#FileSystemStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the filesystem (e.g. creating, available, ...)."
+            "smithy.api#documentation": "Current status of the filesystem (e.g. creating, available, ...).",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the project to which the filesystem belongs. (UUID format)"
+            "smithy.api#documentation": "UUID of the project to which the filesystem belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the organization to which the filesystem belongs. (UUID format)"
+            "smithy.api#documentation": "UUID of the organization to which the filesystem belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.file_v1alpha1#FileSystemTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags assigned to the filesystem."
+            "smithy.api#documentation": "List of tags assigned to the filesystem.",
+            "smithy.api#required": {}
           }
         },
         "number_of_attachments": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The current number of attachments (mounts) that the filesystem has."
+            "smithy.api#documentation": "The current number of attachments (mounts) that the filesystem has.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region where the filesystem is located."
+            "smithy.api#documentation": "Region where the filesystem is located.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -564,13 +595,15 @@
         "filesystem_type_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the filesystem type. (UUID format)"
+            "smithy.api#documentation": "UUID of the filesystem type. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the filesystem."
+            "smithy.api#documentation": "The SRN of the filesystem.",
+            "smithy.api#required": {}
           }
         }
       },

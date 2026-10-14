@@ -28,11 +28,11 @@ export const GetGrafanaRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Grafana {
   /** URL to access your Cockpit's Grafana. */
-  grafana_url?: string;
+  grafana_url: string;
 }
 export const Grafana = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    grafana_url: S.optional(S.String),
+    grafana_url: S.String,
   }),
 ).annotate({ identifier: "Grafana" }) as any as S.Schema<Grafana>;
 
@@ -72,23 +72,23 @@ export const GrafanaProductDashboardVariablesList = /*@__PURE__*/ S.Array(
 
 export interface GrafanaProductDashboard {
   /** Dashboard name. */
-  name?: string;
+  name: string;
   /** Dashboard title. */
-  title?: string;
+  title: string;
   /** Dashboard URL. */
-  url?: string;
+  url: string;
   /** Dashboard tags. */
-  tags?: GrafanaProductDashboardTagsList;
+  tags: GrafanaProductDashboardTagsList;
   /** Dashboard variables. */
-  variables?: GrafanaProductDashboardVariablesList;
+  variables: GrafanaProductDashboardVariablesList;
 }
 export const GrafanaProductDashboard = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    title: S.optional(S.String),
-    url: S.optional(S.String),
-    tags: S.optional(GrafanaProductDashboardTagsList),
-    variables: S.optional(GrafanaProductDashboardVariablesList),
+    name: S.String,
+    title: S.String,
+    url: S.String,
+    tags: GrafanaProductDashboardTagsList,
+    variables: GrafanaProductDashboardVariablesList,
   }),
 ).annotate({ identifier: "GrafanaProductDashboard" }) as any as S.Schema<GrafanaProductDashboard>;
 
@@ -133,13 +133,13 @@ export const ListGrafanaProductDashboardsResponseDashboardsList = /*@__PURE__*/ 
 
 export interface ListGrafanaProductDashboardsResponse {
   /** Total count of Grafana dashboards. */
-  total_count?: number;
+  total_count: number;
   /** Grafana dashboards information. */
   dashboards: ListGrafanaProductDashboardsResponseDashboardsList;
 }
 export const ListGrafanaProductDashboardsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     dashboards: ListGrafanaProductDashboardsResponseDashboardsList,
   }),
 ).annotate({

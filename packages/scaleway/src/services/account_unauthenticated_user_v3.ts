@@ -75,20 +75,20 @@ export const CreateAccountRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Account {
   /** Request creation id. (UUID format) */
-  id?: string;
+  id: string;
   /** Email used for the account request. */
-  email?: string;
+  email: string;
   /** Token used to validate the account without email validation. */
   token?: string | null;
   /** The SRN of the account. */
-  srn?: string;
+  srn: string;
 }
 export const Account = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    email: S.optional(S.String),
+    id: S.String,
+    email: S.String,
     token: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Account" }) as any as S.Schema<Account>;
 
@@ -190,11 +190,11 @@ export const CreateLoginSessionRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface LoginSession {
   /** ID of the login session. */
-  id?: string;
+  id: string;
 }
 export const LoginSession = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
   }),
 ).annotate({ identifier: "LoginSession" }) as any as S.Schema<LoginSession>;
 
@@ -256,11 +256,11 @@ export const FinishWebAuthnAuthenticationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface JWT {
   /** JTI of the JWT. */
-  jti?: string;
+  jti: string;
   /** IAM user ID of the JWT issuer. */
-  issuer_id?: string;
+  issuer_id: string;
   /** IAM user ID of the JWT audience. */
-  audience_id?: string;
+  audience_id: string;
   /** Creation date of the JWT. (RFC 3339 format) */
   created_at?: string | null;
   /** Renewal date of the JWT. (RFC 3339 format) */
@@ -268,42 +268,42 @@ export interface JWT {
   /** Expiration date of the JWT. (RFC 3339 format) */
   expires_at?: string | null;
   /** Source IP address for the JWT creation. (IP address) */
-  ip?: string;
+  ip: string;
   /** User agent for the JWT creation. */
-  user_agent?: string;
+  user_agent: string;
 }
 export const JWT = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    jti: S.optional(S.String),
-    issuer_id: S.optional(S.String),
-    audience_id: S.optional(S.String),
+    jti: S.String,
+    issuer_id: S.String,
+    audience_id: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     expires_at: S.optional(S.NullOr(S.String)),
-    ip: S.optional(S.String),
-    user_agent: S.optional(S.String),
+    ip: S.String,
+    user_agent: S.String,
   }),
 ).annotate({ identifier: "JWT" }) as any as S.Schema<JWT>;
 
 export interface OrganizationLogin {
   /** ID of the organization. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the organization. */
-  organization_name?: string;
+  organization_name: string;
   /** Data of the JWT created by the login request. */
   jwt?: JWT;
   /** Encoded JWT token. */
-  token?: string;
+  token: string;
   /** Encoded JWT renew token. */
-  renew_token?: string;
+  renew_token: string;
 }
 export const OrganizationLogin = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    organization_id: S.optional(S.String),
-    organization_name: S.optional(S.String),
+    organization_id: S.String,
+    organization_name: S.String,
     jwt: S.optional(JWT),
-    token: S.optional(S.String),
-    renew_token: S.optional(S.String),
+    token: S.String,
+    renew_token: S.String,
   }),
 ).annotate({ identifier: "OrganizationLogin" }) as any as S.Schema<OrganizationLogin>;
 
@@ -314,11 +314,11 @@ export const LogInOrganizationsResponseOrganizationsLoginInformationList = /*@__
 ) as any as S.Schema<LogInOrganizationsResponseOrganizationsLoginInformationList>;
 
 export interface LogInOrganizationsResponseWebAuthnMetadata {
-  uv_verified_set?: boolean;
+  uv_verified_set: boolean;
 }
 export const LogInOrganizationsResponseWebAuthnMetadata = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    uv_verified_set: S.optional(S.Boolean),
+    uv_verified_set: S.Boolean,
   }),
 ).annotate({
   identifier: "LogInOrganizationsResponseWebAuthnMetadata",
@@ -326,14 +326,12 @@ export const LogInOrganizationsResponseWebAuthnMetadata = /*@__PURE__*/ S.suspen
 
 export interface LogInOrganizationsResponse {
   /** List of organizations and their associated login information. */
-  organizations_login_information?: LogInOrganizationsResponseOrganizationsLoginInformationList;
+  organizations_login_information: LogInOrganizationsResponseOrganizationsLoginInformationList;
   webauthn?: LogInOrganizationsResponseWebAuthnMetadata | null;
 }
 export const LogInOrganizationsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    organizations_login_information: S.optional(
-      LogInOrganizationsResponseOrganizationsLoginInformationList,
-    ),
+    organizations_login_information: LogInOrganizationsResponseOrganizationsLoginInformationList,
     webauthn: S.optional(S.NullOr(LogInOrganizationsResponseWebAuthnMetadata)),
   }),
 ).annotate({
@@ -379,14 +377,14 @@ export const InitiateOIDCSignupRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface InitiateOIDCSignupResponse {
   /** URL to redirect the user to. */
-  url?: string;
+  url: string;
   /** Security token to check when receiving a code from the identity provider. */
-  security_token?: string;
+  security_token: string;
 }
 export const InitiateOIDCSignupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    security_token: S.optional(S.String),
+    url: S.String,
+    security_token: S.String,
   }),
 ).annotate({
   identifier: "InitiateOIDCSignupResponse",
@@ -440,15 +438,15 @@ export interface LogInResponse {
   /** Data of the JWT created by the login request. */
   jwt?: JWT;
   /** Encoded JWT token. */
-  token?: string;
+  token: string;
   /** Encoded JWT renew token. */
-  renew_token?: string;
+  renew_token: string;
 }
 export const LogInResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     jwt: S.optional(JWT),
-    token: S.optional(S.String),
-    renew_token: S.optional(S.String),
+    token: S.String,
+    renew_token: S.String,
   }),
 ).annotate({ identifier: "LogInResponse" }) as any as S.Schema<LogInResponse>;
 
@@ -503,14 +501,14 @@ export const LoginInitiateOIDCRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface InitiateOIDCLoginResponse {
   /** URL to redirect the user to. */
-  url?: string;
+  url: string;
   /** Security token to check when receiving a code from the identity provider. */
-  security_token?: string;
+  security_token: string;
 }
 export const InitiateOIDCLoginResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    url: S.optional(S.String),
-    security_token: S.optional(S.String),
+    url: S.String,
+    security_token: S.String,
   }),
 ).annotate({
   identifier: "InitiateOIDCLoginResponse",
@@ -725,11 +723,11 @@ export const StartWebAuthnAuthenticationRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface PublicKeyCredentialDescriptor {
   /** Unique identifier of the key. */
-  id?: string;
+  id: string;
 }
 export const PublicKeyCredentialDescriptor = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
   }),
 ).annotate({
   identifier: "PublicKeyCredentialDescriptor",
@@ -751,20 +749,20 @@ export const UserVerificationRequirement = S.String;
 
 export interface PublicKeyCredentialRequestOptions {
   /** Random bytes constituting the challenge to solve for the credentials assertion. */
-  challenge?: string;
+  challenge: string;
   /** Maximum duration of the authentication ceremony (milliseconds). */
-  timeout?: number;
+  timeout: number;
   /** List of credentials, if any, which can be used to perform the ceremony. */
-  allow_credentials?: PublicKeyCredentialRequestOptionsAllowCredentialsList;
+  allow_credentials: PublicKeyCredentialRequestOptionsAllowCredentialsList;
   /** User verification requirement for this authentication ceremony. */
-  user_verification?: UserVerificationRequirement;
+  user_verification: UserVerificationRequirement;
 }
 export const PublicKeyCredentialRequestOptions = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    challenge: S.optional(S.String),
-    timeout: S.optional(S.Number),
-    allow_credentials: S.optional(PublicKeyCredentialRequestOptionsAllowCredentialsList),
-    user_verification: S.optional(UserVerificationRequirement),
+    challenge: S.String,
+    timeout: S.Number,
+    allow_credentials: PublicKeyCredentialRequestOptionsAllowCredentialsList,
+    user_verification: UserVerificationRequirement,
   }),
 ).annotate({
   identifier: "PublicKeyCredentialRequestOptions",
@@ -772,13 +770,13 @@ export const PublicKeyCredentialRequestOptions = /*@__PURE__*/ S.suspend(() =>
 
 export interface StartWebAuthnAuthenticationResponse {
   /** ID of the ceremony which will be needed for completion. */
-  id?: string;
+  id: string;
   /** WebAuthn challenge to solve to finish the ceremony. */
   public_key_credential_request?: PublicKeyCredentialRequestOptions;
 }
 export const StartWebAuthnAuthenticationResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     public_key_credential_request: S.optional(PublicKeyCredentialRequestOptions),
   }),
 ).annotate({
@@ -861,14 +859,14 @@ export const ValidateAccountRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface UserMFAMethods {
   /** True if the user has setup a TOTP. */
-  totp?: boolean;
+  totp: boolean;
   /** True if the user has at least one WebAuthn authenticator. */
-  web_authn?: boolean;
+  web_authn: boolean;
 }
 export const UserMFAMethods = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    totp: S.optional(S.Boolean),
-    web_authn: S.optional(S.Boolean),
+    totp: S.Boolean,
+    web_authn: S.Boolean,
   }),
 ).annotate({ identifier: "UserMFAMethods" }) as any as S.Schema<UserMFAMethods>;
 
@@ -877,47 +875,47 @@ export const ScalewayStdLanguageCode = S.String;
 
 export interface User {
   /** ID of the user. (UUID format) */
-  id?: string;
+  id: string;
   /** First name of the user. */
-  first_name?: string;
+  first_name: string;
   /** Last name of the user. */
-  last_name?: string;
+  last_name: string;
   /** Email of the user. */
-  email?: string;
+  email: string;
   /** Phone number of the user. */
-  phone_number?: string;
+  phone_number: string;
   /** Date the user was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date the user was updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether multi-factor authentication is enabled for the user. */
-  mfa?: boolean;
+  mfa: boolean;
   /** Defines for each multi-factor authentication method whether the user has it enabled or not. */
   mfa_methods?: UserMFAMethods;
   /** Locale of the user. */
-  locale?: ScalewayStdLanguageCode;
+  locale: ScalewayStdLanguageCode;
   /** Defines whether the user has a password set. */
-  has_password?: boolean;
+  has_password: boolean;
   /** Defines whether the user has a professional email or not. */
-  is_professional_email?: boolean;
+  is_professional_email: boolean;
   /** The SRN of the usr. */
-  srn?: string;
+  srn: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    first_name: S.optional(S.String),
-    last_name: S.optional(S.String),
-    email: S.optional(S.String),
-    phone_number: S.optional(S.String),
+    id: S.String,
+    first_name: S.String,
+    last_name: S.String,
+    email: S.String,
+    phone_number: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    mfa: S.optional(S.Boolean),
+    mfa: S.Boolean,
     mfa_methods: S.optional(UserMFAMethods),
-    locale: S.optional(ScalewayStdLanguageCode),
-    has_password: S.optional(S.Boolean),
-    is_professional_email: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    locale: ScalewayStdLanguageCode,
+    has_password: S.Boolean,
+    is_professional_email: S.Boolean,
+    srn: S.String,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -926,38 +924,38 @@ export const OrganizationType = S.String;
 
 export interface OrganizationSummary {
   /** ID of the Organization. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Organization. */
-  name?: string;
+  name: string;
   /** Defines whether the user_id created the Organization. */
-  owner?: boolean;
+  owner: boolean;
   /** Defines whether we have locking warnings. */
-  locked?: boolean;
+  locked: boolean;
   /** Defines whether MFA is required for the Organization. */
-  mfa_enforced?: boolean;
+  mfa_enforced: boolean;
   /** Organization's picture URL. */
   picture_link?: string | null;
   /** Organization Type. */
-  organization_type?: OrganizationType;
+  organization_type: OrganizationType;
   /** Organization Corporate Industry. */
-  corporate_industry?: OrganizationCorporateIndustry;
+  corporate_industry: OrganizationCorporateIndustry;
   /** Deprecated. Defines whether the organization is a startup. */
   is_startup?: boolean;
   /** The SRN of the organization. */
-  srn?: string;
+  srn: string;
 }
 export const OrganizationSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    owner: S.optional(S.Boolean),
-    locked: S.optional(S.Boolean),
-    mfa_enforced: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    owner: S.Boolean,
+    locked: S.Boolean,
+    mfa_enforced: S.Boolean,
     picture_link: S.optional(S.NullOr(S.String)),
-    organization_type: S.optional(OrganizationType),
-    corporate_industry: S.optional(OrganizationCorporateIndustry),
+    organization_type: OrganizationType,
+    corporate_industry: OrganizationCorporateIndustry,
     is_startup: S.optional(S.Boolean),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "OrganizationSummary" }) as any as S.Schema<OrganizationSummary>;
 
@@ -973,13 +971,13 @@ export interface ValidateAccountResponse {
   /** Summary of the organization created for the user. */
   organization_summary?: OrganizationSummary;
   /** List of organizations with their login information (JWT tokens) for auto-login after account validation. */
-  login_informations?: ValidateAccountResponseLoginInformationsList;
+  login_informations: ValidateAccountResponseLoginInformationsList;
 }
 export const ValidateAccountResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     user: S.optional(User),
     organization_summary: S.optional(OrganizationSummary),
-    login_informations: S.optional(ValidateAccountResponseLoginInformationsList),
+    login_informations: ValidateAccountResponseLoginInformationsList,
   }),
 ).annotate({ identifier: "ValidateAccountResponse" }) as any as S.Schema<ValidateAccountResponse>;
 
@@ -1007,17 +1005,17 @@ export const ValidateAuthenticationCodeSignUpRequest = /*@__PURE__*/ S.suspend((
 
 export interface ValidateAuthenticationCodeSignUpResponse {
   /** Secret authenticating the user. */
-  secret?: string | Redacted.Redacted<string>;
+  secret: string | Redacted.Redacted<string>;
   /** First name of the user. */
-  first_name?: string;
+  first_name: string;
   /** Last name of the user. */
-  last_name?: string;
+  last_name: string;
 }
 export const ValidateAuthenticationCodeSignUpResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secret: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    first_name: S.optional(S.String),
-    last_name: S.optional(S.String),
+    secret: S.String.pipe(T.SensitiveValue({})),
+    first_name: S.String,
+    last_name: S.String,
   }),
 ).annotate({
   identifier: "ValidateAuthenticationCodeSignUpResponse",
@@ -1105,9 +1103,9 @@ export const ValidateOIDCSignupRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ValidateOIDCSignupResponse {
   /** Email to sign-up. */
-  email?: string;
+  email: string;
   /** Access token to get user's protected resources. */
-  access_token?: string | Redacted.Redacted<string>;
+  access_token: string | Redacted.Redacted<string>;
   /** User first name as reported by the OIDC provider. */
   first_name?: string | null;
   /** User last name as reported by the OIDC provider. */
@@ -1115,8 +1113,8 @@ export interface ValidateOIDCSignupResponse {
 }
 export const ValidateOIDCSignupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    email: S.optional(S.String),
-    access_token: S.optional(S.String.pipe(T.SensitiveValue({}))),
+    email: S.String,
+    access_token: S.String.pipe(T.SensitiveValue({})),
     first_name: S.optional(S.NullOr(S.String)),
     last_name: S.optional(S.NullOr(S.String)),
   }),

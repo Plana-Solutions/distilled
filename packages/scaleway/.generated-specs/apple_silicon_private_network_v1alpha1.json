@@ -148,10 +148,16 @@
       "type": "structure",
       "members": {
         "server_private_networks": {
-          "target": "com.scaleway.apple_silicon_private_network_v1alpha1#ListServerPrivateNetworksResponseServerPrivateNetworksList"
+          "target": "com.scaleway.apple_silicon_private_network_v1alpha1#ListServerPrivateNetworksResponseServerPrivateNetworksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -162,25 +168,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Server-to-Private Network mapping."
+            "smithy.api#documentation": "ID of the Server-to-Private Network mapping.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network Project ID."
+            "smithy.api#documentation": "Private Network Project ID.",
+            "smithy.api#required": {}
           }
         },
         "server_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Apple silicon server ID."
+            "smithy.api#documentation": "Apple silicon server ID.",
+            "smithy.api#required": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network ID."
+            "smithy.api#documentation": "Private Network ID.",
+            "smithy.api#required": {}
           }
         },
         "vlan": {
@@ -193,7 +203,8 @@
         "status": {
           "target": "com.scaleway.apple_silicon_private_network_v1alpha1#ServerPrivateNetworkServerStatus",
           "traits": {
-            "smithy.api#documentation": "Configuration status of the Private Network."
+            "smithy.api#documentation": "Configuration status of the Private Network.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -213,7 +224,8 @@
         "ipam_ip_ids": {
           "target": "com.scaleway.apple_silicon_private_network_v1alpha1#ServerPrivateNetworkIpamIpIdsList",
           "traits": {
-            "smithy.api#documentation": "IPAM IP IDs of the server, if it has any."
+            "smithy.api#documentation": "IPAM IP IDs of the server, if it has any.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -459,7 +471,10 @@
       "type": "structure",
       "members": {
         "server_private_networks": {
-          "target": "com.scaleway.apple_silicon_private_network_v1alpha1#SetServerPrivateNetworksResponseServerPrivateNetworksList"
+          "target": "com.scaleway.apple_silicon_private_network_v1alpha1#SetServerPrivateNetworksResponseServerPrivateNetworksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

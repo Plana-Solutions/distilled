@@ -103,7 +103,10 @@
       "type": "structure",
       "members": {
         "use_cases": {
-          "target": "com.scaleway.account_organization_v3#SetOrganizationUseCasesResponseUseCasesList"
+          "target": "com.scaleway.account_organization_v3#SetOrganizationUseCasesResponseUseCasesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -154,13 +157,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization. (UUID format)"
+            "smithy.api#documentation": "ID of the Organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Organization."
+            "smithy.api#documentation": "Name of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -193,25 +198,29 @@
         "type": {
           "target": "com.scaleway.account_organization_v3#OrganizationType",
           "traits": {
-            "smithy.api#documentation": "Type of this Organization (personal or professional)."
+            "smithy.api#documentation": "Type of this Organization (personal or professional).",
+            "smithy.api#required": {}
           }
         },
         "sub_type": {
           "target": "com.scaleway.account_organization_v3#OrganizationSubType",
           "traits": {
-            "smithy.api#documentation": "Subtype of this Organization."
+            "smithy.api#documentation": "Subtype of this Organization.",
+            "smithy.api#required": {}
           }
         },
         "currency": {
           "target": "com.scaleway.account_organization_v3#OrganizationCurrency",
           "traits": {
-            "smithy.api#documentation": "Currency defined in the signed Terms of Service."
+            "smithy.api#documentation": "Currency defined in the signed Terms of Service.",
+            "smithy.api#required": {}
           }
         },
         "warnings": {
           "target": "com.scaleway.account_organization_v3#OrganizationWarningsList",
           "traits": {
-            "smithy.api#documentation": "All warnings attached to this Organization."
+            "smithy.api#documentation": "All warnings attached to this Organization.",
+            "smithy.api#required": {}
           }
         },
         "payment_mode": {
@@ -229,7 +238,8 @@
         "mfa_enforced": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Set to true if MFA is required for the Organization."
+            "smithy.api#documentation": "Set to true if MFA is required for the Organization.",
+            "smithy.api#required": {}
           }
         },
         "dedibox_account": {
@@ -247,7 +257,8 @@
         "corporate_industry": {
           "target": "com.scaleway.account_organization_v3#OrganizationCorporateIndustry",
           "traits": {
-            "smithy.api#documentation": "Corporate industry of the Organization."
+            "smithy.api#documentation": "Corporate industry of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "duns_number": {
@@ -260,7 +271,8 @@
         "use_cases": {
           "target": "com.scaleway.account_organization_v3#OrganizationUseCasesList",
           "traits": {
-            "smithy.api#documentation": "Use cases of the Organization."
+            "smithy.api#documentation": "Use cases of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "picture_link": {
@@ -280,25 +292,29 @@
         "badges": {
           "target": "com.scaleway.account_organization_v3#OrganizationBadgesList",
           "traits": {
-            "smithy.api#documentation": "All badges attached to this Organization."
+            "smithy.api#documentation": "All badges attached to this Organization.",
+            "smithy.api#required": {}
           }
         },
         "reseller_customer_config": {
           "target": "com.scaleway.account_organization_v3#OrganizationResellerCustomerConfig",
           "traits": {
-            "smithy.api#documentation": "Reseller customer config."
+            "smithy.api#documentation": "Reseller customer config.",
+            "smithy.api#required": {}
           }
         },
         "onboarding_step": {
           "target": "com.scaleway.account_organization_v3#OrganizationOnboardingStep",
           "traits": {
-            "smithy.api#documentation": "Organization onboarding process step."
+            "smithy.api#documentation": "Organization onboarding process step.",
+            "smithy.api#required": {}
           }
         },
         "origin": {
           "target": "com.scaleway.account_organization_v3#OrganizationOrigin",
           "traits": {
-            "smithy.api#documentation": "Organization origin."
+            "smithy.api#documentation": "Organization origin.",
+            "smithy.api#required": {}
           }
         },
         "tax_code": {
@@ -346,7 +362,8 @@
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the organization."
+            "smithy.api#documentation": "The SRN of the organization.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -472,17 +489,27 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "reason": {
-          "target": "com.scaleway.account_organization_v3#OrganizationWarningReason"
+          "target": "com.scaleway.account_organization_v3#OrganizationWarningReason",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "locking": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "closed": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "opened_at": {
           "target": "smithy.api#String",
@@ -699,7 +726,10 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "linked_at": {
           "target": "smithy.api#String",
@@ -1058,13 +1088,15 @@
         "support_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Support id of the Organization."
+            "smithy.api#documentation": "Support id of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "support_pin": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Support pin of the Organization."
+            "smithy.api#documentation": "Support pin of the Organization.",
+            "smithy.api#required": {}
           }
         },
         "technical_account_manager": {
@@ -1082,13 +1114,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the support plan. (UUID format)"
+            "smithy.api#documentation": "ID of the support plan. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "level": {
           "target": "com.scaleway.account_organization_v3#SupportPlanLevel",
           "traits": {
-            "smithy.api#documentation": "Level of the support plan."
+            "smithy.api#documentation": "Level of the support plan.",
+            "smithy.api#required": {}
           }
         },
         "started_at": {
@@ -1108,13 +1142,15 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization. (UUID format)"
+            "smithy.api#documentation": "ID of the Organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the support plan."
+            "smithy.api#documentation": "The SRN of the support plan.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1198,37 +1234,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the TAM. (UUID format)"
+            "smithy.api#documentation": "ID of the TAM. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "last_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Last name of the TAM."
+            "smithy.api#documentation": "Last name of the TAM.",
+            "smithy.api#required": {}
           }
         },
         "first_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "First name of the TAM."
+            "smithy.api#documentation": "First name of the TAM.",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email address of the TAM."
+            "smithy.api#documentation": "Email address of the TAM.",
+            "smithy.api#required": {}
           }
         },
         "phone_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Phone number of the TAM."
+            "smithy.api#documentation": "Phone number of the TAM.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the TAM."
+            "smithy.api#documentation": "The SRN of the TAM.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1610,13 +1652,15 @@
         "support_plans": {
           "target": "com.scaleway.account_organization_v3#ListSupportPlansResponseSupportPlansList",
           "traits": {
-            "smithy.api#documentation": "List of support plans."
+            "smithy.api#documentation": "List of support plans.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of support plans."
+            "smithy.api#documentation": "Total count of support plans.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -147,7 +147,7 @@ export const ClusterTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schem
 
 export interface ClusterSetting {
   /** Name of the setting. */
-  name?: string;
+  name: string;
   /** Boolean value of the setting. */
   bool_value?: boolean | null;
   /** String value of the setting. */
@@ -159,7 +159,7 @@ export interface ClusterSetting {
 }
 export const ClusterSetting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
     bool_value: S.optional(S.NullOr(S.Boolean)),
     string_value: S.optional(S.NullOr(S.String)),
     int_value: S.optional(S.NullOr(S.Number)),
@@ -175,14 +175,14 @@ export const ClusterSettingsList = /*@__PURE__*/ S.Array(
 
 export interface Volume {
   /** Type of volume where data is stored. */
-  type?: VolumeType;
+  type: VolumeType;
   /** Volume size. (in bytes) */
-  size_bytes?: number;
+  size_bytes: number;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    size_bytes: S.optional(S.Number),
+    type: VolumeType,
+    size_bytes: S.Number,
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 
@@ -194,11 +194,11 @@ export const EndpointDnsRecordsList = /*@__PURE__*/ S.Array(
 
 export interface EndpointPrivateNetworkDetails {
   /** UUID of the Private Network. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
 }
 export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
+    private_network_id: S.String,
   }),
 ).annotate({
   identifier: "EndpointPrivateNetworkDetails",
@@ -206,11 +206,11 @@ export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 
 export interface Endpoint {
   /** UUID of the endpoint. (UUID format) */
-  id?: string;
+  id: string;
   /** List of DNS records of the endpoint. */
-  dns_records?: EndpointDnsRecordsList;
+  dns_records: EndpointDnsRecordsList;
   /** TCP port of the endpoint. */
-  port?: number;
+  port: number;
   /** Private Network endpoint details. */
   private_network?: EndpointPrivateNetworkDetails | null;
   /** Public endpoint details. */
@@ -218,9 +218,9 @@ export interface Endpoint {
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    dns_records: S.optional(EndpointDnsRecordsList),
-    port: S.optional(S.Number),
+    id: S.String,
+    dns_records: EndpointDnsRecordsList,
+    port: S.Number,
     private_network: S.optional(S.NullOr(EndpointPrivateNetworkDetails)),
     public_network: S.optional(S.NullOr(S.Unknown)),
   }),
@@ -234,35 +234,35 @@ export const ClusterEndpointsList = /*@__PURE__*/ S.Array(
 
 export interface Cluster {
   /** UUID of the Kafka cluster. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Kafka cluster. */
-  name?: string;
+  name: string;
   /** Project ID the Kafka cluster belongs to. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organisation ID the Kafka cluster belongs to. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Status of the Kafka cluster. */
-  status?: ClusterStatus;
+  status: ClusterStatus;
   /** Kafka version of the Kafka cluster. */
-  version?: string;
+  version: string;
   /** List of tags applied to the Kafka cluster. */
-  tags?: ClusterTagsList;
+  tags: ClusterTagsList;
   /** Advanced settings of the Kafka cluster. */
-  settings?: ClusterSettingsList;
+  settings: ClusterSettingsList;
   /** Number of nodes in Kafka cluster. */
-  node_amount?: number;
+  node_amount: number;
   /** Node type of the Kafka cluster. */
-  node_type?: string;
+  node_type: string;
   /** Volumes of the Kafka cluster. */
   volume?: Volume;
   /** List of Kafka cluster endpoints. */
-  endpoints?: ClusterEndpointsList;
+  endpoints: ClusterEndpointsList;
   /** Creation date (must follow the ISO 8601 format). (RFC 3339 format) */
   created_at?: string | null;
   /** Last update date (must follow the ISO 8601 format). (RFC 3339 format) */
   updated_at?: string | null;
   /** Region the Kafka cluster is in. */
-  region?: string;
+  region: string;
   /** MultiAZ tell the cluster is deployed on multiple availability zones in the region. */
   multi_az?: unknown | null;
   /** MonoAZ details. */
@@ -270,21 +270,21 @@ export interface Cluster {
 }
 export const Cluster = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    status: S.optional(ClusterStatus),
-    version: S.optional(S.String),
-    tags: S.optional(ClusterTagsList),
-    settings: S.optional(ClusterSettingsList),
-    node_amount: S.optional(S.Number),
-    node_type: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    status: ClusterStatus,
+    version: S.String,
+    tags: ClusterTagsList,
+    settings: ClusterSettingsList,
+    node_amount: S.Number,
+    node_type: S.String,
     volume: S.optional(Volume),
-    endpoints: S.optional(ClusterEndpointsList),
+    endpoints: ClusterEndpointsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
     multi_az: S.optional(S.NullOr(S.Unknown)),
     mono_az: S.optional(S.NullOr(ClusterMonoAZDetails)),
   }),
@@ -416,15 +416,15 @@ export const GetClusterCertificateAuthorityRequest = /*@__PURE__*/ S.suspend(() 
 }) as any as S.Schema<GetClusterCertificateAuthorityRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -519,12 +519,12 @@ export interface ListClustersResponse {
   /** List of all Kafka cluster available in an Organization or Project. */
   clusters: ListClustersResponseClustersList;
   /** Total count of Kafka cluster available in an Organization or Project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListClustersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     clusters: ListClustersResponseClustersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListClustersResponse" }) as any as S.Schema<ListClustersResponse>;
 
@@ -560,23 +560,23 @@ export const NodeTypeStock = S.String;
 
 export interface NodeTypeVolumeType {
   /** Volume type. */
-  type?: VolumeType;
+  type: VolumeType;
   /** The description of the volume. */
-  description?: string;
+  description: string;
   /** Minimum size required for the volume. (in bytes) */
-  min_size_bytes?: number;
+  min_size_bytes: number;
   /** Maximum size required for the volume. (in bytes) */
-  max_size_bytes?: number;
+  max_size_bytes: number;
   /** Minimum increment level for a Block Storage volume size. (in bytes) */
-  chunk_size_bytes?: number;
+  chunk_size_bytes: number;
 }
 export const NodeTypeVolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(VolumeType),
-    description: S.optional(S.String),
-    min_size_bytes: S.optional(S.Number),
-    max_size_bytes: S.optional(S.Number),
-    chunk_size_bytes: S.optional(S.Number),
+    type: VolumeType,
+    description: S.String,
+    min_size_bytes: S.Number,
+    max_size_bytes: S.Number,
+    chunk_size_bytes: S.Number,
   }),
 ).annotate({ identifier: "NodeTypeVolumeType" }) as any as S.Schema<NodeTypeVolumeType>;
 
@@ -588,35 +588,35 @@ export const NodeTypeAvailableVolumeTypesList = /*@__PURE__*/ S.Array(
 
 export interface NodeType {
   /** Node type name identifier. */
-  name?: string;
+  name: string;
   /** Current stock status for the node type. */
-  stock_status?: NodeTypeStock;
+  stock_status: NodeTypeStock;
   /** Current specifications of the node type offer. */
-  description?: string;
+  description: string;
   /** Number of virtual CPUs of the node type. */
-  vcpus?: number;
+  vcpus: number;
   /** Quantity of RAM. (in bytes) */
-  memory_bytes?: number;
+  memory_bytes: number;
   /** Available storage options for the node type. */
-  available_volume_types?: NodeTypeAvailableVolumeTypesList;
+  available_volume_types: NodeTypeAvailableVolumeTypesList;
   /** Defines whether the node type is currently disabled. */
-  disabled?: boolean;
+  disabled: boolean;
   /** Defines whether the node type is currently in beta. */
-  beta?: boolean;
+  beta: boolean;
   /** Cluster range associated with the node type offer. */
-  cluster_range?: string;
+  cluster_range: string;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    stock_status: S.optional(NodeTypeStock),
-    description: S.optional(S.String),
-    vcpus: S.optional(S.Number),
-    memory_bytes: S.optional(S.Number),
-    available_volume_types: S.optional(NodeTypeAvailableVolumeTypesList),
-    disabled: S.optional(S.Boolean),
-    beta: S.optional(S.Boolean),
-    cluster_range: S.optional(S.String),
+    name: S.String,
+    stock_status: NodeTypeStock,
+    description: S.String,
+    vcpus: S.Number,
+    memory_bytes: S.Number,
+    available_volume_types: NodeTypeAvailableVolumeTypesList,
+    disabled: S.Boolean,
+    beta: S.Boolean,
+    cluster_range: S.String,
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -630,12 +630,12 @@ export interface ListNodeTypesResponse {
   /** Types of the node. */
   node_types: ListNodeTypesResponseNodeTypesList;
   /** Total count of node types available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNodeTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     node_types: ListNodeTypesResponseNodeTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNodeTypesResponse" }) as any as S.Schema<ListNodeTypesResponse>;
 
@@ -673,11 +673,11 @@ export const ListUsersRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListUsersRequest" }) as any as S.Schema<ListUsersRequest>;
 
 export interface User {
-  username?: string;
+  username: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    username: S.optional(S.String),
+    username: S.String,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -688,12 +688,12 @@ export const ListUsersResponseUsersList = /*@__PURE__*/ S.Array(
 
 export interface ListUsersResponse {
   users: ListUsersResponseUsersList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     users: ListUsersResponseUsersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUsersResponse" }) as any as S.Schema<ListUsersResponse>;
 
@@ -727,11 +727,11 @@ export const ListVersionsRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListVersionsRequest" }) as any as S.Schema<ListVersionsRequest>;
 
 export interface VersionAvailableSettingBooleanProperty {
-  default_value?: boolean;
+  default_value: boolean;
 }
 export const VersionAvailableSettingBooleanProperty = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    default_value: S.optional(S.Boolean),
+    default_value: S.Boolean,
   }),
 ).annotate({
   identifier: "VersionAvailableSettingBooleanProperty",
@@ -739,28 +739,28 @@ export const VersionAvailableSettingBooleanProperty = /*@__PURE__*/ S.suspend(()
 
 export interface VersionAvailableSettingStringProperty {
   string_constraint?: string | null;
-  default_value?: string;
+  default_value: string;
 }
 export const VersionAvailableSettingStringProperty = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     string_constraint: S.optional(S.NullOr(S.String)),
-    default_value: S.optional(S.String),
+    default_value: S.String,
   }),
 ).annotate({
   identifier: "VersionAvailableSettingStringProperty",
 }) as any as S.Schema<VersionAvailableSettingStringProperty>;
 
 export interface VersionAvailableSettingIntegerProperty {
-  min?: number;
-  max?: number;
-  default_value?: number;
+  min: number;
+  max: number;
+  default_value: number;
   unit?: string | null;
 }
 export const VersionAvailableSettingIntegerProperty = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    min: S.optional(S.Number),
-    max: S.optional(S.Number),
-    default_value: S.optional(S.Number),
+    min: S.Number,
+    max: S.Number,
+    default_value: S.Number,
     unit: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
@@ -772,11 +772,11 @@ export const VersionAvailableSettingFloatProperty = VersionAvailableSettingInteg
 
 export interface VersionAvailableSetting {
   /** Kafka cluster setting name. */
-  name?: string;
+  name: string;
   /** Defines whether this setting can be applied without needing a restart. */
-  hot_configurable?: boolean;
+  hot_configurable: boolean;
   /** Setting description. */
-  description?: string;
+  description: string;
   /** Boolean property, if the setting is a boolean. */
   bool_property?: VersionAvailableSettingBooleanProperty | null;
   /** String property, if the setting is a string. */
@@ -788,9 +788,9 @@ export interface VersionAvailableSetting {
 }
 export const VersionAvailableSetting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    hot_configurable: S.optional(S.Boolean),
-    description: S.optional(S.String),
+    name: S.String,
+    hot_configurable: S.Boolean,
+    description: S.String,
     bool_property: S.optional(S.NullOr(VersionAvailableSettingBooleanProperty)),
     string_property: S.optional(S.NullOr(VersionAvailableSettingStringProperty)),
     int_property: S.optional(S.NullOr(VersionAvailableSettingIntegerProperty)),
@@ -806,17 +806,17 @@ export const VersionAvailableSettingsList = /*@__PURE__*/ S.Array(
 
 export interface Version {
   /** Kafka version. */
-  version?: string;
+  version: string;
   /** Date of End of Life for the version. (RFC 3339 format) */
   end_of_life_at?: string | null;
   /** Cluster configuration settings you are able to change for clusters running this version. Each item in `available_settings` describes one configurable cluster setting. */
-  available_settings?: VersionAvailableSettingsList;
+  available_settings: VersionAvailableSettingsList;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life_at: S.optional(S.NullOr(S.String)),
-    available_settings: S.optional(VersionAvailableSettingsList),
+    available_settings: VersionAvailableSettingsList,
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
 
@@ -830,12 +830,12 @@ export interface ListVersionsResponse {
   /** Available Kafka versions. */
   versions: ListVersionsResponseVersionsList;
   /** Total count of Kafka versions available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 

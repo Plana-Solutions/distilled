@@ -224,13 +224,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching flexible IPs."
+            "smithy.api#documentation": "Total count of matching flexible IPs.",
+            "smithy.api#required": {}
           }
         },
         "flexible_ips": {
           "target": "com.scaleway.flexible_ip_v1alpha1#ListFlexibleIPsResponseFlexibleIpsList",
           "traits": {
-            "smithy.api#documentation": "List of all flexible IPs."
+            "smithy.api#documentation": "List of all flexible IPs.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -242,31 +244,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the flexible IP."
+            "smithy.api#documentation": "ID of the flexible IP.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization the flexible IP is attached to."
+            "smithy.api#documentation": "ID of the Organization the flexible IP is attached to.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project the flexible IP is attached to."
+            "smithy.api#documentation": "ID of the Project the flexible IP is attached to.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Flexible IP description."
+            "smithy.api#documentation": "Flexible IP description.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.flexible_ip_v1alpha1#FlexibleIPTagsList",
           "traits": {
-            "smithy.api#documentation": "Flexible IP tags."
+            "smithy.api#documentation": "Flexible IP tags.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -286,13 +293,15 @@
         "status": {
           "target": "com.scaleway.flexible_ip_v1alpha1#FlexibleIPStatus",
           "traits": {
-            "smithy.api#documentation": "Flexible IP status.\n- ready : flexible IP is created and ready to be attached to a server or to be associated with a virtual MAC.\n- updating: flexible IP is being attached to a server or a virtual MAC operation is ongoing\n- attached: flexible IP is attached to a server\n- error: a flexible IP operation resulted in an error\n- detaching: flexible IP is being detached from a server\n- locked: the resource of the flexible IP is locked."
+            "smithy.api#documentation": "Flexible IP status.\n- ready : flexible IP is created and ready to be attached to a server or to be associated with a virtual MAC.\n- updating: flexible IP is being attached to a server or a virtual MAC operation is ongoing\n- attached: flexible IP is attached to a server\n- error: a flexible IP operation resulted in an error\n- detaching: flexible IP is being detached from a server\n- locked: the resource of the flexible IP is locked.",
+            "smithy.api#required": {}
           }
         },
         "ip_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP of the flexible IP. (IP network)"
+            "smithy.api#documentation": "IP of the flexible IP. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "mac_address": {
@@ -311,19 +320,22 @@
         "reverse": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Reverse DNS value."
+            "smithy.api#documentation": "Reverse DNS value.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Availability Zone of the flexible IP."
+            "smithy.api#documentation": "Availability Zone of the flexible IP.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the flexible ip."
+            "smithy.api#documentation": "The SRN of the flexible ip.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -344,25 +356,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the flexible IP."
+            "smithy.api#documentation": "ID of the flexible IP.",
+            "smithy.api#required": {}
           }
         },
         "mac_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MAC address of the Virtual MAC."
+            "smithy.api#documentation": "MAC address of the Virtual MAC.",
+            "smithy.api#required": {}
           }
         },
         "mac_type": {
           "target": "com.scaleway.flexible_ip_v1alpha1#MACAddressType",
           "traits": {
-            "smithy.api#documentation": "Type of virtual MAC."
+            "smithy.api#documentation": "Type of virtual MAC.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.flexible_ip_v1alpha1#MACAddressStatus",
           "traits": {
-            "smithy.api#documentation": "Status of virtual MAC."
+            "smithy.api#documentation": "Status of virtual MAC.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -382,7 +398,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MAC address IP Availability Zone."
+            "smithy.api#documentation": "MAC address IP Availability Zone.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1330,13 +1347,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of flexible IPs that are being updated."
+            "smithy.api#documentation": "Total count of flexible IPs that are being updated.",
+            "smithy.api#required": {}
           }
         },
         "flexible_ips": {
           "target": "com.scaleway.flexible_ip_v1alpha1#AttachFlexibleIPsResponseFlexibleIpsList",
           "traits": {
-            "smithy.api#documentation": "List of flexible IPs in an updating state."
+            "smithy.api#documentation": "List of flexible IPs in an updating state.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1448,13 +1467,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of flexible IPs that are being detached."
+            "smithy.api#documentation": "Total count of flexible IPs that are being detached.",
+            "smithy.api#required": {}
           }
         },
         "flexible_ips": {
           "target": "com.scaleway.flexible_ip_v1alpha1#DetachFlexibleIPsResponseFlexibleIpsList",
           "traits": {
-            "smithy.api#documentation": "List of flexible IPs in a detaching state."
+            "smithy.api#documentation": "List of flexible IPs in a detaching state.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -120,35 +120,35 @@ export const SecurityGroupAction = S.String;
 
 export interface SecurityGroupRule {
   /** Unique ID of the rule. */
-  id?: string;
+  id: string;
   /** Protocol this rule applies to. */
-  protocol?: SecurityGroupRuleProtocol;
+  protocol: SecurityGroupRuleProtocol;
   /** Direction of traffic this rule applies to. */
-  direction?: SecurityGroupRuleDirection;
+  direction: SecurityGroupRuleDirection;
   /** Action to take when the rule matches. */
-  action?: SecurityGroupRuleAction;
+  action: SecurityGroupRuleAction;
   /** Source IP range for the rule. (IP network) */
-  source_ip_range?: string;
+  source_ip_range: string;
   /** Destination IP range for the rule. (IP network) */
-  destination_ip_range?: string;
+  destination_ip_range: string;
   /** Source port range for the rule. */
   source_ports?: SecurityGroupRulePortRange;
   /** Destination port range for the rule. */
   destination_ports?: SecurityGroupRulePortRange;
   /** Position of the rule in the list. */
-  position?: number;
+  position: number;
 }
 export const SecurityGroupRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    protocol: S.optional(SecurityGroupRuleProtocol),
-    direction: S.optional(SecurityGroupRuleDirection),
-    action: S.optional(SecurityGroupRuleAction),
-    source_ip_range: S.optional(S.String),
-    destination_ip_range: S.optional(S.String),
+    id: S.String,
+    protocol: SecurityGroupRuleProtocol,
+    direction: SecurityGroupRuleDirection,
+    action: SecurityGroupRuleAction,
+    source_ip_range: S.String,
+    destination_ip_range: S.String,
     source_ports: S.optional(SecurityGroupRulePortRange),
     destination_ports: S.optional(SecurityGroupRulePortRange),
-    position: S.optional(S.Number),
+    position: S.Number,
   }),
 ).annotate({ identifier: "SecurityGroupRule" }) as any as S.Schema<SecurityGroupRule>;
 
@@ -166,56 +166,56 @@ export const SecurityGroupRulesList = /*@__PURE__*/ S.Array(
 
 export interface SecurityGroup {
   /** Unique ID of the security group. */
-  id?: string;
+  id: string;
   /** The SRN of the security group. */
-  srn?: string;
+  srn: string;
   /** Name of the security group. */
-  name?: string;
+  name: string;
   /** Description of the security group. */
-  description?: string;
+  description: string;
   /** Project ID the security group belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Tags associated with the security group. */
-  tags?: SecurityGroupTagsList;
+  tags: SecurityGroupTagsList;
   /** True if default rules are disabled. */
-  disable_default_rules?: boolean;
+  disable_default_rules: boolean;
   /** True if this is the default security group for the project. */
-  project_default?: boolean;
+  project_default: boolean;
   /** Default action for inbound rules. */
-  inbound_default_action?: SecurityGroupAction;
+  inbound_default_action: SecurityGroupAction;
   /** Default action for outbound rules. */
-  outbound_default_action?: SecurityGroupAction;
+  outbound_default_action: SecurityGroupAction;
   /** True if the security group is stateless. */
-  stateless?: boolean;
+  stateless: boolean;
   /** Creation timestamp of the security group. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the security group. (RFC 3339 format) */
   updated_at?: string | null;
   /** List of default rules applied to the security group. */
-  default_rules?: SecurityGroupDefaultRulesList;
+  default_rules: SecurityGroupDefaultRulesList;
   /** List of custom rules applied to the security group. */
-  rules?: SecurityGroupRulesList;
+  rules: SecurityGroupRulesList;
   /** Zone in which the security group is located. */
-  zone?: string;
+  zone: string;
 }
 export const SecurityGroup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    project_id: S.optional(S.String),
-    tags: S.optional(SecurityGroupTagsList),
-    disable_default_rules: S.optional(S.Boolean),
-    project_default: S.optional(S.Boolean),
-    inbound_default_action: S.optional(SecurityGroupAction),
-    outbound_default_action: S.optional(SecurityGroupAction),
-    stateless: S.optional(S.Boolean),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    description: S.String,
+    project_id: S.String,
+    tags: SecurityGroupTagsList,
+    disable_default_rules: S.Boolean,
+    project_default: S.Boolean,
+    inbound_default_action: SecurityGroupAction,
+    outbound_default_action: SecurityGroupAction,
+    stateless: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    default_rules: S.optional(SecurityGroupDefaultRulesList),
-    rules: S.optional(SecurityGroupRulesList),
-    zone: S.optional(S.String),
+    default_rules: SecurityGroupDefaultRulesList,
+    rules: SecurityGroupRulesList,
+    zone: S.String,
   }),
 ).annotate({ identifier: "SecurityGroup" }) as any as S.Schema<SecurityGroup>;
 
@@ -229,12 +229,12 @@ export interface AddSecurityGroupRulesResponse {
   /** Updated security group. */
   security_group?: SecurityGroup;
   /** List of rules that were added. */
-  added_rules?: AddSecurityGroupRulesResponseAddedRulesList;
+  added_rules: AddSecurityGroupRulesResponseAddedRulesList;
 }
 export const AddSecurityGroupRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     security_group: S.optional(SecurityGroup),
-    added_rules: S.optional(AddSecurityGroupRulesResponseAddedRulesList),
+    added_rules: AddSecurityGroupRulesResponseAddedRulesList,
   }),
 ).annotate({
   identifier: "AddSecurityGroupRulesResponse",
@@ -298,13 +298,13 @@ export type ServerVolumeVolumeType = "unknown_volume_type" | "l_ssd" | "sbs" | "
 export const ServerVolumeVolumeType = S.String;
 
 export interface ServerVolume {
-  id?: string;
-  volume_type?: ServerVolumeVolumeType;
+  id: string;
+  volume_type: ServerVolumeVolumeType;
 }
 export const ServerVolume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    volume_type: S.optional(ServerVolumeVolumeType),
+    id: S.String,
+    volume_type: ServerVolumeVolumeType,
   }),
 ).annotate({ identifier: "ServerVolume" }) as any as S.Schema<ServerVolume>;
 
@@ -319,13 +319,13 @@ export const ServerFilesystemStatus = S.String;
 
 export interface ServerFilesystem {
   /** (UUID format) */
-  id?: string;
-  status?: ServerFilesystemStatus;
+  id: string;
+  status: ServerFilesystemStatus;
 }
 export const ServerFilesystem = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    status: S.optional(ServerFilesystemStatus),
+    id: S.String,
+    status: ServerFilesystemStatus,
   }),
 ).annotate({ identifier: "ServerFilesystem" }) as any as S.Schema<ServerFilesystem>;
 
@@ -355,21 +355,21 @@ export const ServerPrivateNetworkInterfaceIpIdsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ServerPrivateNetworkInterfaceIpIdsList>;
 
 export interface ServerPrivateNetworkInterface {
-  id?: string;
-  private_network_id?: string;
-  mac_address?: string;
-  status?: ServerPrivateNetworkInterfaceStatus;
-  ip_ids?: ServerPrivateNetworkInterfaceIpIdsList;
-  security_group_id?: string;
+  id: string;
+  private_network_id: string;
+  mac_address: string;
+  status: ServerPrivateNetworkInterfaceStatus;
+  ip_ids: ServerPrivateNetworkInterfaceIpIdsList;
+  security_group_id: string;
 }
 export const ServerPrivateNetworkInterface = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    mac_address: S.optional(S.String),
-    status: S.optional(ServerPrivateNetworkInterfaceStatus),
-    ip_ids: S.optional(ServerPrivateNetworkInterfaceIpIdsList),
-    security_group_id: S.optional(S.String),
+    id: S.String,
+    private_network_id: S.String,
+    mac_address: S.String,
+    status: ServerPrivateNetworkInterfaceStatus,
+    ip_ids: ServerPrivateNetworkInterfaceIpIdsList,
+    security_group_id: S.String,
   }),
 ).annotate({
   identifier: "ServerPrivateNetworkInterface",
@@ -382,13 +382,13 @@ export const ServerPrivateNetworkInterfacesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ServerPrivateNetworkInterfacesList>;
 
 export interface ServerRDPPassword {
-  encrypted_password?: string | Redacted.Redacted<string>;
-  rdp_ssh_key_id?: string;
+  encrypted_password: string | Redacted.Redacted<string>;
+  rdp_ssh_key_id: string;
 }
 export const ServerRDPPassword = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    encrypted_password: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    rdp_ssh_key_id: S.optional(S.String),
+    encrypted_password: S.String.pipe(T.SensitiveValue({})),
+    rdp_ssh_key_id: S.String,
   }),
 ).annotate({ identifier: "ServerRDPPassword" }) as any as S.Schema<ServerRDPPassword>;
 
@@ -399,20 +399,20 @@ export type ServerIPStatus = "unknown_status" | "detached" | "attached" | "pendi
 export const ServerIPStatus = S.String;
 
 export interface ServerIP {
-  id?: string;
-  dynamic?: boolean;
-  status?: ServerIPStatus;
-  default?: boolean;
+  id: string;
+  dynamic: boolean;
+  status: ServerIPStatus;
+  default: boolean;
   /** (IP network) */
-  provisioned_address?: string;
+  provisioned_address: string;
 }
 export const ServerIP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    dynamic: S.optional(S.Boolean),
-    status: S.optional(ServerIPStatus),
-    default: S.optional(S.Boolean),
-    provisioned_address: S.optional(S.String),
+    id: S.String,
+    dynamic: S.Boolean,
+    status: ServerIPStatus,
+    default: S.Boolean,
+    provisioned_address: S.String,
   }),
 ).annotate({ identifier: "ServerIP" }) as any as S.Schema<ServerIP>;
 
@@ -422,19 +422,19 @@ export const ServerPublicNetworkInterfaceIpsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ServerPublicNetworkInterfaceIpsList>;
 
 export interface ServerPublicNetworkInterface {
-  status?: ServerPublicNetworkInterfaceStatus;
-  mac_address?: string;
-  security_group_id?: string;
-  ips?: ServerPublicNetworkInterfaceIpsList;
-  dns?: string;
+  status: ServerPublicNetworkInterfaceStatus;
+  mac_address: string;
+  security_group_id: string;
+  ips: ServerPublicNetworkInterfaceIpsList;
+  dns: string;
 }
 export const ServerPublicNetworkInterface = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    status: S.optional(ServerPublicNetworkInterfaceStatus),
-    mac_address: S.optional(S.String),
-    security_group_id: S.optional(S.String),
-    ips: S.optional(ServerPublicNetworkInterfaceIpsList),
-    dns: S.optional(S.String),
+    status: ServerPublicNetworkInterfaceStatus,
+    mac_address: S.String,
+    security_group_id: S.String,
+    ips: ServerPublicNetworkInterfaceIpsList,
+    dns: S.String,
   }),
 ).annotate({
   identifier: "ServerPublicNetworkInterface",
@@ -442,80 +442,80 @@ export const ServerPublicNetworkInterface = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerRuntimeInfo {
   /** True if the Instance is running as Spot. */
-  spot?: boolean;
+  spot: boolean;
 }
 export const ServerRuntimeInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    spot: S.optional(S.Boolean),
+    spot: S.Boolean,
   }),
 ).annotate({ identifier: "ServerRuntimeInfo" }) as any as S.Schema<ServerRuntimeInfo>;
 
 export interface Server {
   /** Unique ID of the server. */
-  id?: string;
+  id: string;
   /** The SRN of the server. */
-  srn?: string;
+  srn: string;
   /** Name of the server. */
-  name?: string;
+  name: string;
   /** Project ID to which the server belongs. */
-  project_id?: string;
+  project_id: string;
   /** Tags associated with the server. */
-  tags?: ServerTagsList;
+  tags: ServerTagsList;
   /** Type of the server. */
-  server_type?: string;
+  server_type: string;
   /** ID of the placement group the server belongs to. */
   placement_group_id?: string | null;
   /** Current status of the server. */
-  status?: ServerStatus;
+  status: ServerStatus;
   /** List of volumes attached to the server. */
-  volumes?: ServerVolumesList;
+  volumes: ServerVolumesList;
   /** List of filesystems attached to the server. */
-  filesystems?: ServerFilesystemsList;
+  filesystems: ServerFilesystemsList;
   /** Architecture of the server. */
-  architecture?: ServerArchitecture;
+  architecture: ServerArchitecture;
   /** Creation timestamp of the server. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the server. (RFC 3339 format) */
   updated_at?: string | null;
   /** List of private network interfaces attached to the server. */
-  private_network_interfaces?: ServerPrivateNetworkInterfacesList;
+  private_network_interfaces: ServerPrivateNetworkInterfacesList;
   /** Whether the server is in rescue mode. */
-  rescue_mode?: boolean;
+  rescue_mode: boolean;
   /** ID of the boot volume. */
   boot_volume_id?: string | null;
   /** Detailed status information of the server. */
-  status_detail?: string;
+  status_detail: string;
   /** Encrypted RDP password for Windows servers. The encryption scheme is RSA-PKCS1-v1_5, using the public part of the SSH key supplied in `windows_rdp_ssh_key_id`. */
   windows_rdp_password?: ServerRDPPassword;
   /** Public network interface of the server. */
   public_network_interface?: ServerPublicNetworkInterface;
   /** Zone in which the server is located. */
-  zone?: string;
+  zone: string;
   /** Runtime information of this server, only available only when it is running. */
   runtime_info?: ServerRuntimeInfo;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    tags: S.optional(ServerTagsList),
-    server_type: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    project_id: S.String,
+    tags: ServerTagsList,
+    server_type: S.String,
     placement_group_id: S.optional(S.NullOr(S.String)),
-    status: S.optional(ServerStatus),
-    volumes: S.optional(ServerVolumesList),
-    filesystems: S.optional(ServerFilesystemsList),
-    architecture: S.optional(ServerArchitecture),
+    status: ServerStatus,
+    volumes: ServerVolumesList,
+    filesystems: ServerFilesystemsList,
+    architecture: ServerArchitecture,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    private_network_interfaces: S.optional(ServerPrivateNetworkInterfacesList),
-    rescue_mode: S.optional(S.Boolean),
+    private_network_interfaces: ServerPrivateNetworkInterfacesList,
+    rescue_mode: S.Boolean,
     boot_volume_id: S.optional(S.NullOr(S.String)),
-    status_detail: S.optional(S.String),
+    status_detail: S.String,
     windows_rdp_password: S.optional(ServerRDPPassword),
     public_network_interface: S.optional(ServerPublicNetworkInterface),
-    zone: S.optional(S.String),
+    zone: S.String,
     runtime_info: S.optional(ServerRuntimeInfo),
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
@@ -743,35 +743,35 @@ export const PlacementGroupTagsList = /*@__PURE__*/ S.Array(
 
 export interface PlacementGroup {
   /** Placement group unique ID. */
-  id?: string;
+  id: string;
   /** The SRN of the placement group. */
-  srn?: string;
+  srn: string;
   /** Placement group Project ID. */
-  project_id?: string;
+  project_id: string;
   /** Placement group name. */
-  name?: string;
+  name: string;
   /** Select the behavior of the placement group, either low_latency (group) or max_availability (spread). */
-  policy_type?: PlacementGroupPolicyType;
+  policy_type: PlacementGroupPolicyType;
   /** Placement group tags. */
-  tags?: PlacementGroupTagsList;
+  tags: PlacementGroupTagsList;
   /** Placement group creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Placement group modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Zone in which the placement group is located. */
-  zone?: string;
+  zone: string;
 }
 export const PlacementGroup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    name: S.optional(S.String),
-    policy_type: S.optional(PlacementGroupPolicyType),
-    tags: S.optional(PlacementGroupTagsList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    name: S.String,
+    policy_type: PlacementGroupPolicyType,
+    tags: PlacementGroupTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "PlacementGroup" }) as any as S.Schema<PlacementGroup>;
 
@@ -859,44 +859,44 @@ export const PrivateNetworkInterfaceTagsList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNetworkInterface {
   /** Unique ID of the private network interface. */
-  id?: string;
+  id: string;
   /** The SRN of the private network interface. */
-  srn?: string;
+  srn: string;
   /** ID of the Private Network this interface is attached to. */
-  private_network_id?: string;
+  private_network_id: string;
   /** Project ID the private network interface belongs to. */
-  project_id?: string;
+  project_id: string;
   /** ID of the Instance this interface is attached to. */
-  server_id?: string;
+  server_id: string;
   /** MAC address of the private network interface. */
-  mac_address?: string;
+  mac_address: string;
   /** Current status of the private network interface. */
-  status?: PrivateNetworkInterfaceStatus;
+  status: PrivateNetworkInterfaceStatus;
   /** List of IP IDs attached to this interface. */
-  ip_ids?: PrivateNetworkInterfaceIpIdsList;
+  ip_ids: PrivateNetworkInterfaceIpIdsList;
   /** Tags associated with the private network interface. */
-  tags?: PrivateNetworkInterfaceTagsList;
+  tags: PrivateNetworkInterfaceTagsList;
   /** Creation timestamp of the private network interface. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the private network interface. (RFC 3339 format) */
   updated_at?: string | null;
   /** Zone in which the network interface is located. */
-  zone?: string;
+  zone: string;
 }
 export const PrivateNetworkInterface = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    server_id: S.optional(S.String),
-    mac_address: S.optional(S.String),
-    status: S.optional(PrivateNetworkInterfaceStatus),
-    ip_ids: S.optional(PrivateNetworkInterfaceIpIdsList),
-    tags: S.optional(PrivateNetworkInterfaceTagsList),
+    id: S.String,
+    srn: S.String,
+    private_network_id: S.String,
+    project_id: S.String,
+    server_id: S.String,
+    mac_address: S.String,
+    status: PrivateNetworkInterfaceStatus,
+    ip_ids: PrivateNetworkInterfaceIpIdsList,
+    tags: PrivateNetworkInterfaceTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "PrivateNetworkInterface" }) as any as S.Schema<PrivateNetworkInterface>;
 
@@ -1367,33 +1367,33 @@ export const TemplateFilesystemIdsList = /*@__PURE__*/ S.Array(
 
 export interface Template {
   /** Project ID associated with the template. */
-  project_id?: string;
+  project_id: string;
   /** Unique ID of the template. */
-  id?: string;
+  id: string;
   /** The SRN of the template. */
-  srn?: string;
+  srn: string;
   /** Name of the template. */
-  name?: string;
+  name: string;
   /** Tags associated with the template. */
-  tags?: TemplateTagsList;
+  tags: TemplateTagsList;
   /** Tags associated with servers created from this template. */
-  server_tags?: TemplateServerTagsList;
+  server_tags: TemplateServerTagsList;
   /** Commercial type of the server defined by the template. */
-  server_type?: string;
+  server_type: string;
   /** Security group ID associated with the template. */
   security_group_id?: string | null;
   /** Placement group ID associated with the template. */
   placement_group_id?: string | null;
   /** Number of IPv4 public IPs to attach to servers created from this template. */
-  public_ip_v4_count?: number;
+  public_ip_v4_count: number;
   /** Number of IPv6 public IPs to attach to servers created from this template. */
-  public_ip_v6_count?: number;
+  public_ip_v6_count: number;
   /** List of volume templates used to create volumes for servers. */
-  volumes?: TemplateVolumesList;
+  volumes: TemplateVolumesList;
   /** List of private network associated with the template. */
-  private_networks?: TemplatePrivateNetworksList;
+  private_networks: TemplatePrivateNetworksList;
   /** List of filesystem IDs associated with the template. */
-  filesystem_ids?: TemplateFilesystemIdsList;
+  filesystem_ids: TemplateFilesystemIdsList;
   /** Creation timestamp of the template. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the template. (RFC 3339 format) */
@@ -1401,28 +1401,28 @@ export interface Template {
   /** IAM ID of the SSH key used to encrypt the Windows `Administrator` password for RDP use. */
   windows_rdp_ssh_key_id?: string | null;
   /** Zone in which the template is located. */
-  zone?: string;
+  zone: string;
 }
 export const Template = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(TemplateTagsList),
-    server_tags: S.optional(TemplateServerTagsList),
-    server_type: S.optional(S.String),
+    project_id: S.String,
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    tags: TemplateTagsList,
+    server_tags: TemplateServerTagsList,
+    server_type: S.String,
     security_group_id: S.optional(S.NullOr(S.String)),
     placement_group_id: S.optional(S.NullOr(S.String)),
-    public_ip_v4_count: S.optional(S.Number),
-    public_ip_v6_count: S.optional(S.Number),
-    volumes: S.optional(TemplateVolumesList),
-    private_networks: S.optional(TemplatePrivateNetworksList),
-    filesystem_ids: S.optional(TemplateFilesystemIdsList),
+    public_ip_v4_count: S.Number,
+    public_ip_v6_count: S.Number,
+    volumes: TemplateVolumesList,
+    private_networks: TemplatePrivateNetworksList,
+    filesystem_ids: TemplateFilesystemIdsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     windows_rdp_ssh_key_id: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "Template" }) as any as S.Schema<Template>;
 
@@ -2087,53 +2087,53 @@ export const ResourceCountsServersByTypeMap = /*@__PURE__*/ S.Record(
 
 export interface ResourceCounts {
   /** Number of servers. */
-  servers?: number;
+  servers: number;
   /** Number of GPU servers. */
-  gpu_servers?: number;
+  gpu_servers: number;
   /** Map of server types with their counts. */
-  servers_by_type?: ResourceCountsServersByTypeMap;
+  servers_by_type: ResourceCountsServersByTypeMap;
   /** Number of security groups. */
-  security_groups?: number;
+  security_groups: number;
   /** Number of placement groups. */
-  placement_groups?: number;
+  placement_groups: number;
   /** Number of snapshots. */
-  snapshots?: number;
+  snapshots: number;
   /** Number of volumes. */
-  volumes?: number;
+  volumes: number;
   /** Number of local SSD volumes. */
-  volumes_l_ssd?: number;
+  volumes_l_ssd: number;
   /** Total size of local SSD volumes in bytes. */
-  volumes_l_ssd_total_size?: number;
+  volumes_l_ssd_total_size: number;
   /** Number of scratch volumes. */
-  volumes_scratch?: number;
+  volumes_scratch: number;
   /** Number of private network interfaces. */
-  private_network_interfaces?: number;
+  private_network_interfaces: number;
   /** Number of templates. */
-  templates?: number;
+  templates: number;
   /** Number of flexible IPs. */
-  flexible_ips?: number;
+  flexible_ips: number;
   /** Number of flexible IPs not attached to any server. */
-  unused_flexible_ips?: number;
+  unused_flexible_ips: number;
   /** Number of images. */
-  images?: number;
+  images: number;
 }
 export const ResourceCounts = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(S.Number),
-    gpu_servers: S.optional(S.Number),
-    servers_by_type: S.optional(ResourceCountsServersByTypeMap),
-    security_groups: S.optional(S.Number),
-    placement_groups: S.optional(S.Number),
-    snapshots: S.optional(S.Number),
-    volumes: S.optional(S.Number),
-    volumes_l_ssd: S.optional(S.Number),
-    volumes_l_ssd_total_size: S.optional(S.Number),
-    volumes_scratch: S.optional(S.Number),
-    private_network_interfaces: S.optional(S.Number),
-    templates: S.optional(S.Number),
-    flexible_ips: S.optional(S.Number),
-    unused_flexible_ips: S.optional(S.Number),
-    images: S.optional(S.Number),
+    servers: S.Number,
+    gpu_servers: S.Number,
+    servers_by_type: ResourceCountsServersByTypeMap,
+    security_groups: S.Number,
+    placement_groups: S.Number,
+    snapshots: S.Number,
+    volumes: S.Number,
+    volumes_l_ssd: S.Number,
+    volumes_l_ssd_total_size: S.Number,
+    volumes_scratch: S.Number,
+    private_network_interfaces: S.Number,
+    templates: S.Number,
+    flexible_ips: S.Number,
+    unused_flexible_ips: S.Number,
+    images: S.Number,
   }),
 ).annotate({ identifier: "ResourceCounts" }) as any as S.Schema<ResourceCounts>;
 
@@ -2240,14 +2240,14 @@ export const GetServerCloudInitRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface UserData {
   /** The key of the user data. */
-  key?: string;
+  key: string;
   /** The content of the user data. */
-  content?: string;
+  content: string;
 }
 export const UserData = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    key: S.optional(S.String),
-    content: S.optional(S.String),
+    key: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "UserData" }) as any as S.Schema<UserData>;
 
@@ -2477,13 +2477,13 @@ export interface ListPlacementGroupsResponse {
   /** The pagination token, use it to get the next page of results. */
   next_page_token?: string | null;
   /** Total number of placement groups. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPlacementGroupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     placement_groups: ListPlacementGroupsResponsePlacementGroupsList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPlacementGroupsResponse",
@@ -2580,44 +2580,44 @@ export const PrivateNetworkInterfaceSummaryTagsList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNetworkInterfaceSummary {
   /** Unique ID of the private network interface. */
-  id?: string;
+  id: string;
   /** The SRN of the private network interface. */
-  srn?: string;
+  srn: string;
   /** ID of the Private Network this interface is attached to. */
-  private_network_id?: string;
+  private_network_id: string;
   /** Project ID the private network interface belongs to. */
-  project_id?: string;
+  project_id: string;
   /** ID of the Instance this interface is attached to. */
-  server_id?: string;
+  server_id: string;
   /** MAC address of the private network interface. */
-  mac_address?: string;
+  mac_address: string;
   /** Current status of the private network interface. */
-  status?: PrivateNetworkInterfaceStatus;
+  status: PrivateNetworkInterfaceStatus;
   /** List of IP IDs attached to this interface. */
-  ip_ids?: PrivateNetworkInterfaceSummaryIpIdsList;
+  ip_ids: PrivateNetworkInterfaceSummaryIpIdsList;
   /** Tags associated with the private network interface. */
-  tags?: PrivateNetworkInterfaceSummaryTagsList;
+  tags: PrivateNetworkInterfaceSummaryTagsList;
   /** Creation timestamp of the private network interface. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the private network interface. (RFC 3339 format) */
   updated_at?: string | null;
   /** Zone in which the network interface is located. */
-  zone?: string;
+  zone: string;
 }
 export const PrivateNetworkInterfaceSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    server_id: S.optional(S.String),
-    mac_address: S.optional(S.String),
-    status: S.optional(PrivateNetworkInterfaceStatus),
-    ip_ids: S.optional(PrivateNetworkInterfaceSummaryIpIdsList),
-    tags: S.optional(PrivateNetworkInterfaceSummaryTagsList),
+    id: S.String,
+    srn: S.String,
+    private_network_id: S.String,
+    project_id: S.String,
+    server_id: S.String,
+    mac_address: S.String,
+    status: PrivateNetworkInterfaceStatus,
+    ip_ids: PrivateNetworkInterfaceSummaryIpIdsList,
+    tags: PrivateNetworkInterfaceSummaryTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({
   identifier: "PrivateNetworkInterfaceSummary",
@@ -2637,13 +2637,13 @@ export interface ListPrivateNetworkInterfacesResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPrivateNetworkInterfacesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_network_interfaces: ListPrivateNetworkInterfacesResponsePrivateNetworkInterfacesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListPrivateNetworkInterfacesResponse",
@@ -2727,50 +2727,50 @@ export const SecurityGroupSummaryTagsList = /*@__PURE__*/ S.Array(
 
 export interface SecurityGroupSummary {
   /** Unique ID of the security group. */
-  id?: string;
+  id: string;
   /** The SRN of the security group. */
-  srn?: string;
+  srn: string;
   /** Name of the security group. */
-  name?: string;
+  name: string;
   /** Description of the security group. */
-  description?: string;
+  description: string;
   /** Project ID the security group belongs to. */
-  project_id?: string;
+  project_id: string;
   /** Tags associated with the security group. */
-  tags?: SecurityGroupSummaryTagsList;
+  tags: SecurityGroupSummaryTagsList;
   /** True if default rules are disabled. */
-  disable_default_rules?: boolean;
+  disable_default_rules: boolean;
   /** True if this is the default security group for the project. */
-  project_default?: boolean;
+  project_default: boolean;
   /** Default action for inbound rules. */
-  inbound_default_action?: SecurityGroupAction;
+  inbound_default_action: SecurityGroupAction;
   /** Default action for outbound rules. */
-  outbound_default_action?: SecurityGroupAction;
+  outbound_default_action: SecurityGroupAction;
   /** True if the security group is stateless. */
-  stateless?: boolean;
+  stateless: boolean;
   /** Creation timestamp of the security group. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the security group. (RFC 3339 format) */
   updated_at?: string | null;
   /** Zone in which the security group is located. */
-  zone?: string;
+  zone: string;
 }
 export const SecurityGroupSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    project_id: S.optional(S.String),
-    tags: S.optional(SecurityGroupSummaryTagsList),
-    disable_default_rules: S.optional(S.Boolean),
-    project_default: S.optional(S.Boolean),
-    inbound_default_action: S.optional(SecurityGroupAction),
-    outbound_default_action: S.optional(SecurityGroupAction),
-    stateless: S.optional(S.Boolean),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    description: S.String,
+    project_id: S.String,
+    tags: SecurityGroupSummaryTagsList,
+    disable_default_rules: S.Boolean,
+    project_default: S.Boolean,
+    inbound_default_action: SecurityGroupAction,
+    outbound_default_action: SecurityGroupAction,
+    stateless: S.Boolean,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "SecurityGroupSummary" }) as any as S.Schema<SecurityGroupSummary>;
 
@@ -2786,13 +2786,13 @@ export interface ListSecurityGroupsResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSecurityGroupsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     security_groups: ListSecurityGroupsResponseSecurityGroupsList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListSecurityGroupsResponse",
@@ -2849,103 +2849,103 @@ export const ServerTypeAvailability = S.String;
 
 export interface ServerTypeLimits {
   /** Maximum number of Private Networks. */
-  private_network_count?: number;
+  private_network_count: number;
   /** Maximum number of filesystems. */
-  file_system_count?: number;
+  file_system_count: number;
   /** Maximum Private Network bandwidth. */
-  private_network_bandwidth?: number;
+  private_network_bandwidth: number;
   /** Maximum block storage bandwidth. */
-  block_bandwidth?: number;
+  block_bandwidth: number;
   /** Maximum internet bandwidth. */
-  internet_bandwidth?: number;
+  internet_bandwidth: number;
   /** Maximum size of local SSD. (in bytes) */
-  l_ssd_size?: number;
+  l_ssd_size: number;
   /** Maximum size of scratch storage. (in bytes) */
-  scratch_size?: number;
+  scratch_size: number;
   /** Maximum number of scratch volumes. */
-  scratch_volumes_count?: number;
+  scratch_volumes_count: number;
   /** Maximum number of IPs. */
-  ip_count?: number;
+  ip_count: number;
   /** Maximum number of volumes. */
-  volume_count?: number;
+  volume_count: number;
 }
 export const ServerTypeLimits = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_count: S.optional(S.Number),
-    file_system_count: S.optional(S.Number),
-    private_network_bandwidth: S.optional(S.Number),
-    block_bandwidth: S.optional(S.Number),
-    internet_bandwidth: S.optional(S.Number),
-    l_ssd_size: S.optional(S.Number),
-    scratch_size: S.optional(S.Number),
-    scratch_volumes_count: S.optional(S.Number),
-    ip_count: S.optional(S.Number),
-    volume_count: S.optional(S.Number),
+    private_network_count: S.Number,
+    file_system_count: S.Number,
+    private_network_bandwidth: S.Number,
+    block_bandwidth: S.Number,
+    internet_bandwidth: S.Number,
+    l_ssd_size: S.Number,
+    scratch_size: S.Number,
+    scratch_volumes_count: S.Number,
+    ip_count: S.Number,
+    volume_count: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeLimits" }) as any as S.Schema<ServerTypeLimits>;
 
 export interface ServerTypeGpuInfo {
   /** Manufacturer of the GPU. */
-  manufacturer?: string;
+  manufacturer: string;
   /** Name of the GPU. */
-  name?: string;
+  name: string;
   /** Memory of the GPU. (in bytes) */
-  memory?: number;
+  memory: number;
 }
 export const ServerTypeGpuInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    manufacturer: S.optional(S.String),
-    name: S.optional(S.String),
-    memory: S.optional(S.Number),
+    manufacturer: S.String,
+    name: S.String,
+    memory: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeGpuInfo" }) as any as S.Schema<ServerTypeGpuInfo>;
 
 export interface ServerTypeSpotInfo {
-  availability?: ServerTypeAvailability;
+  availability: ServerTypeAvailability;
 }
 export const ServerTypeSpotInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    availability: S.optional(ServerTypeAvailability),
+    availability: ServerTypeAvailability,
   }),
 ).annotate({ identifier: "ServerTypeSpotInfo" }) as any as S.Schema<ServerTypeSpotInfo>;
 
 export interface ServerType {
   /** Name of the server type. */
-  name?: string;
+  name: string;
   /** Number of vCPUs. */
-  vcpu_count?: number;
+  vcpu_count: number;
   /** Number of GPUs. */
-  gpu_count?: number;
+  gpu_count: number;
   /** Amount of memory. (in bytes) */
-  memory?: number;
+  memory: number;
   /** Architecture of the server type. */
-  architecture?: ServerTypeArchitecture;
+  architecture: ServerTypeArchitecture;
   /** Availability status of the server type. */
-  availability?: ServerTypeAvailability;
+  availability: ServerTypeAvailability;
   /** Limits for the server type. */
   limits?: ServerTypeLimits;
   /** GPU information for the server type. */
   gpu_info?: ServerTypeGpuInfo;
   /** Whether the server type has reached end of service. */
-  end_of_service?: boolean;
+  end_of_service: boolean;
   /** Availability status of the server type as a spot instance. */
   spot_info?: ServerTypeSpotInfo;
   /** The billing SKU for this server type. */
-  sku?: string;
+  sku: string;
 }
 export const ServerType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    vcpu_count: S.optional(S.Number),
-    gpu_count: S.optional(S.Number),
-    memory: S.optional(S.Number),
-    architecture: S.optional(ServerTypeArchitecture),
-    availability: S.optional(ServerTypeAvailability),
+    name: S.String,
+    vcpu_count: S.Number,
+    gpu_count: S.Number,
+    memory: S.Number,
+    architecture: ServerTypeArchitecture,
+    availability: ServerTypeAvailability,
     limits: S.optional(ServerTypeLimits),
     gpu_info: S.optional(ServerTypeGpuInfo),
-    end_of_service: S.optional(S.Boolean),
+    end_of_service: S.Boolean,
     spot_info: S.optional(ServerTypeSpotInfo),
-    sku: S.optional(S.String),
+    sku: S.String,
   }),
 ).annotate({ identifier: "ServerType" }) as any as S.Schema<ServerType>;
 
@@ -2957,13 +2957,13 @@ export const ListServerCompatibleTypesResponseServerTypesList = /*@__PURE__*/ S.
 export interface ListServerCompatibleTypesResponse {
   server_types: ListServerCompatibleTypesResponseServerTypesList;
   next_page_token?: string | null;
-  total_count?: number;
+  total_count: number;
 }
 export const ListServerCompatibleTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     server_types: ListServerCompatibleTypesResponseServerTypesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListServerCompatibleTypesResponse",
@@ -3088,47 +3088,47 @@ export const ServerSummaryTagsList = /*@__PURE__*/ S.Array(
 
 export interface ServerSummary {
   /** Unique ID of the server. */
-  id?: string;
+  id: string;
   /** The SRN of the server. */
-  srn?: string;
+  srn: string;
   /** Name of the server. */
-  name?: string;
+  name: string;
   /** Project ID to which the server belongs. */
-  project_id?: string;
+  project_id: string;
   /** Tags associated with the server. */
-  tags?: ServerSummaryTagsList;
+  tags: ServerSummaryTagsList;
   /** Type of the server. */
-  server_type?: string;
+  server_type: string;
   /** ID of the placement group the server belongs to. */
   placement_group_id?: string | null;
   /** Current status of the server. */
-  status?: ServerStatus;
+  status: ServerStatus;
   /** Architecture of the server. */
-  architecture?: ServerArchitecture;
+  architecture: ServerArchitecture;
   /** Creation timestamp of the server. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the server. (RFC 3339 format) */
   updated_at?: string | null;
   /** Whether the server is in rescue mode. */
-  rescue_mode?: boolean;
+  rescue_mode: boolean;
   /** Zone in which the server is located. */
-  zone?: string;
+  zone: string;
 }
 export const ServerSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    tags: S.optional(ServerSummaryTagsList),
-    server_type: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    project_id: S.String,
+    tags: ServerSummaryTagsList,
+    server_type: S.String,
     placement_group_id: S.optional(S.NullOr(S.String)),
-    status: S.optional(ServerStatus),
-    architecture: S.optional(ServerArchitecture),
+    status: ServerStatus,
+    architecture: ServerArchitecture,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    rescue_mode: S.optional(S.Boolean),
-    zone: S.optional(S.String),
+    rescue_mode: S.Boolean,
+    zone: S.String,
   }),
 ).annotate({ identifier: "ServerSummary" }) as any as S.Schema<ServerSummary>;
 
@@ -3144,13 +3144,13 @@ export interface ListServersResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of servers. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     servers: ListServersResponseServersList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListServersResponse" }) as any as S.Schema<ListServersResponse>;
 
@@ -3202,13 +3202,13 @@ export interface ListServerTypesResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of server types. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListServerTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     server_types: ListServerTypesResponseServerTypesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListServerTypesResponse" }) as any as S.Schema<ListServerTypesResponse>;
 
@@ -3324,53 +3324,53 @@ export const TemplateSummaryFilesystemIdsList = /*@__PURE__*/ S.Array(
 
 export interface TemplateSummary {
   /** Project ID associated with the template. */
-  project_id?: string;
+  project_id: string;
   /** Unique ID of the template. */
-  id?: string;
+  id: string;
   /** The SRN of the template. */
-  srn?: string;
+  srn: string;
   /** Name of the template. */
-  name?: string;
+  name: string;
   /** Tags associated with the template. */
-  tags?: TemplateSummaryTagsList;
+  tags: TemplateSummaryTagsList;
   /** Tags associated with servers created from this template. */
-  server_tags?: TemplateSummaryServerTagsList;
+  server_tags: TemplateSummaryServerTagsList;
   /** Commercial type of the server defined by the template. */
-  server_type?: string;
+  server_type: string;
   /** Security group ID associated with the template. */
   security_group_id?: string | null;
   /** Placement group ID associated with the template. */
   placement_group_id?: string | null;
   /** Number of IPv4 public IPs to attach to servers created from this template. */
-  public_ip_v4_count?: number;
+  public_ip_v4_count: number;
   /** Number of IPv6 public IPs to attach to servers created from this template. */
-  public_ip_v6_count?: number;
+  public_ip_v6_count: number;
   /** List of Filesystem IDs associated with the template. */
-  filesystem_ids?: TemplateSummaryFilesystemIdsList;
+  filesystem_ids: TemplateSummaryFilesystemIdsList;
   /** Creation timestamp of the template. (RFC 3339 format) */
   created_at?: string | null;
   /** Last update timestamp of the template. (RFC 3339 format) */
   updated_at?: string | null;
   /** Zone in which the template is located. */
-  zone?: string;
+  zone: string;
 }
 export const TemplateSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(TemplateSummaryTagsList),
-    server_tags: S.optional(TemplateSummaryServerTagsList),
-    server_type: S.optional(S.String),
+    project_id: S.String,
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    tags: TemplateSummaryTagsList,
+    server_tags: TemplateSummaryServerTagsList,
+    server_type: S.String,
     security_group_id: S.optional(S.NullOr(S.String)),
     placement_group_id: S.optional(S.NullOr(S.String)),
-    public_ip_v4_count: S.optional(S.Number),
-    public_ip_v6_count: S.optional(S.Number),
-    filesystem_ids: S.optional(TemplateSummaryFilesystemIdsList),
+    public_ip_v4_count: S.Number,
+    public_ip_v6_count: S.Number,
+    filesystem_ids: TemplateSummaryFilesystemIdsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "TemplateSummary" }) as any as S.Schema<TemplateSummary>;
 
@@ -3386,13 +3386,13 @@ export interface ListTemplatesResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListTemplatesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     templates: ListTemplatesResponseTemplatesList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListTemplatesResponse" }) as any as S.Schema<ListTemplatesResponse>;
 
@@ -3449,13 +3449,13 @@ export interface ListTemplateUserDataKeysResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListTemplateUserDataKeysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     keys: ListTemplateUserDataKeysResponseKeysList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListTemplateUserDataKeysResponse",
@@ -3512,13 +3512,13 @@ export interface ListUserDataKeysResponse {
   /** Token for the next page. */
   next_page_token?: string | null;
   /** Total number of items. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUserDataKeysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     keys: ListUserDataKeysResponseKeysList,
     next_page_token: S.optional(S.NullOr(S.String)),
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUserDataKeysResponse" }) as any as S.Schema<ListUserDataKeysResponse>;
 

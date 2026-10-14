@@ -110,13 +110,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of database users."
+            "smithy.api#documentation": "Total number of database users.",
+            "smithy.api#required": {}
           }
         },
         "users": {
           "target": "com.scaleway.webhosting_database_v1#ListDatabaseUsersResponseUsersList",
           "traits": {
-            "smithy.api#documentation": "List of database users."
+            "smithy.api#documentation": "List of database users.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -128,13 +130,15 @@
         "username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database user."
+            "smithy.api#documentation": "Name of the database user.",
+            "smithy.api#required": {}
           }
         },
         "databases": {
           "target": "com.scaleway.webhosting_database_v1#DatabaseUserDatabasesList",
           "traits": {
-            "smithy.api#documentation": "List of databases accessible by the user."
+            "smithy.api#documentation": "List of databases accessible by the user.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -348,13 +352,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of databases."
+            "smithy.api#documentation": "Total number of databases.",
+            "smithy.api#required": {}
           }
         },
         "databases": {
           "target": "com.scaleway.webhosting_database_v1#ListDatabasesResponseDatabasesList",
           "traits": {
-            "smithy.api#documentation": "List of databases."
+            "smithy.api#documentation": "List of databases.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -366,13 +372,15 @@
         "database_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database."
+            "smithy.api#documentation": "Name of the database.",
+            "smithy.api#required": {}
           }
         },
         "users": {
           "target": "com.scaleway.webhosting_database_v1#DatabaseUsersList",
           "traits": {
-            "smithy.api#documentation": "List of users who have access to the database."
+            "smithy.api#documentation": "List of users who have access to the database.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -149,13 +149,15 @@
         "deployments": {
           "target": "com.scaleway.searchdb_v1alpha1#ListDeploymentsResponseDeploymentsList",
           "traits": {
-            "smithy.api#documentation": "List of deployments available."
+            "smithy.api#documentation": "List of deployments available.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of objects."
+            "smithy.api#documentation": "Total number of objects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -167,37 +169,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the Deployment. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the Deployment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Deployment."
+            "smithy.api#documentation": "Name of the Deployment.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization containing the Deployment. (UUID format)"
+            "smithy.api#documentation": "ID of the Organization containing the Deployment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project containing the Deployment. (UUID format)"
+            "smithy.api#documentation": "ID of the Project containing the Deployment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.searchdb_v1alpha1#DeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Deployment."
+            "smithy.api#documentation": "Status of the Deployment.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.searchdb_v1alpha1#DeploymentTagsList",
           "traits": {
-            "smithy.api#documentation": "Tags of the Deployment."
+            "smithy.api#documentation": "Tags of the Deployment.",
+            "smithy.api#required": {}
           }
         },
         "node_amount": {
@@ -209,13 +217,15 @@
         "node_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of nodes allocated per deployment."
+            "smithy.api#documentation": "Number of nodes allocated per deployment.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type used in deployment."
+            "smithy.api#documentation": "Node type used in deployment.",
+            "smithy.api#required": {}
           }
         },
         "volume": {
@@ -227,7 +237,8 @@
         "endpoints": {
           "target": "com.scaleway.searchdb_v1alpha1#DeploymentEndpointsList",
           "traits": {
-            "smithy.api#documentation": "Exposed endpoints."
+            "smithy.api#documentation": "Exposed endpoints.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -247,13 +258,15 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Opensearch version of the Deployment."
+            "smithy.api#documentation": "Opensearch version of the Deployment.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Deployment is located."
+            "smithy.api#documentation": "Region the Deployment is located.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -382,7 +395,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the Endpoint. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the Endpoint. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "dns_record": {
@@ -394,7 +408,8 @@
         "services": {
           "target": "com.scaleway.searchdb_v1alpha1#EndpointServicesList",
           "traits": {
-            "smithy.api#documentation": "List of available services, their ports and URLs."
+            "smithy.api#documentation": "List of available services, their ports and URLs.",
+            "smithy.api#required": {}
           }
         },
         "public": {
@@ -416,13 +431,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "port": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "url": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -442,7 +466,8 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -875,13 +900,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1057,10 +1091,16 @@
       "type": "structure",
       "members": {
         "users": {
-          "target": "com.scaleway.searchdb_v1alpha1#ListUsersResponseUsersList"
+          "target": "com.scaleway.searchdb_v1alpha1#ListUsersResponseUsersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1069,7 +1109,10 @@
       "type": "structure",
       "members": {
         "username": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1508,13 +1551,15 @@
         "node_types": {
           "target": "com.scaleway.searchdb_v1alpha1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "Node types compatible with the cluster."
+            "smithy.api#documentation": "Node types compatible with the cluster.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of available node types to return."
+            "smithy.api#documentation": "Number of available node types to return.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1526,55 +1571,64 @@
         "stock_status": {
           "target": "com.scaleway.searchdb_v1alpha1#NodeTypeStockStatus",
           "traits": {
-            "smithy.api#documentation": "Stock status of the node type."
+            "smithy.api#documentation": "Stock status of the node type.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the node type."
+            "smithy.api#documentation": "Name of the node type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the node type."
+            "smithy.api#documentation": "Description of the node type.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of vCPUs available."
+            "smithy.api#documentation": "Number of vCPUs available.",
+            "smithy.api#required": {}
           }
         },
         "memory_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Amount of memory available. (in bytes)"
+            "smithy.api#documentation": "Amount of memory available. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the node type is disabled."
+            "smithy.api#documentation": "Defines whether the node type is disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the node type is in beta."
+            "smithy.api#documentation": "Defines whether the node type is in beta.",
+            "smithy.api#required": {}
           }
         },
         "instance_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Instance range associated with the NodeType offer."
+            "smithy.api#documentation": "Instance range associated with the NodeType offer.",
+            "smithy.api#required": {}
           }
         },
         "available_volume_types": {
           "target": "com.scaleway.searchdb_v1alpha1#NodeTypeAvailableVolumeTypesList",
           "traits": {
-            "smithy.api#documentation": "Available storage options for the Node Type."
+            "smithy.api#documentation": "Available storage options for the Node Type.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1614,27 +1668,36 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.scaleway.searchdb_v1alpha1#VolumeType"
+          "target": "com.scaleway.searchdb_v1alpha1#VolumeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "description": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "min_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         },
         "chunk_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1762,13 +1825,15 @@
         "versions": {
           "target": "com.scaleway.searchdb_v1alpha1#ListVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "List of versions."
+            "smithy.api#documentation": "List of versions.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of versions in the list."
+            "smithy.api#documentation": "Number of versions in the list.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1780,7 +1845,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Opensearch Version."
+            "smithy.api#documentation": "Opensearch Version.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life": {
@@ -1793,13 +1859,15 @@
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Parameter that tell if the version is disabled."
+            "smithy.api#documentation": "Parameter that tell if the version is disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Parameter that tell if the version is in beta."
+            "smithy.api#documentation": "Parameter that tell if the version is in beta.",
+            "smithy.api#required": {}
           }
         }
       },

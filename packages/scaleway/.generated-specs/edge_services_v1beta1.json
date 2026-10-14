@@ -40,19 +40,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage."
+            "smithy.api#documentation": "ID of the backend stage.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the backend stage belongs to."
+            "smithy.api#documentation": "Pipeline ID the backend stage belongs to.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#StageStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the stage."
+            "smithy.api#documentation": "Current status of the stage.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -414,7 +417,8 @@
         "pipeline_number": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of pipelines currently configured."
+            "smithy.api#documentation": "Total number of pipelines currently configured.",
+            "smithy.api#required": {}
           }
         },
         "extra_pipelines_cost": {
@@ -426,13 +430,15 @@
         "current_plan_cache_usage": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total amount of data egressed from the cache in gigabytes from the beginning of the month, for the active subscription plan."
+            "smithy.api#documentation": "Total amount of data egressed from the cache in gigabytes from the beginning of the month, for the active subscription plan.",
+            "smithy.api#required": {}
           }
         },
         "extra_cache_usage": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total amount of extra data egressed from cache in gigabytes from the beginning of the month, not included in the subscription plans."
+            "smithy.api#documentation": "Total amount of extra data egressed from cache in gigabytes from the beginning of the month, not included in the subscription plans.",
+            "smithy.api#required": {}
           }
         },
         "extra_cache_cost": {
@@ -444,13 +450,15 @@
         "current_plan_waf_usage": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of requests processed by the WAF since the beginning of the current month, for the active subscription plan."
+            "smithy.api#documentation": "Total number of requests processed by the WAF since the beginning of the current month, for the active subscription plan.",
+            "smithy.api#required": {}
           }
         },
         "extra_waf_usage": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of extra requests processed by the WAF from the beginning of the month, not included in the subscription plans."
+            "smithy.api#documentation": "Total number of extra requests processed by the WAF from the beginning of the month, not included in the subscription plans.",
+            "smithy.api#required": {}
           }
         },
         "extra_waf_cost": {
@@ -468,7 +476,8 @@
         "plans_usage_details": {
           "target": "com.scaleway.edge_services_v1beta1#GetBillingResponsePlansUsageDetailsMap",
           "traits": {
-            "smithy.api#documentation": "Detailed costs and usage for all Edge Services subscription plans that were activated during the month."
+            "smithy.api#documentation": "Detailed costs and usage for all Edge Services subscription plans that were activated during the month.",
+            "smithy.api#required": {}
           }
         },
         "total_cost": {
@@ -486,37 +495,43 @@
         "plan_name": {
           "target": "com.scaleway.edge_services_v1beta1#PlanName",
           "traits": {
-            "smithy.api#documentation": "Subscription plan name."
+            "smithy.api#documentation": "Subscription plan name.",
+            "smithy.api#required": {}
           }
         },
         "package_gb": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Amount of egress data from cache included in subscription plan."
+            "smithy.api#documentation": "Amount of egress data from cache included in subscription plan.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of pipelines included in subscription plan."
+            "smithy.api#documentation": "Number of pipelines included in subscription plan.",
+            "smithy.api#required": {}
           }
         },
         "waf_requests": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of WAF requests included in subscription plan."
+            "smithy.api#documentation": "Number of WAF requests included in subscription plan.",
+            "smithy.api#required": {}
           }
         },
         "backend_limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of backends per pipeline included in subscription plan."
+            "smithy.api#documentation": "Number of backends per pipeline included in subscription plan.",
+            "smithy.api#required": {}
           }
         },
         "wildcard_domain": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Support of wildcard subdomains for the customized domain."
+            "smithy.api#documentation": "Support of wildcard subdomains for the customized domain.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -556,13 +571,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -631,13 +655,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the cache stage."
+            "smithy.api#documentation": "ID of the cache stage.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the cache stage belongs to."
+            "smithy.api#documentation": "Pipeline ID the cache stage belongs to.",
+            "smithy.api#required": {}
           }
         },
         "fallback_ttl": {
@@ -650,13 +676,15 @@
         "include_cookies": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether responses to requests with cookies must be stored in the cache."
+            "smithy.api#documentation": "Defines whether responses to requests with cookies must be stored in the cache.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#StageStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the stage."
+            "smithy.api#documentation": "Current status of the stage.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -839,7 +867,10 @@
       "type": "structure",
       "members": {
         "plan_name": {
-          "target": "com.scaleway.edge_services_v1beta1#PlanName"
+          "target": "com.scaleway.edge_services_v1beta1#PlanName",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -952,37 +983,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the DNS stage."
+            "smithy.api#documentation": "ID of the DNS stage.",
+            "smithy.api#required": {}
           }
         },
         "default_fqdn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Default Fully Qualified Domain Name provided for the Pipeline."
+            "smithy.api#documentation": "Default Fully Qualified Domain Name provided for the Pipeline.",
+            "smithy.api#required": {}
           }
         },
         "fqdns": {
           "target": "com.scaleway.edge_services_v1beta1#DNSStageFqdnsList",
           "traits": {
-            "smithy.api#documentation": "Custom Fully Qualified Domain Names configured (only the first one is valid)."
+            "smithy.api#documentation": "Custom Fully Qualified Domain Names configured (only the first one is valid).",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.edge_services_v1beta1#DNSStageType",
           "traits": {
-            "smithy.api#documentation": "Type of the stage."
+            "smithy.api#documentation": "Type of the stage.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the DNS stage belongs to."
+            "smithy.api#documentation": "Pipeline ID the DNS stage belongs to.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#StageStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the stage."
+            "smithy.api#documentation": "Current status of the stage.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1023,7 +1060,8 @@
         "wildcard_domain": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Support of wildcard (subdomains) for the given domain (a wildcard certificate is required to make it work)."
+            "smithy.api#documentation": "Support of wildcard (subdomains) for the given domain (a wildcard certificate is required to make it work).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1202,10 +1240,16 @@
       "type": "structure",
       "members": {
         "nodes": {
-          "target": "com.scaleway.edge_services_v1beta1#ListNodesResponseNodesList"
+          "target": "com.scaleway.edge_services_v1beta1#ListNodesResponseNodesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1216,7 +1260,8 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP address)"
+            "smithy.api#documentation": "(IP address)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1339,13 +1384,15 @@
         "pipelines": {
           "target": "com.scaleway.edge_services_v1beta1#ListPipelinesResponsePipelinesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of pipelines."
+            "smithy.api#documentation": "Paginated list of pipelines.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all pipelines matching the requested criteria."
+            "smithy.api#documentation": "Count of all pipelines matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1357,43 +1404,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the pipeline."
+            "smithy.api#documentation": "ID of the pipeline.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the pipeline."
+            "smithy.api#documentation": "Name of the pipeline.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the pipeline."
+            "smithy.api#documentation": "Description of the pipeline.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#PipelineStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the pipeline."
+            "smithy.api#documentation": "Status of the pipeline.",
+            "smithy.api#required": {}
           }
         },
         "errors": {
           "target": "com.scaleway.edge_services_v1beta1#PipelineErrorsList",
           "traits": {
-            "smithy.api#documentation": "Errors of the pipeline."
+            "smithy.api#documentation": "Errors of the pipeline.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the pipeline. (UUID format)"
+            "smithy.api#documentation": "Project ID of the pipeline. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the pipeline."
+            "smithy.api#documentation": "Organization ID of the pipeline.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1459,19 +1513,34 @@
       "type": "structure",
       "members": {
         "stage": {
-          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorStage"
+          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorStage",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "code": {
-          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorCode"
+          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorCode",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "severity": {
-          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorSeverity"
+          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorSeverity",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "message": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "type": {
-          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorType"
+          "target": "com.scaleway.edge_services_v1beta1#PipelineErrorType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -2058,13 +2127,15 @@
         "stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListBackendStagesResponseStagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of backend stages."
+            "smithy.api#documentation": "Paginated list of backend stages.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all backend stages matching the requested criteria."
+            "smithy.api#documentation": "Count of all backend stages matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2227,13 +2298,15 @@
         "stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListCacheStagesResponseStagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of cache stages."
+            "smithy.api#documentation": "Paginated list of cache stages.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all cache stages matching the requested criteria."
+            "smithy.api#documentation": "Count of all cache stages matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2410,13 +2483,15 @@
         "stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListDNSStagesResponseStagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of DNS stages."
+            "smithy.api#documentation": "Paginated list of DNS stages.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all DNS stages matching the requested criteria."
+            "smithy.api#documentation": "Count of all DNS stages matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2570,13 +2645,15 @@
         "head_stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListHeadStagesResponseHeadStagesList",
           "traits": {
-            "smithy.api#documentation": "Number of head stages to return per page."
+            "smithy.api#documentation": "Number of head stages to return per page.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all head stages matching the requested pipeline_id."
+            "smithy.api#documentation": "Count of all head stages matching the requested pipeline_id.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2690,13 +2767,15 @@
         "stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListRouteStagesResponseStagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of summarized route stages."
+            "smithy.api#documentation": "Paginated list of summarized route stages.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all route stages matching the requested criteria."
+            "smithy.api#documentation": "Count of all route stages matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2708,13 +2787,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the route stage."
+            "smithy.api#documentation": "ID of the route stage.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the route stage belongs to."
+            "smithy.api#documentation": "Pipeline ID the route stage belongs to.",
+            "smithy.api#required": {}
           }
         },
         "waf_stage_id": {
@@ -2734,7 +2815,8 @@
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#StageStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the stage."
+            "smithy.api#documentation": "Current status of the stage.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3033,13 +3115,15 @@
         "stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListTLSStagesResponseStagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of TLS stages."
+            "smithy.api#documentation": "Paginated list of TLS stages.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all TLS stages matching the requested criteria."
+            "smithy.api#documentation": "Count of all TLS stages matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3051,25 +3135,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the TLS stage."
+            "smithy.api#documentation": "ID of the TLS stage.",
+            "smithy.api#required": {}
           }
         },
         "secrets": {
           "target": "com.scaleway.edge_services_v1beta1#TLSStageSecretsList",
           "traits": {
-            "smithy.api#documentation": "Secret (from Scaleway Secret Manager) containing your custom certificate."
+            "smithy.api#documentation": "Secret (from Scaleway Secret Manager) containing your custom certificate.",
+            "smithy.api#required": {}
           }
         },
         "managed_certificate": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True when Scaleway generates and manages a Let's Encrypt certificate for the TLS stage/custom endpoint."
+            "smithy.api#documentation": "True when Scaleway generates and manages a Let's Encrypt certificate for the TLS stage/custom endpoint.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the TLS stage belongs to."
+            "smithy.api#documentation": "Pipeline ID the TLS stage belongs to.",
+            "smithy.api#required": {}
           }
         },
         "certificate_expires_at": {
@@ -3082,7 +3170,8 @@
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#StageStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the stage."
+            "smithy.api#documentation": "Current status of the stage.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3338,13 +3427,15 @@
         "stages": {
           "target": "com.scaleway.edge_services_v1beta1#ListWafStagesResponseStagesList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of WAF stages."
+            "smithy.api#documentation": "Paginated list of WAF stages.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all WAF stages matching the requested criteria."
+            "smithy.api#documentation": "Count of all WAF stages matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3356,31 +3447,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the WAF stage."
+            "smithy.api#documentation": "ID of the WAF stage.",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the WAF stage belongs to."
+            "smithy.api#documentation": "Pipeline ID the WAF stage belongs to.",
+            "smithy.api#required": {}
           }
         },
         "mode": {
           "target": "com.scaleway.edge_services_v1beta1#WafStageMode",
           "traits": {
-            "smithy.api#documentation": "Mode defining WAF behavior (`disable`/`log_only`/`enable`)."
+            "smithy.api#documentation": "Mode defining WAF behavior (`disable`/`log_only`/`enable`).",
+            "smithy.api#required": {}
           }
         },
         "paranoia_level": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Sensitivity level (`1`,`2`,`3`,`4`) to use when classifying requests as malicious. With a high level, requests are more likely to be classed as malicious, and false positives are expected. With a lower level, requests are more likely to be classed as benign."
+            "smithy.api#documentation": "Sensitivity level (`1`,`2`,`3`,`4`) to use when classifying requests as malicious. With a high level, requests are more likely to be classed as malicious, and false positives are expected. With a lower level, requests are more likely to be classed as benign.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#StageStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the stage."
+            "smithy.api#documentation": "Current status of the stage.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3407,7 +3503,8 @@
         "exclusion_rules": {
           "target": "com.scaleway.edge_services_v1beta1#WafStageExclusionRulesList",
           "traits": {
-            "smithy.api#documentation": "List of OWASP® CRS rule IDs excluded from WAF."
+            "smithy.api#documentation": "List of OWASP® CRS rule IDs excluded from WAF.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3574,10 +3671,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "plans": {
-          "target": "com.scaleway.edge_services_v1beta1#ListPlansResponsePlansList"
+          "target": "com.scaleway.edge_services_v1beta1#ListPlansResponsePlansList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3681,13 +3784,15 @@
         "purge_requests": {
           "target": "com.scaleway.edge_services_v1beta1#ListPurgeRequestsResponsePurgeRequestsList",
           "traits": {
-            "smithy.api#documentation": "Paginated list of purge requests."
+            "smithy.api#documentation": "Paginated list of purge requests.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all purge requests matching the requested criteria."
+            "smithy.api#documentation": "Count of all purge requests matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3699,19 +3804,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the purge request. (UUID format)"
+            "smithy.api#documentation": "ID of the purge request. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "pipeline_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pipeline ID the purge request belongs to. (UUID format)"
+            "smithy.api#documentation": "Pipeline ID the purge request belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.edge_services_v1beta1#PurgeRequestStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the purge request."
+            "smithy.api#documentation": "Status of the purge request.",
+            "smithy.api#required": {}
           }
         },
         "assets": {
@@ -4046,13 +4154,15 @@
         "route_rules": {
           "target": "com.scaleway.edge_services_v1beta1#ListRouteRulesResponseRouteRulesList",
           "traits": {
-            "smithy.api#documentation": "List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`."
+            "smithy.api#documentation": "List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Count of all route rules matching the requested criteria."
+            "smithy.api#documentation": "Count of all route rules matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4078,13 +4188,15 @@
         "position": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Position of the rule which determines the order of processing within the route stage."
+            "smithy.api#documentation": "Position of the rule which determines the order of processing within the route stage.",
+            "smithy.api#required": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Route stage ID the route rule belongs to."
+            "smithy.api#documentation": "Route stage ID the route rule belongs to.",
+            "smithy.api#required": {}
           }
         },
         "waf_stage_id": {
@@ -4355,7 +4467,8 @@
         "route_rules": {
           "target": "com.scaleway.edge_services_v1beta1#AddRouteRulesResponseRouteRulesList",
           "traits": {
-            "smithy.api#documentation": "List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`."
+            "smithy.api#documentation": "List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4425,7 +4538,8 @@
         "route_rules": {
           "target": "com.scaleway.edge_services_v1beta1#SetRouteRulesResponseRouteRulesList",
           "traits": {
-            "smithy.api#documentation": "List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`."
+            "smithy.api#documentation": "List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -147,13 +147,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of aliases that match the request (without pagination)."
+            "smithy.api#documentation": "Number of aliases that match the request (without pagination).",
+            "smithy.api#required": {}
           }
         },
         "aliases": {
           "target": "com.scaleway.mailbox_v1alpha1#ListAliasesResponseAliasesList",
           "traits": {
-            "smithy.api#documentation": "Single page of aliases matching the requested criteria."
+            "smithy.api#documentation": "Single page of aliases matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -165,31 +167,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the alias. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the alias. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email address of the alias as local_part@domain."
+            "smithy.api#documentation": "Email address of the alias as local_part@domain.",
+            "smithy.api#required": {}
           }
         },
         "mailbox_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the mailbox to which the alias belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the mailbox to which the alias belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the alias."
+            "smithy.api#documentation": "Description of the alias.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mailbox_v1alpha1#AliasStatus",
           "traits": {
-            "smithy.api#documentation": "Current status of the alias."
+            "smithy.api#documentation": "Current status of the alias.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -483,7 +490,8 @@
         "mailboxes": {
           "target": "com.scaleway.mailbox_v1alpha1#BatchCreateMailboxesResponseMailboxesList",
           "traits": {
-            "smithy.api#documentation": "Mailboxes created."
+            "smithy.api#documentation": "Mailboxes created.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -495,43 +503,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the mailbox. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the mailbox. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project to which the mailbox belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the Project to which the mailbox belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization to which the mailbox belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the Organization to which the mailbox belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "domain_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the domain to which the mailbox belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the domain to which the mailbox belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email address of the mailbox as local_part@domain."
+            "smithy.api#documentation": "Email address of the mailbox as local_part@domain.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mailbox_v1alpha1#MailboxStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the mailbox."
+            "smithy.api#documentation": "Status of the mailbox.",
+            "smithy.api#required": {}
           }
         },
         "subscription_period": {
           "target": "com.scaleway.mailbox_v1alpha1#MailboxSubscriptionPeriod",
           "traits": {
-            "smithy.api#documentation": "Subscription renewal period, it can be monthly, yearly or canceled if the subscription has been canceled."
+            "smithy.api#documentation": "Subscription renewal period, it can be monthly, yearly or canceled if the subscription has been canceled.",
+            "smithy.api#required": {}
           }
         },
         "subscription_period_started_at": {
@@ -544,7 +559,8 @@
         "next_subscription_period": {
           "target": "com.scaleway.mailbox_v1alpha1#MailboxSubscriptionPeriod",
           "traits": {
-            "smithy.api#documentation": "Next subscription renewal period, it can be monthly or yearly or canceled if the subscription has been canceled."
+            "smithy.api#documentation": "Next subscription renewal period, it can be monthly or yearly or canceled if the subscription has been canceled.",
+            "smithy.api#required": {}
           }
         },
         "next_subscription_period_starts_at": {
@@ -843,13 +859,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of domains that match the request (without pagination)."
+            "smithy.api#documentation": "Number of domains that match the request (without pagination).",
+            "smithy.api#required": {}
           }
         },
         "domains": {
           "target": "com.scaleway.mailbox_v1alpha1#ListDomainsResponseDomainsList",
           "traits": {
-            "smithy.api#documentation": "Single page of domains matching the requested criteria."
+            "smithy.api#documentation": "Single page of domains matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -861,37 +879,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the domain. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the domain. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project to which the domain belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the Project to which the domain belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Organization to which the domain belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the Organization to which the domain belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Fully qualified domain name."
+            "smithy.api#documentation": "Fully qualified domain name.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mailbox_v1alpha1#DomainStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the domain."
+            "smithy.api#documentation": "Status of the domain.",
+            "smithy.api#required": {}
           }
         },
         "mailbox_total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of mailboxes of the domain."
+            "smithy.api#documentation": "Number of mailboxes of the domain.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -911,25 +935,29 @@
         "webmail_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the domain's webmail."
+            "smithy.api#documentation": "URL of the domain's webmail.",
+            "smithy.api#required": {}
           }
         },
         "imap_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the domain's IMAP service."
+            "smithy.api#documentation": "URL of the domain's IMAP service.",
+            "smithy.api#required": {}
           }
         },
         "pop3_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the domain's POP3 service."
+            "smithy.api#documentation": "URL of the domain's POP3 service.",
+            "smithy.api#required": {}
           }
         },
         "smtp_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of the domain's SMTP service."
+            "smithy.api#documentation": "URL of the domain's SMTP service.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1175,43 +1203,50 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the DNS record. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the DNS record. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "domain_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the domain to which the record belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the domain to which the record belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mailbox_v1alpha1#DomainRecordStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the record."
+            "smithy.api#documentation": "Status of the record.",
+            "smithy.api#required": {}
           }
         },
         "level": {
           "target": "com.scaleway.mailbox_v1alpha1#DomainRecordLevel",
           "traits": {
-            "smithy.api#documentation": "Level of requirement of the record."
+            "smithy.api#documentation": "Level of requirement of the record.",
+            "smithy.api#required": {}
           }
         },
         "dns_type": {
           "target": "com.scaleway.mailbox_v1alpha1#DomainRecordDNSType",
           "traits": {
-            "smithy.api#documentation": "DNS type of the record."
+            "smithy.api#documentation": "DNS type of the record.",
+            "smithy.api#required": {}
           }
         },
         "dns_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "DNS name of the record."
+            "smithy.api#documentation": "DNS name of the record.",
+            "smithy.api#required": {}
           }
         },
         "dns_value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "DNS value of the record."
+            "smithy.api#documentation": "DNS value of the record.",
+            "smithy.api#required": {}
           }
         },
         "error": {
@@ -1533,13 +1568,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of forwarding rules that match the request (without pagination)."
+            "smithy.api#documentation": "Number of forwarding rules that match the request (without pagination).",
+            "smithy.api#required": {}
           }
         },
         "forwardings": {
           "target": "com.scaleway.mailbox_v1alpha1#ListForwardingsResponseForwardingsList",
           "traits": {
-            "smithy.api#documentation": "Single page of forwarding rules matching the requested criteria."
+            "smithy.api#documentation": "Single page of forwarding rules matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1551,7 +1588,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the forwarding rule. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the forwarding rule. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -1571,19 +1609,22 @@
         "mailbox_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the mailbox to which the forwarding rule belongs. (UUID format)"
+            "smithy.api#documentation": "ID of the mailbox to which the forwarding rule belongs. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Destination email address to which incoming emails are forwarded."
+            "smithy.api#documentation": "Destination email address to which incoming emails are forwarded.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.mailbox_v1alpha1#ForwardingStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the forwarding rule."
+            "smithy.api#documentation": "Status of the forwarding rule.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1882,13 +1923,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of mailboxes that match the request (without pagination)."
+            "smithy.api#documentation": "Number of mailboxes that match the request (without pagination).",
+            "smithy.api#required": {}
           }
         },
         "mailboxes": {
           "target": "com.scaleway.mailbox_v1alpha1#ListMailboxesResponseMailboxesList",
           "traits": {
-            "smithy.api#documentation": "Mailboxes matching the requested criteria."
+            "smithy.api#documentation": "Mailboxes matching the requested criteria.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2066,19 +2109,22 @@
         "mailbox_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the mailbox to which the forwarding settings belong. (UUID format)"
+            "smithy.api#documentation": "ID of the mailbox to which the forwarding settings belong. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "keep_copy": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether to keep a copy of forwarded emails in the local mailbox."
+            "smithy.api#documentation": "Whether to keep a copy of forwarded emails in the local mailbox.",
+            "smithy.api#required": {}
           }
         },
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether forwarding is enabled for the mailbox. When disabled, no emails are forwarded."
+            "smithy.api#documentation": "Whether forwarding is enabled for the mailbox. When disabled, no emails are forwarded.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {

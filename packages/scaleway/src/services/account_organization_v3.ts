@@ -45,26 +45,26 @@ export const ChangeSupportPlanRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface SupportPlan {
   /** ID of the support plan. (UUID format) */
-  id?: string;
+  id: string;
   /** Level of the support plan. */
-  level?: SupportPlanLevel;
+  level: SupportPlanLevel;
   /** Creation date of the support plan. (RFC 3339 format) */
   started_at?: string | null;
   /** End date of the support plan. (RFC 3339 format) */
   stopped_at?: string | null;
   /** ID of the Organization. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** The SRN of the support plan. */
-  srn?: string;
+  srn: string;
 }
 export const SupportPlan = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    level: S.optional(SupportPlanLevel),
+    id: S.String,
+    level: SupportPlanLevel,
     started_at: S.optional(S.NullOr(S.String)),
     stopped_at: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    srn: S.optional(S.String),
+    organization_id: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "SupportPlan" }) as any as S.Schema<SupportPlan>;
 
@@ -137,26 +137,26 @@ export const GetActiveSupportPlanRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface TechnicalAccountManager {
   /** ID of the TAM. (UUID format) */
-  id?: string;
+  id: string;
   /** Last name of the TAM. */
-  last_name?: string;
+  last_name: string;
   /** First name of the TAM. */
-  first_name?: string;
+  first_name: string;
   /** Email address of the TAM. */
-  email?: string;
+  email: string;
   /** Phone number of the TAM. */
-  phone_number?: string;
+  phone_number: string;
   /** The SRN of the TAM. */
-  srn?: string;
+  srn: string;
 }
 export const TechnicalAccountManager = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    last_name: S.optional(S.String),
-    first_name: S.optional(S.String),
-    email: S.optional(S.String),
-    phone_number: S.optional(S.String),
-    srn: S.optional(S.String),
+    id: S.String,
+    last_name: S.String,
+    first_name: S.String,
+    email: S.String,
+    phone_number: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "TechnicalAccountManager" }) as any as S.Schema<TechnicalAccountManager>;
 
@@ -164,17 +164,17 @@ export interface ActiveSupportPlan {
   /** Active support plan information. */
   support_plan?: SupportPlan;
   /** Support id of the Organization. */
-  support_id?: string;
+  support_id: string;
   /** Support pin of the Organization. */
-  support_pin?: string;
+  support_pin: string;
   /** Technical account manager attached to the Organization. */
   technical_account_manager?: TechnicalAccountManager;
 }
 export const ActiveSupportPlan = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     support_plan: S.optional(SupportPlan),
-    support_id: S.optional(S.String),
-    support_pin: S.optional(S.String),
+    support_id: S.String,
+    support_pin: S.String,
     technical_account_manager: S.optional(TechnicalAccountManager),
   }),
 ).annotate({ identifier: "ActiveSupportPlan" }) as any as S.Schema<ActiveSupportPlan>;
@@ -262,19 +262,19 @@ export const OrganizationWarningReason = S.String;
 
 export interface OrganizationWarning {
   /** (UUID format) */
-  id?: string;
-  reason?: OrganizationWarningReason;
-  locking?: boolean;
-  closed?: boolean;
+  id: string;
+  reason: OrganizationWarningReason;
+  locking: boolean;
+  closed: boolean;
   /** (RFC 3339 format) */
   opened_at?: string | null;
 }
 export const OrganizationWarning = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    reason: S.optional(OrganizationWarningReason),
-    locking: S.optional(S.Boolean),
-    closed: S.optional(S.Boolean),
+    id: S.String,
+    reason: OrganizationWarningReason,
+    locking: S.Boolean,
+    closed: S.Boolean,
     opened_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "OrganizationWarning" }) as any as S.Schema<OrganizationWarning>;
@@ -289,7 +289,7 @@ export type OrganizationPaymentMode = "unknown_payment_mode" | "card" | "sepa";
 export const OrganizationPaymentMode = S.String;
 
 export interface OrganizationDediboxAccount {
-  id?: number;
+  id: number;
   /** (RFC 3339 format) */
   linked_at?: string | null;
   /** (RFC 3339 format) */
@@ -297,7 +297,7 @@ export interface OrganizationDediboxAccount {
 }
 export const OrganizationDediboxAccount = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.Number),
+    id: S.Number,
     linked_at: S.optional(S.NullOr(S.String)),
     migrated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -385,9 +385,9 @@ export const OrganizationOrigin = S.String;
 
 export interface Organization {
   /** ID of the Organization. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the Organization. */
-  name?: string;
+  name: string;
   /** Creation date of the Organization. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the Organization. (RFC 3339 format) */
@@ -397,41 +397,41 @@ export interface Organization {
   /** VAT number for tax exemption. */
   vat_number?: string | null;
   /** Type of this Organization (personal or professional). */
-  type?: OrganizationType;
+  type: OrganizationType;
   /** Subtype of this Organization. */
-  sub_type?: OrganizationSubType;
+  sub_type: OrganizationSubType;
   /** Currency defined in the signed Terms of Service. */
-  currency?: OrganizationCurrency;
+  currency: OrganizationCurrency;
   /** All warnings attached to this Organization. */
-  warnings?: OrganizationWarningsList;
+  warnings: OrganizationWarningsList;
   /** Deprecated, use payment API instead. */
   payment_mode?: OrganizationPaymentMode;
   /** Email on which invoices are sent Email to which invoices are sent. If empty, the Owner's email is used. Replaced by the Notification manager. */
   billing_email?: string;
   /** Set to true if MFA is required for the Organization. */
-  mfa_enforced?: boolean;
+  mfa_enforced: boolean;
   /** Contains ID and link creation date if a dedibox account is linked. */
   dedibox_account?: OrganizationDediboxAccount;
   /** Deprecated. Set to true if the Organization is identified as a startup. */
   is_startup?: boolean;
   /** Corporate industry of the Organization. */
-  corporate_industry?: OrganizationCorporateIndustry;
+  corporate_industry: OrganizationCorporateIndustry;
   /** DUNS number. */
   duns_number?: string | null;
   /** Use cases of the Organization. */
-  use_cases?: OrganizationUseCasesList;
+  use_cases: OrganizationUseCasesList;
   /** Link to the Organization's picture. */
   picture_link?: string | null;
   /** Reseller customer profile. */
   reseller_customer_profile?: string | null;
   /** All badges attached to this Organization. */
-  badges?: OrganizationBadgesList;
+  badges: OrganizationBadgesList;
   /** Reseller customer config. */
-  reseller_customer_config?: OrganizationResellerCustomerConfig;
+  reseller_customer_config: OrganizationResellerCustomerConfig;
   /** Organization onboarding process step. */
-  onboarding_step?: OrganizationOnboardingStep;
+  onboarding_step: OrganizationOnboardingStep;
   /** Organization origin. */
-  origin?: OrganizationOrigin;
+  origin: OrganizationOrigin;
   /** Tax code for if required for your country. */
   tax_code?: string | null;
   /** Certified email address if required for your country. */
@@ -445,41 +445,41 @@ export interface Organization {
   /** The identification number for a specific branch, operating unit, or physical location of the company. */
   establishment_registration_number?: string | null;
   /** The SRN of the organization. */
-  srn?: string;
+  srn: string;
 }
 export const Organization = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     address: S.optional(OrganizationAddress),
     vat_number: S.optional(S.NullOr(S.String)),
-    type: S.optional(OrganizationType),
-    sub_type: S.optional(OrganizationSubType),
-    currency: S.optional(OrganizationCurrency),
-    warnings: S.optional(OrganizationWarningsList),
+    type: OrganizationType,
+    sub_type: OrganizationSubType,
+    currency: OrganizationCurrency,
+    warnings: OrganizationWarningsList,
     payment_mode: S.optional(OrganizationPaymentMode),
     billing_email: S.optional(S.String),
-    mfa_enforced: S.optional(S.Boolean),
+    mfa_enforced: S.Boolean,
     dedibox_account: S.optional(OrganizationDediboxAccount),
     is_startup: S.optional(S.Boolean),
-    corporate_industry: S.optional(OrganizationCorporateIndustry),
+    corporate_industry: OrganizationCorporateIndustry,
     duns_number: S.optional(S.NullOr(S.String)),
-    use_cases: S.optional(OrganizationUseCasesList),
+    use_cases: OrganizationUseCasesList,
     picture_link: S.optional(S.NullOr(S.String)),
     reseller_customer_profile: S.optional(S.NullOr(S.String)),
-    badges: S.optional(OrganizationBadgesList),
-    reseller_customer_config: S.optional(OrganizationResellerCustomerConfig),
-    onboarding_step: S.optional(OrganizationOnboardingStep),
-    origin: S.optional(OrganizationOrigin),
+    badges: OrganizationBadgesList,
+    reseller_customer_config: OrganizationResellerCustomerConfig,
+    onboarding_step: OrganizationOnboardingStep,
+    origin: OrganizationOrigin,
     tax_code: S.optional(S.NullOr(S.String)),
     certified_email_address: S.optional(S.NullOr(S.String)),
     recipient_code: S.optional(S.NullOr(S.String)),
     legal_name: S.optional(S.NullOr(S.String)),
     company_registration_number: S.optional(S.NullOr(S.String)),
     establishment_registration_number: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    srn: S.String,
   }),
 ).annotate({ identifier: "Organization" }) as any as S.Schema<Organization>;
 
@@ -526,12 +526,12 @@ export interface ListSupportPlansResponse {
   /** List of support plans. */
   support_plans: ListSupportPlansResponseSupportPlansList;
   /** Total count of support plans. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSupportPlansResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     support_plans: ListSupportPlansResponseSupportPlansList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSupportPlansResponse" }) as any as S.Schema<ListSupportPlansResponse>;
 
@@ -622,11 +622,11 @@ export const SetOrganizationUseCasesResponseUseCasesList = /*@__PURE__*/ S.Array
 ) as any as S.Schema<SetOrganizationUseCasesResponseUseCasesList>;
 
 export interface SetOrganizationUseCasesResponse {
-  use_cases?: SetOrganizationUseCasesResponseUseCasesList;
+  use_cases: SetOrganizationUseCasesResponseUseCasesList;
 }
 export const SetOrganizationUseCasesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    use_cases: S.optional(SetOrganizationUseCasesResponseUseCasesList),
+    use_cases: SetOrganizationUseCasesResponseUseCasesList,
   }),
 ).annotate({
   identifier: "SetOrganizationUseCasesResponse",

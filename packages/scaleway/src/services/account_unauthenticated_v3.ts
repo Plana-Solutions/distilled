@@ -44,13 +44,13 @@ export type PasswordStrengthScore =
 export const PasswordStrengthScore = S.String;
 
 export interface PasswordStrength {
-  score?: PasswordStrengthScore;
+  score: PasswordStrengthScore;
   /** (in seconds) */
   time_to_crack?: string | null;
 }
 export const PasswordStrength = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    score: S.optional(PasswordStrengthScore),
+    score: PasswordStrengthScore,
     time_to_crack: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "PasswordStrength" }) as any as S.Schema<PasswordStrength>;

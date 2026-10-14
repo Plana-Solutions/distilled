@@ -28,15 +28,15 @@ export const GetCategoryRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Category {
   /** (UUID format) */
-  id?: string;
-  name?: string;
-  description?: string;
+  id: string;
+  name: string;
+  description: string;
 }
 export const Category = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
   }),
 ).annotate({ identifier: "Category" }) as any as S.Schema<Category>;
 
@@ -65,15 +65,15 @@ export const ImageCategoriesList = /*@__PURE__*/ S.Array(
 
 export interface Image {
   /** UUID of this image. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the image. */
-  name?: string;
+  name: string;
   /** Text description of this image. */
-  description?: string;
+  description: string;
   /** URL of this image's logo. */
-  logo?: string;
+  logo: string;
   /** List of categories this image belongs to. */
-  categories?: ImageCategoriesList;
+  categories: ImageCategoriesList;
   /** Creation date of this image. (RFC 3339 format) */
   created_at?: string | null;
   /** Date of the last modification of this image. (RFC 3339 format) */
@@ -81,19 +81,19 @@ export interface Image {
   /** Expiration date of this image. (RFC 3339 format) */
   valid_until?: string | null;
   /** Label of this image. Typically an identifier for a distribution (ex. "ubuntu_focal"). This label can be used in the image field of the server creation request. */
-  label?: string;
+  label: string;
 }
 export const Image = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    logo: S.optional(S.String),
-    categories: S.optional(ImageCategoriesList),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    logo: S.String,
+    categories: ImageCategoriesList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     valid_until: S.optional(S.NullOr(S.String)),
-    label: S.optional(S.String),
+    label: S.String,
   }),
 ).annotate({ identifier: "Image" }) as any as S.Schema<Image>;
 
@@ -125,26 +125,26 @@ export const LocalImageType = S.String;
 
 export interface LocalImage {
   /** UUID of this local image. Version you will typically use to define an image in an API call. (UUID format) */
-  id?: string;
+  id: string;
   /** List of all commercial types that are compatible with this local image. */
-  compatible_commercial_types?: LocalImageCompatibleCommercialTypesList;
+  compatible_commercial_types: LocalImageCompatibleCommercialTypesList;
   /** Supported architecture for this local image. */
-  arch?: string;
+  arch: string;
   /** Availability Zone where this local image is available. */
-  zone?: string;
+  zone: string;
   /** Image label this image belongs to. This label can be used in the image field of the server creation request. */
-  label?: string;
+  label: string;
   /** Type of this local image. */
-  type?: LocalImageType;
+  type: LocalImageType;
 }
 export const LocalImage = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    compatible_commercial_types: S.optional(LocalImageCompatibleCommercialTypesList),
-    arch: S.optional(S.String),
-    zone: S.optional(S.String),
-    label: S.optional(S.String),
-    type: S.optional(LocalImageType),
+    id: S.String,
+    compatible_commercial_types: LocalImageCompatibleCommercialTypesList,
+    arch: S.String,
+    zone: S.String,
+    label: S.String,
+    type: LocalImageType,
   }),
 ).annotate({ identifier: "LocalImage" }) as any as S.Schema<LocalImage>;
 
@@ -167,9 +167,9 @@ export const GetVersionRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Version {
   /** UUID of this version. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of this version. */
-  name?: string;
+  name: string;
   /** Creation date of this image version. (RFC 3339 format) */
   created_at?: string | null;
   /** Date of the last modification of this version. (RFC 3339 format) */
@@ -179,8 +179,8 @@ export interface Version {
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     published_at: S.optional(S.NullOr(S.String)),
@@ -212,12 +212,12 @@ export const ListCategoriesResponseCategoriesList = /*@__PURE__*/ S.Array(
 
 export interface ListCategoriesResponse {
   categories: ListCategoriesResponseCategoriesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListCategoriesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     categories: ListCategoriesResponseCategoriesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListCategoriesResponse" }) as any as S.Schema<ListCategoriesResponse>;
 
@@ -269,12 +269,12 @@ export const ListImagesResponseImagesList = /*@__PURE__*/ S.Array(
 
 export interface ListImagesResponse {
   images: ListImagesResponseImagesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListImagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     images: ListImagesResponseImagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListImagesResponse" }) as any as S.Schema<ListImagesResponse>;
 
@@ -333,12 +333,12 @@ export const ListLocalImagesResponseLocalImagesList = /*@__PURE__*/ S.Array(
 
 export interface ListLocalImagesResponse {
   local_images: ListLocalImagesResponseLocalImagesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListLocalImagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     local_images: ListLocalImagesResponseLocalImagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListLocalImagesResponse" }) as any as S.Schema<ListLocalImagesResponse>;
 
@@ -375,12 +375,12 @@ export const ListVersionsResponseVersionsList = /*@__PURE__*/ S.Array(
 
 export interface ListVersionsResponse {
   versions: ListVersionsResponseVersionsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 

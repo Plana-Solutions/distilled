@@ -37,17 +37,17 @@ export const CreateWebsiteRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Website {
   /** The domain of the website. */
-  domain?: string;
+  domain: string;
   /** The directory path of the website. */
-  path?: string;
+  path: string;
   /** The SSL status of the website. */
-  ssl_status?: boolean;
+  ssl_status: boolean;
 }
 export const Website = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
-    path: S.optional(S.String),
-    ssl_status: S.optional(S.Boolean),
+    domain: S.String,
+    path: S.String,
+    ssl_status: S.Boolean,
   }),
 ).annotate({ identifier: "Website" }) as any as S.Schema<Website>;
 
@@ -125,13 +125,13 @@ export const ListWebsitesResponseWebsitesList = /*@__PURE__*/ S.Array(
 
 export interface ListWebsitesResponse {
   /** Total number of websites. */
-  total_count?: number;
+  total_count: number;
   /** List of websites. */
   websites: ListWebsitesResponseWebsitesList;
 }
 export const ListWebsitesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     websites: ListWebsitesResponseWebsitesList,
   }),
 ).annotate({ identifier: "ListWebsitesResponse" }) as any as S.Schema<ListWebsitesResponse>;

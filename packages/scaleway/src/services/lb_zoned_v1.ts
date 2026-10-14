@@ -195,11 +195,11 @@ export const InstanceStatus = S.String;
 
 export interface Instance {
   /** Underlying Instance ID. */
-  id?: string;
+  id: string;
   /** Instance status. */
-  status?: InstanceStatus;
+  status: InstanceStatus;
   /** Instance IP address. */
-  ip_address?: string;
+  ip_address: string;
   /** Date on which the Instance was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the Instance was last updated. (RFC 3339 format) */
@@ -207,17 +207,17 @@ export interface Instance {
   /** The region the Instance is in. */
   region?: string;
   /** The zone the Instance is in. */
-  zone?: string;
+  zone: string;
 }
 export const Instance = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    status: S.optional(InstanceStatus),
-    ip_address: S.optional(S.String),
+    id: S.String,
+    status: InstanceStatus,
+    ip_address: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     region: S.optional(S.String),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "Instance" }) as any as S.Schema<Instance>;
 
@@ -231,35 +231,35 @@ export const IpTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<IpT
 
 export interface Ip {
   /** IP address ID. */
-  id?: string;
+  id: string;
   /** IP address. */
-  ip_address?: string;
+  ip_address: string;
   /** Organization ID of the Scaleway Organization the IP address is in. */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID of the Scaleway Project the IP address is in. */
-  project_id?: string;
+  project_id: string;
   /** Load Balancer ID. */
   lb_id?: string | null;
   /** Reverse DNS (domain name) of the IP address. */
-  reverse?: string;
+  reverse: string;
   /** IP tags. */
-  tags?: IpTagsList;
+  tags: IpTagsList;
   /** The region the IP address is in. */
   region?: string;
   /** The zone the IP address is in. */
-  zone?: string;
+  zone: string;
 }
 export const Ip = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    ip_address: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
+    id: S.String,
+    ip_address: S.String,
+    organization_id: S.String,
+    project_id: S.String,
     lb_id: S.optional(S.NullOr(S.String)),
-    reverse: S.optional(S.String),
-    tags: S.optional(IpTagsList),
+    reverse: S.String,
+    tags: IpTagsList,
     region: S.optional(S.String),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "Ip" }) as any as S.Schema<Ip>;
 
@@ -293,9 +293,9 @@ export const SubscriberWebhookConfig = /*@__PURE__*/ S.suspend(() =>
 
 export interface Subscriber {
   /** Subscriber ID. */
-  id?: string;
+  id: string;
   /** Subscriber name. */
-  name?: string;
+  name: string;
   /** Email address of subscriber. */
   email_config?: SubscriberEmailConfig | null;
   /** Webhook URI of subscriber. */
@@ -303,8 +303,8 @@ export interface Subscriber {
 }
 export const Subscriber = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     email_config: S.optional(S.NullOr(SubscriberEmailConfig)),
     webhook_config: S.optional(S.NullOr(SubscriberWebhookConfig)),
   }),
@@ -319,68 +319,68 @@ export const SSLCompatibilityLevel = S.String;
 
 export interface Lb {
   /** Underlying Instance ID. */
-  id?: string;
+  id: string;
   /** Load Balancer name. */
-  name?: string;
+  name: string;
   /** Load Balancer description. */
-  description?: string;
+  description: string;
   /** Load Balancer status. */
-  status?: LbStatus;
+  status: LbStatus;
   /** List of underlying Instances. */
-  instances?: LbInstancesList;
+  instances: LbInstancesList;
   /** Scaleway Organization ID. */
-  organization_id?: string;
+  organization_id: string;
   /** Scaleway Project ID. */
-  project_id?: string;
+  project_id: string;
   /** List of IP addresses attached to the Load Balancer. */
-  ip?: LbIpList;
+  ip: LbIpList;
   /** Load Balancer tags. */
-  tags?: LbTagsList;
+  tags: LbTagsList;
   /** Number of frontends the Load Balancer has. */
-  frontend_count?: number;
+  frontend_count: number;
   /** Number of backends the Load Balancer has. */
-  backend_count?: number;
+  backend_count: number;
   /** Load Balancer offer type. */
-  type?: string;
+  type: string;
   /** Subscriber information. */
   subscriber?: Subscriber;
   /** Determines the minimal SSL version which needs to be supported on client side. */
-  ssl_compatibility_level?: SSLCompatibilityLevel;
+  ssl_compatibility_level: SSLCompatibilityLevel;
   /** Date on which the Load Balancer was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the Load Balancer was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Number of Private Networks attached to the Load Balancer. */
-  private_network_count?: number;
+  private_network_count: number;
   /** Number of routes configured on the Load Balancer. */
-  route_count?: number;
+  route_count: number;
   /** The region the Load Balancer is in. */
   region?: string;
   /** The zone the Load Balancer is in. */
-  zone?: string;
+  zone: string;
 }
 export const Lb = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    status: S.optional(LbStatus),
-    instances: S.optional(LbInstancesList),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    ip: S.optional(LbIpList),
-    tags: S.optional(LbTagsList),
-    frontend_count: S.optional(S.Number),
-    backend_count: S.optional(S.Number),
-    type: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    status: LbStatus,
+    instances: LbInstancesList,
+    organization_id: S.String,
+    project_id: S.String,
+    ip: LbIpList,
+    tags: LbTagsList,
+    frontend_count: S.Number,
+    backend_count: S.Number,
+    type: S.String,
     subscriber: S.optional(Subscriber),
-    ssl_compatibility_level: S.optional(SSLCompatibilityLevel),
+    ssl_compatibility_level: SSLCompatibilityLevel,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    private_network_count: S.optional(S.Number),
-    route_count: S.optional(S.Number),
+    private_network_count: S.Number,
+    route_count: S.Number,
     region: S.optional(S.String),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "Lb" }) as any as S.Schema<Lb>;
 
@@ -398,37 +398,37 @@ export const ProxyProtocol = S.String;
 
 export interface Backend {
   /** Backend ID. */
-  id?: string;
+  id: string;
   /** Name of the backend. */
-  name?: string;
+  name: string;
   /** Protocol used by the backend when forwarding traffic to backend servers. */
-  forward_protocol?: Protocol;
+  forward_protocol: Protocol;
   /** Port used by the backend when forwarding traffic to backend servers. */
-  forward_port?: number;
+  forward_port: number;
   /** Load balancing algorithm to use when determining which backend server to forward new traffic to. */
-  forward_port_algorithm?: ForwardPortAlgorithm;
+  forward_port_algorithm: ForwardPortAlgorithm;
   /** Defines whether sticky sessions (binding a particular session to a particular backend server) are activated and the method to use if so. None disables sticky sessions. Cookie-based uses an HTTP cookie to stick a session to a backend server. Table-based uses the source (client) IP address to stick a session to a backend server. */
-  sticky_sessions?: StickySessionsType;
+  sticky_sessions: StickySessionsType;
   /** Cookie name for cookie-based sticky sessions. */
-  sticky_sessions_cookie_name?: string;
+  sticky_sessions_cookie_name: string;
   /** Object defining the health check to be carried out by the backend when checking the status and health of backend servers. */
   health_check?: HealthCheck;
   /** List of IP addresses of backend servers attached to this backend. */
-  pool?: BackendPoolList;
+  pool: BackendPoolList;
   /** Load Balancer the backend is attached to. */
   lb?: Lb;
   /** Deprecated in favor of proxy_protocol field. */
   send_proxy_v2?: boolean;
   /** Maximum allowed time for a backend server to process a request. (in milliseconds) */
-  timeout_server?: number;
+  timeout_server: number;
   /** Maximum allowed time for establishing a connection to a backend server. (in milliseconds) */
-  timeout_connect?: number;
+  timeout_connect: number;
   /** Maximum allowed tunnel inactivity time after Websocket is established (takes precedence over client and server timeout). (in milliseconds) */
-  timeout_tunnel?: number;
+  timeout_tunnel: number;
   /** Action to take when a backend server is marked as down. */
-  on_marked_down_action?: OnMarkedDownAction;
+  on_marked_down_action: OnMarkedDownAction;
   /** Protocol to use between the Load Balancer and backend servers. Allows the backend servers to be informed of the client's real IP address. The PROXY protocol must be supported by the backend servers' software. */
-  proxy_protocol?: ProxyProtocol;
+  proxy_protocol: ProxyProtocol;
   /** Date at which the backend was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date at which the backend was updated. (RFC 3339 format) */
@@ -452,22 +452,22 @@ export interface Backend {
 }
 export const Backend = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    forward_protocol: S.optional(Protocol),
-    forward_port: S.optional(S.Number),
-    forward_port_algorithm: S.optional(ForwardPortAlgorithm),
-    sticky_sessions: S.optional(StickySessionsType),
-    sticky_sessions_cookie_name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    forward_protocol: Protocol,
+    forward_port: S.Number,
+    forward_port_algorithm: ForwardPortAlgorithm,
+    sticky_sessions: StickySessionsType,
+    sticky_sessions_cookie_name: S.String,
     health_check: S.optional(HealthCheck),
-    pool: S.optional(BackendPoolList),
+    pool: BackendPoolList,
     lb: S.optional(Lb),
     send_proxy_v2: S.optional(S.Boolean),
-    timeout_server: S.optional(S.Number),
-    timeout_connect: S.optional(S.Number),
-    timeout_tunnel: S.optional(S.Number),
-    on_marked_down_action: S.optional(OnMarkedDownAction),
-    proxy_protocol: S.optional(ProxyProtocol),
+    timeout_server: S.Number,
+    timeout_connect: S.Number,
+    timeout_tunnel: S.Number,
+    on_marked_down_action: OnMarkedDownAction,
+    proxy_protocol: ProxyProtocol,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     failover_host: S.optional(S.NullOr(S.String)),
@@ -567,15 +567,15 @@ export interface PrivateNetwork {
   /** Load Balancer object which is attached to the Private Network. */
   lb?: Lb;
   /** IPAM IDs of the booked IP addresses. (UUID format) */
-  ipam_ids?: PrivateNetworkIpamIdsList;
+  ipam_ids: PrivateNetworkIpamIdsList;
   /** Object containing an array of a local IP address for the Load Balancer on this Private Network. */
   static_config?: PrivateNetworkStaticConfig | null;
   /** Object containing DHCP-assigned IP addresses. */
   dhcp_config?: PrivateNetworkDHCPConfig | null;
   /** Private Network ID. */
-  private_network_id?: string;
+  private_network_id: string;
   /** Status of Private Network connection. */
-  status?: PrivateNetworkStatus;
+  status: PrivateNetworkStatus;
   /** Date on which the Private Network was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the PN was last updated. (RFC 3339 format) */
@@ -584,11 +584,11 @@ export interface PrivateNetwork {
 export const PrivateNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     lb: S.optional(Lb),
-    ipam_ids: S.optional(PrivateNetworkIpamIdsList),
+    ipam_ids: PrivateNetworkIpamIdsList,
     static_config: S.optional(S.NullOr(PrivateNetworkStaticConfig)),
     dhcp_config: S.optional(S.NullOr(PrivateNetworkDHCPConfig)),
-    private_network_id: S.optional(S.String),
-    status: S.optional(PrivateNetworkStatus),
+    private_network_id: S.String,
+    status: PrivateNetworkStatus,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -734,25 +734,25 @@ export const CertificateStatus = S.String;
 
 export interface Certificate {
   /** Certificate type (Let's Encrypt or custom). */
-  type?: CertificateType;
+  type: CertificateType;
   /** Certificate ID. */
-  id?: string;
+  id: string;
   /** Main domain name of certificate. */
-  common_name?: string;
+  common_name: string;
   /** Alternative domain names. */
-  subject_alternative_name?: CertificateSubjectAlternativeNameList;
+  subject_alternative_name: CertificateSubjectAlternativeNameList;
   /** Identifier (SHA-1) of the certificate. */
-  fingerprint?: string;
+  fingerprint: string;
   /** Lower validity bound. (RFC 3339 format) */
   not_valid_before?: string | null;
   /** Upper validity bound. (RFC 3339 format) */
   not_valid_after?: string | null;
   /** Certificate status. */
-  status?: CertificateStatus;
+  status: CertificateStatus;
   /** Load Balancer object the certificate is attached to. */
   lb?: Lb;
   /** Certificate name. */
-  name?: string;
+  name: string;
   /** Date on which the certificate was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the certificate was last updated. (RFC 3339 format) */
@@ -762,16 +762,16 @@ export interface Certificate {
 }
 export const Certificate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(CertificateType),
-    id: S.optional(S.String),
-    common_name: S.optional(S.String),
-    subject_alternative_name: S.optional(CertificateSubjectAlternativeNameList),
-    fingerprint: S.optional(S.String),
+    type: CertificateType,
+    id: S.String,
+    common_name: S.String,
+    subject_alternative_name: CertificateSubjectAlternativeNameList,
+    fingerprint: S.String,
     not_valid_before: S.optional(S.NullOr(S.String)),
     not_valid_after: S.optional(S.NullOr(S.String)),
-    status: S.optional(CertificateStatus),
+    status: CertificateStatus,
     lb: S.optional(Lb),
-    name: S.optional(S.String),
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     status_details: S.optional(S.NullOr(S.String)),
@@ -786,55 +786,55 @@ export const FrontendCertificateIdsList = /*@__PURE__*/ S.Array(
 
 export interface Frontend {
   /** Frontend ID. */
-  id?: string;
+  id: string;
   /** Name of the frontend. */
-  name?: string;
+  name: string;
   /** Port the frontend listens on. */
-  inbound_port?: number;
+  inbound_port: number;
   /** Backend object the frontend is attached to. */
   backend?: Backend;
   /** Load Balancer object the frontend is attached to. */
   lb?: Lb;
   /** Maximum allowed inactivity time on the client side. (in milliseconds) */
-  timeout_client?: number;
+  timeout_client: number;
   /** Certificate, deprecated in favor of certificate_ids array. */
   certificate?: Certificate;
   /** List of SSL/TLS certificate IDs to bind to the frontend. */
-  certificate_ids?: FrontendCertificateIdsList;
+  certificate_ids: FrontendCertificateIdsList;
   /** Date on which the frontend was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the frontend was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether to enable HTTP/3 protocol on the frontend. */
-  enable_http3?: boolean;
+  enable_http3: boolean;
   /** Rate limit for new connections established on this frontend. Use 0 value to disable, else value is connections per second. */
   connection_rate_limit?: number | null;
   /** Defines whether to enable access logs on the frontend. */
-  enable_access_logs?: boolean;
+  enable_access_logs: boolean;
 }
 export const Frontend = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    inbound_port: S.optional(S.Number),
+    id: S.String,
+    name: S.String,
+    inbound_port: S.Number,
     backend: S.optional(Backend),
     lb: S.optional(Lb),
-    timeout_client: S.optional(S.Number),
+    timeout_client: S.Number,
     certificate: S.optional(Certificate),
-    certificate_ids: S.optional(FrontendCertificateIdsList),
+    certificate_ids: FrontendCertificateIdsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    enable_http3: S.optional(S.Boolean),
+    enable_http3: S.Boolean,
     connection_rate_limit: S.optional(S.NullOr(S.Number)),
-    enable_access_logs: S.optional(S.Boolean),
+    enable_access_logs: S.Boolean,
   }),
 ).annotate({ identifier: "Frontend" }) as any as S.Schema<Frontend>;
 
 export interface Acl {
   /** ACL ID. */
-  id?: string;
+  id: string;
   /** ACL name. */
-  name?: string;
+  name: string;
   /** ACL match filter object. One of `ip_subnet`, `ips_edge_services` or `http_filter` & `http_filter_value` are required. */
   match?: AclMatch;
   /** Action to take when incoming traffic matches an ACL filter. */
@@ -842,25 +842,25 @@ export interface Acl {
   /** ACL is attached to this frontend object. */
   frontend?: Frontend;
   /** Priority of this ACL (ACLs are applied in ascending order, 0 is the first ACL executed). */
-  index?: number;
+  index: number;
   /** Date on which the ACL was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Date on which the ACL was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** ACL description. */
-  description?: string;
+  description: string;
 }
 export const Acl = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     match: S.optional(AclMatch),
     action: S.optional(AclAction),
     frontend: S.optional(Frontend),
-    index: S.optional(S.Number),
+    index: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    description: S.optional(S.String),
+    description: S.String,
   }),
 ).annotate({ identifier: "Acl" }) as any as S.Schema<Acl>;
 
@@ -1287,11 +1287,11 @@ export const CreateRouteRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Route {
   /** Route ID. */
-  id?: string;
+  id: string;
   /** ID of the source frontend. */
-  frontend_id?: string;
+  frontend_id: string;
   /** ID of the target backend. */
-  backend_id?: string;
+  backend_id: string;
   /** Object defining the match condition for a route to be applied. If an incoming client session matches the specified condition (i.e. it has a matching SNI value or HTTP Host header value), it will be passed to the target backend. */
   match?: RouteMatch;
   /** Date on which the route was created. (RFC 3339 format) */
@@ -1301,9 +1301,9 @@ export interface Route {
 }
 export const Route = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    frontend_id: S.optional(S.String),
-    backend_id: S.optional(S.String),
+    id: S.String,
+    frontend_id: S.String,
+    backend_id: S.String,
     match: S.optional(RouteMatch),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
@@ -1953,12 +1953,12 @@ export interface ListAclResponse {
   /** List of ACL objects. */
   acls: ListAclResponseAclsList;
   /** The total number of objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListAclResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     acls: ListAclResponseAclsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListAclResponse" }) as any as S.Schema<ListAclResponse>;
 
@@ -2022,12 +2022,12 @@ export interface ListBackendsResponse {
   /** List of backend objects of a given Load Balancer. */
   backends: ListBackendsResponseBackendsList;
   /** Total count of backend objects, without pagination. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListBackendsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     backends: ListBackendsResponseBackendsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListBackendsResponse" }) as any as S.Schema<ListBackendsResponse>;
 
@@ -2084,26 +2084,26 @@ export const BackendServerStatsHealthCheckStatus = S.String;
 
 export interface BackendServerStats {
   /** ID of your Load Balancer's underlying Instance. */
-  instance_id?: string;
+  instance_id: string;
   /** Backend ID. */
-  backend_id?: string;
+  backend_id: string;
   /** IPv4 or IPv6 address of the backend server. */
-  ip?: string;
+  ip: string;
   /** Server operational state (stopped/starting/running/stopping). */
-  server_state?: BackendServerStatsServerState;
+  server_state: BackendServerStatsServerState;
   /** Time since last operational change. (RFC 3339 format) */
   server_state_changed_at?: string | null;
   /** Last health check status (unknown/neutral/failed/passed/condpass). */
-  last_health_check_status?: BackendServerStatsHealthCheckStatus;
+  last_health_check_status: BackendServerStatsHealthCheckStatus;
 }
 export const BackendServerStats = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    instance_id: S.optional(S.String),
-    backend_id: S.optional(S.String),
-    ip: S.optional(S.String),
-    server_state: S.optional(BackendServerStatsServerState),
+    instance_id: S.String,
+    backend_id: S.String,
+    ip: S.String,
+    server_state: BackendServerStatsServerState,
     server_state_changed_at: S.optional(S.NullOr(S.String)),
-    last_health_check_status: S.optional(BackendServerStatsHealthCheckStatus),
+    last_health_check_status: BackendServerStatsHealthCheckStatus,
   }),
 ).annotate({ identifier: "BackendServerStats" }) as any as S.Schema<BackendServerStats>;
 
@@ -2117,12 +2117,12 @@ export interface ListBackendStatsResponse {
   /** List of objects containing backend server statistics. */
   backend_servers_stats: ListBackendStatsResponseBackendServersStatsList;
   /** The total number of objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListBackendStatsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     backend_servers_stats: ListBackendStatsResponseBackendServersStatsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListBackendStatsResponse" }) as any as S.Schema<ListBackendStatsResponse>;
 
@@ -2186,12 +2186,12 @@ export interface ListCertificatesResponse {
   /** List of certificate objects. */
   certificates: ListCertificatesResponseCertificatesList;
   /** The total number of objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListCertificatesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     certificates: ListCertificatesResponseCertificatesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListCertificatesResponse" }) as any as S.Schema<ListCertificatesResponse>;
 
@@ -2255,12 +2255,12 @@ export interface ListFrontendsResponse {
   /** List of frontend objects of a given Load Balancer. */
   frontends: ListFrontendsResponseFrontendsList;
   /** Total count of frontend objects, without pagination. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListFrontendsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     frontends: ListFrontendsResponseFrontendsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListFrontendsResponse" }) as any as S.Schema<ListFrontendsResponse>;
 
@@ -2331,12 +2331,12 @@ export interface ListIpsResponse {
   /** List of IP address objects. */
   ips: ListIpsResponseIpsList;
   /** Total count of IP address objects, without pagination. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListIpsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     ips: ListIpsResponseIpsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListIpsResponse" }) as any as S.Schema<ListIpsResponse>;
 
@@ -2395,12 +2395,12 @@ export interface ListLbPrivateNetworksResponse {
   /** List of Private Network objects attached to the Load Balancer. */
   private_network: ListLbPrivateNetworksResponsePrivateNetworkList;
   /** Total number of objects in the response. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListLbPrivateNetworksResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_network: ListLbPrivateNetworksResponsePrivateNetworkList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListLbPrivateNetworksResponse",
@@ -2481,12 +2481,12 @@ export interface ListLbsResponse {
   /** List of Load Balancer objects. */
   lbs: ListLbsResponseLbsList;
   /** The total number of Load Balancer objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListLbsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     lbs: ListLbsResponseLbsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListLbsResponse" }) as any as S.Schema<ListLbsResponse>;
 
@@ -2529,29 +2529,29 @@ export const LbTypeStock = S.String;
 
 export interface LbType {
   /** Load Balancer commercial offer type name. */
-  name?: string;
+  name: string;
   /** Current stock status for a given Load Balancer type. */
-  stock_status?: LbTypeStock;
+  stock_status: LbTypeStock;
   /** Maximum bandwidth for a given Load Balancer type. */
-  bandwidth?: number;
+  bandwidth: number;
   /** Ability to handle backend servers outside Scaleway for a given Load Balancer type. */
-  multicloud?: boolean;
+  multicloud: boolean;
   /** Load Balancer commercial offer type description. */
-  description?: string;
+  description: string;
   /** The region the Load Balancer stock is in. */
   region?: string;
   /** The zone the Load Balancer stock is in. */
-  zone?: string;
+  zone: string;
 }
 export const LbType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    stock_status: S.optional(LbTypeStock),
-    bandwidth: S.optional(S.Number),
-    multicloud: S.optional(S.Boolean),
-    description: S.optional(S.String),
+    name: S.String,
+    stock_status: LbTypeStock,
+    bandwidth: S.Number,
+    multicloud: S.Boolean,
+    description: S.String,
     region: S.optional(S.String),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "LbType" }) as any as S.Schema<LbType>;
 
@@ -2565,12 +2565,12 @@ export interface ListLbTypesResponse {
   /** List of Load Balancer commercial offer type objects. */
   lb_types: ListLbTypesResponseLbTypesList;
   /** Total number of Load Balancer offer type objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListLbTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     lb_types: ListLbTypesResponseLbTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListLbTypesResponse" }) as any as S.Schema<ListLbTypesResponse>;
 
@@ -2627,12 +2627,12 @@ export interface ListRoutesResponse {
   /** List of route objects. */
   routes: ListRoutesResponseRoutesList;
   /** The total number of route objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListRoutesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     routes: ListRoutesResponseRoutesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListRoutesResponse" }) as any as S.Schema<ListRoutesResponse>;
 
@@ -2699,12 +2699,12 @@ export interface ListSubscriberResponse {
   /** List of subscriber objects. */
   subscribers: ListSubscriberResponseSubscribersList;
   /** The total number of objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListSubscriberResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     subscribers: ListSubscriberResponseSubscribersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListSubscriberResponse" }) as any as S.Schema<ListSubscriberResponse>;
 
@@ -2890,14 +2890,14 @@ export const SetAclsResponseAclsList = /*@__PURE__*/ S.Array(
 
 export interface SetAclsResponse {
   /** List of ACL objects. */
-  acls?: SetAclsResponseAclsList;
+  acls: SetAclsResponseAclsList;
   /** The total number of ACL objects. */
-  total_count?: number;
+  total_count: number;
 }
 export const SetAclsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    acls: S.optional(SetAclsResponseAclsList),
-    total_count: S.optional(S.Number),
+    acls: SetAclsResponseAclsList,
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "SetAclsResponse" }) as any as S.Schema<SetAclsResponse>;
 

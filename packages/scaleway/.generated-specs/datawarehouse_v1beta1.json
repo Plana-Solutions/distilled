@@ -135,13 +135,15 @@
         "deployments": {
           "target": "com.scaleway.datawarehouse_v1beta1#ListDeploymentsResponseDeploymentsList",
           "traits": {
-            "smithy.api#documentation": "List of all deployments available in an Organization or Project."
+            "smithy.api#documentation": "List of all deployments available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of deployments available in an Organization or Project."
+            "smithy.api#documentation": "Total count of deployments available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -153,37 +155,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier. (UUID format)"
+            "smithy.api#documentation": "Unique identifier. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the deployment."
+            "smithy.api#documentation": "Name of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID. (UUID format)"
+            "smithy.api#documentation": "Organization ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.datawarehouse_v1beta1#DeploymentStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the deployment."
+            "smithy.api#documentation": "Status of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.datawarehouse_v1beta1#DeploymentTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the deployment."
+            "smithy.api#documentation": "List of tags applied to the deployment.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -203,61 +211,71 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ClickHouse® version."
+            "smithy.api#documentation": "ClickHouse® version.",
+            "smithy.api#required": {}
           }
         },
         "replica_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of replicas for the deployment."
+            "smithy.api#documentation": "Number of replicas for the deployment.",
+            "smithy.api#required": {}
           }
         },
         "shard_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of shards for the deployment."
+            "smithy.api#documentation": "Number of shards for the deployment.",
+            "smithy.api#required": {}
           }
         },
         "cpu_min": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum CPU count for the deployment."
+            "smithy.api#documentation": "Minimum CPU count for the deployment.",
+            "smithy.api#required": {}
           }
         },
         "cpu_max": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum CPU count for the deployment."
+            "smithy.api#documentation": "Maximum CPU count for the deployment.",
+            "smithy.api#required": {}
           }
         },
         "endpoints": {
           "target": "com.scaleway.datawarehouse_v1beta1#DeploymentEndpointsList",
           "traits": {
-            "smithy.api#documentation": "List of endpoints associated with the deployment."
+            "smithy.api#documentation": "List of endpoints associated with the deployment.",
+            "smithy.api#required": {}
           }
         },
         "ram_per_cpu": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "RAM per CPU count for the deployment (in GB)."
+            "smithy.api#documentation": "RAM per CPU count for the deployment (in GB).",
+            "smithy.api#required": {}
           }
         },
         "move_factor": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "For the `tiered` storage policy, controls when data is moved from the hot volume (Block Storage) to the cold volume (Object Storage). Data is moved once free space on the hot volume drops below this fraction of its capacity. Value between 0 and 1 (default 0.1, i.e. data is moved when the hot volume is 90% full)."
+            "smithy.api#documentation": "For the `tiered` storage policy, controls when data is moved from the hot volume (Block Storage) to the cold volume (Object Storage). Data is moved once free space on the hot volume drops below this fraction of its capacity. Value between 0 and 1 (default 0.1, i.e. data is moved when the hot volume is 90% full).",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the deployment."
+            "smithy.api#documentation": "Region of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the deployment."
+            "smithy.api#documentation": "The SRN of the deployment.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -362,19 +380,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Unique identifier of the endpoint. (UUID format)"
+            "smithy.api#documentation": "Unique identifier of the endpoint. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "dns_record": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "DNS record associated with the endpoint."
+            "smithy.api#documentation": "DNS record associated with the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "services": {
           "target": "com.scaleway.datawarehouse_v1beta1#EndpointServicesList",
           "traits": {
-            "smithy.api#documentation": "List of services associated with the endpoint."
+            "smithy.api#documentation": "List of services associated with the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "private_network": {
@@ -394,13 +415,15 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the deployment."
+            "smithy.api#documentation": "Region of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the endpoint."
+            "smithy.api#documentation": "The SRN of the endpoint.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -410,10 +433,16 @@
       "type": "structure",
       "members": {
         "protocol": {
-          "target": "com.scaleway.datawarehouse_v1beta1#EndpointServiceProtocol"
+          "target": "com.scaleway.datawarehouse_v1beta1#EndpointServiceProtocol",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "port": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -463,13 +492,15 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Private Network."
+            "smithy.api#documentation": "UUID of the Private Network.",
+            "smithy.api#required": {}
           }
         },
         "nodes": {
           "target": "com.scaleway.datawarehouse_v1beta1#PrivateNetworkDetailsNodesList",
           "traits": {
-            "smithy.api#documentation": "List of nodes belonging to this private network and their details."
+            "smithy.api#documentation": "List of nodes belonging to this private network and their details.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -481,25 +512,29 @@
         "node_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name  of the node."
+            "smithy.api#documentation": "Name  of the node.",
+            "smithy.api#required": {}
           }
         },
         "shard": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The ClickHouse shard to which the node belongs to."
+            "smithy.api#documentation": "The ClickHouse shard to which the node belongs to.",
+            "smithy.api#required": {}
           }
         },
         "replica": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The ClickHouse replica to which the node belongs to."
+            "smithy.api#documentation": "The ClickHouse replica to which the node belongs to.",
+            "smithy.api#required": {}
           }
         },
         "ip_address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private static IP address of that node."
+            "smithy.api#documentation": "Private static IP address of that node.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -974,13 +1009,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1100,13 +1144,15 @@
         "databases": {
           "target": "com.scaleway.datawarehouse_v1beta1#ListDatabasesResponseDatabasesList",
           "traits": {
-            "smithy.api#documentation": "List of databases associated with the deployment."
+            "smithy.api#documentation": "List of databases associated with the deployment.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of databases associated with the deployment."
+            "smithy.api#documentation": "Total count of databases associated with the deployment.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1118,31 +1164,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database."
+            "smithy.api#documentation": "Name of the database.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Size of the database. (in bytes)"
+            "smithy.api#documentation": "Size of the database. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "deployment_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Identifier of the deployment. (UUID format)"
+            "smithy.api#documentation": "Identifier of the deployment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the deployment."
+            "smithy.api#documentation": "Region of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the database."
+            "smithy.api#documentation": "The SRN of the database.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1493,13 +1544,15 @@
         "users": {
           "target": "com.scaleway.datawarehouse_v1beta1#ListUsersResponseUsersList",
           "traits": {
-            "smithy.api#documentation": "List of users associated with the deployment."
+            "smithy.api#documentation": "List of users associated with the deployment.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of users associated with the deployment."
+            "smithy.api#documentation": "Total count of users associated with the deployment.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1511,31 +1564,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the user."
+            "smithy.api#documentation": "Name of the user.",
+            "smithy.api#required": {}
           }
         },
         "is_admin": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates if the user is an administrator."
+            "smithy.api#documentation": "Indicates if the user is an administrator.",
+            "smithy.api#required": {}
           }
         },
         "deployment_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Identifier of the deployment. (UUID format)"
+            "smithy.api#documentation": "Identifier of the deployment. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the deployment."
+            "smithy.api#documentation": "Region of the deployment.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the user."
+            "smithy.api#documentation": "The SRN of the user.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1939,13 +1997,15 @@
         "presets": {
           "target": "com.scaleway.datawarehouse_v1beta1#ListPresetsResponsePresetsList",
           "traits": {
-            "smithy.api#documentation": "List of available presets."
+            "smithy.api#documentation": "List of available presets.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of presets available."
+            "smithy.api#documentation": "Total count of presets available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1957,43 +2017,50 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the preset."
+            "smithy.api#documentation": "Name of the preset.",
+            "smithy.api#required": {}
           }
         },
         "category": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Category of the preset."
+            "smithy.api#documentation": "Category of the preset.",
+            "smithy.api#required": {}
           }
         },
         "cpu_min": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum CPU count for the preset."
+            "smithy.api#documentation": "Minimum CPU count for the preset.",
+            "smithy.api#required": {}
           }
         },
         "cpu_max": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum CPU count for the preset."
+            "smithy.api#documentation": "Maximum CPU count for the preset.",
+            "smithy.api#required": {}
           }
         },
         "ram_per_cpu": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "RAM per CPU count for the preset (in GB)."
+            "smithy.api#documentation": "RAM per CPU count for the preset (in GB).",
+            "smithy.api#required": {}
           }
         },
         "replica_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of replicas for the preset."
+            "smithy.api#documentation": "Number of replicas for the preset.",
+            "smithy.api#required": {}
           }
         },
         "shard_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of shards for the preset."
+            "smithy.api#documentation": "Number of shards for the preset.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2084,13 +2151,15 @@
         "versions": {
           "target": "com.scaleway.datawarehouse_v1beta1#ListVersionsResponseVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available deployment version."
+            "smithy.api#documentation": "Available deployment version.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of deployment version available."
+            "smithy.api#documentation": "Total count of deployment version available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2102,7 +2171,8 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Deployment version."
+            "smithy.api#documentation": "Deployment version.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life_at": {

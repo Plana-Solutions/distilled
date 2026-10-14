@@ -152,13 +152,15 @@
         "database_backups": {
           "target": "com.scaleway.rdb_v1#ListDatabaseBackupsResponseDatabaseBackupsList",
           "traits": {
-            "smithy.api#documentation": "List of database backups."
+            "smithy.api#documentation": "List of database backups.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of database backups available."
+            "smithy.api#documentation": "Total count of database backups available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -170,31 +172,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the database backup."
+            "smithy.api#documentation": "UUID of the database backup.",
+            "smithy.api#required": {}
           }
         },
         "instance_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance."
+            "smithy.api#documentation": "UUID of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "database_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of backed up database."
+            "smithy.api#documentation": "Name of backed up database.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the backup."
+            "smithy.api#documentation": "Name of the backup.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.rdb_v1#DatabaseBackupStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the backup."
+            "smithy.api#documentation": "Status of the backup.",
+            "smithy.api#required": {}
           }
         },
         "size": {
@@ -228,7 +235,8 @@
         "instance_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Database Instance of the backup."
+            "smithy.api#documentation": "Name of the Database Instance of the backup.",
+            "smithy.api#required": {}
           }
         },
         "download_url": {
@@ -248,13 +256,15 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of the database backup."
+            "smithy.api#documentation": "Region of the database backup.",
+            "smithy.api#required": {}
           }
         },
         "same_region": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Store logical backups in the same region as the source Database Instance."
+            "smithy.api#documentation": "Store logical backups in the same region as the source Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -856,13 +866,15 @@
         "engines": {
           "target": "com.scaleway.rdb_v1#ListDatabaseEnginesResponseEnginesList",
           "traits": {
-            "smithy.api#documentation": "List of the available database engines."
+            "smithy.api#documentation": "List of the available database engines.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of database engines available."
+            "smithy.api#documentation": "Total count of database engines available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -874,25 +886,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Engine name."
+            "smithy.api#documentation": "Engine name.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Engine logo URL."
+            "smithy.api#documentation": "Engine logo URL.",
+            "smithy.api#required": {}
           }
         },
         "versions": {
           "target": "com.scaleway.rdb_v1#DatabaseEngineVersionsList",
           "traits": {
-            "smithy.api#documentation": "Available versions."
+            "smithy.api#documentation": "Available versions.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of this Database Instance."
+            "smithy.api#documentation": "Region of this Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -904,13 +920,15 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Database engine version."
+            "smithy.api#documentation": "Database engine version.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Database engine name."
+            "smithy.api#documentation": "Database engine name.",
+            "smithy.api#required": {}
           }
         },
         "end_of_life": {
@@ -923,25 +941,29 @@
         "available_settings": {
           "target": "com.scaleway.rdb_v1#EngineVersionAvailableSettingsList",
           "traits": {
-            "smithy.api#documentation": "Engine settings available to be set."
+            "smithy.api#documentation": "Engine settings available to be set.",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Disabled versions cannot be created."
+            "smithy.api#documentation": "Disabled versions cannot be created.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Beta status of engine version."
+            "smithy.api#documentation": "Beta status of engine version.",
+            "smithy.api#required": {}
           }
         },
         "available_init_settings": {
           "target": "com.scaleway.rdb_v1#EngineVersionAvailableInitSettingsList",
           "traits": {
-            "smithy.api#documentation": "Engine settings available to be set at database initialization."
+            "smithy.api#documentation": "Engine settings available to be set at database initialization.",
+            "smithy.api#required": {}
           }
         },
         "release_date": {
@@ -960,31 +982,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Setting name from the database engine."
+            "smithy.api#documentation": "Setting name from the database engine.",
+            "smithy.api#required": {}
           }
         },
         "default_value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Value set when not specified."
+            "smithy.api#documentation": "Value set when not specified.",
+            "smithy.api#required": {}
           }
         },
         "hot_configurable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Setting can be applied without restarting."
+            "smithy.api#documentation": "Setting can be applied without restarting.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Setting description."
+            "smithy.api#documentation": "Setting description.",
+            "smithy.api#required": {}
           }
         },
         "property_type": {
           "target": "com.scaleway.rdb_v1#EngineSettingPropertyType",
           "traits": {
-            "smithy.api#documentation": "Setting type."
+            "smithy.api#documentation": "Setting type.",
+            "smithy.api#required": {}
           }
         },
         "unit": {
@@ -1176,7 +1203,8 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the endpoint. (UUID format)"
+            "smithy.api#documentation": "UUID of the endpoint. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "ip": {
@@ -1189,7 +1217,8 @@
         "port": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "TCP port of the endpoint."
+            "smithy.api#documentation": "TCP port of the endpoint.",
+            "smithy.api#required": {}
           }
         },
         "name": {
@@ -1236,25 +1265,29 @@
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the private network. (UUID format)"
+            "smithy.api#documentation": "UUID of the private network. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "service_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "CIDR notation of the endpoint IPv4 address. (IP network)"
+            "smithy.api#documentation": "CIDR notation of the endpoint IPv4 address. (IP network)",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private network zone."
+            "smithy.api#documentation": "Private network zone.",
+            "smithy.api#required": {}
           }
         },
         "provisioning_mode": {
           "target": "com.scaleway.rdb_v1#EndpointPrivateNetworkDetailsProvisioningMode",
           "traits": {
-            "smithy.api#documentation": "How endpoint ips are provisioned."
+            "smithy.api#documentation": "How endpoint ips are provisioned.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1587,13 +1620,15 @@
         "instances": {
           "target": "com.scaleway.rdb_v1#ListInstancesResponseInstancesList",
           "traits": {
-            "smithy.api#documentation": "List of all Database Instances available in an Organization or Project."
+            "smithy.api#documentation": "List of all Database Instances available in an Organization or Project.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of Database Instances available in a Organization or Project."
+            "smithy.api#documentation": "Total count of Database Instances available in a Organization or Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1618,49 +1653,57 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Database Instance is in."
+            "smithy.api#documentation": "Region the Database Instance is in.",
+            "smithy.api#required": {}
           }
         },
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)"
+            "smithy.api#documentation": "UUID of the Database Instance. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Database Instance."
+            "smithy.api#documentation": "Name of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID the Database Instance belongs to. (UUID format)"
+            "smithy.api#documentation": "Organization ID the Database Instance belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the Database Instance belongs to. (UUID format)"
+            "smithy.api#documentation": "Project ID the Database Instance belongs to. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.rdb_v1#InstanceStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Database Instance."
+            "smithy.api#documentation": "Status of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "engine": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Database engine of the database (PostgreSQL, MySQL, ...)."
+            "smithy.api#documentation": "Database engine of the database (PostgreSQL, MySQL, ...).",
+            "smithy.api#required": {}
           }
         },
         "upgradable_version": {
           "target": "com.scaleway.rdb_v1#InstanceUpgradableVersionList",
           "traits": {
-            "smithy.api#documentation": "Available database engine versions for upgrade."
+            "smithy.api#documentation": "Available database engine versions for upgrade.",
+            "smithy.api#required": {}
           }
         },
         "endpoint": {
@@ -1672,13 +1715,15 @@
         "tags": {
           "target": "com.scaleway.rdb_v1#InstanceTagsList",
           "traits": {
-            "smithy.api#documentation": "List of tags applied to the Database Instance."
+            "smithy.api#documentation": "List of tags applied to the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "settings": {
           "target": "com.scaleway.rdb_v1#InstanceSettingsList",
           "traits": {
-            "smithy.api#documentation": "Advanced settings of the Database Instance."
+            "smithy.api#documentation": "Advanced settings of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "backup_schedule": {
@@ -1690,37 +1735,43 @@
         "is_ha_cluster": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not High-Availability is enabled."
+            "smithy.api#documentation": "Defines whether or not High-Availability is enabled.",
+            "smithy.api#required": {}
           }
         },
         "high_availability_mode": {
           "target": "com.scaleway.rdb_v1#HighAvailabilityMode",
           "traits": {
-            "smithy.api#documentation": "Defines the High-Availability mode of the instance."
+            "smithy.api#documentation": "Defines the High-Availability mode of the instance.",
+            "smithy.api#required": {}
           }
         },
         "read_replicas": {
           "target": "com.scaleway.rdb_v1#InstanceReadReplicasList",
           "traits": {
-            "smithy.api#documentation": "Read Replicas of the Database Instance."
+            "smithy.api#documentation": "Read Replicas of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type of the Database Instance."
+            "smithy.api#documentation": "Node type of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "init_settings": {
           "target": "com.scaleway.rdb_v1#InstanceInitSettingsList",
           "traits": {
-            "smithy.api#documentation": "List of engine settings to be set at database initialization."
+            "smithy.api#documentation": "List of engine settings to be set at database initialization.",
+            "smithy.api#required": {}
           }
         },
         "endpoints": {
           "target": "com.scaleway.rdb_v1#InstanceEndpointsList",
           "traits": {
-            "smithy.api#documentation": "List of Database Instance endpoints."
+            "smithy.api#documentation": "List of Database Instance endpoints.",
+            "smithy.api#required": {}
           }
         },
         "logs_policy": {
@@ -1732,13 +1783,15 @@
         "backup_same_region": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Store logical backups in the same region as the Database Instance."
+            "smithy.api#documentation": "Store logical backups in the same region as the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "maintenances": {
           "target": "com.scaleway.rdb_v1#InstanceMaintenancesList",
           "traits": {
-            "smithy.api#documentation": "List of Database Instance maintenance events."
+            "smithy.api#documentation": "List of Database Instance maintenance events.",
+            "smithy.api#required": {}
           }
         },
         "encryption": {
@@ -1754,16 +1807,23 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.scaleway.rdb_v1#VolumeType"
+          "target": "com.scaleway.rdb_v1#VolumeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         },
         "class": {
-          "target": "com.scaleway.rdb_v1#StorageClass"
+          "target": "com.scaleway.rdb_v1#StorageClass",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1918,17 +1978,27 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)"
+            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "version": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "minor_version": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1978,19 +2048,22 @@
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the backup schedule (in hours)."
+            "smithy.api#documentation": "Frequency of the backup schedule (in hours).",
+            "smithy.api#required": {}
           }
         },
         "retention": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Default retention period of backups (in days)."
+            "smithy.api#documentation": "Default retention period of backups (in days).",
+            "smithy.api#required": {}
           }
         },
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the backup schedule feature is disabled."
+            "smithy.api#documentation": "Defines whether the backup schedule feature is disabled.",
+            "smithy.api#required": {}
           }
         },
         "next_run_at": {
@@ -2039,37 +2112,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Read Replica. (UUID format)"
+            "smithy.api#documentation": "UUID of the Read Replica. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "endpoints": {
           "target": "com.scaleway.rdb_v1#ReadReplicaEndpointsList",
           "traits": {
-            "smithy.api#documentation": "Display Read Replica connection information."
+            "smithy.api#documentation": "Display Read Replica connection information.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.rdb_v1#ReadReplicaStatus",
           "traits": {
-            "smithy.api#documentation": "Read replica status."
+            "smithy.api#documentation": "Read replica status.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Read Replica is in."
+            "smithy.api#documentation": "Region the Read Replica is in.",
+            "smithy.api#required": {}
           }
         },
         "same_zone": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the replica is in the same availability zone as the main instance nodes or not."
+            "smithy.api#documentation": "Whether the replica is in the same availability zone as the main instance nodes or not.",
+            "smithy.api#required": {}
           }
         },
         "instance_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance."
+            "smithy.api#documentation": "UUID of the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2218,13 +2297,15 @@
         "reason": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Maintenance information message."
+            "smithy.api#documentation": "Maintenance information message.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.rdb_v1#MaintenanceStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the maintenance."
+            "smithy.api#documentation": "Status of the maintenance.",
+            "smithy.api#required": {}
           }
         },
         "forced_at": {
@@ -2237,7 +2318,8 @@
         "is_applicable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicate if the maintenance can be applied by the user."
+            "smithy.api#documentation": "Indicate if the maintenance can be applied by the user.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2894,13 +2976,15 @@
         "rules": {
           "target": "com.scaleway.rdb_v1#ListInstanceACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "List of ACL rules present on a Database Instance."
+            "smithy.api#documentation": "List of ACL rules present on a Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of ACL rules present on a Database Instance."
+            "smithy.api#documentation": "Total count of ACL rules present on a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2912,20 +2996,33 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(IP network)"
+            "smithy.api#documentation": "(IP network)",
+            "smithy.api#required": {}
           }
         },
         "protocol": {
-          "target": "com.scaleway.rdb_v1#ACLRuleProtocol"
+          "target": "com.scaleway.rdb_v1#ACLRuleProtocol",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "direction": {
-          "target": "com.scaleway.rdb_v1#ACLRuleDirection"
+          "target": "com.scaleway.rdb_v1#ACLRuleDirection",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "action": {
-          "target": "com.scaleway.rdb_v1#ACLRuleAction"
+          "target": "com.scaleway.rdb_v1#ACLRuleAction",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "description": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "port": {
           "target": "smithy.api#Integer"
@@ -3111,7 +3208,8 @@
         "rules": {
           "target": "com.scaleway.rdb_v1#AddInstanceACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "ACL Rules enabled for the Database Instance."
+            "smithy.api#documentation": "ACL Rules enabled for the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3213,7 +3311,8 @@
         "rules": {
           "target": "com.scaleway.rdb_v1#SetInstanceACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "ACLs rules configured for a Database Instance."
+            "smithy.api#documentation": "ACLs rules configured for a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3315,7 +3414,8 @@
         "rules": {
           "target": "com.scaleway.rdb_v1#DeleteInstanceACLRulesResponseRulesList",
           "traits": {
-            "smithy.api#documentation": "IP addresses defined in the ACL rules of the Database Instance."
+            "smithy.api#documentation": "IP addresses defined in the ACL rules of the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3464,13 +3564,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content_type": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "content": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3701,13 +3810,15 @@
         "databases": {
           "target": "com.scaleway.rdb_v1#ListDatabasesResponseDatabasesList",
           "traits": {
-            "smithy.api#documentation": "List of the databases."
+            "smithy.api#documentation": "List of the databases.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of databases present on a Database Instance."
+            "smithy.api#documentation": "Total count of databases present on a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3719,25 +3830,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database."
+            "smithy.api#documentation": "Name of the database.",
+            "smithy.api#required": {}
           }
         },
         "owner": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database owner."
+            "smithy.api#documentation": "Name of the database owner.",
+            "smithy.api#required": {}
           }
         },
         "managed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the database is managed or not."
+            "smithy.api#documentation": "Defines whether the database is managed or not.",
+            "smithy.api#required": {}
           }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Size of the database. Set to 0 if the size retrieval is too time-consuming or `skip_size_retrieval` is set to true. (in bytes)"
+            "smithy.api#documentation": "Size of the database. Set to 0 if the size retrieval is too time-consuming or `skip_size_retrieval` is set to true. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4070,7 +4185,8 @@
         "instance_logs": {
           "target": "com.scaleway.rdb_v1#ListInstanceLogsResponseInstanceLogsList",
           "traits": {
-            "smithy.api#documentation": "Available logs in a Database Instance."
+            "smithy.api#documentation": "Available logs in a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4089,19 +4205,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance log."
+            "smithy.api#documentation": "UUID of the Database Instance log.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.rdb_v1#InstanceLogStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the logs in a Database Instance."
+            "smithy.api#documentation": "Status of the logs in a Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "node_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the underlying node."
+            "smithy.api#documentation": "Name of the underlying node.",
+            "smithy.api#required": {}
           }
         },
         "expires_at": {
@@ -4121,7 +4240,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Database Instance is in."
+            "smithy.api#documentation": "Region the Database Instance is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4237,7 +4357,8 @@
         "details": {
           "target": "com.scaleway.rdb_v1#ListInstanceLogsDetailsResponseDetailsList",
           "traits": {
-            "smithy.api#documentation": "Remote Database Instance logs details."
+            "smithy.api#documentation": "Remote Database Instance logs details.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4247,10 +4368,16 @@
       "type": "structure",
       "members": {
         "log_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "size": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4349,7 +4476,8 @@
         "instance_logs": {
           "target": "com.scaleway.rdb_v1#PrepareInstanceLogsResponseInstanceLogsList",
           "traits": {
-            "smithy.api#documentation": "Instance logs for a Database Instance between a start and an end date."
+            "smithy.api#documentation": "Instance logs for a Database Instance between a start and an end date.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4498,13 +4626,15 @@
         "privileges": {
           "target": "com.scaleway.rdb_v1#ListPrivilegesResponsePrivilegesList",
           "traits": {
-            "smithy.api#documentation": "Privileges of a user in a database in a Database Instance."
+            "smithy.api#documentation": "Privileges of a user in a database in a Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of privileges present on a database."
+            "smithy.api#documentation": "Total count of privileges present on a database.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4516,19 +4646,22 @@
         "permission": {
           "target": "com.scaleway.rdb_v1#Permission",
           "traits": {
-            "smithy.api#documentation": "Permission (Read, Read/Write, All, Custom)."
+            "smithy.api#documentation": "Permission (Read, Read/Write, All, Custom).",
+            "smithy.api#required": {}
           }
         },
         "database_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database."
+            "smithy.api#documentation": "Name of the database.",
+            "smithy.api#required": {}
           }
         },
         "user_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the user."
+            "smithy.api#documentation": "Name of the user.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4958,7 +5091,8 @@
         "settings": {
           "target": "com.scaleway.rdb_v1#AddInstanceSettingsResponseSettingsList",
           "traits": {
-            "smithy.api#documentation": "Settings available on the Database Instance."
+            "smithy.api#documentation": "Settings available on the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5060,7 +5194,8 @@
         "settings": {
           "target": "com.scaleway.rdb_v1#SetInstanceSettingsResponseSettingsList",
           "traits": {
-            "smithy.api#documentation": "Settings configured for a Database Instance."
+            "smithy.api#documentation": "Settings configured for a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5162,7 +5297,8 @@
         "settings": {
           "target": "com.scaleway.rdb_v1#DeleteInstanceSettingsResponseSettingsList",
           "traits": {
-            "smithy.api#documentation": "Settings names to delete from the Database Instance."
+            "smithy.api#documentation": "Settings names to delete from the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5262,25 +5398,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the snapshot."
+            "smithy.api#documentation": "UUID of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "instance_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the Database Instance."
+            "smithy.api#documentation": "UUID of the Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the snapshot."
+            "smithy.api#documentation": "Name of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.rdb_v1#SnapshotStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the snapshot."
+            "smithy.api#documentation": "Status of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "size": {
@@ -5314,13 +5454,15 @@
         "instance_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Database Instance of the snapshot."
+            "smithy.api#documentation": "Name of the Database Instance of the snapshot.",
+            "smithy.api#required": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Source node type."
+            "smithy.api#documentation": "Source node type.",
+            "smithy.api#required": {}
           }
         },
         "volume_type": {
@@ -5332,7 +5474,8 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region of this snapshot."
+            "smithy.api#documentation": "Region of this snapshot.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5390,10 +5533,16 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.scaleway.rdb_v1#VolumeType"
+          "target": "com.scaleway.rdb_v1#VolumeType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "class": {
-          "target": "com.scaleway.rdb_v1#StorageClass"
+          "target": "com.scaleway.rdb_v1#StorageClass",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5664,13 +5813,15 @@
         "users": {
           "target": "com.scaleway.rdb_v1#ListUsersResponseUsersList",
           "traits": {
-            "smithy.api#documentation": "List of users in a Database Instance."
+            "smithy.api#documentation": "List of users in a Database Instance.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of users present on a Database Instance."
+            "smithy.api#documentation": "Total count of users present on a Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5682,13 +5833,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the user (Length must be between 1 and 63 characters for PostgreSQL and between 1 and 32 characters for MySQL. First character must be an alphabet character (a-zA-Z). Your username cannot start with '_rdb' or in PostgreSQL, 'pg_'. Only a-zA-Z0-9_$- characters are accepted)."
+            "smithy.api#documentation": "Name of the user (Length must be between 1 and 63 characters for PostgreSQL and between 1 and 32 characters for MySQL. First character must be an alphabet character (a-zA-Z). Your username cannot start with '_rdb' or in PostgreSQL, 'pg_'. Only a-zA-Z0-9_$- characters are accepted).",
+            "smithy.api#required": {}
           }
         },
         "is_admin": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not a user got administrative privileges on the Database Instance."
+            "smithy.api#documentation": "Defines whether or not a user got administrative privileges on the Database Instance.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6103,13 +6256,15 @@
         "node_types": {
           "target": "com.scaleway.rdb_v1#ListNodeTypesResponseNodeTypesList",
           "traits": {
-            "smithy.api#documentation": "Types of the node."
+            "smithy.api#documentation": "Types of the node.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of node-types available."
+            "smithy.api#documentation": "Total count of node-types available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6121,31 +6276,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node Type name identifier."
+            "smithy.api#documentation": "Node Type name identifier.",
+            "smithy.api#required": {}
           }
         },
         "stock_status": {
           "target": "com.scaleway.rdb_v1#NodeTypeStock",
           "traits": {
-            "smithy.api#documentation": "Current stock status for the Node Type."
+            "smithy.api#documentation": "Current stock status for the Node Type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Current specs of the offer."
+            "smithy.api#documentation": "Current specs of the offer.",
+            "smithy.api#required": {}
           }
         },
         "vcpus": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of virtual CPUs."
+            "smithy.api#documentation": "Number of virtual CPUs.",
+            "smithy.api#required": {}
           }
         },
         "memory": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quantity of RAM. (in bytes)"
+            "smithy.api#documentation": "Quantity of RAM. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "volume_constraint": {
@@ -6163,43 +6323,50 @@
         "disabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The Node Type is currently disabled."
+            "smithy.api#documentation": "The Node Type is currently disabled.",
+            "smithy.api#required": {}
           }
         },
         "beta": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The Node Type is currently in beta."
+            "smithy.api#documentation": "The Node Type is currently in beta.",
+            "smithy.api#required": {}
           }
         },
         "available_volume_types": {
           "target": "com.scaleway.rdb_v1#NodeTypeAvailableVolumeTypesList",
           "traits": {
-            "smithy.api#documentation": "Available storage options for the Node Type."
+            "smithy.api#documentation": "Available storage options for the Node Type.",
+            "smithy.api#required": {}
           }
         },
         "is_ha_required": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The Node Type can be used only with high availability option."
+            "smithy.api#documentation": "The Node Type can be used only with high availability option.",
+            "smithy.api#required": {}
           }
         },
         "generation": {
           "target": "com.scaleway.rdb_v1#NodeTypeGeneration",
           "traits": {
-            "smithy.api#documentation": "Generation associated with the NodeType offer."
+            "smithy.api#documentation": "Generation associated with the NodeType offer.",
+            "smithy.api#required": {}
           }
         },
         "instance_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Instance range associated with the NodeType offer."
+            "smithy.api#documentation": "Instance range associated with the NodeType offer.",
+            "smithy.api#required": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Region the Node Type is in."
+            "smithy.api#documentation": "Region the Node Type is in.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6241,13 +6408,15 @@
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "[deprecated] Minimum size required for the Volume. (in bytes)"
+            "smithy.api#documentation": "[deprecated] Minimum size required for the Volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "[deprecated] Maximum size required for the Volume. (in bytes)"
+            "smithy.api#documentation": "[deprecated] Maximum size required for the Volume. (in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6259,37 +6428,43 @@
         "type": {
           "target": "com.scaleway.rdb_v1#VolumeType",
           "traits": {
-            "smithy.api#documentation": "Volume Type."
+            "smithy.api#documentation": "Volume Type.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The description of the Volume."
+            "smithy.api#documentation": "The description of the Volume.",
+            "smithy.api#required": {}
           }
         },
         "min_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum size required for the Volume. (in bytes)"
+            "smithy.api#documentation": "Minimum size required for the Volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "max_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum size required for the Volume. (in bytes)"
+            "smithy.api#documentation": "Maximum size required for the Volume. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "chunk_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Minimum increment level for a Block Storage volume size. (in bytes)"
+            "smithy.api#documentation": "Minimum increment level for a Block Storage volume size. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "class": {
           "target": "com.scaleway.rdb_v1#StorageClass",
           "traits": {
-            "smithy.api#documentation": "The storage class of the volume."
+            "smithy.api#documentation": "The storage class of the volume.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6975,13 +7150,15 @@
         "snapshots": {
           "target": "com.scaleway.rdb_v1#ListSnapshotsResponseSnapshotsList",
           "traits": {
-            "smithy.api#documentation": "List of snapshots."
+            "smithy.api#documentation": "List of snapshots.",
+            "smithy.api#required": {}
           }
         },
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of snapshots available."
+            "smithy.api#documentation": "Total count of snapshots available.",
+            "smithy.api#required": {}
           }
         }
       },

@@ -46,7 +46,10 @@
       "type": "structure",
       "members": {
         "score": {
-          "target": "com.scaleway.account_unauthenticated_v3#PasswordStrengthScore"
+          "target": "com.scaleway.account_unauthenticated_v3#PasswordStrengthScore",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "time_to_crack": {
           "target": "smithy.api#String",

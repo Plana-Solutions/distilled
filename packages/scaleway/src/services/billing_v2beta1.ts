@@ -33,15 +33,15 @@ export const DownloadInvoiceRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "DownloadInvoiceRequest" }) as any as S.Schema<DownloadInvoiceRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -196,24 +196,24 @@ export const GetInvoiceRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetInvoiceRequest" }) as any as S.Schema<GetInvoiceRequest>;
 
 export interface GoogleTypeMoney {
-  currency_code?: string;
-  units?: number;
-  nanos?: number;
+  currency_code: string;
+  units: number;
+  nanos: number;
 }
 export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    currency_code: S.optional(S.String),
-    units: S.optional(S.Number),
-    nanos: S.optional(S.Number),
+    currency_code: S.String,
+    units: S.Number,
+    nanos: S.Number,
   }),
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface Invoice {
   /** Invoice ID. (UUID format) */
-  id?: string;
+  id: string;
   /** (UUID format) */
-  organization_id?: string;
-  organization_name?: string;
+  organization_id: string;
+  organization_name: string;
   /** Start date of the billing period. (RFC 3339 format) */
   start_date?: string | null;
   /** (RFC 3339 format) */
@@ -235,19 +235,19 @@ export interface Invoice {
   /** The total amount of the invoice before applying the discount. */
   total_undiscount?: GoogleTypeMoney;
   /** Type of invoice, either periodic or purchase. */
-  type?: InvoiceType;
+  type: InvoiceType;
   /** The state of the Invoice. */
-  state?: string;
+  state: string;
   /** Invoice number. */
-  number?: number;
+  number: number;
   /** The name of the seller (Scaleway). */
-  seller_name?: string;
+  seller_name: string;
 }
 export const Invoice = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    organization_name: S.optional(S.String),
+    id: S.String,
+    organization_id: S.String,
+    organization_name: S.String,
     start_date: S.optional(S.NullOr(S.String)),
     stop_date: S.optional(S.NullOr(S.String)),
     billing_period: S.optional(S.NullOr(S.String)),
@@ -258,10 +258,10 @@ export const Invoice = /*@__PURE__*/ S.suspend(() =>
     total_tax: S.optional(GoogleTypeMoney),
     total_discount: S.optional(GoogleTypeMoney),
     total_undiscount: S.optional(GoogleTypeMoney),
-    type: S.optional(InvoiceType),
-    state: S.optional(S.String),
-    number: S.optional(S.Number),
-    seller_name: S.optional(S.String),
+    type: InvoiceType,
+    state: S.String,
+    number: S.Number,
+    seller_name: S.String,
   }),
 ).annotate({ identifier: "Invoice" }) as any as S.Schema<Invoice>;
 
@@ -311,39 +311,39 @@ export interface ListConsumptionsResponseConsumption {
   /** Monetary value of the consumption. */
   value?: GoogleTypeMoney;
   /** The product name. For example, "VPC Public Gateway S", "VPC Public Gateway M" for the VPC product. */
-  product_name?: string;
+  product_name: string;
   /** Identifies the reference based on the category. */
-  resource_name?: string;
+  resource_name: string;
   /** Unique identifier of the product. */
-  sku?: string;
+  sku: string;
   /** Project ID of the consumption. */
-  project_id?: string;
+  project_id: string;
   /** Name of consumption category. */
-  category_name?: string;
+  category_name: string;
   /** Unit of consumed quantity. */
-  unit?: string;
+  unit: string;
   /** Consumed quantity. */
-  billed_quantity?: string;
+  billed_quantity: string;
   /** Organization ID of the consumer for this consumption. */
-  consumer_id?: string;
+  consumer_id: string;
   /** Project name of the consumpiton. */
-  project_name?: string;
+  project_name: string;
   /** Organization name of the consumer for this consumption. */
-  organization_name?: string;
+  organization_name: string;
 }
 export const ListConsumptionsResponseConsumption = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     value: S.optional(GoogleTypeMoney),
-    product_name: S.optional(S.String),
-    resource_name: S.optional(S.String),
-    sku: S.optional(S.String),
-    project_id: S.optional(S.String),
-    category_name: S.optional(S.String),
-    unit: S.optional(S.String),
-    billed_quantity: S.optional(S.String),
-    consumer_id: S.optional(S.String),
-    project_name: S.optional(S.String),
-    organization_name: S.optional(S.String),
+    product_name: S.String,
+    resource_name: S.String,
+    sku: S.String,
+    project_id: S.String,
+    category_name: S.String,
+    unit: S.String,
+    billed_quantity: S.String,
+    consumer_id: S.String,
+    project_name: S.String,
+    organization_name: S.String,
   }),
 ).annotate({
   identifier: "ListConsumptionsResponseConsumption",
@@ -359,17 +359,17 @@ export interface ListConsumptionsResponse {
   /** Detailed consumption list. */
   consumptions: ListConsumptionsResponseConsumptionsList;
   /** Total number of returned items. */
-  total_count?: number;
+  total_count: number;
   /** Sum of all discounts, displayed only when no category or project ID filter is applied. */
-  total_discount_untaxed_value?: number;
+  total_discount_untaxed_value: number;
   /** Last consumption update date. (RFC 3339 format) */
   updated_at?: string | null;
 }
 export const ListConsumptionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     consumptions: ListConsumptionsResponseConsumptionsList,
-    total_count: S.optional(S.Number),
-    total_discount_untaxed_value: S.optional(S.Number),
+    total_count: S.Number,
+    total_discount_untaxed_value: S.Number,
     updated_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "ListConsumptionsResponse" }) as any as S.Schema<ListConsumptionsResponse>;
@@ -438,17 +438,17 @@ export const DiscountFilterType = S.String;
 
 export interface DiscountFilter {
   /** Type of the filter (category name, product name, product range, resource name, region or zone). */
-  type?: DiscountFilterType;
+  type: DiscountFilterType;
   /** Value of filter. */
-  value?: string;
+  value: string;
   /** Boolean to describe if filter is an excluding filter. */
-  exclude?: boolean;
+  exclude: boolean;
 }
 export const DiscountFilter = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    type: S.optional(DiscountFilterType),
-    value: S.optional(S.String),
-    exclude: S.optional(S.Boolean),
+    type: DiscountFilterType,
+    value: S.String,
+    exclude: S.Boolean,
   }),
 ).annotate({ identifier: "DiscountFilter" }) as any as S.Schema<DiscountFilter>;
 
@@ -460,21 +460,21 @@ export const DiscountFiltersList = /*@__PURE__*/ S.Array(
 
 export interface Discount {
   /** The ID of the discount. */
-  id?: string;
+  id: string;
   /** The creation date of the discount. (RFC 3339 format) */
   creation_date?: string | null;
   /** The Organization ID of the discount. */
-  organization_id?: string;
+  organization_id: string;
   /** The description of the discount. */
-  description?: string;
+  description: string;
   /** The initial value of the discount. */
-  value?: number;
+  value: number;
   /** The value indicating how much of the discount has been used. */
-  value_used?: number;
+  value_used: number;
   /** The remaining value of the discount. */
-  value_remaining?: number;
+  value_remaining: number;
   /** The mode of the discount. */
-  mode?: DiscountDiscountMode;
+  mode: DiscountDiscountMode;
   /** The start date of the discount. (RFC 3339 format) */
   start_date?: string | null;
   /** The stop date of the discount. (RFC 3339 format) */
@@ -482,22 +482,22 @@ export interface Discount {
   /** The description of the coupon. */
   coupon?: DiscountCoupon;
   /** List of the discount scopes. */
-  filters?: DiscountFiltersList;
+  filters: DiscountFiltersList;
 }
 export const Discount = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     creation_date: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.String),
-    description: S.optional(S.String),
-    value: S.optional(S.Number),
-    value_used: S.optional(S.Number),
-    value_remaining: S.optional(S.Number),
-    mode: S.optional(DiscountDiscountMode),
+    organization_id: S.String,
+    description: S.String,
+    value: S.Number,
+    value_used: S.Number,
+    value_remaining: S.Number,
+    mode: DiscountDiscountMode,
     start_date: S.optional(S.NullOr(S.String)),
     stop_date: S.optional(S.NullOr(S.String)),
     coupon: S.optional(DiscountCoupon),
-    filters: S.optional(DiscountFiltersList),
+    filters: DiscountFiltersList,
   }),
 ).annotate({ identifier: "Discount" }) as any as S.Schema<Discount>;
 
@@ -509,13 +509,13 @@ export const ListDiscountsResponseDiscountsList = /*@__PURE__*/ S.Array(
 
 export interface ListDiscountsResponse {
   /** Total number of discounts. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned discounts. */
   discounts: ListDiscountsResponseDiscountsList;
 }
 export const ListDiscountsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     discounts: ListDiscountsResponseDiscountsList,
   }),
 ).annotate({ identifier: "ListDiscountsResponse" }) as any as S.Schema<ListDiscountsResponse>;
@@ -580,13 +580,13 @@ export const ListInvoicesResponseInvoicesList = /*@__PURE__*/ S.Array(
 
 export interface ListInvoicesResponse {
   /** Total number of invoices. */
-  total_count?: number;
+  total_count: number;
   /** Paginated returned invoices. */
   invoices: ListInvoicesResponseInvoicesList;
 }
 export const ListInvoicesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     invoices: ListInvoicesResponseInvoicesList,
   }),
 ).annotate({ identifier: "ListInvoicesResponse" }) as any as S.Schema<ListInvoicesResponse>;
@@ -629,9 +629,9 @@ export const ListTaxesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ListTaxesResponseTax {
   /** Description of the tax applied. */
-  description?: string;
+  description: string;
   /** The three-letter currency code. */
-  currency?: string;
+  currency: string;
   /** Applied tax rate (0.2 means a VAT of 20%). */
   rate?: number | null;
   /** The total tax value of the consumption. */
@@ -639,8 +639,8 @@ export interface ListTaxesResponseTax {
 }
 export const ListTaxesResponseTax = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    description: S.optional(S.String),
-    currency: S.optional(S.String),
+    description: S.String,
+    currency: S.String,
     rate: S.optional(S.NullOr(S.Number)),
     total_tax_value: S.optional(S.NullOr(S.Number)),
   }),
@@ -656,14 +656,14 @@ export interface ListTaxesResponse {
   /** Detailed consumption tax. */
   taxes: ListTaxesResponseTaxesList;
   /** Total number of returned items. */
-  total_count?: number;
+  total_count: number;
   /** Last consumption update date. (RFC 3339 format) */
   updated_at?: string | null;
 }
 export const ListTaxesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     taxes: ListTaxesResponseTaxesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     updated_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "ListTaxesResponse" }) as any as S.Schema<ListTaxesResponse>;

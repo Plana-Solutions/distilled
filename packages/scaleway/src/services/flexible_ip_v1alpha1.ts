@@ -71,78 +71,78 @@ export const MACAddressStatus = S.String;
 
 export interface MACAddress {
   /** ID of the flexible IP. */
-  id?: string;
+  id: string;
   /** MAC address of the Virtual MAC. */
-  mac_address?: string;
+  mac_address: string;
   /** Type of virtual MAC. */
-  mac_type?: MACAddressType;
+  mac_type: MACAddressType;
   /** Status of virtual MAC. */
-  status?: MACAddressStatus;
+  status: MACAddressStatus;
   /** Date on which the virtual MAC was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Date on which the virtual MAC was created. (RFC 3339 format) */
   created_at?: string | null;
   /** MAC address IP Availability Zone. */
-  zone?: string;
+  zone: string;
 }
 export const MACAddress = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    mac_address: S.optional(S.String),
-    mac_type: S.optional(MACAddressType),
-    status: S.optional(MACAddressStatus),
+    id: S.String,
+    mac_address: S.String,
+    mac_type: MACAddressType,
+    status: MACAddressStatus,
     updated_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
   }),
 ).annotate({ identifier: "MACAddress" }) as any as S.Schema<MACAddress>;
 
 export interface FlexibleIP {
   /** ID of the flexible IP. */
-  id?: string;
+  id: string;
   /** ID of the Organization the flexible IP is attached to. */
-  organization_id?: string;
+  organization_id: string;
   /** ID of the Project the flexible IP is attached to. */
-  project_id?: string;
+  project_id: string;
   /** Flexible IP description. */
-  description?: string;
+  description: string;
   /** Flexible IP tags. */
-  tags?: FlexibleIPTagsList;
+  tags: FlexibleIPTagsList;
   /** Date on which the flexible IP was last updated. (RFC 3339 format) */
   updated_at?: string | null;
   /** Date on which the flexible IP was created. (RFC 3339 format) */
   created_at?: string | null;
   /** Flexible IP status. - ready : flexible IP is created and ready to be attached to a server or to be associated with a virtual MAC. - updating: flexible IP is being attached to a server or a virtual MAC operation is ongoing - attached: flexible IP is attached to a server - error: a flexible IP operation resulted in an error - detaching: flexible IP is being detached from a server - locked: the resource of the flexible IP is locked. */
-  status?: FlexibleIPStatus;
+  status: FlexibleIPStatus;
   /** IP of the flexible IP. (IP network) */
-  ip_address?: string;
+  ip_address: string;
   /** MAC address of the flexible IP. */
   mac_address?: MACAddress;
   /** ID of the server linked to the flexible IP. */
   server_id?: string | null;
   /** Reverse DNS value. */
-  reverse?: string;
+  reverse: string;
   /** Availability Zone of the flexible IP. */
-  zone?: string;
+  zone: string;
   /** The SRN of the flexible ip. */
-  srn?: string;
+  srn: string;
 }
 export const FlexibleIP = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    description: S.optional(S.String),
-    tags: S.optional(FlexibleIPTagsList),
+    id: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    description: S.String,
+    tags: FlexibleIPTagsList,
     updated_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(FlexibleIPStatus),
-    ip_address: S.optional(S.String),
+    status: FlexibleIPStatus,
+    ip_address: S.String,
     mac_address: S.optional(MACAddress),
     server_id: S.optional(S.NullOr(S.String)),
-    reverse: S.optional(S.String),
-    zone: S.optional(S.String),
-    srn: S.optional(S.String),
+    reverse: S.String,
+    zone: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "FlexibleIP" }) as any as S.Schema<FlexibleIP>;
 
@@ -154,14 +154,14 @@ export const AttachFlexibleIPsResponseFlexibleIpsList = /*@__PURE__*/ S.Array(
 
 export interface AttachFlexibleIPsResponse {
   /** Total count of flexible IPs that are being updated. */
-  total_count?: number;
+  total_count: number;
   /** List of flexible IPs in an updating state. */
-  flexible_ips?: AttachFlexibleIPsResponseFlexibleIpsList;
+  flexible_ips: AttachFlexibleIPsResponseFlexibleIpsList;
 }
 export const AttachFlexibleIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    flexible_ips: S.optional(AttachFlexibleIPsResponseFlexibleIpsList),
+    total_count: S.Number,
+    flexible_ips: AttachFlexibleIPsResponseFlexibleIpsList,
   }),
 ).annotate({
   identifier: "AttachFlexibleIPsResponse",
@@ -328,14 +328,14 @@ export const DetachFlexibleIPsResponseFlexibleIpsList = /*@__PURE__*/ S.Array(
 
 export interface DetachFlexibleIPsResponse {
   /** Total count of flexible IPs that are being detached. */
-  total_count?: number;
+  total_count: number;
   /** List of flexible IPs in a detaching state. */
-  flexible_ips?: DetachFlexibleIPsResponseFlexibleIpsList;
+  flexible_ips: DetachFlexibleIPsResponseFlexibleIpsList;
 }
 export const DetachFlexibleIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
-    flexible_ips: S.optional(DetachFlexibleIPsResponseFlexibleIpsList),
+    total_count: S.Number,
+    flexible_ips: DetachFlexibleIPsResponseFlexibleIpsList,
   }),
 ).annotate({
   identifier: "DetachFlexibleIPsResponse",
@@ -510,13 +510,13 @@ export const ListFlexibleIPsResponseFlexibleIpsList = /*@__PURE__*/ S.Array(
 
 export interface ListFlexibleIPsResponse {
   /** Total count of matching flexible IPs. */
-  total_count?: number;
+  total_count: number;
   /** List of all flexible IPs. */
   flexible_ips: ListFlexibleIPsResponseFlexibleIpsList;
 }
 export const ListFlexibleIPsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     flexible_ips: ListFlexibleIPsResponseFlexibleIpsList,
   }),
 ).annotate({ identifier: "ListFlexibleIPsResponse" }) as any as S.Schema<ListFlexibleIPsResponse>;

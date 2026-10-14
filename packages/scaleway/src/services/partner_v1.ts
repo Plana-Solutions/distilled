@@ -58,50 +58,50 @@ export const OrganizationLockedBy = S.String;
 
 export interface Organization {
   /** ID of the organization. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the organization. */
-  name?: string;
+  name: string;
   /** Organization owner's email. */
-  email?: string;
+  email: string;
   /** The current status of the organization. */
-  status?: OrganizationStatus;
+  status: OrganizationStatus;
   /** Organization owner's first name. */
-  owner_firstname?: string;
+  owner_firstname: string;
   /** Organization owner's last name. */
-  owner_lastname?: string;
+  owner_lastname: string;
   /** Date of organization creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Organization owner's phone number. */
   phone_number?: string | null;
   /** Customer ID associated with this organization. */
-  customer_id?: string;
+  customer_id: string;
   /** If the organization is locked, this field will contain a human-readable reason. */
-  lock_reason_message?: string;
+  lock_reason_message: string;
   /** Originator of the lock. Can be one of "partner" or "scaleway". */
-  locked_by?: OrganizationLockedBy;
+  locked_by: OrganizationLockedBy;
   /** Date of lock. (RFC 3339 format) */
   locked_at?: string | null;
   /** Link to the Organization's picture. */
   picture_link?: string | null;
   /** A comment about the organization. */
-  comment?: string;
+  comment: string;
 }
 export const Organization = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    email: S.optional(S.String),
-    status: S.optional(OrganizationStatus),
-    owner_firstname: S.optional(S.String),
-    owner_lastname: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    email: S.String,
+    status: OrganizationStatus,
+    owner_firstname: S.String,
+    owner_lastname: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     phone_number: S.optional(S.NullOr(S.String)),
-    customer_id: S.optional(S.String),
-    lock_reason_message: S.optional(S.String),
-    locked_by: S.optional(OrganizationLockedBy),
+    customer_id: S.String,
+    lock_reason_message: S.String,
+    locked_by: OrganizationLockedBy,
     locked_at: S.optional(S.NullOr(S.String)),
     picture_link: S.optional(S.NullOr(S.String)),
-    comment: S.optional(S.String),
+    comment: S.String,
   }),
 ).annotate({ identifier: "Organization" }) as any as S.Schema<Organization>;
 
@@ -167,12 +167,12 @@ export interface ListOrganizationsResponse {
   /** List of organizations. */
   organizations: ListOrganizationsResponseOrganizationsList;
   /** Total number of organizations. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListOrganizationsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     organizations: ListOrganizationsResponseOrganizationsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListOrganizationsResponse",

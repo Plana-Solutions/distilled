@@ -49,50 +49,50 @@ export const NamespaceStatus = S.String;
 
 export interface Namespace {
   /** UUID of the namespace. */
-  id?: string;
+  id: string;
   /** Name of the namespace, unique in a region across all organizations. */
-  name?: string;
+  name: string;
   /** Description of the namespace. */
-  description?: string;
+  description: string;
   /** Owner of the namespace. */
-  organization_id?: string;
+  organization_id: string;
   /** Project of the namespace. */
-  project_id?: string;
+  project_id: string;
   /** Namespace status. */
-  status?: NamespaceStatus;
+  status: NamespaceStatus;
   /** Namespace status details. */
-  status_message?: string;
+  status_message: string;
   /** Endpoint reachable by docker. */
-  endpoint?: string;
+  endpoint: string;
   /** Defines whether or not namespace is public. */
-  is_public?: boolean;
+  is_public: boolean;
   /** Total size of the namespace, calculated as the sum of the size of all images in the namespace. (in bytes) */
-  size?: number;
+  size: number;
   /** Date and time of creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last update. (RFC 3339 format) */
   updated_at?: string | null;
   /** Number of images in the namespace. */
-  image_count?: number;
+  image_count: number;
   /** Region the namespace belongs to. */
-  region?: string;
+  region: string;
 }
 export const Namespace = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(NamespaceStatus),
-    status_message: S.optional(S.String),
-    endpoint: S.optional(S.String),
-    is_public: S.optional(S.Boolean),
-    size: S.optional(S.Number),
+    id: S.String,
+    name: S.String,
+    description: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    status: NamespaceStatus,
+    status_message: S.String,
+    endpoint: S.String,
+    is_public: S.Boolean,
+    size: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    image_count: S.optional(S.Number),
-    region: S.optional(S.String),
+    image_count: S.Number,
+    region: S.String,
   }),
 ).annotate({ identifier: "Namespace" }) as any as S.Schema<Namespace>;
 
@@ -131,38 +131,38 @@ export const ImageTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<
 
 export interface Image {
   /** UUID of the image. */
-  id?: string;
+  id: string;
   /** Name of the image, it must be unique within the namespace. */
-  name?: string;
+  name: string;
   /** UUID of the namespace the image belongs to. */
-  namespace_id?: string;
+  namespace_id: string;
   /** Status of the image. */
-  status?: ImageStatus;
+  status: ImageStatus;
   /** Details of the image status. */
   status_message?: string | null;
   /** Set to `public` to allow the image to be pulled without authentication. Else, set to `private`. Set to `inherit` to keep the same visibility configuration as the namespace. */
-  visibility?: ImageVisibility;
+  visibility: ImageVisibility;
   /** Image size in bytes, calculated from the size of image layers. Image size in bytes, calculated from the size of image layers. One layer used in two tags of the same image is counted once but one layer used in two images is counted twice. (in bytes) */
-  size?: number;
+  size: number;
   /** Date and time of image creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last update. (RFC 3339 format) */
   updated_at?: string | null;
   /** List of docker tags of the image. */
-  tags?: ImageTagsList;
+  tags: ImageTagsList;
 }
 export const Image = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    namespace_id: S.optional(S.String),
-    status: S.optional(ImageStatus),
+    id: S.String,
+    name: S.String,
+    namespace_id: S.String,
+    status: ImageStatus,
     status_message: S.optional(S.NullOr(S.String)),
-    visibility: S.optional(ImageVisibility),
-    size: S.optional(S.Number),
+    visibility: ImageVisibility,
+    size: S.Number,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    tags: S.optional(ImageTagsList),
+    tags: ImageTagsList,
   }),
 ).annotate({ identifier: "Image" }) as any as S.Schema<Image>;
 
@@ -220,15 +220,15 @@ export const TagStatus = S.String;
 
 export interface Tag {
   /** UUID of the tag. */
-  id?: string;
+  id: string;
   /** Tag name, unique to an image. */
-  name?: string;
+  name: string;
   /** Image ID the of the image the tag belongs to. */
-  image_id?: string;
+  image_id: string;
   /** Tag status. */
-  status?: TagStatus;
+  status: TagStatus;
   /** Hash of the tag content. Several tags of a same image may have the same digest. */
-  digest?: string;
+  digest: string;
   /** Date and time of creation. (RFC 3339 format) */
   created_at?: string | null;
   /** Date and time of last update. (RFC 3339 format) */
@@ -236,11 +236,11 @@ export interface Tag {
 }
 export const Tag = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    image_id: S.optional(S.String),
-    status: S.optional(TagStatus),
-    digest: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    image_id: S.String,
+    status: TagStatus,
+    digest: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
   }),
@@ -373,12 +373,12 @@ export interface ListImagesResponse {
   /** Paginated list of images that match the selected filters. */
   images: ListImagesResponseImagesList;
   /** Total number of images that match the selected filters. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListImagesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     images: ListImagesResponseImagesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListImagesResponse" }) as any as S.Schema<ListImagesResponse>;
 
@@ -439,12 +439,12 @@ export interface ListNamespacesResponse {
   /** Paginated list of namespaces that match the selected filters. */
   namespaces: ListNamespacesResponseNamespacesList;
   /** Total number of namespaces that match the selected filters. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListNamespacesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     namespaces: ListNamespacesResponseNamespacesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListNamespacesResponse" }) as any as S.Schema<ListNamespacesResponse>;
 
@@ -500,12 +500,12 @@ export interface ListTagsResponse {
   /** Paginated list of tags that match the selected filters. */
   tags: ListTagsResponseTagsList;
   /** Total number of tags that match the selected filters. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListTagsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     tags: ListTagsResponseTagsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListTagsResponse" }) as any as S.Schema<ListTagsResponse>;
 

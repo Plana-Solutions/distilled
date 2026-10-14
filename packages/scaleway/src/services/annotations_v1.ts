@@ -31,43 +31,43 @@ export const CreateBindingRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface BindingKey {
   /** ID of the key. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the key. */
-  srn?: string;
+  srn: string;
   /** Name of the key. */
-  name?: string;
+  name: string;
 }
 export const BindingKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
   }),
 ).annotate({ identifier: "BindingKey" }) as any as S.Schema<BindingKey>;
 
 export interface BindingValue {
   /** ID of the value. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the value. */
-  srn?: string;
+  srn: string;
   /** Name of the value. */
-  name?: string;
+  name: string;
 }
 export const BindingValue = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
   }),
 ).annotate({ identifier: "BindingValue" }) as any as S.Schema<BindingValue>;
 
 export interface Binding {
   /** ID of the binding. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the binding. */
-  srn?: string;
+  srn: string;
   /** SRN of the resource the binding is attached to. */
-  target_srn?: string;
+  target_srn: string;
   /** Key associated to the binding. */
   key?: BindingKey;
   /** Value associated to the binding. */
@@ -75,9 +75,9 @@ export interface Binding {
 }
 export const Binding = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    target_srn: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    target_srn: S.String,
     key: S.optional(BindingKey),
     value: S.optional(BindingValue),
   }),
@@ -108,20 +108,20 @@ export const CreateKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Key {
   /** ID of the annotation key. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the annotation key. */
-  srn?: string;
+  srn: string;
   /** Name of the annotation key. */
-  name?: string;
+  name: string;
   /** Description of the annotation key. */
-  description?: string;
+  description: string;
 }
 export const Key = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    description: S.String,
   }),
 ).annotate({ identifier: "Key" }) as any as S.Schema<Key>;
 
@@ -150,23 +150,23 @@ export const CreateValueRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Value {
   /** ID of the value. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the annotation value. */
-  srn?: string;
+  srn: string;
   /** ID of the key the value is associated to. (UUID format) */
-  key_id?: string;
+  key_id: string;
   /** Name of the value (e.g. "production" for a key "environment"). */
-  name?: string;
+  name: string;
   /** Description of the value. */
-  description?: string;
+  description: string;
 }
 export const Value = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    key_id: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    key_id: S.String,
+    name: S.String,
+    description: S.String,
   }),
 ).annotate({ identifier: "Value" }) as any as S.Schema<Value>;
 
@@ -194,11 +194,11 @@ export const DeleteAllBindingsMatchingSRNRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface DeleteAllBindingsMatchingSRNResponse {
   /** Total number of bindings deleted. */
-  total_deleted?: number;
+  total_deleted: number;
 }
 export const DeleteAllBindingsMatchingSRNResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_deleted: S.optional(S.Number),
+    total_deleted: S.Number,
   }),
 ).annotate({
   identifier: "DeleteAllBindingsMatchingSRNResponse",
@@ -225,11 +225,11 @@ export const DeleteAllBindingsMatchingValueRequest = /*@__PURE__*/ S.suspend(() 
 
 export interface DeleteAllBindingsMatchingValueResponse {
   /** Total number of bindings deleted. */
-  total_deleted?: number;
+  total_deleted: number;
 }
 export const DeleteAllBindingsMatchingValueResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_deleted: S.optional(S.Number),
+    total_deleted: S.Number,
   }),
 ).annotate({
   identifier: "DeleteAllBindingsMatchingValueResponse",
@@ -256,11 +256,11 @@ export const DeleteAllValuesMatchingKeyRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface DeleteAllValuesMatchingKeyResponse {
   /** Total number of values deleted. */
-  total_deleted?: number;
+  total_deleted: number;
 }
 export const DeleteAllValuesMatchingKeyResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_deleted: S.optional(S.Number),
+    total_deleted: S.Number,
   }),
 ).annotate({
   identifier: "DeleteAllValuesMatchingKeyResponse",
@@ -387,20 +387,20 @@ export const ListAllKeysAndValuesRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface ListAllKeysAndValuesResponseValue {
   /** ID of the value. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the value. */
-  srn?: string;
+  srn: string;
   /** Name of the value. */
-  name?: string;
+  name: string;
   /** Description of the value. */
-  description?: string;
+  description: string;
 }
 export const ListAllKeysAndValuesResponseValue = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    description: S.String,
   }),
 ).annotate({
   identifier: "ListAllKeysAndValuesResponseValue",
@@ -414,23 +414,23 @@ export const ListAllKeysAndValuesResponseKeyValuesList = /*@__PURE__*/ S.Array(
 
 export interface ListAllKeysAndValuesResponseKey {
   /** ID of the key. (UUID format) */
-  id?: string;
+  id: string;
   /** SRN of the key. */
-  srn?: string;
+  srn: string;
   /** Name of the key. */
-  name?: string;
+  name: string;
   /** Description of the key. */
-  description?: string;
+  description: string;
   /** List of values associated with the key, sorted alphabetically by name. */
-  values?: ListAllKeysAndValuesResponseKeyValuesList;
+  values: ListAllKeysAndValuesResponseKeyValuesList;
 }
 export const ListAllKeysAndValuesResponseKey = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    name: S.optional(S.String),
-    description: S.optional(S.String),
-    values: S.optional(ListAllKeysAndValuesResponseKeyValuesList),
+    id: S.String,
+    srn: S.String,
+    name: S.String,
+    description: S.String,
+    values: ListAllKeysAndValuesResponseKeyValuesList,
   }),
 ).annotate({
   identifier: "ListAllKeysAndValuesResponseKey",
@@ -444,11 +444,11 @@ export const ListAllKeysAndValuesResponseKeysList = /*@__PURE__*/ S.Array(
 
 export interface ListAllKeysAndValuesResponse {
   /** List of keys with values for an organization, sorted alphabetically by name. */
-  keys?: ListAllKeysAndValuesResponseKeysList;
+  keys: ListAllKeysAndValuesResponseKeysList;
 }
 export const ListAllKeysAndValuesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    keys: S.optional(ListAllKeysAndValuesResponseKeysList),
+    keys: ListAllKeysAndValuesResponseKeysList,
   }),
 ).annotate({
   identifier: "ListAllKeysAndValuesResponse",
@@ -493,12 +493,12 @@ export interface ListBindingsResponse {
   /** List of bindings for the organization. Response order by ID. */
   bindings: ListBindingsResponseBindingsList;
   /** Total number of bindings returned. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListBindingsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     bindings: ListBindingsResponseBindingsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListBindingsResponse" }) as any as S.Schema<ListBindingsResponse>;
 
@@ -535,12 +535,12 @@ export interface ListKeysResponse {
   /** List of keys for an organization, sorted alphabetically by name. */
   keys: ListKeysResponseKeysList;
   /** Total number of keys returned. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListKeysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     keys: ListKeysResponseKeysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListKeysResponse" }) as any as S.Schema<ListKeysResponse>;
 
@@ -580,12 +580,12 @@ export interface ListValuesResponse {
   /** List of values for a key, sorted alphabetically by name. */
   values: ListValuesResponseValuesList;
   /** Total number of values returned. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListValuesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     values: ListValuesResponseValuesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListValuesResponse" }) as any as S.Schema<ListValuesResponse>;
 

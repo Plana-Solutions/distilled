@@ -107,44 +107,44 @@ export const CronSchedule = /*@__PURE__*/ S.suspend(() =>
 
 export interface JobDefinition {
   /** (UUID format) */
-  id?: string;
-  name?: string;
+  id: string;
+  name: string;
   /** (RFC 3339 format) */
   created_at?: string | null;
   /** (RFC 3339 format) */
   updated_at?: string | null;
-  cpu_limit?: number;
-  memory_limit?: number;
-  image_uri?: string;
-  command?: string;
+  cpu_limit: number;
+  memory_limit: number;
+  image_uri: string;
+  command: string;
   /** (UUID format) */
-  project_id?: string;
-  environment_variables?: JobDefinitionEnvironmentVariablesMap;
-  description?: string;
+  project_id: string;
+  environment_variables: JobDefinitionEnvironmentVariablesMap;
+  description: string;
   /** (in seconds) */
   job_timeout?: string | null;
   cron_schedule?: CronSchedule;
-  local_storage_capacity?: number;
+  local_storage_capacity: number;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const JobDefinition = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    cpu_limit: S.optional(S.Number),
-    memory_limit: S.optional(S.Number),
-    image_uri: S.optional(S.String),
-    command: S.optional(S.String),
-    project_id: S.optional(S.String),
-    environment_variables: S.optional(JobDefinitionEnvironmentVariablesMap),
-    description: S.optional(S.String),
+    cpu_limit: S.Number,
+    memory_limit: S.Number,
+    image_uri: S.String,
+    command: S.String,
+    project_id: S.String,
+    environment_variables: JobDefinitionEnvironmentVariablesMap,
+    description: S.String,
     job_timeout: S.optional(S.NullOr(S.String)),
     cron_schedule: S.optional(CronSchedule),
-    local_storage_capacity: S.optional(S.Number),
-    region: S.optional(S.String),
+    local_storage_capacity: S.Number,
+    region: S.String,
   }),
 ).annotate({ identifier: "JobDefinition" }) as any as S.Schema<JobDefinition>;
 
@@ -201,30 +201,30 @@ export const CreateJobDefinitionSecretsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<CreateJobDefinitionSecretsRequest>;
 
 export interface SecretFile {
-  path?: string;
+  path: string;
 }
 export const SecretFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    path: S.optional(S.String),
+    path: S.String,
   }),
 ).annotate({ identifier: "SecretFile" }) as any as S.Schema<SecretFile>;
 
 export interface SecretEnvVar {
-  name?: string;
+  name: string;
 }
 export const SecretEnvVar = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
+    name: S.String,
   }),
 ).annotate({ identifier: "SecretEnvVar" }) as any as S.Schema<SecretEnvVar>;
 
 export interface Secret {
   /** UUID of the secret reference within the job. */
-  secret_id?: string;
+  secret_id: string;
   /** UUID of the secret in Secret Manager. */
-  secret_manager_id?: string;
+  secret_manager_id: string;
   /** Version of the secret in Secret Manager. */
-  secret_manager_version?: string;
+  secret_manager_version: string;
   /** File secret mounted inside the job. */
   file?: SecretFile | null;
   /** Environment variable used to expose the secret. */
@@ -232,9 +232,9 @@ export interface Secret {
 }
 export const Secret = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secret_id: S.optional(S.String),
-    secret_manager_id: S.optional(S.String),
-    secret_manager_version: S.optional(S.String),
+    secret_id: S.String,
+    secret_manager_id: S.String,
+    secret_manager_version: S.String,
     file: S.optional(S.NullOr(SecretFile)),
     env_var: S.optional(S.NullOr(SecretEnvVar)),
   }),
@@ -248,11 +248,11 @@ export const CreateJobDefinitionSecretsResponseSecretsList = /*@__PURE__*/ S.Arr
 
 export interface CreateJobDefinitionSecretsResponse {
   /** List of secrets created. */
-  secrets?: CreateJobDefinitionSecretsResponseSecretsList;
+  secrets: CreateJobDefinitionSecretsResponseSecretsList;
 }
 export const CreateJobDefinitionSecretsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secrets: S.optional(CreateJobDefinitionSecretsResponseSecretsList),
+    secrets: CreateJobDefinitionSecretsResponseSecretsList,
   }),
 ).annotate({
   identifier: "CreateJobDefinitionSecretsResponse",
@@ -416,10 +416,10 @@ export const JobRunEnvironmentVariablesMap = /*@__PURE__*/ S.Record(
 
 export interface JobRun {
   /** (UUID format) */
-  id?: string;
+  id: string;
   /** (UUID format) */
-  job_definition_id?: string;
-  state?: JobRunState;
+  job_definition_id: string;
+  state: JobRunState;
   /** (RFC 3339 format) */
   created_at?: string | null;
   /** (RFC 3339 format) */
@@ -429,35 +429,35 @@ export interface JobRun {
   exit_code?: number | null;
   /** (in seconds) */
   run_duration?: string | null;
-  error_message?: string;
-  cpu_limit?: number;
-  memory_limit?: number;
-  command?: string;
-  environment_variables?: JobRunEnvironmentVariablesMap;
-  local_storage_capacity?: number;
+  error_message: string;
+  cpu_limit: number;
+  memory_limit: number;
+  command: string;
+  environment_variables: JobRunEnvironmentVariablesMap;
+  local_storage_capacity: number;
   /** (RFC 3339 format) */
   started_at?: string | null;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const JobRun = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    job_definition_id: S.optional(S.String),
-    state: S.optional(JobRunState),
+    id: S.String,
+    job_definition_id: S.String,
+    state: JobRunState,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     terminated_at: S.optional(S.NullOr(S.String)),
     exit_code: S.optional(S.NullOr(S.Number)),
     run_duration: S.optional(S.NullOr(S.String)),
-    error_message: S.optional(S.String),
-    cpu_limit: S.optional(S.Number),
-    memory_limit: S.optional(S.Number),
-    command: S.optional(S.String),
-    environment_variables: S.optional(JobRunEnvironmentVariablesMap),
-    local_storage_capacity: S.optional(S.Number),
+    error_message: S.String,
+    cpu_limit: S.Number,
+    memory_limit: S.Number,
+    command: S.String,
+    environment_variables: JobRunEnvironmentVariablesMap,
+    local_storage_capacity: S.Number,
     started_at: S.optional(S.NullOr(S.String)),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "JobRun" }) as any as S.Schema<JobRun>;
 
@@ -503,12 +503,12 @@ export const ListJobDefinitionsResponseJobDefinitionsList = /*@__PURE__*/ S.Arra
 
 export interface ListJobDefinitionsResponse {
   job_definitions: ListJobDefinitionsResponseJobDefinitionsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListJobDefinitionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     job_definitions: ListJobDefinitionsResponseJobDefinitionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListJobDefinitionsResponse",
@@ -547,14 +547,14 @@ export const ListJobDefinitionSecretsResponseSecretsList = /*@__PURE__*/ S.Array
 
 export interface ListJobDefinitionSecretsResponse {
   /** List of secret references within a job definition. */
-  secrets?: ListJobDefinitionSecretsResponseSecretsList;
+  secrets: ListJobDefinitionSecretsResponseSecretsList;
   /** Total count of secret references within a job definition. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListJobDefinitionSecretsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    secrets: S.optional(ListJobDefinitionSecretsResponseSecretsList),
-    total_count: S.optional(S.Number),
+    secrets: ListJobDefinitionSecretsResponseSecretsList,
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListJobDefinitionSecretsResponse",
@@ -611,12 +611,12 @@ export const ListJobRunsResponseJobRunsList = /*@__PURE__*/ S.Array(
 
 export interface ListJobRunsResponse {
   job_runs: ListJobRunsResponseJobRunsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListJobRunsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     job_runs: ListJobRunsResponseJobRunsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListJobRunsResponse" }) as any as S.Schema<ListJobRunsResponse>;
 
@@ -669,11 +669,11 @@ export const StartJobDefinitionResponseJobRunsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<StartJobDefinitionResponseJobRunsList>;
 
 export interface StartJobDefinitionResponse {
-  job_runs?: StartJobDefinitionResponseJobRunsList;
+  job_runs: StartJobDefinitionResponseJobRunsList;
 }
 export const StartJobDefinitionResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    job_runs: S.optional(StartJobDefinitionResponseJobRunsList),
+    job_runs: StartJobDefinitionResponseJobRunsList,
   }),
 ).annotate({
   identifier: "StartJobDefinitionResponse",

@@ -38,23 +38,23 @@ export const CreateDatabaseRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Database {
   /** Name of the database. */
-  name?: string;
+  name: string;
   /** Size of the database. (in bytes) */
-  size?: number;
+  size: number;
   /** Identifier of the deployment. (UUID format) */
-  deployment_id?: string;
+  deployment_id: string;
   /** Region of the deployment. */
-  region?: string;
+  region: string;
   /** The SRN of the database. */
-  srn?: string;
+  srn: string;
 }
 export const Database = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    size: S.optional(S.Number),
-    deployment_id: S.optional(S.String),
-    region: S.optional(S.String),
-    srn: S.optional(S.String),
+    name: S.String,
+    size: S.Number,
+    deployment_id: S.String,
+    region: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Database" }) as any as S.Schema<Database>;
 
@@ -175,13 +175,13 @@ export type EndpointServiceProtocol = "unknown_protocol" | "tcp" | "https" | "my
 export const EndpointServiceProtocol = S.String;
 
 export interface EndpointService {
-  protocol?: EndpointServiceProtocol;
-  port?: number;
+  protocol: EndpointServiceProtocol;
+  port: number;
 }
 export const EndpointService = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    protocol: S.optional(EndpointServiceProtocol),
-    port: S.optional(S.Number),
+    protocol: EndpointServiceProtocol,
+    port: S.Number,
   }),
 ).annotate({ identifier: "EndpointService" }) as any as S.Schema<EndpointService>;
 
@@ -193,20 +193,20 @@ export const EndpointServicesList = /*@__PURE__*/ S.Array(
 
 export interface NodePrivateNetworkDetails {
   /** Name of the node. */
-  node_name?: string;
+  node_name: string;
   /** The ClickHouse shard to which the node belongs to. */
-  shard?: number;
+  shard: number;
   /** The ClickHouse replica to which the node belongs to. */
-  replica?: number;
+  replica: number;
   /** Private static IP address of that node. */
-  ip_address?: string;
+  ip_address: string;
 }
 export const NodePrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    node_name: S.optional(S.String),
-    shard: S.optional(S.Number),
-    replica: S.optional(S.Number),
-    ip_address: S.optional(S.String),
+    node_name: S.String,
+    shard: S.Number,
+    replica: S.Number,
+    ip_address: S.String,
   }),
 ).annotate({
   identifier: "NodePrivateNetworkDetails",
@@ -220,42 +220,42 @@ export const PrivateNetworkDetailsNodesList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNetworkDetails {
   /** UUID of the Private Network. */
-  private_network_id?: string;
+  private_network_id: string;
   /** List of nodes belonging to this private network and their details. */
-  nodes?: PrivateNetworkDetailsNodesList;
+  nodes: PrivateNetworkDetailsNodesList;
 }
 export const PrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_network_id: S.optional(S.String),
-    nodes: S.optional(PrivateNetworkDetailsNodesList),
+    private_network_id: S.String,
+    nodes: PrivateNetworkDetailsNodesList,
   }),
 ).annotate({ identifier: "PrivateNetworkDetails" }) as any as S.Schema<PrivateNetworkDetails>;
 
 export interface Endpoint {
   /** Unique identifier of the endpoint. (UUID format) */
-  id?: string;
+  id: string;
   /** DNS record associated with the endpoint. */
-  dns_record?: string;
+  dns_record: string;
   /** List of services associated with the endpoint. */
-  services?: EndpointServicesList;
+  services: EndpointServicesList;
   /** Private Network endpoint details. */
   private_network?: PrivateNetworkDetails | null;
   /** Public endpoint details. */
   public?: unknown | null;
   /** Region of the deployment. */
-  region?: string;
+  region: string;
   /** The SRN of the endpoint. */
-  srn?: string;
+  srn: string;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    dns_record: S.optional(S.String),
-    services: S.optional(EndpointServicesList),
+    id: S.String,
+    dns_record: S.String,
+    services: EndpointServicesList,
     private_network: S.optional(S.NullOr(PrivateNetworkDetails)),
     public: S.optional(S.NullOr(S.Unknown)),
-    region: S.optional(S.String),
-    srn: S.optional(S.String),
+    region: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Endpoint" }) as any as S.Schema<Endpoint>;
 
@@ -267,62 +267,62 @@ export const DeploymentEndpointsList = /*@__PURE__*/ S.Array(
 
 export interface Deployment {
   /** Unique identifier. (UUID format) */
-  id?: string;
+  id: string;
   /** Name of the deployment. */
-  name?: string;
+  name: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Status of the deployment. */
-  status?: DeploymentStatus;
+  status: DeploymentStatus;
   /** List of tags applied to the deployment. */
-  tags?: DeploymentTagsList;
+  tags: DeploymentTagsList;
   /** Creation date of the deployment. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the deployment. (RFC 3339 format) */
   updated_at?: string | null;
   /** ClickHouse® version. */
-  version?: string;
+  version: string;
   /** Number of replicas for the deployment. */
-  replica_count?: number;
+  replica_count: number;
   /** Number of shards for the deployment. */
-  shard_count?: number;
+  shard_count: number;
   /** Minimum CPU count for the deployment. */
-  cpu_min?: number;
+  cpu_min: number;
   /** Maximum CPU count for the deployment. */
-  cpu_max?: number;
+  cpu_max: number;
   /** List of endpoints associated with the deployment. */
-  endpoints?: DeploymentEndpointsList;
+  endpoints: DeploymentEndpointsList;
   /** RAM per CPU count for the deployment (in GB). */
-  ram_per_cpu?: number;
+  ram_per_cpu: number;
   /** For the `tiered` storage policy, controls when data is moved from the hot volume (Block Storage) to the cold volume (Object Storage). Data is moved once free space on the hot volume drops below this fraction of its capacity. Value between 0 and 1 (default 0.1, i.e. data is moved when the hot volume is 90% full). */
-  move_factor?: number;
+  move_factor: number;
   /** Region of the deployment. */
-  region?: string;
+  region: string;
   /** The SRN of the deployment. */
-  srn?: string;
+  srn: string;
 }
 export const Deployment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    project_id: S.optional(S.String),
-    status: S.optional(DeploymentStatus),
-    tags: S.optional(DeploymentTagsList),
+    id: S.String,
+    name: S.String,
+    organization_id: S.String,
+    project_id: S.String,
+    status: DeploymentStatus,
+    tags: DeploymentTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    version: S.optional(S.String),
-    replica_count: S.optional(S.Number),
-    shard_count: S.optional(S.Number),
-    cpu_min: S.optional(S.Number),
-    cpu_max: S.optional(S.Number),
-    endpoints: S.optional(DeploymentEndpointsList),
-    ram_per_cpu: S.optional(S.Number),
-    move_factor: S.optional(S.Number),
-    region: S.optional(S.String),
-    srn: S.optional(S.String),
+    version: S.String,
+    replica_count: S.Number,
+    shard_count: S.Number,
+    cpu_min: S.Number,
+    cpu_max: S.Number,
+    endpoints: DeploymentEndpointsList,
+    ram_per_cpu: S.Number,
+    move_factor: S.Number,
+    region: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "Deployment" }) as any as S.Schema<Deployment>;
 
@@ -386,23 +386,23 @@ export const CreateUserRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface User {
   /** Name of the user. */
-  name?: string;
+  name: string;
   /** Indicates if the user is an administrator. */
-  is_admin?: boolean;
+  is_admin: boolean;
   /** Identifier of the deployment. (UUID format) */
-  deployment_id?: string;
+  deployment_id: string;
   /** Region of the deployment. */
-  region?: string;
+  region: string;
   /** The SRN of the user. */
-  srn?: string;
+  srn: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    is_admin: S.optional(S.Boolean),
-    deployment_id: S.optional(S.String),
-    region: S.optional(S.String),
-    srn: S.optional(S.String),
+    name: S.String,
+    is_admin: S.Boolean,
+    deployment_id: S.String,
+    region: S.String,
+    srn: S.String,
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -568,15 +568,15 @@ export const GetDeploymentCertificateRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetDeploymentCertificateRequest>;
 
 export interface ScalewayStdFile {
-  name?: string;
-  content_type?: string;
-  content?: string;
+  name: string;
+  content_type: string;
+  content: string;
 }
 export const ScalewayStdFile = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    content_type: S.optional(S.String),
-    content: S.optional(S.String),
+    name: S.String,
+    content_type: S.String,
+    content: S.String,
   }),
 ).annotate({ identifier: "ScalewayStdFile" }) as any as S.Schema<ScalewayStdFile>;
 
@@ -654,12 +654,12 @@ export interface ListDatabasesResponse {
   /** List of databases associated with the deployment. */
   databases: ListDatabasesResponseDatabasesList;
   /** Total count of databases associated with the deployment. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDatabasesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     databases: ListDatabasesResponseDatabasesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDatabasesResponse" }) as any as S.Schema<ListDatabasesResponse>;
 
@@ -724,12 +724,12 @@ export interface ListDeploymentsResponse {
   /** List of all deployments available in an Organization or Project. */
   deployments: ListDeploymentsResponseDeploymentsList;
   /** Total count of deployments available in an Organization or Project. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListDeploymentsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     deployments: ListDeploymentsResponseDeploymentsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListDeploymentsResponse" }) as any as S.Schema<ListDeploymentsResponse>;
 
@@ -759,29 +759,29 @@ export const ListPresetsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Preset {
   /** Name of the preset. */
-  name?: string;
+  name: string;
   /** Category of the preset. */
-  category?: string;
+  category: string;
   /** Minimum CPU count for the preset. */
-  cpu_min?: number;
+  cpu_min: number;
   /** Maximum CPU count for the preset. */
-  cpu_max?: number;
+  cpu_max: number;
   /** RAM per CPU count for the preset (in GB). */
-  ram_per_cpu?: number;
+  ram_per_cpu: number;
   /** Number of replicas for the preset. */
-  replica_count?: number;
+  replica_count: number;
   /** Number of shards for the preset. */
-  shard_count?: number;
+  shard_count: number;
 }
 export const Preset = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    category: S.optional(S.String),
-    cpu_min: S.optional(S.Number),
-    cpu_max: S.optional(S.Number),
-    ram_per_cpu: S.optional(S.Number),
-    replica_count: S.optional(S.Number),
-    shard_count: S.optional(S.Number),
+    name: S.String,
+    category: S.String,
+    cpu_min: S.Number,
+    cpu_max: S.Number,
+    ram_per_cpu: S.Number,
+    replica_count: S.Number,
+    shard_count: S.Number,
   }),
 ).annotate({ identifier: "Preset" }) as any as S.Schema<Preset>;
 
@@ -795,12 +795,12 @@ export interface ListPresetsResponse {
   /** List of available presets. */
   presets: ListPresetsResponsePresetsList;
   /** Total count of presets available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListPresetsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     presets: ListPresetsResponsePresetsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPresetsResponse" }) as any as S.Schema<ListPresetsResponse>;
 
@@ -850,12 +850,12 @@ export interface ListUsersResponse {
   /** List of users associated with the deployment. */
   users: ListUsersResponseUsersList;
   /** Total count of users associated with the deployment. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListUsersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     users: ListUsersResponseUsersList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListUsersResponse" }) as any as S.Schema<ListUsersResponse>;
 
@@ -887,13 +887,13 @@ export const ListVersionsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface Version {
   /** Deployment version. */
-  version?: string;
+  version: string;
   /** Date of End of Life. (RFC 3339 format) */
   end_of_life_at?: string | null;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    version: S.optional(S.String),
+    version: S.String,
     end_of_life_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
@@ -908,12 +908,12 @@ export interface ListVersionsResponse {
   /** Available deployment version. */
   versions: ListVersionsResponseVersionsList;
   /** Total count of deployment version available. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVersionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     versions: ListVersionsResponseVersionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVersionsResponse" }) as any as S.Schema<ListVersionsResponse>;
 

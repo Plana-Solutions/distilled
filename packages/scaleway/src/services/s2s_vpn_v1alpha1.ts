@@ -131,102 +131,102 @@ export const BgpSessionStatus = S.String;
 
 export interface BgpSession {
   /** (UUID format) */
-  routing_policy_id?: string;
+  routing_policy_id: string;
   /** (IP network) */
-  private_ip?: string;
+  private_ip: string;
   /** (IP network) */
-  peer_private_ip?: string;
+  peer_private_ip: string;
 }
 export const BgpSession = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    routing_policy_id: S.optional(S.String),
-    private_ip: S.optional(S.String),
-    peer_private_ip: S.optional(S.String),
+    routing_policy_id: S.String,
+    private_ip: S.String,
+    peer_private_ip: S.String,
   }),
 ).annotate({ identifier: "BgpSession" }) as any as S.Schema<BgpSession>;
 
 export interface Connection {
   /** Unique identifier of the connection. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the connection. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the connection. */
-  name?: string;
+  name: string;
   /** List of tags applied to the connection. */
-  tags?: ConnectionTagsList;
+  tags: ConnectionTagsList;
   /** Creation date of the connection. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the connection. (RFC 3339 format) */
   updated_at?: string | null;
   /** Status of the connection. */
-  status?: ConnectionStatus;
+  status: ConnectionStatus;
   /** IP version of the IPSec Tunnel. */
-  is_ipv6?: boolean;
+  is_ipv6: boolean;
   /** Who initiates the IPsec tunnel. */
-  initiation_policy?: ConnectionInitiationPolicy;
+  initiation_policy: ConnectionInitiationPolicy;
   /** ID of the secret in Secret Manager which contains the PSK. (UUID format) */
-  secret_id?: string;
+  secret_id: string;
   /** Version number of the secret in Secret Manager which contains the PSK. */
-  secret_revision?: number;
+  secret_revision: number;
   /** List of IKE v2 ciphers proposed for the IPsec tunnel. */
-  ikev2_ciphers?: ConnectionIkev2CiphersList;
+  ikev2_ciphers: ConnectionIkev2CiphersList;
   /** List of ESP ciphers proposed for the IPsec tunnel. */
-  esp_ciphers?: ConnectionEspCiphersList;
+  esp_ciphers: ConnectionEspCiphersList;
   /** Defines whether route propagation is enabled or not. */
-  route_propagation_enabled?: boolean;
+  route_propagation_enabled: boolean;
   /** ID of the VPN gateway attached to the connection. (UUID format) */
-  vpn_gateway_id?: string;
+  vpn_gateway_id: string;
   /** ID of the customer gateway attached to the connection. (UUID format) */
-  customer_gateway_id?: string;
+  customer_gateway_id: string;
   /** Status of the IPsec tunnel. */
-  tunnel_status?: TunnelStatus;
+  tunnel_status: TunnelStatus;
   /** Status of the IPv4 IPsec tunnel. */
   tunnel_status_ipv4?: TunnelStatus;
   /** Status of the IPv6 IPsec tunnel. */
   tunnel_status_ipv6?: TunnelStatus;
   /** Status of the BGP IPv4 session. */
-  bgp_status_ipv4?: BgpSessionStatus;
+  bgp_status_ipv4: BgpSessionStatus;
   /** Status of the BGP IPv6 session. */
-  bgp_status_ipv6?: BgpSessionStatus;
+  bgp_status_ipv6: BgpSessionStatus;
   /** BGP IPv4 session, including status, interco private IPv4 subnet and attached routing policy. */
   bgp_session_ipv4?: BgpSession;
   /** BGP IPv6 session, including status, interco private IPv6 subnet and attached routing policy. */
   bgp_session_ipv6?: BgpSession;
   /** Region of the connection. */
-  region?: string;
+  region: string;
 }
 export const Connection = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(ConnectionTagsList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    tags: ConnectionTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(ConnectionStatus),
-    is_ipv6: S.optional(S.Boolean),
-    initiation_policy: S.optional(ConnectionInitiationPolicy),
-    secret_id: S.optional(S.String),
-    secret_revision: S.optional(S.Number),
-    ikev2_ciphers: S.optional(ConnectionIkev2CiphersList),
-    esp_ciphers: S.optional(ConnectionEspCiphersList),
-    route_propagation_enabled: S.optional(S.Boolean),
-    vpn_gateway_id: S.optional(S.String),
-    customer_gateway_id: S.optional(S.String),
-    tunnel_status: S.optional(TunnelStatus),
+    status: ConnectionStatus,
+    is_ipv6: S.Boolean,
+    initiation_policy: ConnectionInitiationPolicy,
+    secret_id: S.String,
+    secret_revision: S.Number,
+    ikev2_ciphers: ConnectionIkev2CiphersList,
+    esp_ciphers: ConnectionEspCiphersList,
+    route_propagation_enabled: S.Boolean,
+    vpn_gateway_id: S.String,
+    customer_gateway_id: S.String,
+    tunnel_status: TunnelStatus,
     tunnel_status_ipv4: S.optional(TunnelStatus),
     tunnel_status_ipv6: S.optional(TunnelStatus),
-    bgp_status_ipv4: S.optional(BgpSessionStatus),
-    bgp_status_ipv6: S.optional(BgpSessionStatus),
+    bgp_status_ipv4: BgpSessionStatus,
+    bgp_status_ipv6: BgpSessionStatus,
     bgp_session_ipv4: S.optional(BgpSession),
     bgp_session_ipv6: S.optional(BgpSession),
-    region: S.optional(S.String),
+    region: S.String,
   }),
 ).annotate({ identifier: "Connection" }) as any as S.Schema<Connection>;
 
@@ -419,17 +419,17 @@ export const CustomerGatewayConnectionIdsList = /*@__PURE__*/ S.Array(
 
 export interface CustomerGateway {
   /** Unique identifier of the customer gateway. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the customer gateway. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the customer gateway. */
-  name?: string;
+  name: string;
   /** List of tags applied to the customer gateway. */
-  tags?: CustomerGatewayTagsList;
+  tags: CustomerGatewayTagsList;
   /** Creation date of the customer gateway. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the customer gateway. (RFC 3339 format) */
@@ -439,27 +439,27 @@ export interface CustomerGateway {
   /** Public IPv6 address of the customer gateway. (IPv6 address) */
   public_ipv6?: string | null;
   /** AS Number of the customer gateway. */
-  asn?: number;
+  asn: number;
   /** List of connection ids of the customer gateway. */
-  connection_ids?: CustomerGatewayConnectionIdsList;
+  connection_ids: CustomerGatewayConnectionIdsList;
   /** Region of the customer gateway. */
-  region?: string;
+  region: string;
 }
 export const CustomerGateway = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(CustomerGatewayTagsList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    tags: CustomerGatewayTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     public_ipv4: S.optional(S.NullOr(S.String)),
     public_ipv6: S.optional(S.NullOr(S.String)),
-    asn: S.optional(S.Number),
-    connection_ids: S.optional(CustomerGatewayConnectionIdsList),
-    region: S.optional(S.String),
+    asn: S.Number,
+    connection_ids: CustomerGatewayConnectionIdsList,
+    region: S.String,
   }),
 ).annotate({ identifier: "CustomerGateway" }) as any as S.Schema<CustomerGateway>;
 
@@ -541,44 +541,44 @@ export const RoutingPolicyPrefixFilterOutList = /*@__PURE__*/ S.Array(
 
 export interface RoutingPolicy {
   /** Unique identifier of the routing policy. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the routing policy. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the routing policy. */
-  name?: string;
+  name: string;
   /** List of tags associated with the routing policy. */
-  tags?: RoutingPolicyTagsList;
+  tags: RoutingPolicyTagsList;
   /** Creation date of the routing policy. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the routing policy. (RFC 3339 format) */
   updated_at?: string | null;
   /** IP prefixes version of the routing policy. */
-  is_ipv6?: boolean;
+  is_ipv6: boolean;
   /** IP prefixes to accept from the peer (ranges of route announcements to accept). (IP network) */
-  prefix_filter_in?: RoutingPolicyPrefixFilterInList;
+  prefix_filter_in: RoutingPolicyPrefixFilterInList;
   /** IP prefix filters to advertise to the peer (ranges of routes to advertise). (IP network) */
-  prefix_filter_out?: RoutingPolicyPrefixFilterOutList;
+  prefix_filter_out: RoutingPolicyPrefixFilterOutList;
   /** Region of the routing policy. */
-  region?: string;
+  region: string;
 }
 export const RoutingPolicy = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(RoutingPolicyTagsList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    tags: RoutingPolicyTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    is_ipv6: S.optional(S.Boolean),
-    prefix_filter_in: S.optional(RoutingPolicyPrefixFilterInList),
-    prefix_filter_out: S.optional(RoutingPolicyPrefixFilterOutList),
-    region: S.optional(S.String),
+    is_ipv6: S.Boolean,
+    prefix_filter_in: RoutingPolicyPrefixFilterInList,
+    prefix_filter_out: RoutingPolicyPrefixFilterOutList,
+    region: S.String,
   }),
 ).annotate({ identifier: "RoutingPolicy" }) as any as S.Schema<RoutingPolicy>;
 
@@ -709,64 +709,64 @@ export const VpnGatewayConnectionIdsList = /*@__PURE__*/ S.Array(
 
 export interface VpnGateway {
   /** Unique identifier of the VPN gateway. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the VPN gateway. */
-  srn?: string;
+  srn: string;
   /** Project ID. (UUID format) */
-  project_id?: string;
+  project_id: string;
   /** Organization ID. (UUID format) */
-  organization_id?: string;
+  organization_id: string;
   /** Name of the VPN gateway. */
-  name?: string;
+  name: string;
   /** List of tags applied to the VPN gateway. */
-  tags?: VpnGatewayTagsList;
+  tags: VpnGatewayTagsList;
   /** Creation date of the VPN gateway. (RFC 3339 format) */
   created_at?: string | null;
   /** Last modification date of the VPN gateway. (RFC 3339 format) */
   updated_at?: string | null;
   /** Status of the VPN gateway. */
-  status?: VpnGatewayStatus;
+  status: VpnGatewayStatus;
   /** Gateway type of the VPN gateway. */
-  gateway_type?: string;
+  gateway_type: string;
   /** Public endpoint configuration of the VPN gateway. */
   public_config?: CreateVpnGatewayRequestPublicConfig | null;
   private_config?: unknown | null;
   /** ID of the Private Network attached to the VPN gateway. (UUID format) */
-  private_network_id?: string;
+  private_network_id: string;
   /** ID of the IPAM private IPv4 address attached to the VPN gateway. (UUID format) */
-  ipam_private_ipv4_id?: string;
+  ipam_private_ipv4_id: string;
   /** ID of the IPAM private IPv6 address attached to the VPN gateway. (UUID format) */
-  ipam_private_ipv6_id?: string;
+  ipam_private_ipv6_id: string;
   /** Autonomous System Number (ASN) of the VPN gateway, used by Border Gateway Protocol (BGP) to exchange routing information with the customer gateway. */
-  asn?: number;
+  asn: number;
   /** List of connection ids of the VPN gateway. */
-  connection_ids?: VpnGatewayConnectionIdsList;
+  connection_ids: VpnGatewayConnectionIdsList;
   /** Zone where the VPN gateway resource is currently provisioned. */
-  zone?: string;
+  zone: string;
   /** Region of the VPN gateway. */
-  region?: string;
+  region: string;
 }
 export const VpnGateway = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    project_id: S.optional(S.String),
-    organization_id: S.optional(S.String),
-    name: S.optional(S.String),
-    tags: S.optional(VpnGatewayTagsList),
+    id: S.String,
+    srn: S.String,
+    project_id: S.String,
+    organization_id: S.String,
+    name: S.String,
+    tags: VpnGatewayTagsList,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(VpnGatewayStatus),
-    gateway_type: S.optional(S.String),
+    status: VpnGatewayStatus,
+    gateway_type: S.String,
     public_config: S.optional(S.NullOr(CreateVpnGatewayRequestPublicConfig)),
     private_config: S.optional(S.NullOr(S.Unknown)),
-    private_network_id: S.optional(S.String),
-    ipam_private_ipv4_id: S.optional(S.String),
-    ipam_private_ipv6_id: S.optional(S.String),
-    asn: S.optional(S.Number),
-    connection_ids: S.optional(VpnGatewayConnectionIdsList),
-    zone: S.optional(S.String),
-    region: S.optional(S.String),
+    private_network_id: S.String,
+    ipam_private_ipv4_id: S.String,
+    ipam_private_ipv6_id: S.String,
+    asn: S.Number,
+    connection_ids: VpnGatewayConnectionIdsList,
+    zone: S.String,
+    region: S.String,
   }),
 ).annotate({ identifier: "VpnGateway" }) as any as S.Schema<VpnGateway>;
 
@@ -1159,12 +1159,12 @@ export interface ListConnectionsResponse {
   /** List of connections on the current page. */
   connections: ListConnectionsResponseConnectionsList;
   /** Total number of connections. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListConnectionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     connections: ListConnectionsResponseConnectionsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListConnectionsResponse" }) as any as S.Schema<ListConnectionsResponse>;
 
@@ -1233,12 +1233,12 @@ export interface ListCustomerGatewaysResponse {
   /** List of customer gateways on the current page. */
   gateways: ListCustomerGatewaysResponseGatewaysList;
   /** Total number of customer gateways. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListCustomerGatewaysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     gateways: ListCustomerGatewaysResponseGatewaysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListCustomerGatewaysResponse",
@@ -1309,12 +1309,12 @@ export const ListRoutingPoliciesResponseRoutingPoliciesList = /*@__PURE__*/ S.Ar
 
 export interface ListRoutingPoliciesResponse {
   routing_policies: ListRoutingPoliciesResponseRoutingPoliciesList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListRoutingPoliciesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     routing_policies: ListRoutingPoliciesResponseRoutingPoliciesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListRoutingPoliciesResponse",
@@ -1411,12 +1411,12 @@ export interface ListVpnGatewaysResponse {
   /** List of VPN gateways on the current page. */
   gateways: ListVpnGatewaysResponseGatewaysList;
   /** Total number of VPN gateways. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVpnGatewaysResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     gateways: ListVpnGatewaysResponseGatewaysList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListVpnGatewaysResponse" }) as any as S.Schema<ListVpnGatewaysResponse>;
 
@@ -1454,20 +1454,20 @@ export const GatewayTypeZonesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<GatewayTypeZonesList>;
 
 export interface GatewayType {
-  name?: string;
-  bandwidth?: number;
-  allowed_connections?: number;
-  zones?: GatewayTypeZonesList;
+  name: string;
+  bandwidth: number;
+  allowed_connections: number;
+  zones: GatewayTypeZonesList;
   /** The region you want to target */
-  region?: string;
+  region: string;
 }
 export const GatewayType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    name: S.optional(S.String),
-    bandwidth: S.optional(S.Number),
-    allowed_connections: S.optional(S.Number),
-    zones: S.optional(GatewayTypeZonesList),
-    region: S.optional(S.String),
+    name: S.String,
+    bandwidth: S.Number,
+    allowed_connections: S.Number,
+    zones: GatewayTypeZonesList,
+    region: S.String,
   }),
 ).annotate({ identifier: "GatewayType" }) as any as S.Schema<GatewayType>;
 
@@ -1481,12 +1481,12 @@ export interface ListVpnGatewayTypesResponse {
   /** List of VPN gateway types on the current page. */
   gateway_types: ListVpnGatewayTypesResponseGatewayTypesList;
   /** Total number of gateway types. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListVpnGatewayTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     gateway_types: ListVpnGatewayTypesResponseGatewayTypesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListVpnGatewayTypesResponse",

@@ -692,7 +692,10 @@
       "type": "structure",
       "members": {
         "servers": {
-          "target": "com.scaleway.baremetal_v1#BatchCreateServersResponseServersList"
+          "target": "com.scaleway.baremetal_v1#BatchCreateServersResponseServersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -703,31 +706,36 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the server."
+            "smithy.api#documentation": "ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID the server is attached to."
+            "smithy.api#documentation": "Organization ID the server is attached to.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the server is attached to."
+            "smithy.api#documentation": "Project ID the server is attached to.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the server."
+            "smithy.api#documentation": "Name of the server.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the server."
+            "smithy.api#documentation": "Description of the server.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -747,49 +755,57 @@
         "status": {
           "target": "com.scaleway.baremetal_v1#ServerStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the server."
+            "smithy.api#documentation": "Status of the server.",
+            "smithy.api#required": {}
           }
         },
         "offer_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer ID of the server."
+            "smithy.api#documentation": "Offer ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "offer_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer name of the server."
+            "smithy.api#documentation": "Offer name of the server.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.baremetal_v1#ServerTagsList",
           "traits": {
-            "smithy.api#documentation": "Array of custom tags attached to the server."
+            "smithy.api#documentation": "Array of custom tags attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "ips": {
           "target": "com.scaleway.baremetal_v1#ServerIpsList",
           "traits": {
-            "smithy.api#documentation": "Array of IPs attached to the server."
+            "smithy.api#documentation": "Array of IPs attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "domain": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Domain of the server."
+            "smithy.api#documentation": "Domain of the server.",
+            "smithy.api#required": {}
           }
         },
         "boot_type": {
           "target": "com.scaleway.baremetal_v1#ServerBootType",
           "traits": {
-            "smithy.api#documentation": "Boot type of the server."
+            "smithy.api#documentation": "Boot type of the server.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which is the server located."
+            "smithy.api#documentation": "Zone in which is the server located.",
+            "smithy.api#required": {}
           }
         },
         "install": {
@@ -801,13 +817,15 @@
         "ping_status": {
           "target": "com.scaleway.baremetal_v1#ServerPingStatus",
           "traits": {
-            "smithy.api#documentation": "Status of server ping."
+            "smithy.api#documentation": "Status of server ping.",
+            "smithy.api#required": {}
           }
         },
         "options": {
           "target": "com.scaleway.baremetal_v1#ServerOptionsList",
           "traits": {
-            "smithy.api#documentation": "Options enabled on the server."
+            "smithy.api#documentation": "Options enabled on the server.",
+            "smithy.api#required": {}
           }
         },
         "rescue_server": {
@@ -819,7 +837,8 @@
         "protected": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "If enabled, the server can not be deleted."
+            "smithy.api#documentation": "If enabled, the server can not be deleted.",
+            "smithy.api#required": {}
           }
         },
         "user_data": {
@@ -931,37 +950,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the IP."
+            "smithy.api#documentation": "ID of the IP.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Address of the IP. (IP address)"
+            "smithy.api#documentation": "Address of the IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "reverse": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Reverse IP value."
+            "smithy.api#documentation": "Reverse IP value.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "com.scaleway.baremetal_v1#IPVersion",
           "traits": {
-            "smithy.api#documentation": "Version of IP (v4 or v6)."
+            "smithy.api#documentation": "Version of IP (v4 or v6).",
+            "smithy.api#required": {}
           }
         },
         "reverse_status": {
           "target": "com.scaleway.baremetal_v1#IPReverseStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the reverse."
+            "smithy.api#documentation": "Status of the reverse.",
+            "smithy.api#required": {}
           }
         },
         "reverse_status_message": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "A message related to the reverse status, e.g. in case of an error."
+            "smithy.api#documentation": "A message related to the reverse status, e.g. in case of an error.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1054,43 +1079,50 @@
         "os_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the OS."
+            "smithy.api#documentation": "ID of the OS.",
+            "smithy.api#required": {}
           }
         },
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Host defined during the server installation."
+            "smithy.api#documentation": "Host defined during the server installation.",
+            "smithy.api#required": {}
           }
         },
         "ssh_key_ids": {
           "target": "com.scaleway.baremetal_v1#ServerInstallSshKeyIdsList",
           "traits": {
-            "smithy.api#documentation": "SSH public key IDs defined during server installation."
+            "smithy.api#documentation": "SSH public key IDs defined during server installation.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.baremetal_v1#ServerInstallStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the server installation."
+            "smithy.api#documentation": "Status of the server installation.",
+            "smithy.api#required": {}
           }
         },
         "user": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "User defined in the server installation, or the default user if none were specified."
+            "smithy.api#documentation": "User defined in the server installation, or the default user if none were specified.",
+            "smithy.api#required": {}
           }
         },
         "service_user": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Service user defined in the server installation, or the default user if none were specified."
+            "smithy.api#documentation": "Service user defined in the server installation, or the default user if none were specified.",
+            "smithy.api#required": {}
           }
         },
         "service_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Address of the installed service."
+            "smithy.api#documentation": "Address of the installed service.",
+            "smithy.api#required": {}
           }
         },
         "partitioning_schema": {
@@ -1177,25 +1209,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the option."
+            "smithy.api#documentation": "ID of the option.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the option."
+            "smithy.api#documentation": "Name of the option.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.baremetal_v1#ServerOptionOptionStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the option on this server."
+            "smithy.api#documentation": "Status of the option on this server.",
+            "smithy.api#required": {}
           }
         },
         "manageable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the option can be managed (added or removed)."
+            "smithy.api#documentation": "Defines whether the option can be managed (added or removed).",
+            "smithy.api#required": {}
           }
         },
         "expires_at": {
@@ -1283,7 +1319,10 @@
       "type": "structure",
       "members": {
         "os_id": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1292,7 +1331,10 @@
       "type": "structure",
       "members": {
         "bandwidth_in_bps": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1301,7 +1343,10 @@
       "type": "structure",
       "members": {
         "bandwidth_in_bps": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1321,13 +1366,15 @@
         "user": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Rescue user name."
+            "smithy.api#documentation": "Rescue user name.",
+            "smithy.api#required": {}
           }
         },
         "password": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Rescue password.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         }
@@ -1474,13 +1521,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching offers."
+            "smithy.api#documentation": "Total count of matching offers.",
+            "smithy.api#required": {}
           }
         },
         "offers": {
           "target": "com.scaleway.baremetal_v1#ListOffersResponseOffersList",
           "traits": {
-            "smithy.api#documentation": "Offers that match filters."
+            "smithy.api#documentation": "Offers that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1492,37 +1541,43 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the offer."
+            "smithy.api#documentation": "ID of the offer.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the offer."
+            "smithy.api#documentation": "Name of the offer.",
+            "smithy.api#required": {}
           }
         },
         "stock": {
           "target": "com.scaleway.baremetal_v1#OfferStock",
           "traits": {
-            "smithy.api#documentation": "Stock level."
+            "smithy.api#documentation": "Stock level.",
+            "smithy.api#required": {}
           }
         },
         "bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Public bandwidth available (in bits/s) with the offer."
+            "smithy.api#documentation": "Public bandwidth available (in bits/s) with the offer.",
+            "smithy.api#required": {}
           }
         },
         "max_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum public bandwidth available (in bits/s) depending on available options."
+            "smithy.api#documentation": "Maximum public bandwidth available (in bits/s) depending on available options.",
+            "smithy.api#required": {}
           }
         },
         "commercial_range": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Commercial range of the offer."
+            "smithy.api#documentation": "Commercial range of the offer.",
+            "smithy.api#required": {}
           }
         },
         "price_per_hour": {
@@ -1540,61 +1595,71 @@
         "disks": {
           "target": "com.scaleway.baremetal_v1#OfferDisksList",
           "traits": {
-            "smithy.api#documentation": "Disks specifications of the offer."
+            "smithy.api#documentation": "Disks specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "enable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the offer is currently available."
+            "smithy.api#documentation": "Defines whether the offer is currently available.",
+            "smithy.api#required": {}
           }
         },
         "cpus": {
           "target": "com.scaleway.baremetal_v1#OfferCpusList",
           "traits": {
-            "smithy.api#documentation": "CPU specifications of the offer."
+            "smithy.api#documentation": "CPU specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "memories": {
           "target": "com.scaleway.baremetal_v1#OfferMemoriesList",
           "traits": {
-            "smithy.api#documentation": "Memory specifications of the offer."
+            "smithy.api#documentation": "Memory specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "quota_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the quota associated to the offer."
+            "smithy.api#documentation": "Name of the quota associated to the offer.",
+            "smithy.api#required": {}
           }
         },
         "persistent_memories": {
           "target": "com.scaleway.baremetal_v1#OfferPersistentMemoriesList",
           "traits": {
-            "smithy.api#documentation": "Persistent memory specifications of the offer."
+            "smithy.api#documentation": "Persistent memory specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "raid_controllers": {
           "target": "com.scaleway.baremetal_v1#OfferRaidControllersList",
           "traits": {
-            "smithy.api#documentation": "Raid controller specifications of the offer."
+            "smithy.api#documentation": "Raid controller specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "incompatible_os_ids": {
           "target": "com.scaleway.baremetal_v1#OfferIncompatibleOsIdsList",
           "traits": {
-            "smithy.api#documentation": "Array of OS images IDs incompatible with the server."
+            "smithy.api#documentation": "Array of OS images IDs incompatible with the server.",
+            "smithy.api#required": {}
           }
         },
         "subscription_period": {
           "target": "com.scaleway.baremetal_v1#OfferSubscriptionPeriod",
           "traits": {
-            "smithy.api#documentation": "Period of subscription for the offer."
+            "smithy.api#documentation": "Period of subscription for the offer.",
+            "smithy.api#required": {}
           }
         },
         "operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Operation path of the service."
+            "smithy.api#documentation": "Operation path of the service.",
+            "smithy.api#required": {}
           }
         },
         "fee": {
@@ -1606,31 +1671,36 @@
         "options": {
           "target": "com.scaleway.baremetal_v1#OfferOptionsList",
           "traits": {
-            "smithy.api#documentation": "Available options for customization of the server."
+            "smithy.api#documentation": "Available options for customization of the server.",
+            "smithy.api#required": {}
           }
         },
         "private_bandwidth": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Private bandwidth available in bits/s with the offer."
+            "smithy.api#documentation": "Private bandwidth available in bits/s with the offer.",
+            "smithy.api#required": {}
           }
         },
         "shared_bandwidth": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the offer's bandwidth is shared or not."
+            "smithy.api#documentation": "Defines whether the offer's bandwidth is shared or not.",
+            "smithy.api#required": {}
           }
         },
         "tags": {
           "target": "com.scaleway.baremetal_v1#OfferTagsList",
           "traits": {
-            "smithy.api#documentation": "Array of tags attached to the offer."
+            "smithy.api#documentation": "Array of tags attached to the offer.",
+            "smithy.api#required": {}
           }
         },
         "gpus": {
           "target": "com.scaleway.baremetal_v1#OfferGpusList",
           "traits": {
-            "smithy.api#documentation": "GPU specifications of the offer."
+            "smithy.api#documentation": "GPU specifications of the offer.",
+            "smithy.api#required": {}
           }
         },
         "monthly_offer_id": {
@@ -1643,7 +1713,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which is the offer is available."
+            "smithy.api#documentation": "Zone in which is the offer is available.",
+            "smithy.api#required": {}
           }
         },
         "dual_attach": {
@@ -1684,13 +1755,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1701,13 +1781,15 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the disk in bytes. (in bytes)"
+            "smithy.api#documentation": "Capacity of the disk in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of the disk."
+            "smithy.api#documentation": "Type of the disk.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1728,31 +1810,36 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the CPU."
+            "smithy.api#documentation": "Name of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "core_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of CPU cores."
+            "smithy.api#documentation": "Number of CPU cores.",
+            "smithy.api#required": {}
           }
         },
         "thread_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number CPU threads."
+            "smithy.api#documentation": "Number CPU threads.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the CPU in MHz."
+            "smithy.api#documentation": "Frequency of the CPU in MHz.",
+            "smithy.api#required": {}
           }
         },
         "benchmark": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Benchmark of the CPU."
+            "smithy.api#documentation": "Benchmark of the CPU.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1773,31 +1860,36 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the memory in bytes. (in bytes)"
+            "smithy.api#documentation": "Capacity of the memory in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of the memory."
+            "smithy.api#documentation": "Type of the memory.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the memory in MHz."
+            "smithy.api#documentation": "Frequency of the memory in MHz.",
+            "smithy.api#required": {}
           }
         },
         "is_ecc": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the memory is an error-correcting code memory."
+            "smithy.api#documentation": "True if the memory is an error-correcting code memory.",
+            "smithy.api#required": {}
           }
         },
         "ecc_type": {
           "target": "com.scaleway.baremetal_v1#MemoryEccType",
           "traits": {
-            "smithy.api#documentation": "Type of ECC memory."
+            "smithy.api#documentation": "Type of ECC memory.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1848,19 +1940,22 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the memory in bytes. (in bytes)"
+            "smithy.api#documentation": "Capacity of the memory in bytes. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of the memory."
+            "smithy.api#documentation": "Type of the memory.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the memory in MHz."
+            "smithy.api#documentation": "Frequency of the memory in MHz.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1879,10 +1974,16 @@
       "type": "structure",
       "members": {
         "model": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "raid_level": {
-          "target": "com.scaleway.baremetal_v1#RaidControllerRaidLevelList"
+          "target": "com.scaleway.baremetal_v1#RaidControllerRaidLevelList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1918,25 +2019,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the option."
+            "smithy.api#documentation": "ID of the option.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the option."
+            "smithy.api#documentation": "Name of the option.",
+            "smithy.api#required": {}
           }
         },
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "If true the option is enabled and included by default in the offer.\nIf true the option is enabled and included by default in the offer\nIf false the option is available for the offer but not included by default."
+            "smithy.api#documentation": "If true the option is enabled and included by default in the offer.\nIf true the option is enabled and included by default in the offer\nIf false the option is available for the offer but not included by default.",
+            "smithy.api#required": {}
           }
         },
         "subscription_period": {
           "target": "com.scaleway.baremetal_v1#OfferSubscriptionPeriod",
           "traits": {
-            "smithy.api#documentation": "Period of subscription for the offer."
+            "smithy.api#documentation": "Period of subscription for the offer.",
+            "smithy.api#required": {}
           }
         },
         "price": {
@@ -1948,7 +2053,8 @@
         "manageable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Boolean to know if option could be managed."
+            "smithy.api#documentation": "Boolean to know if option could be managed.",
+            "smithy.api#required": {}
           }
         },
         "os_id": {
@@ -2020,13 +2126,15 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the GPU."
+            "smithy.api#documentation": "Name of the GPU.",
+            "smithy.api#required": {}
           }
         },
         "vram": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the vram in bytes."
+            "smithy.api#documentation": "Capacity of the vram in bytes.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2249,13 +2357,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching options."
+            "smithy.api#documentation": "Total count of matching options.",
+            "smithy.api#required": {}
           }
         },
         "options": {
           "target": "com.scaleway.baremetal_v1#ListOptionsResponseOptionsList",
           "traits": {
-            "smithy.api#documentation": "Options that match filters."
+            "smithy.api#documentation": "Options that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2267,19 +2377,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the option."
+            "smithy.api#documentation": "ID of the option.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the option."
+            "smithy.api#documentation": "Name of the option.",
+            "smithy.api#required": {}
           }
         },
         "manageable": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the option is manageable (could be added or removed)."
+            "smithy.api#documentation": "Defines whether the option is manageable (could be added or removed).",
+            "smithy.api#required": {}
           }
         },
         "license": {
@@ -2521,13 +2634,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching OS."
+            "smithy.api#documentation": "Total count of matching OS.",
+            "smithy.api#required": {}
           }
         },
         "os": {
           "target": "com.scaleway.baremetal_v1#ListOSResponseOsList",
           "traits": {
-            "smithy.api#documentation": "OS that match filters."
+            "smithy.api#documentation": "OS that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2539,25 +2654,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the OS."
+            "smithy.api#documentation": "ID of the OS.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the OS."
+            "smithy.api#documentation": "Name of the OS.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Version of the OS."
+            "smithy.api#documentation": "Version of the OS.",
+            "smithy.api#required": {}
           }
         },
         "logo_url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL of this OS's logo."
+            "smithy.api#documentation": "URL of this OS's logo.",
+            "smithy.api#required": {}
           }
         },
         "ssh": {
@@ -2593,31 +2712,36 @@
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines if the operating system is enabled or not."
+            "smithy.api#documentation": "Defines if the operating system is enabled or not.",
+            "smithy.api#required": {}
           }
         },
         "license_required": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "License required (check server options for pricing details)."
+            "smithy.api#documentation": "License required (check server options for pricing details).",
+            "smithy.api#required": {}
           }
         },
         "allowed": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines if a specific Organization is allowed to install this OS type."
+            "smithy.api#documentation": "Defines if a specific Organization is allowed to install this OS type.",
+            "smithy.api#required": {}
           }
         },
         "custom_partitioning_supported": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines if custom partitioning is supported by this OS."
+            "smithy.api#documentation": "Defines if custom partitioning is supported by this OS.",
+            "smithy.api#required": {}
           }
         },
         "cloud_init_supported": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines if cloud-init is supported by this OS."
+            "smithy.api#documentation": "Defines if cloud-init is supported by this OS.",
+            "smithy.api#required": {}
           }
         },
         "cloud_init_version": {
@@ -2630,7 +2754,8 @@
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone in which is the OS is available."
+            "smithy.api#documentation": "Zone in which is the OS is available.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2640,10 +2765,16 @@
       "type": "structure",
       "members": {
         "editable": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "required": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "default_value": {
           "target": "smithy.api#String",
@@ -3113,13 +3244,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching servers."
+            "smithy.api#documentation": "Total count of matching servers.",
+            "smithy.api#required": {}
           }
         },
         "servers": {
           "target": "com.scaleway.baremetal_v1#ListServersResponseServersList",
           "traits": {
-            "smithy.api#documentation": "Array of Elastic Metal server objects matching the filters in the request."
+            "smithy.api#documentation": "Array of Elastic Metal server objects matching the filters in the request.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3682,19 +3815,22 @@
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to access to the server console."
+            "smithy.api#documentation": "URL to access to the server console.",
+            "smithy.api#required": {}
           }
         },
         "login": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The login to use for the BMC (Baseboard Management Controller) access authentication."
+            "smithy.api#documentation": "The login to use for the BMC (Baseboard Management Controller) access authentication.",
+            "smithy.api#required": {}
           }
         },
         "password": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "The password to use for the BMC (Baseboard Management Controller) access authentication.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
@@ -4009,13 +4145,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching events."
+            "smithy.api#documentation": "Total count of matching events.",
+            "smithy.api#required": {}
           }
         },
         "events": {
           "target": "com.scaleway.baremetal_v1#ListServerEventsResponseEventsList",
           "traits": {
-            "smithy.api#documentation": "Server events that match filters."
+            "smithy.api#documentation": "Server events that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4027,13 +4165,15 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the server to which the action will be applied."
+            "smithy.api#documentation": "ID of the server to which the action will be applied.",
+            "smithy.api#required": {}
           }
         },
         "action": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The action that will be applied to the server."
+            "smithy.api#documentation": "The action that will be applied to the server.",
+            "smithy.api#required": {}
           }
         },
         "updated_at": {
@@ -4436,13 +4576,22 @@
       "type": "structure",
       "members": {
         "name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "points": {
-          "target": "com.scaleway.baremetal_v1#ScalewayStdTimeSeriesPointsList"
+          "target": "com.scaleway.baremetal_v1#ScalewayStdTimeSeriesPointsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "metadata": {
-          "target": "com.scaleway.baremetal_v1#ScalewayStdTimeSeriesMetadataMap"
+          "target": "com.scaleway.baremetal_v1#ScalewayStdTimeSeriesMetadataMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -5173,13 +5322,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching settings."
+            "smithy.api#documentation": "Total count of matching settings.",
+            "smithy.api#required": {}
           }
         },
         "settings": {
           "target": "com.scaleway.baremetal_v1#ListSettingsResponseSettingsList",
           "traits": {
-            "smithy.api#documentation": "Settings that match filters."
+            "smithy.api#documentation": "Settings that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5191,25 +5342,29 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the setting."
+            "smithy.api#documentation": "ID of the setting.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.baremetal_v1#SettingType",
           "traits": {
-            "smithy.api#documentation": "Type of the setting."
+            "smithy.api#documentation": "Type of the setting.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project ID."
+            "smithy.api#documentation": "ID of the Project ID.",
+            "smithy.api#required": {}
           }
         },
         "enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the setting is enabled."
+            "smithy.api#documentation": "Defines whether the setting is enabled.",
+            "smithy.api#required": {}
           }
         }
       },

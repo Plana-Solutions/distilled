@@ -112,13 +112,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total number of Projects."
+            "smithy.api#documentation": "Total number of Projects.",
+            "smithy.api#required": {}
           }
         },
         "projects": {
           "target": "com.scaleway.account_project_v3#ListProjectsResponseProjectsList",
           "traits": {
-            "smithy.api#documentation": "Paginated returned Projects."
+            "smithy.api#documentation": "Paginated returned Projects.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -130,19 +132,22 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the Project. (UUID format)"
+            "smithy.api#documentation": "ID of the Project. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the Project."
+            "smithy.api#documentation": "Name of the Project.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the Project. (UUID format)"
+            "smithy.api#documentation": "Organization ID of the Project. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -162,7 +167,8 @@
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the Project."
+            "smithy.api#documentation": "Description of the Project.",
+            "smithy.api#required": {}
           }
         },
         "qualification": {
@@ -174,13 +180,15 @@
         "status": {
           "target": "com.scaleway.account_project_v3#ProjectStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the Project."
+            "smithy.api#documentation": "Status of the Project.",
+            "smithy.api#required": {}
           }
         },
         "srn": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The SRN of the Project."
+            "smithy.api#documentation": "The SRN of the Project.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -823,7 +831,8 @@
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID. (UUID format)"
+            "smithy.api#documentation": "Project ID. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "qualification": {

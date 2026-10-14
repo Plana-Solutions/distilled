@@ -123,13 +123,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching failovers IP."
+            "smithy.api#documentation": "Total count of matching failovers IP.",
+            "smithy.api#required": {}
           }
         },
         "failover_ips": {
           "target": "com.scaleway.dedibox_v1#ListFailoverIPsResponseFailoverIpsList",
           "traits": {
-            "smithy.api#documentation": "List of failover IPs that match filters."
+            "smithy.api#documentation": "List of failover IPs that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -141,43 +143,50 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the failover IP."
+            "smithy.api#documentation": "ID of the failover IP.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP of the failover IP. (IP address)"
+            "smithy.api#documentation": "IP of the failover IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "reverse": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Reverse IP value."
+            "smithy.api#documentation": "Reverse IP value.",
+            "smithy.api#required": {}
           }
         },
         "ip_version": {
           "target": "com.scaleway.dedibox_v1#FailoverIPVersion",
           "traits": {
-            "smithy.api#documentation": "IP version of the failover IP."
+            "smithy.api#documentation": "IP version of the failover IP.",
+            "smithy.api#required": {}
           }
         },
         "cidr": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Classless InterDomain Routing notation of the failover IP."
+            "smithy.api#documentation": "Classless InterDomain Routing notation of the failover IP.",
+            "smithy.api#required": {}
           }
         },
         "netmask": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Netmask of the failover IP. (IP address)"
+            "smithy.api#documentation": "Netmask of the failover IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "gateway_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Gateway IP of the failover IP. (IP address)"
+            "smithy.api#documentation": "Gateway IP of the failover IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "mac": {
@@ -197,7 +206,8 @@
         "status": {
           "target": "com.scaleway.dedibox_v1#FailoverIPStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the IP failover."
+            "smithy.api#documentation": "Status of the IP failover.",
+            "smithy.api#required": {}
           }
         },
         "block": {
@@ -209,7 +219,8 @@
         "type": {
           "target": "com.scaleway.dedibox_v1#FailoverIPInterfaceType",
           "traits": {
-            "smithy.api#documentation": "The interface type."
+            "smithy.api#documentation": "The interface type.",
+            "smithy.api#required": {}
           }
         },
         "server_zone": {
@@ -282,43 +293,50 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the failover block."
+            "smithy.api#documentation": "ID of the failover block.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP of the failover block. (IP address)"
+            "smithy.api#documentation": "IP of the failover block. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "nameservers": {
           "target": "com.scaleway.dedibox_v1#FailoverBlockNameserversList",
           "traits": {
-            "smithy.api#documentation": "Name servers."
+            "smithy.api#documentation": "Name servers.",
+            "smithy.api#required": {}
           }
         },
         "ip_version": {
           "target": "com.scaleway.dedibox_v1#FailoverBlockVersion",
           "traits": {
-            "smithy.api#documentation": "IP version of the failover block."
+            "smithy.api#documentation": "IP version of the failover block.",
+            "smithy.api#required": {}
           }
         },
         "cidr": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Classless InterDomain Routing notation of the failover block."
+            "smithy.api#documentation": "Classless InterDomain Routing notation of the failover block.",
+            "smithy.api#required": {}
           }
         },
         "netmask": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Netmask of the failover block. (IP address)"
+            "smithy.api#documentation": "Netmask of the failover block. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "gateway_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Gateway IP of the failover block. (IP address)"
+            "smithy.api#documentation": "Gateway IP of the failover block. (IP address)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -482,10 +500,16 @@
       "type": "structure",
       "members": {
         "total_count": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "services": {
-          "target": "com.scaleway.dedibox_v1#CreateFailoverIPsResponseServicesList"
+          "target": "com.scaleway.dedibox_v1#CreateFailoverIPsResponseServicesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -496,7 +520,8 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the service."
+            "smithy.api#documentation": "ID of the service.",
+            "smithy.api#required": {}
           }
         },
         "resource_id": {
@@ -509,7 +534,8 @@
         "provisioning_status": {
           "target": "com.scaleway.dedibox_v1#ServiceProvisioningStatus",
           "traits": {
-            "smithy.api#documentation": "Provisioning status of the service."
+            "smithy.api#documentation": "Provisioning status of the service.",
+            "smithy.api#required": {}
           }
         },
         "offer": {
@@ -549,7 +575,8 @@
         "type": {
           "target": "com.scaleway.dedibox_v1#ServiceType",
           "traits": {
-            "smithy.api#documentation": "Service type, either order or service."
+            "smithy.api#documentation": "Service type, either order or service.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -603,25 +630,29 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the offer (aka product.id)."
+            "smithy.api#documentation": "ID of the offer (aka product.id).",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the offer."
+            "smithy.api#documentation": "Name of the offer.",
+            "smithy.api#required": {}
           }
         },
         "catalog": {
           "target": "com.scaleway.dedibox_v1#OfferCatalog",
           "traits": {
-            "smithy.api#documentation": "Catalog of the offer."
+            "smithy.api#documentation": "Catalog of the offer.",
+            "smithy.api#required": {}
           }
         },
         "payment_frequency": {
           "target": "com.scaleway.dedibox_v1#OfferPaymentFrequency",
           "traits": {
-            "smithy.api#documentation": "Payment frequency of the offer."
+            "smithy.api#documentation": "Payment frequency of the offer.",
+            "smithy.api#required": {}
           }
         },
         "pricing": {
@@ -800,13 +831,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -815,31 +855,58 @@
       "type": "structure",
       "members": {
         "bandwidth": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "stock": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoStock"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoStock",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "commercial_range": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "disks": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoDisksList"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoDisksList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "cpus": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoCpusList"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoCpusList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "memories": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoMemoriesList"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoMemoriesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "persistent_memories": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoPersistentMemoriesList"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoPersistentMemoriesList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "raid_controllers": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoRaidControllersList"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoRaidControllersList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "available_options": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoAvailableOptionsList"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoAvailableOptionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "rpn_version": {
           "target": "smithy.api#Integer",
@@ -848,13 +915,19 @@
           }
         },
         "connectivity": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "onetime_fees": {
           "target": "com.scaleway.dedibox_v1#Offer"
         },
         "stock_by_datacenter": {
-          "target": "com.scaleway.dedibox_v1#OfferServerInfoStockByDatacenterMap"
+          "target": "com.scaleway.dedibox_v1#OfferServerInfoStockByDatacenterMap",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -889,13 +962,15 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the disk. (in bytes)"
+            "smithy.api#documentation": "Capacity of the disk. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.dedibox_v1#ServerDiskType",
           "traits": {
-            "smithy.api#documentation": "Type of the disk."
+            "smithy.api#documentation": "Type of the disk.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -956,25 +1031,29 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of CPU."
+            "smithy.api#documentation": "Name of CPU.",
+            "smithy.api#required": {}
           }
         },
         "core_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of cores of the CPU."
+            "smithy.api#documentation": "Number of cores of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "thread_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of threads of the CPU."
+            "smithy.api#documentation": "Number of threads of the CPU.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the CPU."
+            "smithy.api#documentation": "Frequency of the CPU.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -993,25 +1072,29 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the memory. (in bytes)"
+            "smithy.api#documentation": "Capacity of the memory. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.dedibox_v1#MemoryType",
           "traits": {
-            "smithy.api#documentation": "Type of the memory."
+            "smithy.api#documentation": "Type of the memory.",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the memory."
+            "smithy.api#documentation": "Frequency of the memory.",
+            "smithy.api#required": {}
           }
         },
         "is_ecc": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the memory is an error-correcting code memory."
+            "smithy.api#documentation": "True if the memory is an error-correcting code memory.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1060,19 +1143,22 @@
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the persistent memory. (in bytes)"
+            "smithy.api#documentation": "Capacity of the persistent memory. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "frequency": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Frequency of the persistent memory."
+            "smithy.api#documentation": "Frequency of the persistent memory.",
+            "smithy.api#required": {}
           }
         },
         "model": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Model of the persistent memory."
+            "smithy.api#documentation": "Model of the persistent memory.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1091,13 +1177,15 @@
         "model": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Model of the RAID controller."
+            "smithy.api#documentation": "Model of the RAID controller.",
+            "smithy.api#required": {}
           }
         },
         "raid_level": {
           "target": "com.scaleway.dedibox_v1#RaidControllerRaidLevelList",
           "traits": {
-            "smithy.api#documentation": "RAID level of the RAID controller."
+            "smithy.api#documentation": "RAID level of the RAID controller.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1140,37 +1228,70 @@
       "type": "structure",
       "members": {
         "support_ticket": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "support_phone": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "sales_support": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "git": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "sla": {
-          "target": "smithy.api#Double"
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "priority_support": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "high_rpn_bandwidth": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "customization": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "antidos": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "extra_failover_quota": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "available_options": {
-          "target": "com.scaleway.dedibox_v1#OfferServiceLevelInfoAvailableOptionsList"
+          "target": "com.scaleway.dedibox_v1#OfferServiceLevelInfoAvailableOptionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1186,7 +1307,10 @@
       "type": "structure",
       "members": {
         "speed": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1197,19 +1321,22 @@
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "SAN size (in bytes)."
+            "smithy.api#documentation": "SAN size (in bytes).",
+            "smithy.api#required": {}
           }
         },
         "ha": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "High availability offer."
+            "smithy.api#documentation": "High availability offer.",
+            "smithy.api#required": {}
           }
         },
         "device_type": {
           "target": "com.scaleway.dedibox_v1#OfferSANInfoType",
           "traits": {
-            "smithy.api#documentation": "Type of SAN device (hdd / ssd)."
+            "smithy.api#documentation": "Type of SAN device (hdd / ssd).",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1237,7 +1364,10 @@
       "type": "structure",
       "members": {
         "type": {
-          "target": "com.scaleway.dedibox_v1#OfferAntiDosInfoType"
+          "target": "com.scaleway.dedibox_v1#OfferAntiDosInfoType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1272,7 +1402,8 @@
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1282,12 +1413,16 @@
       "type": "structure",
       "members": {
         "max_quota": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         }
       },
@@ -1297,7 +1432,10 @@
       "type": "structure",
       "members": {
         "bound_to_ip": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1324,7 +1462,10 @@
       "type": "structure",
       "members": {
         "speed": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -1604,55 +1745,64 @@
         "ip_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the IP."
+            "smithy.api#documentation": "ID of the IP.",
+            "smithy.api#required": {}
           }
         },
         "address": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Address of the IP. (IP address)"
+            "smithy.api#documentation": "Address of the IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "reverse": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Reverse IP value."
+            "smithy.api#documentation": "Reverse IP value.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "com.scaleway.dedibox_v1#IPVersion",
           "traits": {
-            "smithy.api#documentation": "Version of IP (v4 or v6)."
+            "smithy.api#documentation": "Version of IP (v4 or v6).",
+            "smithy.api#required": {}
           }
         },
         "cidr": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Classless InterDomain Routing notation of the IP."
+            "smithy.api#documentation": "Classless InterDomain Routing notation of the IP.",
+            "smithy.api#required": {}
           }
         },
         "netmask": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Network mask of IP. (IP address)"
+            "smithy.api#documentation": "Network mask of IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "semantic": {
           "target": "com.scaleway.dedibox_v1#IPSemantic",
           "traits": {
-            "smithy.api#documentation": "Semantic of IP."
+            "smithy.api#documentation": "Semantic of IP.",
+            "smithy.api#required": {}
           }
         },
         "gateway": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Gateway of IP. (IP address)"
+            "smithy.api#documentation": "Gateway of IP. (IP address)",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.dedibox_v1#IPStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the IP."
+            "smithy.api#documentation": "Status of the IP.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2165,13 +2315,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching offers."
+            "smithy.api#documentation": "Total count of matching offers.",
+            "smithy.api#required": {}
           }
         },
         "offers": {
           "target": "com.scaleway.dedibox_v1#ListOffersResponseOffersList",
           "traits": {
-            "smithy.api#documentation": "Offers that match filters."
+            "smithy.api#documentation": "Offers that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2518,13 +2670,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching OS."
+            "smithy.api#documentation": "Total count of matching OS.",
+            "smithy.api#required": {}
           }
         },
         "os": {
           "target": "com.scaleway.dedibox_v1#ListOSResponseOsList",
           "traits": {
-            "smithy.api#documentation": "OS that match filters."
+            "smithy.api#documentation": "OS that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -2536,79 +2690,92 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the OS."
+            "smithy.api#documentation": "ID of the OS.",
+            "smithy.api#required": {}
           }
         },
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the OS."
+            "smithy.api#documentation": "Name of the OS.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.dedibox_v1#OSType",
           "traits": {
-            "smithy.api#documentation": "Type of the OS."
+            "smithy.api#documentation": "Type of the OS.",
+            "smithy.api#required": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Version of the OS."
+            "smithy.api#documentation": "Version of the OS.",
+            "smithy.api#required": {}
           }
         },
         "arch": {
           "target": "com.scaleway.dedibox_v1#OSArch",
           "traits": {
-            "smithy.api#documentation": "Architecture of the OS."
+            "smithy.api#documentation": "Architecture of the OS.",
+            "smithy.api#required": {}
           }
         },
         "allow_custom_partitioning": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the OS allow custom partitioning."
+            "smithy.api#documentation": "True if the OS allow custom partitioning.",
+            "smithy.api#required": {}
           }
         },
         "allow_ssh_keys": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the OS allow SSH Keys."
+            "smithy.api#documentation": "True if the OS allow SSH Keys.",
+            "smithy.api#required": {}
           }
         },
         "requires_user": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the OS requires user."
+            "smithy.api#documentation": "True if the OS requires user.",
+            "smithy.api#required": {}
           }
         },
         "requires_admin_password": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the OS requires admin password."
+            "smithy.api#documentation": "True if the OS requires admin password.",
+            "smithy.api#required": {}
           }
         },
         "requires_panel_password": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the OS requires panel password."
+            "smithy.api#documentation": "True if the OS requires panel password.",
+            "smithy.api#required": {}
           }
         },
         "allowed_filesystems": {
           "target": "com.scaleway.dedibox_v1#OSAllowedFilesystemsList",
           "traits": {
-            "smithy.api#documentation": "True if the OS allow file systems."
+            "smithy.api#documentation": "True if the OS allow file systems.",
+            "smithy.api#required": {}
           }
         },
         "requires_license": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "True if the OS requires license."
+            "smithy.api#documentation": "True if the OS requires license.",
+            "smithy.api#required": {}
           }
         },
         "license_offers": {
           "target": "com.scaleway.dedibox_v1#OSLicenseOffersList",
           "traits": {
-            "smithy.api#documentation": "License offers available with the OS."
+            "smithy.api#documentation": "License offers available with the OS.",
+            "smithy.api#required": {}
           }
         },
         "max_partitions": {
@@ -2621,13 +2788,15 @@
         "display_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Display name of the OS."
+            "smithy.api#documentation": "Display name of the OS.",
+            "smithy.api#required": {}
           }
         },
         "password_regex": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Regex used to validate the installation passwords."
+            "smithy.api#documentation": "Regex used to validate the installation passwords.",
+            "smithy.api#required": {}
           }
         },
         "panel_password_regex": {
@@ -2654,7 +2823,8 @@
         "hostname_max_length": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Hostname max length."
+            "smithy.api#documentation": "Hostname max length.",
+            "smithy.api#required": {}
           }
         },
         "released_at": {
@@ -2953,25 +3123,29 @@
         "failover_ip_quota": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Current failover IP quota."
+            "smithy.api#documentation": "Current failover IP quota.",
+            "smithy.api#required": {}
           }
         },
         "failover_ip_remaining_quota": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Remaining failover IP quota."
+            "smithy.api#documentation": "Remaining failover IP quota.",
+            "smithy.api#required": {}
           }
         },
         "failover_block_quota": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Current failover block quota."
+            "smithy.api#documentation": "Current failover block quota.",
+            "smithy.api#required": {}
           }
         },
         "failover_block_remaining_quota": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Remaining failover block quota."
+            "smithy.api#documentation": "Remaining failover block quota.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3164,13 +3338,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching servers."
+            "smithy.api#documentation": "Total count of matching servers.",
+            "smithy.api#required": {}
           }
         },
         "servers": {
           "target": "com.scaleway.dedibox_v1#ListServersResponseServersList",
           "traits": {
-            "smithy.api#documentation": "Servers that match filters."
+            "smithy.api#documentation": "Servers that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3182,31 +3358,36 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the server."
+            "smithy.api#documentation": "ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "datacenter_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Datacenter of the server."
+            "smithy.api#documentation": "Datacenter of the server.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID the server is attached to."
+            "smithy.api#documentation": "Organization ID the server is attached to.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the server is attached to."
+            "smithy.api#documentation": "Project ID the server is attached to.",
+            "smithy.api#required": {}
           }
         },
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hostname of the server."
+            "smithy.api#documentation": "Hostname of the server.",
+            "smithy.api#required": {}
           }
         },
         "created_at": {
@@ -3233,19 +3414,22 @@
         "offer_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Offer ID of the server."
+            "smithy.api#documentation": "Offer ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "offer_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Offer name of the server."
+            "smithy.api#documentation": "Offer name of the server.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.dedibox_v1#ServerStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the server."
+            "smithy.api#documentation": "Status of the server.",
+            "smithy.api#required": {}
           }
         },
         "os_id": {
@@ -3258,13 +3442,15 @@
         "interfaces": {
           "target": "com.scaleway.dedibox_v1#ServerSummaryInterfacesList",
           "traits": {
-            "smithy.api#documentation": "Network interfaces of the server."
+            "smithy.api#documentation": "Network interfaces of the server.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone in which is the server."
+            "smithy.api#documentation": "The zone in which is the server.",
+            "smithy.api#required": {}
           }
         },
         "level": {
@@ -3276,13 +3462,15 @@
         "is_outsourced": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server is outsourced or not."
+            "smithy.api#documentation": "Whether the server is outsourced or not.",
+            "smithy.api#required": {}
           }
         },
         "qinq": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server is compatible with QinQ."
+            "smithy.api#documentation": "Whether the server is compatible with QinQ.",
+            "smithy.api#required": {}
           }
         },
         "rpn_version": {
@@ -3295,7 +3483,8 @@
         "is_hds": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the server is HDS."
+            "smithy.api#documentation": "Whether or not the server is HDS.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3367,31 +3556,36 @@
         "card_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Card ID of the network interface."
+            "smithy.api#documentation": "Card ID of the network interface.",
+            "smithy.api#required": {}
           }
         },
         "device_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Device ID of the network interface."
+            "smithy.api#documentation": "Device ID of the network interface.",
+            "smithy.api#required": {}
           }
         },
         "mac": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MAC address of the network interface."
+            "smithy.api#documentation": "MAC address of the network interface.",
+            "smithy.api#required": {}
           }
         },
         "type": {
           "target": "com.scaleway.dedibox_v1#NetworkInterfaceInterfaceType",
           "traits": {
-            "smithy.api#documentation": "Network interface type."
+            "smithy.api#documentation": "Network interface type.",
+            "smithy.api#required": {}
           }
         },
         "ips": {
           "target": "com.scaleway.dedibox_v1#NetworkInterfaceIpsList",
           "traits": {
-            "smithy.api#documentation": "IPs of the network interface."
+            "smithy.api#documentation": "IPs of the network interface.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3451,13 +3645,15 @@
         "offer_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Offer ID of service level."
+            "smithy.api#documentation": "Offer ID of service level.",
+            "smithy.api#required": {}
           }
         },
         "level": {
           "target": "com.scaleway.dedibox_v1#ServiceLevelLevel",
           "traits": {
-            "smithy.api#documentation": "Level type of service level."
+            "smithy.api#documentation": "Level type of service level.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3666,25 +3862,29 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the server."
+            "smithy.api#documentation": "ID of the server.",
+            "smithy.api#required": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID the server is attached to."
+            "smithy.api#documentation": "Organization ID the server is attached to.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the server is attached to."
+            "smithy.api#documentation": "Project ID the server is attached to.",
+            "smithy.api#required": {}
           }
         },
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hostname of the server."
+            "smithy.api#documentation": "Hostname of the server.",
+            "smithy.api#required": {}
           }
         },
         "rebooted_at": {
@@ -3724,7 +3924,8 @@
         "status": {
           "target": "com.scaleway.dedibox_v1#ServerStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the server."
+            "smithy.api#documentation": "Status of the server.",
+            "smithy.api#required": {}
           }
         },
         "location": {
@@ -3736,7 +3937,8 @@
         "abuse_contact": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Abuse contact of the server."
+            "smithy.api#documentation": "Abuse contact of the server.",
+            "smithy.api#required": {}
           }
         },
         "os": {
@@ -3748,19 +3950,22 @@
         "interfaces": {
           "target": "com.scaleway.dedibox_v1#ServerInterfacesList",
           "traits": {
-            "smithy.api#documentation": "Network interfaces of the server."
+            "smithy.api#documentation": "Network interfaces of the server.",
+            "smithy.api#required": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone in which is the server."
+            "smithy.api#documentation": "The zone in which is the server.",
+            "smithy.api#required": {}
           }
         },
         "options": {
           "target": "com.scaleway.dedibox_v1#ServerOptionsList",
           "traits": {
-            "smithy.api#documentation": "Options subscribe on the server."
+            "smithy.api#documentation": "Options subscribe on the server.",
+            "smithy.api#required": {}
           }
         },
         "level": {
@@ -3772,7 +3977,8 @@
         "has_bmc": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Boolean if the server has a BMC."
+            "smithy.api#documentation": "Boolean if the server has a BMC.",
+            "smithy.api#required": {}
           }
         },
         "rescue_os": {
@@ -3784,37 +3990,43 @@
         "tags": {
           "target": "com.scaleway.dedibox_v1#ServerTagsList",
           "traits": {
-            "smithy.api#documentation": "Array of customs tags attached to the server."
+            "smithy.api#documentation": "Array of customs tags attached to the server.",
+            "smithy.api#required": {}
           }
         },
         "is_outsourced": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server is outsourced or not."
+            "smithy.api#documentation": "Whether the server is outsourced or not.",
+            "smithy.api#required": {}
           }
         },
         "ipv6_slaac": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not you can enable/disable the IPv6."
+            "smithy.api#documentation": "Whether or not you can enable/disable the IPv6.",
+            "smithy.api#required": {}
           }
         },
         "qinq": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether the server is compatible with QinQ."
+            "smithy.api#documentation": "Whether the server is compatible with QinQ.",
+            "smithy.api#required": {}
           }
         },
         "is_rpnv2_member": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the server is already part of an rpnv2 group."
+            "smithy.api#documentation": "Whether or not the server is already part of an rpnv2 group.",
+            "smithy.api#required": {}
           }
         },
         "is_hds": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the server is HDS."
+            "smithy.api#documentation": "Whether or not the server is HDS.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -3824,13 +4036,22 @@
       "type": "structure",
       "members": {
         "rack": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "room": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "datacenter_name": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -3872,7 +4093,10 @@
           }
         },
         "options": {
-          "target": "com.scaleway.dedibox_v1#ServerOptionOptionsList"
+          "target": "com.scaleway.dedibox_v1#ServerOptionOptionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4117,61 +4341,71 @@
         "id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the backup."
+            "smithy.api#documentation": "ID of the backup.",
+            "smithy.api#required": {}
           }
         },
         "login": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Login of the backup."
+            "smithy.api#documentation": "Login of the backup.",
+            "smithy.api#required": {}
           }
         },
         "server": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Server of the backup."
+            "smithy.api#documentation": "Server of the backup.",
+            "smithy.api#required": {}
           }
         },
         "status": {
           "target": "com.scaleway.dedibox_v1#BackupStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the backup."
+            "smithy.api#documentation": "Status of the backup.",
+            "smithy.api#required": {}
           }
         },
         "acl_enabled": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "ACL enable boolean of the backup."
+            "smithy.api#documentation": "ACL enable boolean of the backup.",
+            "smithy.api#required": {}
           }
         },
         "autologin": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Autologin boolean of the backup."
+            "smithy.api#documentation": "Autologin boolean of the backup.",
+            "smithy.api#required": {}
           }
         },
         "quota_space": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total quota space of the backup."
+            "smithy.api#documentation": "Total quota space of the backup.",
+            "smithy.api#required": {}
           }
         },
         "quota_space_used": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quota space used of the backup."
+            "smithy.api#documentation": "Quota space used of the backup.",
+            "smithy.api#required": {}
           }
         },
         "quota_files": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total quota files of the backup."
+            "smithy.api#documentation": "Total quota files of the backup.",
+            "smithy.api#required": {}
           }
         },
         "quota_files_used": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Quota files used of the backup."
+            "smithy.api#documentation": "Quota files used of the backup.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4363,19 +4597,22 @@
         "url": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "URL to access to the server console."
+            "smithy.api#documentation": "URL to access to the server console.",
+            "smithy.api#required": {}
           }
         },
         "login": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The login to use for the BMC (Baseboard Management Controller) access authentication."
+            "smithy.api#documentation": "The login to use for the BMC (Baseboard Management Controller) access authentication.",
+            "smithy.api#required": {}
           }
         },
         "password": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "The password to use for the BMC (Baseboard Management Controller) access authentication.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
@@ -4389,7 +4626,8 @@
         "status": {
           "target": "com.scaleway.dedibox_v1#BMCAccessStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the connection."
+            "smithy.api#documentation": "Status of the connection.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4736,13 +4974,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching server disks."
+            "smithy.api#documentation": "Total count of matching server disks.",
+            "smithy.api#required": {}
           }
         },
         "disks": {
           "target": "com.scaleway.dedibox_v1#ListServerDisksResponseDisksList",
           "traits": {
-            "smithy.api#documentation": "Server disks that match filters."
+            "smithy.api#documentation": "Server disks that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4752,22 +4992,35 @@
       "type": "structure",
       "members": {
         "id": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "connector": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "type": {
-          "target": "com.scaleway.dedibox_v1#ServerDiskType"
+          "target": "com.scaleway.dedibox_v1#ServerDiskType",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "(in bytes)"
+            "smithy.api#documentation": "(in bytes)",
+            "smithy.api#required": {}
           }
         },
         "is_addon": {
-          "target": "smithy.api#Boolean"
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}
@@ -4898,13 +5151,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching server events."
+            "smithy.api#documentation": "Total count of matching server events.",
+            "smithy.api#required": {}
           }
         },
         "events": {
           "target": "com.scaleway.dedibox_v1#ListServerEventsResponseEventsList",
           "traits": {
-            "smithy.api#documentation": "Server events that match filters."
+            "smithy.api#documentation": "Server events that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -4916,13 +5171,15 @@
         "event_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "ID of the event."
+            "smithy.api#documentation": "ID of the event.",
+            "smithy.api#required": {}
           }
         },
         "description": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Description of the event."
+            "smithy.api#documentation": "Description of the event.",
+            "smithy.api#required": {}
           }
         },
         "date": {
@@ -5020,10 +5277,16 @@
       "type": "structure",
       "members": {
         "os_id": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "hostname": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "user_login": {
           "target": "smithy.api#String",
@@ -5032,13 +5295,22 @@
           }
         },
         "partitions": {
-          "target": "com.scaleway.dedibox_v1#ServerInstallPartitionsList"
+          "target": "com.scaleway.dedibox_v1#ServerInstallPartitionsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "ssh_key_ids": {
-          "target": "com.scaleway.dedibox_v1#ServerInstallSshKeyIdsList"
+          "target": "com.scaleway.dedibox_v1#ServerInstallSshKeyIdsList",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "status": {
-          "target": "com.scaleway.dedibox_v1#ServerInstallStatus"
+          "target": "com.scaleway.dedibox_v1#ServerInstallStatus",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "panel_url": {
           "target": "smithy.api#String",
@@ -5055,13 +5327,15 @@
         "type": {
           "target": "com.scaleway.dedibox_v1#PartitionType",
           "traits": {
-            "smithy.api#documentation": "Type of the partition."
+            "smithy.api#documentation": "Type of the partition.",
+            "smithy.api#required": {}
           }
         },
         "file_system": {
           "target": "com.scaleway.dedibox_v1#PartitionFileSystem",
           "traits": {
-            "smithy.api#documentation": "File system of the partition."
+            "smithy.api#documentation": "File system of the partition.",
+            "smithy.api#required": {}
           }
         },
         "mount_point": {
@@ -5074,19 +5348,22 @@
         "raid_level": {
           "target": "com.scaleway.dedibox_v1#RaidArrayRaidLevel",
           "traits": {
-            "smithy.api#documentation": "Raid level of the partition."
+            "smithy.api#documentation": "Raid level of the partition.",
+            "smithy.api#required": {}
           }
         },
         "capacity": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Capacity of the partition. (in bytes)"
+            "smithy.api#documentation": "Capacity of the partition. (in bytes)",
+            "smithy.api#required": {}
           }
         },
         "connectors": {
           "target": "com.scaleway.dedibox_v1#PartitionConnectorsList",
           "traits": {
-            "smithy.api#documentation": "Connectors of the partition."
+            "smithy.api#documentation": "Connectors of the partition.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5524,7 +5801,8 @@
         "partitions": {
           "target": "com.scaleway.dedibox_v1#ServerDefaultPartitioningPartitionsList",
           "traits": {
-            "smithy.api#documentation": "Default partitions."
+            "smithy.api#documentation": "Default partitions.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5610,7 +5888,8 @@
         "raid_arrays": {
           "target": "com.scaleway.dedibox_v1#RaidRaidArraysList",
           "traits": {
-            "smithy.api#documentation": "Details about the RAID controller."
+            "smithy.api#documentation": "Details about the RAID controller.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5622,13 +5901,15 @@
         "raid_level": {
           "target": "com.scaleway.dedibox_v1#RaidArrayRaidLevel",
           "traits": {
-            "smithy.api#documentation": "The RAID level."
+            "smithy.api#documentation": "The RAID level.",
+            "smithy.api#required": {}
           }
         },
         "disks": {
           "target": "com.scaleway.dedibox_v1#RaidArrayDisksList",
           "traits": {
-            "smithy.api#documentation": "Disks on the RAID controller."
+            "smithy.api#documentation": "Disks on the RAID controller.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -5788,26 +6069,30 @@
         "os_id": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "OS ID of the rescue."
+            "smithy.api#documentation": "OS ID of the rescue.",
+            "smithy.api#required": {}
           }
         },
         "login": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Login of the rescue."
+            "smithy.api#documentation": "Login of the rescue.",
+            "smithy.api#required": {}
           }
         },
         "password": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Password of the rescue.",
+            "smithy.api#required": {},
             "smithy.api#sensitive": {}
           }
         },
         "protocol": {
           "target": "com.scaleway.dedibox_v1#RescueProtocol",
           "traits": {
-            "smithy.api#documentation": "Protocol of the rescue."
+            "smithy.api#documentation": "Protocol of the rescue.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6182,13 +6467,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching subscribable server options."
+            "smithy.api#documentation": "Total count of matching subscribable server options.",
+            "smithy.api#required": {}
           }
         },
         "server_options": {
           "target": "com.scaleway.dedibox_v1#ListSubscribableServerOptionsResponseServerOptionsList",
           "traits": {
-            "smithy.api#documentation": "Server options that match filters."
+            "smithy.api#documentation": "Server options that match filters.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6368,7 +6655,8 @@
         "services": {
           "target": "com.scaleway.dedibox_v1#SubscribeStorageOptionsResponseServicesList",
           "traits": {
-            "smithy.api#documentation": "Services subscribe storage options."
+            "smithy.api#documentation": "Services subscribe storage options.",
+            "smithy.api#required": {}
           }
         }
       },
@@ -6680,13 +6968,15 @@
         "total_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Total count of matching services."
+            "smithy.api#documentation": "Total count of matching services.",
+            "smithy.api#required": {}
           }
         },
         "services": {
           "target": "com.scaleway.dedibox_v1#ListServicesResponseServicesList",
           "traits": {
-            "smithy.api#documentation": "Services that match filters."
+            "smithy.api#documentation": "Services that match filters.",
+            "smithy.api#required": {}
           }
         }
       },

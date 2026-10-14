@@ -170,7 +170,8 @@
         "charges": {
           "target": "com.scaleway.billing_fin_ops_v2beta1#ListChargesResponseChargesList",
           "traits": {
-            "smithy.api#documentation": "Paginated matching charges."
+            "smithy.api#documentation": "Paginated matching charges.",
+            "smithy.api#required": {}
           }
         },
         "next_page_token": {
@@ -189,43 +190,50 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the charged organization. (UUID format)"
+            "smithy.api#documentation": "ID of the charged organization. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "organization_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the charged organization."
+            "smithy.api#documentation": "Name of the charged organization.",
+            "smithy.api#required": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the charged project. (UUID format)"
+            "smithy.api#documentation": "ID of the charged project. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "project_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the charged project."
+            "smithy.api#documentation": "Name of the charged project.",
+            "smithy.api#required": {}
           }
         },
         "sku": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the SKU the charge is priced with."
+            "smithy.api#documentation": "ID of the SKU the charge is priced with.",
+            "smithy.api#required": {}
           }
         },
         "invoice_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the invoice including the charge. (UUID format)"
+            "smithy.api#documentation": "ID of the invoice including the charge. (UUID format)",
+            "smithy.api#required": {}
           }
         },
         "resource_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the resource that incurs the charge."
+            "smithy.api#documentation": "ID of the resource that incurs the charge.",
+            "smithy.api#required": {}
           }
         },
         "resource_name": {
@@ -269,13 +277,22 @@
       "type": "structure",
       "members": {
         "currency_code": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "units": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         },
         "nanos": {
-          "target": "smithy.api#Integer"
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#required": {}
+          }
         }
       },
       "traits": {}

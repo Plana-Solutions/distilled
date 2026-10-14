@@ -99,17 +99,17 @@ export const RouteType = S.String;
 
 export interface Route {
   /** Route ID. (UUID format) */
-  id?: string;
+  id: string;
   /** The SRN of the route. */
-  srn?: string;
+  srn: string;
   /** Route description. */
-  description?: string;
+  description: string;
   /** Tags of the Route. */
-  tags?: RouteTagsList;
+  tags: RouteTagsList;
   /** VPC the Route belongs to. (UUID format) */
-  vpc_id?: string;
+  vpc_id: string;
   /** Destination of the Route. (IP network) */
-  destination?: string;
+  destination: string;
   /** ID of the nexthop resource. (UUID format) */
   nexthop_resource_id?: string | null;
   /** ID of the nexthop private network. (UUID format) */
@@ -121,28 +121,28 @@ export interface Route {
   /** Date the Route was last modified. (RFC 3339 format) */
   updated_at?: string | null;
   /** Defines whether the route can be modified or deleted by the user. */
-  is_read_only?: boolean;
+  is_read_only: boolean;
   /** Type of the Route. */
-  type?: RouteType;
+  type: RouteType;
   /** Region of the Route. */
-  region?: string;
+  region: string;
 }
 export const Route = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    srn: S.optional(S.String),
-    description: S.optional(S.String),
-    tags: S.optional(RouteTagsList),
-    vpc_id: S.optional(S.String),
-    destination: S.optional(S.String),
+    id: S.String,
+    srn: S.String,
+    description: S.String,
+    tags: RouteTagsList,
+    vpc_id: S.String,
+    destination: S.String,
     nexthop_resource_id: S.optional(S.NullOr(S.String)),
     nexthop_private_network_id: S.optional(S.NullOr(S.String)),
     nexthop_vpc_connector_id: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    is_read_only: S.optional(S.Boolean),
-    type: S.optional(RouteType),
-    region: S.optional(S.String),
+    is_read_only: S.Boolean,
+    type: RouteType,
+    region: S.String,
   }),
 ).annotate({ identifier: "Route" }) as any as S.Schema<Route>;
 
@@ -154,14 +154,14 @@ export interface RouteWithNexthop {
   /** Name of the route's next hop. */
   nexthop_name?: string | null;
   /** Resource type of the route's next hop. */
-  nexthop_resource_type?: RouteWithNexthopResourceType;
+  nexthop_resource_type: RouteWithNexthopResourceType;
 }
 export const RouteWithNexthop = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     route: S.optional(Route),
     nexthop_ip: S.optional(S.NullOr(S.String)),
     nexthop_name: S.optional(S.NullOr(S.String)),
-    nexthop_resource_type: S.optional(RouteWithNexthopResourceType),
+    nexthop_resource_type: RouteWithNexthopResourceType,
   }),
 ).annotate({ identifier: "RouteWithNexthop" }) as any as S.Schema<RouteWithNexthop>;
 
@@ -175,12 +175,12 @@ export interface ListRoutesWithNexthopResponse {
   /** List of routes. */
   routes: ListRoutesWithNexthopResponseRoutesList;
   /** Total number of routes. */
-  total_count?: number;
+  total_count: number;
 }
 export const ListRoutesWithNexthopResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     routes: ListRoutesWithNexthopResponseRoutesList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({
   identifier: "ListRoutesWithNexthopResponse",

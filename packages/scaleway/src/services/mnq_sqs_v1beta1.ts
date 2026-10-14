@@ -38,26 +38,26 @@ export const SqsInfoStatus = S.String;
 
 export interface SqsInfo {
   /** Project ID of the Project containing the service. */
-  project_id?: string;
+  project_id: string;
   /** Region of the service. */
-  region?: string;
+  region: string;
   /** Queues creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Queues last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Queues activation status. */
-  status?: SqsInfoStatus;
+  status: SqsInfoStatus;
   /** Endpoint of the Queues service for this region and project. */
-  sqs_endpoint_url?: string;
+  sqs_endpoint_url: string;
 }
 export const SqsInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    project_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    status: S.optional(SqsInfoStatus),
-    sqs_endpoint_url: S.optional(S.String),
+    status: SqsInfoStatus,
+    sqs_endpoint_url: S.String,
   }),
 ).annotate({ identifier: "SqsInfo" }) as any as S.Schema<SqsInfo>;
 
@@ -110,37 +110,37 @@ export const CreateSqsCredentialsRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface SqsCredentials {
   /** ID of the credentials. */
-  id?: string;
+  id: string;
   /** Name of the credentials. */
-  name?: string;
+  name: string;
   /** Project ID of the Project containing the credentials. */
-  project_id?: string;
+  project_id: string;
   /** Region where the credentials exists. */
-  region?: string;
+  region: string;
   /** Credentials creation date. (RFC 3339 format) */
   created_at?: string | null;
   /** Credentials last modification date. (RFC 3339 format) */
   updated_at?: string | null;
   /** Access key ID. */
-  access_key?: string;
+  access_key: string;
   /** Secret key ID (Only returned by **Create Queues Credentials** call). */
-  secret_key?: string | Redacted.Redacted<string>;
+  secret_key: string | Redacted.Redacted<string>;
   /** Checksum of the Secret key. */
-  secret_checksum?: string;
+  secret_checksum: string;
   /** Permissions associated with these credentials. */
   permissions?: SqsPermissions;
 }
 export const SqsCredentials = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
-    region: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    project_id: S.String,
+    region: S.String,
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
-    access_key: S.optional(S.String),
-    secret_key: S.optional(S.String.pipe(T.SensitiveValue({}))),
-    secret_checksum: S.optional(S.String),
+    access_key: S.String,
+    secret_key: S.String.pipe(T.SensitiveValue({})),
+    secret_checksum: S.String,
     permissions: S.optional(SqsPermissions),
   }),
 ).annotate({ identifier: "SqsCredentials" }) as any as S.Schema<SqsCredentials>;
@@ -295,13 +295,13 @@ export const ListSqsCredentialsResponseSqsCredentialsList = /*@__PURE__*/ S.Arra
 
 export interface ListSqsCredentialsResponse {
   /** Total count of existing credentials (matching any filters specified). */
-  total_count?: number;
+  total_count: number;
   /** Queues credentials on this page. */
   sqs_credentials: ListSqsCredentialsResponseSqsCredentialsList;
 }
 export const ListSqsCredentialsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
     sqs_credentials: ListSqsCredentialsResponseSqsCredentialsList,
   }),
 ).annotate({
