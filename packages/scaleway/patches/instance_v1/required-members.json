@@ -1,0 +1,557 @@
+{
+  "description": "The Instance v1 document marks almost no response member required, and the legacy Instance API it describes sends null, not \"\", for a string with no value, so convert leaves this document's plain strings optional (NULL_STRINGS in scripts/convert.ts). These members were set on every response in two probes of the live Project on 2026-10-14 (zones fr-par-1/2/3, nl-ams-1/2/3, pl-waw-1/2/3 and it-mil-1: server, volume and image catalogues, the dashboard and every list; in nl-ams-1 a STARDUST1-S server with a routed IPv4 and a routed IPv6 address, two security groups with three rules, a placement group, a private NIC, a local volume, a snapshot and an image, each created, read, updated and listed; 19,677 observations of these members, none null or absent; the second probe decoded every response under ResponseValidation.strict): the identifiers, names, zones, Projects and Organizations of servers, IPs, security groups and their rules, placement groups, private NICs, snapshots and images, the server's commercial type, hostname, MAC address and state detail, its public IPs and location, server type SKUs and GPU names, task links, volume type names; and the resource every Create/Get/Update response wraps (`GetServerResponse.server`, `CreateIpResponse.ip`, ...). Left optional because they were null: `Ip.address` (routed IPv6), `Ip.prefix` (routed IPv4), `SecurityGroup.description` (none given); and because the probe never saw them set: `ServerIpv6`, `ServerMaintenance`, `ServerFilesystem` and `Volume` members (`Volume` is also the SetImage request's `extra_volumes` value, so requiring its members would make callers send them).",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Image/members/from_server/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Image/members/id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Image/members/name/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Image/members/organization/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Image/members/project/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Image/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Ip/members/id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Ip/members/ipam_id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Ip/members/organization/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Ip/members/project/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Ip/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroup/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroup/members/name/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroup/members/organization/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroup/members/project/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroup/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroupServer/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PlacementGroupServer/members/name/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PrivateNIC/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PrivateNIC/members/mac_address/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PrivateNIC/members/private_network_id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PrivateNIC/members/server_id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#PrivateNIC/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroup/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroup/members/name/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroup/members/organization/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroup/members/project/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroup/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroupRule/members/id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroupRule/members/ip_range/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroupRule/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroupSummary/members/id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#SecurityGroupSummary/members/name/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/commercial_type/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/hostname/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/mac_address/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/name/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/organization/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/project/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/state_detail/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Server/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerIp/members/address/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerIp/members/gateway/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerIp/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerIp/members/ipam_id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerIp/members/netmask/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerLocation/members/cluster_id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerLocation/members/hypervisor_id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerLocation/members/node_id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerLocation/members/platform_id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerLocation/members/zone_id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerType/members/sku/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerTypeGPUInfo/members/gpu_manufacturer/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#ServerTypeGPUInfo/members/gpu_name/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Snapshot/members/id/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Snapshot/members/name/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Snapshot/members/organization/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Snapshot/members/project/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Snapshot/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Task/members/href_from/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#Task/members/href_result/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#VolumeServer/members/id/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#VolumeServer/members/zone/traits/smithy.api#required",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#VolumeType/members/display_name/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetDashboardResponse/members/dashboard/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateImageResponse/members/image/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetImageResponse/members/image/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateImageResponse/members/image/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateIpResponse/members/ip/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetIpResponse/members/ip/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateIpResponse/members/ip/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreatePlacementGroupResponse/members/placement_group/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetPlacementGroupResponse/members/placement_group/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdatePlacementGroupResponse/members/placement_group/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateSecurityGroupResponse/members/security_group/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetSecurityGroupResponse/members/security_group/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateSecurityGroupResponse/members/security_group/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateSecurityGroupRuleResponse/members/rule/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetSecurityGroupRuleResponse/members/rule/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateSecurityGroupRuleResponse/members/rule/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateServerResponse/members/server/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetServerResponse/members/server/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateServerResponse/members/server/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreatePrivateNICResponse/members/private_nic/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetPrivateNICResponse/members/private_nic/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateSnapshotResponse/members/snapshot/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetSnapshotResponse/members/snapshot/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateSnapshotResponse/members/snapshot/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#CreateVolumeResponse/members/volume/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#GetVolumeResponse/members/volume/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v1#UpdateVolumeResponse/members/volume/traits",
+      "value": {
+        "smithy.api#required": {}
+      }
+    }
+  ]
+}

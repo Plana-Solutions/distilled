@@ -200,11 +200,32 @@ const WRAPPERS: Record<string, Record<string, unknown>> = {
  * {@link requireEmitted} leaves them alone.
  */
 const NOT_PROTO_JSON: Record<string, string> = {
-  // The legacy Instance API answers `null` for members the document types
-  // as plain strings (`SecurityGroup.description`, 2026-10-14).
-  instance_v1: "legacy API, sends null for non-nullable members",
   // OpenAI-shaped schemas, not generated from protos.
   generative_apis_openai_v1: "OpenAI-compatible schemas",
+};
+
+/**
+ * Documents whose responses send `null`, not `""`, for a plain string with
+ * no value, so {@link requireEmitted} leaves their plain strings optional
+ * and requires only their other members. The strings such a document always
+ * sets are required by a patch, from wire evidence.
+ *
+ * Instance v1 is served by the legacy Instance API rather than a proto3
+ * gateway. In two 2026-10-14 probes of the live Project (catalogues and
+ * lists in ten zones, plus in nl-ams-1 a STARDUST1-S server with routed
+ * IPv4 and IPv6 addresses, two security groups with rules, a placement
+ * group, a private NIC, a local volume, a snapshot and an image, each
+ * created, read, updated and listed), `Ip.address` was `null` on the IPv6
+ * address, `Ip.prefix` on the IPv4 one and `SecurityGroup.description` on a
+ * group created without one, while the 105 enum, number, boolean, list and
+ * map members this rule selects that the probes reached were present on
+ * every response (43,405 observations), and the second probe decoded all
+ * 243 responses under `ResponseValidation.strict`.
+ * `patches/instance_v1/required-members.json` requires the strings that
+ * were set every time.
+ */
+const NULL_STRINGS: Record<string, string> = {
+  instance_v1: "legacy Instance API, sends null for an unset string",
 };
 
 /** Components a schema node references, directly or through nested schemas. */
@@ -239,9 +260,10 @@ const closure = (spec: any, names: Set<string>): Set<string> => {
  * probes), as are nullable types and `oneOf` members, which the document
  * already marks `null`-able.
  */
-const isEmitted = (spec: any, prop: any): boolean => {
+const isEmitted = (spec: any, prop: any, strings: boolean): boolean => {
   if (prop === null || typeof prop !== "object" || prop.deprecated === true) return false;
   if (prop["x-one-of"] !== undefined) return false;
+  if (!strings && prop.type === "string") return false;
   if (prop.$ref !== undefined) {
     const target = deref(spec, prop);
     return target !== prop && target?.type === "string" && Array.isArray(target.enum);
@@ -276,7 +298,7 @@ const isEmitted = (spec: any, prop: any): boolean => {
  * all fails with `ScalewayParseError`; the remedy is a patch removing
  * `smithy.api#required` from that member.
  */
-const requireEmitted = (spec: any, skip: ReadonlySet<string>): void => {
+const requireEmitted = (spec: any, skip: ReadonlySet<string>, strings: boolean): void => {
   const responses = new Set<string>();
   const requests = new Set<string>();
   const inlineResponses: any[] = [];
@@ -310,7 +332,7 @@ const requireEmitted = (spec: any, skip: ReadonlySet<string>): void => {
     if (props === null || typeof props !== "object") continue;
     const required = new Set<string>(Array.isArray(schema.required) ? schema.required : []);
     for (const [name, prop] of Object.entries(props)) {
-      if (isEmitted(spec, prop)) required.add(name);
+      if (isEmitted(spec, prop, strings)) required.add(name);
     }
     if (required.size > 0) schema.required = [...required];
   }
@@ -347,7 +369,7 @@ const preprocess = (entry: ManifestEntry) => (spec: any) => {
     if (spec.components?.schemas?.[name] !== undefined) spec.components.schemas[name] = schema;
   }
   if (entry.source === undefined && NOT_PROTO_JSON[slug] === undefined) {
-    requireEmitted(spec, derived);
+    requireEmitted(spec, derived, NULL_STRINGS[slug] === undefined);
   }
 
   // `scaleway.instance.v1.` is this document's own package.

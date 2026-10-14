@@ -34,6 +34,7 @@ import { listEvents } from "./services/audit_trail_v1alpha1.ts";
 import { createContainer } from "./services/containers_v1.ts";
 import { listModels } from "./services/generative_apis_openai_v1.ts";
 import {
+  getIp,
   getServer,
   getServerUserData,
   listServers,
@@ -524,11 +525,24 @@ describe("secret maps", () => {
 
 describe("success decoding", () => {
   test("null properties are dropped, as the official SDKs do", async () => {
-    const { layer } = fakeScaleway(
-      json(200, { server: { id: serverId, name: "web", public_ip: null, tags: ["a"] } }),
-    );
+    // A routed IPv6 address as Instance v1 answers it: no `address`, no server.
+    const ip = {
+      id: serverId,
+      address: null,
+      prefix: "2001:db8::/64",
+      reverse: null,
+      server: null,
+      organization: serverId,
+      project: serverId,
+      tags: ["a"],
+      type: "routed_ipv6",
+      state: "detached",
+      ipam_id: serverId,
+      zone: "fr-par-1",
+    };
+    const { layer } = fakeScaleway(json(200, { ip }));
     const result = await Effect.runPromise(
-      getServer({ server_id: serverId }).pipe(
+      getIp({ ip: serverId }).pipe(
         Retry.none,
         Effect.provide(creds()),
         Effect.provide(layer),
@@ -537,7 +551,8 @@ describe("success decoding", () => {
       ),
     );
     expect(result._tag).toBe("Success");
-    expect((result as any).success.server).not.toHaveProperty("public_ip");
+    expect((result as any).success.ip).not.toHaveProperty("address");
+    expect((result as any).success.ip).not.toHaveProperty("server");
   });
 
   test("the 2xx JSON body is the payload", async () => {

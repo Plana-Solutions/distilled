@@ -211,42 +211,42 @@ export type ImageTagsList = Array<string>;
 export const ImageTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<ImageTagsList>;
 
 export interface Image {
-  id?: string;
-  name?: string;
-  arch?: Arch;
+  id: string;
+  name: string;
+  arch: Arch;
   /** (RFC 3339 format) */
   creation_date?: string | null;
   /** (RFC 3339 format) */
   modification_date?: string | null;
   default_bootscript?: Bootscript;
-  extra_volumes?: ImageExtraVolumesMap;
-  from_server?: string;
-  organization?: string;
-  public?: boolean;
+  extra_volumes: ImageExtraVolumesMap;
+  from_server: string;
+  organization: string;
+  public: boolean;
   root_volume?: VolumeSummary;
-  state?: ImageState;
-  project?: string;
-  tags?: ImageTagsList;
+  state: ImageState;
+  project: string;
+  tags: ImageTagsList;
   /** The zone you want to target */
-  zone?: string;
+  zone: string;
 }
 export const Image = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    arch: S.optional(Arch),
+    id: S.String,
+    name: S.String,
+    arch: Arch,
     creation_date: S.optional(S.NullOr(S.String)),
     modification_date: S.optional(S.NullOr(S.String)),
     default_bootscript: S.optional(Bootscript),
-    extra_volumes: S.optional(ImageExtraVolumesMap),
-    from_server: S.optional(S.String),
-    organization: S.optional(S.String),
-    public: S.optional(S.Boolean),
+    extra_volumes: ImageExtraVolumesMap,
+    from_server: S.String,
+    organization: S.String,
+    public: S.Boolean,
     root_volume: S.optional(VolumeSummary),
-    state: S.optional(ImageState),
-    project: S.optional(S.String),
-    tags: S.optional(ImageTagsList),
-    zone: S.optional(S.String),
+    state: ImageState,
+    project: S.String,
+    tags: ImageTagsList,
+    zone: S.String,
   }),
 ).annotate({ identifier: "Image" }) as any as S.Schema<Image>;
 
@@ -267,38 +267,38 @@ export const ServerIpState = S.String;
 
 export interface ServerIp {
   /** Unique ID of the IP address. */
-  id?: string;
+  id: string;
   /** Instance's public IP-Address. (IP address) */
-  address?: string;
+  address: string;
   /** Gateway's IP address. (IP address) */
-  gateway?: string;
+  gateway: string;
   /** CIDR netmask. */
-  netmask?: string;
+  netmask: string;
   /** IP address family (inet or inet6). */
-  family?: ServerIpIpFamily;
+  family: ServerIpIpFamily;
   /** True if the IP address is dynamic. */
-  dynamic?: boolean;
+  dynamic: boolean;
   /** Information about this address provisioning mode. */
-  provisioning_mode?: ServerIpProvisioningMode;
+  provisioning_mode: ServerIpProvisioningMode;
   /** Tags associated with the IP. */
-  tags?: ServerIpTagsList;
+  tags: ServerIpTagsList;
   /** The ip_id of an IPAM ip if the ip is created from IPAM, null if not. (UUID format) */
-  ipam_id?: string;
+  ipam_id: string;
   /** IP address state. */
-  state?: ServerIpState;
+  state: ServerIpState;
 }
 export const ServerIp = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    address: S.optional(S.String),
-    gateway: S.optional(S.String),
-    netmask: S.optional(S.String),
-    family: S.optional(ServerIpIpFamily),
-    dynamic: S.optional(S.Boolean),
-    provisioning_mode: S.optional(ServerIpProvisioningMode),
-    tags: S.optional(ServerIpTagsList),
-    ipam_id: S.optional(S.String),
-    state: S.optional(ServerIpState),
+    id: S.String,
+    address: S.String,
+    gateway: S.String,
+    netmask: S.String,
+    family: ServerIpIpFamily,
+    dynamic: S.Boolean,
+    provisioning_mode: ServerIpProvisioningMode,
+    tags: ServerIpTagsList,
+    ipam_id: S.String,
+    state: ServerIpState,
   }),
 ).annotate({ identifier: "ServerIp" }) as any as S.Schema<ServerIp>;
 
@@ -318,19 +318,19 @@ export type ServerState =
 export const ServerState = S.String;
 
 export interface ServerLocation {
-  cluster_id?: string;
-  hypervisor_id?: string;
-  node_id?: string;
-  platform_id?: string;
-  zone_id?: string;
+  cluster_id: string;
+  hypervisor_id: string;
+  node_id: string;
+  platform_id: string;
+  zone_id: string;
 }
 export const ServerLocation = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    cluster_id: S.optional(S.String),
-    hypervisor_id: S.optional(S.String),
-    node_id: S.optional(S.String),
-    platform_id: S.optional(S.String),
-    zone_id: S.optional(S.String),
+    cluster_id: S.String,
+    hypervisor_id: S.String,
+    node_id: S.String,
+    platform_id: S.String,
+    zone_id: S.String,
   }),
 ).annotate({ identifier: "ServerLocation" }) as any as S.Schema<ServerLocation>;
 
@@ -368,39 +368,39 @@ export type VolumeServerState =
 export const VolumeServerState = S.String;
 
 export interface VolumeServer {
-  id?: string;
+  id: string;
   name?: string | null;
   export_uri?: string | null;
   organization?: string | null;
   server?: ServerSummary;
   /** (in bytes) */
   size?: number | null;
-  volume_type?: VolumeServerVolumeType;
+  volume_type: VolumeServerVolumeType;
   /** (RFC 3339 format) */
   creation_date?: string | null;
   /** (RFC 3339 format) */
   modification_date?: string | null;
-  state?: VolumeServerState;
+  state: VolumeServerState;
   project?: string | null;
-  boot?: boolean;
+  boot: boolean;
   /** The zone you want to target */
-  zone?: string;
+  zone: string;
 }
 export const VolumeServer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     name: S.optional(S.NullOr(S.String)),
     export_uri: S.optional(S.NullOr(S.String)),
     organization: S.optional(S.NullOr(S.String)),
     server: S.optional(ServerSummary),
     size: S.optional(S.NullOr(S.Number)),
-    volume_type: S.optional(VolumeServerVolumeType),
+    volume_type: VolumeServerVolumeType,
     creation_date: S.optional(S.NullOr(S.String)),
     modification_date: S.optional(S.NullOr(S.String)),
-    state: S.optional(VolumeServerState),
+    state: VolumeServerState,
     project: S.optional(S.NullOr(S.String)),
-    boot: S.optional(S.Boolean),
-    zone: S.optional(S.String),
+    boot: S.Boolean,
+    zone: S.String,
   }),
 ).annotate({ identifier: "VolumeServer" }) as any as S.Schema<VolumeServer>;
 
@@ -411,8 +411,16 @@ export const ServerVolumesMap = /*@__PURE__*/ S.Record(
   VolumeServer,
 ) as any as S.Schema<ServerVolumesMap>;
 
-export type SecurityGroupSummary = ServerSummary;
-export const SecurityGroupSummary = ServerSummary;
+export interface SecurityGroupSummary {
+  id: string;
+  name: string;
+}
+export const SecurityGroupSummary = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.String,
+    name: S.String,
+  }),
+).annotate({ identifier: "SecurityGroupSummary" }) as any as S.Schema<SecurityGroupSummary>;
 
 export interface ServerMaintenance {
   reason?: string;
@@ -446,35 +454,35 @@ export const PlacementGroupPolicyType = S.String;
 
 export interface PlacementGroup {
   /** Placement group unique ID. */
-  id?: string;
+  id: string;
   /** Placement group name. */
-  name?: string;
+  name: string;
   /** Placement group Organization ID. */
-  organization?: string;
+  organization: string;
   /** Placement group Project ID. */
-  project?: string;
+  project: string;
   /** Placement group tags. */
-  tags?: PlacementGroupTagsList;
+  tags: PlacementGroupTagsList;
   /** Select the failure mode when the placement cannot be respected, either optional or enforced. */
-  policy_mode?: PlacementGroupPolicyMode;
+  policy_mode: PlacementGroupPolicyMode;
   /** Select the behavior of the placement group, either low_latency (group) or max_availability (spread). */
-  policy_type?: PlacementGroupPolicyType;
+  policy_type: PlacementGroupPolicyType;
   /** True if the policy is respected, false otherwise. In the server endpoints the value is always false as it is deprecated. In the placement group endpoints the value is correct. */
-  policy_respected?: boolean;
+  policy_respected: boolean;
   /** Zone in which the placement group is located. */
-  zone?: string;
+  zone: string;
 }
 export const PlacementGroup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization: S.optional(S.String),
-    project: S.optional(S.String),
-    tags: S.optional(PlacementGroupTagsList),
-    policy_mode: S.optional(PlacementGroupPolicyMode),
-    policy_type: S.optional(PlacementGroupPolicyType),
-    policy_respected: S.optional(S.Boolean),
-    zone: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    organization: S.String,
+    project: S.String,
+    tags: PlacementGroupTagsList,
+    policy_mode: PlacementGroupPolicyMode,
+    policy_type: PlacementGroupPolicyType,
+    policy_respected: S.Boolean,
+    zone: S.String,
   }),
 ).annotate({ identifier: "PlacementGroup" }) as any as S.Schema<PlacementGroup>;
 
@@ -495,35 +503,35 @@ export const PrivateNICIpamIpIdsList = /*@__PURE__*/ S.Array(
 
 export interface PrivateNIC {
   /** Private NIC unique ID. */
-  id?: string;
+  id: string;
   /** Instance to which the private NIC is attached. */
-  server_id?: string;
+  server_id: string;
   /** Private Network the private NIC is attached to. */
-  private_network_id?: string;
+  private_network_id: string;
   /** Private NIC MAC address. */
-  mac_address?: string;
+  mac_address: string;
   /** Private NIC state. */
-  state?: PrivateNICState;
+  state: PrivateNICState;
   /** Private NIC tags. */
-  tags?: PrivateNICTagsList;
+  tags: PrivateNICTagsList;
   /** Private NIC creation date. (RFC 3339 format) */
   creation_date?: string | null;
   /** The zone in which the Private NIC is located. */
-  zone?: string;
+  zone: string;
   /** The list of IPAM IPs associated with this private NIC. (UUID format) */
-  ipam_ip_ids?: PrivateNICIpamIpIdsList;
+  ipam_ip_ids: PrivateNICIpamIpIdsList;
 }
 export const PrivateNIC = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    server_id: S.optional(S.String),
-    private_network_id: S.optional(S.String),
-    mac_address: S.optional(S.String),
-    state: S.optional(PrivateNICState),
-    tags: S.optional(PrivateNICTagsList),
+    id: S.String,
+    server_id: S.String,
+    private_network_id: S.String,
+    mac_address: S.String,
+    state: PrivateNICState,
+    tags: PrivateNICTagsList,
     creation_date: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
-    ipam_ip_ids: S.optional(PrivateNICIpamIpIdsList),
+    zone: S.String,
+    ipam_ip_ids: PrivateNICIpamIpIdsList,
   }),
 ).annotate({ identifier: "PrivateNIC" }) as any as S.Schema<PrivateNIC>;
 
@@ -539,12 +547,12 @@ export const ServerFilesystemState = S.String;
 export interface ServerFilesystem {
   /** (UUID format) */
   filesystem_id?: string;
-  state?: ServerFilesystemState;
+  state: ServerFilesystemState;
 }
 export const ServerFilesystem = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     filesystem_id: S.optional(S.String),
-    state: S.optional(ServerFilesystemState),
+    state: ServerFilesystemState,
   }),
 ).annotate({ identifier: "ServerFilesystem" }) as any as S.Schema<ServerFilesystem>;
 
@@ -556,115 +564,115 @@ export const ServerFilesystemsList = /*@__PURE__*/ S.Array(
 
 export interface Server {
   /** Instance unique ID. */
-  id?: string;
+  id: string;
   /** Instance name. */
-  name?: string;
+  name: string;
   /** Instance Organization ID. */
-  organization?: string;
+  organization: string;
   /** Instance Project ID. */
-  project?: string;
+  project: string;
   /** List of allowed actions on the Instance. */
-  allowed_actions?: ServerAllowedActionsList;
+  allowed_actions: ServerAllowedActionsList;
   /** Tags associated with the Instance. */
-  tags?: ServerTagsList;
+  tags: ServerTagsList;
   /** Instance commercial type (eg. GP1-M). */
-  commercial_type?: string;
+  commercial_type: string;
   /** Instance creation date. (RFC 3339 format) */
   creation_date?: string | null;
   /** True if a dynamic IPv4 is required. */
-  dynamic_ip_required?: boolean;
+  dynamic_ip_required: boolean;
   /** True to configure the instance so it uses the routed IP mode. Use of `routed_ip_enabled` as `False` is deprecated. */
   routed_ip_enabled?: boolean;
   /** True if IPv6 is enabled (deprecated and always `False` when `routed_ip_enabled` is `True`). */
   enable_ipv6?: boolean;
   /** Instance host name. */
-  hostname?: string;
+  hostname: string;
   /** Information about the Instance image. */
   image?: Image;
   /** Defines whether the Instance protection option is activated. */
-  protected?: boolean;
+  protected: boolean;
   /** Private IP address of the Instance (deprecated and always `null` when `routed_ip_enabled` is `True`). */
   private_ip?: string | null;
   /** Information about the public IP (deprecated in favor of `public_ips`). */
   public_ip?: ServerIp;
   /** Information about all the public IPs attached to the server. */
-  public_ips?: ServerPublicIpsList;
+  public_ips: ServerPublicIpsList;
   /** The server's MAC address. */
-  mac_address?: string;
+  mac_address: string;
   /** Instance modification date. (RFC 3339 format) */
   modification_date?: string | null;
   /** Instance state. */
-  state?: ServerState;
+  state: ServerState;
   /** Instance location. */
   location?: ServerLocation;
   /** Instance IPv6 address (deprecated when `routed_ip_enabled` is `True`). */
   ipv6?: ServerIpv6;
   /** Instance boot type. */
-  boot_type?: BootType;
+  boot_type: BootType;
   /** Instance volumes. */
-  volumes?: ServerVolumesMap;
+  volumes: ServerVolumesMap;
   /** Instance security group. */
-  security_group?: ServerSummary;
+  security_group?: SecurityGroupSummary;
   /** Instance planned maintenance. */
-  maintenances?: ServerMaintenancesList;
+  maintenances: ServerMaintenancesList;
   /** Detailed information about the Instance state. */
-  state_detail?: string;
+  state_detail: string;
   /** Instance architecture. */
-  arch?: Arch;
+  arch: Arch;
   /** Instance placement group. */
   placement_group?: PlacementGroup;
   /** Instance private NICs. */
-  private_nics?: ServerPrivateNicsList;
+  private_nics: ServerPrivateNicsList;
   /** Zone in which the Instance is located. */
-  zone?: string;
+  zone: string;
   /** UUID of the SSH RSA key that will be used to encrypt the initial admin password for OS requiring it. Mandatory for Windows OS. The public_key value of this key is used to encrypt the admin password. When set to an empty string, reset this value and admin_password_encrypted_value to an empty string so a new password may be generated. */
   admin_password_encryption_ssh_key_id?: string | null;
   /** A base64 encoded string containing the admin password encrypted with the public key pointed to by admin_password_encryption_ssh_key_id. This value is reset when admin_password_encryption_ssh_key_id is set to an empty string. */
   admin_password_encrypted_value?: string | Redacted.Redacted<string> | null;
   /** List of attached filesystems. */
-  filesystems?: ServerFilesystemsList;
+  filesystems: ServerFilesystemsList;
   /** True if the Instance type has reached end of service. */
-  end_of_service?: boolean;
+  end_of_service: boolean;
   /** Public DNS of the server. */
   dns?: string | null;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization: S.optional(S.String),
-    project: S.optional(S.String),
-    allowed_actions: S.optional(ServerAllowedActionsList),
-    tags: S.optional(ServerTagsList),
-    commercial_type: S.optional(S.String),
+    id: S.String,
+    name: S.String,
+    organization: S.String,
+    project: S.String,
+    allowed_actions: ServerAllowedActionsList,
+    tags: ServerTagsList,
+    commercial_type: S.String,
     creation_date: S.optional(S.NullOr(S.String)),
-    dynamic_ip_required: S.optional(S.Boolean),
+    dynamic_ip_required: S.Boolean,
     routed_ip_enabled: S.optional(S.Boolean),
     enable_ipv6: S.optional(S.Boolean),
-    hostname: S.optional(S.String),
+    hostname: S.String,
     image: S.optional(Image),
-    protected: S.optional(S.Boolean),
+    protected: S.Boolean,
     private_ip: S.optional(S.NullOr(S.String)),
     public_ip: S.optional(ServerIp),
-    public_ips: S.optional(ServerPublicIpsList),
-    mac_address: S.optional(S.String),
+    public_ips: ServerPublicIpsList,
+    mac_address: S.String,
     modification_date: S.optional(S.NullOr(S.String)),
-    state: S.optional(ServerState),
+    state: ServerState,
     location: S.optional(ServerLocation),
     ipv6: S.optional(ServerIpv6),
-    boot_type: S.optional(BootType),
-    volumes: S.optional(ServerVolumesMap),
-    security_group: S.optional(ServerSummary),
-    maintenances: S.optional(ServerMaintenancesList),
-    state_detail: S.optional(S.String),
-    arch: S.optional(Arch),
+    boot_type: BootType,
+    volumes: ServerVolumesMap,
+    security_group: S.optional(SecurityGroupSummary),
+    maintenances: ServerMaintenancesList,
+    state_detail: S.String,
+    arch: Arch,
     placement_group: S.optional(PlacementGroup),
-    private_nics: S.optional(ServerPrivateNicsList),
-    zone: S.optional(S.String),
+    private_nics: ServerPrivateNicsList,
+    zone: S.String,
     admin_password_encryption_ssh_key_id: S.optional(S.NullOr(S.String)),
     admin_password_encrypted_value: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
-    filesystems: S.optional(ServerFilesystemsList),
-    end_of_service: S.optional(S.Boolean),
+    filesystems: ServerFilesystemsList,
+    end_of_service: S.Boolean,
     dns: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
@@ -872,11 +880,11 @@ export const CreateImageRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateImageRequest" }) as any as S.Schema<CreateImageRequest>;
 
 export interface CreateImageResponse {
-  image?: Image;
+  image: Image;
 }
 export const CreateImageResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    image: S.optional(Image),
+    image: Image,
   }),
 ).annotate({ identifier: "CreateImageResponse" }) as any as S.Schema<CreateImageResponse>;
 
@@ -941,46 +949,46 @@ export type IpState = "unknown_state" | "detached" | "attached" | "pending" | "e
 export const IpState = S.String;
 
 export interface Ip {
-  id?: string;
+  id: string;
   /** (IP address) */
   address?: string;
   reverse?: string | null;
   server?: ServerSummary;
-  organization?: string;
-  tags?: IpTagsList;
-  project?: string;
-  type?: IpType;
-  state?: IpState;
+  organization: string;
+  tags: IpTagsList;
+  project: string;
+  type: IpType;
+  state: IpState;
   /** (IP network) */
   prefix?: string;
   /** (UUID format) */
-  ipam_id?: string;
+  ipam_id: string;
   /** The zone you want to target */
-  zone?: string;
+  zone: string;
 }
 export const Ip = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    id: S.String,
     address: S.optional(S.String),
     reverse: S.optional(S.NullOr(S.String)),
     server: S.optional(ServerSummary),
-    organization: S.optional(S.String),
-    tags: S.optional(IpTagsList),
-    project: S.optional(S.String),
-    type: S.optional(IpType),
-    state: S.optional(IpState),
+    organization: S.String,
+    tags: IpTagsList,
+    project: S.String,
+    type: IpType,
+    state: IpState,
     prefix: S.optional(S.String),
-    ipam_id: S.optional(S.String),
-    zone: S.optional(S.String),
+    ipam_id: S.String,
+    zone: S.String,
   }),
 ).annotate({ identifier: "Ip" }) as any as S.Schema<Ip>;
 
 export interface CreateIpResponse {
-  ip?: Ip;
+  ip: Ip;
 }
 export const CreateIpResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip: S.optional(Ip),
+    ip: Ip,
   }),
 ).annotate({ identifier: "CreateIpResponse" }) as any as S.Schema<CreateIpResponse>;
 
@@ -1041,11 +1049,11 @@ export const CreatePlacementGroupRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<CreatePlacementGroupRequest>;
 
 export interface CreatePlacementGroupResponse {
-  placement_group?: PlacementGroup;
+  placement_group: PlacementGroup;
 }
 export const CreatePlacementGroupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    placement_group: S.optional(PlacementGroup),
+    placement_group: PlacementGroup,
   }),
 ).annotate({
   identifier: "CreatePlacementGroupResponse",
@@ -1106,11 +1114,11 @@ export const CreatePrivateNICRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreatePrivateNICRequest" }) as any as S.Schema<CreatePrivateNICRequest>;
 
 export interface CreatePrivateNICResponse {
-  private_nic?: PrivateNIC;
+  private_nic: PrivateNIC;
 }
 export const CreatePrivateNICResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_nic: S.optional(PrivateNIC),
+    private_nic: PrivateNIC,
   }),
 ).annotate({ identifier: "CreatePrivateNICResponse" }) as any as S.Schema<CreatePrivateNICResponse>;
 
@@ -1205,68 +1213,68 @@ export const SecurityGroupState = S.String;
 
 export interface SecurityGroup {
   /** Security group unique ID. */
-  id?: string;
+  id: string;
   /** Security group name. */
-  name?: string;
+  name: string;
   /** Security group description. */
   description?: string;
   /** True if SMTP is blocked on IPv4 and IPv6. This feature is read only, please open a support ticket if you need to make it configurable. */
-  enable_default_security?: boolean;
+  enable_default_security: boolean;
   /** Default inbound policy. */
-  inbound_default_policy?: SecurityGroupPolicy;
+  inbound_default_policy: SecurityGroupPolicy;
   /** Default outbound policy. */
-  outbound_default_policy?: SecurityGroupPolicy;
+  outbound_default_policy: SecurityGroupPolicy;
   /** Security group Organization ID. */
-  organization?: string;
+  organization: string;
   /** Security group Project ID. */
-  project?: string;
+  project: string;
   /** Security group tags. */
-  tags?: SecurityGroupTagsList;
+  tags: SecurityGroupTagsList;
   /** True if it is your default security group for this Organization ID. */
   organization_default?: boolean;
   /** True if it is your default security group for this Project ID. */
-  project_default?: boolean;
+  project_default: boolean;
   /** Security group creation date. (RFC 3339 format) */
   creation_date?: string | null;
   /** Security group modification date. (RFC 3339 format) */
   modification_date?: string | null;
   /** List of Instances attached to this security group. */
-  servers?: SecurityGroupServersList;
+  servers: SecurityGroupServersList;
   /** Defines whether the security group is stateful. */
-  stateful?: boolean;
+  stateful: boolean;
   /** The state of the security group. Set to `syncing` (until the changes. Are applied) when the security group is updated (e.g., rules added, modified, or deleted) or when it is attached to or detached from a server's public network interface. */
-  state?: SecurityGroupState;
+  state: SecurityGroupState;
   /** Zone in which the security group is located. */
-  zone?: string;
+  zone: string;
 }
 export const SecurityGroup = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
+    id: S.String,
+    name: S.String,
     description: S.optional(S.String),
-    enable_default_security: S.optional(S.Boolean),
-    inbound_default_policy: S.optional(SecurityGroupPolicy),
-    outbound_default_policy: S.optional(SecurityGroupPolicy),
-    organization: S.optional(S.String),
-    project: S.optional(S.String),
-    tags: S.optional(SecurityGroupTagsList),
+    enable_default_security: S.Boolean,
+    inbound_default_policy: SecurityGroupPolicy,
+    outbound_default_policy: SecurityGroupPolicy,
+    organization: S.String,
+    project: S.String,
+    tags: SecurityGroupTagsList,
     organization_default: S.optional(S.Boolean),
-    project_default: S.optional(S.Boolean),
+    project_default: S.Boolean,
     creation_date: S.optional(S.NullOr(S.String)),
     modification_date: S.optional(S.NullOr(S.String)),
-    servers: S.optional(SecurityGroupServersList),
-    stateful: S.optional(S.Boolean),
-    state: S.optional(SecurityGroupState),
-    zone: S.optional(S.String),
+    servers: SecurityGroupServersList,
+    stateful: S.Boolean,
+    state: SecurityGroupState,
+    zone: S.String,
   }),
 ).annotate({ identifier: "SecurityGroup" }) as any as S.Schema<SecurityGroup>;
 
 export interface CreateSecurityGroupResponse {
-  security_group?: SecurityGroup;
+  security_group: SecurityGroup;
 }
 export const CreateSecurityGroupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    security_group: S.optional(SecurityGroup),
+    security_group: SecurityGroup,
   }),
 ).annotate({
   identifier: "CreateSecurityGroupResponse",
@@ -1338,40 +1346,40 @@ export const CreateSecurityGroupRuleRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<CreateSecurityGroupRuleRequest>;
 
 export interface SecurityGroupRule {
-  id?: string;
-  protocol?: SecurityGroupRuleProtocol;
-  direction?: SecurityGroupRuleDirection;
-  action?: SecurityGroupRuleAction;
+  id: string;
+  protocol: SecurityGroupRuleProtocol;
+  direction: SecurityGroupRuleDirection;
+  action: SecurityGroupRuleAction;
   /** (IP network) */
-  ip_range?: string;
+  ip_range: string;
   dest_port_from?: number | null;
   dest_port_to?: number | null;
-  position?: number;
-  editable?: boolean;
+  position: number;
+  editable: boolean;
   /** The zone you want to target */
-  zone?: string;
+  zone: string;
 }
 export const SecurityGroupRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    protocol: S.optional(SecurityGroupRuleProtocol),
-    direction: S.optional(SecurityGroupRuleDirection),
-    action: S.optional(SecurityGroupRuleAction),
-    ip_range: S.optional(S.String),
+    id: S.String,
+    protocol: SecurityGroupRuleProtocol,
+    direction: SecurityGroupRuleDirection,
+    action: SecurityGroupRuleAction,
+    ip_range: S.String,
     dest_port_from: S.optional(S.NullOr(S.Number)),
     dest_port_to: S.optional(S.NullOr(S.Number)),
-    position: S.optional(S.Number),
-    editable: S.optional(S.Boolean),
-    zone: S.optional(S.String),
+    position: S.Number,
+    editable: S.Boolean,
+    zone: S.String,
   }),
 ).annotate({ identifier: "SecurityGroupRule" }) as any as S.Schema<SecurityGroupRule>;
 
 export interface CreateSecurityGroupRuleResponse {
-  rule?: SecurityGroupRule;
+  rule: SecurityGroupRule;
 }
 export const CreateSecurityGroupRuleResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rule: S.optional(SecurityGroupRule),
+    rule: SecurityGroupRule,
   }),
 ).annotate({
   identifier: "CreateSecurityGroupRuleResponse",
@@ -1509,11 +1517,11 @@ export const CreateServerRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateServerRequest" }) as any as S.Schema<CreateServerRequest>;
 
 export interface CreateServerResponse {
-  server?: Server;
+  server: Server;
 }
 export const CreateServerResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server: S.optional(Server),
+    server: Server,
   }),
 ).annotate({ identifier: "CreateServerResponse" }) as any as S.Schema<CreateServerResponse>;
 
@@ -1613,21 +1621,21 @@ export const SnapshotBaseVolume = /*@__PURE__*/ S.suspend(() =>
 
 export interface Snapshot {
   /** Snapshot ID. */
-  id?: string;
+  id: string;
   /** Snapshot name. */
-  name?: string;
+  name: string;
   /** Snapshot Organization ID. */
-  organization?: string;
+  organization: string;
   /** Snapshot Project ID. */
-  project?: string;
+  project: string;
   /** Snapshot tags. */
-  tags?: SnapshotTagsList;
+  tags: SnapshotTagsList;
   /** Snapshot volume type. */
-  volume_type?: VolumeVolumeType;
+  volume_type: VolumeVolumeType;
   /** Snapshot size. (in bytes) */
-  size?: number;
+  size: number;
   /** Snapshot state. */
-  state?: SnapshotState;
+  state: SnapshotState;
   /** Volume on which the snapshot is based on. */
   base_volume?: SnapshotBaseVolume;
   /** Snapshot creation date. (RFC 3339 format) */
@@ -1635,24 +1643,24 @@ export interface Snapshot {
   /** Snapshot modification date. (RFC 3339 format) */
   modification_date?: string | null;
   /** Snapshot zone. */
-  zone?: string;
+  zone: string;
   /** Reason for the failed snapshot import. */
   error_reason?: string | null;
 }
 export const Snapshot = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    organization: S.optional(S.String),
-    project: S.optional(S.String),
-    tags: S.optional(SnapshotTagsList),
-    volume_type: S.optional(VolumeVolumeType),
-    size: S.optional(S.Number),
-    state: S.optional(SnapshotState),
+    id: S.String,
+    name: S.String,
+    organization: S.String,
+    project: S.String,
+    tags: SnapshotTagsList,
+    volume_type: VolumeVolumeType,
+    size: S.Number,
+    state: SnapshotState,
     base_volume: S.optional(SnapshotBaseVolume),
     creation_date: S.optional(S.NullOr(S.String)),
     modification_date: S.optional(S.NullOr(S.String)),
-    zone: S.optional(S.String),
+    zone: S.String,
     error_reason: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Snapshot" }) as any as S.Schema<Snapshot>;
@@ -1673,9 +1681,9 @@ export interface Task {
   terminated_at?: string | null;
   /** Task status. */
   status?: TaskStatus;
-  href_from?: string;
+  href_from: string;
   /** Location of the resulting resource. */
-  href_result?: string;
+  href_result: string;
   /** Zone in which the task is executed. */
   zone?: string;
 }
@@ -1687,19 +1695,19 @@ export const Task = /*@__PURE__*/ S.suspend(() =>
     started_at: S.optional(S.NullOr(S.String)),
     terminated_at: S.optional(S.NullOr(S.String)),
     status: S.optional(TaskStatus),
-    href_from: S.optional(S.String),
-    href_result: S.optional(S.String),
+    href_from: S.String,
+    href_result: S.String,
     zone: S.optional(S.String),
   }),
 ).annotate({ identifier: "Task" }) as any as S.Schema<Task>;
 
 export interface CreateSnapshotResponse {
-  snapshot?: Snapshot;
+  snapshot: Snapshot;
   task?: Task;
 }
 export const CreateSnapshotResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    snapshot: S.optional(Snapshot),
+    snapshot: Snapshot,
     task: S.optional(Task),
   }),
 ).annotate({ identifier: "CreateSnapshotResponse" }) as any as S.Schema<CreateSnapshotResponse>;
@@ -1762,11 +1770,11 @@ export const CreateVolumeRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateVolumeRequest" }) as any as S.Schema<CreateVolumeRequest>;
 
 export interface CreateVolumeResponse {
-  volume?: Volume;
+  volume: Volume;
 }
 export const CreateVolumeResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    volume: S.optional(Volume),
+    volume: Volume,
   }),
 ).annotate({ identifier: "CreateVolumeResponse" }) as any as S.Schema<CreateVolumeResponse>;
 
@@ -2347,52 +2355,52 @@ export const DashboardServersByTypesMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<DashboardServersByTypesMap>;
 
 export interface Dashboard {
-  volumes_count?: number;
-  running_servers_count?: number;
-  servers_by_types?: DashboardServersByTypesMap;
-  images_count?: number;
-  snapshots_count?: number;
-  servers_count?: number;
-  ips_count?: number;
-  security_groups_count?: number;
-  ips_unused?: number;
-  volumes_l_ssd_count?: number;
+  volumes_count: number;
+  running_servers_count: number;
+  servers_by_types: DashboardServersByTypesMap;
+  images_count: number;
+  snapshots_count: number;
+  servers_count: number;
+  ips_count: number;
+  security_groups_count: number;
+  ips_unused: number;
+  volumes_l_ssd_count: number;
   /** (in bytes) */
-  volumes_l_ssd_total_size?: number;
-  private_nics_count?: number;
-  placement_groups_count?: number;
-  volumes_scratch_count?: number;
+  volumes_l_ssd_total_size: number;
+  private_nics_count: number;
+  placement_groups_count: number;
+  volumes_scratch_count: number;
   volumes_b_ssd_count?: number;
   /** (in bytes) */
   volumes_b_ssd_total_size?: number;
 }
 export const Dashboard = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    volumes_count: S.optional(S.Number),
-    running_servers_count: S.optional(S.Number),
-    servers_by_types: S.optional(DashboardServersByTypesMap),
-    images_count: S.optional(S.Number),
-    snapshots_count: S.optional(S.Number),
-    servers_count: S.optional(S.Number),
-    ips_count: S.optional(S.Number),
-    security_groups_count: S.optional(S.Number),
-    ips_unused: S.optional(S.Number),
-    volumes_l_ssd_count: S.optional(S.Number),
-    volumes_l_ssd_total_size: S.optional(S.Number),
-    private_nics_count: S.optional(S.Number),
-    placement_groups_count: S.optional(S.Number),
-    volumes_scratch_count: S.optional(S.Number),
+    volumes_count: S.Number,
+    running_servers_count: S.Number,
+    servers_by_types: DashboardServersByTypesMap,
+    images_count: S.Number,
+    snapshots_count: S.Number,
+    servers_count: S.Number,
+    ips_count: S.Number,
+    security_groups_count: S.Number,
+    ips_unused: S.Number,
+    volumes_l_ssd_count: S.Number,
+    volumes_l_ssd_total_size: S.Number,
+    private_nics_count: S.Number,
+    placement_groups_count: S.Number,
+    volumes_scratch_count: S.Number,
     volumes_b_ssd_count: S.optional(S.Number),
     volumes_b_ssd_total_size: S.optional(S.Number),
   }),
 ).annotate({ identifier: "Dashboard" }) as any as S.Schema<Dashboard>;
 
 export interface GetDashboardResponse {
-  dashboard?: Dashboard;
+  dashboard: Dashboard;
 }
 export const GetDashboardResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    dashboard: S.optional(Dashboard),
+    dashboard: Dashboard,
   }),
 ).annotate({ identifier: "GetDashboardResponse" }) as any as S.Schema<GetDashboardResponse>;
 
@@ -2430,11 +2438,11 @@ export const GetImageRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetImageRequest" }) as any as S.Schema<GetImageRequest>;
 
 export interface GetImageResponse {
-  image?: Image;
+  image: Image;
 }
 export const GetImageResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    image: S.optional(Image),
+    image: Image,
   }),
 ).annotate({ identifier: "GetImageResponse" }) as any as S.Schema<GetImageResponse>;
 
@@ -2472,11 +2480,11 @@ export const GetIpRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetIpRequest" }) as any as S.Schema<GetIpRequest>;
 
 export interface GetIpResponse {
-  ip?: Ip;
+  ip: Ip;
 }
 export const GetIpResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip: S.optional(Ip),
+    ip: Ip,
   }),
 ).annotate({ identifier: "GetIpResponse" }) as any as S.Schema<GetIpResponse>;
 
@@ -2514,11 +2522,11 @@ export const GetPlacementGroupRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetPlacementGroupRequest" }) as any as S.Schema<GetPlacementGroupRequest>;
 
 export interface GetPlacementGroupResponse {
-  placement_group?: PlacementGroup;
+  placement_group: PlacementGroup;
 }
 export const GetPlacementGroupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    placement_group: S.optional(PlacementGroup),
+    placement_group: PlacementGroup,
   }),
 ).annotate({
   identifier: "GetPlacementGroupResponse",
@@ -2561,17 +2569,17 @@ export const GetPlacementGroupServersRequest = /*@__PURE__*/ S.suspend(() =>
 
 export interface PlacementGroupServer {
   /** Instance UUID. */
-  id?: string;
+  id: string;
   /** Instance name. */
-  name?: string;
+  name: string;
   /** Defines whether the placement group policy is respected (either 1 or 0). */
-  policy_respected?: boolean;
+  policy_respected: boolean;
 }
 export const PlacementGroupServer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
-    name: S.optional(S.String),
-    policy_respected: S.optional(S.Boolean),
+    id: S.String,
+    name: S.String,
+    policy_respected: S.Boolean,
   }),
 ).annotate({ identifier: "PlacementGroupServer" }) as any as S.Schema<PlacementGroupServer>;
 
@@ -2583,11 +2591,11 @@ export const GetPlacementGroupServersResponseServersList = /*@__PURE__*/ S.Array
 
 export interface GetPlacementGroupServersResponse {
   /** Instances attached to the placement group. */
-  servers?: GetPlacementGroupServersResponseServersList;
+  servers: GetPlacementGroupServersResponseServersList;
 }
 export const GetPlacementGroupServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(GetPlacementGroupServersResponseServersList),
+    servers: GetPlacementGroupServersResponseServersList,
   }),
 ).annotate({
   identifier: "GetPlacementGroupServersResponse",
@@ -2630,11 +2638,11 @@ export const GetPrivateNICRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetPrivateNICRequest" }) as any as S.Schema<GetPrivateNICRequest>;
 
 export interface GetPrivateNICResponse {
-  private_nic?: PrivateNIC;
+  private_nic: PrivateNIC;
 }
 export const GetPrivateNICResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    private_nic: S.optional(PrivateNIC),
+    private_nic: PrivateNIC,
   }),
 ).annotate({ identifier: "GetPrivateNICResponse" }) as any as S.Schema<GetPrivateNICResponse>;
 
@@ -2672,11 +2680,11 @@ export const GetSecurityGroupRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetSecurityGroupRequest" }) as any as S.Schema<GetSecurityGroupRequest>;
 
 export interface GetSecurityGroupResponse {
-  security_group?: SecurityGroup;
+  security_group: SecurityGroup;
 }
 export const GetSecurityGroupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    security_group: S.optional(SecurityGroup),
+    security_group: SecurityGroup,
   }),
 ).annotate({ identifier: "GetSecurityGroupResponse" }) as any as S.Schema<GetSecurityGroupResponse>;
 
@@ -2717,11 +2725,11 @@ export const GetSecurityGroupRuleRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<GetSecurityGroupRuleRequest>;
 
 export interface GetSecurityGroupRuleResponse {
-  rule?: SecurityGroupRule;
+  rule: SecurityGroupRule;
 }
 export const GetSecurityGroupRuleResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rule: S.optional(SecurityGroupRule),
+    rule: SecurityGroupRule,
   }),
 ).annotate({
   identifier: "GetSecurityGroupRuleResponse",
@@ -2761,11 +2769,11 @@ export const GetServerRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetServerRequest" }) as any as S.Schema<GetServerRequest>;
 
 export interface GetServerResponse {
-  server?: Server;
+  server: Server;
 }
 export const GetServerResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server: S.optional(Server),
+    server: Server,
   }),
 ).annotate({ identifier: "GetServerResponse" }) as any as S.Schema<GetServerResponse>;
 
@@ -2812,11 +2820,11 @@ export const ServerCompatibleTypesCompatibleTypesList = /*@__PURE__*/ S.Array(
 
 export interface ServerCompatibleTypes {
   /** Instance compatible types. */
-  compatible_types?: ServerCompatibleTypesCompatibleTypesList;
+  compatible_types: ServerCompatibleTypesCompatibleTypesList;
 }
 export const ServerCompatibleTypes = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    compatible_types: S.optional(ServerCompatibleTypesCompatibleTypesList),
+    compatible_types: ServerCompatibleTypesCompatibleTypesList,
   }),
 ).annotate({ identifier: "ServerCompatibleTypes" }) as any as S.Schema<ServerCompatibleTypes>;
 
@@ -2862,11 +2870,11 @@ export type ServerTypesAvailability = "available" | "scarce" | "shortage";
 export const ServerTypesAvailability = S.String;
 
 export interface GetServerTypesAvailabilityResponseAvailability {
-  availability?: ServerTypesAvailability;
+  availability: ServerTypesAvailability;
 }
 export const GetServerTypesAvailabilityResponseAvailability = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    availability: S.optional(ServerTypesAvailability),
+    availability: ServerTypesAvailability,
   }),
 ).annotate({
   identifier: "GetServerTypesAvailabilityResponseAvailability",
@@ -2883,11 +2891,11 @@ export const GetServerTypesAvailabilityResponseServersMap = /*@__PURE__*/ S.Reco
 
 export interface GetServerTypesAvailabilityResponse {
   /** Map of server types. */
-  servers?: GetServerTypesAvailabilityResponseServersMap;
+  servers: GetServerTypesAvailabilityResponseServersMap;
 }
 export const GetServerTypesAvailabilityResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(GetServerTypesAvailabilityResponseServersMap),
+    servers: GetServerTypesAvailabilityResponseServersMap,
   }),
 ).annotate({
   identifier: "GetServerTypesAvailabilityResponse",
@@ -2970,11 +2978,11 @@ export const GetSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetSnapshotRequest" }) as any as S.Schema<GetSnapshotRequest>;
 
 export interface GetSnapshotResponse {
-  snapshot?: Snapshot;
+  snapshot: Snapshot;
 }
 export const GetSnapshotResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    snapshot: S.optional(Snapshot),
+    snapshot: Snapshot,
   }),
 ).annotate({ identifier: "GetSnapshotResponse" }) as any as S.Schema<GetSnapshotResponse>;
 
@@ -3012,11 +3020,11 @@ export const GetVolumeRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetVolumeRequest" }) as any as S.Schema<GetVolumeRequest>;
 
 export interface GetVolumeResponse {
-  volume?: Volume;
+  volume: Volume;
 }
 export const GetVolumeResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    volume: S.optional(Volume),
+    volume: Volume,
   }),
 ).annotate({ identifier: "GetVolumeResponse" }) as any as S.Schema<GetVolumeResponse>;
 
@@ -3328,12 +3336,12 @@ export const ListPrivateNICsResponsePrivateNicsList = /*@__PURE__*/ S.Array(
 
 export interface ListPrivateNICsResponse {
   private_nics: ListPrivateNICsResponsePrivateNicsList;
-  total_count?: number;
+  total_count: number;
 }
 export const ListPrivateNICsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_nics: ListPrivateNICsResponsePrivateNicsList,
-    total_count: S.optional(S.Number),
+    total_count: S.Number,
   }),
 ).annotate({ identifier: "ListPrivateNICsResponse" }) as any as S.Schema<ListPrivateNICsResponse>;
 
@@ -3490,11 +3498,11 @@ export const ListServerActionsResponseActionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListServerActionsResponseActionsList>;
 
 export interface ListServerActionsResponse {
-  actions?: ListServerActionsResponseActionsList;
+  actions: ListServerActionsResponseActionsList;
 }
 export const ListServerActionsResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    actions: S.optional(ListServerActionsResponseActionsList),
+    actions: ListServerActionsResponseActionsList,
   }),
 ).annotate({
   identifier: "ListServerActionsResponse",
@@ -3646,14 +3654,14 @@ export const ServerTypeAltNamesList = /*@__PURE__*/ S.Array(
 
 export interface ServerTypeVolumeConstraintSizes {
   /** Minimum volume size in bytes. (in bytes) */
-  min_size?: number;
+  min_size: number;
   /** Maximum volume size in bytes. (in bytes) */
-  max_size?: number;
+  max_size: number;
 }
 export const ServerTypeVolumeConstraintSizes = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    min_size: S.optional(S.Number),
-    max_size: S.optional(S.Number),
+    min_size: S.Number,
+    max_size: S.Number,
   }),
 ).annotate({
   identifier: "ServerTypeVolumeConstraintSizes",
@@ -3673,17 +3681,17 @@ export const ServerTypeVolumeConstraintsByType = /*@__PURE__*/ S.suspend(() =>
 
 export interface ServerTypeGPUInfo {
   /** GPU manufacturer. */
-  gpu_manufacturer?: string;
+  gpu_manufacturer: string;
   /** GPU model name. */
-  gpu_name?: string;
+  gpu_name: string;
   /** RAM of a single GPU, in bytes. (in bytes) */
-  gpu_memory?: number;
+  gpu_memory: number;
 }
 export const ServerTypeGPUInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    gpu_manufacturer: S.optional(S.String),
-    gpu_name: S.optional(S.String),
-    gpu_memory: S.optional(S.Number),
+    gpu_manufacturer: S.String,
+    gpu_name: S.String,
+    gpu_memory: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeGPUInfo" }) as any as S.Schema<ServerTypeGPUInfo>;
 
@@ -3710,20 +3718,20 @@ export const ServerTypeNetworkInterfacesList = /*@__PURE__*/ S.Array(
 
 export interface ServerTypeNetwork {
   /** List of available network interfaces. */
-  interfaces?: ServerTypeNetworkInterfacesList;
+  interfaces: ServerTypeNetworkInterfacesList;
   /** Total maximum internal bandwidth in bits per seconds. */
   sum_internal_bandwidth?: number | null;
   /** Total maximum internet bandwidth in bits per seconds. */
   sum_internet_bandwidth?: number | null;
   /** True if IPv6 is enabled. */
-  ipv6_support?: boolean;
+  ipv6_support: boolean;
 }
 export const ServerTypeNetwork = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    interfaces: S.optional(ServerTypeNetworkInterfacesList),
+    interfaces: ServerTypeNetworkInterfacesList,
     sum_internal_bandwidth: S.optional(S.NullOr(S.Number)),
     sum_internet_bandwidth: S.optional(S.NullOr(S.Number)),
-    ipv6_support: S.optional(S.Boolean),
+    ipv6_support: S.Boolean,
   }),
 ).annotate({ identifier: "ServerTypeNetwork" }) as any as S.Schema<ServerTypeNetwork>;
 
@@ -3737,15 +3745,15 @@ export interface ServerTypeCapabilities {
   /** Defines whether the Instance supports block storage. */
   block_storage?: boolean | null;
   /** List of supported boot types. */
-  boot_types?: ServerTypeCapabilitiesBootTypesList;
+  boot_types: ServerTypeCapabilitiesBootTypesList;
   /** Max number of SFS (Scaleway File Systems) that can be attached to the Instance. */
-  max_file_systems?: number;
+  max_file_systems: number;
 }
 export const ServerTypeCapabilities = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     block_storage: S.optional(S.NullOr(S.Boolean)),
-    boot_types: S.optional(ServerTypeCapabilitiesBootTypesList),
-    max_file_systems: S.optional(S.Number),
+    boot_types: ServerTypeCapabilitiesBootTypesList,
+    max_file_systems: S.Number,
   }),
 ).annotate({ identifier: "ServerTypeCapabilities" }) as any as S.Schema<ServerTypeCapabilities>;
 
@@ -3753,23 +3761,23 @@ export interface ServerType {
   /** Estimated monthly price, for a 30 days month, in Euro. */
   monthly_price?: number;
   /** Hourly price in Euro. */
-  hourly_price?: number;
+  hourly_price: number;
   /** Alternative Instance name, if any. */
-  alt_names?: ServerTypeAltNamesList;
+  alt_names: ServerTypeAltNamesList;
   /** Additional volume constraints. */
   per_volume_constraint?: ServerTypeVolumeConstraintsByType;
   /** Initial volume constraints. */
   volumes_constraint?: ServerTypeVolumeConstraintSizes;
   /** Number of CPU. */
-  ncpus?: number;
+  ncpus: number;
   /** Number of GPU. */
   gpu?: number | null;
   /** Available RAM in bytes. */
-  ram?: number;
+  ram: number;
   /** GPU information. */
   gpu_info?: ServerTypeGPUInfo;
   /** CPU architecture. */
-  arch?: Arch;
+  arch: Arch;
   /** Network available for the Instance. */
   network?: ServerTypeNetwork;
   /** Capabilities. */
@@ -3777,33 +3785,33 @@ export interface ServerType {
   /** Maximum available scratch storage. (in bytes) */
   scratch_storage_max_size?: number | null;
   /** Maximum supported number of scratch volumes. */
-  scratch_storage_max_volumes_count?: number;
+  scratch_storage_max_volumes_count: number;
   /** The maximum bandwidth allocated to block storage access (in bytes per second). */
   block_bandwidth?: number | null;
   /** True if this Instance type has reached end of service. */
-  end_of_service?: boolean;
+  end_of_service: boolean;
   /** The billing SKU for this server type. */
-  sku?: string;
+  sku: string;
 }
 export const ServerType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     monthly_price: S.optional(S.Number),
-    hourly_price: S.optional(S.Number),
-    alt_names: S.optional(ServerTypeAltNamesList),
+    hourly_price: S.Number,
+    alt_names: ServerTypeAltNamesList,
     per_volume_constraint: S.optional(ServerTypeVolumeConstraintsByType),
     volumes_constraint: S.optional(ServerTypeVolumeConstraintSizes),
-    ncpus: S.optional(S.Number),
+    ncpus: S.Number,
     gpu: S.optional(S.NullOr(S.Number)),
-    ram: S.optional(S.Number),
+    ram: S.Number,
     gpu_info: S.optional(ServerTypeGPUInfo),
-    arch: S.optional(Arch),
+    arch: Arch,
     network: S.optional(ServerTypeNetwork),
     capabilities: S.optional(ServerTypeCapabilities),
     scratch_storage_max_size: S.optional(S.NullOr(S.Number)),
-    scratch_storage_max_volumes_count: S.optional(S.Number),
+    scratch_storage_max_volumes_count: S.Number,
     block_bandwidth: S.optional(S.NullOr(S.Number)),
-    end_of_service: S.optional(S.Boolean),
-    sku: S.optional(S.String),
+    end_of_service: S.Boolean,
+    sku: S.String,
   }),
 ).annotate({ identifier: "ServerType" }) as any as S.Schema<ServerType>;
 
@@ -3816,11 +3824,11 @@ export const ListServersTypesResponseServersMap = /*@__PURE__*/ S.Record(
 
 export interface ListServersTypesResponse {
   /** List of Instance types. */
-  servers?: ListServersTypesResponseServersMap;
+  servers: ListServersTypesResponseServersMap;
 }
 export const ListServersTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(ListServersTypesResponseServersMap),
+    servers: ListServersTypesResponseServersMap,
   }),
 ).annotate({ identifier: "ListServersTypesResponse" }) as any as S.Schema<ListServersTypesResponse>;
 
@@ -3865,11 +3873,11 @@ export const ListServerUserDataResponseUserDataList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ListServerUserDataResponseUserDataList>;
 
 export interface ListServerUserDataResponse {
-  user_data?: ListServerUserDataResponseUserDataList;
+  user_data: ListServerUserDataResponseUserDataList;
 }
 export const ListServerUserDataResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    user_data: S.optional(ListServerUserDataResponseUserDataList),
+    user_data: ListServerUserDataResponseUserDataList,
   }),
 ).annotate({
   identifier: "ListServerUserDataResponse",
@@ -4050,35 +4058,35 @@ export const ListVolumesTypesRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListVolumesTypesRequest" }) as any as S.Schema<ListVolumesTypesRequest>;
 
 export interface VolumeTypeCapabilities {
-  snapshot?: boolean;
+  snapshot: boolean;
 }
 export const VolumeTypeCapabilities = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    snapshot: S.optional(S.Boolean),
+    snapshot: S.Boolean,
   }),
 ).annotate({ identifier: "VolumeTypeCapabilities" }) as any as S.Schema<VolumeTypeCapabilities>;
 
 export interface VolumeTypeConstraints {
   /** (in bytes) */
-  min?: number;
+  min: number;
   /** (in bytes) */
-  max?: number;
+  max: number;
 }
 export const VolumeTypeConstraints = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    min: S.optional(S.Number),
-    max: S.optional(S.Number),
+    min: S.Number,
+    max: S.Number,
   }),
 ).annotate({ identifier: "VolumeTypeConstraints" }) as any as S.Schema<VolumeTypeConstraints>;
 
 export interface VolumeType {
-  display_name?: string;
+  display_name: string;
   capabilities?: VolumeTypeCapabilities;
   constraints?: VolumeTypeConstraints;
 }
 export const VolumeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    display_name: S.optional(S.String),
+    display_name: S.String,
     capabilities: S.optional(VolumeTypeCapabilities),
     constraints: S.optional(VolumeTypeConstraints),
   }),
@@ -4093,11 +4101,11 @@ export const ListVolumesTypesResponseVolumesMap = /*@__PURE__*/ S.Record(
 
 export interface ListVolumesTypesResponse {
   /** Map of volume types. */
-  volumes?: ListVolumesTypesResponseVolumesMap;
+  volumes: ListVolumesTypesResponseVolumesMap;
 }
 export const ListVolumesTypesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    volumes: S.optional(ListVolumesTypesResponseVolumesMap),
+    volumes: ListVolumesTypesResponseVolumesMap,
   }),
 ).annotate({ identifier: "ListVolumesTypesResponse" }) as any as S.Schema<ListVolumesTypesResponse>;
 
@@ -4401,11 +4409,11 @@ export const SetPlacementGroupServersResponseServersList = /*@__PURE__*/ S.Array
 
 export interface SetPlacementGroupServersResponse {
   /** Instances attached to the placement group. */
-  servers?: SetPlacementGroupServersResponseServersList;
+  servers: SetPlacementGroupServersResponseServersList;
 }
 export const SetPlacementGroupServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(SetPlacementGroupServersResponseServersList),
+    servers: SetPlacementGroupServersResponseServersList,
   }),
 ).annotate({
   identifier: "SetPlacementGroupServersResponse",
@@ -4662,11 +4670,11 @@ export const SetSecurityGroupRulesResponseRulesList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<SetSecurityGroupRulesResponseRulesList>;
 
 export interface SetSecurityGroupRulesResponse {
-  rules?: SetSecurityGroupRulesResponseRulesList;
+  rules: SetSecurityGroupRulesResponseRulesList;
 }
 export const SetSecurityGroupRulesResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rules: S.optional(SetSecurityGroupRulesResponseRulesList),
+    rules: SetSecurityGroupRulesResponseRulesList,
   }),
 ).annotate({
   identifier: "SetSecurityGroupRulesResponse",
@@ -4940,11 +4948,11 @@ export const UpdateImageRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateImageRequest" }) as any as S.Schema<UpdateImageRequest>;
 
 export interface UpdateImageResponse {
-  image?: Image;
+  image: Image;
 }
 export const UpdateImageResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    image: S.optional(Image),
+    image: Image,
   }),
 ).annotate({ identifier: "UpdateImageResponse" }) as any as S.Schema<UpdateImageResponse>;
 
@@ -4999,11 +5007,11 @@ export const UpdateIpRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateIpRequest" }) as any as S.Schema<UpdateIpRequest>;
 
 export interface UpdateIpResponse {
-  ip?: Ip;
+  ip: Ip;
 }
 export const UpdateIpResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    ip: S.optional(Ip),
+    ip: Ip,
   }),
 ).annotate({ identifier: "UpdateIpResponse" }) as any as S.Schema<UpdateIpResponse>;
 
@@ -5061,11 +5069,11 @@ export const UpdatePlacementGroupRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<UpdatePlacementGroupRequest>;
 
 export interface UpdatePlacementGroupResponse {
-  placement_group?: PlacementGroup;
+  placement_group: PlacementGroup;
 }
 export const UpdatePlacementGroupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    placement_group: S.optional(PlacementGroup),
+    placement_group: PlacementGroup,
   }),
 ).annotate({
   identifier: "UpdatePlacementGroupResponse",
@@ -5123,11 +5131,11 @@ export const UpdatePlacementGroupServersResponseServersList = /*@__PURE__*/ S.Ar
 
 export interface UpdatePlacementGroupServersResponse {
   /** Instances attached to the placement group. */
-  servers?: UpdatePlacementGroupServersResponseServersList;
+  servers: UpdatePlacementGroupServersResponseServersList;
 }
 export const UpdatePlacementGroupServersResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    servers: S.optional(UpdatePlacementGroupServersResponseServersList),
+    servers: UpdatePlacementGroupServersResponseServersList,
   }),
 ).annotate({
   identifier: "UpdatePlacementGroupServersResponse",
@@ -5256,11 +5264,11 @@ export const UpdateSecurityGroupRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<UpdateSecurityGroupRequest>;
 
 export interface UpdateSecurityGroupResponse {
-  security_group?: SecurityGroup;
+  security_group: SecurityGroup;
 }
 export const UpdateSecurityGroupResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    security_group: S.optional(SecurityGroup),
+    security_group: SecurityGroup,
   }),
 ).annotate({
   identifier: "UpdateSecurityGroupResponse",
@@ -5326,11 +5334,11 @@ export const UpdateSecurityGroupRuleRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<UpdateSecurityGroupRuleRequest>;
 
 export interface UpdateSecurityGroupRuleResponse {
-  rule?: SecurityGroupRule;
+  rule: SecurityGroupRule;
 }
 export const UpdateSecurityGroupRuleResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    rule: S.optional(SecurityGroupRule),
+    rule: SecurityGroupRule,
   }),
 ).annotate({
   identifier: "UpdateSecurityGroupRuleResponse",
@@ -5434,11 +5442,11 @@ export const UpdateServerRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateServerRequest" }) as any as S.Schema<UpdateServerRequest>;
 
 export interface UpdateServerResponse {
-  server?: Server;
+  server: Server;
 }
 export const UpdateServerResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    server: S.optional(Server),
+    server: Server,
   }),
 ).annotate({ identifier: "UpdateServerResponse" }) as any as S.Schema<UpdateServerResponse>;
 
@@ -5488,11 +5496,11 @@ export const UpdateSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateSnapshotRequest" }) as any as S.Schema<UpdateSnapshotRequest>;
 
 export interface UpdateSnapshotResponse {
-  snapshot?: Snapshot;
+  snapshot: Snapshot;
 }
 export const UpdateSnapshotResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    snapshot: S.optional(Snapshot),
+    snapshot: Snapshot,
   }),
 ).annotate({ identifier: "UpdateSnapshotResponse" }) as any as S.Schema<UpdateSnapshotResponse>;
 
@@ -5545,11 +5553,11 @@ export const UpdateVolumeRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateVolumeRequest" }) as any as S.Schema<UpdateVolumeRequest>;
 
 export interface UpdateVolumeResponse {
-  volume?: Volume;
+  volume: Volume;
 }
 export const UpdateVolumeResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    volume: S.optional(Volume),
+    volume: Volume,
   }),
 ).annotate({ identifier: "UpdateVolumeResponse" }) as any as S.Schema<UpdateVolumeResponse>;
 

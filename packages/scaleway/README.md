@@ -170,8 +170,11 @@ before decoding, as the official SDKs do, so an unset field is absent.
 Response members the API always sends are required in the types (`vpc.id`
 is a `string`): non-nullable scalars, enums, lists and maps of response
 shapes, which proto3 JSON writes even at their zero value. Nested messages,
-nullable members and one-of members stay optional, and Instance v1 keeps
-every member optional because it answers `null` for some of them.
+nullable members and one-of members stay optional. Instance v1 answers
+`null` for a string with no value (`ip.address` on a routed IPv6 address),
+so its strings are required only where the wire always sets them
+(identifiers, names, zones, Projects); the resource a Create/Get/Update
+response wraps is required too (`getServer(...).server`).
 
 On update requests a list such as `tags` is `Array<string> | null`: leave
 it out (or pass `null`) to keep the current list, pass `[]` to clear it.
