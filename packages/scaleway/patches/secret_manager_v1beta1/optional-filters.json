@@ -1,0 +1,9 @@
+{
+  "description": "The document marks the `scheduled_for_deletion` query filter of ListSecrets required, as it does every proto3 boolean that is not declared optional; the API treats it as a filter that defaults to false. Observed 2026-10-14 in the live Project: `GET /secret-manager/v1beta1/regions/fr-par/secrets?project_id=…` without it answered 200 `{\"secrets\":[],\"total_count\":0}`.",
+  "patches": [
+    {
+      "op": "remove",
+      "path": "/shapes/com.scaleway.secret_manager_v1beta1#ListSecretsRequest/members/scheduled_for_deletion/traits/smithy.api#required"
+    }
+  ]
+}

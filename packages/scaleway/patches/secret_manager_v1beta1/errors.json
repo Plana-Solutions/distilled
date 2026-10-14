@@ -1,0 +1,40 @@
+{
+  "description": "CreateSecret refuses a second secret with the same name in the same path with a plain argument error, not the `already_exists` envelope the other APIs use. Observed 2026-10-14 in the live Project: `POST /secret-manager/v1beta1/regions/fr-par/secrets` twice with one name answered 400 `{\"type\":\"invalid_arguments\",\"message\":\"invalid argument(s)\",\"details\":[{\"argument_name\":\"name\",\"reason\":\"format\",\"help_message\":\"cannot have same secret name in same path\"}]}`. The error is typed here so a caller can tell it from a malformed request; it is categorised as a conflict (`httpError` 409), the way the SDK's `AlreadyExistsError` is, although the wire status is 400.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.secret_manager_v1beta1#SecretNameAlreadyExists",
+      "value": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String"
+          }
+        },
+        "traits": {
+          "smithy.api#error": "client",
+          "smithy.api#httpError": 409,
+          "smithy.api#documentation": "A secret with this name already exists in the same path.",
+          "com.distilled.openapi#errorMatchers": [
+            {
+              "status": 400,
+              "message": {
+                "includes": "cannot have same secret name in same path"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.secret_manager_v1beta1#CreateSecret/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.secret_manager_v1beta1#SecretNameAlreadyExists"
+        }
+      ]
+    }
+  ]
+}
