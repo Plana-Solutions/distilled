@@ -6,7 +6,7 @@ import * as HttpClientResponse from "effect/http/HttpClientResponse";
 import * as Layer from "effect/Layer";
 import * as Redacted from "effect/Redacted";
 import * as Stream from "effect/Stream";
-import { describe, expect, test } from "vitest";
+import { describe, expect, test, vi } from "vitest";
 import { Credentials, credentials } from "./credentials.ts";
 import {
   AlreadyExistsError,
@@ -37,6 +37,7 @@ import {
   listServers,
   setServerUserData,
 } from "./services/instance_v1.ts";
+import { accessSecretVersion } from "./services/secret_manager_v1beta1.ts";
 import { listVPCs } from "./services/vpc_v2.ts";
 
 interface Captured {
@@ -100,6 +101,42 @@ const runFlip = <A, E>(
 ) => run(Effect.flip(operation), http);
 
 const serverId = "11111111-2222-3333-4444-555555555555";
+
+describe("HTTP debug logging", () => {
+  test("does not print secret payloads from successful or failed responses", async () => {
+    const payload = "c2VjcmV0LXBheWxvYWQ=";
+    const originalDebug = process.env.DISTILLED_DEBUG_HTTP;
+    const logs: string[] = [];
+    const spy = vi.spyOn(console, "error").mockImplementation((...args) => {
+      logs.push(args.join(" "));
+    });
+    process.env.DISTILLED_DEBUG_HTTP = "1";
+    try {
+      const success = fakeScaleway(json(200, { secret_id: serverId, data: payload }));
+      const value = await run(
+        accessSecretVersion({ secret_id: serverId, revision: "1" }),
+        success.layer,
+      );
+      if (!Redacted.isRedacted(value.data))
+        throw new Error("secret response data was not redacted");
+      expect(Redacted.value(value.data)).toBe(payload);
+
+      const failure = fakeScaleway(json(400, { type: "invalid_arguments", message: payload }));
+      expect(
+        await runFlip(accessSecretVersion({ secret_id: serverId, revision: "1" }), failure.layer),
+      ).toBeInstanceOf(InvalidArgumentsError);
+
+      expect(logs.join("\n")).toContain("[distilled] <- 200");
+      expect(logs.join("\n")).toContain("[distilled] <- 400");
+      expect(logs.join("\n")).not.toContain(payload);
+      expect(logs.join("\n")).not.toContain("scw-secret");
+    } finally {
+      spy.mockRestore();
+      if (originalDebug === undefined) delete process.env.DISTILLED_DEBUG_HTTP;
+      else process.env.DISTILLED_DEBUG_HTTP = originalDebug;
+    }
+  });
+});
 
 describe("request encoding", () => {
   test("sends X-Auth-Token to api.scaleway.com with the zone in the path", async () => {

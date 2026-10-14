@@ -424,7 +424,7 @@ export const ScalewayProtocol: Layer.Layer<API.Protocol> = Layer.succeed(
 
         const text = (yield* response.text.pipe(Effect.orDie)) ?? "";
         if (process.env.DISTILLED_DEBUG_HTTP) {
-          console.error(`[distilled] <- ${status} ${text.slice(0, 400)}`);
+          console.error(`[distilled] <- ${status}`);
         }
         if (status >= 400) return yield* fail(failureFor(status, text, headers, errorClasses));
 
