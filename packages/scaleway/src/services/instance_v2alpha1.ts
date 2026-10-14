@@ -2242,12 +2242,12 @@ export interface UserData {
   /** The key of the user data. */
   key: string;
   /** The content of the user data. */
-  content: string;
+  content: Uint8Array;
 }
 export const UserData = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     key: S.String,
-    content: S.String,
+    content: S.String.pipe(T.Bytes({})),
   }),
 ).annotate({ identifier: "UserData" }) as any as S.Schema<UserData>;
 
@@ -3651,13 +3651,13 @@ export interface SetServerCloudInitRequest {
   /** The ID of the server. */
   server_id: string;
   /** The cloud-init configuration content. */
-  content?: string;
+  content?: Uint8Array;
 }
 export const SetServerCloudInitRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     zone: S.optional(SetServerCloudInitRequestZone.pipe(T.Label())),
     server_id: S.String.pipe(T.Label()),
-    content: S.optional(S.String),
+    content: S.optional(S.String.pipe(T.Bytes({}))),
   }).pipe(
     T.Http({
       method: "PUT",
@@ -3732,13 +3732,13 @@ export interface SetTemplateCloudInitRequest {
   /** Unique ID of the template. */
   template_id: string;
   /** Cloud-init configuration content. */
-  content?: string;
+  content?: Uint8Array;
 }
 export const SetTemplateCloudInitRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     zone: S.optional(SetTemplateCloudInitRequestZone.pipe(T.Label())),
     template_id: S.String.pipe(T.Label()),
-    content: S.optional(S.String),
+    content: S.optional(S.String.pipe(T.Bytes({}))),
   }).pipe(
     T.Http({
       method: "PUT",
@@ -3777,14 +3777,14 @@ export interface SetTemplateUserDataRequest {
   /** Key of the user data to set. */
   key: string;
   /** Content of the user data. */
-  content?: string;
+  content?: Uint8Array;
 }
 export const SetTemplateUserDataRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     zone: S.optional(SetTemplateUserDataRequestZone.pipe(T.Label())),
     template_id: S.String.pipe(T.Label()),
     key: S.String.pipe(T.Label()),
-    content: S.optional(S.String),
+    content: S.optional(S.String.pipe(T.Bytes({}))),
   }).pipe(
     T.Http({
       method: "PUT",
@@ -3823,14 +3823,14 @@ export interface SetUserDataRequest {
   /** The key of the user data to set. */
   key: string;
   /** The content to set for the user data. */
-  content?: string;
+  content?: Uint8Array;
 }
 export const SetUserDataRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     zone: S.optional(SetUserDataRequestZone.pipe(T.Label())),
     server_id: S.String.pipe(T.Label()),
     key: S.String.pipe(T.Label()),
-    content: S.optional(S.String),
+    content: S.optional(S.String.pipe(T.Bytes({}))),
   }).pipe(
     T.Http({
       method: "PUT",

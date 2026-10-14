@@ -1,0 +1,30 @@
+{
+  "description": "User data and cloud-init `content` are proto `bytes` fields, which proto3 JSON writes as base64, but the document types them as plain strings. Observed 2026-10-14 on template user data (`PUT/GET /instance/v2alpha1/zones/{zone}/templates/{template_id}/user-data/{key}`): writing `\"bar\"` read back `\"bao=\"` (the server decoded it as base64 and re-encoded the two bytes), and raw cloud-config text answered 400 `proto: invalid value for bytes field content`. The members are marked with the Scaleway bytes trait, so they surface as `Uint8Array` and the protocol converts base64 both ways (src/bytes.ts). `UserData` is the response of the server and template user-data and cloud-init getters.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v2alpha1#UserData/members/content/traits/com.distilled.scaleway#bytes",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v2alpha1#SetUserDataRequest/members/content/traits/com.distilled.scaleway#bytes",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v2alpha1#SetServerCloudInitRequest/members/content/traits/com.distilled.scaleway#bytes",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v2alpha1#SetTemplateUserDataRequest/members/content/traits/com.distilled.scaleway#bytes",
+      "value": {}
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.instance_v2alpha1#SetTemplateCloudInitRequest/members/content/traits/com.distilled.scaleway#bytes",
+      "value": {}
+    }
+  ]
+}

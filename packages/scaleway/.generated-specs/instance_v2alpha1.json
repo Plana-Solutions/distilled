@@ -8376,7 +8376,8 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "The content of the user data.",
-            "smithy.api#required": {}
+            "smithy.api#required": {},
+            "com.distilled.scaleway#bytes": {}
           }
         }
       },
@@ -8495,7 +8496,8 @@
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The content to set for the user data."
+            "smithy.api#documentation": "The content to set for the user data.",
+            "com.distilled.scaleway#bytes": {}
           }
         }
       },
@@ -8830,7 +8832,8 @@
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The cloud-init configuration content."
+            "smithy.api#documentation": "The cloud-init configuration content.",
+            "com.distilled.scaleway#bytes": {}
           }
         }
       },
@@ -10813,7 +10816,8 @@
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Content of the user data."
+            "smithy.api#documentation": "Content of the user data.",
+            "com.distilled.scaleway#bytes": {}
           }
         }
       },
@@ -11148,7 +11152,8 @@
         "content": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cloud-init configuration content."
+            "smithy.api#documentation": "Cloud-init configuration content.",
+            "com.distilled.scaleway#bytes": {}
           }
         }
       },
