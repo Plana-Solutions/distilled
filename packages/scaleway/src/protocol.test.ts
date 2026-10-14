@@ -1,6 +1,7 @@
 import * as Category from "@distilled.cloud/core/category";
 import * as CoreErrors from "@distilled.cloud/core/errors";
 import * as ResponseValidation from "@distilled.cloud/core/response-validation";
+import * as ConfigProvider from "effect/ConfigProvider";
 import * as Effect from "effect/Effect";
 import * as HttpClient from "effect/http/HttpClient";
 import * as HttpClientResponse from "effect/http/HttpClientResponse";
@@ -8,7 +9,7 @@ import * as Layer from "effect/Layer";
 import * as Redacted from "effect/Redacted";
 import * as Stream from "effect/Stream";
 import { describe, expect, test } from "vitest";
-import { Credentials, credentials } from "./credentials.ts";
+import { Credentials, CredentialsFromEnv, credentials } from "./credentials.ts";
 import {
   AlreadyExistsError,
   DeniedAuthenticationError,
@@ -101,6 +102,32 @@ const runFlip = <A, E>(
 ) => run(Effect.flip(operation), http);
 
 const serverId = "11111111-2222-3333-4444-555555555555";
+
+describe("CredentialsFromEnv", () => {
+  const fromEnv = (env: Record<string, string>) =>
+    Effect.runPromise(
+      Effect.gen(function* () {
+        const resolve = yield* Credentials;
+        return yield* resolve;
+      }).pipe(
+        Effect.provide(CredentialsFromEnv),
+        Effect.provide(ConfigProvider.layer(ConfigProvider.fromEnvRecord(env))),
+      ),
+    );
+
+  test("reads SCW_ACCESS_KEY as a redacted access key beside the secret key", async () => {
+    const config = await fromEnv({ SCW_SECRET_KEY: "scw-secret", SCW_ACCESS_KEY: "SCWACCESS" });
+    expect(Redacted.value(config.secretKey)).toBe("scw-secret");
+    expect(Redacted.isRedacted(config.accessKey)).toBe(true);
+    expect(Redacted.value(config.accessKey!)).toBe("SCWACCESS");
+  });
+
+  test("the access key is optional", async () => {
+    const config = await fromEnv({ SCW_SECRET_KEY: "scw-secret" });
+    expect(config.accessKey).toBeUndefined();
+    expect(config).toMatchObject({ region: "fr-par", zone: "fr-par-1" });
+  });
+});
 
 describe("request encoding", () => {
   test("sends X-Auth-Token to api.scaleway.com with the zone in the path", async () => {

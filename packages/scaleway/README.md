@@ -72,7 +72,9 @@ Generative APIs on `api.scaleway.ai`). Optional: `SCW_DEFAULT_REGION`
 `region` / `zone` when it leaves them out; `SCW_API_URL` replaces
 `https://api.scaleway.com`. `SCW_DEFAULT_PROJECT_ID` and
 `SCW_DEFAULT_ORGANIZATION_ID` are read into the credentials for callers but
-never added to a request. The `~/.config/scw/config.yaml` profile file is not
+never added to a request, and so is `SCW_ACCESS_KEY` (`accessKey`, redacted),
+which S3-compatible clients for Object Storage and the messaging data planes
+sign with alongside the secret key. The `~/.config/scw/config.yaml` profile file is not
 read — export its values instead.
 
 ```ts

@@ -10,7 +10,8 @@ import { ConfigError } from "@distilled.cloud/core/errors";
  * out.
  *
  * {@link CredentialsFromEnv} reads the same `SCW_*` variables as the
- * official Go/JS/Python SDKs, the `scw` CLI and the Terraform provider.
+ * official Go/JS/Python SDKs, the `scw` CLI and the Terraform provider,
+ * including the optional `SCW_ACCESS_KEY`.
  * The `~/.config/scw/config.yaml` profile file is not read: export the
  * profile's values instead (`scw config dump`).
  */
@@ -31,6 +32,13 @@ export const DEFAULT_ZONE = "fr-par-1";
 export interface Config {
   /** API secret key (a UUID), sent as `X-Auth-Token`. */
   readonly secretKey: Redacted.Redacted<string>;
+  /**
+   * Access key (`SCW…`, `SCW_ACCESS_KEY`) paired with {@link secretKey}. The
+   * generated operations never send it; the S3-compatible data planes
+   * (Object Storage, Queues, Topics and Events) sign SigV4 with access key
+   * plus secret key, so it is carried for callers building those clients.
+   */
+  readonly accessKey?: Redacted.Redacted<string>;
   /** Region filled into `{region}` when a call omits `region`. */
   readonly region: string;
   /** Zone filled into `{zone}` when a call omits `zone`. */
@@ -51,6 +59,7 @@ const optional = (name: string) => EffectConfig.String(name).pipe(EffectConfig.o
 
 const envConfig = EffectConfig.all({
   secretKey: EffectConfig.Redacted("SCW_SECRET_KEY"),
+  accessKey: EffectConfig.Redacted("SCW_ACCESS_KEY").pipe(EffectConfig.option),
   region: EffectConfig.String("SCW_DEFAULT_REGION").pipe(EffectConfig.withDefault(DEFAULT_REGION)),
   zone: EffectConfig.String("SCW_DEFAULT_ZONE").pipe(EffectConfig.withDefault(DEFAULT_ZONE)),
   organizationId: optional("SCW_DEFAULT_ORGANIZATION_ID"),
@@ -69,6 +78,7 @@ export const CredentialsFromEnv = Layer.succeed(
     ),
     Effect.map((env): Config => ({
       secretKey: env.secretKey,
+      accessKey: Option.getOrUndefined(env.accessKey),
       region: env.region,
       zone: env.zone,
       organizationId: Option.getOrUndefined(env.organizationId),
@@ -82,6 +92,7 @@ export const CredentialsFromEnv = Layer.succeed(
 /** Convenience layer from a redacted secret key and optional defaults. */
 export const credentials = (config: {
   readonly secretKey: Redacted.Redacted<string>;
+  readonly accessKey?: Redacted.Redacted<string>;
   readonly region?: string;
   readonly zone?: string;
   readonly organizationId?: string;
