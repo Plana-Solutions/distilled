@@ -608,6 +608,12 @@
           "traits": {
             "smithy.api#enumValue": "updating"
           }
+        },
+        "SNAPSHOTTING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "snapshotting"
+          }
         }
       },
       "traits": {}
@@ -932,6 +938,602 @@
         "smithy.api#documentation": "Delete a detached filesystem\n\nYou must specify the `filesystem_id` of the filesystem you want to delete."
       }
     },
+    "com.scaleway.file_v1alpha1#ListSnapshotsRequestRegion": {
+      "type": "enum",
+      "members": {
+        "FR_PAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshotsRequestOrderBy": {
+      "type": "enum",
+      "members": {
+        "CREATED_AT_ASC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "created_at_asc"
+          }
+        },
+        "CREATED_AT_DESC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "created_at_desc"
+          }
+        },
+        "NAME_ASC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "name_asc"
+          }
+        },
+        "NAME_DESC": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "name_desc"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshotsRequestTagsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshotsRequestSnapshotIdsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshotsRequest": {
+      "type": "structure",
+      "members": {
+        "region": {
+          "target": "com.scaleway.file_v1alpha1#ListSnapshotsRequestRegion",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The region you want to target"
+          }
+        },
+        "order_by": {
+          "target": "com.scaleway.file_v1alpha1#ListSnapshotsRequestOrderBy",
+          "traits": {
+            "smithy.api#httpQuery": "order_by",
+            "smithy.api#documentation": "Criteria to use when ordering the list."
+          }
+        },
+        "page": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#httpQuery": "page",
+            "smithy.api#documentation": "Page number (starting at 1)."
+          }
+        },
+        "page_size": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#httpQuery": "page_size",
+            "smithy.api#documentation": "Number of entries per page (default: 20, max: 100)."
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "name",
+            "smithy.api#documentation": "Filter the returned snapshots by their names."
+          }
+        },
+        "tags": {
+          "target": "com.scaleway.file_v1alpha1#ListSnapshotsRequestTagsList",
+          "traits": {
+            "smithy.api#httpQuery": "tags",
+            "smithy.api#documentation": "Filter by tags. Only snapshots with one or more matching tags will be returned."
+          }
+        },
+        "filesystem_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "filesystem_id",
+            "smithy.api#documentation": "Filter the returned snapshots by the ID of the original filesystem."
+          }
+        },
+        "snapshot_ids": {
+          "target": "com.scaleway.file_v1alpha1#ListSnapshotsRequestSnapshotIdsList",
+          "traits": {
+            "smithy.api#httpQuery": "snapshot_ids",
+            "smithy.api#documentation": "Filter by snapshot IDs. Only snapshots with one or more matching IDs will be returned."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshotsResponse": {
+      "type": "structure",
+      "members": {
+        "snapshots": {
+          "target": "com.scaleway.file_v1alpha1#ListSnapshotsResponseSnapshotsList",
+          "traits": {
+            "smithy.api#documentation": "List of snapshots matching the request criteria."
+          }
+        },
+        "total_count": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Total number of snapshots matching the criteria."
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#Snapshot": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "UUID of the snapshot. (UUID format)"
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Name of the snapshot."
+          }
+        },
+        "parent_filesystem": {
+          "target": "com.scaleway.file_v1alpha1#SnapshotParentFilesystem",
+          "traits": {
+            "smithy.api#documentation": "Information about the parent filesystem.\nIf the parent filesystem was deleted, value is null."
+          }
+        },
+        "size": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Snapshot size in bytes. (in bytes)"
+          }
+        },
+        "status": {
+          "target": "com.scaleway.file_v1alpha1#SnapshotStatus",
+          "traits": {
+            "smithy.api#documentation": "Current status of the snapshot (e.g. creating, available, ...)."
+          }
+        },
+        "project_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "UUID of the project to which the snapshot belongs. (UUID format)"
+          }
+        },
+        "organization_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "UUID of the organization to which the snapshot belongs. (UUID format)"
+          }
+        },
+        "tags": {
+          "target": "com.scaleway.file_v1alpha1#SnapshotTagsList",
+          "traits": {
+            "smithy.api#documentation": "List of tags assigned to the snapshot."
+          }
+        },
+        "created_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Creation date of the snapshot. (RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "updated_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Last update date of the properties of the snapshot. (RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region where the snapshot is located."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the snapshot."
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#SnapshotParentFilesystem": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Parent filesystem UUID (filesystem from which the snapshot originates). (UUID format)"
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Name of the parent filesystem."
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#SnapshotStatus": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN_STATUS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown_status"
+          }
+        },
+        "AVAILABLE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "available"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "error"
+          }
+        },
+        "CREATING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "creating"
+          }
+        },
+        "DELETING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "deleting"
+          }
+        },
+        "DELETED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "deleted"
+          }
+        },
+        "LOCKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "locked"
+          }
+        },
+        "CLONING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cloning"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#SnapshotTagsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {
+        "smithy.api#documentation": "List of tags assigned to the snapshot."
+      }
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshotsResponseSnapshotsList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.file_v1alpha1#Snapshot"
+      },
+      "traits": {
+        "smithy.api#documentation": "List of snapshots matching the request criteria."
+      }
+    },
+    "com.scaleway.file_v1alpha1#ListSnapshots": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.file_v1alpha1#ListSnapshotsRequest"
+      },
+      "output": {
+        "target": "com.scaleway.file_v1alpha1#ListSnapshotsResponse"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/file/v1alpha1/regions/{region}/snapshots",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "List all snapshots\n\nRetrieve all snapshots in the specified region. By default, the snapshots listed are ordered by creation date in ascending order. This can be modified using the `order_by` field.",
+        "smithy.api#paginated": {
+          "mode": "page",
+          "inputToken": "page",
+          "outputToken": "total_count",
+          "items": "snapshots",
+          "pageSize": "page_size"
+        }
+      }
+    },
+    "com.scaleway.file_v1alpha1#CreateSnapshotRequestRegion": {
+      "type": "enum",
+      "members": {
+        "FR_PAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#CreateSnapshotRequestTagsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {
+        "smithy.api#documentation": "List of tags assigned to the snapshot."
+      }
+    },
+    "com.scaleway.file_v1alpha1#CreateSnapshotRequest": {
+      "type": "structure",
+      "members": {
+        "region": {
+          "target": "com.scaleway.file_v1alpha1#CreateSnapshotRequestRegion",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The region you want to target"
+          }
+        },
+        "filesystem_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "UUID of the filesystem to snapshot. (UUID format)",
+            "smithy.api#required": {}
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Name of the snapshot.",
+            "smithy.api#required": {}
+          }
+        },
+        "project_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "UUID of the project to which the filesystem and the snapshot belong. (UUID format)",
+            "smithy.api#required": {}
+          }
+        },
+        "tags": {
+          "target": "com.scaleway.file_v1alpha1#CreateSnapshotRequestTagsList",
+          "traits": {
+            "smithy.api#documentation": "List of tags assigned to the snapshot."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.file_v1alpha1#CreateSnapshot": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.file_v1alpha1#CreateSnapshotRequest"
+      },
+      "output": {
+        "target": "com.scaleway.file_v1alpha1#Snapshot"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/file/v1alpha1/regions/{region}/snapshots",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Create a snapshot of a filesystem\n\nTo create a snapshot, the filesystem must be in the `available` status.\nIf your filesystem is in a transient state, you need to wait until the end of the current operation."
+      }
+    },
+    "com.scaleway.file_v1alpha1#GetSnapshotRequestRegion": {
+      "type": "enum",
+      "members": {
+        "FR_PAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#GetSnapshotRequest": {
+      "type": "structure",
+      "members": {
+        "region": {
+          "target": "com.scaleway.file_v1alpha1#GetSnapshotRequestRegion",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The region you want to target"
+          }
+        },
+        "snapshot_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#documentation": "UUID of the snapshot. (UUID format)"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.file_v1alpha1#GetSnapshot": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.file_v1alpha1#GetSnapshotRequest"
+      },
+      "output": {
+        "target": "com.scaleway.file_v1alpha1#Snapshot"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/file/v1alpha1/regions/{region}/snapshots/{snapshot_id}",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Get snapshot details\n\nRetrieve all properties and current status of a specific snapshot identified by its ID."
+      }
+    },
+    "com.scaleway.file_v1alpha1#UpdateSnapshotRequestRegion": {
+      "type": "enum",
+      "members": {
+        "FR_PAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#UpdateSnapshotRequestTagsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#Document"
+      },
+      "traits": {
+        "smithy.api#documentation": "List of tags assigned to the snapshot."
+      }
+    },
+    "com.scaleway.file_v1alpha1#UpdateSnapshotRequest": {
+      "type": "structure",
+      "members": {
+        "region": {
+          "target": "com.scaleway.file_v1alpha1#UpdateSnapshotRequestRegion",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The region you want to target"
+          }
+        },
+        "snapshot_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#documentation": "UUID of the snapshot. (UUID format)"
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "When defined, is the new name of the snapshot.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "tags": {
+          "target": "com.scaleway.file_v1alpha1#UpdateSnapshotRequestTagsList",
+          "traits": {
+            "smithy.api#documentation": "List of tags assigned to the snapshot.",
+            "com.distilled.openapi#nullable": {}
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.file_v1alpha1#UpdateSnapshot": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.file_v1alpha1#UpdateSnapshotRequest"
+      },
+      "output": {
+        "target": "com.scaleway.file_v1alpha1#Snapshot"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "PATCH",
+          "uri": "/file/v1alpha1/regions/{region}/snapshots/{snapshot_id}",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Update snapshot properties\n\nUpdate the name or tags of a snapshot."
+      }
+    },
+    "com.scaleway.file_v1alpha1#DeleteSnapshotRequestRegion": {
+      "type": "enum",
+      "members": {
+        "FR_PAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#DeleteSnapshotRequest": {
+      "type": "structure",
+      "members": {
+        "region": {
+          "target": "com.scaleway.file_v1alpha1#DeleteSnapshotRequestRegion",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The region you want to target"
+          }
+        },
+        "snapshot_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#documentation": "UUID of the snapshot. (UUID format)"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.file_v1alpha1#DeleteSnapshot": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.file_v1alpha1#DeleteSnapshotRequest"
+      },
+      "output": {
+        "target": "com.scaleway.file_v1alpha1#Snapshot"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "DELETE",
+          "uri": "/file/v1alpha1/regions/{region}/snapshots/{snapshot_id}",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Delete a snapshot\n\nYou must specify the `snapshot_id` of the snapshot you want to delete."
+      }
+    },
     "com.scaleway.file_v1alpha1#FileV1alpha1": {
       "type": "service",
       "version": "v1alpha1",
@@ -956,6 +1558,21 @@
         },
         {
           "target": "com.scaleway.file_v1alpha1#DeleteFileSystem"
+        },
+        {
+          "target": "com.scaleway.file_v1alpha1#ListSnapshots"
+        },
+        {
+          "target": "com.scaleway.file_v1alpha1#CreateSnapshot"
+        },
+        {
+          "target": "com.scaleway.file_v1alpha1#GetSnapshot"
+        },
+        {
+          "target": "com.scaleway.file_v1alpha1#UpdateSnapshot"
+        },
+        {
+          "target": "com.scaleway.file_v1alpha1#DeleteSnapshot"
         }
       ],
       "traits": {

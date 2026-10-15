@@ -2507,7 +2507,22 @@
         "digest": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Digest of the message to sign.\nThe digest must be generated using the same algorithm defined in the key’s algorithm settings."
+            "smithy.api#documentation": "Pre-hashed digest of the message to sign.\nFor ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384).\nThe 64-byte bound only exists for the ML-DSA backward-compatibility case below.\nAlso accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "msg": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Full message to sign as-is.\nOnly supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "external_mu": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ML-DSA pre-hashed μ message representative, exactly 64 bytes.\nMust equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API.",
+            "com.distilled.openapi#nullable": {}
           }
         }
       },
@@ -2752,7 +2767,15 @@
         "digest": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Digest of the original signed message.\nMust be generated using the same algorithm specified in the key’s configuration."
+            "smithy.api#documentation": "Digest that was signed.\nFor ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "msg": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Message that was signed.\nFor ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint.",
+            "com.distilled.openapi#nullable": {}
           }
         },
         "signature": {

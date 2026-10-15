@@ -248,6 +248,20 @@
           "traits": {
             "smithy.api#documentation": "Partitioning schema."
           }
+        },
+        "network_boot_url": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "URL of the network service to which the server should forward its boot request.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "network_boot_persistent": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Defines whether the network boot forwarding should be applied at every reboot or only once.",
+            "com.distilled.openapi#nullable": {}
+          }
         }
       },
       "traits": {}
@@ -1097,6 +1111,18 @@
           "target": "com.scaleway.baremetal_v1#Schema",
           "traits": {
             "smithy.api#documentation": "Partitioning schema."
+          }
+        },
+        "network_boot_url": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "URL of the network service to which the server should forward its boot request."
+          }
+        },
+        "network_boot_persistent": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Defines whether the network boot forwarding should be applied at every reboot or only once."
           }
         }
       },
@@ -2625,6 +2651,18 @@
           "traits": {
             "smithy.api#documentation": "Defines the cloud-init API version used by this OS.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "network_boot": {
+          "target": "com.scaleway.baremetal_v1#OSOSField",
+          "traits": {
+            "smithy.api#documentation": "Object defining the network boot requirements for booting server."
+          }
+        },
+        "network_boot_persistent_editable": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Defines if the network boot can be persisted or not."
           }
         },
         "zone": {
@@ -4232,6 +4270,20 @@
           "target": "com.scaleway.baremetal_v1#ScalewayStdFile",
           "traits": {
             "smithy.api#documentation": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script."
+          }
+        },
+        "network_boot_url": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "URL of the network service to which the server should forward its boot request.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "network_boot_persistent": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Defines whether the network boot forwarding should be applied at every reboot or only once.",
+            "com.distilled.openapi#nullable": {}
           }
         }
       },

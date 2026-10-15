@@ -934,14 +934,20 @@ export interface SignRequest {
   region?: SignRequestRegion | (string & {});
   /** ID of the key to use for signing. (UUID format) */
   key_id: string;
-  /** Digest of the message to sign. The digest must be generated using the same algorithm defined in the key’s algorithm settings. */
-  digest?: string;
+  /** Pre-hashed digest of the message to sign. For ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384). The 64-byte bound only exists for the ML-DSA backward-compatibility case below. Also accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA. */
+  digest?: string | null;
+  /** Full message to sign as-is. Only supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes. */
+  msg?: string | null;
+  /** ML-DSA pre-hashed μ message representative, exactly 64 bytes. Must equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API. */
+  external_mu?: string | null;
 }
 export const SignRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     region: S.optional(SignRequestRegion.pipe(T.Label())),
     key_id: S.String.pipe(T.Label()),
-    digest: S.optional(S.String),
+    digest: S.optional(S.NullOr(S.String)),
+    msg: S.optional(S.NullOr(S.String)),
+    external_mu: S.optional(S.NullOr(S.String)),
   }).pipe(
     T.Http({
       method: "POST",
@@ -1075,8 +1081,10 @@ export interface VerifyRequest {
   region?: VerifyRequestRegion | (string & {});
   /** ID of the key to use for signature verification. (UUID format) */
   key_id: string;
-  /** Digest of the original signed message. Must be generated using the same algorithm specified in the key’s configuration. */
-  digest?: string;
+  /** Digest that was signed. For ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm. */
+  digest?: string | null;
+  /** Message that was signed. For ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint. */
+  msg?: string | null;
   /** The message signature to verify. */
   signature?: string;
 }
@@ -1084,7 +1092,8 @@ export const VerifyRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     region: S.optional(VerifyRequestRegion.pipe(T.Label())),
     key_id: S.String.pipe(T.Label()),
-    digest: S.optional(S.String),
+    digest: S.optional(S.NullOr(S.String)),
+    msg: S.optional(S.NullOr(S.String)),
     signature: S.optional(S.String),
   }).pipe(
     T.Http({

@@ -33,7 +33,13 @@ export const ApplyMaintenanceRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "ApplyMaintenanceRequest" }) as any as S.Schema<ApplyMaintenanceRequest>;
 
-export type MaintenanceStatus = "unknown_status" | "planned" | "done" | "cancelled" | "ongoing";
+export type MaintenanceStatus =
+  | "unknown_status"
+  | "planned"
+  | "done"
+  | "cancelled"
+  | "ongoing"
+  | "error";
 export const MaintenanceStatus = S.String;
 
 export type MaintenanceAppliedBy = "unknown_applied_by" | "user" | "admin";
@@ -57,14 +63,25 @@ export const ServiceUpdate = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ServiceUpdate" }) as any as S.Schema<ServiceUpdate>;
 
+export interface InfrastructureUpdate {
+  kubernetes_version_name?: string;
+}
+export const InfrastructureUpdate = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    kubernetes_version_name: S.optional(S.String),
+  }),
+).annotate({ identifier: "InfrastructureUpdate" }) as any as S.Schema<InfrastructureUpdate>;
+
 export interface Workflow {
   engine_upgrade?: EngineUpgrade | null;
   service_update?: ServiceUpdate | null;
+  infrastructure_update?: InfrastructureUpdate | null;
 }
 export const Workflow = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     engine_upgrade: S.optional(S.NullOr(EngineUpgrade)),
     service_update: S.optional(S.NullOr(ServiceUpdate)),
+    infrastructure_update: S.optional(S.NullOr(InfrastructureUpdate)),
   }),
 ).annotate({ identifier: "Workflow" }) as any as S.Schema<Workflow>;
 

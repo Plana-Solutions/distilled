@@ -1426,6 +1426,12 @@
           "traits": {
             "smithy.api#enumValue": "code"
           }
+        },
+        "OCR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ocr"
+          }
         }
       },
       "traits": {}

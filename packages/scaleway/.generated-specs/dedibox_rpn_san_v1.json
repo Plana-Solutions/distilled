@@ -495,6 +495,12 @@
           "traits": {
             "smithy.api#documentation": "Bandwidth info if it is a bandwidth offer.\nOne-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set."
           }
+        },
+        "commitments": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OfferCommitmentsList",
+          "traits": {
+            "smithy.api#documentation": "Commitment info if it is a commitment offer."
+          }
         }
       },
       "traits": {}
@@ -627,6 +633,12 @@
         },
         "stock_by_datacenter": {
           "target": "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoStockByDatacenterMap"
+        },
+        "availability_by_datacenter": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoAvailabilityByDatacenterMap"
+        },
+        "rpn_speed": {
+          "target": "smithy.api#Double"
         }
       },
       "traits": {}
@@ -747,6 +759,12 @@
           "target": "smithy.api#Double",
           "traits": {
             "smithy.api#documentation": "Frequency of the CPU."
+          }
+        },
+        "bench": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "Bench of the CPU."
           }
         }
       },
@@ -905,6 +923,28 @@
       },
       "value": {
         "target": "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoStock"
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoAvailability": {
+      "type": "structure",
+      "members": {
+        "stock": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoStock"
+        },
+        "quantity": {
+          "target": "smithy.api#Double"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoAvailabilityByDatacenterMap": {
+      "type": "map",
+      "key": {
+        "target": "smithy.api#String"
+      },
+      "value": {
+        "target": "com.scaleway.dedibox_rpn_san_v1#OfferServerInfoAvailability"
       },
       "traits": {}
     },
@@ -1094,6 +1134,51 @@
         }
       },
       "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OfferCommitment": {
+      "type": "structure",
+      "members": {
+        "unit": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Unit used for discount."
+          }
+        },
+        "value": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "Value of the discount."
+          }
+        },
+        "free_setup_fees": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Is it free setup fees."
+          }
+        },
+        "duration": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Commitment's required duration."
+          }
+        },
+        "discounted_price": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#GoogleTypeMoney",
+          "traits": {
+            "smithy.api#documentation": "Discounted price of the commitment."
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OfferCommitmentsList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.dedibox_rpn_san_v1#OfferCommitment"
+      },
+      "traits": {
+        "smithy.api#documentation": "Commitment info if it is a commitment offer."
+      }
     },
     "com.scaleway.dedibox_rpn_san_v1#ServiceType": {
       "type": "enum",

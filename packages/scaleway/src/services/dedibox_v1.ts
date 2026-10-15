@@ -265,6 +265,8 @@ export interface CPU {
   thread_count?: number;
   /** Frequency of the CPU. */
   frequency?: number;
+  /** Bench of the CPU. */
+  bench?: number;
 }
 export const CPU = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -272,6 +274,7 @@ export const CPU = /*@__PURE__*/ S.suspend(() =>
     core_count: S.optional(S.Number),
     thread_count: S.optional(S.Number),
     frequency: S.optional(S.Number),
+    bench: S.optional(S.Number),
   }),
 ).annotate({ identifier: "CPU" }) as any as S.Schema<CPU>;
 
@@ -365,6 +368,27 @@ export const OfferServerInfoStockByDatacenterMap = /*@__PURE__*/ S.Record(
   OfferServerInfoStock,
 ) as any as S.Schema<OfferServerInfoStockByDatacenterMap>;
 
+export interface OfferServerInfoAvailability {
+  stock?: OfferServerInfoStock;
+  quantity?: number;
+}
+export const OfferServerInfoAvailability = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    stock: S.optional(OfferServerInfoStock),
+    quantity: S.optional(S.Number),
+  }),
+).annotate({
+  identifier: "OfferServerInfoAvailability",
+}) as any as S.Schema<OfferServerInfoAvailability>;
+
+export type OfferServerInfoAvailabilityByDatacenterMap = {
+  [key: string]: OfferServerInfoAvailability | undefined;
+};
+export const OfferServerInfoAvailabilityByDatacenterMap = /*@__PURE__*/ S.Record(
+  S.String,
+  OfferServerInfoAvailability,
+) as any as S.Schema<OfferServerInfoAvailabilityByDatacenterMap>;
+
 export interface OfferServerInfo {
   bandwidth?: number;
   stock?: OfferServerInfoStock;
@@ -379,6 +403,8 @@ export interface OfferServerInfo {
   connectivity?: number;
   onetime_fees?: Offer;
   stock_by_datacenter?: OfferServerInfoStockByDatacenterMap;
+  availability_by_datacenter?: OfferServerInfoAvailabilityByDatacenterMap;
+  rpn_speed?: number;
 }
 export const OfferServerInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -395,6 +421,8 @@ export const OfferServerInfo = /*@__PURE__*/ S.suspend(() =>
     connectivity: S.optional(S.Number),
     onetime_fees: S.optional(S.suspend(() => Offer)),
     stock_by_datacenter: S.optional(OfferServerInfoStockByDatacenterMap),
+    availability_by_datacenter: S.optional(OfferServerInfoAvailabilityByDatacenterMap),
+    rpn_speed: S.optional(S.Number),
   }),
 ).annotate({ identifier: "OfferServerInfo" }) as any as S.Schema<OfferServerInfo>;
 
@@ -518,6 +546,34 @@ export const OfferFailoverBlockInfo = OfferFailoverIpInfo;
 export type OfferBandwidthInfo = OfferRPNInfo;
 export const OfferBandwidthInfo = OfferRPNInfo;
 
+export interface OfferCommitment {
+  /** Unit used for discount. */
+  unit?: string;
+  /** Value of the discount. */
+  value?: number;
+  /** Is it free setup fees. */
+  free_setup_fees?: boolean;
+  /** Commitment's required duration. */
+  duration?: string;
+  /** Discounted price of the commitment. */
+  discounted_price?: GoogleTypeMoney;
+}
+export const OfferCommitment = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    unit: S.optional(S.String),
+    value: S.optional(S.Number),
+    free_setup_fees: S.optional(S.Boolean),
+    duration: S.optional(S.String),
+    discounted_price: S.optional(GoogleTypeMoney),
+  }),
+).annotate({ identifier: "OfferCommitment" }) as any as S.Schema<OfferCommitment>;
+
+/** Commitment info if it is a commitment offer. */
+export type OfferCommitmentsList = Array<OfferCommitment>;
+export const OfferCommitmentsList = /*@__PURE__*/ S.Array(
+  OfferCommitment,
+) as any as S.Schema<OfferCommitmentsList>;
+
 export interface Offer {
   /** ID of the offer (aka product.id). */
   id?: number;
@@ -555,6 +611,8 @@ export interface Offer {
   failover_block_info?: OfferFailoverIpInfo | null;
   /** Bandwidth info if it is a bandwidth offer. */
   bandwidth_info?: OfferRPNInfo | null;
+  /** Commitment info if it is a commitment offer. */
+  commitments?: OfferCommitmentsList;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -576,6 +634,7 @@ export const Offer = /*@__PURE__*/ S.suspend(() =>
     failover_ip_info: S.optional(S.NullOr(OfferFailoverIpInfo)),
     failover_block_info: S.optional(S.NullOr(OfferFailoverIpInfo)),
     bandwidth_info: S.optional(S.NullOr(OfferRPNInfo)),
+    commitments: S.optional(OfferCommitmentsList),
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
 
@@ -1131,6 +1190,12 @@ export interface OS {
   hostname_max_length?: number;
   /** OS release date. (RFC 3339 format) */
   released_at?: string | null;
+  /** Is it a beta OS. */
+  beta?: string;
+  /** Description of the OS. */
+  description?: string;
+  /** URL to OS official website. */
+  official_website?: string;
 }
 export const OS = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1155,6 +1220,9 @@ export const OS = /*@__PURE__*/ S.suspend(() =>
     hostname_regex: S.optional(S.NullOr(S.String)),
     hostname_max_length: S.optional(S.Number),
     released_at: S.optional(S.NullOr(S.String)),
+    beta: S.optional(S.String),
+    description: S.optional(S.String),
+    official_website: S.optional(S.String),
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
 

@@ -296,6 +296,10 @@ export interface ServerInstall {
   service_url?: string;
   /** Partitioning schema. */
   partitioning_schema?: Schema;
+  /** URL of the network service to which the server should forward its boot request. */
+  network_boot_url?: string;
+  /** Defines whether the network boot forwarding should be applied at every reboot or only once. */
+  network_boot_persistent?: boolean;
 }
 export const ServerInstall = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -307,6 +311,8 @@ export const ServerInstall = /*@__PURE__*/ S.suspend(() =>
     service_user: S.optional(S.String),
     service_url: S.optional(S.String),
     partitioning_schema: S.optional(Schema),
+    network_boot_url: S.optional(S.String),
+    network_boot_persistent: S.optional(S.Boolean),
   }),
 ).annotate({ identifier: "ServerInstall" }) as any as S.Schema<ServerInstall>;
 
@@ -516,6 +522,10 @@ export interface CreateServerRequestInstall {
   service_password?: string | Redacted.Redacted<string> | null;
   /** Partitioning schema. */
   partitioning_schema?: Schema;
+  /** URL of the network service to which the server should forward its boot request. */
+  network_boot_url?: string | null;
+  /** Defines whether the network boot forwarding should be applied at every reboot or only once. */
+  network_boot_persistent?: boolean | null;
 }
 export const CreateServerRequestInstall = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -527,6 +537,8 @@ export const CreateServerRequestInstall = /*@__PURE__*/ S.suspend(() =>
     service_user: S.optional(S.NullOr(S.String)),
     service_password: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
     partitioning_schema: S.optional(Schema),
+    network_boot_url: S.optional(S.NullOr(S.String)),
+    network_boot_persistent: S.optional(S.NullOr(S.Boolean)),
   }),
 ).annotate({
   identifier: "CreateServerRequestInstall",
@@ -1321,6 +1333,10 @@ export interface OS {
   cloud_init_supported?: boolean;
   /** Defines the cloud-init API version used by this OS. */
   cloud_init_version?: string | null;
+  /** Object defining the network boot requirements for booting server. */
+  network_boot?: OSOSField;
+  /** Defines if the network boot can be persisted or not. */
+  network_boot_persistent_editable?: boolean;
   /** Zone in which is the OS is available. */
   zone?: string;
 }
@@ -1341,6 +1357,8 @@ export const OS = /*@__PURE__*/ S.suspend(() =>
     custom_partitioning_supported: S.optional(S.Boolean),
     cloud_init_supported: S.optional(S.Boolean),
     cloud_init_version: S.optional(S.NullOr(S.String)),
+    network_boot: S.optional(OSOSField),
+    network_boot_persistent_editable: S.optional(S.Boolean),
     zone: S.optional(S.String),
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
@@ -1497,6 +1515,10 @@ export interface InstallServerRequest {
   partitioning_schema?: Schema;
   /** Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script. */
   user_data?: ScalewayStdFile;
+  /** URL of the network service to which the server should forward its boot request. */
+  network_boot_url?: string | null;
+  /** Defines whether the network boot forwarding should be applied at every reboot or only once. */
+  network_boot_persistent?: boolean | null;
 }
 export const InstallServerRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1511,6 +1533,8 @@ export const InstallServerRequest = /*@__PURE__*/ S.suspend(() =>
     service_password: S.optional(S.NullOr(S.String).pipe(T.SensitiveValue({}))),
     partitioning_schema: S.optional(Schema),
     user_data: S.optional(ScalewayStdFile),
+    network_boot_url: S.optional(S.NullOr(S.String)),
+    network_boot_persistent: S.optional(S.NullOr(S.Boolean)),
   }).pipe(
     T.Http({
       method: "POST",

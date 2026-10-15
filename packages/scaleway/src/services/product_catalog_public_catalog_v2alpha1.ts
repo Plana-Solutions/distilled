@@ -592,7 +592,8 @@ export type PublicCatalogProductPropertiesGenerativeApisTask =
   | "embeddings"
   | "vision"
   | "audio_transcription"
-  | "code";
+  | "code"
+  | "ocr";
 export const PublicCatalogProductPropertiesGenerativeApisTask = S.String;
 
 export type PublicCatalogProductPropertiesGenerativeApisTasksList =

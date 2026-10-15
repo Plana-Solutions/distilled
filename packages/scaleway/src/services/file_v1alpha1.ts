@@ -50,7 +50,13 @@ export const CreateFileSystemRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "CreateFileSystemRequest" }) as any as S.Schema<CreateFileSystemRequest>;
 
-export type FileSystemStatus = "unknown_status" | "available" | "error" | "creating" | "updating";
+export type FileSystemStatus =
+  | "unknown_status"
+  | "available"
+  | "error"
+  | "creating"
+  | "updating"
+  | "snapshotting";
 export const FileSystemStatus = S.String;
 
 /** List of tags assigned to the filesystem. */
@@ -105,6 +111,117 @@ export const FileSystem = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "FileSystem" }) as any as S.Schema<FileSystem>;
 
+export type CreateSnapshotRequestRegion = "fr-par";
+export const CreateSnapshotRequestRegion = S.String;
+
+/** List of tags assigned to the snapshot. */
+export type CreateSnapshotRequestTagsList = Array<string>;
+export const CreateSnapshotRequestTagsList = /*@__PURE__*/ S.Array(
+  S.String,
+) as any as S.Schema<CreateSnapshotRequestTagsList>;
+
+export interface CreateSnapshotRequest {
+  /** The region you want to target */
+  region?: CreateSnapshotRequestRegion | (string & {});
+  /** UUID of the filesystem to snapshot. (UUID format) */
+  filesystem_id: string;
+  /** Name of the snapshot. */
+  name: string;
+  /** UUID of the project to which the filesystem and the snapshot belong. (UUID format) */
+  project_id: string;
+  /** List of tags assigned to the snapshot. */
+  tags?: CreateSnapshotRequestTagsList;
+}
+export const CreateSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    region: S.optional(CreateSnapshotRequestRegion.pipe(T.Label())),
+    filesystem_id: S.String,
+    name: S.String,
+    project_id: S.String,
+    tags: S.optional(CreateSnapshotRequestTagsList),
+  }).pipe(
+    T.Http({
+      method: "POST",
+      uri: "/file/v1alpha1/regions/{region}/snapshots",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "CreateSnapshotRequest" }) as any as S.Schema<CreateSnapshotRequest>;
+
+export interface SnapshotParentFilesystem {
+  /** Parent filesystem UUID (filesystem from which the snapshot originates). (UUID format) */
+  id?: string;
+  /** Name of the parent filesystem. */
+  name?: string;
+}
+export const SnapshotParentFilesystem = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.optional(S.String),
+    name: S.optional(S.String),
+  }),
+).annotate({ identifier: "SnapshotParentFilesystem" }) as any as S.Schema<SnapshotParentFilesystem>;
+
+export type SnapshotStatus =
+  | "unknown_status"
+  | "available"
+  | "error"
+  | "creating"
+  | "deleting"
+  | "deleted"
+  | "locked"
+  | "cloning";
+export const SnapshotStatus = S.String;
+
+/** List of tags assigned to the snapshot. */
+export type SnapshotTagsList = Array<string>;
+export const SnapshotTagsList = /*@__PURE__*/ S.Array(
+  S.String,
+) as any as S.Schema<SnapshotTagsList>;
+
+export interface Snapshot {
+  /** UUID of the snapshot. (UUID format) */
+  id?: string;
+  /** Name of the snapshot. */
+  name?: string;
+  /** Information about the parent filesystem. If the parent filesystem was deleted, value is null. */
+  parent_filesystem?: SnapshotParentFilesystem;
+  /** Snapshot size in bytes. (in bytes) */
+  size?: number;
+  /** Current status of the snapshot (e.g. creating, available, ...). */
+  status?: SnapshotStatus;
+  /** UUID of the project to which the snapshot belongs. (UUID format) */
+  project_id?: string;
+  /** UUID of the organization to which the snapshot belongs. (UUID format) */
+  organization_id?: string;
+  /** List of tags assigned to the snapshot. */
+  tags?: SnapshotTagsList;
+  /** Creation date of the snapshot. (RFC 3339 format) */
+  created_at?: string | null;
+  /** Last update date of the properties of the snapshot. (RFC 3339 format) */
+  updated_at?: string | null;
+  /** Region where the snapshot is located. */
+  region?: string;
+  /** The SRN of the snapshot. */
+  srn?: string;
+}
+export const Snapshot = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.optional(S.String),
+    name: S.optional(S.String),
+    parent_filesystem: S.optional(SnapshotParentFilesystem),
+    size: S.optional(S.Number),
+    status: S.optional(SnapshotStatus),
+    project_id: S.optional(S.String),
+    organization_id: S.optional(S.String),
+    tags: S.optional(SnapshotTagsList),
+    created_at: S.optional(S.NullOr(S.String)),
+    updated_at: S.optional(S.NullOr(S.String)),
+    region: S.optional(S.String),
+    srn: S.optional(S.String),
+  }),
+).annotate({ identifier: "Snapshot" }) as any as S.Schema<Snapshot>;
+
 export type DeleteFileSystemRequestRegion = "fr-par";
 export const DeleteFileSystemRequestRegion = S.String;
 
@@ -133,6 +250,29 @@ export const DeleteFileSystemResponse = /*@__PURE__*/ S.suspend(() => S.Struct({
   identifier: "DeleteFileSystemResponse",
 }) as any as S.Schema<DeleteFileSystemResponse>;
 
+export type DeleteSnapshotRequestRegion = "fr-par";
+export const DeleteSnapshotRequestRegion = S.String;
+
+export interface DeleteSnapshotRequest {
+  /** The region you want to target */
+  region?: DeleteSnapshotRequestRegion | (string & {});
+  /** UUID of the snapshot. (UUID format) */
+  snapshot_id: string;
+}
+export const DeleteSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    region: S.optional(DeleteSnapshotRequestRegion.pipe(T.Label())),
+    snapshot_id: S.String.pipe(T.Label()),
+  }).pipe(
+    T.Http({
+      method: "DELETE",
+      uri: "/file/v1alpha1/regions/{region}/snapshots/{snapshot_id}",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "DeleteSnapshotRequest" }) as any as S.Schema<DeleteSnapshotRequest>;
+
 export type GetFileSystemRequestRegion = "fr-par";
 export const GetFileSystemRequestRegion = S.String;
 
@@ -155,6 +295,29 @@ export const GetFileSystemRequest = /*@__PURE__*/ S.suspend(() =>
     }),
   ),
 ).annotate({ identifier: "GetFileSystemRequest" }) as any as S.Schema<GetFileSystemRequest>;
+
+export type GetSnapshotRequestRegion = "fr-par";
+export const GetSnapshotRequestRegion = S.String;
+
+export interface GetSnapshotRequest {
+  /** The region you want to target */
+  region?: GetSnapshotRequestRegion | (string & {});
+  /** UUID of the snapshot. (UUID format) */
+  snapshot_id: string;
+}
+export const GetSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    region: S.optional(GetSnapshotRequestRegion.pipe(T.Label())),
+    snapshot_id: S.String.pipe(T.Label()),
+  }).pipe(
+    T.Http({
+      method: "GET",
+      uri: "/file/v1alpha1/regions/{region}/snapshots/{snapshot_id}",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "GetSnapshotRequest" }) as any as S.Schema<GetSnapshotRequest>;
 
 export type ListAttachmentsRequestRegion = "fr-par";
 export const ListAttachmentsRequestRegion = S.String;
@@ -405,6 +568,83 @@ export const ListFileSystemTypesResponse = /*@__PURE__*/ S.suspend(() =>
   identifier: "ListFileSystemTypesResponse",
 }) as any as S.Schema<ListFileSystemTypesResponse>;
 
+export type ListSnapshotsRequestRegion = "fr-par";
+export const ListSnapshotsRequestRegion = S.String;
+
+export type ListSnapshotsRequestOrderBy =
+  | "created_at_asc"
+  | "created_at_desc"
+  | "name_asc"
+  | "name_desc";
+export const ListSnapshotsRequestOrderBy = S.String;
+
+export type ListSnapshotsRequestTagsList = Array<string>;
+export const ListSnapshotsRequestTagsList = /*@__PURE__*/ S.Array(
+  S.String,
+) as any as S.Schema<ListSnapshotsRequestTagsList>;
+
+export type ListSnapshotsRequestSnapshotIdsList = Array<string>;
+export const ListSnapshotsRequestSnapshotIdsList = /*@__PURE__*/ S.Array(
+  S.String,
+) as any as S.Schema<ListSnapshotsRequestSnapshotIdsList>;
+
+export interface ListSnapshotsRequest {
+  /** The region you want to target */
+  region?: ListSnapshotsRequestRegion | (string & {});
+  /** Criteria to use when ordering the list. */
+  order_by?: ListSnapshotsRequestOrderBy | (string & {});
+  /** Page number (starting at 1). */
+  page?: number;
+  /** Number of entries per page (default: 20, max: 100). */
+  page_size?: number;
+  /** Filter the returned snapshots by their names. */
+  name?: string;
+  /** Filter by tags. Only snapshots with one or more matching tags will be returned. */
+  tags?: ListSnapshotsRequestTagsList;
+  /** Filter the returned snapshots by the ID of the original filesystem. */
+  filesystem_id?: string;
+  /** Filter by snapshot IDs. Only snapshots with one or more matching IDs will be returned. */
+  snapshot_ids?: ListSnapshotsRequestSnapshotIdsList;
+}
+export const ListSnapshotsRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    region: S.optional(ListSnapshotsRequestRegion.pipe(T.Label())),
+    order_by: S.optional(ListSnapshotsRequestOrderBy.pipe(T.Query())),
+    page: S.optional(S.Number.pipe(T.Query())),
+    page_size: S.optional(S.Number.pipe(T.Query())),
+    name: S.optional(S.String.pipe(T.Query())),
+    tags: S.optional(ListSnapshotsRequestTagsList.pipe(T.Query())),
+    filesystem_id: S.optional(S.String.pipe(T.Query())),
+    snapshot_ids: S.optional(ListSnapshotsRequestSnapshotIdsList.pipe(T.Query())),
+  }).pipe(
+    T.Http({
+      method: "GET",
+      uri: "/file/v1alpha1/regions/{region}/snapshots",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "ListSnapshotsRequest" }) as any as S.Schema<ListSnapshotsRequest>;
+
+/** List of snapshots matching the request criteria. */
+export type ListSnapshotsResponseSnapshotsList = Array<Snapshot>;
+export const ListSnapshotsResponseSnapshotsList = /*@__PURE__*/ S.Array(
+  Snapshot,
+) as any as S.Schema<ListSnapshotsResponseSnapshotsList>;
+
+export interface ListSnapshotsResponse {
+  /** List of snapshots matching the request criteria. */
+  snapshots: ListSnapshotsResponseSnapshotsList;
+  /** Total number of snapshots matching the criteria. */
+  total_count?: number;
+}
+export const ListSnapshotsResponse = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    snapshots: ListSnapshotsResponseSnapshotsList,
+    total_count: S.optional(S.Number),
+  }),
+).annotate({ identifier: "ListSnapshotsResponse" }) as any as S.Schema<ListSnapshotsResponse>;
+
 export type UpdateFileSystemRequestRegion = "fr-par";
 export const UpdateFileSystemRequestRegion = S.String;
 
@@ -443,6 +683,41 @@ export const UpdateFileSystemRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "UpdateFileSystemRequest" }) as any as S.Schema<UpdateFileSystemRequest>;
 
+export type UpdateSnapshotRequestRegion = "fr-par";
+export const UpdateSnapshotRequestRegion = S.String;
+
+/** List of tags assigned to the snapshot. */
+export type UpdateSnapshotRequestTagsList = Array<unknown>;
+export const UpdateSnapshotRequestTagsList = /*@__PURE__*/ S.Array(
+  S.Unknown,
+) as any as S.Schema<UpdateSnapshotRequestTagsList>;
+
+export interface UpdateSnapshotRequest {
+  /** The region you want to target */
+  region?: UpdateSnapshotRequestRegion | (string & {});
+  /** UUID of the snapshot. (UUID format) */
+  snapshot_id: string;
+  /** When defined, is the new name of the snapshot. */
+  name?: string | null;
+  /** List of tags assigned to the snapshot. */
+  tags?: UpdateSnapshotRequestTagsList | null;
+}
+export const UpdateSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    region: S.optional(UpdateSnapshotRequestRegion.pipe(T.Label())),
+    snapshot_id: S.String.pipe(T.Label()),
+    name: S.optional(S.NullOr(S.String)),
+    tags: S.optional(S.NullOr(UpdateSnapshotRequestTagsList)),
+  }).pipe(
+    T.Http({
+      method: "PATCH",
+      uri: "/file/v1alpha1/regions/{region}/snapshots/{snapshot_id}",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "UpdateSnapshotRequest" }) as any as S.Schema<UpdateSnapshotRequest>;
+
 export type CreateFileSystemError = ScalewayOpError;
 /** Create a new filesystem To create a new filesystem, you must specify a name, a size, and a project ID. */
 export const createFileSystem: API.OperationMethod<
@@ -453,6 +728,21 @@ export const createFileSystem: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: CreateFileSystemRequest,
   output: FileSystem,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
+export type CreateSnapshotError = ScalewayOpError;
+/** Create a snapshot of a filesystem To create a snapshot, the filesystem must be in the `available` status. If your filesystem is in a transient state, you need to wait until the end of the current operation. */
+export const createSnapshot: API.OperationMethod<
+  CreateSnapshotRequest,
+  Snapshot,
+  CreateSnapshotError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: CreateSnapshotRequest,
+  output: Snapshot,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,
@@ -473,6 +763,21 @@ export const deleteFileSystem: API.OperationMethod<
   retry: Retry.Retry,
 }));
 
+export type DeleteSnapshotError = ScalewayOpError;
+/** Delete a snapshot You must specify the `snapshot_id` of the snapshot you want to delete. */
+export const deleteSnapshot: API.OperationMethod<
+  DeleteSnapshotRequest,
+  Snapshot,
+  DeleteSnapshotError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: DeleteSnapshotRequest,
+  output: Snapshot,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
 export type GetFileSystemError = ScalewayOpError;
 /** Get filesystem details Retrieve all properties and current status of a specific filesystem identified by its ID. */
 export const getFileSystem: API.OperationMethod<
@@ -483,6 +788,21 @@ export const getFileSystem: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: GetFileSystemRequest,
   output: FileSystem,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
+export type GetSnapshotError = ScalewayOpError;
+/** Get snapshot details Retrieve all properties and current status of a specific snapshot identified by its ID. */
+export const getSnapshot: API.OperationMethod<
+  GetSnapshotRequest,
+  Snapshot,
+  GetSnapshotError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: GetSnapshotRequest,
+  output: Snapshot,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,
@@ -566,6 +886,32 @@ export const listFileSystemTypes: API.PaginatedOperationMethod<
   paginateByTotalCount,
 ) as any;
 
+export type ListSnapshotsError = ScalewayOpError;
+/** List all snapshots Retrieve all snapshots in the specified region. By default, the snapshots listed are ordered by creation date in ascending order. This can be modified using the `order_by` field. */
+export const listSnapshots: API.PaginatedOperationMethod<
+  ListSnapshotsRequest,
+  ListSnapshotsResponse,
+  ListSnapshotsError,
+  ScalewayOpContext,
+  Snapshot
+> = /*@__PURE__*/ API.makePaginated(
+  () => ({
+    input: ListSnapshotsRequest,
+    output: ListSnapshotsResponse,
+    errors: [UnknownScalewayError],
+    protocol: ScalewayProtocol,
+    retry: Retry.Retry,
+    pagination: {
+      mode: "page",
+      inputToken: "page",
+      outputToken: "total_count",
+      items: "snapshots",
+      pageSize: "page_size",
+    } as const,
+  }),
+  paginateByTotalCount,
+) as any;
+
 export type UpdateFileSystemError = ScalewayOpError;
 /** Update filesystem properties Update the technical details of a filesystem, such as its name, tags or its new size. */
 export const updateFileSystem: API.OperationMethod<
@@ -576,6 +922,21 @@ export const updateFileSystem: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: UpdateFileSystemRequest,
   output: FileSystem,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
+export type UpdateSnapshotError = ScalewayOpError;
+/** Update snapshot properties Update the name or tags of a snapshot. */
+export const updateSnapshot: API.OperationMethod<
+  UpdateSnapshotRequest,
+  Snapshot,
+  UpdateSnapshotError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: UpdateSnapshotRequest,
+  output: Snapshot,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

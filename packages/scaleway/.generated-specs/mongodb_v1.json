@@ -766,6 +766,12 @@
           "traits": {
             "smithy.api#enumValue": "ongoing"
           }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "error"
+          }
         }
       },
       "traits": {}
@@ -808,6 +814,12 @@
           "traits": {
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "infrastructure_update": {
+          "target": "com.scaleway.mongodb_v1#InfrastructureUpdate",
+          "traits": {
+            "com.distilled.openapi#nullable": {}
+          }
         }
       },
       "traits": {}
@@ -825,6 +837,15 @@
       "type": "structure",
       "members": {
         "service_name": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.mongodb_v1#InfrastructureUpdate": {
+      "type": "structure",
+      "members": {
+        "kubernetes_version_name": {
           "target": "smithy.api#String"
         }
       },
