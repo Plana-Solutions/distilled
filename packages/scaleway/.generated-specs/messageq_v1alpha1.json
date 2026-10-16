@@ -249,6 +249,12 @@
           "traits": {
             "smithy.api#documentation": "Region of the deployment."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the deployment."
+          }
         }
       },
       "traits": {}
@@ -342,6 +348,12 @@
           "traits": {
             "smithy.api#documentation": "Size of the Volume. (in bytes)"
           }
+        },
+        "deployment_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the deployment."
+          }
         }
       },
       "traits": {}
@@ -389,6 +401,18 @@
           "target": "com.scaleway.messageq_v1alpha1#EndpointServicesList",
           "traits": {
             "smithy.api#documentation": "List of available services, their ports and URLs."
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region of the endpoint."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the endpoint."
           }
         },
         "public": {
@@ -1045,7 +1069,28 @@
       "type": "structure",
       "members": {
         "username": {
-          "target": "smithy.api#String"
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Username of the deployment user."
+          }
+        },
+        "deployment_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the deployment."
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region of the user."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the user."
+          }
         }
       },
       "traits": {}
@@ -1552,6 +1597,18 @@
           "traits": {
             "smithy.api#documentation": "Available storage options for the node type."
           }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region of the node type."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the node type."
+          }
         }
       },
       "traits": {}
@@ -1776,6 +1833,18 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "Defines whether the version is in beta."
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region of the version."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the version."
           }
         }
       },

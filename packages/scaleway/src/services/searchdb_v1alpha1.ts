@@ -27,11 +27,14 @@ export interface Volume {
   type?: VolumeType | (string & {});
   /** Define the size of the Volume. (in bytes) */
   size_bytes?: number;
+  /** ID of the Deployment. */
+  deployment_id?: string;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     type: S.optional(VolumeType),
     size_bytes: S.optional(S.Number),
+    deployment_id: S.optional(S.String),
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 
@@ -162,6 +165,10 @@ export interface Endpoint {
   dns_record?: string;
   /** List of available services, their ports and URLs. */
   services?: EndpointServicesList;
+  /** Region of the Endpoint. */
+  region?: string;
+  /** The SRN of the Endpoint. */
+  srn?: string;
   public?: unknown | null;
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
@@ -170,6 +177,8 @@ export const Endpoint = /*@__PURE__*/ S.suspend(() =>
     id: S.optional(S.String),
     dns_record: S.optional(S.String),
     services: S.optional(EndpointServicesList),
+    region: S.optional(S.String),
+    srn: S.optional(S.String),
     public: S.optional(S.NullOr(S.Unknown)),
     private_network: S.optional(S.NullOr(EndpointSpecPrivateNetworkDetails)),
   }),
@@ -212,6 +221,8 @@ export interface Deployment {
   version?: string;
   /** Region the Deployment is located. */
   region?: string;
+  /** The SRN of the Deployment. */
+  srn?: string;
 }
 export const Deployment = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -230,6 +241,7 @@ export const Deployment = /*@__PURE__*/ S.suspend(() =>
     updated_at: S.optional(S.NullOr(S.String)),
     version: S.optional(S.String),
     region: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Deployment" }) as any as S.Schema<Deployment>;
 
@@ -289,11 +301,21 @@ export const CreateUserRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "CreateUserRequest" }) as any as S.Schema<CreateUserRequest>;
 
 export interface User {
+  /** Username of the Deployment user. */
   username?: string;
+  /** ID of the Deployment. */
+  deployment_id?: string;
+  /** Region of the user. */
+  region?: string;
+  /** The SRN of the user. */
+  srn?: string;
 }
 export const User = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     username: S.optional(S.String),
+    deployment_id: S.optional(S.String),
+    region: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "User" }) as any as S.Schema<User>;
 
@@ -626,6 +648,10 @@ export interface NodeType {
   instance_range?: string;
   /** Available storage options for the Node Type. */
   available_volume_types?: NodeTypeAvailableVolumeTypesList;
+  /** Region of the node type. */
+  region?: string;
+  /** The SRN of the node type. */
+  srn?: string;
 }
 export const NodeType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -638,6 +664,8 @@ export const NodeType = /*@__PURE__*/ S.suspend(() =>
     beta: S.optional(S.Boolean),
     instance_range: S.optional(S.String),
     available_volume_types: S.optional(NodeTypeAvailableVolumeTypesList),
+    region: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "NodeType" }) as any as S.Schema<NodeType>;
 
@@ -753,6 +781,10 @@ export interface Version {
   disabled?: boolean;
   /** Parameter that tell if the version is in beta. */
   beta?: boolean;
+  /** Region of the version. */
+  region?: string;
+  /** The SRN of the version. */
+  srn?: string;
 }
 export const Version = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -760,6 +792,8 @@ export const Version = /*@__PURE__*/ S.suspend(() =>
     end_of_life: S.optional(S.NullOr(S.String)),
     disabled: S.optional(S.Boolean),
     beta: S.optional(S.Boolean),
+    region: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Version" }) as any as S.Schema<Version>;
 

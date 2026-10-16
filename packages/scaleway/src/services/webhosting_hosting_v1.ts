@@ -114,6 +114,8 @@ export const HostingDomain = /*@__PURE__*/ S.suspend(() =>
 export interface HostingSummary {
   /** ID of the Web Hosting plan. */
   id?: string;
+  /** SRN of the Web Hosting plan. */
+  srn?: string;
   /** ID of the Scaleway Project the Web Hosting plan belongs to. */
   project_id?: string;
   /** Date on which the Web Hosting plan was created. (RFC 3339 format) */
@@ -140,6 +142,7 @@ export interface HostingSummary {
 export const HostingSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     project_id: S.optional(S.String),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
@@ -542,6 +545,8 @@ export const HostingProvider = S.String;
 export interface Hosting {
   /** ID of the Web Hosting plan. */
   id?: string;
+  /** SRN of the Web Hosting plan. */
+  srn?: string;
   /** ID of the Scaleway Project the Web Hosting plan belongs to. */
   project_id?: string;
   /** Date on which the Web Hosting plan was last updated. (RFC 3339 format) */
@@ -580,6 +585,7 @@ export interface Hosting {
 export const Hosting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     project_id: S.optional(S.String),
     updated_at: S.optional(S.NullOr(S.String)),
     created_at: S.optional(S.NullOr(S.String)),

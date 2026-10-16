@@ -1877,24 +1877,6 @@
           "traits": {
             "smithy.api#enumValue": "rsa_oaep_4096_sha256"
           }
-        },
-        "RSA_AES_KEY_WRAP_2048_SHA256": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "rsa_aes_key_wrap_2048_sha256"
-          }
-        },
-        "RSA_AES_KEY_WRAP_3072_SHA256": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "rsa_aes_key_wrap_3072_sha256"
-          }
-        },
-        "RSA_AES_KEY_WRAP_4096_SHA256": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "rsa_aes_key_wrap_4096_sha256"
-          }
         }
       },
       "traits": {}
@@ -1920,7 +1902,7 @@
         "wrapping_algorithm": {
           "target": "com.scaleway.key_manager_v1alpha1#GenerateKeyMaterialImportParametersRequestWrappingAlgorithm",
           "traits": {
-            "smithy.api#documentation": "The wrapping algorithm the client will use to encrypt the key material.\nSupported values for direct RSA wrapping are: `rsa_oaep_2048_sha256`, `rsa_oaep_3072_sha256`, `rsa_oaep_4096_sha256`.\nSupported values for hybrid wrapping (RSA + AES Key Wrap) are: `rsa_aes_key_wrap_2048_sha256`, `rsa_aes_key_wrap_3072_sha256`, `rsa_aes_key_wrap_4096_sha256`."
+            "smithy.api#documentation": "The wrapping algorithm the client will use to encrypt the key material.\nSupported values are: `rsa_oaep_2048_sha256`, `rsa_oaep_3072_sha256`, `rsa_oaep_4096_sha256`."
           }
         }
       },

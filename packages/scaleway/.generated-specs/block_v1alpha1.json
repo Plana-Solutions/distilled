@@ -74,6 +74,24 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
           }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
+          }
         }
       },
       "traits": {}
@@ -705,6 +723,24 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
           }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
+          }
         }
       },
       "traits": {}
@@ -831,6 +867,24 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
           }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
+          }
         }
       },
       "traits": {}
@@ -931,6 +985,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },
@@ -1056,6 +1128,24 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
           }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
+          }
         }
       },
       "traits": {}
@@ -1156,6 +1246,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },
@@ -1269,6 +1377,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },
@@ -1408,6 +1534,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },
@@ -1613,6 +1757,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },
@@ -1946,6 +2108,24 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
           }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
+          }
         }
       },
       "traits": {}
@@ -2121,6 +2301,24 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
           }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
+          }
         }
       },
       "traits": {}
@@ -2221,6 +2419,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },
@@ -2359,6 +2575,24 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw-3"
+          }
+        },
+        "IT_MIL_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-1"
+          }
+        },
+        "IT_MIL_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-2"
+          }
+        },
+        "IT_MIL_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil-3"
           }
         }
       },

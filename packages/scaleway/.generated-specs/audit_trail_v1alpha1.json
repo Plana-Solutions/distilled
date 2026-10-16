@@ -1047,6 +1047,12 @@
             "smithy.api#enumValue": "account_contract_signature"
           }
         },
+        "INSTANCE_DEDICATED_POOL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "instance_dedicated_pool"
+          }
+        },
         "INSTANCE_SERVER": {
           "target": "smithy.api#Unit",
           "traits": {

@@ -462,10 +462,7 @@ export type GenerateKeyMaterialImportParametersRequestWrappingAlgorithm =
   | "unknown_wrapping_algorithm"
   | "rsa_oaep_2048_sha256"
   | "rsa_oaep_3072_sha256"
-  | "rsa_oaep_4096_sha256"
-  | "rsa_aes_key_wrap_2048_sha256"
-  | "rsa_aes_key_wrap_3072_sha256"
-  | "rsa_aes_key_wrap_4096_sha256";
+  | "rsa_oaep_4096_sha256";
 export const GenerateKeyMaterialImportParametersRequestWrappingAlgorithm = S.String;
 
 export interface GenerateKeyMaterialImportParametersRequest {
@@ -473,7 +470,7 @@ export interface GenerateKeyMaterialImportParametersRequest {
   region?: GenerateKeyMaterialImportParametersRequestRegion | (string & {});
   /** ID of the key into which to import the key material. (UUID format) */
   key_id: string;
-  /** The wrapping algorithm the client will use to encrypt the key material. Supported values for direct RSA wrapping are: `rsa_oaep_2048_sha256`, `rsa_oaep_3072_sha256`, `rsa_oaep_4096_sha256`. Supported values for hybrid wrapping (RSA + AES Key Wrap) are: `rsa_aes_key_wrap_2048_sha256`, `rsa_aes_key_wrap_3072_sha256`, `rsa_aes_key_wrap_4096_sha256`. */
+  /** The wrapping algorithm the client will use to encrypt the key material. Supported values are: `rsa_oaep_2048_sha256`, `rsa_oaep_3072_sha256`, `rsa_oaep_4096_sha256`. */
   wrapping_algorithm?: GenerateKeyMaterialImportParametersRequestWrappingAlgorithm | (string & {});
 }
 export const GenerateKeyMaterialImportParametersRequest = /*@__PURE__*/ S.suspend(() =>

@@ -18,7 +18,10 @@ export type CreateSnapshotRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateSnapshotRequestZone = S.String;
 
 /** List of tags assigned to the snapshot. */
@@ -206,7 +209,10 @@ export type CreateVolumeRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateVolumeRequestZone = S.String;
 
 export interface CreateVolumeRequestFromEmpty {
@@ -358,7 +364,10 @@ export type DeleteSnapshotRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteSnapshotRequestZone = S.String;
 
 export interface DeleteSnapshotRequest {
@@ -395,7 +404,10 @@ export type DeleteVolumeRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteVolumeRequestZone = S.String;
 
 export interface DeleteVolumeRequest {
@@ -432,7 +444,10 @@ export type ExportSnapshotToObjectStorageRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ExportSnapshotToObjectStorageRequestZone = S.String;
 
 export interface ExportSnapshotToObjectStorageRequest {
@@ -472,7 +487,10 @@ export type GetSnapshotRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetSnapshotRequestZone = S.String;
 
 export interface GetSnapshotRequest {
@@ -504,7 +522,10 @@ export type GetVolumeRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetVolumeRequestZone = S.String;
 
 export interface GetVolumeRequest {
@@ -536,7 +557,10 @@ export type ImportSnapshotFromObjectStorageRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ImportSnapshotFromObjectStorageRequestZone = S.String;
 
 /** List of tags assigned to the snapshot. */
@@ -591,7 +615,10 @@ export type ListSnapshotsRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListSnapshotsRequestZone = S.String;
 
 export type ListSnapshotsRequestOrderBy =
@@ -675,7 +702,10 @@ export type ListVolumesRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListVolumesRequestZone = S.String;
 
 export type ListVolumesRequestOrderBy =
@@ -759,7 +789,10 @@ export type ListVolumeTypesRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListVolumeTypesRequestZone = S.String;
 
 export interface ListVolumeTypesRequest {
@@ -845,7 +878,10 @@ export type UpdateSnapshotRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateSnapshotRequestZone = S.String;
 
 /** List of tags assigned to the snapshot. */
@@ -889,7 +925,10 @@ export type UpdateVolumeRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateVolumeRequestZone = S.String;
 
 /** List of tags assigned to the volume. */

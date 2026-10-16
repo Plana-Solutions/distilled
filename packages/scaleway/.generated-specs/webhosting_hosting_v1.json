@@ -259,6 +259,12 @@
             "smithy.api#documentation": "ID of the Web Hosting plan."
           }
         },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the Web Hosting plan."
+          }
+        },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
@@ -713,6 +719,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "ID of the Web Hosting plan."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the Web Hosting plan."
           }
         },
         "project_id": {
