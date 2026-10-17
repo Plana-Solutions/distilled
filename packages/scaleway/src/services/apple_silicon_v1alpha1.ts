@@ -252,6 +252,8 @@ export interface Server {
   vnc_port?: number;
   /** Initially installed OS. Initially installed OS, this does not necessarily reflect the current OS version. */
   os?: OS;
+  /** Detailed initial installed OS version (<major>.<minor>.<patch>-<build>). Initially installed OS, this does not necessarily reflect the current OS version. */
+  full_os_version?: string;
   /** Current status of the server. */
   status?: ServerStatus;
   /** Date on which the server was created. (RFC 3339 format) */
@@ -296,6 +298,7 @@ export const Server = /*@__PURE__*/ S.suspend(() =>
     sudo_password: S.optional(S.String.pipe(T.SensitiveValue({}))),
     vnc_port: S.optional(S.Number),
     os: S.optional(OS),
+    full_os_version: S.optional(S.String),
     status: S.optional(ServerStatus),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),

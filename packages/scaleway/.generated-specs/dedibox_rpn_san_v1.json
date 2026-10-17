@@ -501,6 +501,12 @@
           "traits": {
             "smithy.api#documentation": "Commitment info if it is a commitment offer."
           }
+        },
+        "available_os": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OfferAvailableOsList",
+          "traits": {
+            "smithy.api#documentation": "Available OS info if it is a available OS offer."
+          }
         }
       },
       "traits": {}
@@ -1178,6 +1184,333 @@
       },
       "traits": {
         "smithy.api#documentation": "Commitment info if it is a commitment offer."
+      }
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OS": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "ID of the OS."
+          }
+        },
+        "name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Name of the OS."
+          }
+        },
+        "type": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OSType",
+          "traits": {
+            "smithy.api#documentation": "Type of the OS."
+          }
+        },
+        "version": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Version of the OS."
+          }
+        },
+        "arch": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OSArch",
+          "traits": {
+            "smithy.api#documentation": "Architecture of the OS."
+          }
+        },
+        "allow_custom_partitioning": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if the OS allow custom partitioning."
+          }
+        },
+        "allow_ssh_keys": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if the OS allow SSH Keys."
+          }
+        },
+        "requires_user": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if the OS requires user."
+          }
+        },
+        "requires_admin_password": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if the OS requires admin password."
+          }
+        },
+        "requires_panel_password": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if the OS requires panel password."
+          }
+        },
+        "allowed_filesystems": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OSAllowedFilesystemsList",
+          "traits": {
+            "smithy.api#documentation": "True if the OS allow file systems."
+          }
+        },
+        "requires_license": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if the OS requires license."
+          }
+        },
+        "license_offers": {
+          "target": "com.scaleway.dedibox_rpn_san_v1#OSLicenseOffersList",
+          "traits": {
+            "smithy.api#documentation": "License offers available with the OS."
+          }
+        },
+        "max_partitions": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "Maximum number of partitions which can be created."
+          }
+        },
+        "display_name": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Display name of the OS."
+          }
+        },
+        "password_regex": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Regex used to validate the installation passwords."
+          }
+        },
+        "panel_password_regex": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Regex used to validate the panel installation password."
+          }
+        },
+        "requires_valid_hostname": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid."
+          }
+        },
+        "hostname_regex": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid."
+          }
+        },
+        "hostname_max_length": {
+          "target": "smithy.api#Double",
+          "traits": {
+            "smithy.api#documentation": "Hostname max length."
+          }
+        },
+        "released_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "OS release date."
+          }
+        },
+        "beta": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Is it a beta OS."
+          }
+        },
+        "description": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Description of the OS."
+          }
+        },
+        "official_website": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "URL to OS official website."
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OSType": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN_TYPE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown_type"
+          }
+        },
+        "SERVER": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "server"
+          }
+        },
+        "VIRTU": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "virtu"
+          }
+        },
+        "PANEL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "panel"
+          }
+        },
+        "DESKTOP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "desktop"
+          }
+        },
+        "CUSTOM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "custom"
+          }
+        },
+        "RESCUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "rescue"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OSArch": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN_ARCH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown_arch"
+          }
+        },
+        "AMD64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "amd64"
+          }
+        },
+        "X86": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "x86"
+          }
+        },
+        "ARM": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "arm"
+          }
+        },
+        "ARM64": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "arm64"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#PartitionFileSystem": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown"
+          }
+        },
+        "EFI": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "efi"
+          }
+        },
+        "SWAP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "swap"
+          }
+        },
+        "EXT4": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ext4"
+          }
+        },
+        "EXT3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ext3"
+          }
+        },
+        "EXT2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ext2"
+          }
+        },
+        "XFS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "xfs"
+          }
+        },
+        "NTFS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ntfs"
+          }
+        },
+        "FAT32": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fat32"
+          }
+        },
+        "UFS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ufs"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OSAllowedFilesystemsList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.dedibox_rpn_san_v1#PartitionFileSystem"
+      },
+      "traits": {
+        "smithy.api#documentation": "True if the OS allow file systems."
+      }
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OSLicenseOffersList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.dedibox_rpn_san_v1#Offer"
+      },
+      "traits": {
+        "smithy.api#documentation": "License offers available with the OS."
+      }
+    },
+    "com.scaleway.dedibox_rpn_san_v1#OfferAvailableOsList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.dedibox_rpn_san_v1#OS"
+      },
+      "traits": {
+        "smithy.api#documentation": "Available OS info if it is a available OS offer."
       }
     },
     "com.scaleway.dedibox_rpn_san_v1#ServiceType": {

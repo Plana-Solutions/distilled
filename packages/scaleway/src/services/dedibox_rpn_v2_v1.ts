@@ -699,95 +699,6 @@ export const OfferCommitmentsList = /*@__PURE__*/ S.Array(
   OfferCommitment,
 ) as any as S.Schema<OfferCommitmentsList>;
 
-export interface Offer {
-  /** ID of the offer (aka product.id). */
-  id?: number;
-  /** Name of the offer. */
-  name?: string;
-  /** Catalog of the offer. */
-  catalog?: OfferCatalog;
-  /** Payment frequency of the offer. */
-  payment_frequency?: OfferPaymentFrequency;
-  /** Price of the offer. */
-  pricing?: GoogleTypeMoney;
-  /** Original Dedibox ID of the offer. */
-  offer_id?: number;
-  /** Server info if it is a server offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  server_info?: OfferServerInfo;
-  /** Service level info if it is a service level offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  service_level_info?: OfferServiceLevelInfo;
-  /** RPN info if it is a RPN offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  rpn_info?: OfferRPNInfo;
-  /** SAN info if it is a SAN offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  san_info?: OfferSANInfo;
-  /** AntiDOS info if it is a antiDOS offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  antidos_info?: OfferAntiDosInfo;
-  /** Backup info if it is a backup offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  backup_info?: OfferBackupInfo;
-  /** USB storage info if it is a USB storage offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  usb_storage_info?: OfferStorageInfo;
-  /** Storage info if it is a storage offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  storage_info?: OfferStorageInfo;
-  /** License info if it is a license offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  license_info?: OfferLicenseInfo;
-  /** Failover IP info if it is a failover IP offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  failover_ip_info?: OfferFailoverIpInfo;
-  /** Failover block info if it is a failover block offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  failover_block_info?: OfferFailoverIpInfo;
-  /** Bandwidth info if it is a bandwidth offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
-  bandwidth_info?: OfferRPNInfo;
-  /** Commitment info if it is a commitment offer. */
-  commitments?: OfferCommitmentsList;
-}
-export const Offer = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    id: S.optional(S.Number),
-    name: S.optional(S.String),
-    catalog: S.optional(OfferCatalog),
-    payment_frequency: S.optional(OfferPaymentFrequency),
-    pricing: S.optional(GoogleTypeMoney),
-    offer_id: S.optional(S.Number),
-    server_info: S.optional(OfferServerInfo),
-    service_level_info: S.optional(OfferServiceLevelInfo),
-    rpn_info: S.optional(OfferRPNInfo),
-    san_info: S.optional(OfferSANInfo),
-    antidos_info: S.optional(OfferAntiDosInfo),
-    backup_info: S.optional(OfferBackupInfo),
-    usb_storage_info: S.optional(OfferStorageInfo),
-    storage_info: S.optional(OfferStorageInfo),
-    license_info: S.optional(OfferLicenseInfo),
-    failover_ip_info: S.optional(OfferFailoverIpInfo),
-    failover_block_info: S.optional(OfferFailoverIpInfo),
-    bandwidth_info: S.optional(OfferRPNInfo),
-    commitments: S.optional(OfferCommitmentsList),
-  }),
-).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
-
-export type ServerStatus =
-  | "unknown"
-  | "delivering"
-  | "installing"
-  | "ready"
-  | "stopped"
-  | "error"
-  | "locked"
-  | "rescue"
-  | "busy";
-export const ServerStatus = S.String;
-
-export interface ServerLocation {
-  rack?: string;
-  room?: string;
-  datacenter_name?: string;
-}
-export const ServerLocation = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    rack: S.optional(S.String),
-    room: S.optional(S.String),
-    datacenter_name: S.optional(S.String),
-  }),
-).annotate({ identifier: "ServerLocation" }) as any as S.Schema<ServerLocation>;
-
 export type OSType =
   | "unknown_type"
   | "server"
@@ -823,7 +734,7 @@ export const OSAllowedFilesystemsList = /*@__PURE__*/ S.Array(
 /** License offers available with the OS. */
 export type OSLicenseOffersList = Array<Offer>;
 export const OSLicenseOffersList = /*@__PURE__*/ S.Array(
-  Offer,
+  S.suspend(() => Offer),
 ) as any as S.Schema<OSLicenseOffersList>;
 
 export interface OS {
@@ -904,6 +815,104 @@ export const OS = /*@__PURE__*/ S.suspend(() =>
     official_website: S.optional(S.String),
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
+
+/** Available OS info if it is a available OS offer. */
+export type OfferAvailableOsList = Array<OS>;
+export const OfferAvailableOsList = /*@__PURE__*/ S.Array(
+  OS,
+) as any as S.Schema<OfferAvailableOsList>;
+
+export interface Offer {
+  /** ID of the offer (aka product.id). */
+  id?: number;
+  /** Name of the offer. */
+  name?: string;
+  /** Catalog of the offer. */
+  catalog?: OfferCatalog;
+  /** Payment frequency of the offer. */
+  payment_frequency?: OfferPaymentFrequency;
+  /** Price of the offer. */
+  pricing?: GoogleTypeMoney;
+  /** Original Dedibox ID of the offer. */
+  offer_id?: number;
+  /** Server info if it is a server offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  server_info?: OfferServerInfo;
+  /** Service level info if it is a service level offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  service_level_info?: OfferServiceLevelInfo;
+  /** RPN info if it is a RPN offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  rpn_info?: OfferRPNInfo;
+  /** SAN info if it is a SAN offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  san_info?: OfferSANInfo;
+  /** AntiDOS info if it is a antiDOS offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  antidos_info?: OfferAntiDosInfo;
+  /** Backup info if it is a backup offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  backup_info?: OfferBackupInfo;
+  /** USB storage info if it is a USB storage offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  usb_storage_info?: OfferStorageInfo;
+  /** Storage info if it is a storage offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  storage_info?: OfferStorageInfo;
+  /** License info if it is a license offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  license_info?: OfferLicenseInfo;
+  /** Failover IP info if it is a failover IP offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  failover_ip_info?: OfferFailoverIpInfo;
+  /** Failover block info if it is a failover block offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  failover_block_info?: OfferFailoverIpInfo;
+  /** Bandwidth info if it is a bandwidth offer. One-of ('offerInfo'): at most one of 'serverInfo', 'serviceLevelInfo', 'rpnInfo', 'sanInfo', 'antidosInfo', 'backupInfo', 'usbStorageInfo', 'storageInfo', 'licenseInfo', 'failoverIpInfo', 'failoverBlockInfo', 'bandwidthInfo' could be set. */
+  bandwidth_info?: OfferRPNInfo;
+  /** Commitment info if it is a commitment offer. */
+  commitments?: OfferCommitmentsList;
+  /** Available OS info if it is a available OS offer. */
+  available_os?: OfferAvailableOsList;
+}
+export const Offer = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.optional(S.Number),
+    name: S.optional(S.String),
+    catalog: S.optional(OfferCatalog),
+    payment_frequency: S.optional(OfferPaymentFrequency),
+    pricing: S.optional(GoogleTypeMoney),
+    offer_id: S.optional(S.Number),
+    server_info: S.optional(OfferServerInfo),
+    service_level_info: S.optional(OfferServiceLevelInfo),
+    rpn_info: S.optional(OfferRPNInfo),
+    san_info: S.optional(OfferSANInfo),
+    antidos_info: S.optional(OfferAntiDosInfo),
+    backup_info: S.optional(OfferBackupInfo),
+    usb_storage_info: S.optional(OfferStorageInfo),
+    storage_info: S.optional(OfferStorageInfo),
+    license_info: S.optional(OfferLicenseInfo),
+    failover_ip_info: S.optional(OfferFailoverIpInfo),
+    failover_block_info: S.optional(OfferFailoverIpInfo),
+    bandwidth_info: S.optional(OfferRPNInfo),
+    commitments: S.optional(OfferCommitmentsList),
+    available_os: S.optional(OfferAvailableOsList),
+  }),
+).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
+
+export type ServerStatus =
+  | "unknown"
+  | "delivering"
+  | "installing"
+  | "ready"
+  | "stopped"
+  | "error"
+  | "locked"
+  | "rescue"
+  | "busy";
+export const ServerStatus = S.String;
+
+export interface ServerLocation {
+  rack?: string;
+  room?: string;
+  datacenter_name?: string;
+}
+export const ServerLocation = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    rack: S.optional(S.String),
+    room: S.optional(S.String),
+    datacenter_name: S.optional(S.String),
+  }),
+).annotate({ identifier: "ServerLocation" }) as any as S.Schema<ServerLocation>;
 
 export type NetworkInterfaceInterfaceType = "unknown" | "normal" | "ipmi" | "virtual";
 export const NetworkInterfaceInterfaceType = S.String;

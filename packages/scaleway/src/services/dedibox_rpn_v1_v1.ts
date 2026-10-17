@@ -698,6 +698,129 @@ export const OfferCommitmentsList = /*@__PURE__*/ S.Array(
   OfferCommitment,
 ) as any as S.Schema<OfferCommitmentsList>;
 
+export type OSType =
+  | "unknown_type"
+  | "server"
+  | "virtu"
+  | "panel"
+  | "desktop"
+  | "custom"
+  | "rescue";
+export const OSType = S.String;
+
+export type OSArch = "unknown_arch" | "amd64" | "x86" | "arm" | "arm64";
+export const OSArch = S.String;
+
+export type PartitionFileSystem =
+  | "unknown"
+  | "efi"
+  | "swap"
+  | "ext4"
+  | "ext3"
+  | "ext2"
+  | "xfs"
+  | "ntfs"
+  | "fat32"
+  | "ufs";
+export const PartitionFileSystem = S.String;
+
+/** True if the OS allow file systems. */
+export type OSAllowedFilesystemsList = Array<PartitionFileSystem>;
+export const OSAllowedFilesystemsList = /*@__PURE__*/ S.Array(
+  PartitionFileSystem,
+) as any as S.Schema<OSAllowedFilesystemsList>;
+
+/** License offers available with the OS. */
+export type OSLicenseOffersList = Array<Offer>;
+export const OSLicenseOffersList = /*@__PURE__*/ S.Array(
+  S.suspend(() => Offer),
+) as any as S.Schema<OSLicenseOffersList>;
+
+export interface OS {
+  /** ID of the OS. */
+  id?: number;
+  /** Name of the OS. */
+  name?: string;
+  /** Type of the OS. */
+  type?: OSType;
+  /** Version of the OS. */
+  version?: string;
+  /** Architecture of the OS. */
+  arch?: OSArch;
+  /** True if the OS allow custom partitioning. */
+  allow_custom_partitioning?: boolean;
+  /** True if the OS allow SSH Keys. */
+  allow_ssh_keys?: boolean;
+  /** True if the OS requires user. */
+  requires_user?: boolean;
+  /** True if the OS requires admin password. */
+  requires_admin_password?: boolean;
+  /** True if the OS requires panel password. */
+  requires_panel_password?: boolean;
+  /** True if the OS allow file systems. */
+  allowed_filesystems?: OSAllowedFilesystemsList;
+  /** True if the OS requires license. */
+  requires_license?: boolean;
+  /** License offers available with the OS. */
+  license_offers?: OSLicenseOffersList;
+  /** Maximum number of partitions which can be created. */
+  max_partitions?: number;
+  /** Display name of the OS. */
+  display_name?: string;
+  /** Regex used to validate the installation passwords. */
+  password_regex?: string;
+  /** Regex used to validate the panel installation password. */
+  panel_password_regex?: string;
+  /** If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid. */
+  requires_valid_hostname?: boolean;
+  /** If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid. */
+  hostname_regex?: string;
+  /** Hostname max length. */
+  hostname_max_length?: number;
+  /** OS release date. */
+  released_at?: string;
+  /** Is it a beta OS. */
+  beta?: string;
+  /** Description of the OS. */
+  description?: string;
+  /** URL to OS official website. */
+  official_website?: string;
+}
+export const OS = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.optional(S.Number),
+    name: S.optional(S.String),
+    type: S.optional(OSType),
+    version: S.optional(S.String),
+    arch: S.optional(OSArch),
+    allow_custom_partitioning: S.optional(S.Boolean),
+    allow_ssh_keys: S.optional(S.Boolean),
+    requires_user: S.optional(S.Boolean),
+    requires_admin_password: S.optional(S.Boolean),
+    requires_panel_password: S.optional(S.Boolean),
+    allowed_filesystems: S.optional(OSAllowedFilesystemsList),
+    requires_license: S.optional(S.Boolean),
+    license_offers: S.optional(OSLicenseOffersList),
+    max_partitions: S.optional(S.Number),
+    display_name: S.optional(S.String),
+    password_regex: S.optional(S.String),
+    panel_password_regex: S.optional(S.String),
+    requires_valid_hostname: S.optional(S.Boolean),
+    hostname_regex: S.optional(S.String),
+    hostname_max_length: S.optional(S.Number),
+    released_at: S.optional(S.String),
+    beta: S.optional(S.String),
+    description: S.optional(S.String),
+    official_website: S.optional(S.String),
+  }),
+).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
+
+/** Available OS info if it is a available OS offer. */
+export type OfferAvailableOsList = Array<OS>;
+export const OfferAvailableOsList = /*@__PURE__*/ S.Array(
+  OS,
+) as any as S.Schema<OfferAvailableOsList>;
+
 export interface Offer {
   /** ID of the offer (aka product.id). */
   id?: number;
@@ -737,6 +860,8 @@ export interface Offer {
   bandwidth_info?: OfferRPNInfo;
   /** Commitment info if it is a commitment offer. */
   commitments?: OfferCommitmentsList;
+  /** Available OS info if it is a available OS offer. */
+  available_os?: OfferAvailableOsList;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -759,6 +884,7 @@ export const Offer = /*@__PURE__*/ S.suspend(() =>
     failover_block_info: S.optional(OfferFailoverIpInfo),
     bandwidth_info: S.optional(OfferRPNInfo),
     commitments: S.optional(OfferCommitmentsList),
+    available_os: S.optional(OfferAvailableOsList),
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
 
@@ -925,123 +1051,6 @@ export const ServerLocation = /*@__PURE__*/ S.suspend(() =>
     datacenter_name: S.optional(S.String),
   }),
 ).annotate({ identifier: "ServerLocation" }) as any as S.Schema<ServerLocation>;
-
-export type OSType =
-  | "unknown_type"
-  | "server"
-  | "virtu"
-  | "panel"
-  | "desktop"
-  | "custom"
-  | "rescue";
-export const OSType = S.String;
-
-export type OSArch = "unknown_arch" | "amd64" | "x86" | "arm" | "arm64";
-export const OSArch = S.String;
-
-export type PartitionFileSystem =
-  | "unknown"
-  | "efi"
-  | "swap"
-  | "ext4"
-  | "ext3"
-  | "ext2"
-  | "xfs"
-  | "ntfs"
-  | "fat32"
-  | "ufs";
-export const PartitionFileSystem = S.String;
-
-/** True if the OS allow file systems. */
-export type OSAllowedFilesystemsList = Array<PartitionFileSystem>;
-export const OSAllowedFilesystemsList = /*@__PURE__*/ S.Array(
-  PartitionFileSystem,
-) as any as S.Schema<OSAllowedFilesystemsList>;
-
-/** License offers available with the OS. */
-export type OSLicenseOffersList = Array<Offer>;
-export const OSLicenseOffersList = /*@__PURE__*/ S.Array(
-  Offer,
-) as any as S.Schema<OSLicenseOffersList>;
-
-export interface OS {
-  /** ID of the OS. */
-  id?: number;
-  /** Name of the OS. */
-  name?: string;
-  /** Type of the OS. */
-  type?: OSType;
-  /** Version of the OS. */
-  version?: string;
-  /** Architecture of the OS. */
-  arch?: OSArch;
-  /** True if the OS allow custom partitioning. */
-  allow_custom_partitioning?: boolean;
-  /** True if the OS allow SSH Keys. */
-  allow_ssh_keys?: boolean;
-  /** True if the OS requires user. */
-  requires_user?: boolean;
-  /** True if the OS requires admin password. */
-  requires_admin_password?: boolean;
-  /** True if the OS requires panel password. */
-  requires_panel_password?: boolean;
-  /** True if the OS allow file systems. */
-  allowed_filesystems?: OSAllowedFilesystemsList;
-  /** True if the OS requires license. */
-  requires_license?: boolean;
-  /** License offers available with the OS. */
-  license_offers?: OSLicenseOffersList;
-  /** Maximum number of partitions which can be created. */
-  max_partitions?: number;
-  /** Display name of the OS. */
-  display_name?: string;
-  /** Regex used to validate the installation passwords. */
-  password_regex?: string;
-  /** Regex used to validate the panel installation password. */
-  panel_password_regex?: string;
-  /** If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid. */
-  requires_valid_hostname?: boolean;
-  /** If both requires_valid_hostname & hostname_regex are set, it means that at least one of the criteria must be valid. */
-  hostname_regex?: string;
-  /** Hostname max length. */
-  hostname_max_length?: number;
-  /** OS release date. */
-  released_at?: string;
-  /** Is it a beta OS. */
-  beta?: string;
-  /** Description of the OS. */
-  description?: string;
-  /** URL to OS official website. */
-  official_website?: string;
-}
-export const OS = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    id: S.optional(S.Number),
-    name: S.optional(S.String),
-    type: S.optional(OSType),
-    version: S.optional(S.String),
-    arch: S.optional(OSArch),
-    allow_custom_partitioning: S.optional(S.Boolean),
-    allow_ssh_keys: S.optional(S.Boolean),
-    requires_user: S.optional(S.Boolean),
-    requires_admin_password: S.optional(S.Boolean),
-    requires_panel_password: S.optional(S.Boolean),
-    allowed_filesystems: S.optional(OSAllowedFilesystemsList),
-    requires_license: S.optional(S.Boolean),
-    license_offers: S.optional(OSLicenseOffersList),
-    max_partitions: S.optional(S.Number),
-    display_name: S.optional(S.String),
-    password_regex: S.optional(S.String),
-    panel_password_regex: S.optional(S.String),
-    requires_valid_hostname: S.optional(S.Boolean),
-    hostname_regex: S.optional(S.String),
-    hostname_max_length: S.optional(S.Number),
-    released_at: S.optional(S.String),
-    beta: S.optional(S.String),
-    description: S.optional(S.String),
-    official_website: S.optional(S.String),
-  }),
-).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
 
 export type NetworkInterfaceInterfaceType = "unknown" | "normal" | "ipmi" | "virtual";
 export const NetworkInterfaceInterfaceType = S.String;

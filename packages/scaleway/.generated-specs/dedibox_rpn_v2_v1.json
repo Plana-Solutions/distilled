@@ -873,6 +873,12 @@
           "traits": {
             "smithy.api#documentation": "Commitment info if it is a commitment offer."
           }
+        },
+        "available_os": {
+          "target": "com.scaleway.dedibox_rpn_v2_v1#OfferAvailableOsList",
+          "traits": {
+            "smithy.api#documentation": "Available OS info if it is a available OS offer."
+          }
         }
       },
       "traits": {}
@@ -1552,81 +1558,6 @@
         "smithy.api#documentation": "Commitment info if it is a commitment offer."
       }
     },
-    "com.scaleway.dedibox_rpn_v2_v1#ServerStatus": {
-      "type": "enum",
-      "members": {
-        "UNKNOWN": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "unknown"
-          }
-        },
-        "DELIVERING": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "delivering"
-          }
-        },
-        "INSTALLING": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "installing"
-          }
-        },
-        "READY": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "ready"
-          }
-        },
-        "STOPPED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "stopped"
-          }
-        },
-        "ERROR": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "error"
-          }
-        },
-        "LOCKED": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "locked"
-          }
-        },
-        "RESCUE": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "rescue"
-          }
-        },
-        "BUSY": {
-          "target": "smithy.api#Unit",
-          "traits": {
-            "smithy.api#enumValue": "busy"
-          }
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.dedibox_rpn_v2_v1#ServerLocation": {
-      "type": "structure",
-      "members": {
-        "rack": {
-          "target": "smithy.api#String"
-        },
-        "room": {
-          "target": "smithy.api#String"
-        },
-        "datacenter_name": {
-          "target": "smithy.api#String"
-        }
-      },
-      "traits": {}
-    },
     "com.scaleway.dedibox_rpn_v2_v1#OS": {
       "type": "structure",
       "members": {
@@ -1944,6 +1875,90 @@
       "traits": {
         "smithy.api#documentation": "License offers available with the OS."
       }
+    },
+    "com.scaleway.dedibox_rpn_v2_v1#OfferAvailableOsList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.dedibox_rpn_v2_v1#OS"
+      },
+      "traits": {
+        "smithy.api#documentation": "Available OS info if it is a available OS offer."
+      }
+    },
+    "com.scaleway.dedibox_rpn_v2_v1#ServerStatus": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown"
+          }
+        },
+        "DELIVERING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "delivering"
+          }
+        },
+        "INSTALLING": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "installing"
+          }
+        },
+        "READY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "ready"
+          }
+        },
+        "STOPPED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "stopped"
+          }
+        },
+        "ERROR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "error"
+          }
+        },
+        "LOCKED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "locked"
+          }
+        },
+        "RESCUE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "rescue"
+          }
+        },
+        "BUSY": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "busy"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.dedibox_rpn_v2_v1#ServerLocation": {
+      "type": "structure",
+      "members": {
+        "rack": {
+          "target": "smithy.api#String"
+        },
+        "room": {
+          "target": "smithy.api#String"
+        },
+        "datacenter_name": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {}
     },
     "com.scaleway.dedibox_rpn_v2_v1#NetworkInterface": {
       "type": "structure",

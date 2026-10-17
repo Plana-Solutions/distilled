@@ -218,6 +218,12 @@
             "smithy.api#documentation": "Initially installed OS.\nInitially installed OS, this does not necessarily reflect the current OS version."
           }
         },
+        "full_os_version": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Detailed initial installed OS version (<major>.<minor>.<patch>-<build>).\nInitially installed OS, this does not necessarily reflect the current OS version."
+          }
+        },
         "status": {
           "target": "com.scaleway.apple_silicon_v1alpha1#ServerStatus",
           "traits": {
