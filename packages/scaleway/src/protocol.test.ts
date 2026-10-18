@@ -478,6 +478,17 @@ describe("{ type, message } failure envelope", () => {
     expect(error).toMatchObject({ resource: "security_group", resource_id: serverId });
   });
 
+  test("a 404 whose body names no error type is ResourceNotFoundError", async () => {
+    const plain = fakeScaleway(json(404, { message: "Not Found" }));
+    expect(await runFlip(getServer({ server_id: serverId }), plain.layer)).toBeInstanceOf(
+      ResourceNotFoundError,
+    );
+    const empty = fakeScaleway(json(404, {}));
+    expect(await runFlip(getServer({ server_id: serverId }), empty.layer)).toBeInstanceOf(
+      ResourceNotFoundError,
+    );
+  });
+
   test("legacy invalid_request_error: fields → InvalidArgumentsError, quota → QuotasExceeded", async () => {
     const fields = fakeScaleway(
       json(400, {

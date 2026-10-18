@@ -395,7 +395,10 @@ export const failureFor = (
   const scw = nonJson ? undefined : scalewayError(json, message, headers, status);
   if (scw !== undefined) return scw;
 
-  // 3. The HTTP status.
+  // 3. The HTTP status. A 404 whose body names no Scaleway error type (a bare
+  // gateway 404, or an unparseable body) is still "this resource does not exist",
+  // so it is the same typed error as Scaleway's own `not_found`.
+  if (status === 404) return new ResourceNotFoundError({ message, body });
   const StatusErrorClass = (
     HTTP_STATUS_MAP as Record<
       number,
