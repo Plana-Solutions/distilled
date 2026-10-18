@@ -9,23 +9,6 @@ import * as T from "../traits.ts";
 
 export type { ScalewayOpError, ScalewayOpContext };
 
-export type SearchResourcesRequestLocalitiesList = Array<string>;
-export const SearchResourcesRequestLocalitiesList = /*@__PURE__*/ S.Array(
-  S.String,
-) as any as S.Schema<SearchResourcesRequestLocalitiesList>;
-
-export type SearchResourcesRequestOrderBy =
-  | "relevance"
-  | "created_at_asc"
-  | "created_at_desc"
-  | "modified_at_asc"
-  | "modified_at_desc"
-  | "name_asc"
-  | "name_desc"
-  | "type_asc"
-  | "type_desc";
-export const SearchResourcesRequestOrderBy = S.String;
-
 export type SearchResourcesRequestProjectIdsList = Array<string>;
 export const SearchResourcesRequestProjectIdsList = /*@__PURE__*/ S.Array(
   S.String,
@@ -97,46 +80,63 @@ export const SearchResourcesRequestTypesList = /*@__PURE__*/ S.Array(
   ResourceType,
 ) as any as S.Schema<SearchResourcesRequestTypesList>;
 
+export type SearchResourcesRequestLocalitiesList = Array<string>;
+export const SearchResourcesRequestLocalitiesList = /*@__PURE__*/ S.Array(
+  S.String,
+) as any as S.Schema<SearchResourcesRequestLocalitiesList>;
+
+export type SearchResourcesRequestOrderBy =
+  | "relevance"
+  | "created_at_asc"
+  | "created_at_desc"
+  | "modified_at_asc"
+  | "modified_at_desc"
+  | "name_asc"
+  | "name_desc"
+  | "type_asc"
+  | "type_desc";
+export const SearchResourcesRequestOrderBy = S.String;
+
 export interface SearchResourcesRequest {
-  /** Filter resources created after this timestamp. */
-  created_after?: string;
-  /** Filter resources created before this timestamp. */
-  created_before?: string;
-  /** List of scopes (zones, regions, or global) to filter the resources by. */
-  localities?: SearchResourcesRequestLocalitiesList;
-  /** Filter resources modified after this timestamp. */
-  modified_after?: string;
-  /** Filter resources modified before this timestamp. */
-  modified_before?: string;
-  /** Sort order in the response. */
-  order_by?: SearchResourcesRequestOrderBy | (string & {});
+  /** Search query. */
+  query: string;
   /** ID of the Organization to search in. */
-  organization_id?: string;
-  /** Number of resources to retrieve per page. */
-  page_size?: number;
-  /** Leave empty or omit to fetch the first page. */
-  page_token?: string;
+  organization_id: string;
   /** List of Project IDs to filter the resources by. */
   project_ids?: SearchResourcesRequestProjectIdsList;
-  /** Search query. */
-  query?: string;
   /** List of resource types to filter the resources by. */
   types?: SearchResourcesRequestTypesList;
+  /** List of scopes (zones, regions, or global) to filter the resources by. */
+  localities?: SearchResourcesRequestLocalitiesList;
+  /** Filter resources created after this timestamp. (RFC 3339 format) */
+  created_after?: string;
+  /** Filter resources created before this timestamp. (RFC 3339 format) */
+  created_before?: string;
+  /** Filter resources modified after this timestamp. (RFC 3339 format) */
+  modified_after?: string;
+  /** Filter resources modified before this timestamp. (RFC 3339 format) */
+  modified_before?: string;
+  /** Opaque token used to retrieve the next page of results (cursor-based pagination). Leave empty or omit to fetch the first page. */
+  page_token?: string;
+  /** Number of resources to retrieve per page. */
+  page_size?: number;
+  /** Sort order in the response. */
+  order_by?: SearchResourcesRequestOrderBy | (string & {});
 }
 export const SearchResourcesRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
+    query: S.String.pipe(T.Query()),
+    organization_id: S.String.pipe(T.Query()),
+    project_ids: S.optional(SearchResourcesRequestProjectIdsList.pipe(T.Query())),
+    types: S.optional(SearchResourcesRequestTypesList.pipe(T.Query())),
+    localities: S.optional(SearchResourcesRequestLocalitiesList.pipe(T.Query())),
     created_after: S.optional(S.String.pipe(T.Query())),
     created_before: S.optional(S.String.pipe(T.Query())),
-    localities: S.optional(SearchResourcesRequestLocalitiesList.pipe(T.Query())),
     modified_after: S.optional(S.String.pipe(T.Query())),
     modified_before: S.optional(S.String.pipe(T.Query())),
-    order_by: S.optional(SearchResourcesRequestOrderBy.pipe(T.Query())),
-    organization_id: S.optional(S.String.pipe(T.Query())),
-    page_size: S.optional(S.Number.pipe(T.Query())),
     page_token: S.optional(S.String.pipe(T.Query())),
-    project_ids: S.optional(SearchResourcesRequestProjectIdsList.pipe(T.Query())),
-    query: S.optional(S.String.pipe(T.Query())),
-    types: S.optional(SearchResourcesRequestTypesList.pipe(T.Query())),
+    page_size: S.optional(S.Number.pipe(T.Query())),
+    order_by: S.optional(SearchResourcesRequestOrderBy.pipe(T.Query())),
   }).pipe(
     T.Http({
       method: "GET",
@@ -233,57 +233,57 @@ export interface Resource {
   /** ID of the resource. */
   id?: string;
   /** Name of the resource. */
-  name?: string;
-  /** ID of the Project the resource belongs to. */
-  project_id?: string;
-  /** ID of the Organization the resource belongs to. */
+  name?: string | null;
+  /** ID of the Project the resource belongs to. (UUID format) */
+  project_id?: string | null;
+  /** ID of the Organization the resource belongs to. (UUID format) */
   organization_id?: string;
   /** Type of the resource. */
   type?: ResourceType;
-  /** Locality the resource is in if this is a global resource. One-of ('locality'): at most one of 'global', 'zone', 'region' could be set. */
-  global?: boolean;
-  /** Locality the resource is in if this is a zonal resource. One-of ('locality'): at most one of 'global', 'zone', 'region' could be set. */
-  zone?: string;
-  /** Locality the resource is in if this is a regional resource. One-of ('locality'): at most one of 'global', 'zone', 'region' could be set. */
-  region?: string;
-  /** Additional information for a VPC Private Network. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  vpc_private_network_info?: VpcPrivateNetworkInfo;
-  /** Additional information for a Serverless Function. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  serverless_functions_function_info?: ServerlessFunctionsFunctionInfo;
-  /** Additional information for a Serverless Container. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  serverless_containers_container_info?: ServerlessContainersContainerInfo;
-  /** Additional information for a Serverless SQL database backup. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  serverless_sqldb_backup_info?: ServerlessSqldbBackupInfo;
-  /** Additional information for a Baremetal server. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  baremetal_server_info?: BrmServerInfo;
-  /** Additional information for an OBS datasource. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  obs_datasource_info?: ObsDatasourceInfo;
-  /** Additional information for an OBS exporter. One-of ('info'): at most one of 'vpcPrivateNetworkInfo', 'serverlessFunctionsFunctionInfo', 'serverlessContainersContainerInfo', 'serverlessSqldbBackupInfo', 'baremetalServerInfo', 'obsDatasourceInfo', 'obsExporterInfo' could be set. */
-  obs_exporter_info?: ObsExporterInfo;
-  /** Creation date. */
-  created_at?: string;
-  /** Last update date. */
-  updated_at?: string;
+  /** Locality the resource is in if this is a global resource. */
+  global?: boolean | null;
+  /** Locality the resource is in if this is a zonal resource. */
+  zone?: string | null;
+  /** Locality the resource is in if this is a regional resource. */
+  region?: string | null;
+  /** Additional information for a VPC Private Network. */
+  vpc_private_network_info?: VpcPrivateNetworkInfo | null;
+  /** Additional information for a Serverless Function. */
+  serverless_functions_function_info?: ServerlessFunctionsFunctionInfo | null;
+  /** Additional information for a Serverless Container. */
+  serverless_containers_container_info?: ServerlessContainersContainerInfo | null;
+  /** Additional information for a Serverless SQL database backup. */
+  serverless_sqldb_backup_info?: ServerlessSqldbBackupInfo | null;
+  /** Additional information for a Baremetal server. */
+  baremetal_server_info?: BrmServerInfo | null;
+  /** Additional information for an OBS datasource. */
+  obs_datasource_info?: ObsDatasourceInfo | null;
+  /** Additional information for an OBS exporter. */
+  obs_exporter_info?: ObsExporterInfo | null;
+  /** Creation date. (RFC 3339 format) */
+  created_at?: string | null;
+  /** Last update date. (RFC 3339 format) */
+  updated_at?: string | null;
 }
 export const Resource = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
-    name: S.optional(S.String),
-    project_id: S.optional(S.String),
+    name: S.optional(S.NullOr(S.String)),
+    project_id: S.optional(S.NullOr(S.String)),
     organization_id: S.optional(S.String),
     type: S.optional(ResourceType),
-    global: S.optional(S.Boolean),
-    zone: S.optional(S.String),
-    region: S.optional(S.String),
-    vpc_private_network_info: S.optional(VpcPrivateNetworkInfo),
-    serverless_functions_function_info: S.optional(ServerlessFunctionsFunctionInfo),
-    serverless_containers_container_info: S.optional(ServerlessContainersContainerInfo),
-    serverless_sqldb_backup_info: S.optional(ServerlessSqldbBackupInfo),
-    baremetal_server_info: S.optional(BrmServerInfo),
-    obs_datasource_info: S.optional(ObsDatasourceInfo),
-    obs_exporter_info: S.optional(ObsExporterInfo),
-    created_at: S.optional(S.String),
-    updated_at: S.optional(S.String),
+    global: S.optional(S.NullOr(S.Boolean)),
+    zone: S.optional(S.NullOr(S.String)),
+    region: S.optional(S.NullOr(S.String)),
+    vpc_private_network_info: S.optional(S.NullOr(VpcPrivateNetworkInfo)),
+    serverless_functions_function_info: S.optional(S.NullOr(ServerlessFunctionsFunctionInfo)),
+    serverless_containers_container_info: S.optional(S.NullOr(ServerlessContainersContainerInfo)),
+    serverless_sqldb_backup_info: S.optional(S.NullOr(ServerlessSqldbBackupInfo)),
+    baremetal_server_info: S.optional(S.NullOr(BrmServerInfo)),
+    obs_datasource_info: S.optional(S.NullOr(ObsDatasourceInfo)),
+    obs_exporter_info: S.optional(S.NullOr(ObsExporterInfo)),
+    created_at: S.optional(S.NullOr(S.String)),
+    updated_at: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({ identifier: "Resource" }) as any as S.Schema<Resource>;
 
@@ -296,7 +296,7 @@ export const SearchResourcesResponseResourcesList = /*@__PURE__*/ S.Array(
 export interface SearchResourcesResponse {
   /** Top resources found. */
   resources: SearchResourcesResponseResourcesList;
-  /** If this string is empty, it means there are no more pages available. */
+  /** Opaque token to retrieve the next page of results. If this string is empty, it means there are no more pages available. */
   next_page_token?: string;
 }
 export const SearchResourcesResponse = /*@__PURE__*/ S.suspend(() =>
@@ -307,7 +307,7 @@ export const SearchResourcesResponse = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "SearchResourcesResponse" }) as any as S.Schema<SearchResourcesResponse>;
 
 export type SearchResourcesError = ScalewayOpError;
-/** Search API. Derived from scaleway-sdk-js (`API.searchResources`): Scaleway publishes no OpenAPI document for this route. */
+/** Search API */
 export const searchResources: API.PaginatedOperationMethod<
   SearchResourcesRequest,
   SearchResourcesResponse,

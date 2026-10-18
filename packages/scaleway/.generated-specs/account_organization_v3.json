@@ -1457,52 +1457,6 @@
         "smithy.api#documentation": "Reopen Organization Reopen a previously closed Organization associated with the given ID."
       }
     },
-    "com.scaleway.account_organization_v3#SendMFAEnableReminderEmailRequest": {
-      "type": "structure",
-      "members": {
-        "organization_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {},
-            "smithy.api#documentation": "ID of the Organization."
-          }
-        },
-        "sender_account_root_user_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "ID of the user sending the email."
-          }
-        },
-        "account_root_user_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "ID of the user receiving the email."
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.scaleway.account_organization_v3#SendMFAEnableReminderEmail": {
-      "type": "operation",
-      "input": {
-        "target": "com.scaleway.account_organization_v3#SendMFAEnableReminderEmailRequest"
-      },
-      "output": {
-        "target": "smithy.api#Unit"
-      },
-      "traits": {
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/account/v3/organizations/{organization_id}/send-mfa-enable-reminder-email",
-          "code": 200,
-          "baseUrl": "https://api.scaleway.com"
-        },
-        "smithy.api#documentation": "Send MFA enable reminder email\n\nSend an email to the specified user to remind them to enable MFA on their account. Useful for Organizations where MFA is enforced for members."
-      }
-    },
     "com.scaleway.account_organization_v3#SkipOnboardingBillingDetailsRequest": {
       "type": "structure",
       "members": {
@@ -1867,9 +1821,6 @@
         },
         {
           "target": "com.scaleway.account_organization_v3#ReopenOrganization"
-        },
-        {
-          "target": "com.scaleway.account_organization_v3#SendMFAEnableReminderEmail"
         },
         {
           "target": "com.scaleway.account_organization_v3#SkipOnboardingBillingDetails"

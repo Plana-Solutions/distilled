@@ -559,38 +559,6 @@ export const ReopenOrganizationResponse = /*@__PURE__*/ S.suspend(() => S.Struct
   identifier: "ReopenOrganizationResponse",
 }) as any as S.Schema<ReopenOrganizationResponse>;
 
-export interface SendMFAEnableReminderEmailRequest {
-  /** ID of the Organization. */
-  organization_id: string;
-  /** ID of the user sending the email. */
-  sender_account_root_user_id?: string;
-  /** ID of the user receiving the email. */
-  account_root_user_id?: string;
-}
-export const SendMFAEnableReminderEmailRequest = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    organization_id: S.String.pipe(T.Label()),
-    sender_account_root_user_id: S.optional(S.String),
-    account_root_user_id: S.optional(S.String),
-  }).pipe(
-    T.Http({
-      method: "POST",
-      uri: "/account/v3/organizations/{organization_id}/send-mfa-enable-reminder-email",
-      code: 200,
-      baseUrl: "https://api.scaleway.com",
-    }),
-  ),
-).annotate({
-  identifier: "SendMFAEnableReminderEmailRequest",
-}) as any as S.Schema<SendMFAEnableReminderEmailRequest>;
-
-export interface SendMFAEnableReminderEmailResponse {}
-export const SendMFAEnableReminderEmailResponse = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({}),
-).annotate({
-  identifier: "SendMFAEnableReminderEmailResponse",
-}) as any as S.Schema<SendMFAEnableReminderEmailResponse>;
-
 export type SetOrganizationUseCasesRequestUseCasesList = Array<OrganizationUseCase | (string & {})>;
 export const SetOrganizationUseCasesRequestUseCasesList = /*@__PURE__*/ S.Array(
   OrganizationUseCase,
@@ -859,21 +827,6 @@ export const reopenOrganization: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: ReopenOrganizationRequest,
   output: ReopenOrganizationResponse,
-  errors: [UnknownScalewayError],
-  protocol: ScalewayProtocol,
-  retry: Retry.Retry,
-}));
-
-export type SendMFAEnableReminderEmailError = ScalewayOpError;
-/** Send MFA enable reminder email Send an email to the specified user to remind them to enable MFA on their account. Useful for Organizations where MFA is enforced for members. */
-export const sendMFAEnableReminderEmail: API.OperationMethod<
-  SendMFAEnableReminderEmailRequest,
-  SendMFAEnableReminderEmailResponse,
-  SendMFAEnableReminderEmailError,
-  ScalewayOpContext
-> = /*@__PURE__*/ API.make(() => ({
-  input: SendMFAEnableReminderEmailRequest,
-  output: SendMFAEnableReminderEmailResponse,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

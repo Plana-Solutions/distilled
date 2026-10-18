@@ -1400,46 +1400,6 @@
         "smithy.api#documentation": "Validate email update"
       }
     },
-    "com.scaleway.account_unauthenticated_user_v3#ValidateEmailRequest": {
-      "type": "structure",
-      "members": {
-        "email": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#httpLabel": {},
-            "smithy.api#required": {},
-            "smithy.api#documentation": "Email address to validate."
-          }
-        },
-        "token": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "Token received to validate the email address."
-          }
-        }
-      },
-      "traits": {
-        "smithy.api#input": {}
-      }
-    },
-    "com.scaleway.account_unauthenticated_user_v3#ValidateEmail": {
-      "type": "operation",
-      "input": {
-        "target": "com.scaleway.account_unauthenticated_user_v3#ValidateEmailRequest"
-      },
-      "output": {
-        "target": "smithy.api#Unit"
-      },
-      "traits": {
-        "smithy.api#http": {
-          "method": "POST",
-          "uri": "/account/v3/users/{email}/validate-email",
-          "code": 200,
-          "baseUrl": "https://api.scaleway.com"
-        },
-        "smithy.api#documentation": "Validate the email address of an existing user"
-      }
-    },
     "com.scaleway.account_unauthenticated_user_v3#ProfessionalOrganization": {
       "type": "structure",
       "members": {
@@ -2098,9 +2058,6 @@
         },
         {
           "target": "com.scaleway.account_unauthenticated_user_v3#ValidateEmailUpdate"
-        },
-        {
-          "target": "com.scaleway.account_unauthenticated_user_v3#ValidateEmail"
         },
         {
           "target": "com.scaleway.account_unauthenticated_user_v3#ValidateAccount"

@@ -605,6 +605,10 @@ export interface ListSnapshotsRequest {
   filesystem_id?: string;
   /** Filter by snapshot IDs. Only snapshots with one or more matching IDs will be returned. */
   snapshot_ids?: ListSnapshotsRequestSnapshotIdsList;
+  /** Filter by project ID. */
+  project_id?: string;
+  /** Filter by organization ID. */
+  organization_id?: string;
 }
 export const ListSnapshotsRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -616,6 +620,8 @@ export const ListSnapshotsRequest = /*@__PURE__*/ S.suspend(() =>
     tags: S.optional(ListSnapshotsRequestTagsList.pipe(T.Query())),
     filesystem_id: S.optional(S.String.pipe(T.Query())),
     snapshot_ids: S.optional(ListSnapshotsRequestSnapshotIdsList.pipe(T.Query())),
+    project_id: S.optional(S.String.pipe(T.Query())),
+    organization_id: S.optional(S.String.pipe(T.Query())),
   }).pipe(
     T.Http({
       method: "GET",

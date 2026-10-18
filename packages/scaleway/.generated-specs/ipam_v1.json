@@ -327,6 +327,12 @@
             "smithy.api#enumValue": "serverless_function"
           }
         },
+        "SERVERLESS_JOB": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "serverless_job"
+          }
+        },
         "VPN_GATEWAY": {
           "target": "smithy.api#Unit",
           "traits": {

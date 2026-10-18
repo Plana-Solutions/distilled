@@ -1052,6 +1052,20 @@
             "smithy.api#httpQuery": "snapshot_ids",
             "smithy.api#documentation": "Filter by snapshot IDs. Only snapshots with one or more matching IDs will be returned."
           }
+        },
+        "project_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "project_id",
+            "smithy.api#documentation": "Filter by project ID."
+          }
+        },
+        "organization_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "organization_id",
+            "smithy.api#documentation": "Filter by organization ID."
+          }
         }
       },
       "traits": {

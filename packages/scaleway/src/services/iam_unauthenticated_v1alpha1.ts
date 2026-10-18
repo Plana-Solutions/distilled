@@ -480,9 +480,17 @@ export const EncodedJWT = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "EncodedJWT" }) as any as S.Schema<EncodedJWT>;
 
-export interface SearchOrganizationRequest {}
+export interface SearchOrganizationRequest {
+  /** Search for an organization using its ID. */
+  organization_id?: string;
+  /** Search for an organization using its alias. */
+  organization_alias?: string;
+}
 export const SearchOrganizationRequest = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({}).pipe(
+  S.Struct({
+    organization_id: S.optional(S.String.pipe(T.Query())),
+    organization_alias: S.optional(S.String.pipe(T.Query())),
+  }).pipe(
     T.Http({
       method: "GET",
       uri: "/iam/v1alpha1/search-organization",

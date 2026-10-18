@@ -1023,31 +1023,6 @@ export const ValidateAuthenticationCodeSignUpResponse = /*@__PURE__*/ S.suspend(
   identifier: "ValidateAuthenticationCodeSignUpResponse",
 }) as any as S.Schema<ValidateAuthenticationCodeSignUpResponse>;
 
-export interface ValidateEmailRequest {
-  /** Email address to validate. */
-  email: string;
-  /** Token received to validate the email address. */
-  token?: string;
-}
-export const ValidateEmailRequest = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    email: S.String.pipe(T.Label()),
-    token: S.optional(S.String),
-  }).pipe(
-    T.Http({
-      method: "POST",
-      uri: "/account/v3/users/{email}/validate-email",
-      code: 200,
-      baseUrl: "https://api.scaleway.com",
-    }),
-  ),
-).annotate({ identifier: "ValidateEmailRequest" }) as any as S.Schema<ValidateEmailRequest>;
-
-export interface ValidateEmailResponse {}
-export const ValidateEmailResponse = /*@__PURE__*/ S.suspend(() => S.Struct({})).annotate({
-  identifier: "ValidateEmailResponse",
-}) as any as S.Schema<ValidateEmailResponse>;
-
 export interface ValidateEmailUpdateRequest {
   /** ID of the user. */
   account_root_user_id: string;
@@ -1374,21 +1349,6 @@ export const validateAuthenticationCodeSignUp: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: ValidateAuthenticationCodeSignUpRequest,
   output: ValidateAuthenticationCodeSignUpResponse,
-  errors: [UnknownScalewayError],
-  protocol: ScalewayProtocol,
-  retry: Retry.Retry,
-}));
-
-export type ValidateEmailError = ScalewayOpError;
-/** Validate the email address of an existing user */
-export const validateEmail: API.OperationMethod<
-  ValidateEmailRequest,
-  ValidateEmailResponse,
-  ValidateEmailError,
-  ScalewayOpContext
-> = /*@__PURE__*/ API.make(() => ({
-  input: ValidateEmailRequest,
-  output: ValidateEmailResponse,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

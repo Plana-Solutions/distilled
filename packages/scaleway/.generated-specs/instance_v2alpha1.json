@@ -6022,6 +6022,27 @@
       },
       "traits": {}
     },
+    "com.scaleway.instance_v2alpha1#DeleteServerRequestDeleteIpIdsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {}
+    },
+    "com.scaleway.instance_v2alpha1#DeleteServerRequestDeleteVolumeIdsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {}
+    },
+    "com.scaleway.instance_v2alpha1#DeleteServerRequestDeletePrivateNicIdsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {}
+    },
     "com.scaleway.instance_v2alpha1#DeleteServerRequest": {
       "type": "structure",
       "members": {
@@ -11135,27 +11156,6 @@
       }
     },
     "com.scaleway.instance_v2alpha1#ListServersRequestDedicatedPoolIdsList": {
-      "type": "list",
-      "member": {
-        "target": "smithy.api#String"
-      },
-      "traits": {}
-    },
-    "com.scaleway.instance_v2alpha1#DeleteServerRequestDeleteIpIdsList": {
-      "type": "list",
-      "member": {
-        "target": "smithy.api#String"
-      },
-      "traits": {}
-    },
-    "com.scaleway.instance_v2alpha1#DeleteServerRequestDeleteVolumeIdsList": {
-      "type": "list",
-      "member": {
-        "target": "smithy.api#String"
-      },
-      "traits": {}
-    },
-    "com.scaleway.instance_v2alpha1#DeleteServerRequestDeletePrivateNicIdsList": {
       "type": "list",
       "member": {
         "target": "smithy.api#String"

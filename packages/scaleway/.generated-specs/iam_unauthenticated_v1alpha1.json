@@ -888,6 +888,28 @@
         "smithy.api#documentation": "Get the SAML metadata XML file for a given SAML ID"
       }
     },
+    "com.scaleway.iam_unauthenticated_v1alpha1#SearchOrganizationRequest": {
+      "type": "structure",
+      "members": {
+        "organization_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "organization_id",
+            "smithy.api#documentation": "Search for an organization using its ID."
+          }
+        },
+        "organization_alias": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "organization_alias",
+            "smithy.api#documentation": "Search for an organization using its alias."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
     "com.scaleway.iam_unauthenticated_v1alpha1#OrganizationSummary": {
       "type": "structure",
       "members": {
@@ -933,7 +955,7 @@
     "com.scaleway.iam_unauthenticated_v1alpha1#SearchOrganization": {
       "type": "operation",
       "input": {
-        "target": "smithy.api#Unit"
+        "target": "com.scaleway.iam_unauthenticated_v1alpha1#SearchOrganizationRequest"
       },
       "output": {
         "target": "com.scaleway.iam_unauthenticated_v1alpha1#OrganizationSummary"

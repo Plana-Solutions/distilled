@@ -9,6 +9,7 @@ import * as T from "../traits.ts";
 
 export type { ScalewayOpError, ScalewayOpContext };
 
+/** List of domains to purchase. */
 export type BuyDomainsRequestDomainsList = Array<string>;
 export const BuyDomainsRequestDomainsList = /*@__PURE__*/ S.Array(
   S.String,
@@ -191,28 +192,51 @@ export const NewContactQuestionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<NewContactQuestionsList>;
 
 export interface NewContact {
+  /** Legal form of the contact (individual, corporate, association, other). */
   legal_form?: ContactLegalForm | (string & {});
+  /** First name of the contact. */
   firstname?: string;
+  /** Last name of the contact. */
   lastname?: string;
+  /** Company name of the contact (required for corporate legal forms). */
   company_name?: string | null;
+  /** Email address of the contact. */
   email?: string;
+  /** Alternative email address of the contact. */
   email_alt?: string | null;
+  /** Phone number of the contact. */
   phone_number?: string;
+  /** Fax number of the contact. */
   fax_number?: string | null;
+  /** First line of the contact's address. */
   address_line_1?: string;
+  /** Second line of the contact's address. */
   address_line_2?: string | null;
+  /** Postal code of the contact. */
   zip?: string;
+  /** City of the contact. */
   city?: string;
+  /** Country code of the contact (ISO 3166-1 alpha-2 format). */
   country?: string;
+  /** VAT identification code of the contact. */
   vat_identification_code?: string | null;
+  /** Company identification code (e.g. SIRET/SIREN) of the contact. */
   company_identification_code?: string | null;
+  /** Preferred language of the contact. */
   lang?: ScalewayStdLanguageCode | (string & {});
+  /** Indicates whether the contact's information can be resold. */
   resale?: boolean;
+  /** Additional information required for .fr domains. */
   extension_fr?: ContactExtensionFR;
+  /** Additional information required for .eu domains. */
   extension_eu?: ContactExtensionEU;
+  /** Indicates whether the contact's information is published in the WHOIS database. */
   whois_opt_in?: boolean;
+  /** State or region of the contact. */
   state?: string | null;
+  /** Additional information required for .nl domains. */
   extension_nl?: ContactExtensionNL;
+  /** Additional information required for .it domains. */
   extension_it?: ContactExtensionIT;
   questions?: NewContactQuestionsList;
 }
@@ -246,14 +270,23 @@ export const NewContact = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "NewContact" }) as any as S.Schema<NewContact>;
 
 export interface BuyDomainsRequest {
+  /** List of domains to purchase. */
   domains: BuyDomainsRequestDomainsList;
+  /** Duration in years for the domain registration. */
   duration_in_years?: number;
+  /** Project ID to create the domains in. */
   project_id?: string;
+  /** ID of the existing contact to use as the domain's owner. */
   owner_contact_id?: string | null;
+  /** New contact to create and use as the domain's owner. */
   owner_contact?: NewContact | null;
+  /** ID of the existing contact to use as the domain's administrative contact. */
   administrative_contact_id?: string | null;
+  /** New contact to create and use as the domain's administrative contact. */
   administrative_contact?: NewContact | null;
+  /** ID of the existing contact to use as the domain's technical contact. */
   technical_contact_id?: string | null;
+  /** New contact to create and use as the domain's technical contact. */
   technical_contact?: NewContact | null;
   /** Enable the `auto renew` feature for all the requested domains. This means the domain will be automatically renewed before its expiry date. */
   auto_renew?: boolean;
@@ -280,17 +313,22 @@ export const BuyDomainsRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "BuyDomainsRequest" }) as any as S.Schema<BuyDomainsRequest>;
 
+/** List of domains in the order. */
 export type OrderResponseDomainsList = Array<string>;
 export const OrderResponseDomainsList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<OrderResponseDomainsList>;
 
 export interface OrderResponse {
+  /** List of domains in the order. */
   domains?: OrderResponseDomainsList;
+  /** The organization ID associated with the order. */
   organization_id?: string;
+  /** The project ID associated with the order. */
   project_id?: string;
+  /** The unique identifier of the task associated with the order. */
   task_id?: string;
-  /** (RFC 3339 format) */
+  /** The creation date of the order. (RFC 3339 format) */
   created_at?: string | null;
 }
 export const OrderResponse = /*@__PURE__*/ S.suspend(() =>
@@ -303,24 +341,34 @@ export const OrderResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "OrderResponse" }) as any as S.Schema<OrderResponse>;
 
+/** List of domains to check contacts compatibility against. */
 export type CheckContactsCompatibilityRequestDomainsList = Array<string>;
 export const CheckContactsCompatibilityRequestDomainsList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<CheckContactsCompatibilityRequestDomainsList>;
 
+/** List of TLDs to check contacts compatibility against. */
 export type CheckContactsCompatibilityRequestTldsList = Array<string>;
 export const CheckContactsCompatibilityRequestTldsList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<CheckContactsCompatibilityRequestTldsList>;
 
 export interface CheckContactsCompatibilityRequest {
+  /** List of domains to check contacts compatibility against. */
   domains?: CheckContactsCompatibilityRequestDomainsList;
+  /** List of TLDs to check contacts compatibility against. */
   tlds?: CheckContactsCompatibilityRequestTldsList;
+  /** ID of the existing contact to check as the domain's owner. */
   owner_contact_id?: string | null;
+  /** New contact to check as the domain's owner. */
   owner_contact?: NewContact | null;
+  /** ID of the existing contact to check as the domain's administrative contact. */
   administrative_contact_id?: string | null;
+  /** New contact to check as the domain's administrative contact. */
   administrative_contact?: NewContact | null;
+  /** ID of the existing contact to check as the domain's technical contact. */
   technical_contact_id?: string | null;
+  /** New contact to check as the domain's technical contact. */
   technical_contact?: NewContact | null;
 }
 export const CheckContactsCompatibilityRequest = /*@__PURE__*/ S.suspend(() =>
@@ -359,9 +407,13 @@ export const CheckContactsCompatibilityResponseContactCheckResult = /*@__PURE__*
 }) as any as S.Schema<CheckContactsCompatibilityResponseContactCheckResult>;
 
 export interface CheckContactsCompatibilityResponse {
+  /** Indicates whether all contacts are compatible with the domains or TLDs. */
   compatible?: boolean;
+  /** Compatibility check result for the owner contact. */
   owner_check_result?: CheckContactsCompatibilityResponseContactCheckResult;
+  /** Compatibility check result for the administrative contact. */
   administrative_check_result?: CheckContactsCompatibilityResponseContactCheckResult;
+  /** Compatibility check result for the technical contact. */
   technical_check_result?: CheckContactsCompatibilityResponseContactCheckResult;
 }
 export const CheckContactsCompatibilityResponse = /*@__PURE__*/ S.suspend(() =>
@@ -375,16 +427,18 @@ export const CheckContactsCompatibilityResponse = /*@__PURE__*/ S.suspend(() =>
   identifier: "CheckContactsCompatibilityResponse",
 }) as any as S.Schema<CheckContactsCompatibilityResponse>;
 
-/** (IP address) */
+/** List of glue IP addresses associated with the hostname. (IP address) */
 export type CreateDomainHostRequestIpsList = Array<string>;
 export const CreateDomainHostRequestIpsList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<CreateDomainHostRequestIpsList>;
 
 export interface CreateDomainHostRequest {
+  /** The domain name to create the hostname for. */
   domain: string;
+  /** The hostname to create. */
   name?: string;
-  /** (IP address) */
+  /** List of glue IP addresses associated with the hostname. (IP address) */
   ips?: CreateDomainHostRequestIpsList;
 }
 export const CreateDomainHostRequest = /*@__PURE__*/ S.suspend(() =>
@@ -402,7 +456,7 @@ export const CreateDomainHostRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "CreateDomainHostRequest" }) as any as S.Schema<CreateDomainHostRequest>;
 
-/** (IP address) */
+/** List of glue IP addresses associated with the hostname. (IP address) */
 export type HostIpsList = Array<string>;
 export const HostIpsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema<HostIpsList>;
 
@@ -410,10 +464,13 @@ export type HostStatus = "unknown_status" | "active" | "updating" | "deleting";
 export const HostStatus = S.String;
 
 export interface Host {
+  /** The domain name associated with the hostname. */
   domain?: string;
+  /** The hostname. */
   name?: string;
-  /** (IP address) */
+  /** List of glue IP addresses associated with the hostname. (IP address) */
   ips?: HostIpsList;
+  /** Status of the hostname. */
   status?: HostStatus;
 }
 export const Host = /*@__PURE__*/ S.suspend(() =>
@@ -426,7 +483,9 @@ export const Host = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "Host" }) as any as S.Schema<Host>;
 
 export interface DeleteDomainHostRequest {
+  /** The domain name of the hostname to delete. */
   domain: string;
+  /** The hostname to delete. */
   name: string;
 }
 export const DeleteDomainHostRequest = /*@__PURE__*/ S.suspend(() =>
@@ -444,6 +503,7 @@ export const DeleteDomainHostRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "DeleteDomainHostRequest" }) as any as S.Schema<DeleteDomainHostRequest>;
 
 export interface DeleteExternalDomainRequest {
+  /** The external domain name to delete. */
   domain: string;
 }
 export const DeleteExternalDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -469,6 +529,7 @@ export const DeleteExternalDomainResponse2 = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<DeleteExternalDomainResponse2>;
 
 export interface DisableDomainAutoRenewRequest {
+  /** The domain name to disable auto renew for. */
   domain: string;
 }
 export const DisableDomainAutoRenewRequest = /*@__PURE__*/ S.suspend(() =>
@@ -514,6 +575,7 @@ export type DSRecordDigestType = "sha_1" | "sha_256" | "gost_r_34_11_94" | "sha_
 export const DSRecordDigestType = S.String;
 
 export interface DSRecordPublicKey {
+  /** The public key string. */
   key?: string;
 }
 export const DSRecordPublicKey = /*@__PURE__*/ S.suspend(() =>
@@ -523,8 +585,11 @@ export const DSRecordPublicKey = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "DSRecordPublicKey" }) as any as S.Schema<DSRecordPublicKey>;
 
 export interface DSRecordDigest {
+  /** The digest type of the DS record. */
   type?: DSRecordDigestType | (string & {});
+  /** The digest string of the DS record. */
   digest?: string;
+  /** The public key associated with the digest. */
   public_key?: DSRecordPublicKey;
 }
 export const DSRecordDigest = /*@__PURE__*/ S.suspend(() =>
@@ -536,9 +601,13 @@ export const DSRecordDigest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "DSRecordDigest" }) as any as S.Schema<DSRecordDigest>;
 
 export interface DSRecord {
+  /** The key tag of the DS record. */
   key_id?: number;
+  /** The cryptographic algorithm used for the DS record. */
   algorithm?: DSRecordAlgorithm | (string & {});
+  /** The digest of the DS record. */
   digest?: DSRecordDigest | null;
+  /** The public key of the DS record. */
   public_key?: DSRecordPublicKey | null;
 }
 export const DSRecord = /*@__PURE__*/ S.suspend(() =>
@@ -550,13 +619,16 @@ export const DSRecord = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "DSRecord" }) as any as S.Schema<DSRecord>;
 
+/** List of the domain's DS records. */
 export type DomainDNSSECDsRecordsList = Array<DSRecord>;
 export const DomainDNSSECDsRecordsList = /*@__PURE__*/ S.Array(
   DSRecord,
 ) as any as S.Schema<DomainDNSSECDsRecordsList>;
 
 export interface DomainDNSSEC {
+  /** Status of the DNSSEC configuration of the domain. */
   status?: DomainFeatureStatus;
+  /** List of the domain's DS records. */
   ds_records?: DomainDNSSECDsRecordsList;
 }
 export const DomainDNSSEC = /*@__PURE__*/ S.suspend(() =>
@@ -663,31 +735,57 @@ export const ContactQuestionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<ContactQuestionsList>;
 
 export interface Contact {
+  /** The unique identifier of the contact. */
   id?: string;
+  /** Legal form of the contact (individual, corporate, association, other). */
   legal_form?: ContactLegalForm;
+  /** First name of the contact. */
   firstname?: string;
+  /** Last name of the contact. */
   lastname?: string;
+  /** Company name of the contact (required for corporate legal forms). */
   company_name?: string;
+  /** Email address of the contact. */
   email?: string;
+  /** Alternative email address of the contact. */
   email_alt?: string;
+  /** Phone number of the contact. */
   phone_number?: string;
+  /** Fax number of the contact. */
   fax_number?: string;
+  /** First line of the contact's address. */
   address_line_1?: string;
+  /** Second line of the contact's address. */
   address_line_2?: string;
+  /** Postal code of the contact. */
   zip?: string;
+  /** City of the contact. */
   city?: string;
+  /** Country code of the contact (ISO 3166-1 alpha-2 format). */
   country?: string;
+  /** VAT identification code of the contact. */
   vat_identification_code?: string;
+  /** Company identification code (e.g. SIRET/SIREN) of the contact. */
   company_identification_code?: string;
+  /** Preferred language of the contact. */
   lang?: ScalewayStdLanguageCode;
+  /** Indicates whether the contact's information can be resold. */
   resale?: boolean;
+  /** Additional information required for .fr domains. */
   extension_fr?: ContactExtensionFR;
+  /** Additional information required for .eu domains. */
   extension_eu?: ContactExtensionEU;
+  /** Indicates whether the contact's information is published in the WHOIS database. */
   whois_opt_in?: boolean;
+  /** Email validation status of the contact. */
   email_status?: ContactEmailStatus;
+  /** State or region of the contact. */
   state?: string;
+  /** Additional information required for .nl domains. */
   extension_nl?: ContactExtensionNL;
+  /** Status of the contact. */
   status?: ContactStatus;
+  /** Additional information required for .it domains. */
   extension_it?: ContactExtensionIT;
   questions?: ContactQuestionsList;
 }
@@ -724,6 +822,7 @@ export const Contact = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "Contact" }) as any as S.Schema<Contact>;
 
 export interface DomainRegistrationStatusExternalDomain {
+  /** Validation token for the external domain registration. */
   validation_token?: string;
 }
 export const DomainRegistrationStatusExternalDomain = /*@__PURE__*/ S.suspend(() =>
@@ -744,8 +843,11 @@ export type DomainRegistrationStatusTransferStatus =
 export const DomainRegistrationStatusTransferStatus = S.String;
 
 export interface DomainRegistrationStatusTransfer {
+  /** Status of the domain transfer. */
   status?: DomainRegistrationStatusTransferStatus;
+  /** Indicates whether the current owner has voted for the transfer. */
   vote_current_owner?: boolean;
+  /** Indicates whether the new owner has voted for the transfer. */
   vote_new_owner?: boolean;
 }
 export const DomainRegistrationStatusTransfer = /*@__PURE__*/ S.suspend(() =>
@@ -772,8 +874,11 @@ export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GoogleTypeMoney" }) as any as S.Schema<GoogleTypeMoney>;
 
 export interface TldOffer {
+  /** The action of the offer (create, renew, transfer, etc.). */
   action?: string;
+  /** The operation path of the offer. */
   operation_path?: string;
+  /** The price of the offer. */
   price?: GoogleTypeMoney;
 }
 export const TldOffer = /*@__PURE__*/ S.suspend(() =>
@@ -784,12 +889,14 @@ export const TldOffer = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "TldOffer" }) as any as S.Schema<TldOffer>;
 
+/** Available offers (create, renew, transfer, etc.) for the TLD. */
 export type TldOffersMap = { [key: string]: TldOffer | undefined };
 export const TldOffersMap = /*@__PURE__*/ S.Record(
   S.String,
   TldOffer,
 ) as any as S.Schema<TldOffersMap>;
 
+/** Additional specifications of the TLD. */
 export type TldSpecificationsMap = { [key: string]: string | undefined };
 export const TldSpecificationsMap = /*@__PURE__*/ S.Record(
   S.String,
@@ -797,12 +904,19 @@ export const TldSpecificationsMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<TldSpecificationsMap>;
 
 export interface Tld {
+  /** The TLD name. */
   name?: string;
+  /** Indicates whether the TLD supports DNSSEC. */
   dnssec_support?: boolean;
+  /** Minimum registration duration in years for the TLD. */
   duration_in_years_min?: number;
+  /** Maximum registration duration in years for the TLD. */
   duration_in_years_max?: number;
+  /** Indicates whether the TLD supports internationalized domain names (IDN). */
   idn_support?: boolean;
+  /** Available offers (create, renew, transfer, etc.) for the TLD. */
   offers?: TldOffersMap;
+  /** Additional specifications of the TLD. */
   specifications?: TldSpecificationsMap;
 }
 export const Tld = /*@__PURE__*/ S.suspend(() =>
@@ -824,8 +938,11 @@ export const DomainLinkedProductsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<DomainLinkedProductsList>;
 
 export interface Domain {
+  /** The domain name. */
   domain?: string;
+  /** The organization ID associated with the domain. */
   organization_id?: string;
+  /** The project ID associated with the domain. */
   project_id?: string;
   /** Status of the automatic renewal of the domain. */
   auto_renew_status?: DomainFeatureStatus;
@@ -837,6 +954,7 @@ export interface Domain {
   expired_at?: string | null;
   /** Domain's last modification date. (RFC 3339 format) */
   updated_at?: string | null;
+  /** The registrar managing the domain. */
   registrar?: string;
   /** Indicates whether Scaleway is the domain's registrar. */
   is_external?: boolean;
@@ -889,6 +1007,7 @@ export const Domain = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "Domain" }) as any as S.Schema<Domain>;
 
 export interface DisableDomainDNSSECRequest {
+  /** The domain name to disable DNSSEC for. */
   domain: string;
 }
 export const DisableDomainDNSSECRequest = /*@__PURE__*/ S.suspend(() =>
@@ -907,6 +1026,7 @@ export const DisableDomainDNSSECRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<DisableDomainDNSSECRequest>;
 
 export interface EnableDomainAutoRenewRequest {
+  /** The domain name to enable auto renew for. */
   domain: string;
 }
 export const EnableDomainAutoRenewRequest = /*@__PURE__*/ S.suspend(() =>
@@ -925,7 +1045,9 @@ export const EnableDomainAutoRenewRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EnableDomainAutoRenewRequest>;
 
 export interface EnableDomainDNSSECRequest {
+  /** The domain name to enable DNSSEC for. */
   domain: string;
+  /** The DS record to configure for DNSSEC. If omitted, the DS record will be automatically generated. */
   ds_record?: DSRecord;
 }
 export const EnableDomainDNSSECRequest = /*@__PURE__*/ S.suspend(() =>
@@ -945,6 +1067,7 @@ export const EnableDomainDNSSECRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EnableDomainDNSSECRequest>;
 
 export interface GetContactRequest {
+  /** ID of the contact to retrieve. */
   contact_id: string;
 }
 export const GetContactRequest = /*@__PURE__*/ S.suspend(() =>
@@ -961,6 +1084,7 @@ export const GetContactRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetContactRequest" }) as any as S.Schema<GetContactRequest>;
 
 export interface GetDomainRequest {
+  /** The domain name to retrieve. */
   domain: string;
 }
 export const GetDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -977,6 +1101,7 @@ export const GetDomainRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetDomainRequest" }) as any as S.Schema<GetDomainRequest>;
 
 export interface GetDomainAuthCodeRequest {
+  /** The domain name to retrieve the authorization code for. */
   domain: string;
 }
 export const GetDomainAuthCodeRequest = /*@__PURE__*/ S.suspend(() =>
@@ -993,6 +1118,7 @@ export const GetDomainAuthCodeRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "GetDomainAuthCodeRequest" }) as any as S.Schema<GetDomainAuthCodeRequest>;
 
 export interface GetDomainAuthCodeResponse {
+  /** The authorization code to transfer the domain. */
   auth_code?: string;
 }
 export const GetDomainAuthCodeResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1006,14 +1132,38 @@ export const GetDomainAuthCodeResponse = /*@__PURE__*/ S.suspend(() =>
 export type ListContactsRequestRole = "unknown_role" | "owner" | "administrative" | "technical";
 export const ListContactsRequestRole = S.String;
 
+export type ListContactsRequestOrderBy =
+  | "created_at_asc"
+  | "created_at_desc"
+  | "email_asc"
+  | "email_desc";
+export const ListContactsRequestOrderBy = S.String;
+
 export interface ListContactsRequest {
+  /** Page number for the returned contacts. */
   page?: number;
+  /** Maximum number of contacts per page. */
   page_size?: number;
+  /** Filter contacts by domain name. */
   domain?: string;
+  /** Filter contacts by project ID. */
   project_id?: string;
+  /** Filter contacts by organization ID. */
   organization_id?: string;
+  /** Filter contacts by role (owner, administrative, technical). */
   role?: ListContactsRequestRole | (string & {});
+  /** Filter contacts by email validation status. */
   email_status?: ContactEmailStatus | (string & {});
+  /** Sort order of the returned contacts. */
+  order_by?: ListContactsRequestOrderBy | (string & {});
+  /** Filter by contact status. */
+  status?: ContactStatus | (string & {});
+  /** Filter by legal form. */
+  legal_form?: ContactLegalForm | (string & {});
+  /** Filter by email address. */
+  email?: string;
+  /** Fuzzy search in firstname, lastname, email, and company_name. */
+  search?: string;
 }
 export const ListContactsRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1024,6 +1174,11 @@ export const ListContactsRequest = /*@__PURE__*/ S.suspend(() =>
     organization_id: S.optional(S.String.pipe(T.Query())),
     role: S.optional(ListContactsRequestRole.pipe(T.Query())),
     email_status: S.optional(ContactEmailStatus.pipe(T.Query())),
+    order_by: S.optional(ListContactsRequestOrderBy.pipe(T.Query())),
+    status: S.optional(ContactStatus.pipe(T.Query())),
+    legal_form: S.optional(ContactLegalForm.pipe(T.Query())),
+    email: S.optional(S.String.pipe(T.Query())),
+    search: S.optional(S.String.pipe(T.Query())),
   }).pipe(
     T.Http({
       method: "GET",
@@ -1035,8 +1190,11 @@ export const ListContactsRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListContactsRequest" }) as any as S.Schema<ListContactsRequest>;
 
 export interface ContactRolesRoles {
+  /** Indicates whether the contact is the owner of the domain. */
   is_owner?: boolean;
+  /** Indicates whether the contact is the administrative contact of the domain. */
   is_administrative?: boolean;
+  /** Indicates whether the contact is the technical contact of the domain. */
   is_technical?: boolean;
 }
 export const ContactRolesRoles = /*@__PURE__*/ S.suspend(() =>
@@ -1047,6 +1205,7 @@ export const ContactRolesRoles = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ContactRolesRoles" }) as any as S.Schema<ContactRolesRoles>;
 
+/** Map of domain names to the contact's roles on each domain. */
 export type ContactRolesRolesMap = { [key: string]: ContactRolesRoles | undefined };
 export const ContactRolesRolesMap = /*@__PURE__*/ S.Record(
   S.String,
@@ -1054,7 +1213,9 @@ export const ContactRolesRolesMap = /*@__PURE__*/ S.Record(
 ) as any as S.Schema<ContactRolesRolesMap>;
 
 export interface ContactRoles {
+  /** The contact information. */
   contact?: Contact;
+  /** Map of domain names to the contact's roles on each domain. */
   roles?: ContactRolesRolesMap;
 }
 export const ContactRoles = /*@__PURE__*/ S.suspend(() =>
@@ -1064,13 +1225,16 @@ export const ContactRoles = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ContactRoles" }) as any as S.Schema<ContactRoles>;
 
+/** List of contacts with their associated roles. */
 export type ListContactsResponseContactsList = Array<ContactRoles>;
 export const ListContactsResponseContactsList = /*@__PURE__*/ S.Array(
   ContactRoles,
 ) as any as S.Schema<ListContactsResponseContactsList>;
 
 export interface ListContactsResponse {
+  /** Total count of contacts matching the request. */
   total_count?: number;
+  /** List of contacts with their associated roles. */
   contacts: ListContactsResponseContactsList;
 }
 export const ListContactsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1081,8 +1245,11 @@ export const ListContactsResponse = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListContactsResponse" }) as any as S.Schema<ListContactsResponse>;
 
 export interface ListDomainHostsRequest {
+  /** The domain name to list hostnames for. */
   domain: string;
+  /** Page number for the returned hostnames. */
   page?: number;
+  /** Maximum number of hostnames per page. */
   page_size?: number;
 }
 export const ListDomainHostsRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1100,13 +1267,16 @@ export const ListDomainHostsRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "ListDomainHostsRequest" }) as any as S.Schema<ListDomainHostsRequest>;
 
+/** List of hostnames matching the request. */
 export type ListDomainHostsResponseHostsList = Array<Host>;
 export const ListDomainHostsResponseHostsList = /*@__PURE__*/ S.Array(
   Host,
 ) as any as S.Schema<ListDomainHostsResponseHostsList>;
 
 export interface ListDomainHostsResponse {
+  /** Total count of hostnames matching the request. */
   total_count?: number;
+  /** List of hostnames matching the request. */
   hosts: ListDomainHostsResponseHostsList;
 }
 export const ListDomainHostsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1120,14 +1290,23 @@ export type ListDomainsRequestOrderBy = "domain_asc" | "domain_desc";
 export const ListDomainsRequestOrderBy = S.String;
 
 export interface ListDomainsRequest {
+  /** Page number for the returned domains. */
   page?: number;
+  /** Maximum number of domains per page. */
   page_size?: number;
+  /** Sort order of the returned domains. */
   order_by?: ListDomainsRequestOrderBy | (string & {});
+  /** Filter domains by registrar. */
   registrar?: string;
+  /** Filter domains by status. */
   status?: DomainStatus | (string & {});
+  /** Filter domains by project ID. */
   project_id?: string;
+  /** Filter domains by organization ID. */
   organization_id?: string;
+  /** Filter domains by external status. */
   is_external?: boolean;
+  /** Filter domains by domain name. */
   domain?: string;
 }
 export const ListDomainsRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1151,40 +1330,55 @@ export const ListDomainsRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "ListDomainsRequest" }) as any as S.Schema<ListDomainsRequest>;
 
+/** List of the domain's EPP codes. */
 export type DomainSummaryEppCodeList = Array<string>;
 export const DomainSummaryEppCodeList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<DomainSummaryEppCodeList>;
 
 export interface DomainSummary {
+  /** The domain name. */
   domain?: string;
+  /** The project ID associated with the domain. */
   project_id?: string;
-  auto_renew_status?: DomainFeatureStatus;
-  dnssec_status?: DomainFeatureStatus;
-  epp_code?: DomainSummaryEppCodeList;
-  /** (RFC 3339 format) */
-  expired_at?: string | null;
-  /** (RFC 3339 format) */
-  updated_at?: string | null;
-  registrar?: string;
-  is_external?: boolean;
-  status?: DomainStatus;
-  external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
-  transfer_registration_status?: DomainRegistrationStatusTransfer | null;
+  /** The organization ID associated with the domain. */
   organization_id?: string;
-  /** (RFC 3339 format) */
+  /** Status of the automatic renewal of the domain. */
+  auto_renew_status?: DomainFeatureStatus;
+  /** Status of the DNSSEC configuration of the domain. */
+  dnssec_status?: DomainFeatureStatus;
+  /** List of the domain's EPP codes. */
+  epp_code?: DomainSummaryEppCodeList;
+  /** Date of expiration of the domain. (RFC 3339 format) */
+  expired_at?: string | null;
+  /** Domain's last modification date. (RFC 3339 format) */
+  updated_at?: string | null;
+  /** Domain's creation date. (RFC 3339 format) */
   created_at?: string | null;
+  /** The registrar managing the domain. */
+  registrar?: string;
+  /** Indicates whether Scaleway is the domain's registrar. */
+  is_external?: boolean;
+  /** Status of the domain. */
+  status?: DomainStatus;
+  /** Registration status of an external domain, if available. */
+  external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
+  /** Status of a domain, when available for transfer. */
+  transfer_registration_status?: DomainRegistrationStatusTransfer | null;
+  /** Indicates if a trade is ongoing. */
   pending_trade?: boolean;
 }
 export const DomainSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     domain: S.optional(S.String),
     project_id: S.optional(S.String),
+    organization_id: S.optional(S.String),
     auto_renew_status: S.optional(DomainFeatureStatus),
     dnssec_status: S.optional(DomainFeatureStatus),
     epp_code: S.optional(DomainSummaryEppCodeList),
     expired_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
+    created_at: S.optional(S.NullOr(S.String)),
     registrar: S.optional(S.String),
     is_external: S.optional(S.Boolean),
     status: S.optional(DomainStatus),
@@ -1192,19 +1386,20 @@ export const DomainSummary = /*@__PURE__*/ S.suspend(() =>
       S.NullOr(DomainRegistrationStatusExternalDomain),
     ),
     transfer_registration_status: S.optional(S.NullOr(DomainRegistrationStatusTransfer)),
-    organization_id: S.optional(S.String),
-    created_at: S.optional(S.NullOr(S.String)),
     pending_trade: S.optional(S.Boolean),
   }),
 ).annotate({ identifier: "DomainSummary" }) as any as S.Schema<DomainSummary>;
 
+/** List of domains matching the request. */
 export type ListDomainsResponseDomainsList = Array<DomainSummary>;
 export const ListDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
   DomainSummary,
 ) as any as S.Schema<ListDomainsResponseDomainsList>;
 
 export interface ListDomainsResponse {
+  /** Total count of domains matching the request. */
   total_count?: number;
+  /** List of domains matching the request. */
   domains: ListDomainsResponseDomainsList;
 }
 export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1215,10 +1410,15 @@ export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListDomainsResponse" }) as any as S.Schema<ListDomainsResponse>;
 
 export interface ListInboundTransfersRequest {
+  /** Page number for the returned inbound transfers. */
   page: number;
+  /** Maximum number of inbound transfers per page. */
   page_size?: number;
+  /** Filter inbound transfers by project ID. */
   project_id: string;
+  /** Filter inbound transfers by organization ID. */
   organization_id: string;
+  /** Filter inbound transfers by domain name. */
   domain: string;
 }
 export const ListInboundTransfersRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1285,13 +1485,16 @@ export const InboundTransfer = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "InboundTransfer" }) as any as S.Schema<InboundTransfer>;
 
+/** List of inbound transfers matching the request. */
 export type ListInboundTransfersResponseInboundTransfersList = Array<InboundTransfer>;
 export const ListInboundTransfersResponseInboundTransfersList = /*@__PURE__*/ S.Array(
   InboundTransfer,
 ) as any as S.Schema<ListInboundTransfersResponseInboundTransfersList>;
 
 export interface ListInboundTransfersResponse {
+  /** Total count of inbound transfers matching the request. */
   total_count?: number;
+  /** List of inbound transfers matching the request. */
   inbound_transfers: ListInboundTransfersResponseInboundTransfersList;
 }
 export const ListInboundTransfersResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1307,10 +1510,15 @@ export type ListRenewableDomainsRequestOrderBy = "domain_asc" | "domain_desc";
 export const ListRenewableDomainsRequestOrderBy = S.String;
 
 export interface ListRenewableDomainsRequest {
+  /** Page number for the returned renewable domains. */
   page?: number;
+  /** Maximum number of renewable domains per page. */
   page_size?: number;
+  /** Sort order of the returned renewable domains. */
   order_by?: ListRenewableDomainsRequestOrderBy | (string & {});
+  /** Filter renewable domains by project ID. */
   project_id?: string;
+  /** Filter renewable domains by organization ID. */
   organization_id?: string;
 }
 export const ListRenewableDomainsRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1336,19 +1544,25 @@ export type RenewableDomainStatus = "unknown" | "renewable" | "late_reneweable" 
 export const RenewableDomainStatus = S.String;
 
 export interface RenewableDomain {
+  /** The domain name. */
   domain?: string;
+  /** The project ID associated with the domain. */
   project_id?: string;
+  /** The organization ID associated with the domain. */
   organization_id?: string;
+  /** The renewal status of the domain. */
   status?: RenewableDomainStatus;
+  /** Duration in years for which the domain can be renewed. */
   renewable_duration_in_years?: number | null;
-  /** (RFC 3339 format) */
+  /** Date of expiration of the domain. (RFC 3339 format) */
   expired_at?: string | null;
-  /** (RFC 3339 format) */
+  /** Deadline to renew the domain before it enters the late renewal period. (RFC 3339 format) */
   limit_renew_at?: string | null;
-  /** (RFC 3339 format) */
+  /** Deadline to renew the domain before it enters the redemption period. (RFC 3339 format) */
   limit_redemption_at?: string | null;
-  /** (RFC 3339 format) */
+  /** Estimated date at which the domain will be deleted. (RFC 3339 format) */
   estimated_delete_at?: string | null;
+  /** TLD information of the domain. */
   tld?: Tld;
 }
 export const RenewableDomain = /*@__PURE__*/ S.suspend(() =>
@@ -1366,13 +1580,16 @@ export const RenewableDomain = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "RenewableDomain" }) as any as S.Schema<RenewableDomain>;
 
+/** List of renewable domains matching the request. */
 export type ListRenewableDomainsResponseDomainsList = Array<RenewableDomain>;
 export const ListRenewableDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
   RenewableDomain,
 ) as any as S.Schema<ListRenewableDomainsResponseDomainsList>;
 
 export interface ListRenewableDomainsResponse {
+  /** Total count of renewable domains matching the request. */
   total_count?: number;
+  /** List of renewable domains matching the request. */
   domains: ListRenewableDomainsResponseDomainsList;
 }
 export const ListRenewableDomainsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1442,13 +1659,21 @@ export type ListTasksRequestOrderBy =
 export const ListTasksRequestOrderBy = S.String;
 
 export interface ListTasksRequest {
+  /** Page number for the returned tasks. */
   page?: number;
+  /** Maximum number of tasks per page. */
   page_size?: number;
+  /** Filter tasks by project ID. */
   project_id?: string;
+  /** Filter tasks by organization ID. */
   organization_id?: string;
+  /** Filter tasks by domain name. */
   domain?: string;
+  /** Filter tasks by type. */
   types?: ListTasksRequestTypesList;
+  /** Filter tasks by status. */
   statuses?: ListTasksRequestStatusesList;
+  /** Sort order of the returned tasks. */
   order_by?: ListTasksRequestOrderBy | (string & {});
 }
 export const ListTasksRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1508,13 +1733,16 @@ export const Task = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "Task" }) as any as S.Schema<Task>;
 
+/** List of tasks matching the request. */
 export type ListTasksResponseTasksList = Array<Task>;
 export const ListTasksResponseTasksList = /*@__PURE__*/ S.Array(
   Task,
 ) as any as S.Schema<ListTasksResponseTasksList>;
 
 export interface ListTasksResponse {
+  /** Total count of tasks matching the request. */
   total_count?: number;
+  /** List of tasks matching the request. */
   tasks: ListTasksResponseTasksList;
 }
 export const ListTasksResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1578,6 +1806,7 @@ export const ListTldsResponse = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListTldsResponse" }) as any as S.Schema<ListTldsResponse>;
 
 export interface LockDomainTransferRequest {
+  /** The domain name to lock for transfer. */
   domain: string;
 }
 export const LockDomainTransferRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1596,12 +1825,14 @@ export const LockDomainTransferRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<LockDomainTransferRequest>;
 
 export interface RegisterExternalDomainRequest {
-  domain?: string;
+  /** The external domain name to register. */
+  domain: string;
+  /** Project ID to register the external domain in. */
   project_id?: string;
 }
 export const RegisterExternalDomainRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    domain: S.optional(S.String),
+    domain: S.String,
     project_id: S.optional(S.String),
   }).pipe(
     T.Http({
@@ -1616,33 +1847,41 @@ export const RegisterExternalDomainRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<RegisterExternalDomainRequest>;
 
 export interface RegisterExternalDomainResponse {
+  /** The external domain name registered. */
   domain?: string;
+  /** The organization ID associated with the external domain. */
   organization_id?: string;
-  validation_token?: string;
-  /** (RFC 3339 format) */
-  created_at?: string | null;
+  /** The project ID associated with the external domain. */
   project_id?: string;
+  /** The validation token to use to validate the external domain. */
+  validation_token?: string;
+  /** The creation date of the external domain registration. (RFC 3339 format) */
+  created_at?: string | null;
 }
 export const RegisterExternalDomainResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     domain: S.optional(S.String),
     organization_id: S.optional(S.String),
+    project_id: S.optional(S.String),
     validation_token: S.optional(S.String),
     created_at: S.optional(S.NullOr(S.String)),
-    project_id: S.optional(S.String),
   }),
 ).annotate({
   identifier: "RegisterExternalDomainResponse",
 }) as any as S.Schema<RegisterExternalDomainResponse>;
 
+/** List of domains to renew. */
 export type RenewDomainsRequestDomainsList = Array<string>;
 export const RenewDomainsRequestDomainsList = /*@__PURE__*/ S.Array(
   S.String,
 ) as any as S.Schema<RenewDomainsRequestDomainsList>;
 
 export interface RenewDomainsRequest {
+  /** List of domains to renew. */
   domains: RenewDomainsRequestDomainsList;
+  /** Duration in years for the domain renewal. */
   duration_in_years?: number;
+  /** Force the renewal to be a late renewal. */
   force_late_renewal?: boolean | null;
 }
 export const RenewDomainsRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1731,8 +1970,11 @@ export const SearchAvailableDomainsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<SearchAvailableDomainsRequest>;
 
 export interface AvailableDomain {
+  /** The domain name. */
   domain?: string;
+  /** Indicates whether the domain is available for registration. */
   available?: boolean;
+  /** TLD information of the domain. */
   tld?: Tld;
 }
 export const AvailableDomain = /*@__PURE__*/ S.suspend(() =>
@@ -1765,9 +2007,13 @@ export const SearchAvailableDomainsResponse = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<SearchAvailableDomainsResponse>;
 
 export interface TradeDomainRequest {
+  /** The domain name to trade. */
   domain: string;
+  /** Project ID to associate with the domain after the trade. */
   project_id?: string | null;
+  /** ID of the existing contact to use as the domain's new owner. */
   new_owner_contact_id?: string | null;
+  /** New contact to create and use as the domain's new owner. */
   new_owner_contact?: NewContact | null;
 }
 export const TradeDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1799,19 +2045,28 @@ export const TransferInDomainRequestTransferRequest = /*@__PURE__*/ S.suspend(()
   identifier: "TransferInDomainRequestTransferRequest",
 }) as any as S.Schema<TransferInDomainRequestTransferRequest>;
 
+/** List of domains to transfer in, each with its auth code. */
 export type TransferInDomainRequestDomainsList = Array<TransferInDomainRequestTransferRequest>;
 export const TransferInDomainRequestDomainsList = /*@__PURE__*/ S.Array(
   TransferInDomainRequestTransferRequest,
 ) as any as S.Schema<TransferInDomainRequestDomainsList>;
 
 export interface TransferInDomainRequest {
+  /** List of domains to transfer in, each with its auth code. */
   domains: TransferInDomainRequestDomainsList;
+  /** Project ID to transfer the domains into. */
   project_id?: string;
+  /** ID of the existing contact to use as the domain's owner. */
   owner_contact_id?: string | null;
+  /** New contact to create and use as the domain's owner. */
   owner_contact?: NewContact | null;
+  /** ID of the existing contact to use as the domain's administrative contact. */
   administrative_contact_id?: string | null;
+  /** New contact to create and use as the domain's administrative contact. */
   administrative_contact?: NewContact | null;
+  /** ID of the existing contact to use as the domain's technical contact. */
   technical_contact_id?: string | null;
+  /** New contact to create and use as the domain's technical contact. */
   technical_contact?: NewContact | null;
 }
 export const TransferInDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1835,6 +2090,7 @@ export const TransferInDomainRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "TransferInDomainRequest" }) as any as S.Schema<TransferInDomainRequest>;
 
 export interface UnlockDomainTransferRequest {
+  /** The domain name to unlock for transfer. */
   domain: string;
 }
 export const UnlockDomainTransferRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1871,25 +2127,45 @@ export const UpdateContactRequestQuestionsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<UpdateContactRequestQuestionsList>;
 
 export interface UpdateContactRequest {
+  /** ID of the contact to update. */
   contact_id: string;
+  /** Email address of the contact. */
   email?: string | null;
+  /** Alternative email address of the contact. */
   email_alt?: string | null;
+  /** Phone number of the contact. */
   phone_number?: string | null;
+  /** Fax number of the contact. */
   fax_number?: string | null;
+  /** First line of the contact's address. */
   address_line_1?: string | null;
+  /** Second line of the contact's address. */
   address_line_2?: string | null;
+  /** Postal code of the contact. */
   zip?: string | null;
+  /** City of the contact. */
   city?: string | null;
+  /** Country code of the contact (ISO 3166-1 alpha-2 format). */
   country?: string | null;
+  /** VAT identification code of the contact. */
   vat_identification_code?: string | null;
+  /** Company identification code (e.g. SIRET/SIREN) of the contact. */
   company_identification_code?: string | null;
+  /** Preferred language of the contact. */
   lang?: ScalewayStdLanguageCode | (string & {});
+  /** Indicates whether the contact's information can be resold. */
   resale?: boolean | null;
+  /** Additional information required for .fr domains. */
   extension_fr?: ContactExtensionFR;
+  /** Additional information required for .eu domains. */
   extension_eu?: ContactExtensionEU;
+  /** Additional information required for .nl domains. */
   extension_nl?: ContactExtensionNL;
+  /** Additional information required for .it domains. */
   extension_it?: ContactExtensionIT;
+  /** Indicates whether the contact's information is published in the WHOIS database. */
   whois_opt_in?: boolean | null;
+  /** State or region of the contact. */
   state?: string | null;
   questions?: UpdateContactRequestQuestionsList;
 }
@@ -1927,12 +2203,19 @@ export const UpdateContactRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateContactRequest" }) as any as S.Schema<UpdateContactRequest>;
 
 export interface UpdateDomainRequest {
+  /** The domain name to update. */
   domain: string;
+  /** ID of the existing contact to use as the domain's technical contact. */
   technical_contact_id?: string | null;
+  /** New contact to create and use as the domain's technical contact. */
   technical_contact?: NewContact | null;
+  /** Deprecated. ID of the existing contact to use as the domain's owner. */
   owner_contact_id?: string | null;
+  /** Deprecated. New contact to create and use as the domain's owner. */
   owner_contact?: NewContact | null;
+  /** ID of the existing contact to use as the domain's administrative contact. */
   administrative_contact_id?: string | null;
+  /** New contact to create and use as the domain's administrative contact. */
   administrative_contact?: NewContact | null;
 }
 export const UpdateDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1954,21 +2237,25 @@ export const UpdateDomainRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "UpdateDomainRequest" }) as any as S.Schema<UpdateDomainRequest>;
 
-export type ScalewayStdStringsValue = Array<unknown>;
-export const ScalewayStdStringsValue = /*@__PURE__*/ S.Array(
+/** New list of glue IP addresses associated with the hostname. */
+export type UpdateDomainHostRequestIpsList = Array<unknown>;
+export const UpdateDomainHostRequestIpsList = /*@__PURE__*/ S.Array(
   S.Unknown,
-) as any as S.Schema<ScalewayStdStringsValue>;
+) as any as S.Schema<UpdateDomainHostRequestIpsList>;
 
 export interface UpdateDomainHostRequest {
+  /** The domain name of the hostname to update. */
   domain: string;
+  /** The hostname to update. */
   name: string;
-  ips?: ScalewayStdStringsValue | null;
+  /** New list of glue IP addresses associated with the hostname. */
+  ips?: UpdateDomainHostRequestIpsList | null;
 }
 export const UpdateDomainHostRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     domain: S.String.pipe(T.Label()),
     name: S.String.pipe(T.Label()),
-    ips: S.optional(S.NullOr(ScalewayStdStringsValue)),
+    ips: S.optional(S.NullOr(UpdateDomainHostRequestIpsList)),
   }).pipe(
     T.Http({
       method: "PATCH",
