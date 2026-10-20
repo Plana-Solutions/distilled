@@ -1,0 +1,95 @@
+{
+  "description": "The Web Hosting database API answers a database or database user that does not exist with a 500, not the `not_found` envelope the other APIs use. Observed 2026-10-20 in the live Project on a cPanel plan: `GET` and `DELETE /webhosting/v1/regions/fr-par/hostings/{hosting_id}/databases/{database_name}` for a missing name answered 500 `{\"message\":\"no database with this name\"}`, and `GET` and `DELETE .../database-users/{username}` for a missing user answered 500 `{\"message\":\"database user not found\"}`. The errors are typed here so a caller can tell an absent object from a server failure, and the SDK does not retry them as one; they are categorised as not found (`httpError` 404) although the wire status is 500.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.webhosting_database_v1#DatabaseNotFound",
+      "value": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String"
+          }
+        },
+        "traits": {
+          "smithy.api#error": "client",
+          "smithy.api#httpError": 404,
+          "smithy.api#documentation": "No database with this name exists on the plan.",
+          "com.distilled.openapi#errorMatchers": [
+            {
+              "status": 500,
+              "message": {
+                "includes": "no database with this name"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.webhosting_database_v1#DatabaseUserNotFound",
+      "value": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String"
+          }
+        },
+        "traits": {
+          "smithy.api#error": "client",
+          "smithy.api#httpError": 404,
+          "smithy.api#documentation": "No database user with this name exists on the plan.",
+          "com.distilled.openapi#errorMatchers": [
+            {
+              "status": 500,
+              "message": {
+                "includes": "database user not found"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.webhosting_database_v1#GetDatabase/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.webhosting_database_v1#DatabaseNotFound"
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.webhosting_database_v1#DeleteDatabase/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.webhosting_database_v1#DatabaseNotFound"
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.webhosting_database_v1#GetDatabaseUser/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.webhosting_database_v1#DatabaseUserNotFound"
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.webhosting_database_v1#DeleteDatabaseUser/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.webhosting_database_v1#DatabaseUserNotFound"
+        }
+      ]
+    }
+  ]
+}
