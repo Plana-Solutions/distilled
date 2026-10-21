@@ -1,0 +1,60 @@
+{
+  "description": "The DNS API answers a certificate call for a DNS zone that does not exist with a 403 `{\"message\":\"domain not found\"}` (or `subdomain not found` for the list), not the `not_found` envelope. Observed 2026-10-21 in the live Project: `GET` and `DELETE /domain/v2beta1/ssl-certificates/{dns_zone}` for a zone that was never created, or whose zone was deleted, answered 403 `domain not found`, and `GET /domain/v2beta1/ssl-certificates?dns_zone=...` answered 403 `subdomain not found`. Without its zone there is no certificate, so the error is typed here as not found (`httpError` 404) for a caller to tell an absent certificate from a refused call; the wire status is 403.",
+  "patches": [
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.domain_v2beta1#DnsZoneNotFound",
+      "value": {
+        "type": "structure",
+        "members": {
+          "message": {
+            "target": "smithy.api#String"
+          }
+        },
+        "traits": {
+          "smithy.api#error": "client",
+          "smithy.api#httpError": 404,
+          "smithy.api#documentation": "The DNS zone the certificate is for does not exist.",
+          "com.distilled.openapi#errorMatchers": [
+            {
+              "status": 403,
+              "message": {
+                "includes": "domain not found"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.domain_v2beta1#GetSSLCertificate/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.domain_v2beta1#DnsZoneNotFound"
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.domain_v2beta1#ListSSLCertificates/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.domain_v2beta1#DnsZoneNotFound"
+        }
+      ]
+    },
+    {
+      "op": "add",
+      "path": "/shapes/com.scaleway.domain_v2beta1#DeleteSSLCertificate/errors",
+      "before": "traits",
+      "value": [
+        {
+          "target": "com.scaleway.domain_v2beta1#DnsZoneNotFound"
+        }
+      ]
+    }
+  ]
+}

@@ -2365,6 +2365,11 @@
       "output": {
         "target": "com.scaleway.domain_v2beta1#ListSSLCertificatesResponse"
       },
+      "errors": [
+        {
+          "target": "com.scaleway.domain_v2beta1#DnsZoneNotFound"
+        }
+      ],
       "traits": {
         "smithy.api#http": {
           "method": "GET",
@@ -2444,6 +2449,11 @@
       "output": {
         "target": "com.scaleway.domain_v2beta1#SSLCertificate"
       },
+      "errors": [
+        {
+          "target": "com.scaleway.domain_v2beta1#DnsZoneNotFound"
+        }
+      ],
       "traits": {
         "smithy.api#http": {
           "method": "GET",
@@ -2492,6 +2502,11 @@
       "output": {
         "target": "com.scaleway.domain_v2beta1#DeleteSSLCertificateResponse2"
       },
+      "errors": [
+        {
+          "target": "com.scaleway.domain_v2beta1#DnsZoneNotFound"
+        }
+      ],
       "traits": {
         "smithy.api#http": {
           "method": "DELETE",
@@ -2640,6 +2655,27 @@
           "rawDownload": true
         },
         "smithy.api#documentation": "Export a raw DNS zone\n\nThe file itself, as bytes (`?dl=1`), rather than the JSON file object."
+      }
+    },
+    "com.scaleway.domain_v2beta1#DnsZoneNotFound": {
+      "type": "structure",
+      "members": {
+        "message": {
+          "target": "smithy.api#String"
+        }
+      },
+      "traits": {
+        "smithy.api#error": "client",
+        "smithy.api#httpError": 404,
+        "smithy.api#documentation": "The DNS zone the certificate is for does not exist.",
+        "com.distilled.openapi#errorMatchers": [
+          {
+            "status": 403,
+            "message": {
+              "includes": "domain not found"
+            }
+          }
+        ]
       }
     }
   }
