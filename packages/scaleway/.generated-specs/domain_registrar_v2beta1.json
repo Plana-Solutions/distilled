@@ -71,13 +71,13 @@
         "phone_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Phone number of the contact."
+            "smithy.api#documentation": "Phone number of the contact, normalized to +CC.NationalNumber format."
           }
         },
         "fax_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Fax number of the contact.",
+            "smithy.api#documentation": "Fax number of the contact, normalized to +CC.NationalNumber format.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -122,7 +122,7 @@
         "company_identification_code": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Company identification code (e.g. SIRET/SIREN) of the contact.",
+            "smithy.api#documentation": "Company identification code of the contact (SIRET/SIREN for French contacts, any format for others).",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -141,13 +141,13 @@
         "extension_fr": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFR",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .fr domains."
+            "smithy.api#documentation": "Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf)."
           }
         },
         "extension_eu": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionEU",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .eu domains."
+            "smithy.api#documentation": "Additional information required for .eu domains. Conditionally required."
           }
         },
         "whois_opt_in": {
@@ -166,13 +166,13 @@
         "extension_nl": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionNL",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .nl domains."
+            "smithy.api#documentation": "Additional information required for .nl domains. Auto-populated for individuals."
           }
         },
         "extension_it": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionIT",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .it domains."
+            "smithy.api#documentation": "Additional information required for .it domains. Contains a PIN."
           }
         },
         "questions": {
@@ -599,7 +599,7 @@
         "duration_in_years": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Duration in years for the domain registration."
+            "smithy.api#documentation": "Duration in years for the domain registration. Subject to TLD-specific minimum and maximum constraints."
           }
         },
         "project_id": {
@@ -625,28 +625,28 @@
         "administrative_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact.",
+            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's technical contact.",
+            "smithy.api#documentation": "New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1158,13 +1158,13 @@
         "phone_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Phone number of the contact."
+            "smithy.api#documentation": "Phone number of the contact, normalized to +CC.NationalNumber format."
           }
         },
         "fax_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Fax number of the contact."
+            "smithy.api#documentation": "Fax number of the contact, normalized to +CC.NationalNumber format."
           }
         },
         "address_line_1": {
@@ -1206,7 +1206,7 @@
         "company_identification_code": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Company identification code (e.g. SIRET/SIREN) of the contact."
+            "smithy.api#documentation": "Company identification code of the contact (SIRET/SIREN for French contacts, any format for others)."
           }
         },
         "lang": {
@@ -1224,13 +1224,13 @@
         "extension_fr": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFR",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .fr domains."
+            "smithy.api#documentation": "Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf)."
           }
         },
         "extension_eu": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionEU",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .eu domains."
+            "smithy.api#documentation": "Additional information required for .eu domains. Conditionally required."
           }
         },
         "whois_opt_in": {
@@ -1254,7 +1254,7 @@
         "extension_nl": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionNL",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .nl domains."
+            "smithy.api#documentation": "Additional information required for .nl domains. Auto-populated for individuals."
           }
         },
         "status": {
@@ -1266,7 +1266,7 @@
         "extension_it": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionIT",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .it domains."
+            "smithy.api#documentation": "Additional information required for .it domains. Contains a PIN."
           }
         },
         "questions": {
@@ -1439,14 +1439,14 @@
         "phone_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Phone number of the contact.",
+            "smithy.api#documentation": "Phone number of the contact, normalized to +CC.NationalNumber format.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "fax_number": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Fax number of the contact.",
+            "smithy.api#documentation": "Fax number of the contact, normalized to +CC.NationalNumber format.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1481,7 +1481,7 @@
         "country": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Country code of the contact (ISO 3166-1 alpha-2 format).",
+            "smithy.api#documentation": "Country code of the contact (ISO 3166-1 alpha-2 format). Not updatable; returns an error if changed.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1495,7 +1495,7 @@
         "company_identification_code": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Company identification code (e.g. SIRET/SIREN) of the contact.",
+            "smithy.api#documentation": "Company identification code of the contact (SIRET/SIREN for French contacts, any format for others).",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1515,25 +1515,25 @@
         "extension_fr": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFR",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .fr domains."
+            "smithy.api#documentation": "Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf)."
           }
         },
         "extension_eu": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionEU",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .eu domains."
+            "smithy.api#documentation": "Additional information required for .eu domains. Conditionally required."
           }
         },
         "extension_nl": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionNL",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .nl domains."
+            "smithy.api#documentation": "Additional information required for .nl domains. Auto-populated for individuals."
           }
         },
         "extension_it": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionIT",
           "traits": {
-            "smithy.api#documentation": "Additional information required for .it domains."
+            "smithy.api#documentation": "Additional information required for .it domains. Contains a PIN."
           }
         },
         "whois_opt_in": {
@@ -1740,7 +1740,7 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#httpQuery": "is_external",
-            "smithy.api#documentation": "Filter domains by external status."
+            "smithy.api#documentation": "Filter domains by whether they are external (not managed by Scaleway as registrar)."
           }
         },
         "domain": {
@@ -1767,7 +1767,7 @@
         "domains": {
           "target": "com.scaleway.domain_registrar_v2beta1#ListDomainsResponseDomainsList",
           "traits": {
-            "smithy.api#documentation": "List of domains matching the request."
+            "smithy.api#documentation": "List of domain summaries matching the request."
           }
         }
       },
@@ -1797,19 +1797,19 @@
         "auto_renew_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the automatic renewal of the domain."
+            "smithy.api#documentation": "Status of the automatic renewal of the domain (enabling, enabled, disabling, disabled)."
           }
         },
         "dnssec_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the DNSSEC configuration of the domain."
+            "smithy.api#documentation": "Status of the DNSSEC configuration of the domain (enabling, enabled, disabling, disabled)."
           }
         },
         "epp_code": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainSummaryEppCodeList",
           "traits": {
-            "smithy.api#documentation": "List of the domain's EPP codes."
+            "smithy.api#documentation": "List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold)."
           }
         },
         "expired_at": {
@@ -1842,7 +1842,7 @@
         "is_external": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether Scaleway is the domain's registrar."
+            "smithy.api#documentation": "Indicates whether the domain is external (not managed by Scaleway as registrar)."
           }
         },
         "status": {
@@ -1861,7 +1861,7 @@
         "transfer_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusTransfer",
           "traits": {
-            "smithy.api#documentation": "Status of a domain, when available for transfer.",
+            "smithy.api#documentation": "Status of an in-progress domain transfer.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1916,7 +1916,7 @@
         "target": "smithy.api#String"
       },
       "traits": {
-        "smithy.api#documentation": "List of the domain's EPP codes."
+        "smithy.api#documentation": "List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold)."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusExternalDomain": {
@@ -2003,7 +2003,7 @@
         "target": "com.scaleway.domain_registrar_v2beta1#DomainSummary"
       },
       "traits": {
-        "smithy.api#documentation": "List of domains matching the request."
+        "smithy.api#documentation": "List of domain summaries matching the request."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#ListDomains": {
@@ -2071,7 +2071,7 @@
         "auto_renew_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainFeatureStatus",
           "traits": {
-            "smithy.api#documentation": "Status of the automatic renewal of the domain."
+            "smithy.api#documentation": "Status of the automatic renewal of the domain (enabling, enabled, disabling, disabled)."
           }
         },
         "dnssec": {
@@ -2083,7 +2083,7 @@
         "epp_code": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainEppCodeList",
           "traits": {
-            "smithy.api#documentation": "List of the domain's EPP codes."
+            "smithy.api#documentation": "List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold)."
           }
         },
         "expired_at": {
@@ -2109,7 +2109,7 @@
         "is_external": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Indicates whether Scaleway is the domain's registrar."
+            "smithy.api#documentation": "Indicates whether the domain is external (not managed by Scaleway as registrar)."
           }
         },
         "status": {
@@ -2152,7 +2152,7 @@
         "transfer_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusTransfer",
           "traits": {
-            "smithy.api#documentation": "Status of a domain, when available for transfer.",
+            "smithy.api#documentation": "Status of an in-progress domain transfer.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2165,7 +2165,7 @@
         "linked_products": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainLinkedProductsList",
           "traits": {
-            "smithy.api#documentation": "List of Scaleway resources linked to the domain."
+            "smithy.api#documentation": "List of Scaleway product types linked to the domain (e.g. vpc)."
           }
         },
         "pending_trade": {
@@ -2207,7 +2207,7 @@
         "algorithm": {
           "target": "com.scaleway.domain_registrar_v2beta1#DSRecordAlgorithm",
           "traits": {
-            "smithy.api#documentation": "The cryptographic algorithm used for the DS record."
+            "smithy.api#documentation": "The cryptographic algorithm of the DNSKEY used for the DS record."
           }
         },
         "digest": {
@@ -2329,7 +2329,7 @@
         "public_key": {
           "target": "com.scaleway.domain_registrar_v2beta1#DSRecordPublicKey",
           "traits": {
-            "smithy.api#documentation": "The public key associated with the digest."
+            "smithy.api#documentation": "The DNSKEY the digest is derived from. Optional."
           }
         }
       },
@@ -2392,7 +2392,7 @@
         "target": "smithy.api#String"
       },
       "traits": {
-        "smithy.api#documentation": "List of the domain's EPP codes."
+        "smithy.api#documentation": "List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold)."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#DNSZone": {
@@ -2565,7 +2565,7 @@
         "offers": {
           "target": "com.scaleway.domain_registrar_v2beta1#TldOffersMap",
           "traits": {
-            "smithy.api#documentation": "Available offers (create, renew, transfer, etc.) for the TLD."
+            "smithy.api#documentation": "Map of available offers for the TLD, keyed by action string (create, renew, transfer, etc.)."
           }
         },
         "specifications": {
@@ -2589,7 +2589,7 @@
         "operation_path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The operation path of the offer."
+            "smithy.api#documentation": "The billing SKU path of the offer (e.g. /network/domain/domains/fr/register)."
           }
         },
         "price": {
@@ -2625,7 +2625,7 @@
         "target": "com.scaleway.domain_registrar_v2beta1#TldOffer"
       },
       "traits": {
-        "smithy.api#documentation": "Available offers (create, renew, transfer, etc.) for the TLD."
+        "smithy.api#documentation": "Map of available offers for the TLD, keyed by action string (create, renew, transfer, etc.)."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#TldSpecificationsMap": {
@@ -2646,7 +2646,7 @@
         "target": "com.scaleway.domain_registrar_v2beta1#LinkedProduct"
       },
       "traits": {
-        "smithy.api#documentation": "List of Scaleway resources linked to the domain."
+        "smithy.api#documentation": "List of Scaleway product types linked to the domain (e.g. vpc)."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#GetDomain": {
@@ -2905,7 +2905,7 @@
         "ds_record": {
           "target": "com.scaleway.domain_registrar_v2beta1#DSRecord",
           "traits": {
-            "smithy.api#documentation": "The DS record to configure for DNSSEC. If omitted, the DS record will be automatically generated."
+            "smithy.api#documentation": "The DS record to configure for DNSSEC. Required for domains using non-Scaleway nameservers. For Scaleway nameservers, auto-generated and must be omitted."
           }
         }
       },
@@ -2973,7 +2973,7 @@
         "hosts": {
           "target": "com.scaleway.domain_registrar_v2beta1#ListDomainHostsResponseHostsList",
           "traits": {
-            "smithy.api#documentation": "List of hostnames matching the request."
+            "smithy.api#documentation": "List of host objects matching the request."
           }
         }
       },
@@ -2991,7 +2991,7 @@
         "name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The hostname."
+            "smithy.api#documentation": "The hostname (FQDN, e.g. ns1.example.com)."
           }
         },
         "ips": {
@@ -3054,7 +3054,7 @@
         "target": "com.scaleway.domain_registrar_v2beta1#Host"
       },
       "traits": {
-        "smithy.api#documentation": "List of hostnames matching the request."
+        "smithy.api#documentation": "List of host objects matching the request."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#ListDomainHosts": {
@@ -3143,7 +3143,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "New list of glue IP addresses associated with the hostname."
+        "smithy.api#documentation": "New list of glue IP addresses associated with the hostname. Optional."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#UpdateDomainHostRequest": {
@@ -3168,7 +3168,7 @@
         "ips": {
           "target": "com.scaleway.domain_registrar_v2beta1#UpdateDomainHostRequestIpsList",
           "traits": {
-            "smithy.api#documentation": "New list of glue IP addresses associated with the hostname.",
+            "smithy.api#documentation": "New list of glue IP addresses associated with the hostname. Optional.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3279,13 +3279,13 @@
           "traits": {
             "smithy.api#httpLabel": {},
             "smithy.api#required": {},
-            "smithy.api#documentation": "The domain name to trade."
+            "smithy.api#documentation": "The domain name to trade (change of owner/registrant)."
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID to associate with the domain after the trade.",
+            "smithy.api#documentation": "Project ID to associate with the domain after the trade. Also used to filter the new owner's contacts.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3378,7 +3378,7 @@
         "target": "com.scaleway.domain_registrar_v2beta1#TransferInDomainRequestTransferRequest"
       },
       "traits": {
-        "smithy.api#documentation": "List of domains to transfer in, each with its auth code."
+        "smithy.api#documentation": "List of domains to transfer in, each with its optional auth code."
       }
     },
     "com.scaleway.domain_registrar_v2beta1#TransferInDomainRequest": {
@@ -3387,7 +3387,7 @@
         "domains": {
           "target": "com.scaleway.domain_registrar_v2beta1#TransferInDomainRequestDomainsList",
           "traits": {
-            "smithy.api#documentation": "List of domains to transfer in, each with its auth code.",
+            "smithy.api#documentation": "List of domains to transfer in, each with its optional auth code.",
             "smithy.api#required": {}
           }
         },
@@ -3507,7 +3507,7 @@
         "validation_token": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The validation token to use to validate the external domain."
+            "smithy.api#documentation": "The validation token to set as a DNS TXT record at _scaleway-challenge.<domain> to validate the external domain."
           }
         },
         "created_at": {
@@ -3836,13 +3836,13 @@
         "duration_in_years": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Duration in years for the domain renewal."
+            "smithy.api#documentation": "Duration in years for the domain renewal. Subject to TLD-specific minimum and maximum constraints."
           }
         },
         "force_late_renewal": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Force the renewal to be a late renewal.",
+            "smithy.api#documentation": "Confirm the late renewal (incurs extra fees).",
             "com.distilled.openapi#nullable": {}
           }
         }

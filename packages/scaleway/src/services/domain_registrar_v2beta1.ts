@@ -204,9 +204,9 @@ export interface NewContact {
   email?: string;
   /** Alternative email address of the contact. */
   email_alt?: string | null;
-  /** Phone number of the contact. */
+  /** Phone number of the contact, normalized to +CC.NationalNumber format. */
   phone_number?: string;
-  /** Fax number of the contact. */
+  /** Fax number of the contact, normalized to +CC.NationalNumber format. */
   fax_number?: string | null;
   /** First line of the contact's address. */
   address_line_1?: string;
@@ -220,23 +220,23 @@ export interface NewContact {
   country?: string;
   /** VAT identification code of the contact. */
   vat_identification_code?: string | null;
-  /** Company identification code (e.g. SIRET/SIREN) of the contact. */
+  /** Company identification code of the contact (SIRET/SIREN for French contacts, any format for others). */
   company_identification_code?: string | null;
   /** Preferred language of the contact. */
   lang?: ScalewayStdLanguageCode | (string & {});
   /** Indicates whether the contact's information can be resold. */
   resale?: boolean;
-  /** Additional information required for .fr domains. */
+  /** Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf). */
   extension_fr?: ContactExtensionFR;
-  /** Additional information required for .eu domains. */
+  /** Additional information required for .eu domains. Conditionally required. */
   extension_eu?: ContactExtensionEU;
   /** Indicates whether the contact's information is published in the WHOIS database. */
   whois_opt_in?: boolean;
   /** State or region of the contact. */
   state?: string | null;
-  /** Additional information required for .nl domains. */
+  /** Additional information required for .nl domains. Auto-populated for individuals. */
   extension_nl?: ContactExtensionNL;
-  /** Additional information required for .it domains. */
+  /** Additional information required for .it domains. Contains a PIN. */
   extension_it?: ContactExtensionIT;
   questions?: NewContactQuestionsList;
 }
@@ -272,7 +272,7 @@ export const NewContact = /*@__PURE__*/ S.suspend(() =>
 export interface BuyDomainsRequest {
   /** List of domains to purchase. */
   domains: BuyDomainsRequestDomainsList;
-  /** Duration in years for the domain registration. */
+  /** Duration in years for the domain registration. Subject to TLD-specific minimum and maximum constraints. */
   duration_in_years?: number;
   /** Project ID to create the domains in. */
   project_id?: string;
@@ -280,13 +280,13 @@ export interface BuyDomainsRequest {
   owner_contact_id?: string | null;
   /** New contact to create and use as the domain's owner. */
   owner_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's administrative contact. */
+  /** ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted. */
   administrative_contact_id?: string | null;
-  /** New contact to create and use as the domain's administrative contact. */
+  /** New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted. */
   administrative_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's technical contact. */
+  /** ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted. */
   technical_contact_id?: string | null;
-  /** New contact to create and use as the domain's technical contact. */
+  /** New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted. */
   technical_contact?: NewContact | null;
   /** Enable the `auto renew` feature for all the requested domains. This means the domain will be automatically renewed before its expiry date. */
   auto_renew?: boolean;
@@ -466,7 +466,7 @@ export const HostStatus = S.String;
 export interface Host {
   /** The domain name associated with the hostname. */
   domain?: string;
-  /** The hostname. */
+  /** The hostname (FQDN, e.g. ns1.example.com). */
   name?: string;
   /** List of glue IP addresses associated with the hostname. (IP address) */
   ips?: HostIpsList;
@@ -589,7 +589,7 @@ export interface DSRecordDigest {
   type?: DSRecordDigestType | (string & {});
   /** The digest string of the DS record. */
   digest?: string;
-  /** The public key associated with the digest. */
+  /** The DNSKEY the digest is derived from. Optional. */
   public_key?: DSRecordPublicKey;
 }
 export const DSRecordDigest = /*@__PURE__*/ S.suspend(() =>
@@ -603,7 +603,7 @@ export const DSRecordDigest = /*@__PURE__*/ S.suspend(() =>
 export interface DSRecord {
   /** The key tag of the DS record. */
   key_id?: number;
-  /** The cryptographic algorithm used for the DS record. */
+  /** The cryptographic algorithm of the DNSKEY used for the DS record. */
   algorithm?: DSRecordAlgorithm | (string & {});
   /** The digest of the DS record. */
   digest?: DSRecordDigest | null;
@@ -638,7 +638,7 @@ export const DomainDNSSEC = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "DomainDNSSEC" }) as any as S.Schema<DomainDNSSEC>;
 
-/** List of the domain's EPP codes. */
+/** List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold). */
 export type DomainEppCodeList = Array<string>;
 export const DomainEppCodeList = /*@__PURE__*/ S.Array(
   S.String,
@@ -749,9 +749,9 @@ export interface Contact {
   email?: string;
   /** Alternative email address of the contact. */
   email_alt?: string;
-  /** Phone number of the contact. */
+  /** Phone number of the contact, normalized to +CC.NationalNumber format. */
   phone_number?: string;
-  /** Fax number of the contact. */
+  /** Fax number of the contact, normalized to +CC.NationalNumber format. */
   fax_number?: string;
   /** First line of the contact's address. */
   address_line_1?: string;
@@ -765,15 +765,15 @@ export interface Contact {
   country?: string;
   /** VAT identification code of the contact. */
   vat_identification_code?: string;
-  /** Company identification code (e.g. SIRET/SIREN) of the contact. */
+  /** Company identification code of the contact (SIRET/SIREN for French contacts, any format for others). */
   company_identification_code?: string;
   /** Preferred language of the contact. */
   lang?: ScalewayStdLanguageCode;
   /** Indicates whether the contact's information can be resold. */
   resale?: boolean;
-  /** Additional information required for .fr domains. */
+  /** Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf). */
   extension_fr?: ContactExtensionFR;
-  /** Additional information required for .eu domains. */
+  /** Additional information required for .eu domains. Conditionally required. */
   extension_eu?: ContactExtensionEU;
   /** Indicates whether the contact's information is published in the WHOIS database. */
   whois_opt_in?: boolean;
@@ -781,11 +781,11 @@ export interface Contact {
   email_status?: ContactEmailStatus;
   /** State or region of the contact. */
   state?: string;
-  /** Additional information required for .nl domains. */
+  /** Additional information required for .nl domains. Auto-populated for individuals. */
   extension_nl?: ContactExtensionNL;
   /** Status of the contact. */
   status?: ContactStatus;
-  /** Additional information required for .it domains. */
+  /** Additional information required for .it domains. Contains a PIN. */
   extension_it?: ContactExtensionIT;
   questions?: ContactQuestionsList;
 }
@@ -876,7 +876,7 @@ export const GoogleTypeMoney = /*@__PURE__*/ S.suspend(() =>
 export interface TldOffer {
   /** The action of the offer (create, renew, transfer, etc.). */
   action?: string;
-  /** The operation path of the offer. */
+  /** The billing SKU path of the offer (e.g. /network/domain/domains/fr/register). */
   operation_path?: string;
   /** The price of the offer. */
   price?: GoogleTypeMoney;
@@ -889,7 +889,7 @@ export const TldOffer = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "TldOffer" }) as any as S.Schema<TldOffer>;
 
-/** Available offers (create, renew, transfer, etc.) for the TLD. */
+/** Map of available offers for the TLD, keyed by action string (create, renew, transfer, etc.). */
 export type TldOffersMap = { [key: string]: TldOffer | undefined };
 export const TldOffersMap = /*@__PURE__*/ S.Record(
   S.String,
@@ -914,7 +914,7 @@ export interface Tld {
   duration_in_years_max?: number;
   /** Indicates whether the TLD supports internationalized domain names (IDN). */
   idn_support?: boolean;
-  /** Available offers (create, renew, transfer, etc.) for the TLD. */
+  /** Map of available offers for the TLD, keyed by action string (create, renew, transfer, etc.). */
   offers?: TldOffersMap;
   /** Additional specifications of the TLD. */
   specifications?: TldSpecificationsMap;
@@ -931,7 +931,7 @@ export const Tld = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "Tld" }) as any as S.Schema<Tld>;
 
-/** List of Scaleway resources linked to the domain. */
+/** List of Scaleway product types linked to the domain (e.g. vpc). */
 export type DomainLinkedProductsList = Array<LinkedProduct>;
 export const DomainLinkedProductsList = /*@__PURE__*/ S.Array(
   LinkedProduct,
@@ -944,11 +944,11 @@ export interface Domain {
   organization_id?: string;
   /** The project ID associated with the domain. */
   project_id?: string;
-  /** Status of the automatic renewal of the domain. */
+  /** Status of the automatic renewal of the domain (enabling, enabled, disabling, disabled). */
   auto_renew_status?: DomainFeatureStatus;
   /** Status of the DNSSEC configuration of the domain. */
   dnssec?: DomainDNSSEC;
-  /** List of the domain's EPP codes. */
+  /** List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold). */
   epp_code?: DomainEppCodeList;
   /** Date of expiration of the domain. (RFC 3339 format) */
   expired_at?: string | null;
@@ -956,7 +956,7 @@ export interface Domain {
   updated_at?: string | null;
   /** The registrar managing the domain. */
   registrar?: string;
-  /** Indicates whether Scaleway is the domain's registrar. */
+  /** Indicates whether the domain is external (not managed by Scaleway as registrar). */
   is_external?: boolean;
   /** Status of the domain. */
   status?: DomainStatus;
@@ -970,11 +970,11 @@ export interface Domain {
   administrative_contact?: Contact;
   /** Registration status of an external domain, if available. */
   external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
-  /** Status of a domain, when available for transfer. */
+  /** Status of an in-progress domain transfer. */
   transfer_registration_status?: DomainRegistrationStatusTransfer | null;
   /** Domain's TLD information. */
   tld?: Tld;
-  /** List of Scaleway resources linked to the domain. */
+  /** List of Scaleway product types linked to the domain (e.g. vpc). */
   linked_products?: DomainLinkedProductsList;
   /** Indicates if a trade is ongoing. */
   pending_trade?: boolean;
@@ -1047,7 +1047,7 @@ export const EnableDomainAutoRenewRequest = /*@__PURE__*/ S.suspend(() =>
 export interface EnableDomainDNSSECRequest {
   /** The domain name to enable DNSSEC for. */
   domain: string;
-  /** The DS record to configure for DNSSEC. If omitted, the DS record will be automatically generated. */
+  /** The DS record to configure for DNSSEC. Required for domains using non-Scaleway nameservers. For Scaleway nameservers, auto-generated and must be omitted. */
   ds_record?: DSRecord;
 }
 export const EnableDomainDNSSECRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1267,7 +1267,7 @@ export const ListDomainHostsRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "ListDomainHostsRequest" }) as any as S.Schema<ListDomainHostsRequest>;
 
-/** List of hostnames matching the request. */
+/** List of host objects matching the request. */
 export type ListDomainHostsResponseHostsList = Array<Host>;
 export const ListDomainHostsResponseHostsList = /*@__PURE__*/ S.Array(
   Host,
@@ -1276,7 +1276,7 @@ export const ListDomainHostsResponseHostsList = /*@__PURE__*/ S.Array(
 export interface ListDomainHostsResponse {
   /** Total count of hostnames matching the request. */
   total_count?: number;
-  /** List of hostnames matching the request. */
+  /** List of host objects matching the request. */
   hosts: ListDomainHostsResponseHostsList;
 }
 export const ListDomainHostsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1304,7 +1304,7 @@ export interface ListDomainsRequest {
   project_id?: string;
   /** Filter domains by organization ID. */
   organization_id?: string;
-  /** Filter domains by external status. */
+  /** Filter domains by whether they are external (not managed by Scaleway as registrar). */
   is_external?: boolean;
   /** Filter domains by domain name. */
   domain?: string;
@@ -1330,7 +1330,7 @@ export const ListDomainsRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "ListDomainsRequest" }) as any as S.Schema<ListDomainsRequest>;
 
-/** List of the domain's EPP codes. */
+/** List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold). */
 export type DomainSummaryEppCodeList = Array<string>;
 export const DomainSummaryEppCodeList = /*@__PURE__*/ S.Array(
   S.String,
@@ -1343,11 +1343,11 @@ export interface DomainSummary {
   project_id?: string;
   /** The organization ID associated with the domain. */
   organization_id?: string;
-  /** Status of the automatic renewal of the domain. */
+  /** Status of the automatic renewal of the domain (enabling, enabled, disabling, disabled). */
   auto_renew_status?: DomainFeatureStatus;
-  /** Status of the DNSSEC configuration of the domain. */
+  /** Status of the DNSSEC configuration of the domain (enabling, enabled, disabling, disabled). */
   dnssec_status?: DomainFeatureStatus;
-  /** List of the domain's EPP codes. */
+  /** List of the domain's EPP status codes (e.g. clientTransferProhibited, serverHold). */
   epp_code?: DomainSummaryEppCodeList;
   /** Date of expiration of the domain. (RFC 3339 format) */
   expired_at?: string | null;
@@ -1357,13 +1357,13 @@ export interface DomainSummary {
   created_at?: string | null;
   /** The registrar managing the domain. */
   registrar?: string;
-  /** Indicates whether Scaleway is the domain's registrar. */
+  /** Indicates whether the domain is external (not managed by Scaleway as registrar). */
   is_external?: boolean;
   /** Status of the domain. */
   status?: DomainStatus;
   /** Registration status of an external domain, if available. */
   external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
-  /** Status of a domain, when available for transfer. */
+  /** Status of an in-progress domain transfer. */
   transfer_registration_status?: DomainRegistrationStatusTransfer | null;
   /** Indicates if a trade is ongoing. */
   pending_trade?: boolean;
@@ -1390,7 +1390,7 @@ export const DomainSummary = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "DomainSummary" }) as any as S.Schema<DomainSummary>;
 
-/** List of domains matching the request. */
+/** List of domain summaries matching the request. */
 export type ListDomainsResponseDomainsList = Array<DomainSummary>;
 export const ListDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
   DomainSummary,
@@ -1399,7 +1399,7 @@ export const ListDomainsResponseDomainsList = /*@__PURE__*/ S.Array(
 export interface ListDomainsResponse {
   /** Total count of domains matching the request. */
   total_count?: number;
-  /** List of domains matching the request. */
+  /** List of domain summaries matching the request. */
   domains: ListDomainsResponseDomainsList;
 }
 export const ListDomainsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -1853,7 +1853,7 @@ export interface RegisterExternalDomainResponse {
   organization_id?: string;
   /** The project ID associated with the external domain. */
   project_id?: string;
-  /** The validation token to use to validate the external domain. */
+  /** The validation token to set as a DNS TXT record at _scaleway-challenge.<domain> to validate the external domain. */
   validation_token?: string;
   /** The creation date of the external domain registration. (RFC 3339 format) */
   created_at?: string | null;
@@ -1879,9 +1879,9 @@ export const RenewDomainsRequestDomainsList = /*@__PURE__*/ S.Array(
 export interface RenewDomainsRequest {
   /** List of domains to renew. */
   domains: RenewDomainsRequestDomainsList;
-  /** Duration in years for the domain renewal. */
+  /** Duration in years for the domain renewal. Subject to TLD-specific minimum and maximum constraints. */
   duration_in_years?: number;
-  /** Force the renewal to be a late renewal. */
+  /** Confirm the late renewal (incurs extra fees). */
   force_late_renewal?: boolean | null;
 }
 export const RenewDomainsRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2007,9 +2007,9 @@ export const SearchAvailableDomainsResponse = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<SearchAvailableDomainsResponse>;
 
 export interface TradeDomainRequest {
-  /** The domain name to trade. */
+  /** The domain name to trade (change of owner/registrant). */
   domain: string;
-  /** Project ID to associate with the domain after the trade. */
+  /** Project ID to associate with the domain after the trade. Also used to filter the new owner's contacts. */
   project_id?: string | null;
   /** ID of the existing contact to use as the domain's new owner. */
   new_owner_contact_id?: string | null;
@@ -2045,14 +2045,14 @@ export const TransferInDomainRequestTransferRequest = /*@__PURE__*/ S.suspend(()
   identifier: "TransferInDomainRequestTransferRequest",
 }) as any as S.Schema<TransferInDomainRequestTransferRequest>;
 
-/** List of domains to transfer in, each with its auth code. */
+/** List of domains to transfer in, each with its optional auth code. */
 export type TransferInDomainRequestDomainsList = Array<TransferInDomainRequestTransferRequest>;
 export const TransferInDomainRequestDomainsList = /*@__PURE__*/ S.Array(
   TransferInDomainRequestTransferRequest,
 ) as any as S.Schema<TransferInDomainRequestDomainsList>;
 
 export interface TransferInDomainRequest {
-  /** List of domains to transfer in, each with its auth code. */
+  /** List of domains to transfer in, each with its optional auth code. */
   domains: TransferInDomainRequestDomainsList;
   /** Project ID to transfer the domains into. */
   project_id?: string;
@@ -2133,9 +2133,9 @@ export interface UpdateContactRequest {
   email?: string | null;
   /** Alternative email address of the contact. */
   email_alt?: string | null;
-  /** Phone number of the contact. */
+  /** Phone number of the contact, normalized to +CC.NationalNumber format. */
   phone_number?: string | null;
-  /** Fax number of the contact. */
+  /** Fax number of the contact, normalized to +CC.NationalNumber format. */
   fax_number?: string | null;
   /** First line of the contact's address. */
   address_line_1?: string | null;
@@ -2145,23 +2145,23 @@ export interface UpdateContactRequest {
   zip?: string | null;
   /** City of the contact. */
   city?: string | null;
-  /** Country code of the contact (ISO 3166-1 alpha-2 format). */
+  /** Country code of the contact (ISO 3166-1 alpha-2 format). Not updatable; returns an error if changed. */
   country?: string | null;
   /** VAT identification code of the contact. */
   vat_identification_code?: string | null;
-  /** Company identification code (e.g. SIRET/SIREN) of the contact. */
+  /** Company identification code of the contact (SIRET/SIREN for French contacts, any format for others). */
   company_identification_code?: string | null;
   /** Preferred language of the contact. */
   lang?: ScalewayStdLanguageCode | (string & {});
   /** Indicates whether the contact's information can be resold. */
   resale?: boolean | null;
-  /** Additional information required for .fr domains. */
+  /** Additional information required for AFNIC-managed TLDs (.fr, .re, .pm, .yt, .wf, .tf). */
   extension_fr?: ContactExtensionFR;
-  /** Additional information required for .eu domains. */
+  /** Additional information required for .eu domains. Conditionally required. */
   extension_eu?: ContactExtensionEU;
-  /** Additional information required for .nl domains. */
+  /** Additional information required for .nl domains. Auto-populated for individuals. */
   extension_nl?: ContactExtensionNL;
-  /** Additional information required for .it domains. */
+  /** Additional information required for .it domains. Contains a PIN. */
   extension_it?: ContactExtensionIT;
   /** Indicates whether the contact's information is published in the WHOIS database. */
   whois_opt_in?: boolean | null;
@@ -2237,7 +2237,7 @@ export const UpdateDomainRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "UpdateDomainRequest" }) as any as S.Schema<UpdateDomainRequest>;
 
-/** New list of glue IP addresses associated with the hostname. */
+/** New list of glue IP addresses associated with the hostname. Optional. */
 export type UpdateDomainHostRequestIpsList = Array<unknown>;
 export const UpdateDomainHostRequestIpsList = /*@__PURE__*/ S.Array(
   S.Unknown,
@@ -2248,7 +2248,7 @@ export interface UpdateDomainHostRequest {
   domain: string;
   /** The hostname to update. */
   name: string;
-  /** New list of glue IP addresses associated with the hostname. */
+  /** New list of glue IP addresses associated with the hostname. Optional. */
   ips?: UpdateDomainHostRequestIpsList | null;
 }
 export const UpdateDomainHostRequest = /*@__PURE__*/ S.suspend(() =>
