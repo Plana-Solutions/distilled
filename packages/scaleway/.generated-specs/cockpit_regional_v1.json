@@ -68,6 +68,12 @@
     "com.scaleway.cockpit_regional_v1#AlertManager": {
       "type": "structure",
       "members": {
+        "id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Alert manager id."
+          }
+        },
         "alert_manager_url": {
           "target": "smithy.api#String",
           "traits": {
@@ -91,6 +97,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Regions where the Alert manager is enabled."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the alert-manager."
           }
         }
       },
@@ -1585,6 +1597,12 @@
             "smithy.api#documentation": "Usage of the month in bytes. (in bytes)",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the data-source."
+          }
         }
       },
       "traits": {}
@@ -2111,6 +2129,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "The region in which the export is located."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the exporter."
           }
         }
       },

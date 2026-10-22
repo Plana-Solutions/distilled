@@ -129,6 +129,8 @@ export interface DataSource {
   region?: string;
   /** Usage of the month in bytes. (in bytes) */
   current_month_usage?: number | null;
+  /** The SRN of the data-source. */
+  srn?: string;
 }
 export const DataSource = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -144,6 +146,7 @@ export const DataSource = /*@__PURE__*/ S.suspend(() =>
     retention_days: S.optional(S.Number),
     region: S.optional(S.String),
     current_month_usage: S.optional(S.NullOr(S.Number)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "DataSource" }) as any as S.Schema<DataSource>;
 
@@ -253,6 +256,8 @@ export interface Exporter {
   updated_at?: string | null;
   /** The region in which the export is located. */
   region?: string;
+  /** The SRN of the exporter. */
+  srn?: string;
 }
 export const Exporter = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -267,6 +272,7 @@ export const Exporter = /*@__PURE__*/ S.suspend(() =>
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     region: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Exporter" }) as any as S.Schema<Exporter>;
 
@@ -498,6 +504,8 @@ export const DisableAlertManagerRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<DisableAlertManagerRequest>;
 
 export interface AlertManager {
+  /** Alert manager id. */
+  id?: string;
   /** Alert manager URL. */
   alert_manager_url?: string | null;
   /** The Alert manager is enabled. */
@@ -506,13 +514,17 @@ export interface AlertManager {
   managed_alerts_enabled?: boolean;
   /** Regions where the Alert manager is enabled. */
   region?: string;
+  /** The SRN of the alert-manager. */
+  srn?: string;
 }
 export const AlertManager = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
+    id: S.optional(S.String),
     alert_manager_url: S.optional(S.NullOr(S.String)),
     alert_manager_enabled: S.optional(S.Boolean),
     managed_alerts_enabled: S.optional(S.Boolean),
     region: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "AlertManager" }) as any as S.Schema<AlertManager>;
 
