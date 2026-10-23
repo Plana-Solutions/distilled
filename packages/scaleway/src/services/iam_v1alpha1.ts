@@ -553,6 +553,8 @@ export interface RuleSpecs {
   project_ids?: RuleSpecsProjectIdsList | null;
   /** ID of Organization the rule is scoped to. */
   organization_id?: string | null;
+  /** Select whether the rule should remove the permissions instead of granting them. */
+  deny?: boolean;
 }
 export const RuleSpecs = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -560,6 +562,7 @@ export const RuleSpecs = /*@__PURE__*/ S.suspend(() =>
     condition: S.optional(S.String),
     project_ids: S.optional(S.NullOr(RuleSpecsProjectIdsList)),
     organization_id: S.optional(S.NullOr(S.String)),
+    deny: S.optional(S.Boolean),
   }),
 ).annotate({ identifier: "RuleSpecs" }) as any as S.Schema<RuleSpecs>;
 
@@ -2548,6 +2551,8 @@ export const RuleProjectIdsList = /*@__PURE__*/ S.Array(
 export interface Rule {
   /** Id of rule. */
   id?: string;
+  /** The SRN of the rule. */
+  srn?: string;
   /** Names of permission sets bound to the rule. */
   permission_set_names?: RulePermissionSetNamesList | null;
   /** Permission_set_names have the same scope_type. */
@@ -2560,19 +2565,20 @@ export interface Rule {
   organization_id?: string | null;
   /** ID of account root user the rule is scoped to. */
   account_root_user_id?: string | null;
-  /** The SRN of the rule. */
-  srn?: string;
+  /** Select whether the rule should remove the permissions instead of granting them. */
+  deny?: boolean;
 }
 export const Rule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     permission_set_names: S.optional(S.NullOr(RulePermissionSetNamesList)),
     permission_sets_scope_type: S.optional(PermissionSetScopeType),
     condition: S.optional(S.String),
     project_ids: S.optional(S.NullOr(RuleProjectIdsList)),
     organization_id: S.optional(S.NullOr(S.String)),
     account_root_user_id: S.optional(S.NullOr(S.String)),
-    srn: S.optional(S.String),
+    deny: S.optional(S.Boolean),
   }),
 ).annotate({ identifier: "Rule" }) as any as S.Schema<Rule>;
 

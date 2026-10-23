@@ -3599,6 +3599,12 @@
             "smithy.api#documentation": "ID of Organization the rule is scoped to.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "deny": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Select whether the rule should remove the permissions instead of granting them."
+          }
         }
       },
       "traits": {}
@@ -4272,6 +4278,12 @@
             "smithy.api#documentation": "Id of rule."
           }
         },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the rule."
+          }
+        },
         "permission_set_names": {
           "target": "com.scaleway.iam_v1alpha1#RulePermissionSetNamesList",
           "traits": {
@@ -4312,10 +4324,10 @@
             "com.distilled.openapi#nullable": {}
           }
         },
-        "srn": {
-          "target": "smithy.api#String",
+        "deny": {
+          "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "The SRN of the rule."
+            "smithy.api#documentation": "Select whether the rule should remove the permissions instead of granting them."
           }
         }
       },
