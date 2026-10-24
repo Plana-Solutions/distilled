@@ -85,6 +85,8 @@ export interface Organization {
   picture_link?: string | null;
   /** A comment about the organization. */
   comment?: string;
+  /** The SRN of the organization. */
+  srn?: string;
 }
 export const Organization = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -102,6 +104,7 @@ export const Organization = /*@__PURE__*/ S.suspend(() =>
     locked_at: S.optional(S.NullOr(S.String)),
     picture_link: S.optional(S.NullOr(S.String)),
     comment: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Organization" }) as any as S.Schema<Organization>;
 

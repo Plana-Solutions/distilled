@@ -849,6 +849,13 @@
             "smithy.api#documentation": "Version of Kafka.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "volume_size_bytes": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "New volume size for each broker, can only increase. (in bytes)",
+            "com.distilled.openapi#nullable": {}
+          }
         }
       },
       "traits": {

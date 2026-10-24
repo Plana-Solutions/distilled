@@ -1346,6 +1346,13 @@
             "smithy.api#documentation": "Kubernetes taints applied at node creation but not reconciled afterwards."
           }
         },
+        "private_network_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Private network where the nodes are attached. Should be member of the same VPC as the API Server.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
         "max_termination_grace_period": {
           "target": "smithy.api#String",
           "traits": {
@@ -4031,6 +4038,13 @@
             "smithy.api#documentation": "Kubernetes taints applied at node creation but not reconciled afterwards."
           }
         },
+        "private_network_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Private network where the nodes are attached. Should be member of the same VPC as the API Server. (UUID format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
         "error_message": {
           "target": "smithy.api#String",
           "traits": {
@@ -4420,6 +4434,13 @@
           "target": "com.scaleway.k8s_v1#CreatePoolRequestStartupTaintsList",
           "traits": {
             "smithy.api#documentation": "Kubernetes taints applied at node creation but not reconciled afterwards."
+          }
+        },
+        "private_network_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Private network where the nodes are attached. Should be member of the same VPC as the API Server.",
+            "com.distilled.openapi#nullable": {}
           }
         },
         "user_data": {

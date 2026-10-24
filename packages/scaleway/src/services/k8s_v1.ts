@@ -235,6 +235,8 @@ export interface CreateClusterRequestPoolConfig {
   taints?: CreateClusterRequestPoolConfigTaintsList;
   /** Kubernetes taints applied at node creation but not reconciled afterwards. */
   startup_taints?: CreateClusterRequestPoolConfigStartupTaintsList;
+  /** Private network where the nodes are attached. Should be member of the same VPC as the API Server. */
+  private_network_id?: string | null;
   /** Maximum amount of time in seconds before the API forces the drain and deletion of a `deleting` node. It overrides pods `PodDisruptionBudget` and `terminationGracePeriodSeconds`. Defaults to 15 minutes, up to 1 hour. (in seconds) */
   max_termination_grace_period?: string | null;
   /** User data applied and reconciled with the pool. */
@@ -262,6 +264,7 @@ export const CreateClusterRequestPoolConfig = /*@__PURE__*/ S.suspend(() =>
     labels: S.optional(CreateClusterRequestPoolConfigLabelsMap),
     taints: S.optional(CreateClusterRequestPoolConfigTaintsList),
     startup_taints: S.optional(CreateClusterRequestPoolConfigStartupTaintsList),
+    private_network_id: S.optional(S.NullOr(S.String)),
     max_termination_grace_period: S.optional(S.NullOr(S.String)),
     user_data: S.optional(CreateClusterRequestPoolConfigUserDataMap),
   }),
@@ -826,6 +829,8 @@ export interface CreatePoolRequest {
   taints?: CreatePoolRequestTaintsList;
   /** Kubernetes taints applied at node creation but not reconciled afterwards. */
   startup_taints?: CreatePoolRequestStartupTaintsList;
+  /** Private network where the nodes are attached. Should be member of the same VPC as the API Server. */
+  private_network_id?: string | null;
   /** User data applied and reconciled with the pool. */
   user_data?: CreatePoolRequestUserDataMap;
   /** Maximum amount of time in seconds before the API forces the drain and deletion of a `deleting` node. It overrides pods `PodDisruptionBudget` and `terminationGracePeriodSeconds`. Defaults to 15 minutes, up to 1 hour. (in seconds) */
@@ -855,6 +860,7 @@ export const CreatePoolRequest = /*@__PURE__*/ S.suspend(() =>
     labels: S.optional(CreatePoolRequestLabelsMap),
     taints: S.optional(CreatePoolRequestTaintsList),
     startup_taints: S.optional(CreatePoolRequestStartupTaintsList),
+    private_network_id: S.optional(S.NullOr(S.String)),
     user_data: S.optional(CreatePoolRequestUserDataMap),
     max_termination_grace_period: S.optional(S.NullOr(S.String)),
   }).pipe(
@@ -972,6 +978,8 @@ export interface Pool {
   taints?: PoolTaintsList;
   /** Kubernetes taints applied at node creation but not reconciled afterwards. */
   startup_taints?: PoolStartupTaintsList;
+  /** Private network where the nodes are attached. Should be member of the same VPC as the API Server. (UUID format) */
+  private_network_id?: string | null;
   /** Details of the error, if any occurred when managing the pool. */
   error_message?: string | null;
   /** Maximum amount of time in seconds before the API forces the drain and deletion of a `deleting` node. It overrides pods `PodDisruptionBudget` and `terminationGracePeriodSeconds`. Defaults to 15 minutes, up to 1 hour. (in seconds) */
@@ -1009,6 +1017,7 @@ export const Pool = /*@__PURE__*/ S.suspend(() =>
     labels: S.optional(PoolLabelsMap),
     taints: S.optional(PoolTaintsList),
     startup_taints: S.optional(PoolStartupTaintsList),
+    private_network_id: S.optional(S.NullOr(S.String)),
     error_message: S.optional(S.NullOr(S.String)),
     max_termination_grace_period: S.optional(S.NullOr(S.String)),
     srn: S.optional(S.String),

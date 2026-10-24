@@ -319,19 +319,25 @@ export const AlertRuleStatus = S.String;
 export interface AlertRule {
   /** ID of the alert rule. (UUID format) */
   id?: string;
+  /** The SRN of the alert rule. */
+  srn?: string;
   /** Name of the alert rule. */
   name?: string;
   /** Description of the alert rule. */
   description?: string;
   /** Current status of the alert rule. */
   status?: AlertRuleStatus;
+  /** Region of the alert rule. */
+  region?: string;
 }
 export const AlertRule = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     name: S.optional(S.String),
     description: S.optional(S.String),
     status: S.optional(AlertRuleStatus),
+    region: S.optional(S.String),
   }),
 ).annotate({ identifier: "AlertRule" }) as any as S.Schema<AlertRule>;
 
@@ -629,6 +635,31 @@ export const RetrieveAvailableFieldsForCustomAlertRulesResponse = /*@__PURE__*/ 
 ).annotate({
   identifier: "RetrieveAvailableFieldsForCustomAlertRulesResponse",
 }) as any as S.Schema<RetrieveAvailableFieldsForCustomAlertRulesResponse>;
+
+export type GetCustomAlertRuleRequestRegion = "fr-par" | "nl-ams";
+export const GetCustomAlertRuleRequestRegion = S.String;
+
+export interface GetCustomAlertRuleRequest {
+  /** The region you want to target */
+  region?: GetCustomAlertRuleRequestRegion | (string & {});
+  /** ID of the custom alert rule to retrieve. */
+  custom_alert_rule_id: string;
+}
+export const GetCustomAlertRuleRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    region: S.optional(GetCustomAlertRuleRequestRegion.pipe(T.Label())),
+    custom_alert_rule_id: S.String.pipe(T.Label()),
+  }).pipe(
+    T.Http({
+      method: "GET",
+      uri: "/audit-trail/v1alpha1/regions/{region}/custom-alert-rules/{custom_alert_rule_id}",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({
+  identifier: "GetCustomAlertRuleRequest",
+}) as any as S.Schema<GetCustomAlertRuleRequest>;
 
 export type GetLastEventsOverviewRequestRegion = "fr-par" | "nl-ams";
 export const GetLastEventsOverviewRequestRegion = S.String;
@@ -2768,6 +2799,21 @@ export const getAvailableFieldsForCustomAlertRules: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: GetAvailableFieldsForCustomAlertRulesRequest,
   output: RetrieveAvailableFieldsForCustomAlertRulesResponse,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
+export type GetCustomAlertRuleError = ScalewayOpError;
+/** Get custom alert rule metadata Retrieve metadata for a specified custom alert rule using the `region` and `custom_alert_rule_id` parameters. */
+export const getCustomAlertRule: API.OperationMethod<
+  GetCustomAlertRuleRequest,
+  CustomAlertRule,
+  GetCustomAlertRuleError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: GetCustomAlertRuleRequest,
+  output: CustomAlertRule,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

@@ -141,6 +141,12 @@
             "smithy.api#documentation": "ID of the alert rule. (UUID format)"
           }
         },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the alert rule."
+          }
+        },
         "name": {
           "target": "smithy.api#String",
           "traits": {
@@ -157,6 +163,12 @@
           "target": "com.scaleway.audit_trail_v1alpha1#AlertRuleStatus",
           "traits": {
             "smithy.api#documentation": "Current status of the alert rule."
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region of the alert rule."
           }
         }
       },
@@ -5363,6 +5375,65 @@
         "smithy.api#documentation": "Set the custom alert rules to enabled\n\nSet the custom alert rules to enabled by replacing the set of enabled custom alert rules for a specified organization. The provided list defines the complete set of custom rules that should be enabled. Any previously enabled custom rule not included in the request will be disabled."
       }
     },
+    "com.scaleway.audit_trail_v1alpha1#GetCustomAlertRuleRequestRegion": {
+      "type": "enum",
+      "members": {
+        "FR_PAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par"
+          }
+        },
+        "NL_AMS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nl-ams"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.audit_trail_v1alpha1#GetCustomAlertRuleRequest": {
+      "type": "structure",
+      "members": {
+        "region": {
+          "target": "com.scaleway.audit_trail_v1alpha1#GetCustomAlertRuleRequestRegion",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The region you want to target"
+          }
+        },
+        "custom_alert_rule_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#documentation": "ID of the custom alert rule to retrieve."
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.audit_trail_v1alpha1#GetCustomAlertRule": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.audit_trail_v1alpha1#GetCustomAlertRuleRequest"
+      },
+      "output": {
+        "target": "com.scaleway.audit_trail_v1alpha1#CustomAlertRule"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/audit-trail/v1alpha1/regions/{region}/custom-alert-rules/{custom_alert_rule_id}",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Get custom alert rule metadata\n\nRetrieve metadata for a specified custom alert rule using the `region` and `custom_alert_rule_id` parameters."
+      }
+    },
     "com.scaleway.audit_trail_v1alpha1#UpdateCustomAlertRuleRequestRegion": {
       "type": "enum",
       "members": {
@@ -7000,6 +7071,9 @@
         },
         {
           "target": "com.scaleway.audit_trail_v1alpha1#SetEnabledCustomAlertRules"
+        },
+        {
+          "target": "com.scaleway.audit_trail_v1alpha1#GetCustomAlertRule"
         },
         {
           "target": "com.scaleway.audit_trail_v1alpha1#UpdateCustomAlertRule"

@@ -252,6 +252,12 @@
           "traits": {
             "smithy.api#documentation": "A comment about the organization."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the organization."
+          }
         }
       },
       "traits": {}

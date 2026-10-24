@@ -18,7 +18,10 @@ export type CreateGroupRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateGroupRequestZone = S.String;
 
 /** Tags associated with the group. */
@@ -391,7 +394,10 @@ export type DeleteGroupRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteGroupRequestZone = S.String;
 
 export interface DeleteGroupRequest {
@@ -423,7 +429,10 @@ export type GetGroupRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetGroupRequestZone = S.String;
 
 export interface GetGroupRequest {
@@ -455,7 +464,10 @@ export type ListAlertsRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListAlertsRequestZone = S.String;
 
 export interface ListAlertsRequest {
@@ -516,7 +528,10 @@ export type ListGroupsRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListGroupsRequestZone = S.String;
 
 export type ListGroupsRequestOrderBy = "created_at_desc" | "created_at_asc";
@@ -656,7 +671,10 @@ export type ListLogsRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListLogsRequestZone = S.String;
 
 export interface ListLogsRequest {
@@ -738,7 +756,10 @@ export type ListServersRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListServersRequestZone = S.String;
 
 export interface ListServersRequest {
@@ -805,7 +826,10 @@ export type RefreshGroupRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const RefreshGroupRequestZone = S.String;
 
 export interface RefreshGroupRequest {
@@ -836,7 +860,10 @@ export type UpdateGroupRequestZone =
   | "nl-ams-3"
   | "pl-waw-1"
   | "pl-waw-2"
-  | "pl-waw-3";
+  | "pl-waw-3"
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateGroupRequestZone = S.String;
 
 /** New tags for the group. */

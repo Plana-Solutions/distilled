@@ -891,6 +891,8 @@ export interface UpdateClusterRequest {
   tags?: UpdateClusterRequestTagsList | null;
   /** Version of Kafka. */
   version?: string | null;
+  /** New volume size for each broker, can only increase. (in bytes) */
+  volume_size_bytes?: number | null;
 }
 export const UpdateClusterRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -899,6 +901,7 @@ export const UpdateClusterRequest = /*@__PURE__*/ S.suspend(() =>
     name: S.optional(S.NullOr(S.String)),
     tags: S.optional(S.NullOr(UpdateClusterRequestTagsList)),
     version: S.optional(S.NullOr(S.String)),
+    volume_size_bytes: S.optional(S.NullOr(S.Number)),
   }).pipe(
     T.Http({
       method: "PATCH",

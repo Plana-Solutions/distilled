@@ -20,7 +20,9 @@ export type AddSecurityGroupRulesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const AddSecurityGroupRulesRequestZone = S.String;
 
 export type SecurityGroupRuleProtocol = "unknown_protocol" | "tcp" | "udp" | "icmp" | "any";
@@ -250,7 +252,9 @@ export type AttachServerFileSystemRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const AttachServerFileSystemRequestZone = S.String;
 
 export interface AttachServerFileSystemRequest {
@@ -530,7 +534,9 @@ export type AttachServerIPRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const AttachServerIPRequestZone = S.String;
 
 export interface AttachServerIPRequest {
@@ -572,7 +578,9 @@ export type AttachServerPrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const AttachServerPrivateNetworkInterfaceRequestZone = S.String;
 
 export interface AttachServerPrivateNetworkInterfaceRequest {
@@ -610,7 +618,9 @@ export type AttachServerVolumeRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const AttachServerVolumeRequestZone = S.String;
 
 export interface AttachServerVolumeRequest {
@@ -654,7 +664,9 @@ export type CheckTemplateRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CheckTemplateRequestZone = S.String;
 
 export interface CheckTemplateRequest {
@@ -692,7 +704,9 @@ export type CreatePlacementGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreatePlacementGroupRequestZone = S.String;
 
 export type PlacementGroupPolicyType = "unknown_policy_type" | "low_latency" | "max_availability";
@@ -785,7 +799,9 @@ export type CreatePrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreatePrivateNetworkInterfaceRequestZone = S.String;
 
 /** List of IP IDs to attach to the interface. */
@@ -910,7 +926,9 @@ export type CreateSecurityGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateSecurityGroupRequestZone = S.String;
 
 /** Tags for the security group. */
@@ -975,7 +993,9 @@ export type CreateServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateServerRequestZone = S.String;
 
 /** Tags to associate with the server. */
@@ -1159,7 +1179,9 @@ export type CreateServerFromTemplateRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateServerFromTemplateRequestZone = S.String;
 
 export interface CreateServerFromTemplateRequest {
@@ -1197,7 +1219,9 @@ export type CreateTemplateRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const CreateTemplateRequestZone = S.String;
 
 /** Tags to associate with the template. */
@@ -1436,7 +1460,9 @@ export type DeletePlacementGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeletePlacementGroupRequestZone = S.String;
 
 export interface DeletePlacementGroupRequest {
@@ -1476,7 +1502,9 @@ export type DeletePrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeletePrivateNetworkInterfaceRequestZone = S.String;
 
 export interface DeletePrivateNetworkInterfaceRequest {
@@ -1518,7 +1546,9 @@ export type DeleteSecurityGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteSecurityGroupRequestZone = S.String;
 
 export interface DeleteSecurityGroupRequest {
@@ -1558,7 +1588,9 @@ export type DeleteSecurityGroupRulesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteSecurityGroupRulesRequestZone = S.String;
 
 /** List of rule IDs to delete. */
@@ -1606,7 +1638,9 @@ export type DeleteServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteServerRequestZone = S.String;
 
 export type DeleteServerRequestDeleteIpIdsList = Array<string>;
@@ -1677,7 +1711,9 @@ export type DeleteTemplateRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteTemplateRequestZone = S.String;
 
 export interface DeleteTemplateRequest {
@@ -1715,7 +1751,9 @@ export type DeleteTemplateUserDataRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteTemplateUserDataRequestZone = S.String;
 
 export interface DeleteTemplateUserDataRequest {
@@ -1758,7 +1796,9 @@ export type DeleteUserDataRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DeleteUserDataRequestZone = S.String;
 
 export interface DeleteUserDataRequest {
@@ -1799,7 +1839,9 @@ export type DetachAndDeletePrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DetachAndDeletePrivateNetworkInterfaceRequestZone = S.String;
 
 export interface DetachAndDeletePrivateNetworkInterfaceRequest {
@@ -1834,7 +1876,9 @@ export type DetachServerFileSystemRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DetachServerFileSystemRequestZone = S.String;
 
 export interface DetachServerFileSystemRequest {
@@ -1872,7 +1916,9 @@ export type DetachServerIPRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DetachServerIPRequestZone = S.String;
 
 export interface DetachServerIPRequest {
@@ -1908,7 +1954,9 @@ export type DetachServerPrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DetachServerPrivateNetworkInterfaceRequestZone = S.String;
 
 export interface DetachServerPrivateNetworkInterfaceRequest {
@@ -1946,7 +1994,9 @@ export type DetachServerVolumeRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const DetachServerVolumeRequestZone = S.String;
 
 export interface DetachServerVolumeRequest {
@@ -1984,7 +2034,9 @@ export type GetPlacementGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetPlacementGroupRequestZone = S.String;
 
 export interface GetPlacementGroupRequest {
@@ -2017,7 +2069,9 @@ export type GetPrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetPrivateNetworkInterfaceRequestZone = S.String;
 
 export interface GetPrivateNetworkInterfaceRequest {
@@ -2052,7 +2106,9 @@ export type GetResourceCountsRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetResourceCountsRequestZone = S.String;
 
 export interface GetResourceCountsRequest {
@@ -2147,7 +2203,9 @@ export type GetSecurityGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetSecurityGroupRequestZone = S.String;
 
 export interface GetSecurityGroupRequest {
@@ -2180,7 +2238,9 @@ export type GetServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetServerRequestZone = S.String;
 
 export interface GetServerRequest {
@@ -2213,7 +2273,9 @@ export type GetServerCloudInitRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetServerCloudInitRequestZone = S.String;
 
 export interface GetServerCloudInitRequest {
@@ -2261,7 +2323,9 @@ export type GetTemplateRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetTemplateRequestZone = S.String;
 
 export interface GetTemplateRequest {
@@ -2294,7 +2358,9 @@ export type GetTemplateCloudInitRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetTemplateCloudInitRequestZone = S.String;
 
 export interface GetTemplateCloudInitRequest {
@@ -2329,7 +2395,9 @@ export type GetTemplateUserDataRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetTemplateUserDataRequestZone = S.String;
 
 export interface GetTemplateUserDataRequest {
@@ -2367,7 +2435,9 @@ export type GetUserDataRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const GetUserDataRequestZone = S.String;
 
 export interface GetUserDataRequest {
@@ -2403,7 +2473,9 @@ export type ListPlacementGroupsRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListPlacementGroupsRequestZone = S.String;
 
 export type ListPlacementGroupsRequestOrderBy =
@@ -2499,7 +2571,9 @@ export type ListPrivateNetworkInterfacesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListPrivateNetworkInterfacesRequestZone = S.String;
 
 export type ListPrivateNetworkInterfacesRequestOrderBy =
@@ -2659,7 +2733,9 @@ export type ListSecurityGroupsRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListSecurityGroupsRequestZone = S.String;
 
 export type ListSecurityGroupsRequestOrderBy =
@@ -2808,7 +2884,9 @@ export type ListServerCompatibleTypesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListServerCompatibleTypesRequestZone = S.String;
 
 export interface ListServerCompatibleTypesRequest {
@@ -2979,7 +3057,9 @@ export type ListServersRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListServersRequestZone = S.String;
 
 export type ListServersRequestOrderBy =
@@ -3164,7 +3244,9 @@ export type ListServerTypesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListServerTypesRequestZone = S.String;
 
 export interface ListServerTypesRequest {
@@ -3222,7 +3304,9 @@ export type ListTemplatesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListTemplatesRequestZone = S.String;
 
 export type ListTemplatesRequestOrderBy =
@@ -3406,7 +3490,9 @@ export type ListTemplateUserDataKeysRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListTemplateUserDataKeysRequestZone = S.String;
 
 export interface ListTemplateUserDataKeysRequest {
@@ -3471,7 +3557,9 @@ export type ListUserDataKeysRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const ListUserDataKeysRequestZone = S.String;
 
 export interface ListUserDataKeysRequest {
@@ -3532,7 +3620,9 @@ export type PauseServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const PauseServerRequestZone = S.String;
 
 export interface PauseServerRequest {
@@ -3565,7 +3655,9 @@ export type RebootServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const RebootServerRequestZone = S.String;
 
 export interface RebootServerRequest {
@@ -3598,7 +3690,9 @@ export type SetSecurityGroupRulesRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const SetSecurityGroupRulesRequestZone = S.String;
 
 /** List of rules to set. */
@@ -3642,7 +3736,9 @@ export type SetServerCloudInitRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const SetServerCloudInitRequestZone = S.String;
 
 export interface SetServerCloudInitRequest {
@@ -3685,7 +3781,9 @@ export type SetServerDefaultIPRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const SetServerDefaultIPRequestZone = S.String;
 
 export interface SetServerDefaultIPRequest {
@@ -3723,7 +3821,9 @@ export type SetTemplateCloudInitRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const SetTemplateCloudInitRequestZone = S.String;
 
 export interface SetTemplateCloudInitRequest {
@@ -3766,7 +3866,9 @@ export type SetTemplateUserDataRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const SetTemplateUserDataRequestZone = S.String;
 
 export interface SetTemplateUserDataRequest {
@@ -3812,7 +3914,9 @@ export type SetUserDataRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const SetUserDataRequestZone = S.String;
 
 export interface SetUserDataRequest {
@@ -3856,7 +3960,9 @@ export type StartServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const StartServerRequestZone = S.String;
 
 export interface StartServerRequest {
@@ -3889,7 +3995,9 @@ export type StopAndDeleteServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const StopAndDeleteServerRequestZone = S.String;
 
 /** List of IP IDs to delete. */
@@ -3960,7 +4068,9 @@ export type StopServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const StopServerRequestZone = S.String;
 
 export interface StopServerRequest {
@@ -3993,7 +4103,9 @@ export type UpdatePlacementGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdatePlacementGroupRequestZone = S.String;
 
 /** Tags of the placement group. */
@@ -4043,7 +4155,9 @@ export type UpdatePrivateNetworkInterfaceRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdatePrivateNetworkInterfaceRequestZone = S.String;
 
 /** New tags to assign to the private network interface. */
@@ -4087,7 +4201,9 @@ export type UpdateSecurityGroupRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateSecurityGroupRequestZone = S.String;
 
 /** New tags for the security group. */
@@ -4152,7 +4268,9 @@ export type UpdateSecurityGroupRuleRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateSecurityGroupRuleRequestZone = S.String;
 
 export interface UpdateSecurityGroupRuleRequest {
@@ -4211,7 +4329,9 @@ export type UpdateServerRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateServerRequestZone = S.String;
 
 /** New tags for the server. */
@@ -4289,7 +4409,9 @@ export type UpdateTemplateRequestZone =
   | "pl-waw-1"
   | "pl-waw-2"
   | "pl-waw-3"
-  | "it-mil-1";
+  | "it-mil-1"
+  | "it-mil-2"
+  | "it-mil-3";
 export const UpdateTemplateRequestZone = S.String;
 
 /** New tags for the template. */
