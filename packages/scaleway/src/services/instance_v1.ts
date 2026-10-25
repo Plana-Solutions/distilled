@@ -3168,6 +3168,8 @@ export interface ListIpsRequest {
   page?: number;
   /** Filter on the IP Mobility IP type (whose value should be either 'routed_ipv4' or 'routed_ipv6'). */
   type?: string;
+  server?: string;
+  detached?: boolean;
 }
 export const ListIpsRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -3179,6 +3181,8 @@ export const ListIpsRequest = /*@__PURE__*/ S.suspend(() =>
     per_page: S.optional(S.Number.pipe(T.Query())),
     page: S.optional(S.Number.pipe(T.Query())),
     type: S.optional(S.String.pipe(T.Query())),
+    server: S.optional(S.String.pipe(T.Query())),
+    detached: S.optional(S.Boolean.pipe(T.Query())),
   }).pipe(
     T.Http({
       method: "GET",

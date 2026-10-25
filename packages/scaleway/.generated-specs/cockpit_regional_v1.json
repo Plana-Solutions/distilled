@@ -68,10 +68,10 @@
     "com.scaleway.cockpit_regional_v1#AlertManager": {
       "type": "structure",
       "members": {
-        "id": {
+        "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Alert manager id."
+            "smithy.api#documentation": "ID of the project."
           }
         },
         "alert_manager_url": {

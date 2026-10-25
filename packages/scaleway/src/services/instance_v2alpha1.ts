@@ -825,6 +825,8 @@ export interface CreatePrivateNetworkInterfaceRequest {
   project_id?: string;
   /** ID of the Instance to attach the interface to. */
   server_id?: string | null;
+  /** ID of the security group to associate with the interface. */
+  security_group_id?: string | null;
   /** List of IP IDs to attach to the interface. */
   ip_ids?: CreatePrivateNetworkInterfaceRequestIpIdsList;
   /** Tags to assign to the private network interface. */
@@ -836,6 +838,7 @@ export const CreatePrivateNetworkInterfaceRequest = /*@__PURE__*/ S.suspend(() =
     private_network_id: S.optional(S.String),
     project_id: S.optional(S.String),
     server_id: S.optional(S.NullOr(S.String)),
+    security_group_id: S.optional(S.NullOr(S.String)),
     ip_ids: S.optional(CreatePrivateNetworkInterfaceRequestIpIdsList),
     tags: S.optional(CreatePrivateNetworkInterfaceRequestTagsList),
   }).pipe(
@@ -884,6 +887,8 @@ export interface PrivateNetworkInterface {
   project_id?: string;
   /** ID of the Instance this interface is attached to. */
   server_id?: string;
+  /** ID of the security group associated with this interface. */
+  security_group_id?: string;
   /** MAC address of the private network interface. */
   mac_address?: string;
   /** Current status of the private network interface. */
@@ -906,6 +911,7 @@ export const PrivateNetworkInterface = /*@__PURE__*/ S.suspend(() =>
     private_network_id: S.optional(S.String),
     project_id: S.optional(S.String),
     server_id: S.optional(S.String),
+    security_group_id: S.optional(S.String),
     mac_address: S.optional(S.String),
     status: S.optional(PrivateNetworkInterfaceStatus),
     ip_ids: S.optional(PrivateNetworkInterfaceIpIdsList),
@@ -1281,10 +1287,13 @@ export const CreateTemplateRequestVolumesList = /*@__PURE__*/ S.Array(
 export interface CreateTemplateRequestPrivateNetworkTemplate {
   /** ID of the private network. */
   private_network_id?: string;
+  /** ID of the security group for the private network. */
+  security_group_id?: string | null;
 }
 export const CreateTemplateRequestPrivateNetworkTemplate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     private_network_id: S.optional(S.String),
+    security_group_id: S.optional(S.NullOr(S.String)),
   }),
 ).annotate({
   identifier: "CreateTemplateRequestPrivateNetworkTemplate",
@@ -2588,6 +2597,11 @@ export const ListPrivateNetworkInterfacesRequestServerIdsList = /*@__PURE__*/ S.
   S.String,
 ) as any as S.Schema<ListPrivateNetworkInterfacesRequestServerIdsList>;
 
+export type ListPrivateNetworkInterfacesRequestSecurityGroupIdsList = Array<string>;
+export const ListPrivateNetworkInterfacesRequestSecurityGroupIdsList = /*@__PURE__*/ S.Array(
+  S.String,
+) as any as S.Schema<ListPrivateNetworkInterfacesRequestSecurityGroupIdsList>;
+
 export type ListPrivateNetworkInterfacesRequestPrivateNetworkIdsList = Array<string>;
 export const ListPrivateNetworkInterfacesRequestPrivateNetworkIdsList = /*@__PURE__*/ S.Array(
   S.String,
@@ -2611,6 +2625,8 @@ export interface ListPrivateNetworkInterfacesRequest {
   project_id: string;
   /** Filter by server IDs. */
   server_ids?: ListPrivateNetworkInterfacesRequestServerIdsList;
+  /** Filter by security group IDs. */
+  security_group_ids?: ListPrivateNetworkInterfacesRequestSecurityGroupIdsList;
   /** Filter by Private Network IDs. */
   private_network_ids?: ListPrivateNetworkInterfacesRequestPrivateNetworkIdsList;
   /** Filter by tags. */
@@ -2624,6 +2640,9 @@ export const ListPrivateNetworkInterfacesRequest = /*@__PURE__*/ S.suspend(() =>
     order_by: S.optional(ListPrivateNetworkInterfacesRequestOrderBy.pipe(T.Query())),
     project_id: S.String.pipe(T.Query()),
     server_ids: S.optional(ListPrivateNetworkInterfacesRequestServerIdsList.pipe(T.Query())),
+    security_group_ids: S.optional(
+      ListPrivateNetworkInterfacesRequestSecurityGroupIdsList.pipe(T.Query()),
+    ),
     private_network_ids: S.optional(
       ListPrivateNetworkInterfacesRequestPrivateNetworkIdsList.pipe(T.Query()),
     ),
@@ -2663,6 +2682,8 @@ export interface PrivateNetworkInterfaceSummary {
   project_id?: string;
   /** ID of the Instance this interface is attached to. */
   server_id?: string;
+  /** ID of the security group associated with this interface. */
+  security_group_id?: string;
   /** MAC address of the private network interface. */
   mac_address?: string;
   /** Current status of the private network interface. */
@@ -2685,6 +2706,7 @@ export const PrivateNetworkInterfaceSummary = /*@__PURE__*/ S.suspend(() =>
     private_network_id: S.optional(S.String),
     project_id: S.optional(S.String),
     server_id: S.optional(S.String),
+    security_group_id: S.optional(S.String),
     mac_address: S.optional(S.String),
     status: S.optional(PrivateNetworkInterfaceStatus),
     ip_ids: S.optional(PrivateNetworkInterfaceSummaryIpIdsList),
@@ -4171,6 +4193,8 @@ export interface UpdatePrivateNetworkInterfaceRequest {
   zone?: UpdatePrivateNetworkInterfaceRequestZone | (string & {});
   /** ID of the private network interface to update. */
   private_network_interface_id: string;
+  /** New security group ID to associate with the interface. */
+  security_group_id?: string | null;
   /** New tags to assign to the private network interface. */
   tags?: UpdatePrivateNetworkInterfaceRequestTagsList | null;
 }
@@ -4178,6 +4202,7 @@ export const UpdatePrivateNetworkInterfaceRequest = /*@__PURE__*/ S.suspend(() =
   S.Struct({
     zone: S.optional(UpdatePrivateNetworkInterfaceRequestZone.pipe(T.Label())),
     private_network_interface_id: S.String.pipe(T.Label()),
+    security_group_id: S.optional(S.NullOr(S.String)),
     tags: S.optional(S.NullOr(UpdatePrivateNetworkInterfaceRequestTagsList)),
   }).pipe(
     T.Http({

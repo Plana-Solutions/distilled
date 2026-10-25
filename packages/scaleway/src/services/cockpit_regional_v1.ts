@@ -504,8 +504,8 @@ export const DisableAlertManagerRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<DisableAlertManagerRequest>;
 
 export interface AlertManager {
-  /** Alert manager id. */
-  id?: string;
+  /** ID of the project. */
+  project_id?: string;
   /** Alert manager URL. */
   alert_manager_url?: string | null;
   /** The Alert manager is enabled. */
@@ -519,7 +519,7 @@ export interface AlertManager {
 }
 export const AlertManager = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
-    id: S.optional(S.String),
+    project_id: S.optional(S.String),
     alert_manager_url: S.optional(S.NullOr(S.String)),
     alert_manager_enabled: S.optional(S.Boolean),
     managed_alerts_enabled: S.optional(S.Boolean),

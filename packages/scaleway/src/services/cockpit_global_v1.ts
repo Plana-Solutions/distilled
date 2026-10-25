@@ -29,10 +29,16 @@ export const GetGrafanaRequest = /*@__PURE__*/ S.suspend(() =>
 export interface Grafana {
   /** URL to access your Cockpit's Grafana. */
   grafana_url?: string;
+  /** ID of the project. */
+  project_id?: string;
+  /** The SRN of the grafana. */
+  srn?: string;
 }
 export const Grafana = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     grafana_url: S.optional(S.String),
+    project_id: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Grafana" }) as any as S.Schema<Grafana>;
 

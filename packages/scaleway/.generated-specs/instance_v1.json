@@ -1829,6 +1829,18 @@
             "smithy.api#httpQuery": "type",
             "smithy.api#documentation": "Filter on the IP Mobility IP type (whose value should be either 'routed_ipv4' or 'routed_ipv6')."
           }
+        },
+        "server": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpQuery": "server"
+          }
+        },
+        "detached": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#httpQuery": "detached"
+          }
         }
       },
       "traits": {

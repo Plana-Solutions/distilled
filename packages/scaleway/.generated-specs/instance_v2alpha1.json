@@ -1004,6 +1004,13 @@
       },
       "traits": {}
     },
+    "com.scaleway.instance_v2alpha1#ListPrivateNetworkInterfacesRequestSecurityGroupIdsList": {
+      "type": "list",
+      "member": {
+        "target": "smithy.api#String"
+      },
+      "traits": {}
+    },
     "com.scaleway.instance_v2alpha1#ListPrivateNetworkInterfacesRequestPrivateNetworkIdsList": {
       "type": "list",
       "member": {
@@ -1062,6 +1069,13 @@
           "traits": {
             "smithy.api#httpQuery": "server_ids",
             "smithy.api#documentation": "Filter by server IDs."
+          }
+        },
+        "security_group_ids": {
+          "target": "com.scaleway.instance_v2alpha1#ListPrivateNetworkInterfacesRequestSecurityGroupIdsList",
+          "traits": {
+            "smithy.api#httpQuery": "security_group_ids",
+            "smithy.api#documentation": "Filter by security group IDs."
           }
         },
         "private_network_ids": {
@@ -1139,6 +1153,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "ID of the Instance this interface is attached to."
+          }
+        },
+        "security_group_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the security group associated with this interface."
           }
         },
         "mac_address": {
@@ -1419,6 +1439,13 @@
             "com.distilled.openapi#nullable": {}
           }
         },
+        "security_group_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the security group to associate with the interface.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
         "ip_ids": {
           "target": "com.scaleway.instance_v2alpha1#CreatePrivateNetworkInterfaceRequestIpIdsList",
           "traits": {
@@ -1467,6 +1494,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "ID of the Instance this interface is attached to."
+          }
+        },
+        "security_group_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the security group associated with this interface."
           }
         },
         "mac_address": {
@@ -1774,6 +1807,13 @@
             "smithy.api#httpLabel": {},
             "smithy.api#required": {},
             "smithy.api#documentation": "ID of the private network interface to update."
+          }
+        },
+        "security_group_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "New security group ID to associate with the interface.",
+            "com.distilled.openapi#nullable": {}
           }
         },
         "tags": {
@@ -9836,6 +9876,13 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "ID of the private network."
+          }
+        },
+        "security_group_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the security group for the private network.",
+            "com.distilled.openapi#nullable": {}
           }
         }
       },

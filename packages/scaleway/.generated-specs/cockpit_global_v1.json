@@ -42,6 +42,18 @@
           "traits": {
             "smithy.api#documentation": "URL to access your Cockpit's Grafana."
           }
+        },
+        "project_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the project."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the grafana."
+          }
         }
       },
       "traits": {}
