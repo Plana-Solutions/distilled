@@ -248,6 +248,8 @@ export interface Ip {
   region?: string;
   /** The zone the IP address is in. */
   zone?: string;
+  /** The SRN of the IP address. */
+  srn?: string;
 }
 export const Ip = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -260,6 +262,7 @@ export const Ip = /*@__PURE__*/ S.suspend(() =>
     tags: S.optional(IpTagsList),
     region: S.optional(S.String),
     zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Ip" }) as any as S.Schema<Ip>;
 
@@ -300,6 +303,10 @@ export interface Subscriber {
   email_config?: SubscriberEmailConfig | null;
   /** Webhook URI of subscriber. */
   webhook_config?: SubscriberWebhookConfig | null;
+  /** The zone the subscriber is in. */
+  zone?: string;
+  /** The SRN of the subscriber. */
+  srn?: string;
 }
 export const Subscriber = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -307,6 +314,8 @@ export const Subscriber = /*@__PURE__*/ S.suspend(() =>
     name: S.optional(S.String),
     email_config: S.optional(S.NullOr(SubscriberEmailConfig)),
     webhook_config: S.optional(S.NullOr(SubscriberWebhookConfig)),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Subscriber" }) as any as S.Schema<Subscriber>;
 
@@ -358,6 +367,8 @@ export interface Lb {
   region?: string;
   /** The zone the Load Balancer is in. */
   zone?: string;
+  /** The SRN of the Load Balancer. */
+  srn?: string;
 }
 export const Lb = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -381,6 +392,7 @@ export const Lb = /*@__PURE__*/ S.suspend(() =>
     route_count: S.optional(S.Number),
     region: S.optional(S.String),
     zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Lb" }) as any as S.Schema<Lb>;
 
@@ -449,6 +461,10 @@ export interface Backend {
   timeout_queue?: string | null;
   /** Host value to use when connecting to backend servers. When connecting to backend servers, use this value as the HTTP Host header or TLS SNI. This allows routing to specific services on the backend server that are configured to respond to particular hostnames. */
   host?: string | null;
+  /** The zone the backend is in. */
+  zone?: string;
+  /** The SRN of the backend. */
+  srn?: string;
 }
 export const Backend = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -478,6 +494,8 @@ export const Backend = /*@__PURE__*/ S.suspend(() =>
     max_connections: S.optional(S.NullOr(S.Number)),
     timeout_queue: S.optional(S.NullOr(S.String)),
     host: S.optional(S.NullOr(S.String)),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Backend" }) as any as S.Schema<Backend>;
 
@@ -759,6 +777,10 @@ export interface Certificate {
   updated_at?: string | null;
   /** Additional information about the certificate status (useful in case of certificate generation failure, for example). */
   status_details?: string | null;
+  /** The zone the certificate is in. */
+  zone?: string;
+  /** The SRN of the certificate. */
+  srn?: string;
 }
 export const Certificate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -775,6 +797,8 @@ export const Certificate = /*@__PURE__*/ S.suspend(() =>
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     status_details: S.optional(S.NullOr(S.String)),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Certificate" }) as any as S.Schema<Certificate>;
 
@@ -811,6 +835,10 @@ export interface Frontend {
   connection_rate_limit?: number | null;
   /** Defines whether to enable access logs on the frontend. */
   enable_access_logs?: boolean;
+  /** The zone the frontend is in. */
+  zone?: string;
+  /** The SRN of the frontend. */
+  srn?: string;
 }
 export const Frontend = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -827,6 +855,8 @@ export const Frontend = /*@__PURE__*/ S.suspend(() =>
     enable_http3: S.optional(S.Boolean),
     connection_rate_limit: S.optional(S.NullOr(S.Number)),
     enable_access_logs: S.optional(S.Boolean),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Frontend" }) as any as S.Schema<Frontend>;
 
@@ -849,6 +879,10 @@ export interface Acl {
   updated_at?: string | null;
   /** ACL description. */
   description?: string;
+  /** The zone the ACL is in. */
+  zone?: string;
+  /** The SRN of the ACL. */
+  srn?: string;
 }
 export const Acl = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -861,6 +895,8 @@ export const Acl = /*@__PURE__*/ S.suspend(() =>
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     description: S.optional(S.String),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Acl" }) as any as S.Schema<Acl>;
 
@@ -1298,6 +1334,10 @@ export interface Route {
   created_at?: string | null;
   /** Date on which the route was last updated. (RFC 3339 format) */
   updated_at?: string | null;
+  /** The zone the route is in. */
+  zone?: string;
+  /** The SRN of the route. */
+  srn?: string;
 }
 export const Route = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1307,6 +1347,8 @@ export const Route = /*@__PURE__*/ S.suspend(() =>
     match: S.optional(RouteMatch),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Route" }) as any as S.Schema<Route>;
 
@@ -2542,6 +2584,8 @@ export interface LbType {
   region?: string;
   /** The zone the Load Balancer stock is in. */
   zone?: string;
+  /** The SRN of the Load Balancer offer type. */
+  srn?: string;
 }
 export const LbType = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -2552,6 +2596,7 @@ export const LbType = /*@__PURE__*/ S.suspend(() =>
     description: S.optional(S.String),
     region: S.optional(S.String),
     zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "LbType" }) as any as S.Schema<LbType>;
 

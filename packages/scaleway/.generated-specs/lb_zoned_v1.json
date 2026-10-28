@@ -153,6 +153,18 @@
           "traits": {
             "smithy.api#documentation": "ACL description."
           }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The zone the ACL is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the ACL."
+          }
         }
       },
       "traits": {}
@@ -428,6 +440,18 @@
           "traits": {
             "smithy.api#documentation": "Defines whether to enable access logs on the frontend."
           }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The zone the frontend is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the frontend."
+          }
         }
       },
       "traits": {}
@@ -599,6 +623,18 @@
           "traits": {
             "smithy.api#documentation": "Host value to use when connecting to backend servers.\nWhen connecting to backend servers, use this value as the HTTP Host header or TLS SNI. This allows routing to specific services on the backend server that are configured to respond to particular hostnames.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The zone the backend is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the backend."
           }
         }
       },
@@ -987,6 +1023,12 @@
           "traits": {
             "smithy.api#documentation": "The zone the Load Balancer is in."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the Load Balancer."
+          }
         }
       },
       "traits": {}
@@ -1227,6 +1269,12 @@
           "traits": {
             "smithy.api#documentation": "The zone the IP address is in."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the IP address."
+          }
         }
       },
       "traits": {}
@@ -1285,6 +1333,18 @@
           "traits": {
             "smithy.api#documentation": "Webhook URI of subscriber.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The zone the subscriber is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the subscriber."
           }
         }
       },
@@ -1488,6 +1548,18 @@
           "traits": {
             "smithy.api#documentation": "Additional information about the certificate status (useful in case of certificate generation failure, for example).",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The zone the certificate is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the certificate."
           }
         }
       },
@@ -4665,6 +4737,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "The zone the Load Balancer stock is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the Load Balancer offer type."
           }
         }
       },
@@ -7936,6 +8014,18 @@
           "traits": {
             "smithy.api#documentation": "Date on which the route was last updated. (RFC 3339 format)",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The zone the route is in."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the route."
           }
         }
       },
