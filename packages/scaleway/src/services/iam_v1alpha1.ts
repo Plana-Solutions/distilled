@@ -13,9 +13,9 @@ export type { ScalewayOpError, ScalewayOpContext };
 export interface AddGroupMemberRequest {
   /** ID of the group. */
   group_id: string;
-  /** ID of the user to add. */
+  /** ID of the user to add. One of user_id, application_id is required. */
   user_id?: string | null;
-  /** ID of the application to add. */
+  /** ID of the application to add. One of user_id, application_id is required. */
   application_id?: string | null;
 }
 export const AddGroupMemberRequest = /*@__PURE__*/ S.suspend(() =>
@@ -192,28 +192,9 @@ export const SamlCertificate = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "SamlCertificate" }) as any as S.Schema<SamlCertificate>;
 
-export interface CheckPermissionsRequestPermission {
-  service?: string;
-  name?: string;
-  action?: string;
-  project_id?: string | null;
-  organization_id?: string | null;
-}
-export const CheckPermissionsRequestPermission = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    service: S.optional(S.String),
-    name: S.optional(S.String),
-    action: S.optional(S.String),
-    project_id: S.optional(S.NullOr(S.String)),
-    organization_id: S.optional(S.NullOr(S.String)),
-  }),
-).annotate({
-  identifier: "CheckPermissionsRequestPermission",
-}) as any as S.Schema<CheckPermissionsRequestPermission>;
-
-export type CheckPermissionsRequestPermissionsList = Array<CheckPermissionsRequestPermission>;
+export type CheckPermissionsRequestPermissionsList = Array<unknown>;
 export const CheckPermissionsRequestPermissionsList = /*@__PURE__*/ S.Array(
-  CheckPermissionsRequestPermission,
+  S.Unknown,
 ) as any as S.Schema<CheckPermissionsRequestPermissionsList>;
 
 export interface CheckPermissionsRequest {
@@ -307,13 +288,13 @@ export interface Policy {
   nb_permission_sets?: number;
   /** Tags associated with the policy. */
   tags?: PolicyTagsList;
-  /** ID of the user attributed to the policy. */
+  /** ID of the user attributed to the policy. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   user_id?: string | null;
-  /** ID of the group attributed to the policy. */
+  /** ID of the group attributed to the policy. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   group_id?: string | null;
-  /** ID of the application attributed to the policy. */
+  /** ID of the application attributed to the policy. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   application_id?: string | null;
-  /** Defines whether or not a policy is attributed to a principal. */
+  /** Defines whether or not a policy is attributed to a principal. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   no_principal?: boolean | null;
   /** The SRN of the policy. */
   srn?: string;
@@ -342,9 +323,9 @@ export const Policy = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "Policy" }) as any as S.Schema<Policy>;
 
 export interface CreateAPIKeyRequest {
-  /** ID of the application. */
+  /** ID of the application. One of application_id, user_id is required. */
   application_id?: string | null;
-  /** ID of the user. */
+  /** ID of the user. One of application_id, user_id is required. */
   user_id?: string | null;
   /** Expiration date of the API key. (RFC 3339 format) */
   expires_at?: string | null;
@@ -375,9 +356,9 @@ export interface APIKey {
   access_key?: string;
   /** Secret key of the API Key. */
   secret_key?: string | Redacted.Redacted<string> | null;
-  /** ID of application that bears the API key. */
+  /** ID of application that bears the API key. Precisely one of application_id, user_id can be set. */
   application_id?: string | null;
-  /** ID of user that bears the API key. */
+  /** ID of user that bears the API key. Precisely one of application_id, user_id can be set. */
   user_id?: string | null;
   /** Description of API key. */
   description?: string;
@@ -532,44 +513,10 @@ export const CreateGroupRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "CreateGroupRequest" }) as any as S.Schema<CreateGroupRequest>;
 
-/** Names of permission sets bound to the rule. */
-export type RuleSpecsPermissionSetNamesList = Array<unknown>;
-export const RuleSpecsPermissionSetNamesList = /*@__PURE__*/ S.Array(
-  S.Unknown,
-) as any as S.Schema<RuleSpecsPermissionSetNamesList>;
-
-/** List of Project IDs the rule is scoped to. */
-export type RuleSpecsProjectIdsList = Array<unknown>;
-export const RuleSpecsProjectIdsList = /*@__PURE__*/ S.Array(
-  S.Unknown,
-) as any as S.Schema<RuleSpecsProjectIdsList>;
-
-export interface RuleSpecs {
-  /** Names of permission sets bound to the rule. */
-  permission_set_names?: RuleSpecsPermissionSetNamesList | null;
-  /** Condition expression to evaluate. */
-  condition?: string;
-  /** List of Project IDs the rule is scoped to. */
-  project_ids?: RuleSpecsProjectIdsList | null;
-  /** ID of Organization the rule is scoped to. */
-  organization_id?: string | null;
-  /** Select whether the rule should remove the permissions instead of granting them. */
-  deny?: boolean;
-}
-export const RuleSpecs = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    permission_set_names: S.optional(S.NullOr(RuleSpecsPermissionSetNamesList)),
-    condition: S.optional(S.String),
-    project_ids: S.optional(S.NullOr(RuleSpecsProjectIdsList)),
-    organization_id: S.optional(S.NullOr(S.String)),
-    deny: S.optional(S.Boolean),
-  }),
-).annotate({ identifier: "RuleSpecs" }) as any as S.Schema<RuleSpecs>;
-
 /** Rules of the policy to create. */
-export type CreatePolicyRequestRulesList = Array<RuleSpecs>;
+export type CreatePolicyRequestRulesList = Array<unknown>;
 export const CreatePolicyRequestRulesList = /*@__PURE__*/ S.Array(
-  RuleSpecs,
+  S.Unknown,
 ) as any as S.Schema<CreatePolicyRequestRulesList>;
 
 /** Tags associated with the policy (maximum of 10 tags). */
@@ -589,13 +536,13 @@ export interface CreatePolicyRequest {
   rules?: CreatePolicyRequestRulesList;
   /** Tags associated with the policy (maximum of 10 tags). */
   tags?: CreatePolicyRequestTagsList;
-  /** ID of user attributed to the policy. */
+  /** ID of user attributed to the policy. One of user_id, group_id, application_id, no_principal is required. */
   user_id?: string | null;
-  /** ID of group attributed to the policy. */
+  /** ID of group attributed to the policy. One of user_id, group_id, application_id, no_principal is required. */
   group_id?: string | null;
-  /** ID of application attributed to the policy. */
+  /** ID of application attributed to the policy. One of user_id, group_id, application_id, no_principal is required. */
   application_id?: string | null;
-  /** Defines whether or not a policy is attributed to a principal. */
+  /** Defines whether or not a policy is attributed to a principal. One of user_id, group_id, application_id, no_principal is required. */
   no_principal?: boolean | null;
 }
 export const CreatePolicyRequest = /*@__PURE__*/ S.suspend(() =>
@@ -771,11 +718,11 @@ export const CreateUserRequestMember = /*@__PURE__*/ S.suspend(() =>
 export interface CreateUserRequest {
   /** ID of the Organization. */
   organization_id: string;
-  /** Email of the user. */
+  /** Email of the user. One of email, member is required. */
   email?: string | null;
   /** Tags associated with the user. */
   tags?: CreateUserRequestTagsList;
-  /** Details of IAM member. */
+  /** Details of IAM member. One of email, member is required. */
   member?: CreateUserRequestMember | null;
 }
 export const CreateUserRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1591,15 +1538,15 @@ export type LocalityType = "global" | "region" | "zone";
 export const LocalityType = S.String;
 
 export interface QuotumLimit {
-  /** Whether or not the limit is applied globally. */
+  /** Whether or not the limit is applied globally. Precisely one of global, region, zone can be set. */
   global?: boolean | null;
-  /** The region on which the limit is applied. */
+  /** The region on which the limit is applied. Precisely one of global, region, zone can be set. */
   region?: string | null;
-  /** The zone on which the limit is applied. */
+  /** The zone on which the limit is applied. Precisely one of global, region, zone can be set. */
   zone?: string | null;
-  /** Maximum locality limit. */
+  /** Maximum locality limit. Precisely one of limit, unlimited can be set. */
   limit?: number | null;
-  /** Whether or not the quota per locality is unlimited. */
+  /** Whether or not the quota per locality is unlimited. Precisely one of limit, unlimited can be set. */
   unlimited?: boolean | null;
 }
 export const QuotumLimit = /*@__PURE__*/ S.suspend(() =>
@@ -1621,9 +1568,9 @@ export const QuotumLimitsList = /*@__PURE__*/ S.Array(
 export interface Quotum {
   /** Name of the quota. */
   name?: string;
-  /** Maximum limit of the quota. */
+  /** Maximum limit of the quota. Precisely one of limit, unlimited can be set. */
   limit?: number | null;
-  /** Defines whether or not the quota is unlimited. */
+  /** Defines whether or not the quota is unlimited. Precisely one of limit, unlimited can be set. */
   unlimited?: boolean | null;
   /** A human-readable name for the quota. */
   pretty_name?: string;
@@ -2542,7 +2489,7 @@ export const RulePermissionSetNamesList = /*@__PURE__*/ S.Array(
   S.Unknown,
 ) as any as S.Schema<RulePermissionSetNamesList>;
 
-/** List of Project IDs the rule is scoped to. */
+/** List of Project IDs the rule is scoped to. Precisely one of project_ids, organization_id, account_root_user_id can be set. */
 export type RuleProjectIdsList = Array<unknown>;
 export const RuleProjectIdsList = /*@__PURE__*/ S.Array(
   S.Unknown,
@@ -2559,11 +2506,11 @@ export interface Rule {
   permission_sets_scope_type?: PermissionSetScopeType;
   /** Condition expression to evaluate. */
   condition?: string;
-  /** List of Project IDs the rule is scoped to. */
+  /** List of Project IDs the rule is scoped to. Precisely one of project_ids, organization_id, account_root_user_id can be set. */
   project_ids?: RuleProjectIdsList | null;
-  /** ID of Organization the rule is scoped to. */
+  /** ID of Organization the rule is scoped to. Precisely one of project_ids, organization_id, account_root_user_id can be set. */
   organization_id?: string | null;
-  /** ID of account root user the rule is scoped to. */
+  /** ID of account root user the rule is scoped to. Precisely one of project_ids, organization_id, account_root_user_id can be set. */
   account_root_user_id?: string | null;
   /** Select whether the rule should remove the permissions instead of granting them. */
   deny?: boolean;
@@ -2844,9 +2791,9 @@ export const LockUserRequest = /*@__PURE__*/ S.suspend(() =>
 export interface RemoveGroupMemberRequest {
   /** ID of the group. */
   group_id: string;
-  /** ID of the user to remove. */
+  /** ID of the user to remove. One of user_id, application_id is required. */
   user_id?: string | null;
-  /** ID of the application to remove. */
+  /** ID of the application to remove. One of user_id, application_id is required. */
   application_id?: string | null;
 }
 export const RemoveGroupMemberRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2944,9 +2891,9 @@ export const SetOrganizationAliasRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<SetOrganizationAliasRequest>;
 
 /** Rules of the policy to set. */
-export type SetRulesRequestRulesList = Array<RuleSpecs>;
+export type SetRulesRequestRulesList = Array<unknown>;
 export const SetRulesRequestRulesList = /*@__PURE__*/ S.Array(
-  RuleSpecs,
+  S.Unknown,
 ) as any as S.Schema<SetRulesRequestRulesList>;
 
 export interface SetRulesRequest {
@@ -3172,13 +3119,13 @@ export interface UpdatePolicyRequest {
   description?: string | null;
   /** New tags for the policy (maximum of 10 tags). */
   tags?: UpdatePolicyRequestTagsList | null;
-  /** New ID of user attributed to the policy. */
+  /** New ID of user attributed to the policy. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   user_id?: string | null;
-  /** New ID of group attributed to the policy. */
+  /** New ID of group attributed to the policy. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   group_id?: string | null;
-  /** New ID of application attributed to the policy. */
+  /** New ID of application attributed to the policy. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   application_id?: string | null;
-  /** Defines whether or not the policy is attributed to a principal. */
+  /** Defines whether or not the policy is attributed to a principal. Precisely one of user_id, group_id, application_id, no_principal can be set. */
   no_principal?: boolean | null;
 }
 export const UpdatePolicyRequest = /*@__PURE__*/ S.suspend(() =>

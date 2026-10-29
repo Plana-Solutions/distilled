@@ -199,9 +199,9 @@ export const EndpointSpecPrivateNetworkSpec = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkSpec>;
 
 export interface EndpointSpec {
-  /** Private Network specification details. */
+  /** Private Network specification details. Precisely one of private_network, public_network can be set. */
   private_network?: EndpointSpecPrivateNetworkSpec | null;
-  /** Public network specification details. */
+  /** Public network specification details. Precisely one of private_network, public_network can be set. */
   public_network?: unknown | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -275,9 +275,9 @@ export const EndpointIpsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schem
 export interface Endpoint {
   /** TCP port of the endpoint. */
   port?: number;
-  /** Private Network details. */
+  /** Private Network details. Precisely one of private_network, public_network can be set. */
   private_network?: PrivateNetwork | null;
-  /** Public network details. */
+  /** Public network details. Precisely one of private_network, public_network can be set. */
   public_network?: unknown | null;
   /** List of IPv4 addresses of the endpoint. (IP address) */
   ips?: EndpointIpsList;
@@ -1177,11 +1177,11 @@ export interface MigrateClusterRequest {
   zone?: MigrateClusterRequestZone | (string & {});
   /** UUID of the Database Instance to update. (UUID format) */
   cluster_id: string;
-  /** Redis™ engine version of the Database Instance. */
+  /** Redis™ engine version of the Database Instance. Precisely one of version, node_type, cluster_size can be set. */
   version?: string | null;
-  /** Type of node to use for the Database Instance. */
+  /** Type of node to use for the Database Instance. Precisely one of version, node_type, cluster_size can be set. */
   node_type?: string | null;
-  /** Number of nodes for the Database Instance. */
+  /** Number of nodes for the Database Instance. Precisely one of version, node_type, cluster_size can be set. */
   cluster_size?: number | null;
 }
 export const MigrateClusterRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1441,9 +1441,9 @@ export interface UpdateEndpointRequest {
   zone?: UpdateEndpointRequestZone | (string & {});
   /** UUID of the endpoint you want to get. (UUID format) */
   endpoint_id: string;
-  /** Private Network details. */
+  /** Private Network details. Precisely one of private_network, public_network can be set. */
   private_network?: EndpointSpecPrivateNetworkSpec | null;
-  /** Public network details. */
+  /** Public network details. Precisely one of private_network, public_network can be set. */
   public_network?: unknown | null;
 }
 export const UpdateEndpointRequest = /*@__PURE__*/ S.suspend(() =>

@@ -334,12 +334,6 @@
           "traits": {
             "smithy.api#documentation": "Size of the Volume."
           }
-        },
-        "deployment_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "ID of the deployment."
-          }
         }
       },
       "traits": {}

@@ -710,29 +710,29 @@ export interface Offer {
   pricing?: GoogleTypeMoney;
   /** Original Dedibox ID of the offer. */
   offer_id?: number | null;
-  /** Server info if it is a server offer. */
+  /** Server info if it is a server offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   server_info?: OfferServerInfo | null;
-  /** Service level info if it is a service level offer. */
+  /** Service level info if it is a service level offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   service_level_info?: OfferServiceLevelInfo | null;
-  /** RPN info if it is a RPN offer. */
+  /** RPN info if it is a RPN offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   rpn_info?: OfferRPNInfo | null;
-  /** SAN info if it is a SAN offer. */
+  /** SAN info if it is a SAN offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   san_info?: OfferSANInfo | null;
-  /** AntiDOS info if it is a antiDOS offer. */
+  /** AntiDOS info if it is a antiDOS offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   antidos_info?: OfferAntiDosInfo | null;
-  /** Backup info if it is a backup offer. */
+  /** Backup info if it is a backup offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   backup_info?: OfferBackupInfo | null;
-  /** USB storage info if it is a USB storage offer. */
+  /** USB storage info if it is a USB storage offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   usb_storage_info?: OfferStorageInfo | null;
-  /** Storage info if it is a storage offer. */
+  /** Storage info if it is a storage offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   storage_info?: OfferStorageInfo | null;
-  /** License info if it is a license offer. */
+  /** License info if it is a license offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   license_info?: OfferLicenseInfo | null;
-  /** Failover IP info if it is a failover IP offer. */
+  /** Failover IP info if it is a failover IP offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   failover_ip_info?: OfferFailoverIpInfo | null;
-  /** Failover block info if it is a failover block offer. */
+  /** Failover block info if it is a failover block offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   failover_block_info?: OfferFailoverIpInfo | null;
-  /** Bandwidth info if it is a bandwidth offer. */
+  /** Bandwidth info if it is a bandwidth offer. Precisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set. */
   bandwidth_info?: OfferRPNInfo | null;
   /** Commitment info if it is a commitment offer. */
   commitments?: OfferCommitmentsList;

@@ -36,14 +36,14 @@
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Expose the Database Instance publicly (empty object).",
+            "smithy.api#documentation": "Expose the Database Instance publicly (empty object).\nPrecisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.mongodb_v1#EndpointSpecPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Attach the Database Instance to a Private Network.",
+            "smithy.api#documentation": "Attach the Database Instance to a Private Network.\nPrecisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -115,14 +115,14 @@
         "private_network": {
           "target": "com.scaleway.mongodb_v1#EndpointPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Private Network endpoint details.",
+            "smithy.api#documentation": "Private Network endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Public Network endpoint details.",
+            "smithy.api#documentation": "Public Network endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -806,18 +806,21 @@
         "engine_upgrade": {
           "target": "com.scaleway.mongodb_v1#EngineUpgrade",
           "traits": {
+            "smithy.api#documentation": "Precisely one of engine_upgrade, service_update, infrastructure_update can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "service_update": {
           "target": "com.scaleway.mongodb_v1#ServiceUpdate",
           "traits": {
+            "smithy.api#documentation": "Precisely one of engine_upgrade, service_update, infrastructure_update can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "infrastructure_update": {
           "target": "com.scaleway.mongodb_v1#InfrastructureUpdate",
           "traits": {
+            "smithy.api#documentation": "Precisely one of engine_upgrade, service_update, infrastructure_update can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1460,14 +1463,14 @@
         "database_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database on which the preset role will be used.",
+            "smithy.api#documentation": "Name of the database on which the preset role will be used.\nPrecisely one of database_name, any_database can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "any_database": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Flag to enable the preset role in all databases.",
+            "smithy.api#documentation": "Flag to enable the preset role in all databases.\nPrecisely one of database_name, any_database can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1632,14 +1635,14 @@
         "volume_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Increase your Block Storage volume size. (in bytes)",
+            "smithy.api#documentation": "Increase your Block Storage volume size. (in bytes)\nPrecisely one of volume_size_bytes, version can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`).",
+            "smithy.api#documentation": "MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`).\nPrecisely one of volume_size_bytes, version can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

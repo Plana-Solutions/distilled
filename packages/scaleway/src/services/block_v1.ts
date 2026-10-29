@@ -265,13 +265,13 @@ export interface CreateVolumeRequest {
   zone?: CreateVolumeRequestZone | (string & {});
   /** Name of the volume. */
   name: string;
-  /** The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`). */
+  /** The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`). Precisely one of perf_iops can be set. */
   perf_iops?: number | null;
   /** UUID of the project the volume belongs to. */
   project_id: string;
-  /** Specify the size of the new volume if creating a new one from scratch. */
+  /** Specify the size of the new volume if creating a new one from scratch. One of from_empty, from_snapshot is required. */
   from_empty?: CreateVolumeRequestFromEmpty | null;
-  /** Specify the snapshot ID of the original snapshot. */
+  /** Specify the snapshot ID of the original snapshot. One of from_empty, from_snapshot is required. */
   from_snapshot?: CreateVolumeRequestFromSnapshot | null;
   /** List of tags assigned to the volume. */
   tags?: CreateVolumeRequestTagsList;

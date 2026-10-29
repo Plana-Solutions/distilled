@@ -424,12 +424,14 @@
         "public": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.searchdb_v1alpha1#EndpointPrivateNetworkDetails",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -542,12 +544,14 @@
         "public": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.searchdb_v1alpha1#EndpointSpecPrivateNetworkDetails",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -960,21 +964,21 @@
         "node_amount": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "DEPRECATED: Use node_count instead. Amount of node upgrade target.",
+            "smithy.api#documentation": "DEPRECATED: Use node_count instead. Amount of node upgrade target.\nPrecisely one of node_amount, node_count, volume_size_bytes can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "node_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The target number of nodes for the upgrade.",
+            "smithy.api#documentation": "The target number of nodes for the upgrade.\nPrecisely one of node_amount, node_count, volume_size_bytes can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "volume_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Volume size upgrade target.",
+            "smithy.api#documentation": "Volume size upgrade target.\nPrecisely one of node_amount, node_count, volume_size_bytes can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

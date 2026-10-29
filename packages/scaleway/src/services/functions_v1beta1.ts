@@ -635,9 +635,9 @@ export interface CreateTriggerRequest {
   function_id: string;
   /** Description of the trigger. */
   description?: string | null;
-  /** Configuration for a Scaleway Messaging and Queuing SQS queue. */
+  /** Configuration for a Scaleway Messaging and Queuing SQS queue. One of scw_sqs_config, scw_nats_config is required. */
   scw_sqs_config?: CreateTriggerRequestMnqSqsClientConfig | null;
-  /** Configuration for a Scaleway Messaging and Queuing NATS subject. */
+  /** Configuration for a Scaleway Messaging and Queuing NATS subject. One of scw_sqs_config, scw_nats_config is required. */
   scw_nats_config?: CreateTriggerRequestMnqNatsClientConfig | null;
 }
 export const CreateTriggerRequest = /*@__PURE__*/ S.suspend(() =>
@@ -732,9 +732,9 @@ export interface Trigger {
   status?: TriggerStatus;
   /** Error message of the trigger. */
   error_message?: string | null;
-  /** Configuration for a Scaleway Messaging and Queuing SQS queue. */
+  /** Configuration for a Scaleway Messaging and Queuing SQS queue. Precisely one of scw_sqs_config, scw_nats_config can be set. */
   scw_sqs_config?: TriggerMnqSqsClientConfig | null;
-  /** Configuration for a Scaleway Messaging and Queuing NATS subject. */
+  /** Configuration for a Scaleway Messaging and Queuing NATS subject. Precisely one of scw_sqs_config, scw_nats_config can be set. */
   scw_nats_config?: TriggerMnqNatsClientConfig | null;
   /** Region in which the trigger is located. */
   region?: string;
@@ -878,9 +878,9 @@ export interface Token {
   id?: string;
   /** String of the token. */
   token?: string | Redacted.Redacted<string>;
-  /** UUID of the function the token is associated with. */
+  /** UUID of the function the token is associated with. Precisely one of function_id, namespace_id can be set. */
   function_id?: string | null;
-  /** UUID of the namespace the token is associated with. */
+  /** UUID of the namespace the token is associated with. Precisely one of function_id, namespace_id can be set. */
   namespace_id?: string | null;
   /** Public key of the token. */
   public_key?: string;

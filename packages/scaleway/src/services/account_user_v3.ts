@@ -476,9 +476,9 @@ export interface UserPreferences {
   send_sms_new_ip_login?: boolean;
   /** Receive SMS notifications. */
   receive_sms_notifications?: boolean;
-  /** Selected sidebar template (e.g. default, web_cloud). */
+  /** Selected sidebar template (e.g. default, web_cloud). Precisely one of predefined_template, custom_template can be set. */
   predefined_template?: UserPreferencesSideBarTemplate | null;
-  /** Custom sidebar configuration defining which products are visible. */
+  /** Custom sidebar configuration defining which products are visible. Precisely one of predefined_template, custom_template can be set. */
   custom_template?: UserPreferencesProductsToDisplay | null;
 }
 export const UserPreferences = /*@__PURE__*/ S.suspend(() =>
@@ -1127,9 +1127,9 @@ export interface UpdateUserPreferencesRequest {
   send_sms_new_ip_login?: boolean | null;
   /** Receive SMS notifications. */
   receive_sms_notifications?: boolean | null;
-  /** Pick a predefined sibe bar template. */
+  /** Pick a predefined sibe bar template. Precisely one of predefined_template, custom_template can be set. */
   predefined_template?: UserPreferencesSideBarTemplate | (string & {}) | null;
-  /** Define a custom side bar. */
+  /** Define a custom side bar. Precisely one of predefined_template, custom_template can be set. */
   custom_template?: UserPreferencesProductsToDisplay | null;
 }
 export const UpdateUserPreferencesRequest = /*@__PURE__*/ S.suspend(() =>

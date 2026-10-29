@@ -38,6 +38,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -146,6 +152,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -223,7 +235,7 @@
         "email": {
           "target": "com.scaleway.cockpit_regional_v1#ContactPointEmail",
           "traits": {
-            "smithy.api#documentation": "Email address to send alerts to.",
+            "smithy.api#documentation": "Email address to send alerts to.\nPrecisely one of email can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -305,6 +317,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -329,7 +347,7 @@
         "email": {
           "target": "com.scaleway.cockpit_regional_v1#ContactPointEmail",
           "traits": {
-            "smithy.api#documentation": "Email address of the contact point to create.",
+            "smithy.api#documentation": "Email address of the contact point to create.\nPrecisely one of email can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -383,6 +401,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -407,7 +431,7 @@
         "email": {
           "target": "com.scaleway.cockpit_regional_v1#ContactPointEmail",
           "traits": {
-            "smithy.api#documentation": "Email address of the contact point to update.",
+            "smithy.api#documentation": "Email address of the contact point to update.\nPrecisely one of email can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -460,6 +484,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -484,7 +514,7 @@
         "email": {
           "target": "com.scaleway.cockpit_regional_v1#ContactPointEmail",
           "traits": {
-            "smithy.api#documentation": "Email address of the contact point to delete.",
+            "smithy.api#documentation": "Email address of the contact point to delete.\nPrecisely one of email can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -530,6 +560,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -594,6 +630,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -695,6 +737,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -758,6 +806,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -859,6 +913,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -922,6 +982,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -1223,6 +1289,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -1330,6 +1402,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -1661,6 +1739,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -1746,6 +1830,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -1810,6 +1900,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -1890,6 +1986,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -1954,6 +2056,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -2088,14 +2196,14 @@
         "datadog_destination": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterDatadogDestination",
           "traits": {
-            "smithy.api#documentation": "Datadog destination configuration for the data export.",
+            "smithy.api#documentation": "Datadog destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "otlp_destination": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterOTLPDestination",
           "traits": {
-            "smithy.api#documentation": "OTLP destination configuration for the data export.",
+            "smithy.api#documentation": "OTLP destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2280,6 +2388,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -2313,14 +2427,14 @@
         "datadog_destination": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterDatadogDestination",
           "traits": {
-            "smithy.api#documentation": "Datadog destination configuration for the data export.",
+            "smithy.api#documentation": "Datadog destination configuration for the data export.\nOne of datadog_destination, otlp_destination is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "otlp_destination": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterOTLPDestination",
           "traits": {
-            "smithy.api#documentation": "OTLP destination configuration for the data export.",
+            "smithy.api#documentation": "OTLP destination configuration for the data export.\nOne of datadog_destination, otlp_destination is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2388,6 +2502,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -2453,6 +2573,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -2487,14 +2613,14 @@
         "datadog_destination": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterDatadogDestination",
           "traits": {
-            "smithy.api#documentation": "Updated Datadog destination configuration for the data export.",
+            "smithy.api#documentation": "Updated Datadog destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "otlp_destination": {
           "target": "com.scaleway.cockpit_regional_v1#ExporterOTLPDestination",
           "traits": {
-            "smithy.api#documentation": "Updated OTLP destination configuration for the data export.",
+            "smithy.api#documentation": "Updated OTLP destination configuration for the data export.\nPrecisely one of datadog_destination, otlp_destination can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2562,6 +2688,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -2626,6 +2758,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -2798,6 +2936,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -2919,6 +3063,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },
@@ -3217,6 +3367,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -3303,6 +3459,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -3368,6 +3530,12 @@
           "traits": {
             "smithy.api#enumValue": "pl-waw"
           }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
+          }
         }
       },
       "traits": {}
@@ -3432,6 +3600,12 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "pl-waw"
+          }
+        },
+        "IT_MIL": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "it-mil"
           }
         }
       },

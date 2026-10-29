@@ -418,12 +418,14 @@
         "public": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.messageq_v1alpha1#EndpointPrivateNetworkDetails",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -536,12 +538,14 @@
         "public": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.messageq_v1alpha1#EndpointSpecPrivateNetworkDetails",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -943,14 +947,14 @@
         "node_count": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Target number of nodes.",
+            "smithy.api#documentation": "Target number of nodes.\nPrecisely one of node_count, volume_size_bytes can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "volume_size_bytes": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Target volume size. (in bytes)",
+            "smithy.api#documentation": "Target volume size. (in bytes)\nPrecisely one of node_count, volume_size_bytes can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

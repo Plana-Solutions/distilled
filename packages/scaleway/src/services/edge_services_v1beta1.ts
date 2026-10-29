@@ -73,11 +73,11 @@ export const RuleHttpMatch = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "RuleHttpMatch" }) as any as S.Schema<RuleHttpMatch>;
 
 export interface SetRouteRulesRequestRouteRule {
-  /** Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition. */
+  /** Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition. Precisely one of rule_http_match can be set. */
   rule_http_match?: RuleHttpMatch | null;
-  /** ID of the backend stage that requests matching the rule should be forwarded to. (UUID format) */
+  /** ID of the backend stage that requests matching the rule should be forwarded to. (UUID format) Precisely one of backend_stage_id, waf_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format) */
+  /** ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format) Precisely one of backend_stage_id, waf_stage_id can be set. */
   waf_stage_id?: string | null;
 }
 export const SetRouteRulesRequestRouteRule = /*@__PURE__*/ S.suspend(() =>
@@ -101,9 +101,9 @@ export interface AddRouteRulesRequest {
   route_stage_id: string;
   /** List of rules to be checked against every HTTP request. The first matching rule will forward the request to its specified backend stage. If no rules are matched, the request is forwarded to the stage defined by `waf_stage_id` or `backend_stage_id`. */
   route_rules?: AddRouteRulesRequestRouteRulesList;
-  /** Add rules after the given position. */
+  /** Add rules after the given position. Precisely one of after_position, before_position can be set. */
   after_position?: number | null;
-  /** Add rules before the given position. */
+  /** Add rules before the given position. Precisely one of after_position, before_position can be set. */
   before_position?: number | null;
 }
 export const AddRouteRulesRequest = /*@__PURE__*/ S.suspend(() =>
@@ -123,15 +123,15 @@ export const AddRouteRulesRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "AddRouteRulesRequest" }) as any as S.Schema<AddRouteRulesRequest>;
 
 export interface RouteRule {
-  /** Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition. */
+  /** Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition. Precisely one of rule_http_match can be set. */
   rule_http_match?: RuleHttpMatch | null;
-  /** ID of the backend stage that requests matching the rule should be forwarded to. (UUID format) */
+  /** ID of the backend stage that requests matching the rule should be forwarded to. (UUID format) Precisely one of backend_stage_id, waf_stage_id can be set. */
   backend_stage_id?: string | null;
   /** Position of the rule which determines the order of processing within the route stage. */
   position?: number;
   /** Route stage ID the route rule belongs to. */
   route_stage_id?: string;
-  /** ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format) */
+  /** ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format) Precisely one of backend_stage_id, waf_stage_id can be set. */
   waf_stage_id?: string | null;
 }
 export const RouteRule = /*@__PURE__*/ S.suspend(() =>
@@ -250,13 +250,13 @@ export const ScalewayServerlessFunctionBackendConfig = /*@__PURE__*/ S.suspend((
 export interface CreateBackendStageRequest {
   /** Pipeline ID the Backend stage belongs to. */
   pipeline_id: string;
-  /** Scaleway Object Storage origin bucket (S3) linked to the backend stage. */
+  /** Scaleway Object Storage origin bucket (S3) linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_s3?: ScalewayS3BackendConfig | null;
-  /** Scaleway Load Balancer origin linked to the backend stage. */
+  /** Scaleway Load Balancer origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_lb?: ScalewayLbBackendConfig | null;
-  /** Scaleway Serverless container origin linked to the backend stage. */
+  /** Scaleway Serverless container origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_serverless_container?: ScalewayServerlessContainerBackendConfig | null;
-  /** Scaleway Serverless function origin linked to the backend stage. */
+  /** Scaleway Serverless function origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_serverless_function?: ScalewayServerlessFunctionBackendConfig | null;
 }
 export const CreateBackendStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -292,13 +292,13 @@ export interface BackendStage {
   created_at?: string | null;
   /** Date the backend stage was last updated. (RFC 3339 format) */
   updated_at?: string | null;
-  /** Scaleway Object Storage origin bucket (S3) linked to the backend stage. */
+  /** Scaleway Object Storage origin bucket (S3) linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_s3?: ScalewayS3BackendConfig | null;
-  /** Scaleway Load Balancer origin linked to the backend stage. */
+  /** Scaleway Load Balancer origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_lb?: ScalewayLbBackendConfig | null;
-  /** Scaleway Serverless container origin linked to the backend stage. */
+  /** Scaleway Serverless container origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_serverless_container?: ScalewayServerlessContainerBackendConfig | null;
-  /** Scaleway Serverless function origin linked to the backend stage. */
+  /** Scaleway Serverless function origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_serverless_function?: ScalewayServerlessFunctionBackendConfig | null;
 }
 export const BackendStage = /*@__PURE__*/ S.suspend(() =>
@@ -322,11 +322,11 @@ export interface CreateCacheStageRequest {
   fallback_ttl?: string | null;
   /** Defines whether responses to requests with cookies must be stored in the cache. */
   include_cookies?: boolean | null;
-  /** Backend stage ID the cache stage will be linked to. (UUID format) */
+  /** Backend stage ID the cache stage will be linked to. (UUID format) Precisely one of backend_stage_id, waf_stage_id, route_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of backend_stage_id, waf_stage_id, route_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of backend_stage_id, waf_stage_id, route_stage_id can be set. */
   route_stage_id?: string | null;
 }
 export const CreateCacheStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -362,11 +362,11 @@ export interface CacheStage {
   created_at?: string | null;
   /** Date the cache stage was last updated. (RFC 3339 format) */
   updated_at?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of waf_stage_id, backend_stage_id, route_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** Backend stage ID the cache stage is linked to. (UUID format) */
+  /** Backend stage ID the cache stage is linked to. (UUID format) Precisely one of waf_stage_id, backend_stage_id, route_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of waf_stage_id, backend_stage_id, route_stage_id can be set. */
   route_stage_id?: string | null;
 }
 export const CacheStage = /*@__PURE__*/ S.suspend(() =>
@@ -395,11 +395,11 @@ export interface CreateDNSStageRequest {
   pipeline_id: string;
   /** Custom Fully Qualified Domain Name to be configured (only 1 FQDN can be setup for now). */
   fqdns?: CreateDNSStageRequestFqdnsList | null;
-  /** TLS stage ID the DNS stage will be linked to. (UUID format) */
+  /** TLS stage ID the DNS stage will be linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   tls_stage_id?: string | null;
-  /** Cache stage ID the DNS stage will be linked to. (UUID format) */
+  /** Cache stage ID the DNS stage will be linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   cache_stage_id?: string | null;
-  /** Backend stage ID the DNS stage will be linked to. (UUID format) */
+  /** Backend stage ID the DNS stage will be linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   backend_stage_id?: string | null;
   /** Support of wildcard (subdomains) for the given domain (a wildcard certificate is required to make it work). */
   wildcard_domain?: boolean | null;
@@ -448,11 +448,11 @@ export interface DNSStage {
   created_at?: string | null;
   /** Date the DNS stage was last updated. (RFC 3339 format) */
   updated_at?: string | null;
-  /** TLS stage ID the DNS stage is linked to. (UUID format) */
+  /** TLS stage ID the DNS stage is linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   tls_stage_id?: string | null;
-  /** Cache stage ID the DNS stage is linked to. (UUID format) */
+  /** Cache stage ID the DNS stage is linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   cache_stage_id?: string | null;
-  /** Backend stage ID the DNS stage is linked to. (UUID format) */
+  /** Backend stage ID the DNS stage is linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   backend_stage_id?: string | null;
   /** Support of wildcard (subdomains) for the given domain (a wildcard certificate is required to make it work). */
   wildcard_domain?: boolean;
@@ -609,7 +609,7 @@ export const Pipeline = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "Pipeline" }) as any as S.Schema<Pipeline>;
 
-/** List of asserts to purge. */
+/** List of asserts to purge. Precisely one of assets, all can be set. */
 export type CreatePurgeRequestRequestAssetsList = Array<unknown>;
 export const CreatePurgeRequestRequestAssetsList = /*@__PURE__*/ S.Array(
   S.Unknown,
@@ -618,9 +618,9 @@ export const CreatePurgeRequestRequestAssetsList = /*@__PURE__*/ S.Array(
 export interface CreatePurgeRequestRequest {
   /** Pipeline ID in which the purge request will be created. (UUID format) */
   pipeline_id: string;
-  /** List of asserts to purge. */
+  /** List of asserts to purge. Precisely one of assets, all can be set. */
   assets?: CreatePurgeRequestRequestAssetsList | null;
-  /** Defines whether to purge all content. */
+  /** Defines whether to purge all content. Precisely one of assets, all can be set. */
   all?: boolean | null;
 }
 export const CreatePurgeRequestRequest = /*@__PURE__*/ S.suspend(() =>
@@ -643,7 +643,7 @@ export const CreatePurgeRequestRequest = /*@__PURE__*/ S.suspend(() =>
 export type PurgeRequestStatus = "unknown_status" | "done" | "error" | "pending";
 export const PurgeRequestStatus = S.String;
 
-/** List of asserts to purge. */
+/** List of asserts to purge. Precisely one of assets, all can be set. */
 export type PurgeRequestAssetsList = Array<unknown>;
 export const PurgeRequestAssetsList = /*@__PURE__*/ S.Array(
   S.Unknown,
@@ -656,9 +656,9 @@ export interface PurgeRequest {
   pipeline_id?: string;
   /** Status of the purge request. */
   status?: PurgeRequestStatus;
-  /** List of asserts to purge. */
+  /** List of asserts to purge. Precisely one of assets, all can be set. */
   assets?: PurgeRequestAssetsList | null;
-  /** Defines whether to purge all content. */
+  /** Defines whether to purge all content. Precisely one of assets, all can be set. */
   all?: boolean | null;
   /** Date the purge request was created. (RFC 3339 format) */
   created_at?: string | null;
@@ -680,9 +680,9 @@ export const PurgeRequest = /*@__PURE__*/ S.suspend(() =>
 export interface CreateRouteStageRequest {
   /** Pipeline ID the route stage belongs to. (UUID format) */
   pipeline_id: string;
-  /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
+  /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) Precisely one of waf_stage_id, backend_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
+  /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) Precisely one of waf_stage_id, backend_stage_id can be set. */
   backend_stage_id?: string | null;
 }
 export const CreateRouteStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -705,9 +705,9 @@ export interface RouteStage {
   id?: string;
   /** Pipeline ID the route stage belongs to. */
   pipeline_id?: string;
-  /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
+  /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) Precisely one of waf_stage_id, backend_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
+  /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) Precisely one of waf_stage_id, backend_stage_id can be set. */
   backend_stage_id?: string | null;
   /** Current status of the stage. */
   status?: StageStatus;
@@ -754,13 +754,13 @@ export interface CreateTLSStageRequest {
   secrets?: CreateTLSStageRequestSecretsList;
   /** True when Scaleway generates and manages a Let's Encrypt certificate for the TLS stage/custom endpoint. */
   managed_certificate?: boolean | null;
-  /** Cache stage ID the TLS stage will be linked to. (UUID format) */
+  /** Cache stage ID the TLS stage will be linked to. (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   cache_stage_id?: string | null;
-  /** Backend stage ID the TLS stage will be linked to. (UUID format) */
+  /** Backend stage ID the TLS stage will be linked to. (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   route_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   waf_stage_id?: string | null;
 }
 export const CreateTLSStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -805,13 +805,13 @@ export interface TLSStage {
   created_at?: string | null;
   /** Date the TLS stage was last updated. (RFC 3339 format) */
   updated_at?: string | null;
-  /** Cache stage ID the TLS stage is linked to. (UUID format) */
+  /** Cache stage ID the TLS stage is linked to. (UUID format) Precisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set. */
   cache_stage_id?: string | null;
-  /** Backend stage ID the TLS stage is linked to. (UUID format) */
+  /** Backend stage ID the TLS stage is linked to. (UUID format) Precisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set. */
   route_stage_id?: string | null;
 }
 export const TLSStage = /*@__PURE__*/ S.suspend(() =>
@@ -914,7 +914,7 @@ export interface CreateWafStageRequest {
   paranoia_level?: number;
   /** List of OWASP® CRS rule IDs excluded from WAF. */
   exclusion_rules?: WafExclusionRules;
-  /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) */
+  /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) Precisely one of backend_stage_id can be set. */
   backend_stage_id?: string | null;
 }
 export const CreateWafStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -955,7 +955,7 @@ export interface WafStage {
   created_at?: string | null;
   /** Date the WAF stage was last updated. (RFC 3339 format) */
   updated_at?: string | null;
-  /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) */
+  /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) Precisely one of backend_stage_id can be set. */
   backend_stage_id?: string | null;
   /** List of OWASP® CRS rule IDs excluded from WAF. */
   exclusion_rules?: WafStageExclusionRulesList;
@@ -1658,7 +1658,7 @@ export const ListHeadStagesRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListHeadStagesRequest" }) as any as S.Schema<ListHeadStagesRequest>;
 
 export interface ListHeadStagesResponseHeadStage {
-  /** (UUID format) */
+  /** (UUID format) Precisely one of dns_stage_id can be set. */
   dns_stage_id?: string | null;
 }
 export const ListHeadStagesResponseHeadStage = /*@__PURE__*/ S.suspend(() =>
@@ -2173,11 +2173,11 @@ export const SetHeadStageRequestSwapHeadStage = /*@__PURE__*/ S.suspend(() =>
 export interface SetHeadStageRequest {
   /** ID of the pipeline to update. (UUID format) */
   pipeline_id: string;
-  /** Add a new head stage. */
+  /** Add a new head stage. Precisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set. */
   add_new_head_stage?: SetHeadStageRequestAddNewHeadStage | null;
-  /** Remove a head stage. */
+  /** Remove a head stage. Precisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set. */
   remove_head_stage?: SetHeadStageRequestRemoveHeadStage | null;
-  /** Replace a head stage with a new one. */
+  /** Replace a head stage with a new one. Precisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set. */
   swap_head_stage?: SetHeadStageRequestSwapHeadStage | null;
 }
 export const SetHeadStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2306,13 +2306,13 @@ export const SetRouteRulesResponse = /*@__PURE__*/ S.suspend(() =>
 export interface UpdateBackendStageRequest {
   /** ID of the backend stage to update. */
   backend_stage_id: string;
-  /** Scaleway Object Storage origin bucket (S3) linked to the backend stage. */
+  /** Scaleway Object Storage origin bucket (S3) linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_s3?: ScalewayS3BackendConfig | null;
-  /** Scaleway Load Balancer origin linked to the backend stage. */
+  /** Scaleway Load Balancer origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_lb?: ScalewayLbBackendConfig | null;
-  /** Scaleway Serverless container origin linked to the backend stage. */
+  /** Scaleway Serverless container origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_serverless_container?: ScalewayServerlessContainerBackendConfig | null;
-  /** Scaleway Serverless function origin linked to the backend stage. */
+  /** Scaleway Serverless function origin linked to the backend stage. Precisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set. */
   scaleway_serverless_function?: ScalewayServerlessFunctionBackendConfig | null;
   /** Pipeline ID the Backend stage belongs to. */
   pipeline_id?: string;
@@ -2344,11 +2344,11 @@ export interface UpdateCacheStageRequest {
   fallback_ttl?: string | null;
   /** Defines whether responses to requests with cookies must be stored in the cache. */
   include_cookies?: boolean | null;
-  /** Backend stage ID the cache stage will be linked to. (UUID format) */
+  /** Backend stage ID the cache stage will be linked to. (UUID format) Precisely one of backend_stage_id, waf_stage_id, route_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of backend_stage_id, waf_stage_id, route_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of backend_stage_id, waf_stage_id, route_stage_id can be set. */
   route_stage_id?: string | null;
 }
 export const UpdateCacheStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2380,11 +2380,11 @@ export interface UpdateDNSStageRequest {
   dns_stage_id: string;
   /** Custom Fully Qualified Domain Name to be configured (only 1 FQDN can be setup for now). */
   fqdns?: UpdateDNSStageRequestFqdnsList | null;
-  /** TLS stage ID the DNS stage will be linked to. (UUID format) */
+  /** TLS stage ID the DNS stage will be linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   tls_stage_id?: string | null;
-  /** Cache stage ID the DNS stage will be linked to. (UUID format) */
+  /** Cache stage ID the DNS stage will be linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   cache_stage_id?: string | null;
-  /** Backend stage ID the DNS stage will be linked to. (UUID format) */
+  /** Backend stage ID the DNS stage will be linked to. (UUID format) Precisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set. */
   backend_stage_id?: string | null;
   /** Support of wildcard (subdomains) for the given domain (a wildcard certificate is required to make it work). */
   wildcard_domain?: boolean | null;
@@ -2433,9 +2433,9 @@ export const UpdatePipelineRequest = /*@__PURE__*/ S.suspend(() =>
 export interface UpdateRouteStageRequest {
   /** ID of the route stage to update. */
   route_stage_id: string;
-  /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
+  /** ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format) Precisely one of waf_stage_id, backend_stage_id can be set. */
   waf_stage_id?: string | null;
-  /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) */
+  /** ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format) Precisely one of waf_stage_id, backend_stage_id can be set. */
   backend_stage_id?: string | null;
 }
 export const UpdateRouteStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2476,13 +2476,13 @@ export interface UpdateTLSStageRequest {
   tls_secrets_config?: TLSSecretsConfig;
   /** True when Scaleway generates and manages a Let's Encrypt certificate for the TLS stage/custom endpoint. */
   managed_certificate?: boolean | null;
-  /** Cache stage ID the TLS stage will be linked to. (UUID format) */
+  /** Cache stage ID the TLS stage will be linked to. (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   cache_stage_id?: string | null;
-  /** Backend stage ID the TLS stage will be linked to. (UUID format) */
+  /** Backend stage ID the TLS stage will be linked to. (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   backend_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   route_stage_id?: string | null;
-  /** (UUID format) */
+  /** (UUID format) Precisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set. */
   waf_stage_id?: string | null;
 }
 export const UpdateTLSStageRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2513,7 +2513,7 @@ export interface UpdateWafStageRequest {
   paranoia_level?: number | null;
   /** List of OWASP® CRS rule IDs excluded from WAF. */
   exclusion_rules?: WafExclusionRules;
-  /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) */
+  /** ID of the backend stage to forward requests to after the WAF stage. (UUID format) Precisely one of backend_stage_id can be set. */
   backend_stage_id?: string | null;
 }
 export const UpdateWafStageRequest = /*@__PURE__*/ S.suspend(() =>

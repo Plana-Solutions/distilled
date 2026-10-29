@@ -347,14 +347,14 @@
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Defines whether the endpoint is public.",
+            "smithy.api#documentation": "Defines whether the endpoint is public.\nPrecisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.inference_v1#EndpointPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Details of the Private Network.",
+            "smithy.api#documentation": "Details of the Private Network.\nPrecisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -462,14 +462,14 @@
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Set the endpoint as public.",
+            "smithy.api#documentation": "Set the endpoint as public.\nPrecisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.inference_v1#EndpointPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Set the endpoint as private.\nPrivate endpoints are only accessible from the Private Network.",
+            "smithy.api#documentation": "Set the endpoint as private.\nPrivate endpoints are only accessible from the Private Network.\nPrecisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1452,6 +1452,7 @@
         "secret": {
           "target": "smithy.api#String",
           "traits": {
+            "smithy.api#documentation": "Precisely one of secret can be set.",
             "com.distilled.openapi#nullable": {},
             "smithy.api#sensitive": {}
           }

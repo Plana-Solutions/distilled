@@ -994,14 +994,14 @@
         "partner": {
           "target": "com.scaleway.interlink_v1beta1#PartnerHost",
           "traits": {
-            "smithy.api#documentation": "Partner host information.",
+            "smithy.api#documentation": "Partner host information.\nPrecisely one of partner, self can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "self": {
           "target": "com.scaleway.interlink_v1beta1#SelfHost",
           "traits": {
-            "smithy.api#documentation": "Self-host information.",
+            "smithy.api#documentation": "Self-host information.\nPrecisely one of partner, self can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1241,14 +1241,14 @@
         "connection_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "If set, creates a self-hosted link using this dedicated physical connection. As the customer, specify the ID of the physical connection you already have for this link. (UUID format)",
+            "smithy.api#documentation": "If set, creates a self-hosted link using this dedicated physical connection. As the customer, specify the ID of the physical connection you already have for this link. (UUID format)\nPrecisely one of connection_id, partner_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "partner_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "If set, creates a hosted link on a partner's connection. Specify the ID of the chosen partner, who already has a shared connection with available bandwidth. (UUID format)",
+            "smithy.api#documentation": "If set, creates a hosted link on a partner's connection. Specify the ID of the chosen partner, who already has a shared connection with available bandwidth. (UUID format)\nPrecisely one of connection_id, partner_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

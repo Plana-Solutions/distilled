@@ -114,9 +114,9 @@ export interface CreateDatabaseRequest {
   hosting_id: string;
   /** Name of the database to be created. */
   database_name?: string;
-  /** (Optional) Username and password to create a user and link to the database. */
+  /** (Optional) Username and password to create a user and link to the database. Precisely one of new_user, existing_username can be set. */
   new_user?: CreateDatabaseRequestUser | null;
-  /** (Optional) Username to link an existing user to the database. */
+  /** (Optional) Username to link an existing user to the database. Precisely one of new_user, existing_username can be set. */
   existing_username?: string | null;
 }
 export const CreateDatabaseRequest = /*@__PURE__*/ S.suspend(() =>

@@ -10,7 +10,7 @@ import * as T from "../traits.ts";
 
 export type { ScalewayOpError, ScalewayOpContext };
 
-export type CreateContactPointRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type CreateContactPointRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const CreateContactPointRequestRegion = S.String;
 
 export interface ContactPointEmail {
@@ -27,7 +27,7 @@ export interface CreateContactPointRequest {
   region?: CreateContactPointRequestRegion | (string & {});
   /** ID of the Project to create the contact point in. */
   project_id: string;
-  /** Email address of the contact point to create. */
+  /** Email address of the contact point to create. Precisely one of email can be set. */
   email?: ContactPointEmail | null;
   /** Send an email notification when an alert is marked as resolved. */
   send_resolved_notifications?: boolean | null;
@@ -51,7 +51,7 @@ export const CreateContactPointRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<CreateContactPointRequest>;
 
 export interface ContactPoint {
-  /** Email address to send alerts to. */
+  /** Email address to send alerts to. Precisely one of email can be set. */
   email?: ContactPointEmail | null;
   /** Region. */
   region?: string;
@@ -66,7 +66,7 @@ export const ContactPoint = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ContactPoint" }) as any as S.Schema<ContactPoint>;
 
-export type CreateDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type CreateDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const CreateDataSourceRequestRegion = S.String;
 
 export type DataSourceType = "unknown_type" | "metrics" | "logs" | "traces";
@@ -150,7 +150,7 @@ export const DataSource = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "DataSource" }) as any as S.Schema<DataSource>;
 
-export type CreateExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type CreateExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const CreateExporterRequestRegion = S.String;
 
 export interface ExporterDatadogDestination {
@@ -194,9 +194,9 @@ export interface CreateExporterRequest {
   region?: CreateExporterRequestRegion | (string & {});
   /** ID of the data source linked to the data export. */
   datasource_id: string;
-  /** Datadog destination configuration for the data export. */
+  /** Datadog destination configuration for the data export. One of datadog_destination, otlp_destination is required. */
   datadog_destination?: ExporterDatadogDestination | null;
-  /** OTLP destination configuration for the data export. */
+  /** OTLP destination configuration for the data export. One of datadog_destination, otlp_destination is required. */
   otlp_destination?: ExporterOTLPDestination | null;
   /** The list of products name your data export send to the destination. To include all products in your data export, you can use an array containing "all" You can retrieve the complete list of product names using the `ListProducts` endpoint. */
   exported_products: CreateExporterRequestExportedProductsList;
@@ -242,9 +242,9 @@ export interface Exporter {
   description?: string;
   /** ID of the data source linked to the data export. (UUID format) */
   datasource_id?: string;
-  /** Datadog destination configuration for the data export. */
+  /** Datadog destination configuration for the data export. Precisely one of datadog_destination, otlp_destination can be set. */
   datadog_destination?: ExporterDatadogDestination | null;
-  /** OTLP destination configuration for the data export. */
+  /** OTLP destination configuration for the data export. Precisely one of datadog_destination, otlp_destination can be set. */
   otlp_destination?: ExporterOTLPDestination | null;
   /** Status of the data export. */
   status?: ExporterStatus;
@@ -276,7 +276,7 @@ export const Exporter = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "Exporter" }) as any as S.Schema<Exporter>;
 
-export type CreateTokenRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type CreateTokenRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const CreateTokenRequestRegion = S.String;
 
 export type TokenScope =
@@ -361,7 +361,7 @@ export const Token = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "Token" }) as any as S.Schema<Token>;
 
-export type DeleteContactPointRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type DeleteContactPointRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const DeleteContactPointRequestRegion = S.String;
 
 export interface DeleteContactPointRequest {
@@ -369,7 +369,7 @@ export interface DeleteContactPointRequest {
   region?: DeleteContactPointRequestRegion | (string & {});
   /** ID of the Project containing the contact point to delete. */
   project_id: string;
-  /** Email address of the contact point to delete. */
+  /** Email address of the contact point to delete. Precisely one of email can be set. */
   email?: ContactPointEmail | null;
 }
 export const DeleteContactPointRequest = /*@__PURE__*/ S.suspend(() =>
@@ -394,7 +394,7 @@ export const DeleteContactPointResponse = /*@__PURE__*/ S.suspend(() => S.Struct
   identifier: "DeleteContactPointResponse",
 }) as any as S.Schema<DeleteContactPointResponse>;
 
-export type DeleteDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type DeleteDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const DeleteDataSourceRequestRegion = S.String;
 
 export interface DeleteDataSourceRequest {
@@ -422,7 +422,7 @@ export const DeleteDataSourceResponse = /*@__PURE__*/ S.suspend(() => S.Struct({
   identifier: "DeleteDataSourceResponse",
 }) as any as S.Schema<DeleteDataSourceResponse>;
 
-export type DeleteExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type DeleteExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const DeleteExporterRequestRegion = S.String;
 
 export interface DeleteExporterRequest {
@@ -450,7 +450,7 @@ export const DeleteExporterResponse = /*@__PURE__*/ S.suspend(() => S.Struct({})
   identifier: "DeleteExporterResponse",
 }) as any as S.Schema<DeleteExporterResponse>;
 
-export type DeleteTokenRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type DeleteTokenRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const DeleteTokenRequestRegion = S.String;
 
 export interface DeleteTokenRequest {
@@ -478,7 +478,7 @@ export const DeleteTokenResponse = /*@__PURE__*/ S.suspend(() => S.Struct({})).a
   identifier: "DeleteTokenResponse",
 }) as any as S.Schema<DeleteTokenResponse>;
 
-export type DisableAlertManagerRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type DisableAlertManagerRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const DisableAlertManagerRequestRegion = S.String;
 
 export interface DisableAlertManagerRequest {
@@ -528,7 +528,7 @@ export const AlertManager = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "AlertManager" }) as any as S.Schema<AlertManager>;
 
-export type DisableAlertRulesRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type DisableAlertRulesRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const DisableAlertRulesRequestRegion = S.String;
 
 /** List of IDs of the rules to enable. If empty, disables all preconfigured rules. (UUID format) */
@@ -578,7 +578,7 @@ export const DisableAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   identifier: "DisableAlertRulesResponse",
 }) as any as S.Schema<DisableAlertRulesResponse>;
 
-export type EnableAlertManagerRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type EnableAlertManagerRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const EnableAlertManagerRequestRegion = S.String;
 
 export interface EnableAlertManagerRequest {
@@ -603,7 +603,7 @@ export const EnableAlertManagerRequest = /*@__PURE__*/ S.suspend(() =>
   identifier: "EnableAlertManagerRequest",
 }) as any as S.Schema<EnableAlertManagerRequest>;
 
-export type EnableAlertRulesRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type EnableAlertRulesRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const EnableAlertRulesRequestRegion = S.String;
 
 /** List of IDs of the rules to enable. If empty, enables all preconfigured rules. (UUID format) */
@@ -651,7 +651,7 @@ export const EnableAlertRulesResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "EnableAlertRulesResponse" }) as any as S.Schema<EnableAlertRulesResponse>;
 
-export type GetAlertManagerRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetAlertManagerRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetAlertManagerRequestRegion = S.String;
 
 export interface GetAlertManagerRequest {
@@ -674,7 +674,7 @@ export const GetAlertManagerRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "GetAlertManagerRequest" }) as any as S.Schema<GetAlertManagerRequest>;
 
-export type GetConfigRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetConfigRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetConfigRequestRegion = S.String;
 
 export interface GetConfigRequest {
@@ -731,7 +731,7 @@ export const GetConfigResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "GetConfigResponse" }) as any as S.Schema<GetConfigResponse>;
 
-export type GetDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetDataSourceRequestRegion = S.String;
 
 export interface GetDataSourceRequest {
@@ -754,7 +754,7 @@ export const GetDataSourceRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "GetDataSourceRequest" }) as any as S.Schema<GetDataSourceRequest>;
 
-export type GetExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetExporterRequestRegion = S.String;
 
 export interface GetExporterRequest {
@@ -777,7 +777,7 @@ export const GetExporterRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "GetExporterRequest" }) as any as S.Schema<GetExporterRequest>;
 
-export type GetRulesCountRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetRulesCountRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetRulesCountRequestRegion = S.String;
 
 export interface GetRulesCountRequest {
@@ -838,7 +838,7 @@ export const GetRulesCountResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "GetRulesCountResponse" }) as any as S.Schema<GetRulesCountResponse>;
 
-export type GetTokenRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetTokenRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetTokenRequestRegion = S.String;
 
 export interface GetTokenRequest {
@@ -861,7 +861,7 @@ export const GetTokenRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "GetTokenRequest" }) as any as S.Schema<GetTokenRequest>;
 
-export type GetUsageOverviewRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type GetUsageOverviewRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const GetUsageOverviewRequestRegion = S.String;
 
 export interface GetUsageOverviewRequest {
@@ -937,7 +937,7 @@ export const UsageOverview = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "UsageOverview" }) as any as S.Schema<UsageOverview>;
 
-export type ListAlertsRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type ListAlertsRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const ListAlertsRequestRegion = S.String;
 
 export type AlertStatus = "unknown_status" | "enabled" | "disabled" | "enabling" | "disabling";
@@ -1063,7 +1063,7 @@ export const ListAlertsResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ListAlertsResponse" }) as any as S.Schema<ListAlertsResponse>;
 
-export type ListContactPointsRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type ListContactPointsRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const ListContactPointsRequestRegion = S.String;
 
 export interface ListContactPointsRequest {
@@ -1119,7 +1119,7 @@ export const ListContactPointsResponse = /*@__PURE__*/ S.suspend(() =>
   identifier: "ListContactPointsResponse",
 }) as any as S.Schema<ListContactPointsResponse>;
 
-export type ListDataSourcesRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type ListDataSourcesRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const ListDataSourcesRequestRegion = S.String;
 
 export type ListDataSourcesRequestTypesList = Array<DataSourceType | (string & {})>;
@@ -1190,7 +1190,7 @@ export const ListDataSourcesResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ListDataSourcesResponse" }) as any as S.Schema<ListDataSourcesResponse>;
 
-export type ListExportersRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type ListExportersRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const ListExportersRequestRegion = S.String;
 
 export type ListExportersRequestOrderBy =
@@ -1251,7 +1251,7 @@ export const ListExportersResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ListExportersResponse" }) as any as S.Schema<ListExportersResponse>;
 
-export type ListProductsRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type ListProductsRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const ListProductsRequestRegion = S.String;
 
 export type ListProductsRequestOrderBy =
@@ -1325,7 +1325,7 @@ export const ListProductsResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ListProductsResponse" }) as any as S.Schema<ListProductsResponse>;
 
-export type ListTokensRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type ListTokensRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const ListTokensRequestRegion = S.String;
 
 export type ListTokensRequestTokenScopesList = Array<TokenScope | (string & {})>;
@@ -1391,7 +1391,7 @@ export const ListTokensResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ListTokensResponse" }) as any as S.Schema<ListTokensResponse>;
 
-export type TriggerTestAlertRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type TriggerTestAlertRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const TriggerTestAlertRequestRegion = S.String;
 
 export interface TriggerTestAlertRequest {
@@ -1419,7 +1419,7 @@ export const TriggerTestAlertResponse = /*@__PURE__*/ S.suspend(() => S.Struct({
   identifier: "TriggerTestAlertResponse",
 }) as any as S.Schema<TriggerTestAlertResponse>;
 
-export type UpdateContactPointRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type UpdateContactPointRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const UpdateContactPointRequestRegion = S.String;
 
 export interface UpdateContactPointRequest {
@@ -1427,7 +1427,7 @@ export interface UpdateContactPointRequest {
   region?: UpdateContactPointRequestRegion | (string & {});
   /** ID of the Project containing the contact point to update. */
   project_id: string;
-  /** Email address of the contact point to update. */
+  /** Email address of the contact point to update. Precisely one of email can be set. */
   email?: ContactPointEmail | null;
   /** Enable or disable notifications when alert is resolved. */
   send_resolved_notifications?: boolean | null;
@@ -1450,7 +1450,7 @@ export const UpdateContactPointRequest = /*@__PURE__*/ S.suspend(() =>
   identifier: "UpdateContactPointRequest",
 }) as any as S.Schema<UpdateContactPointRequest>;
 
-export type UpdateDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type UpdateDataSourceRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const UpdateDataSourceRequestRegion = S.String;
 
 export interface UpdateDataSourceRequest {
@@ -1479,7 +1479,7 @@ export const UpdateDataSourceRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "UpdateDataSourceRequest" }) as any as S.Schema<UpdateDataSourceRequest>;
 
-export type UpdateExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
+export type UpdateExporterRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "it-mil";
 export const UpdateExporterRequestRegion = S.String;
 
 /** Updated list of Scaleway products to export. To include all products in your data export, you can use an array containing "all" You can retrieve the complete list of product names using the `ListProducts` endpoint. */
@@ -1493,9 +1493,9 @@ export interface UpdateExporterRequest {
   region?: UpdateExporterRequestRegion | (string & {});
   /** ID of the data export to update. */
   exporter_id: string;
-  /** Updated Datadog destination configuration for the data export. */
+  /** Updated Datadog destination configuration for the data export. Precisely one of datadog_destination, otlp_destination can be set. */
   datadog_destination?: ExporterDatadogDestination | null;
-  /** Updated OTLP destination configuration for the data export. */
+  /** Updated OTLP destination configuration for the data export. Precisely one of datadog_destination, otlp_destination can be set. */
   otlp_destination?: ExporterOTLPDestination | null;
   /** Updated name of the data export. */
   name?: string | null;

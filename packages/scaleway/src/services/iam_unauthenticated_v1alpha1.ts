@@ -481,9 +481,9 @@ export const EncodedJWT = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "EncodedJWT" }) as any as S.Schema<EncodedJWT>;
 
 export interface SearchOrganizationRequest {
-  /** Search for an organization using its ID. */
+  /** Search for an organization using its ID. One of organization_id, organization_alias is required. */
   organization_id?: string;
-  /** Search for an organization using its alias. */
+  /** Search for an organization using its alias. One of organization_id, organization_alias is required. */
   organization_alias?: string;
 }
 export const SearchOrganizationRequest = /*@__PURE__*/ S.suspend(() =>

@@ -198,54 +198,63 @@
         "host_website": {
           "target": "com.scaleway.account_project_v3#QualificationHostWebsite",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "host_application": {
           "target": "com.scaleway.account_project_v3#QualificationHostApplication",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "deploy_software": {
           "target": "com.scaleway.account_project_v3#QualificationDeploySoftware",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "set_scaleway_environment": {
           "target": "com.scaleway.account_project_v3#QualificationSetScalewayEnvironment",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "ai_machine": {
           "target": "com.scaleway.account_project_v3#QualificationAiMachine",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "container": {
           "target": "com.scaleway.account_project_v3#QualificationContainer",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "archive_data": {
           "target": "com.scaleway.account_project_v3#QualificationArchiveData",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "share_data": {
           "target": "com.scaleway.account_project_v3#QualificationShareData",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "other_use_case": {
           "target": "com.scaleway.account_project_v3#QualificationOtherUseCase",
           "traits": {
+            "smithy.api#documentation": "Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

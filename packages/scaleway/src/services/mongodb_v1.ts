@@ -73,8 +73,11 @@ export const InfrastructureUpdate = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "InfrastructureUpdate" }) as any as S.Schema<InfrastructureUpdate>;
 
 export interface Workflow {
+  /** Precisely one of engine_upgrade, service_update, infrastructure_update can be set. */
   engine_upgrade?: EngineUpgrade | null;
+  /** Precisely one of engine_upgrade, service_update, infrastructure_update can be set. */
   service_update?: ServiceUpdate | null;
+  /** Precisely one of engine_upgrade, service_update, infrastructure_update can be set. */
   infrastructure_update?: InfrastructureUpdate | null;
 }
 export const Workflow = /*@__PURE__*/ S.suspend(() =>
@@ -147,9 +150,9 @@ export const EndpointSpecPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkDetails>;
 
 export interface EndpointSpec {
-  /** Expose the Database Instance publicly (empty object). */
+  /** Expose the Database Instance publicly (empty object). Precisely one of public_network, private_network can be set. */
   public_network?: unknown | null;
-  /** Attach the Database Instance to a Private Network. */
+  /** Attach the Database Instance to a Private Network. Precisely one of public_network, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -201,9 +204,9 @@ export interface Endpoint {
   dns_record?: string;
   /** TCP port of the endpoint. */
   port?: number;
-  /** Private Network endpoint details. */
+  /** Private Network endpoint details. Precisely one of private_network, public_network can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
-  /** Public Network endpoint details. */
+  /** Public Network endpoint details. Precisely one of private_network, public_network can be set. */
   public_network?: unknown | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
@@ -547,9 +550,9 @@ export const UserRoleRole = S.String;
 export interface UserRole {
   /** Name of the preset role. */
   role?: UserRoleRole | (string & {});
-  /** Name of the database on which the preset role will be used. */
+  /** Name of the database on which the preset role will be used. Precisely one of database_name, any_database can be set. */
   database_name?: string | null;
-  /** Flag to enable the preset role in all databases. */
+  /** Flag to enable the preset role in all databases. Precisely one of database_name, any_database can be set. */
   any_database?: boolean | null;
 }
 export const UserRole = /*@__PURE__*/ S.suspend(() =>
@@ -1488,9 +1491,9 @@ export interface UpgradeInstanceRequest {
   region?: UpgradeInstanceRequestRegion | (string & {});
   /** UUID of the Database Instance you want to upgrade. (UUID format) */
   instance_id: string;
-  /** Increase your Block Storage volume size. (in bytes) */
+  /** Increase your Block Storage volume size. (in bytes) Precisely one of volume_size_bytes, version can be set. */
   volume_size_bytes?: number | null;
-  /** MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`). */
+  /** MongoDB version to upgrade to (e.g., `8.0`, `7.0`, `8.2`). Precisely one of volume_size_bytes, version can be set. */
   version?: string | null;
 }
 export const UpgradeInstanceRequest = /*@__PURE__*/ S.suspend(() =>

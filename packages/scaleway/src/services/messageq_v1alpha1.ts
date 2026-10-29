@@ -50,7 +50,9 @@ export const EndpointSpecPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkDetails>;
 
 export interface EndpointSpec {
+  /** Precisely one of public, private_network can be set. */
   public?: unknown | null;
+  /** Precisely one of public, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -174,7 +176,9 @@ export interface Endpoint {
   region?: string;
   /** The SRN of the endpoint. */
   srn?: string;
+  /** Precisely one of public, private_network can be set. */
   public?: unknown | null;
+  /** Precisely one of public, private_network can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
@@ -890,9 +894,9 @@ export interface UpgradeDeploymentRequest {
   region?: UpgradeDeploymentRequestRegion | (string & {});
   /** ID of the deployment. (UUID format) */
   deployment_id: string;
-  /** Target number of nodes. */
+  /** Target number of nodes. Precisely one of node_count, volume_size_bytes can be set. */
   node_count?: number | null;
-  /** Target volume size. (in bytes) */
+  /** Target volume size. (in bytes) Precisely one of node_count, volume_size_bytes can be set. */
   volume_size_bytes?: number | null;
 }
 export const UpgradeDeploymentRequest = /*@__PURE__*/ S.suspend(() =>

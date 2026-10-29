@@ -895,14 +895,14 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#httpQuery": "organization_id",
-            "smithy.api#documentation": "Search for an organization using its ID."
+            "smithy.api#documentation": "Search for an organization using its ID.\nOne of organization_id, organization_alias is required."
           }
         },
         "organization_alias": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#httpQuery": "organization_alias",
-            "smithy.api#documentation": "Search for an organization using its alias."
+            "smithy.api#documentation": "Search for an organization using its alias.\nOne of organization_id, organization_alias is required."
           }
         }
       },

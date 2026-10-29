@@ -36,12 +36,14 @@
         "public": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.mongodb_v1alpha1#EndpointSpecPrivateNetworkDetails",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -119,14 +121,14 @@
         "private_network": {
           "target": "com.scaleway.mongodb_v1alpha1#EndpointPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Private Network endpoint details.",
+            "smithy.api#documentation": "Private Network endpoint details.\nPrecisely one of private_network, public can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Public endpoint details.",
+            "smithy.api#documentation": "Public endpoint details.\nPrecisely one of private_network, public can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1097,14 +1099,14 @@
         "database": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database on which the preset role will be used.",
+            "smithy.api#documentation": "Name of the database on which the preset role will be used.\nPrecisely one of database, any_database can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "any_database": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Flag to enable the preset role in all databases.",
+            "smithy.api#documentation": "Flag to enable the preset role in all databases.\nPrecisely one of database, any_database can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1473,7 +1475,7 @@
         "volume_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Increase your Block Storage volume size. (in bytes)",
+            "smithy.api#documentation": "Increase your Block Storage volume size. (in bytes)\nPrecisely one of volume_size can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

@@ -2191,7 +2191,7 @@
         "perf_iops": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`).",
+            "smithy.api#documentation": "The maximum IO/s expected, according to the different options available in stock (`5000 | 15000`).\nPrecisely one of perf_iops can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2205,14 +2205,14 @@
         "from_empty": {
           "target": "com.scaleway.block_v1alpha1#CreateVolumeRequestFromEmpty",
           "traits": {
-            "smithy.api#documentation": "Specify the size of the new volume if creating a new one from scratch.",
+            "smithy.api#documentation": "Specify the size of the new volume if creating a new one from scratch.\nOne of from_empty, from_snapshot is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "from_snapshot": {
           "target": "com.scaleway.block_v1alpha1#CreateVolumeRequestFromSnapshot",
           "traits": {
-            "smithy.api#documentation": "Specify the snapshot ID of the original snapshot.",
+            "smithy.api#documentation": "Specify the snapshot ID of the original snapshot.\nOne of from_empty, from_snapshot is required.",
             "com.distilled.openapi#nullable": {}
           }
         },

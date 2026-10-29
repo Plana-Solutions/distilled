@@ -487,14 +487,14 @@
         "new_user": {
           "target": "com.scaleway.webhosting_database_v1#CreateDatabaseRequestUser",
           "traits": {
-            "smithy.api#documentation": "(Optional) Username and password to create a user and link to the database.",
+            "smithy.api#documentation": "(Optional) Username and password to create a user and link to the database.\nPrecisely one of new_user, existing_username can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "existing_username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(Optional) Username to link an existing user to the database.",
+            "smithy.api#documentation": "(Optional) Username to link an existing user to the database.\nPrecisely one of new_user, existing_username can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

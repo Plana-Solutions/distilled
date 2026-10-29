@@ -135,14 +135,14 @@
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email of the user.",
+            "smithy.api#documentation": "Email of the user.\nPrecisely one of email, oidc can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "oidc": {
           "target": "com.scaleway.account_unauthenticated_user_v3#CreateAccountRequestOIDC",
           "traits": {
-            "smithy.api#documentation": "OpenID Connect authentication information that allows a user to authenticate through an external identity provider.\nIf this field is used, the `email` field must not be set.",
+            "smithy.api#documentation": "OpenID Connect authentication information that allows a user to authenticate through an external identity provider.\nIf this field is used, the `email` field must not be set.\nPrecisely one of email, oidc can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -346,6 +346,7 @@
         "webauthn": {
           "target": "com.scaleway.account_unauthenticated_user_v3#LogInOrganizationsResponseWebAuthnMetadata",
           "traits": {
+            "smithy.api#documentation": "Precisely one of webauthn can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -775,7 +776,7 @@
         "otp": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "OTP of the user.",
+            "smithy.api#documentation": "OTP of the user.\nPrecisely one of otp, webauthn can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -789,7 +790,7 @@
         "webauthn": {
           "target": "com.scaleway.account_unauthenticated_user_v3#FinishWebAuthnAuthenticationRequest2",
           "traits": {
-            "smithy.api#documentation": "WebAuthn response to the authentication ceremony.",
+            "smithy.api#documentation": "WebAuthn response to the authentication ceremony.\nPrecisely one of otp, webauthn can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -852,14 +853,14 @@
         "otp": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "OTP of the user.",
+            "smithy.api#documentation": "OTP of the user.\nPrecisely one of otp, webauthn can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "webauthn": {
           "target": "com.scaleway.account_unauthenticated_user_v3#FinishWebAuthnAuthenticationRequest2",
           "traits": {
-            "smithy.api#documentation": "WebAuthn response to the authentication ceremony.",
+            "smithy.api#documentation": "WebAuthn response to the authentication ceremony.\nPrecisely one of otp, webauthn can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -984,27 +985,28 @@
         "password": {
           "target": "com.scaleway.account_unauthenticated_user_v3#CreateLoginSessionRequestPassword",
           "traits": {
-            "smithy.api#documentation": "Log in with password.",
+            "smithy.api#documentation": "Log in with password.\nOne of password, passwordless, oidc, authentication_code is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "passwordless": {
           "target": "com.scaleway.account_unauthenticated_user_v3#CreateLoginSessionRequestPasswordless",
           "traits": {
-            "smithy.api#documentation": "Log in with passwordless.",
+            "smithy.api#documentation": "Log in with passwordless.\nOne of password, passwordless, oidc, authentication_code is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "oidc": {
           "target": "com.scaleway.account_unauthenticated_user_v3#CreateLoginSessionRequestOIDC",
           "traits": {
-            "smithy.api#documentation": "Log in with OpenID Connect.",
+            "smithy.api#documentation": "Log in with OpenID Connect.\nOne of password, passwordless, oidc, authentication_code is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "authentication_code": {
           "target": "com.scaleway.account_unauthenticated_user_v3#CreateLoginSessionRequestAuthenticationCode",
           "traits": {
+            "smithy.api#documentation": "One of password, passwordless, oidc, authentication_code is required.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1544,14 +1546,14 @@
         "professional_organization": {
           "target": "com.scaleway.account_unauthenticated_user_v3#ProfessionalOrganization",
           "traits": {
-            "smithy.api#documentation": "Details of the professional organization.",
+            "smithy.api#documentation": "Details of the professional organization.\nPrecisely one of professional_organization, personal_organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "personal_organization": {
           "target": "com.scaleway.account_unauthenticated_user_v3#PersonalOrganization",
           "traits": {
-            "smithy.api#documentation": "Details of the personal organization.",
+            "smithy.api#documentation": "Details of the personal organization.\nPrecisely one of professional_organization, personal_organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

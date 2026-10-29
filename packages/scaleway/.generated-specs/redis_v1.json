@@ -386,14 +386,14 @@
         "private_network": {
           "target": "com.scaleway.redis_v1#PrivateNetwork",
           "traits": {
-            "smithy.api#documentation": "Private Network details.",
+            "smithy.api#documentation": "Private Network details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Public network details.",
+            "smithy.api#documentation": "Public network details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1136,14 +1136,14 @@
         "private_network": {
           "target": "com.scaleway.redis_v1#EndpointSpecPrivateNetworkSpec",
           "traits": {
-            "smithy.api#documentation": "Private Network specification details.",
+            "smithy.api#documentation": "Private Network specification details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Public network specification details.",
+            "smithy.api#documentation": "Public network specification details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2429,21 +2429,21 @@
         "version": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Redis™ engine version of the Database Instance.",
+            "smithy.api#documentation": "Redis™ engine version of the Database Instance.\nPrecisely one of version, node_type, cluster_size can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Type of node to use for the Database Instance.",
+            "smithy.api#documentation": "Type of node to use for the Database Instance.\nPrecisely one of version, node_type, cluster_size can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cluster_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Number of nodes for the Database Instance.",
+            "smithy.api#documentation": "Number of nodes for the Database Instance.\nPrecisely one of version, node_type, cluster_size can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3009,14 +3009,14 @@
         "private_network": {
           "target": "com.scaleway.redis_v1#EndpointSpecPrivateNetworkSpec",
           "traits": {
-            "smithy.api#documentation": "Private Network details.",
+            "smithy.api#documentation": "Private Network details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Public network details.",
+            "smithy.api#documentation": "Public network details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

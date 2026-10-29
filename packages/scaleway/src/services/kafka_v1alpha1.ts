@@ -50,7 +50,9 @@ export const EndpointSpecPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkDetails>;
 
 export interface EndpointSpec {
+  /** Precisely one of public_network, private_network can be set. */
   public_network?: unknown | null;
+  /** Precisely one of public_network, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -99,9 +101,9 @@ export interface CreateClusterRequest {
   user_name?: string | null;
   /** Password for the kafka user. */
   password?: string | Redacted.Redacted<string> | null;
-  /** MultiAZ tell the cluster is deployed on multiple availability zones in the region. */
+  /** MultiAZ tell the cluster is deployed on multiple availability zones in the region. Precisely one of multi_az, mono_az can be set. */
   multi_az?: unknown | null;
-  /** MonoAZ details. */
+  /** MonoAZ details. Precisely one of multi_az, mono_az can be set. */
   mono_az?: ClusterMonoAZDetails | null;
 }
 export const CreateClusterRequest = /*@__PURE__*/ S.suspend(() =>
@@ -148,13 +150,13 @@ export const ClusterTagsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schem
 export interface ClusterSetting {
   /** Name of the setting. */
   name?: string;
-  /** Boolean value of the setting. */
+  /** Boolean value of the setting. Precisely one of bool_value, string_value, int_value, float_value can be set. */
   bool_value?: boolean | null;
-  /** String value of the setting. */
+  /** String value of the setting. Precisely one of bool_value, string_value, int_value, float_value can be set. */
   string_value?: string | null;
-  /** Integer value of the setting. */
+  /** Integer value of the setting. Precisely one of bool_value, string_value, int_value, float_value can be set. */
   int_value?: number | null;
-  /** Float value of the setting. */
+  /** Float value of the setting. Precisely one of bool_value, string_value, int_value, float_value can be set. */
   float_value?: number | null;
 }
 export const ClusterSetting = /*@__PURE__*/ S.suspend(() =>
@@ -211,9 +213,9 @@ export interface Endpoint {
   dns_records?: EndpointDnsRecordsList;
   /** TCP port of the endpoint. */
   port?: number;
-  /** Private Network endpoint details. */
+  /** Private Network endpoint details. Precisely one of private_network, public_network can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
-  /** Public endpoint details. */
+  /** Public endpoint details. Precisely one of private_network, public_network can be set. */
   public_network?: unknown | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
@@ -263,9 +265,9 @@ export interface Cluster {
   updated_at?: string | null;
   /** Region the Kafka cluster is in. */
   region?: string;
-  /** MultiAZ tell the cluster is deployed on multiple availability zones in the region. */
+  /** MultiAZ tell the cluster is deployed on multiple availability zones in the region. Precisely one of multi_az, mono_az can be set. */
   multi_az?: unknown | null;
-  /** MonoAZ details. */
+  /** MonoAZ details. Precisely one of multi_az, mono_az can be set. */
   mono_az?: ClusterMonoAZDetails | null;
 }
 export const Cluster = /*@__PURE__*/ S.suspend(() =>
@@ -777,13 +779,13 @@ export interface VersionAvailableSetting {
   hot_configurable?: boolean;
   /** Setting description. */
   description?: string;
-  /** Boolean property, if the setting is a boolean. */
+  /** Boolean property, if the setting is a boolean. Precisely one of bool_property, string_property, int_property, float_property can be set. */
   bool_property?: VersionAvailableSettingBooleanProperty | null;
-  /** String property, if the setting is a string. */
+  /** String property, if the setting is a string. Precisely one of bool_property, string_property, int_property, float_property can be set. */
   string_property?: VersionAvailableSettingStringProperty | null;
-  /** Integer property, if the setting is an integer. */
+  /** Integer property, if the setting is an integer. Precisely one of bool_property, string_property, int_property, float_property can be set. */
   int_property?: VersionAvailableSettingIntegerProperty | null;
-  /** Float property, if the setting is a float. */
+  /** Float property, if the setting is a float. Precisely one of bool_property, string_property, int_property, float_property can be set. */
   float_property?: VersionAvailableSettingIntegerProperty | null;
 }
 export const VersionAvailableSetting = /*@__PURE__*/ S.suspend(() =>

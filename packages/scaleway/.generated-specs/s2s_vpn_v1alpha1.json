@@ -1483,14 +1483,14 @@
         "routing_policy_v4": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the routing policy to detach from the BGP IPv4 session. (UUID format)",
+            "smithy.api#documentation": "ID of the routing policy to detach from the BGP IPv4 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "routing_policy_v6": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the routing policy to detach from the BGP IPv6 session. (UUID format)",
+            "smithy.api#documentation": "ID of the routing policy to detach from the BGP IPv6 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1806,14 +1806,14 @@
         "routing_policy_v4": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the routing policy to set for the BGP IPv4 session. (UUID format)",
+            "smithy.api#documentation": "ID of the routing policy to set for the BGP IPv4 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "routing_policy_v6": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the routing policy to set for the BGP IPv6 session. (UUID format)",
+            "smithy.api#documentation": "ID of the routing policy to set for the BGP IPv6 session. (UUID format)\nPrecisely one of routing_policy_v4, routing_policy_v6 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3657,13 +3657,14 @@
         "public_config": {
           "target": "com.scaleway.s2s_vpn_v1alpha1#VpnGatewayPublicConfig",
           "traits": {
-            "smithy.api#documentation": "Public endpoint configuration of the VPN gateway.",
+            "smithy.api#documentation": "Public endpoint configuration of the VPN gateway.\nPrecisely one of public_config, private_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_config": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public_config, private_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3849,18 +3850,21 @@
         "single_ipv4_tunnel": {
           "target": "com.scaleway.s2s_vpn_v1alpha1#CreateVpnGatewayRequestSingleIpTunnel",
           "traits": {
+            "smithy.api#documentation": "Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "single_ipv6_tunnel": {
           "target": "com.scaleway.s2s_vpn_v1alpha1#CreateVpnGatewayRequestSingleIpTunnel",
           "traits": {
+            "smithy.api#documentation": "Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "dual_ipv4v6_tunnel": {
           "target": "com.scaleway.s2s_vpn_v1alpha1#CreateVpnGatewayRequestDualIpTunnel",
           "traits": {
+            "smithy.api#documentation": "Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3940,7 +3944,7 @@
         "public_config": {
           "target": "com.scaleway.s2s_vpn_v1alpha1#CreateVpnGatewayRequestPublicConfig",
           "traits": {
-            "smithy.api#documentation": "Public endpoint configuration of the VPN gateway.",
+            "smithy.api#documentation": "Public endpoint configuration of the VPN gateway.\nPrecisely one of public_config, public_tunnel_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3954,6 +3958,7 @@
         "public_tunnel_config": {
           "target": "com.scaleway.s2s_vpn_v1alpha1#CreateVpnGatewayRequestPublicTunnelConfig",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public_config, public_tunnel_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

@@ -861,21 +861,21 @@
         "fixed_size": {
           "target": "com.scaleway.autoscaling_v1alpha2#GroupScalingPolicyScalingPolicyFixedSize",
           "traits": {
-            "smithy.api#documentation": "Fixed size scaling policy configuration.",
+            "smithy.api#documentation": "Fixed size scaling policy configuration.\nPrecisely one of fixed_size, cpu_target, memory_target can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cpu_target": {
           "target": "com.scaleway.autoscaling_v1alpha2#GroupScalingPolicyScalingPolicyCpuTarget",
           "traits": {
-            "smithy.api#documentation": "CPU target scaling policy configuration.",
+            "smithy.api#documentation": "CPU target scaling policy configuration.\nPrecisely one of fixed_size, cpu_target, memory_target can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "memory_target": {
           "target": "com.scaleway.autoscaling_v1alpha2#GroupScalingPolicyScalingPolicyMemoryTarget",
           "traits": {
-            "smithy.api#documentation": "Memory target scaling policy configuration.",
+            "smithy.api#documentation": "Memory target scaling policy configuration.\nPrecisely one of fixed_size, cpu_target, memory_target can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1225,18 +1225,21 @@
         "fixed_size": {
           "target": "com.scaleway.autoscaling_v1alpha2#GroupScalingPolicyScalingPolicyFixedSize",
           "traits": {
+            "smithy.api#documentation": "Precisely one of fixed_size, cpu_target, memory_target can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cpu_target": {
           "target": "com.scaleway.autoscaling_v1alpha2#GroupScalingPolicyScalingPolicyCpuTarget",
           "traits": {
+            "smithy.api#documentation": "Precisely one of fixed_size, cpu_target, memory_target can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "memory_target": {
           "target": "com.scaleway.autoscaling_v1alpha2#GroupScalingPolicyScalingPolicyMemoryTarget",
           "traits": {
+            "smithy.api#documentation": "Precisely one of fixed_size, cpu_target, memory_target can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

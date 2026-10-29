@@ -622,8 +622,11 @@ export type CreateVpnGatewayRequestDualIpTunnel = CreateVpnGatewayRequestPublicC
 export const CreateVpnGatewayRequestDualIpTunnel = CreateVpnGatewayRequestPublicConfig;
 
 export interface CreateVpnGatewayRequestPublicTunnelConfig {
+  /** Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set. */
   single_ipv4_tunnel?: CreateVpnGatewayRequestSingleIpTunnel | null;
+  /** Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set. */
   single_ipv6_tunnel?: CreateVpnGatewayRequestSingleIpTunnel | null;
+  /** Precisely one of single_ipv4_tunnel, single_ipv6_tunnel, dual_ipv4v6_tunnel can be set. */
   dual_ipv4v6_tunnel?: CreateVpnGatewayRequestPublicConfig | null;
 }
 export const CreateVpnGatewayRequestPublicTunnelConfig = /*@__PURE__*/ S.suspend(() =>
@@ -647,10 +650,11 @@ export interface CreateVpnGatewayRequest {
   tags?: CreateVpnGatewayRequestTagsList;
   /** VPN gateway type (commercial offer type). */
   gateway_type: string;
-  /** Public endpoint configuration of the VPN gateway. */
+  /** Public endpoint configuration of the VPN gateway. Precisely one of public_config, public_tunnel_config can be set. */
   public_config?: CreateVpnGatewayRequestPublicConfig | null;
   /** ID of the Private Network to attach to the VPN gateway. (UUID format) */
   private_network_id: string;
+  /** Precisely one of public_config, public_tunnel_config can be set. */
   public_tunnel_config?: CreateVpnGatewayRequestPublicTunnelConfig | null;
   /** ID of the IPAM private IPv4 address to attach to the VPN gateway. (UUID format) */
   ipam_private_ipv4_id?: string | null;
@@ -728,8 +732,9 @@ export interface VpnGateway {
   status?: VpnGatewayStatus;
   /** Gateway type of the VPN gateway. */
   gateway_type?: string;
-  /** Public endpoint configuration of the VPN gateway. */
+  /** Public endpoint configuration of the VPN gateway. Precisely one of public_config, private_config can be set. */
   public_config?: CreateVpnGatewayRequestPublicConfig | null;
+  /** Precisely one of public_config, private_config can be set. */
   private_config?: unknown | null;
   /** ID of the Private Network attached to the VPN gateway. (UUID format) */
   private_network_id?: string;
@@ -889,9 +894,9 @@ export interface DetachRoutingPolicyRequest {
   region?: DetachRoutingPolicyRequestRegion | (string & {});
   /** ID of the connection from which routing policy is being detached. (UUID format) */
   connection_id: string;
-  /** ID of the routing policy to detach from the BGP IPv4 session. (UUID format) */
+  /** ID of the routing policy to detach from the BGP IPv4 session. (UUID format) Precisely one of routing_policy_v4, routing_policy_v6 can be set. */
   routing_policy_v4?: string | null;
-  /** ID of the routing policy to detach from the BGP IPv6 session. (UUID format) */
+  /** ID of the routing policy to detach from the BGP IPv6 session. (UUID format) Precisely one of routing_policy_v4, routing_policy_v6 can be set. */
   routing_policy_v6?: string | null;
 }
 export const DetachRoutingPolicyRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1543,9 +1548,9 @@ export interface SetRoutingPolicyRequest {
   region?: SetRoutingPolicyRequestRegion | (string & {});
   /** ID of the connection whose routing policy is being updated. (UUID format) */
   connection_id: string;
-  /** ID of the routing policy to set for the BGP IPv4 session. (UUID format) */
+  /** ID of the routing policy to set for the BGP IPv4 session. (UUID format) Precisely one of routing_policy_v4, routing_policy_v6 can be set. */
   routing_policy_v4?: string | null;
-  /** ID of the routing policy to set for the BGP IPv6 session. (UUID format) */
+  /** ID of the routing policy to set for the BGP IPv6 session. (UUID format) Precisely one of routing_policy_v4, routing_policy_v6 can be set. */
   routing_policy_v6?: string | null;
 }
 export const SetRoutingPolicyRequest = /*@__PURE__*/ S.suspend(() =>

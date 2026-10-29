@@ -1182,7 +1182,7 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IPv4 address of the endpoint. (IP address)",
+            "smithy.api#documentation": "IPv4 address of the endpoint. (IP address)\nPrecisely one of ip, hostname can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1202,28 +1202,28 @@
         "private_network": {
           "target": "com.scaleway.rdb_v1#EndpointPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).",
+            "smithy.api#documentation": "Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of private_network, load_balancer, direct_access can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "load_balancer": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Load balancer details. Public endpoint for Database Instance which is systematically present. One per Database Instance.",
+            "smithy.api#documentation": "Load balancer details. Public endpoint for Database Instance which is systematically present. One per Database Instance.\nPrecisely one of private_network, load_balancer, direct_access can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "direct_access": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Direct access details. Public endpoint reserved for Read Replicas. One per Read Replica.",
+            "smithy.api#documentation": "Direct access details. Public endpoint reserved for Read Replicas. One per Read Replica.\nPrecisely one of private_network, load_balancer, direct_access can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "hostname": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Hostname of the endpoint.",
+            "smithy.api#documentation": "Hostname of the endpoint.\nPrecisely one of ip, hostname can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2379,14 +2379,14 @@
         "load_balancer": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Load balancer endpoint specifications. Public endpoint for Database Instance which is systematically present. One per RDB instance.",
+            "smithy.api#documentation": "Load balancer endpoint specifications. Public endpoint for Database Instance which is systematically present. One per RDB instance.\nPrecisely one of load_balancer, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.rdb_v1#EndpointSpecPrivateNetwork",
           "traits": {
-            "smithy.api#documentation": "Private Network endpoint specifications. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).",
+            "smithy.api#documentation": "Private Network endpoint specifications. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of load_balancer, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2405,14 +2405,14 @@
         "service_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)",
+            "smithy.api#documentation": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)\nPrecisely one of service_ip, ipam_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "ipam_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).",
+            "smithy.api#documentation": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of service_ip, ipam_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2441,14 +2441,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Please use project_id instead.",
+            "smithy.api#documentation": "Please use project_id instead.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The Project ID on which the Database Instance will be created.",
+            "smithy.api#documentation": "The Project ID on which the Database Instance will be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5479,56 +5479,56 @@
         "node_type": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Node type of the Database Instance you want to upgrade to.",
+            "smithy.api#documentation": "Node type of the Database Instance you want to upgrade to.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "enable_ha": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not high availability should be enabled on the Database Instance.",
+            "smithy.api#documentation": "Defines whether or not high availability should be enabled on the Database Instance.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "high_availability_mode": {
           "target": "com.scaleway.rdb_v1#HighAvailabilityMode",
           "traits": {
-            "smithy.api#documentation": "Defines the High-Availability mode of the instance.",
+            "smithy.api#documentation": "Defines the High-Availability mode of the instance.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "volume_size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Increase your block storage volume size.",
+            "smithy.api#documentation": "Increase your block storage volume size.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "volume_type": {
           "target": "com.scaleway.rdb_v1#VolumeType",
           "traits": {
-            "smithy.api#documentation": "Change your Database Instance storage type.",
+            "smithy.api#documentation": "Change your Database Instance storage type.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "upgradable_version_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Update your database engine to a newer version.\nThis will create a new Database Instance with same specifications as the current one and perform a Database Engine upgrade. (UUID format)",
+            "smithy.api#documentation": "Update your database engine to a newer version.\nThis will create a new Database Instance with same specifications as the current one and perform a Database Engine upgrade. (UUID format)\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "major_upgrade_workflow": {
           "target": "com.scaleway.rdb_v1#UpgradeInstanceRequestMajorUpgradeWorkflow",
           "traits": {
-            "smithy.api#documentation": "Upgrade your database engine to a new major version including instance endpoints.",
+            "smithy.api#documentation": "Upgrade your database engine to a new major version including instance endpoints.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "enable_encryption": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not encryption should be enabled on the Database Instance.",
+            "smithy.api#documentation": "Defines whether or not encryption should be enabled on the Database Instance.\nPrecisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -6398,14 +6398,14 @@
         "direct_access": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Direct access endpoint specifications. Public endpoint reserved for Read Replicas. One per Read Replica.",
+            "smithy.api#documentation": "Direct access endpoint specifications. Public endpoint reserved for Read Replicas. One per Read Replica.\nPrecisely one of direct_access, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.rdb_v1#ReadReplicaEndpointSpecPrivateNetwork",
           "traits": {
-            "smithy.api#documentation": "Private Network endpoint specifications. One at the most per Read Replica. Cannot be updated (has to be deleted and recreated).",
+            "smithy.api#documentation": "Private Network endpoint specifications. One at the most per Read Replica. Cannot be updated (has to be deleted and recreated).\nPrecisely one of direct_access, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -6424,14 +6424,14 @@
         "service_ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)",
+            "smithy.api#documentation": "Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network)\nPrecisely one of service_ip, ipam_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "ipam_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different private networks). Cannot be updated (has to be deleted and recreated).",
+            "smithy.api#documentation": "Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different private networks). Cannot be updated (has to be deleted and recreated).\nPrecisely one of service_ip, ipam_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

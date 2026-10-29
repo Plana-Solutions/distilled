@@ -1057,14 +1057,14 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#httpQuery": "project_id",
-            "smithy.api#documentation": "Filter by project ID."
+            "smithy.api#documentation": "Filter by project ID.\nOne of project_id, organization_id is required."
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#httpQuery": "organization_id",
-            "smithy.api#documentation": "Filter by organization ID."
+            "smithy.api#documentation": "Filter by organization ID.\nOne of project_id, organization_id is required."
           }
         }
       },

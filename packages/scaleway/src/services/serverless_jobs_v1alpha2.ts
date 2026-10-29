@@ -213,27 +213,10 @@ export const JobDefinition = /*@__PURE__*/ S.suspend(() =>
 export type CreateSecretsRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const CreateSecretsRequestRegion = S.String;
 
-export interface CreateSecretsRequestSecretConfig {
-  secret_manager_id?: string;
-  secret_manager_version?: string;
-  path?: string | null;
-  env_var_name?: string | null;
-}
-export const CreateSecretsRequestSecretConfig = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    secret_manager_id: S.optional(S.String),
-    secret_manager_version: S.optional(S.String),
-    path: S.optional(S.NullOr(S.String)),
-    env_var_name: S.optional(S.NullOr(S.String)),
-  }),
-).annotate({
-  identifier: "CreateSecretsRequestSecretConfig",
-}) as any as S.Schema<CreateSecretsRequestSecretConfig>;
-
 /** List of secrets to inject into the job. */
-export type CreateSecretsRequestSecretsList = Array<CreateSecretsRequestSecretConfig>;
+export type CreateSecretsRequestSecretsList = Array<unknown>;
 export const CreateSecretsRequestSecretsList = /*@__PURE__*/ S.Array(
-  CreateSecretsRequestSecretConfig,
+  S.Unknown,
 ) as any as S.Schema<CreateSecretsRequestSecretsList>;
 
 export interface CreateSecretsRequest {
@@ -259,53 +242,10 @@ export const CreateSecretsRequest = /*@__PURE__*/ S.suspend(() =>
   ),
 ).annotate({ identifier: "CreateSecretsRequest" }) as any as S.Schema<CreateSecretsRequest>;
 
-export interface SecretFile {
-  path?: string;
-}
-export const SecretFile = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    path: S.optional(S.String),
-  }),
-).annotate({ identifier: "SecretFile" }) as any as S.Schema<SecretFile>;
-
-export interface SecretEnvVar {
-  name?: string;
-}
-export const SecretEnvVar = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    name: S.optional(S.String),
-  }),
-).annotate({ identifier: "SecretEnvVar" }) as any as S.Schema<SecretEnvVar>;
-
-export interface Secret {
-  /** UUID of the secret reference within the job. (UUID format) */
-  secret_id?: string;
-  /** UUID of the secret in Secret Manager. (UUID format) */
-  secret_manager_id?: string;
-  /** Version of the secret in Secret Manager. */
-  secret_manager_version?: string;
-  /** UUID of the job definition. (UUID format) */
-  job_definition_id: string;
-  /** File secret mounted inside the job. */
-  file?: SecretFile | null;
-  /** Environment variable used to expose the secret. */
-  env_var?: SecretEnvVar | null;
-}
-export const Secret = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    secret_id: S.optional(S.String),
-    secret_manager_id: S.optional(S.String),
-    secret_manager_version: S.optional(S.String),
-    job_definition_id: S.String,
-    file: S.optional(S.NullOr(SecretFile)),
-    env_var: S.optional(S.NullOr(SecretEnvVar)),
-  }),
-).annotate({ identifier: "Secret" }) as any as S.Schema<Secret>;
-
 /** List of secrets created. */
-export type CreateSecretsResponseSecretsList = Array<Secret>;
+export type CreateSecretsResponseSecretsList = Array<unknown>;
 export const CreateSecretsResponseSecretsList = /*@__PURE__*/ S.Array(
-  Secret,
+  S.Unknown,
 ) as any as S.Schema<CreateSecretsResponseSecretsList>;
 
 export interface CreateSecretsResponse {
@@ -361,7 +301,7 @@ export interface CreateTriggerRequest {
   job_definition_id: string;
   /** Name of the trigger. */
   name: string;
-  /** Configuration of the CRON trigger. */
+  /** Configuration of the CRON trigger. One of cron_config is required. */
   cron_config?: CreateTriggerRequestCronConfig | null;
 }
 export const CreateTriggerRequest = /*@__PURE__*/ S.suspend(() =>
@@ -422,7 +362,7 @@ export interface Trigger {
   created_at?: string | null;
   /** Last update time of the trigger. (RFC 3339 format) */
   updated_at?: string | null;
-  /** Configuration of the CRON trigger. */
+  /** Configuration of the CRON trigger. Precisely one of cron_config can be set. */
   cron_config?: TriggerCronConfig | null;
 }
 export const Trigger = /*@__PURE__*/ S.suspend(() =>
@@ -872,9 +812,9 @@ export const ListSecretsRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "ListSecretsRequest" }) as any as S.Schema<ListSecretsRequest>;
 
 /** List of secret references within a job definition. */
-export type ListSecretsResponseSecretsList = Array<Secret>;
+export type ListSecretsResponseSecretsList = Array<unknown>;
 export const ListSecretsResponseSecretsList = /*@__PURE__*/ S.Array(
-  Secret,
+  S.Unknown,
 ) as any as S.Schema<ListSecretsResponseSecretsList>;
 
 export interface ListSecretsResponse {
@@ -1165,9 +1105,9 @@ export interface UpdateSecretRequest {
   secret_id: string;
   /** Version of the secret in Secret Manager. */
   secret_manager_version?: string | null;
-  /** Path of the secret to mount inside the job (either `path` or `env_var_name` must be set). */
+  /** Path of the secret to mount inside the job (either `path` or `env_var_name` must be set). Precisely one of path, env_var_name can be set. */
   path?: string | null;
-  /** Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set). */
+  /** Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set). Precisely one of path, env_var_name can be set. */
   env_var_name?: string | null;
 }
 export const UpdateSecretRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1230,7 +1170,7 @@ export interface UpdateTriggerRequest {
   trigger_id: string;
   /** Name of the trigger. */
   name?: string | null;
-  /** Configuration of the CRON trigger. */
+  /** Configuration of the CRON trigger. Precisely one of cron_config can be set. */
   cron_config?: UpdateTriggerRequestCronConfig | null;
 }
 export const UpdateTriggerRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1373,12 +1313,12 @@ export type GetSecretError = ScalewayOpError;
 /** Get a secret references within a job definition */
 export const getSecret: API.OperationMethod<
   GetSecretRequest,
-  Secret,
+  unknown,
   GetSecretError,
   ScalewayOpContext
 > = /*@__PURE__*/ API.make(() => ({
   input: GetSecretRequest,
-  output: Secret,
+  output: S.Unknown,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,
@@ -1541,12 +1481,12 @@ export type UpdateSecretError = ScalewayOpError;
 /** Update a secret reference within a job definition */
 export const updateSecret: API.OperationMethod<
   UpdateSecretRequest,
-  Secret,
+  unknown,
   UpdateSecretError,
   ScalewayOpContext
 > = /*@__PURE__*/ API.make(() => ({
   input: UpdateSecretRequest,
-  output: Secret,
+  output: S.Unknown,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

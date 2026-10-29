@@ -171,14 +171,23 @@ export const QualificationOtherUseCase = /*@__PURE__*/ S.suspend(() =>
 export interface Qualification {
   /** Architecture type of the qualification. */
   architecture_type?: QualificationArchitectureType | (string & {});
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   host_website?: QualificationHostWebsite | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   host_application?: QualificationHostApplication | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   deploy_software?: QualificationDeploySoftware | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   set_scaleway_environment?: QualificationSetScalewayEnvironment | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   ai_machine?: QualificationAiMachine | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   container?: QualificationContainer | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   archive_data?: QualificationArchiveData | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   share_data?: QualificationShareData | null;
+  /** Precisely one of host_website, host_application, deploy_software, set_scaleway_environment, ai_machine, container, archive_data, share_data, other_use_case can be set. */
   other_use_case?: QualificationOtherUseCase | null;
 }
 export const Qualification = /*@__PURE__*/ S.suspend(() =>

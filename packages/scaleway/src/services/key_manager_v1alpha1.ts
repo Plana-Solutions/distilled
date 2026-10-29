@@ -46,13 +46,13 @@ export type KeyAlgorithmKeyEncapsulation =
 export const KeyAlgorithmKeyEncapsulation = S.String;
 
 export interface KeyUsage {
-  /** Encrypt and decrypt arbitrary payloads using a symmetric encryption algorithm. See the `Key.Algorithm.SymmetricEncryption` enum for a description of values. */
+  /** Encrypt and decrypt arbitrary payloads using a symmetric encryption algorithm. See the `Key.Algorithm.SymmetricEncryption` enum for a description of values. Precisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set. */
   symmetric_encryption?: KeyAlgorithmSymmetricEncryption | (string & {}) | null;
-  /** Encrypt and decrypt arbitrary payloads using an asymmetric encryption algorithm. See the `Key.Algorithm.AsymmetricEncryption` enum for a description of values. */
+  /** Encrypt and decrypt arbitrary payloads using an asymmetric encryption algorithm. See the `Key.Algorithm.AsymmetricEncryption` enum for a description of values. Precisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set. */
   asymmetric_encryption?: KeyAlgorithmAsymmetricEncryption | (string & {}) | null;
-  /** Sign and verify arbitrary messages using an asymmetric signing algorithm. See the `Key.Algorithm.AsymmetricSigning` enum for a description of values. */
+  /** Sign and verify arbitrary messages using an asymmetric signing algorithm. See the `Key.Algorithm.AsymmetricSigning` enum for a description of values. Precisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set. */
   asymmetric_signing?: KeyAlgorithmAsymmetricSigning | (string & {}) | null;
-  /** Wrap and unwrap key using a key encapsulation algorithm. See the `Key.Algorithm.KeyEncapulation` enum for a description of values. */
+  /** Wrap and unwrap key using a key encapsulation algorithm. See the `Key.Algorithm.KeyEncapulation` enum for a description of values. Precisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set. */
   key_encapsulation?: KeyAlgorithmKeyEncapsulation | (string & {}) | null;
 }
 export const KeyUsage = /*@__PURE__*/ S.suspend(() =>
@@ -586,11 +586,11 @@ export interface ImportKeyMaterialRequest {
   region?: ImportKeyMaterialRequestRegion | (string & {});
   /** ID of the key in which to import key material. The key's origin must be `external`. (UUID format) */
   key_id: string;
-  /** The key material. Deprecated. Use `encrypted_key_material` instead. The key material is a random sequence of bytes used to derive a cryptographic key. */
+  /** The key material. Deprecated. Use `encrypted_key_material` instead. The key material is a random sequence of bytes used to derive a cryptographic key. Precisely one of key_material, encrypted_key_material can be set. */
   key_material?: string | null;
   /** (Optional) Salt value to pass the key derivation function. A salt is random data added to key material to ensure unique derived keys, even if the input is similar. It helps strengthen security when the key material has low randomness (low entropy). */
   salt?: string | null;
-  /** The encrypted key material to import. This material must be encrypted using the public key and the exact wrapping algorithm returned by the `GetKeyMaterialImportParameters` method. */
+  /** The encrypted key material to import. This material must be encrypted using the public key and the exact wrapping algorithm returned by the `GetKeyMaterialImportParameters` method. Precisely one of key_material, encrypted_key_material can be set. */
   encrypted_key_material?: ImportKeyMaterialRequestEncryptedKeyMaterial | null;
 }
 export const ImportKeyMaterialRequest = /*@__PURE__*/ S.suspend(() =>
@@ -931,11 +931,11 @@ export interface SignRequest {
   region?: SignRequestRegion | (string & {});
   /** ID of the key to use for signing. (UUID format) */
   key_id: string;
-  /** Pre-hashed digest of the message to sign. For ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384). The 64-byte bound only exists for the ML-DSA backward-compatibility case below. Also accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA. */
+  /** Pre-hashed digest of the message to sign. For ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384). The 64-byte bound only exists for the ML-DSA backward-compatibility case below. Also accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA. One of digest, msg, external_mu is required. */
   digest?: string | null;
-  /** Full message to sign as-is. Only supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes. */
+  /** Full message to sign as-is. Only supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes. One of digest, msg, external_mu is required. */
   msg?: string | null;
-  /** ML-DSA pre-hashed μ message representative, exactly 64 bytes. Must equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API. */
+  /** ML-DSA pre-hashed μ message representative, exactly 64 bytes. Must equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API. One of digest, msg, external_mu is required. */
   external_mu?: string | null;
 }
 export const SignRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1078,9 +1078,9 @@ export interface VerifyRequest {
   region?: VerifyRequestRegion | (string & {});
   /** ID of the key to use for signature verification. (UUID format) */
   key_id: string;
-  /** Digest that was signed. For ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm. */
+  /** Digest that was signed. For ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm. One of digest, msg is required. */
   digest?: string | null;
-  /** Message that was signed. For ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint. */
+  /** Message that was signed. For ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint. One of digest, msg is required. */
   msg?: string | null;
   /** The message signature to verify. */
   signature?: string;

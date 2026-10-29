@@ -1780,14 +1780,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID in which the cluster will be created.",
+            "smithy.api#documentation": "Organization ID in which the cluster will be created.\nOne of project_id, organization_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID in which the cluster will be created.",
+            "smithy.api#documentation": "Project ID in which the cluster will be created.\nOne of project_id, organization_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2523,14 +2523,14 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP subnet to allow. (IP network)",
+            "smithy.api#documentation": "IP subnet to allow. (IP network)\nPrecisely one of ip, scaleway_ranges can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_ranges": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.",
+            "smithy.api#documentation": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.\nPrecisely one of ip, scaleway_ranges can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2619,14 +2619,14 @@
         "ip": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "IP subnet to allow. (IP network)",
+            "smithy.api#documentation": "IP subnet to allow. (IP network)\nPrecisely one of ip, scaleway_ranges can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_ranges": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.",
+            "smithy.api#documentation": "Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway.\nOnly one rule with this field set to true can be added.\nPrecisely one of ip, scaleway_ranges can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

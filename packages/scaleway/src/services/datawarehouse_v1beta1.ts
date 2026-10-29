@@ -80,7 +80,9 @@ export const EndpointSpecPrivateNetworkSummary = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkSummary>;
 
 export interface EndpointSpec {
+  /** Precisely one of public, private_network can be set. */
   public?: unknown | null;
+  /** Precisely one of public, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkSummary | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -238,9 +240,9 @@ export interface Endpoint {
   dns_record?: string;
   /** List of services associated with the endpoint. */
   services?: EndpointServicesList;
-  /** Private Network endpoint details. */
+  /** Private Network endpoint details. Precisely one of private_network, public can be set. */
   private_network?: PrivateNetworkDetails | null;
-  /** Public endpoint details. */
+  /** Public endpoint details. Precisely one of private_network, public can be set. */
   public?: unknown | null;
   /** Region of the deployment. */
   region?: string;

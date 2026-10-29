@@ -240,25 +240,25 @@ export interface Resource {
   organization_id?: string;
   /** Type of the resource. */
   type?: ResourceType;
-  /** Locality the resource is in if this is a global resource. */
+  /** Locality the resource is in if this is a global resource. Precisely one of global, zone, region can be set. */
   global?: boolean | null;
-  /** Locality the resource is in if this is a zonal resource. */
+  /** Locality the resource is in if this is a zonal resource. Precisely one of global, zone, region can be set. */
   zone?: string | null;
-  /** Locality the resource is in if this is a regional resource. */
+  /** Locality the resource is in if this is a regional resource. Precisely one of global, zone, region can be set. */
   region?: string | null;
-  /** Additional information for a VPC Private Network. */
+  /** Additional information for a VPC Private Network. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   vpc_private_network_info?: VpcPrivateNetworkInfo | null;
-  /** Additional information for a Serverless Function. */
+  /** Additional information for a Serverless Function. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   serverless_functions_function_info?: ServerlessFunctionsFunctionInfo | null;
-  /** Additional information for a Serverless Container. */
+  /** Additional information for a Serverless Container. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   serverless_containers_container_info?: ServerlessContainersContainerInfo | null;
-  /** Additional information for a Serverless SQL database backup. */
+  /** Additional information for a Serverless SQL database backup. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   serverless_sqldb_backup_info?: ServerlessSqldbBackupInfo | null;
-  /** Additional information for a Baremetal server. */
+  /** Additional information for a Baremetal server. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   baremetal_server_info?: BrmServerInfo | null;
-  /** Additional information for an OBS datasource. */
+  /** Additional information for an OBS datasource. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   obs_datasource_info?: ObsDatasourceInfo | null;
-  /** Additional information for an OBS exporter. */
+  /** Additional information for an OBS exporter. Precisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set. */
   obs_exporter_info?: ObsExporterInfo | null;
   /** Creation date. (RFC 3339 format) */
   created_at?: string | null;

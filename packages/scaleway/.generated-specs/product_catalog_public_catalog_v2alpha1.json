@@ -467,28 +467,28 @@
         "global": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the product is global.",
+            "smithy.api#documentation": "Whether or not the product is global.\nPrecisely one of global, region, zone, datacenter can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region of the product.",
+            "smithy.api#documentation": "The region of the product.\nPrecisely one of global, region, zone, datacenter can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone of the product.",
+            "smithy.api#documentation": "The zone of the product.\nPrecisely one of global, region, zone, datacenter can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "datacenter": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The datacenter of the product.",
+            "smithy.api#documentation": "The datacenter of the product.\nPrecisely one of global, region, zone, datacenter can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -534,165 +534,168 @@
         "dedibox": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesDedibox",
           "traits": {
-            "smithy.api#documentation": "The properties of Dedibox products.",
+            "smithy.api#documentation": "The properties of Dedibox products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "elastic_metal": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesElasticMetal",
           "traits": {
-            "smithy.api#documentation": "The properties of Elastic Metal products.",
+            "smithy.api#documentation": "The properties of Elastic Metal products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "apple_silicon": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesAppleSilicon",
           "traits": {
-            "smithy.api#documentation": "The properties of Apple Silicon products.",
+            "smithy.api#documentation": "The properties of Apple Silicon products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "instance": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesInstance",
           "traits": {
-            "smithy.api#documentation": "The properties of Instance products.",
+            "smithy.api#documentation": "The properties of Instance products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "block_storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesBlockStorage",
           "traits": {
-            "smithy.api#documentation": "The properties of Block Storage products.",
+            "smithy.api#documentation": "The properties of Block Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "object_storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorage",
           "traits": {
-            "smithy.api#documentation": "The properties of Object Storage products.",
+            "smithy.api#documentation": "The properties of Object Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_inference": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedInference",
           "traits": {
-            "smithy.api#documentation": "The properties of Managed Inference products.",
+            "smithy.api#documentation": "The properties of Managed Inference products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "generative_apis": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApis",
           "traits": {
-            "smithy.api#documentation": "The properties of Generative APIs products.",
+            "smithy.api#documentation": "The properties of Generative APIs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "load_balancer": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesLoadBalancer",
           "traits": {
-            "smithy.api#documentation": "The properties of Load Balancer products.",
+            "smithy.api#documentation": "The properties of Load Balancer products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "secret_manager": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_redis_database": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Managed Redis Database products.",
+            "smithy.api#documentation": "The properties of Managed Redis Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "key_manager": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "kubernetes": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesKubernetes",
           "traits": {
-            "smithy.api#documentation": "The properties of Kubernetes products.",
+            "smithy.api#documentation": "The properties of Kubernetes products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_relational_database": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedRelationalDatabase",
           "traits": {
-            "smithy.api#documentation": "The properties of Managed Relational Database products.",
+            "smithy.api#documentation": "The properties of Managed Relational Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_functions": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessFunctions",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless Functions products.",
+            "smithy.api#documentation": "The properties of Serverless Functions products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_containers": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessContainers",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless Containers products.",
+            "smithy.api#documentation": "The properties of Serverless Containers products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_mongodb": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedMongoDB",
           "traits": {
+            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_jobs": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessJobs",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless Jobs products.",
+            "smithy.api#documentation": "The properties of Serverless Jobs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_sql_database": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless SQL Database products.",
+            "smithy.api#documentation": "The properties of Serverless SQL Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "apache_kafka": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesApacheKafka",
           "traits": {
-            "smithy.api#documentation": "The properties of Apache Kafka products.",
+            "smithy.api#documentation": "The properties of Apache Kafka products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "open_search": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of OpenSearch DB products.",
+            "smithy.api#documentation": "The properties of OpenSearch DB products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "instance_local_ssd_snapshot": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Instance Local SSD Snapshot products.",
+            "smithy.api#documentation": "The properties of Instance Local SSD Snapshot products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "instance_local_ssd_storage": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Instance Local SSD Storage products.",
+            "smithy.api#documentation": "The properties of Instance Local SSD Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "file_storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesFileStorage",
           "traits": {
-            "smithy.api#documentation": "The properties of File Storage products.",
+            "smithy.api#documentation": "The properties of File Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -759,14 +762,14 @@
         "virtual": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesHardwareCPUVirtual",
           "traits": {
-            "smithy.api#documentation": "Properties if the CPU is virtual.",
+            "smithy.api#documentation": "Properties if the CPU is virtual.\nPrecisely one of virtual, physical can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "physical": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesHardwareCPUPhysical",
           "traits": {
-            "smithy.api#documentation": "Properties if the CPU is physical.",
+            "smithy.api#documentation": "Properties if the CPU is physical.\nPrecisely one of virtual, physical can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1100,14 +1103,14 @@
         "snapshot": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Block Storage snapshot.",
+            "smithy.api#documentation": "The properties related to Block Storage snapshot.\nPrecisely one of snapshot, volume can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "volume": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesBlockStorageVolumeType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Block Storage volume.",
+            "smithy.api#documentation": "The properties related to Block Storage volume.\nPrecisely one of snapshot, volume can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1138,28 +1141,28 @@
         "class": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageClassType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Object Storage class.",
+            "smithy.api#documentation": "The properties related to Object Storage class.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "restore": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageRestoreType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Object Storage restore operations.",
+            "smithy.api#documentation": "The properties related to Object Storage restore operations.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "internet_traffic": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageInternetTrafficType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Object Storage internet traffic.",
+            "smithy.api#documentation": "The properties related to Object Storage internet traffic.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "region_traffic": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorageRegionTrafficType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Object Storage region traffic.",
+            "smithy.api#documentation": "The properties related to Object Storage region traffic.\nPrecisely one of class, restore, internet_traffic, region_traffic can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1298,14 +1301,14 @@
         "deployment": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedInferenceManagedInferenceDeployment",
           "traits": {
-            "smithy.api#documentation": "The properties related to Managed Inference Deployment.",
+            "smithy.api#documentation": "The properties related to Managed Inference Deployment.\nPrecisely one of deployment, custom_model_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "custom_model_storage": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Managed Inference Custom Model Storage.",
+            "smithy.api#documentation": "The properties related to Managed Inference Custom Model Storage.\nPrecisely one of deployment, custom_model_storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1492,14 +1495,14 @@
         "node": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesLoadBalancerNodeType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Load Balancer nodes.",
+            "smithy.api#documentation": "The properties related to Load Balancer nodes.\nPrecisely one of node, ipv4 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "ipv4": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Load Balancer IPv4.",
+            "smithy.api#documentation": "The properties related to Load Balancer IPv4.\nPrecisely one of node, ipv4 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1536,21 +1539,21 @@
         "kapsule_control_plane": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Kapsule Control Plane products.",
+            "smithy.api#documentation": "The properties related to Kapsule Control Plane products.\nPrecisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "kosmos_control_plane": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Kosmos Control Plane products.",
+            "smithy.api#documentation": "The properties related to Kosmos Control Plane products.\nPrecisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "kosmos_node": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Kosmos nodes.",
+            "smithy.api#documentation": "The properties related to Kosmos nodes.\nPrecisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1563,28 +1566,28 @@
         "management": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Relational Database Management type.",
+            "smithy.api#documentation": "The properties related to Relational Database Management type.\nPrecisely one of management, node, storage, multi_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "node": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Relational Database Nodes.",
+            "smithy.api#documentation": "The properties related to Relational Database Nodes.\nPrecisely one of management, node, storage, multi_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Relational Database Storage type.",
+            "smithy.api#documentation": "The properties related to Relational Database Storage type.\nPrecisely one of management, node, storage, multi_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "multi_az": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Relational Database Multi AZ type.",
+            "smithy.api#documentation": "The properties related to Relational Database Multi AZ type.\nPrecisely one of management, node, storage, multi_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1675,28 +1678,28 @@
         "consumption": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless functions consumption products.",
+            "smithy.api#documentation": "The properties related to Serverless functions consumption products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "request": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless functions request products.",
+            "smithy.api#documentation": "The properties related to Serverless functions request products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "provision": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless functions provision products.",
+            "smithy.api#documentation": "The properties related to Serverless functions provision products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "free_tier": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless functions free tier products.",
+            "smithy.api#documentation": "The properties related to Serverless functions free tier products.\nPrecisely one of consumption, request, provision, free_tier can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1736,14 +1739,14 @@
         "memory": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessContainersMemoryType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless containers memory products.",
+            "smithy.api#documentation": "The properties related to Serverless containers memory products.\nPrecisely one of memory, cpu can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cpu": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessContainersCPUType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless containers CPU products.",
+            "smithy.api#documentation": "The properties related to Serverless containers CPU products.\nPrecisely one of memory, cpu can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1798,21 +1801,21 @@
         "management": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to MongoDB Management type.",
+            "smithy.api#documentation": "The properties related to MongoDB Management type.\nPrecisely one of management, node, storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "node": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties related to MongoDB Node type.",
+            "smithy.api#documentation": "The properties related to MongoDB Node type.\nPrecisely one of management, node, storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedMongoDBStorageType",
           "traits": {
-            "smithy.api#documentation": "The properties related to MongoDB Storage type.",
+            "smithy.api#documentation": "The properties related to MongoDB Storage type.\nPrecisely one of management, node, storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1873,14 +1876,14 @@
         "memory": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessJobsMemoryType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless containers memory products.",
+            "smithy.api#documentation": "The properties related to Serverless containers memory products.\nPrecisely one of memory, cpu can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cpu": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessJobsCPUType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Serverless containers CPU products.",
+            "smithy.api#documentation": "The properties related to Serverless containers CPU products.\nPrecisely one of memory, cpu can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1935,14 +1938,14 @@
         "node": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesApacheKafkaNodeType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Kafka node products.",
+            "smithy.api#documentation": "The properties related to Kafka node products.\nPrecisely one of node, storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesApacheKafkaStorageType",
           "traits": {
-            "smithy.api#documentation": "The properties related to Kafka storage products.",
+            "smithy.api#documentation": "The properties related to Kafka storage products.\nPrecisely one of node, storage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

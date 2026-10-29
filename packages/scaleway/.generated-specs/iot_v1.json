@@ -1307,7 +1307,7 @@
         "twins_graphite_config": {
           "target": "com.scaleway.iot_v1#HubTwinsGraphiteConfig",
           "traits": {
-            "smithy.api#documentation": "BETA - not implemented yet.",
+            "smithy.api#documentation": "BETA - not implemented yet.\nPrecisely one of twins_graphite_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1489,7 +1489,7 @@
         "twins_graphite_config": {
           "target": "com.scaleway.iot_v1#HubTwinsGraphiteConfig",
           "traits": {
-            "smithy.api#documentation": "BETA - not implemented yet.",
+            "smithy.api#documentation": "BETA - not implemented yet.\nPrecisely one of twins_graphite_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1636,7 +1636,7 @@
         "twins_graphite_config": {
           "target": "com.scaleway.iot_v1#HubTwinsGraphiteConfig",
           "traits": {
-            "smithy.api#documentation": "BETA - not implemented yet.",
+            "smithy.api#documentation": "BETA - not implemented yet.\nPrecisely one of twins_graphite_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2857,21 +2857,21 @@
         "s3_config": {
           "target": "com.scaleway.iot_v1#CreateRouteRequestS3Config",
           "traits": {
-            "smithy.api#documentation": "If creating Amazon S3 Routes, Amazon S3-specific configuration fields.",
+            "smithy.api#documentation": "If creating Amazon S3 Routes, Amazon S3-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "db_config": {
           "target": "com.scaleway.iot_v1#CreateRouteRequestDatabaseConfig",
           "traits": {
-            "smithy.api#documentation": "If creating Database Route, DB-specific configuration fields.",
+            "smithy.api#documentation": "If creating Database Route, DB-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "rest_config": {
           "target": "com.scaleway.iot_v1#CreateRouteRequestRestConfig",
           "traits": {
-            "smithy.api#documentation": "If creating Rest Route, Rest-specific configuration fields.",
+            "smithy.api#documentation": "If creating Rest Route, Rest-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2923,21 +2923,21 @@
         "s3_config": {
           "target": "com.scaleway.iot_v1#RouteS3Config",
           "traits": {
-            "smithy.api#documentation": "When using Amazon S3 Routes, Amazon S3-specific configuration fields.",
+            "smithy.api#documentation": "When using Amazon S3 Routes, Amazon S3-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "db_config": {
           "target": "com.scaleway.iot_v1#RouteDatabaseConfig",
           "traits": {
-            "smithy.api#documentation": "When using Database Route, DB-specific configuration fields.",
+            "smithy.api#documentation": "When using Database Route, DB-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "rest_config": {
           "target": "com.scaleway.iot_v1#RouteRestConfig",
           "traits": {
-            "smithy.api#documentation": "When using Rest Route, Rest-specific configuration fields.",
+            "smithy.api#documentation": "When using Rest Route, Rest-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3299,21 +3299,21 @@
         "s3_config": {
           "target": "com.scaleway.iot_v1#UpdateRouteRequestS3Config",
           "traits": {
-            "smithy.api#documentation": "When updating Amazon S3 Route, Amazon S3-specific configuration fields.",
+            "smithy.api#documentation": "When updating Amazon S3 Route, Amazon S3-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "db_config": {
           "target": "com.scaleway.iot_v1#UpdateRouteRequestDatabaseConfig",
           "traits": {
-            "smithy.api#documentation": "When updating Database Route, DB-specific configuration fields.",
+            "smithy.api#documentation": "When updating Database Route, DB-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "rest_config": {
           "target": "com.scaleway.iot_v1#UpdateRouteRequestRestConfig",
           "traits": {
-            "smithy.api#documentation": "When updating Rest Route, Rest-specific configuration fields.",
+            "smithy.api#documentation": "When updating Rest Route, Rest-specific configuration fields.\nPrecisely one of s3_config, db_config, rest_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

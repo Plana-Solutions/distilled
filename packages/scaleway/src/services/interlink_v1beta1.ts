@@ -139,9 +139,9 @@ export interface Link {
   created_at?: string | null;
   /** Last modification date of the link. (RFC 3339 format) */
   updated_at?: string | null;
-  /** Partner host information. */
+  /** Partner host information. Precisely one of partner, self can be set. */
   partner?: PartnerHost | null;
-  /** Self-host information. */
+  /** Self-host information. Precisely one of partner, self can be set. */
   self?: SelfHost | null;
   /** VLAN of the link. */
   vlan?: number;
@@ -233,9 +233,9 @@ export interface CreateLinkRequest {
   pop_id: string;
   /** Desired bandwidth for the link. Must be compatible with available link bandwidths and remaining bandwidth capacity of the connection. */
   bandwidth_mbps: number;
-  /** If set, creates a self-hosted link using this dedicated physical connection. As the customer, specify the ID of the physical connection you already have for this link. (UUID format) */
+  /** If set, creates a self-hosted link using this dedicated physical connection. As the customer, specify the ID of the physical connection you already have for this link. (UUID format) Precisely one of connection_id, partner_id can be set. */
   connection_id?: string | null;
-  /** If set, creates a hosted link on a partner's connection. Specify the ID of the chosen partner, who already has a shared connection with available bandwidth. (UUID format) */
+  /** If set, creates a hosted link on a partner's connection. Specify the ID of the chosen partner, who already has a shared connection with available bandwidth. (UUID format) Precisely one of connection_id, partner_id can be set. */
   partner_id?: string | null;
   /** For self-hosted links we need the peer AS Number to establish BGP session. If not given, a default one will be assigned. */
   peer_asn?: number | null;

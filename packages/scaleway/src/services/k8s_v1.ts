@@ -14,9 +14,9 @@ export type AddClusterACLRulesRequestRegion = "fr-par" | "nl-ams" | "pl-waw" | "
 export const AddClusterACLRulesRequestRegion = S.String;
 
 export interface ACLRuleRequest {
-  /** IP subnet to allow. (IP network) */
+  /** IP subnet to allow. (IP network) Precisely one of ip, scaleway_ranges can be set. */
   ip?: string | null;
-  /** Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway. Only one rule with this field set to true can be added. */
+  /** Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway. Only one rule with this field set to true can be added. Precisely one of ip, scaleway_ranges can be set. */
   scaleway_ranges?: boolean | null;
   /** Description of the ACL. */
   description?: string;
@@ -65,9 +65,9 @@ export interface ACLRule {
   id?: string;
   /** The SRN of the ACL rule. */
   srn?: string;
-  /** IP subnet to allow. (IP network) */
+  /** IP subnet to allow. (IP network) Precisely one of ip, scaleway_ranges can be set. */
   ip?: string | null;
-  /** Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway. Only one rule with this field set to true can be added. */
+  /** Allow access to cluster from all Scaleway ranges as defined in https://www.scaleway.com/en/docs/console/account/reference-content/scaleway-network-information/#ip-ranges-used-by-scaleway. Only one rule with this field set to true can be added. Precisely one of ip, scaleway_ranges can be set. */
   scaleway_ranges?: boolean | null;
   /** Description of the ACL. */
   description?: string;
@@ -437,9 +437,9 @@ export const CreateClusterRequestApiserverCertSansList = /*@__PURE__*/ S.Array(
 export interface CreateClusterRequest {
   /** The region you want to target */
   region?: CreateClusterRequestRegion | (string & {});
-  /** Organization ID in which the cluster will be created. */
+  /** Organization ID in which the cluster will be created. One of project_id, organization_id is required. */
   organization_id?: string | null;
-  /** Project ID in which the cluster will be created. */
+  /** Project ID in which the cluster will be created. One of project_id, organization_id is required. */
   project_id?: string | null;
   /** Type of the cluster. See [list available cluster types](#list-available-cluster-types-for-a-cluster) for a list of valid types. */
   type?: string;

@@ -26,7 +26,9 @@ export const EndpointSpecPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkDetails>;
 
 export interface EndpointSpec {
+  /** Precisely one of public, private_network can be set. */
   public?: unknown | null;
+  /** Precisely one of public, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -90,9 +92,9 @@ export interface Endpoint {
   dns_records?: EndpointDnsRecordsList;
   /** TCP port of the endpoint. */
   port?: number;
-  /** Private Network endpoint details. */
+  /** Private Network endpoint details. Precisely one of private_network, public can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
-  /** Public endpoint details. */
+  /** Public endpoint details. Precisely one of private_network, public can be set. */
   public?: unknown | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
@@ -436,9 +438,9 @@ export const UserRoleRole = S.String;
 export interface UserRole {
   /** Name of the preset role. */
   role?: UserRoleRole | (string & {});
-  /** Name of the database on which the preset role will be used. */
+  /** Name of the database on which the preset role will be used. Precisely one of database, any_database can be set. */
   database?: string | null;
-  /** Flag to enable the preset role in all databases. */
+  /** Flag to enable the preset role in all databases. Precisely one of database, any_database can be set. */
   any_database?: boolean | null;
 }
 export const UserRole = /*@__PURE__*/ S.suspend(() =>
@@ -1281,7 +1283,7 @@ export interface UpgradeInstanceRequest {
   region?: UpgradeInstanceRequestRegion | (string & {});
   /** UUID of the Database Instance you want to upgrade. */
   instance_id: string;
-  /** Increase your Block Storage volume size. (in bytes) */
+  /** Increase your Block Storage volume size. (in bytes) Precisely one of volume_size can be set. */
   volume_size?: number | null;
 }
 export const UpgradeInstanceRequest = /*@__PURE__*/ S.suspend(() =>

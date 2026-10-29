@@ -377,7 +377,9 @@ export const GitlabRunnerConfiguration = /*@__PURE__*/ S.suspend(() =>
 export interface RunnerConfigurationV2 {
   name?: string;
   provider?: RunnerConfigurationV2Provider | (string & {});
+  /** Precisely one of github_configuration, gitlab_configuration can be set. */
   github_configuration?: GithubRunnerConfiguration | null;
+  /** Precisely one of github_configuration, gitlab_configuration can be set. */
   gitlab_configuration?: GitlabRunnerConfiguration | null;
 }
 export const RunnerConfigurationV2 = /*@__PURE__*/ S.suspend(() =>

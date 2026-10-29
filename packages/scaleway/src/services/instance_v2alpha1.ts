@@ -1030,9 +1030,9 @@ export interface CreateServerRequestCreateVolume {
   tags?: CreateServerRequestCreateVolumeTagsList;
   /** Size of the volume. (in bytes) */
   size?: number | null;
-  /** ID of the base snapshot for the volume. */
+  /** ID of the base snapshot for the volume. Precisely one of base_snapshot_id, image_label can be set. */
   base_snapshot_id?: string | null;
-  /** Label of the image to use for the volume. */
+  /** Label of the image to use for the volume. Precisely one of base_snapshot_id, image_label can be set. */
   image_label?: string | null;
   /** Performance IOPS for the volume. */
   perf_iops?: number | null;
@@ -1053,9 +1053,9 @@ export const CreateServerRequestCreateVolume = /*@__PURE__*/ S.suspend(() =>
 export interface CreateServerRequestServerVolume {
   /** Type of the volume. */
   volume_type?: CreateServerRequestServerVolumeVolumeType | (string & {});
-  /** ID of the volume to attach. */
+  /** ID of the volume to attach. Precisely one of volume_id, new_volume can be set. */
   volume_id?: string | null;
-  /** Configuration for a new volume to create. */
+  /** Configuration for a new volume to create. Precisely one of volume_id, new_volume can be set. */
   new_volume?: CreateServerRequestCreateVolume | null;
 }
 export const CreateServerRequestServerVolume = /*@__PURE__*/ S.suspend(() =>
@@ -1099,9 +1099,9 @@ export const CreateServerRequestBookIP = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<CreateServerRequestBookIP>;
 
 export interface CreateServerRequestServerIP {
-  /** ID of the IPAM IP to attach. */
+  /** ID of the IPAM IP to attach. Precisely one of ipam_ip_id, new_ip can be set. */
   ipam_ip_id?: string | null;
-  /** Configuration for a new IP to book. */
+  /** Configuration for a new IP to book. Precisely one of ipam_ip_id, new_ip can be set. */
   new_ip?: CreateServerRequestBookIP | null;
 }
 export const CreateServerRequestServerIP = /*@__PURE__*/ S.suspend(() =>
@@ -1257,9 +1257,9 @@ export interface CreateTemplateRequestVolumeTemplate {
   tags?: CreateTemplateRequestVolumeTemplateTagsList;
   /** Size of the volume in bytes. (in bytes) */
   size?: number | null;
-  /** ID of the base snapshot for the volume. */
+  /** ID of the base snapshot for the volume. Precisely one of base_snapshot_id, image_label can be set. */
   base_snapshot_id?: string | null;
-  /** Label of the image used as base for the volume. */
+  /** Label of the image used as base for the volume. Precisely one of base_snapshot_id, image_label can be set. */
   image_label?: string | null;
   /** Performance IOPS for the volume. */
   perf_iops?: number | null;
@@ -4022,19 +4022,19 @@ export type StopAndDeleteServerRequestZone =
   | "it-mil-3";
 export const StopAndDeleteServerRequestZone = S.String;
 
-/** List of IP IDs to delete. */
+/** List of IP IDs to delete. Precisely one of delete_all_ips, delete_ip_ids can be set. */
 export type StopAndDeleteServerRequestDeleteIpIdsList = Array<unknown>;
 export const StopAndDeleteServerRequestDeleteIpIdsList = /*@__PURE__*/ S.Array(
   S.Unknown,
 ) as any as S.Schema<StopAndDeleteServerRequestDeleteIpIdsList>;
 
-/** List of volume IDs to delete. */
+/** List of volume IDs to delete. Precisely one of delete_all_volumes, delete_volume_ids can be set. */
 export type StopAndDeleteServerRequestDeleteVolumeIdsList = Array<unknown>;
 export const StopAndDeleteServerRequestDeleteVolumeIdsList = /*@__PURE__*/ S.Array(
   S.Unknown,
 ) as any as S.Schema<StopAndDeleteServerRequestDeleteVolumeIdsList>;
 
-/** List of private network interface IDs to delete. */
+/** List of private network interface IDs to delete. Precisely one of keep_all_private_nics, delete_private_nic_ids can be set. */
 export type StopAndDeleteServerRequestDeletePrivateNicIdsList = Array<unknown>;
 export const StopAndDeleteServerRequestDeletePrivateNicIdsList = /*@__PURE__*/ S.Array(
   S.Unknown,
@@ -4045,17 +4045,17 @@ export interface StopAndDeleteServerRequest {
   zone?: StopAndDeleteServerRequestZone | (string & {});
   /** ID of the server to stop and delete. */
   server_id: string;
-  /** Whether to delete all IPs attached to the server. */
+  /** Whether to delete all IPs attached to the server. Precisely one of delete_all_ips, delete_ip_ids can be set. */
   delete_all_ips?: boolean | null;
-  /** List of IP IDs to delete. */
+  /** List of IP IDs to delete. Precisely one of delete_all_ips, delete_ip_ids can be set. */
   delete_ip_ids?: StopAndDeleteServerRequestDeleteIpIdsList | null;
-  /** Whether to delete all volumes attached to the server. */
+  /** Whether to delete all volumes attached to the server. Precisely one of delete_all_volumes, delete_volume_ids can be set. */
   delete_all_volumes?: boolean | null;
-  /** List of volume IDs to delete. */
+  /** List of volume IDs to delete. Precisely one of delete_all_volumes, delete_volume_ids can be set. */
   delete_volume_ids?: StopAndDeleteServerRequestDeleteVolumeIdsList | null;
-  /** Whether to keep all private network interfaces. */
+  /** Whether to keep all private network interfaces. Precisely one of keep_all_private_nics, delete_private_nic_ids can be set. */
   keep_all_private_nics?: boolean | null;
-  /** List of private network interface IDs to delete. */
+  /** List of private network interface IDs to delete. Precisely one of keep_all_private_nics, delete_private_nic_ids can be set. */
   delete_private_nic_ids?: StopAndDeleteServerRequestDeletePrivateNicIdsList | null;
 }
 export const StopAndDeleteServerRequest = /*@__PURE__*/ S.suspend(() =>

@@ -39,9 +39,9 @@ export type CreateAccountRequestOrganizationOrigin =
 export const CreateAccountRequestOrganizationOrigin = S.String;
 
 export interface CreateAccountRequest {
-  /** Email of the user. */
+  /** Email of the user. Precisely one of email, oidc can be set. */
   email?: string | null;
-  /** OpenID Connect authentication information that allows a user to authenticate through an external identity provider. If this field is used, the `email` field must not be set. */
+  /** OpenID Connect authentication information that allows a user to authenticate through an external identity provider. If this field is used, the `email` field must not be set. Precisely one of email, oidc can be set. */
   oidc?: CreateAccountRequestOIDC | null;
   /** Captcha. Captcha validation code. This is required as an anti-fraud measure. */
   captcha?: string;
@@ -162,12 +162,13 @@ export const CreateLoginSessionRequestAuthenticationCode = /*@__PURE__*/ S.suspe
 }) as any as S.Schema<CreateLoginSessionRequestAuthenticationCode>;
 
 export interface CreateLoginSessionRequest {
-  /** Log in with password. */
+  /** Log in with password. One of password, passwordless, oidc, authentication_code is required. */
   password?: CreateLoginSessionRequestPassword | null;
-  /** Log in with passwordless. */
+  /** Log in with passwordless. One of password, passwordless, oidc, authentication_code is required. */
   passwordless?: CreateLoginSessionRequestPasswordless | null;
-  /** Log in with OpenID Connect. */
+  /** Log in with OpenID Connect. One of password, passwordless, oidc, authentication_code is required. */
   oidc?: CreateLoginSessionRequestOIDC | null;
+  /** One of password, passwordless, oidc, authentication_code is required. */
   authentication_code?: CreateLoginSessionRequestAuthenticationCode | null;
 }
 export const CreateLoginSessionRequest = /*@__PURE__*/ S.suspend(() =>
@@ -327,6 +328,7 @@ export const LogInOrganizationsResponseWebAuthnMetadata = /*@__PURE__*/ S.suspen
 export interface LogInOrganizationsResponse {
   /** List of organizations and their associated login information. */
   organizations_login_information?: LogInOrganizationsResponseOrganizationsLoginInformationList;
+  /** Precisely one of webauthn can be set. */
   webauthn?: LogInOrganizationsResponseWebAuthnMetadata | null;
 }
 export const LogInOrganizationsResponse = /*@__PURE__*/ S.suspend(() =>
@@ -413,11 +415,11 @@ export const FinishWebAuthnAuthenticationRequest2 = /*@__PURE__*/ S.suspend(() =
 export interface LogInRequest {
   /** ID of the login session. */
   login_session_id?: string;
-  /** OTP of the user. */
+  /** OTP of the user. Precisely one of otp, webauthn can be set. */
   otp?: string | null;
   /** Optional organization_id to specify the organization we want to log in. */
   organization_id?: string | null;
-  /** WebAuthn response to the authentication ceremony. */
+  /** WebAuthn response to the authentication ceremony. Precisely one of otp, webauthn can be set. */
   webauthn?: FinishWebAuthnAuthenticationRequest2 | null;
 }
 export const LogInRequest = /*@__PURE__*/ S.suspend(() =>
@@ -548,9 +550,9 @@ export const LoginInitiatePasswordlessResponse = /*@__PURE__*/ S.suspend(() =>
 export interface LogInOrganizationsRequest {
   /** ID of the login session. */
   login_session_id?: string;
-  /** OTP of the user. */
+  /** OTP of the user. Precisely one of otp, webauthn can be set. */
   otp?: string | null;
-  /** WebAuthn response to the authentication ceremony. */
+  /** WebAuthn response to the authentication ceremony. Precisely one of otp, webauthn can be set. */
   webauthn?: FinishWebAuthnAuthenticationRequest2 | null;
 }
 export const LogInOrganizationsRequest = /*@__PURE__*/ S.suspend(() =>
@@ -829,9 +831,9 @@ export interface ValidateAccountRequest {
   email?: string;
   /** Token received to validate the account. */
   token?: string;
-  /** Details of the professional organization. */
+  /** Details of the professional organization. Precisely one of professional_organization, personal_organization can be set. */
   professional_organization?: ProfessionalOrganization | null;
-  /** Details of the personal organization. */
+  /** Details of the personal organization. Precisely one of professional_organization, personal_organization can be set. */
   personal_organization?: PersonalOrganization | null;
   /** Type of the account. */
   account_type?: AccountType | (string & {});

@@ -1129,14 +1129,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Namespace owner (deprecated).",
+            "smithy.api#documentation": "Namespace owner (deprecated).\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID on which the namespace will be created.",
+            "smithy.api#documentation": "Project ID on which the namespace will be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

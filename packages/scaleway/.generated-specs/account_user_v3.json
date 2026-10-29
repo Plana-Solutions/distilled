@@ -1919,14 +1919,14 @@
         "predefined_template": {
           "target": "com.scaleway.account_user_v3#UserPreferencesSideBarTemplate",
           "traits": {
-            "smithy.api#documentation": "Selected sidebar template (e.g. default, web_cloud).",
+            "smithy.api#documentation": "Selected sidebar template (e.g. default, web_cloud).\nPrecisely one of predefined_template, custom_template can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "custom_template": {
           "target": "com.scaleway.account_user_v3#UserPreferencesProductsToDisplay",
           "traits": {
-            "smithy.api#documentation": "Custom sidebar configuration defining which products are visible.",
+            "smithy.api#documentation": "Custom sidebar configuration defining which products are visible.\nPrecisely one of predefined_template, custom_template can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2089,14 +2089,14 @@
         "predefined_template": {
           "target": "com.scaleway.account_user_v3#UserPreferencesSideBarTemplate",
           "traits": {
-            "smithy.api#documentation": "Pick a predefined sibe bar template.",
+            "smithy.api#documentation": "Pick a predefined sibe bar template.\nPrecisely one of predefined_template, custom_template can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "custom_template": {
           "target": "com.scaleway.account_user_v3#UserPreferencesProductsToDisplay",
           "traits": {
-            "smithy.api#documentation": "Define a custom side bar.",
+            "smithy.api#documentation": "Define a custom side bar.\nPrecisely one of predefined_template, custom_template can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

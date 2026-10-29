@@ -5213,14 +5213,14 @@
         "volume_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the volume to attach.",
+            "smithy.api#documentation": "ID of the volume to attach.\nPrecisely one of volume_id, new_volume can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "new_volume": {
           "target": "com.scaleway.instance_v2alpha1#CreateServerRequestCreateVolume",
           "traits": {
-            "smithy.api#documentation": "Configuration for a new volume to create.",
+            "smithy.api#documentation": "Configuration for a new volume to create.\nPrecisely one of volume_id, new_volume can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -5282,14 +5282,14 @@
         "base_snapshot_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the base snapshot for the volume.",
+            "smithy.api#documentation": "ID of the base snapshot for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "image_label": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Label of the image to use for the volume.",
+            "smithy.api#documentation": "Label of the image to use for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5346,14 +5346,14 @@
         "ipam_ip_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the IPAM IP to attach.",
+            "smithy.api#documentation": "ID of the IPAM IP to attach.\nPrecisely one of ipam_ip_id, new_ip can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "new_ip": {
           "target": "com.scaleway.instance_v2alpha1#CreateServerRequestBookIP",
           "traits": {
-            "smithy.api#documentation": "Configuration for a new IP to book.",
+            "smithy.api#documentation": "Configuration for a new IP to book.\nPrecisely one of ipam_ip_id, new_ip can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -8361,7 +8361,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "List of IP IDs to delete."
+        "smithy.api#documentation": "List of IP IDs to delete.\nPrecisely one of delete_all_ips, delete_ip_ids can be set."
       }
     },
     "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeleteVolumeIdsList": {
@@ -8370,7 +8370,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "List of volume IDs to delete."
+        "smithy.api#documentation": "List of volume IDs to delete.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set."
       }
     },
     "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeletePrivateNicIdsList": {
@@ -8379,7 +8379,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "List of private network interface IDs to delete."
+        "smithy.api#documentation": "List of private network interface IDs to delete.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set."
       }
     },
     "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequest": {
@@ -8403,42 +8403,42 @@
         "delete_all_ips": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether to delete all IPs attached to the server.",
+            "smithy.api#documentation": "Whether to delete all IPs attached to the server.\nPrecisely one of delete_all_ips, delete_ip_ids can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "delete_ip_ids": {
           "target": "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeleteIpIdsList",
           "traits": {
-            "smithy.api#documentation": "List of IP IDs to delete.",
+            "smithy.api#documentation": "List of IP IDs to delete.\nPrecisely one of delete_all_ips, delete_ip_ids can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "delete_all_volumes": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether to delete all volumes attached to the server.",
+            "smithy.api#documentation": "Whether to delete all volumes attached to the server.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "delete_volume_ids": {
           "target": "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeleteVolumeIdsList",
           "traits": {
-            "smithy.api#documentation": "List of volume IDs to delete.",
+            "smithy.api#documentation": "List of volume IDs to delete.\nPrecisely one of delete_all_volumes, delete_volume_ids can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "keep_all_private_nics": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether to keep all private network interfaces.",
+            "smithy.api#documentation": "Whether to keep all private network interfaces.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "delete_private_nic_ids": {
           "target": "com.scaleway.instance_v2alpha1#StopAndDeleteServerRequestDeletePrivateNicIdsList",
           "traits": {
-            "smithy.api#documentation": "List of private network interface IDs to delete.",
+            "smithy.api#documentation": "List of private network interface IDs to delete.\nPrecisely one of keep_all_private_nics, delete_private_nic_ids can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -9830,14 +9830,14 @@
         "base_snapshot_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the base snapshot for the volume.",
+            "smithy.api#documentation": "ID of the base snapshot for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "image_label": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Label of the image used as base for the volume.",
+            "smithy.api#documentation": "Label of the image used as base for the volume.\nPrecisely one of base_snapshot_id, image_label can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

@@ -49,14 +49,15 @@ export const AttachIPRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "AttachIPRequest" }) as any as S.Schema<AttachIPRequest>;
 
 export interface Source {
-  /** Zone the IP lives in if the IP is a public zoned IP. This source is global. */
+  /** Zone the IP lives in if the IP is a public zoned IP. This source is global. Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set. */
   zonal?: string | null;
-  /** Private Network the IP lives in if the IP is a private IP. This source is specific. */
+  /** Private Network the IP lives in if the IP is a private IP. This source is specific. Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set. */
   private_network_id?: string | null;
-  /** Private Network subnet the IP lives in if the IP is a private IP in a Private Network. This source is specific. */
+  /** Private Network subnet the IP lives in if the IP is a private IP in a Private Network. This source is specific. Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set. */
   subnet_id?: string | null;
+  /** Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set. */
   vpc_id?: string | null;
-  /** Defines whether the IP is a public regional IP. This source is global. */
+  /** Defines whether the IP is a public regional IP. This source is global. Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set. */
   regional?: boolean | null;
 }
 export const Source = /*@__PURE__*/ S.suspend(() =>
@@ -76,6 +77,7 @@ export type ResourceType =
   | "instance_ip"
   | "instance_private_nic"
   | "lb_server"
+  | "lb_ip"
   | "fip_ip"
   | "vpc_gateway"
   | "vpc_gateway_network"

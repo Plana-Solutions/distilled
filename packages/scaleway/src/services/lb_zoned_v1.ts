@@ -128,19 +128,19 @@ export interface HealthCheck {
   check_timeout?: number;
   /** Number of consecutive unsuccessful health checks after which the server will be considered dead. */
   check_max_retries?: number;
-  /** Object to configure a basic TCP health check. */
+  /** Object to configure a basic TCP health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   tcp_config?: unknown | null;
-  /** Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check. */
+  /** Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   mysql_config?: HealthCheckMysqlConfig | null;
-  /** Object to configure a PostgreSQL health check. */
+  /** Object to configure a PostgreSQL health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   pgsql_config?: HealthCheckPgsqlConfig | null;
-  /** Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message. */
+  /** Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   ldap_config?: unknown | null;
-  /** Object to configure a Redis health check. The response is analyzed to find the +PONG response message. */
+  /** Object to configure a Redis health check. The response is analyzed to find the +PONG response message. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   redis_config?: unknown | null;
-  /** Object to configure an HTTP health check. */
+  /** Object to configure an HTTP health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   http_config?: HealthCheckHttpConfig | null;
-  /** Object to configure an HTTPS health check. */
+  /** Object to configure an HTTPS health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   https_config?: HealthCheckHttpsConfig | null;
   /** Defines whether proxy protocol should be activated for the health check. */
   check_send_proxy?: boolean;
@@ -299,9 +299,9 @@ export interface Subscriber {
   id?: string;
   /** Subscriber name. */
   name?: string;
-  /** Email address of subscriber. */
+  /** Email address of subscriber. Precisely one of email_config, webhook_config can be set. */
   email_config?: SubscriberEmailConfig | null;
-  /** Webhook URI of subscriber. */
+  /** Webhook URI of subscriber. Precisely one of email_config, webhook_config can be set. */
   webhook_config?: SubscriberWebhookConfig | null;
   /** The zone the subscriber is in. */
   zone?: string;
@@ -586,9 +586,9 @@ export interface PrivateNetwork {
   lb?: Lb;
   /** IPAM IDs of the booked IP addresses. (UUID format) */
   ipam_ids?: PrivateNetworkIpamIdsList;
-  /** Object containing an array of a local IP address for the Load Balancer on this Private Network. */
+  /** Object containing an array of a local IP address for the Load Balancer on this Private Network. Precisely one of static_config, dhcp_config can be set. */
   static_config?: PrivateNetworkStaticConfig | null;
-  /** Object containing DHCP-assigned IP addresses. */
+  /** Object containing DHCP-assigned IP addresses. Precisely one of static_config, dhcp_config can be set. */
   dhcp_config?: PrivateNetworkDHCPConfig | null;
   /** Private Network ID. */
   private_network_id?: string;
@@ -1057,9 +1057,9 @@ export interface CreateCertificateRequest {
   lb_id: string;
   /** Name for the certificate. */
   name: string;
-  /** Object to define a new Let's Encrypt certificate to be generated. */
+  /** Object to define a new Let's Encrypt certificate to be generated. Precisely one of letsencrypt, custom_certificate can be set. */
   letsencrypt?: CreateCertificateRequestLetsencryptConfig | null;
-  /** Object to define an existing custom certificate to be imported. */
+  /** Object to define an existing custom certificate to be imported. Precisely one of letsencrypt, custom_certificate can be set. */
   custom_certificate?: CreateCertificateRequestCustomCertificate | null;
 }
 export const CreateCertificateRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1163,9 +1163,9 @@ export const CreateIpRequestTagsList = /*@__PURE__*/ S.Array(
 export interface CreateIpRequest {
   /** The zone you want to target */
   zone?: CreateIpRequestZone | (string & {});
-  /** Organization ID of the Organization where the IP address should be created. */
+  /** Organization ID of the Organization where the IP address should be created. Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** Project ID of the Project where the IP address should be created. */
+  /** Project ID of the Project where the IP address should be created. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
   /** Reverse DNS (domain name) for the IP address. */
   reverse?: string | null;
@@ -1218,9 +1218,9 @@ export const CreateLbRequestTagsList = /*@__PURE__*/ S.Array(
 export interface CreateLbRequest {
   /** The zone you want to target */
   zone?: CreateLbRequestZone | (string & {});
-  /** Scaleway Organization to create the Load Balancer in. */
+  /** Scaleway Organization to create the Load Balancer in. Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** Scaleway Project to create the Load Balancer in. */
+  /** Scaleway Project to create the Load Balancer in. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
   /** Name for the Load Balancer. */
   name: string;
@@ -1277,13 +1277,13 @@ export type CreateRouteRequestZone =
 export const CreateRouteRequestZone = S.String;
 
 export interface RouteMatch {
-  /** Server Name Indication (SNI) value to match. Value to match in the Server Name Indication TLS extension (SNI) field from an incoming connection made via an SSL/TLS transport layer. This field should be set for routes on TCP Load Balancers. */
+  /** Server Name Indication (SNI) value to match. Value to match in the Server Name Indication TLS extension (SNI) field from an incoming connection made via an SSL/TLS transport layer. This field should be set for routes on TCP Load Balancers. Precisely one of sni, host_header, path_begin can be set. */
   sni?: string | null;
-  /** HTTP host header to match. Value to match in the HTTP Host request header from an incoming request. This field should be set for routes on HTTP Load Balancers. */
+  /** HTTP host header to match. Value to match in the HTTP Host request header from an incoming request. This field should be set for routes on HTTP Load Balancers. Precisely one of sni, host_header, path_begin can be set. */
   host_header?: string | null;
   /** If true, all subdomains will match. */
   match_subdomains?: boolean;
-  /** Path begin value to match. Value to match in the URL beginning path from an incoming request. */
+  /** Path begin value to match. Value to match in the URL beginning path from an incoming request. Precisely one of sni, host_header, path_begin can be set. */
   path_begin?: string | null;
 }
 export const RouteMatch = /*@__PURE__*/ S.suspend(() =>
@@ -1368,13 +1368,13 @@ export interface CreateSubscriberRequest {
   zone?: CreateSubscriberRequestZone | (string & {});
   /** Subscriber name. */
   name: string;
-  /** Email address configuration. */
+  /** Email address configuration. Precisely one of email_config, webhook_config can be set. */
   email_config?: SubscriberEmailConfig | null;
-  /** WebHook URI configuration. */
+  /** WebHook URI configuration. Precisely one of email_config, webhook_config can be set. */
   webhook_config?: SubscriberWebhookConfig | null;
-  /** Organization ID to create the subscriber in. */
+  /** Organization ID to create the subscriber in. Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** Project ID to create the subscriber in. */
+  /** Project ID to create the subscriber in. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
 }
 export const CreateSubscriberRequest = /*@__PURE__*/ S.suspend(() =>
@@ -3312,19 +3312,19 @@ export interface UpdateHealthCheckRequest {
   check_max_retries: number;
   /** Defines whether proxy protocol should be activated for the health check. */
   check_send_proxy?: boolean;
-  /** Object to configure a basic TCP health check. */
+  /** Object to configure a basic TCP health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   tcp_config?: unknown | null;
-  /** Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check. */
+  /** Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   mysql_config?: HealthCheckMysqlConfig | null;
-  /** Object to configure a PostgreSQL health check. */
+  /** Object to configure a PostgreSQL health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   pgsql_config?: HealthCheckPgsqlConfig | null;
-  /** Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message. */
+  /** Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   ldap_config?: unknown | null;
-  /** Object to configure a Redis health check. The response is analyzed to find the +PONG response message. */
+  /** Object to configure a Redis health check. The response is analyzed to find the +PONG response message. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   redis_config?: unknown | null;
-  /** Object to configure an HTTP health check. */
+  /** Object to configure an HTTP health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   http_config?: HealthCheckHttpConfig | null;
-  /** Object to configure an HTTPS health check. */
+  /** Object to configure an HTTPS health check. Precisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set. */
   https_config?: HealthCheckHttpsConfig | null;
   /** Time to wait between two consecutive health checks when a backend server is in a transient state (going UP or DOWN). (in seconds) */
   transient_check_delay?: string | null;
@@ -3506,9 +3506,9 @@ export interface UpdateSubscriberRequest {
   subscriber_id: string;
   /** Subscriber name. */
   name: string;
-  /** Email address configuration. */
+  /** Email address configuration. Precisely one of email_config, webhook_config can be set. */
   email_config?: SubscriberEmailConfig | null;
-  /** Webhook URI configuration. */
+  /** Webhook URI configuration. Precisely one of email_config, webhook_config can be set. */
   webhook_config?: SubscriberWebhookConfig | null;
 }
 export const UpdateSubscriberRequest = /*@__PURE__*/ S.suspend(() =>

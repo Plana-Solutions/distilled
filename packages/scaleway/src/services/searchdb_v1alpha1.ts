@@ -51,7 +51,9 @@ export const EndpointSpecPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetworkDetails>;
 
 export interface EndpointSpec {
+  /** Precisely one of public, private_network can be set. */
   public?: unknown | null;
+  /** Precisely one of public, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -169,7 +171,9 @@ export interface Endpoint {
   region?: string;
   /** The SRN of the Endpoint. */
   srn?: string;
+  /** Precisely one of public, private_network can be set. */
   public?: unknown | null;
+  /** Precisely one of public, private_network can be set. */
   private_network?: EndpointSpecPrivateNetworkDetails | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
@@ -888,11 +892,11 @@ export interface UpgradeDeploymentRequest {
   region?: UpgradeDeploymentRequestRegion | (string & {});
   /** UUID of the Deployment to upgrade. (UUID format) */
   deployment_id: string;
-  /** DEPRECATED: Use node_count instead. Amount of node upgrade target. */
+  /** DEPRECATED: Use node_count instead. Amount of node upgrade target. Precisely one of node_amount, node_count, volume_size_bytes can be set. */
   node_amount?: number | null;
-  /** The target number of nodes for the upgrade. */
+  /** The target number of nodes for the upgrade. Precisely one of node_amount, node_count, volume_size_bytes can be set. */
   node_count?: number | null;
-  /** Volume size upgrade target. */
+  /** Volume size upgrade target. Precisely one of node_amount, node_count, volume_size_bytes can be set. */
   volume_size_bytes?: number | null;
 }
 export const UpgradeDeploymentRequest = /*@__PURE__*/ S.suspend(() =>

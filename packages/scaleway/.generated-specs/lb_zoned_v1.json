@@ -736,49 +736,49 @@
         "tcp_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Object to configure a basic TCP health check.",
+            "smithy.api#documentation": "Object to configure a basic TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "mysql_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckMysqlConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.",
+            "smithy.api#documentation": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "pgsql_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckPgsqlConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure a PostgreSQL health check.",
+            "smithy.api#documentation": "Object to configure a PostgreSQL health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "ldap_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.",
+            "smithy.api#documentation": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "redis_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.",
+            "smithy.api#documentation": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "http_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckHttpConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure an HTTP health check.",
+            "smithy.api#documentation": "Object to configure an HTTP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "https_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckHttpsConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure an HTTPS health check.",
+            "smithy.api#documentation": "Object to configure an HTTPS health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1324,14 +1324,14 @@
         "email_config": {
           "target": "com.scaleway.lb_zoned_v1#SubscriberEmailConfig",
           "traits": {
-            "smithy.api#documentation": "Email address of subscriber.",
+            "smithy.api#documentation": "Email address of subscriber.\nPrecisely one of email_config, webhook_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "webhook_config": {
           "target": "com.scaleway.lb_zoned_v1#SubscriberWebhookConfig",
           "traits": {
-            "smithy.api#documentation": "Webhook URI of subscriber.",
+            "smithy.api#documentation": "Webhook URI of subscriber.\nPrecisely one of email_config, webhook_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2400,49 +2400,49 @@
         "tcp_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Object to configure a basic TCP health check.",
+            "smithy.api#documentation": "Object to configure a basic TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "mysql_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckMysqlConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.",
+            "smithy.api#documentation": "Object to configure a MySQL health check. The check requires MySQL >=3.22 or <9.0. For older or newer versions, use a TCP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "pgsql_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckPgsqlConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure a PostgreSQL health check.",
+            "smithy.api#documentation": "Object to configure a PostgreSQL health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "ldap_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.",
+            "smithy.api#documentation": "Object to configure an LDAP health check. The response is analyzed to find the LDAPv3 response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "redis_config": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.",
+            "smithy.api#documentation": "Object to configure a Redis health check. The response is analyzed to find the +PONG response message.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "http_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckHttpConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure an HTTP health check.",
+            "smithy.api#documentation": "Object to configure an HTTP health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "https_config": {
           "target": "com.scaleway.lb_zoned_v1#HealthCheckHttpsConfig",
           "traits": {
-            "smithy.api#documentation": "Object to configure an HTTPS health check.",
+            "smithy.api#documentation": "Object to configure an HTTPS health check.\nPrecisely one of tcp_config, mysql_config, pgsql_config, ldap_config, redis_config, http_config, https_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -4225,14 +4225,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the Organization where the IP address should be created.",
+            "smithy.api#documentation": "Organization ID of the Organization where the IP address should be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the Project where the IP address should be created.",
+            "smithy.api#documentation": "Project ID of the Project where the IP address should be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5410,14 +5410,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Organization to create the Load Balancer in.",
+            "smithy.api#documentation": "Scaleway Organization to create the Load Balancer in.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Scaleway Project to create the Load Balancer in.",
+            "smithy.api#documentation": "Scaleway Project to create the Load Balancer in.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5947,14 +5947,14 @@
         "static_config": {
           "target": "com.scaleway.lb_zoned_v1#PrivateNetworkStaticConfig",
           "traits": {
-            "smithy.api#documentation": "Object containing an array of a local IP address for the Load Balancer on this Private Network.",
+            "smithy.api#documentation": "Object containing an array of a local IP address for the Load Balancer on this Private Network.\nPrecisely one of static_config, dhcp_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "dhcp_config": {
           "target": "com.scaleway.lb_zoned_v1#PrivateNetworkDHCPConfig",
           "traits": {
-            "smithy.api#documentation": "Object containing DHCP-assigned IP addresses.",
+            "smithy.api#documentation": "Object containing DHCP-assigned IP addresses.\nPrecisely one of static_config, dhcp_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -7085,14 +7085,14 @@
         "letsencrypt": {
           "target": "com.scaleway.lb_zoned_v1#CreateCertificateRequestLetsencryptConfig",
           "traits": {
-            "smithy.api#documentation": "Object to define a new Let's Encrypt certificate to be generated.",
+            "smithy.api#documentation": "Object to define a new Let's Encrypt certificate to be generated.\nPrecisely one of letsencrypt, custom_certificate can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "custom_certificate": {
           "target": "com.scaleway.lb_zoned_v1#CreateCertificateRequestCustomCertificate",
           "traits": {
-            "smithy.api#documentation": "Object to define an existing custom certificate to be imported.",
+            "smithy.api#documentation": "Object to define an existing custom certificate to be imported.\nPrecisely one of letsencrypt, custom_certificate can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -8037,14 +8037,14 @@
         "sni": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Server Name Indication (SNI) value to match.\nValue to match in the Server Name Indication TLS extension (SNI) field from an incoming connection made via an SSL/TLS transport layer. This field should be set for routes on TCP Load Balancers.",
+            "smithy.api#documentation": "Server Name Indication (SNI) value to match.\nValue to match in the Server Name Indication TLS extension (SNI) field from an incoming connection made via an SSL/TLS transport layer. This field should be set for routes on TCP Load Balancers.\nPrecisely one of sni, host_header, path_begin can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "host_header": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "HTTP host header to match.\nValue to match in the HTTP Host request header from an incoming request. This field should be set for routes on HTTP Load Balancers.",
+            "smithy.api#documentation": "HTTP host header to match.\nValue to match in the HTTP Host request header from an incoming request. This field should be set for routes on HTTP Load Balancers.\nPrecisely one of sni, host_header, path_begin can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -8057,7 +8057,7 @@
         "path_begin": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Path begin value to match.\nValue to match in the URL beginning path from an incoming request.",
+            "smithy.api#documentation": "Path begin value to match.\nValue to match in the URL beginning path from an incoming request.\nPrecisely one of sni, host_header, path_begin can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -8767,28 +8767,28 @@
         "email_config": {
           "target": "com.scaleway.lb_zoned_v1#SubscriberEmailConfig",
           "traits": {
-            "smithy.api#documentation": "Email address configuration.",
+            "smithy.api#documentation": "Email address configuration.\nPrecisely one of email_config, webhook_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "webhook_config": {
           "target": "com.scaleway.lb_zoned_v1#SubscriberWebhookConfig",
           "traits": {
-            "smithy.api#documentation": "WebHook URI configuration.",
+            "smithy.api#documentation": "WebHook URI configuration.\nPrecisely one of email_config, webhook_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID to create the subscriber in.",
+            "smithy.api#documentation": "Organization ID to create the subscriber in.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID to create the subscriber in.",
+            "smithy.api#documentation": "Project ID to create the subscriber in.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -8992,14 +8992,14 @@
         "email_config": {
           "target": "com.scaleway.lb_zoned_v1#SubscriberEmailConfig",
           "traits": {
-            "smithy.api#documentation": "Email address configuration.",
+            "smithy.api#documentation": "Email address configuration.\nPrecisely one of email_config, webhook_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "webhook_config": {
           "target": "com.scaleway.lb_zoned_v1#SubscriberWebhookConfig",
           "traits": {
-            "smithy.api#documentation": "Webhook URI configuration.",
+            "smithy.api#documentation": "Webhook URI configuration.\nPrecisely one of email_config, webhook_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

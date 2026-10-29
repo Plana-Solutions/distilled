@@ -80,14 +80,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID with which the server will be created.",
+            "smithy.api#documentation": "Organization ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID with which the server will be created.",
+            "smithy.api#documentation": "Project ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1234,35 +1234,35 @@
         "license": {
           "target": "com.scaleway.baremetal_v1#LicenseOption",
           "traits": {
-            "smithy.api#documentation": "License option, contains the ID of the OS linked to the option.",
+            "smithy.api#documentation": "License option, contains the ID of the OS linked to the option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_bandwidth": {
           "target": "com.scaleway.baremetal_v1#PublicBandwidthOption",
           "traits": {
-            "smithy.api#documentation": "Public_bandwidth option, contains the bandwidth_in_bps.",
+            "smithy.api#documentation": "Public_bandwidth option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.baremetal_v1#PrivateNetworkOption",
           "traits": {
-            "smithy.api#documentation": "Private_network option, contains the bandwidth_in_bps.",
+            "smithy.api#documentation": "Private_network option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "remote_access": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Remote_access option.",
+            "smithy.api#documentation": "Remote_access option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "certification": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Certification option.",
+            "smithy.api#documentation": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1987,35 +1987,35 @@
         "license": {
           "target": "com.scaleway.baremetal_v1#LicenseOption",
           "traits": {
-            "smithy.api#documentation": "License option, contains the ID of the OS linked to the option.",
+            "smithy.api#documentation": "License option, contains the ID of the OS linked to the option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_bandwidth": {
           "target": "com.scaleway.baremetal_v1#PublicBandwidthOption",
           "traits": {
-            "smithy.api#documentation": "Public_bandwidth option, contains the bandwidth_in_bps.",
+            "smithy.api#documentation": "Public_bandwidth option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.baremetal_v1#PrivateNetworkOption",
           "traits": {
-            "smithy.api#documentation": "Private_network option, contains the bandwidth_in_bps.",
+            "smithy.api#documentation": "Private_network option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "remote_access": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Remote_access option.",
+            "smithy.api#documentation": "Remote_access option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "certification": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Certification option.",
+            "smithy.api#documentation": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2311,35 +2311,35 @@
         "license": {
           "target": "com.scaleway.baremetal_v1#LicenseOption",
           "traits": {
-            "smithy.api#documentation": "License option, contains the ID of the OS linked to the option.",
+            "smithy.api#documentation": "License option, contains the ID of the OS linked to the option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_bandwidth": {
           "target": "com.scaleway.baremetal_v1#PublicBandwidthOption",
           "traits": {
-            "smithy.api#documentation": "Public_bandwidth option, contains the bandwidth_in_bps.",
+            "smithy.api#documentation": "Public_bandwidth option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.baremetal_v1#PrivateNetworkOption",
           "traits": {
-            "smithy.api#documentation": "Private_network option, contains the bandwidth_in_bps.",
+            "smithy.api#documentation": "Private_network option, contains the bandwidth_in_bps.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "remote_access": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Remote_access option.",
+            "smithy.api#documentation": "Remote_access option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "certification": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Certification option.",
+            "smithy.api#documentation": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3277,14 +3277,14 @@
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID with which the server will be created.",
+            "smithy.api#documentation": "Organization ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID with which the server will be created.",
+            "smithy.api#documentation": "Project ID with which the server will be created.\nPrecisely one of project_id, organization_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

@@ -293,19 +293,19 @@
           }
         },
         "scaling_option": {
-          "target": "com.scaleway.containers_v1#ContainerScalingOption",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Parameter used to decide when to scale up or down."
           }
         },
         "liveness_probe": {
-          "target": "com.scaleway.containers_v1#ContainerProbe",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
         },
         "startup_probe": {
-          "target": "com.scaleway.containers_v1#ContainerProbe",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Defines how to check if the container has started successfully.\nIf the startup probe fails, the container will be restarted.\nThis check is useful for applications that might take a long time to start. It is only performed when the container is starting.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
@@ -514,85 +514,6 @@
           "target": "smithy.api#Unit",
           "traits": {
             "smithy.api#enumValue": "v2"
-          }
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.containers_v1#ContainerScalingOption": {
-      "type": "structure",
-      "members": {
-        "concurrent_requests_threshold": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "Scale depending on the number of concurrent requests being processed per container instance. The threshold value is the number of concurrent requests above which the container will be scaled up.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "cpu_usage_threshold": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "Scale depending on the CPU usage of a container instance. The threshold value is the percentage of CPU usage above which the container will be scaled up.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "memory_usage_threshold": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "Scale depending on the memory usage of a container instance. The threshold value is the percentage of memory usage above which the container will be scaled up.",
-            "com.distilled.openapi#nullable": {}
-          }
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.containers_v1#ContainerProbe": {
-      "type": "structure",
-      "members": {
-        "failure_threshold": {
-          "target": "smithy.api#Integer",
-          "traits": {
-            "smithy.api#documentation": "Number of consecutive failures before considering the container as unhealthy.\nUnhealthy containers do not receive traffic from incoming requests."
-          }
-        },
-        "interval": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "Time interval between checks. (in seconds)",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "timeout": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "Duration before the check times out. (in seconds)",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "tcp": {
-          "target": "smithy.api#Document",
-          "traits": {
-            "smithy.api#documentation": "Perform TCP check on the container.\nThe check is successful if a TCP connection can be established with the container within the specified timeout.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "http": {
-          "target": "com.scaleway.containers_v1#ContainerProbeHTTPProbe",
-          "traits": {
-            "smithy.api#documentation": "Perform HTTP check on the container.\nThe check is successful if an HTTP request to the specified path returns a successful status code (e.g. 2XX or 3XX) within the specified timeout.",
-            "com.distilled.openapi#nullable": {}
-          }
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.containers_v1#ContainerProbeHTTPProbe": {
-      "type": "structure",
-      "members": {
-        "path": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "HTTP path to perform the check on."
           }
         }
       },
@@ -864,19 +785,19 @@
           }
         },
         "scaling_option": {
-          "target": "com.scaleway.containers_v1#ContainerScalingOption",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Parameter used to decide when to scale up or down."
           }
         },
         "liveness_probe": {
-          "target": "com.scaleway.containers_v1#ContainerProbe",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
         },
         "startup_probe": {
-          "target": "com.scaleway.containers_v1#ContainerProbe",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Defines how to check if the container has started successfully.\nIf the startup probe fails, the container will be restarted.\nThis check is useful for applications that might take a long time to start. It is only performed when the container is starting.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
@@ -1095,12 +1016,14 @@
         "http": {
           "target": "com.scaleway.containers_v1#UpdateContainerRequestProbeHTTPProbe",
           "traits": {
+            "smithy.api#documentation": "Precisely one of http, tcp can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "tcp": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of http, tcp can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1267,13 +1190,13 @@
           }
         },
         "scaling_option": {
-          "target": "com.scaleway.containers_v1#ContainerScalingOption",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Parameter used to decide when to scale up or down."
           }
         },
         "liveness_probe": {
-          "target": "com.scaleway.containers_v1#ContainerProbe",
+          "target": "smithy.api#Document",
           "traits": {
             "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
@@ -3173,21 +3096,21 @@
         "cron_config": {
           "target": "com.scaleway.containers_v1#TriggerCronConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a cron source.",
+            "smithy.api#documentation": "Configuration for a cron source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "sqs_config": {
           "target": "com.scaleway.containers_v1#TriggerSQSConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for an SQS queue source.",
+            "smithy.api#documentation": "Configuration for an SQS queue source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "nats_config": {
           "target": "com.scaleway.containers_v1#TriggerNATSConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a NATS source.",
+            "smithy.api#documentation": "Configuration for a NATS source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3745,21 +3668,21 @@
         "cron_config": {
           "target": "com.scaleway.containers_v1#CreateTriggerRequestCronConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a cron source.",
+            "smithy.api#documentation": "Configuration for a cron source.\nOne of cron_config, sqs_config, nats_config is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "sqs_config": {
           "target": "com.scaleway.containers_v1#CreateTriggerRequestSQSConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for an SQS queue source.",
+            "smithy.api#documentation": "Configuration for an SQS queue source.\nOne of cron_config, sqs_config, nats_config is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "nats_config": {
           "target": "com.scaleway.containers_v1#CreateTriggerRequestNATSConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a NATS source.",
+            "smithy.api#documentation": "Configuration for a NATS source.\nOne of cron_config, sqs_config, nats_config is required.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4130,21 +4053,21 @@
         "cron_config": {
           "target": "com.scaleway.containers_v1#UpdateTriggerRequestCronConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a cron source.",
+            "smithy.api#documentation": "Configuration for a cron source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "sqs_config": {
           "target": "com.scaleway.containers_v1#UpdateTriggerRequestSQSConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for an SQS queue source.",
+            "smithy.api#documentation": "Configuration for an SQS queue source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "nats_config": {
           "target": "com.scaleway.containers_v1#UpdateTriggerRequestNATSConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a NATS source.",
+            "smithy.api#documentation": "Configuration for a NATS source.\nPrecisely one of cron_config, sqs_config, nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

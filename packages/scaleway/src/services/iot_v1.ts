@@ -187,7 +187,7 @@ export interface CreateHubRequest {
   disable_events?: boolean | null;
   /** Topic prefix (default '$SCW/events') of Hub events. */
   events_topic_prefix?: string | null;
-  /** BETA - not implemented yet. */
+  /** BETA - not implemented yet. Precisely one of twins_graphite_config can be set. */
   twins_graphite_config?: HubTwinsGraphiteConfig | null;
 }
 export const CreateHubRequest = /*@__PURE__*/ S.suspend(() =>
@@ -247,7 +247,7 @@ export interface Hub {
   enable_device_auto_provisioning?: boolean;
   /** Defines whether the hub is using a custom certificate authority. Flag is automatically set to `false` after Hub creation, as Hub certificates are managed by Scaleway. Once a custom certificate authority is set, the flag will be set to `true`. */
   has_custom_ca?: boolean;
-  /** BETA - not implemented yet. */
+  /** BETA - not implemented yet. Precisely one of twins_graphite_config can be set. */
   twins_graphite_config?: HubTwinsGraphiteConfig | null;
 }
 export const Hub = /*@__PURE__*/ S.suspend(() =>
@@ -434,11 +434,11 @@ export interface CreateRouteRequest {
   hub_id?: string;
   /** Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters. */
   topic?: string;
-  /** If creating Amazon S3 Routes, Amazon S3-specific configuration fields. */
+  /** If creating Amazon S3 Routes, Amazon S3-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   s3_config?: CreateRouteRequestS3Config | null;
-  /** If creating Database Route, DB-specific configuration fields. */
+  /** If creating Database Route, DB-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   db_config?: CreateRouteRequestDatabaseConfig | null;
-  /** If creating Rest Route, Rest-specific configuration fields. */
+  /** If creating Rest Route, Rest-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   rest_config?: CreateRouteRequestRestConfig | null;
 }
 export const CreateRouteRequest = /*@__PURE__*/ S.suspend(() =>
@@ -546,11 +546,11 @@ export interface Route {
   type?: RouteRouteType;
   /** Date at which the route was created. (RFC 3339 format) */
   created_at?: string | null;
-  /** When using Amazon S3 Routes, Amazon S3-specific configuration fields. */
+  /** When using Amazon S3 Routes, Amazon S3-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   s3_config?: RouteS3Config | null;
-  /** When using Database Route, DB-specific configuration fields. */
+  /** When using Database Route, DB-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   db_config?: RouteDatabaseConfig | null;
-  /** When using Rest Route, Rest-specific configuration fields. */
+  /** When using Rest Route, Rest-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   rest_config?: RouteRestConfig | null;
   /** Date at which the route was last updated. (RFC 3339 format) */
   updated_at?: string | null;
@@ -1663,7 +1663,7 @@ export interface UpdateHubRequest {
   events_topic_prefix?: string | null;
   /** Enable device auto provisioning. */
   enable_device_auto_provisioning?: boolean | null;
-  /** BETA - not implemented yet. */
+  /** BETA - not implemented yet. Precisely one of twins_graphite_config can be set. */
   twins_graphite_config?: HubTwinsGraphiteConfig | null;
 }
 export const UpdateHubRequest = /*@__PURE__*/ S.suspend(() =>
@@ -1759,11 +1759,11 @@ export interface UpdateRouteRequest {
   name?: string | null;
   /** Topic the route subscribes to. It must be a valid MQTT topic and up to 65535 characters. */
   topic?: string | null;
-  /** When updating Amazon S3 Route, Amazon S3-specific configuration fields. */
+  /** When updating Amazon S3 Route, Amazon S3-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   s3_config?: UpdateRouteRequestS3Config | null;
-  /** When updating Database Route, DB-specific configuration fields. */
+  /** When updating Database Route, DB-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   db_config?: UpdateRouteRequestDatabaseConfig | null;
-  /** When updating Rest Route, Rest-specific configuration fields. */
+  /** When updating Rest Route, Rest-specific configuration fields. Precisely one of s3_config, db_config, rest_config can be set. */
   rest_config?: UpdateRouteRequestRestConfig | null;
 }
 export const UpdateRouteRequest = /*@__PURE__*/ S.suspend(() =>

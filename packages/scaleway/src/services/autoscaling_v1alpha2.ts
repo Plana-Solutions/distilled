@@ -68,11 +68,11 @@ export interface ScalingPolicySpec {
   scale_in_step?: number | null;
   /** Number of instances to add in a single scale out event. */
   scale_out_step?: number | null;
-  /** Fixed size scaling policy configuration. */
+  /** Fixed size scaling policy configuration. Precisely one of fixed_size, cpu_target, memory_target can be set. */
   fixed_size?: GroupScalingPolicyScalingPolicyFixedSize | null;
-  /** CPU target scaling policy configuration. */
+  /** CPU target scaling policy configuration. Precisely one of fixed_size, cpu_target, memory_target can be set. */
   cpu_target?: GroupScalingPolicyScalingPolicyCpuTarget | null;
-  /** Memory target scaling policy configuration. */
+  /** Memory target scaling policy configuration. Precisely one of fixed_size, cpu_target, memory_target can be set. */
   memory_target?: GroupScalingPolicyScalingPolicyCpuTarget | null;
 }
 export const ScalingPolicySpec = /*@__PURE__*/ S.suspend(() =>
@@ -259,8 +259,11 @@ export interface GroupScalingPolicy {
   scale_in_cooldown?: string | null;
   scale_in_step?: number;
   scale_out_step?: number;
+  /** Precisely one of fixed_size, cpu_target, memory_target can be set. */
   fixed_size?: GroupScalingPolicyScalingPolicyFixedSize | null;
+  /** Precisely one of fixed_size, cpu_target, memory_target can be set. */
   cpu_target?: GroupScalingPolicyScalingPolicyCpuTarget | null;
+  /** Precisely one of fixed_size, cpu_target, memory_target can be set. */
   memory_target?: GroupScalingPolicyScalingPolicyCpuTarget | null;
 }
 export const GroupScalingPolicy = /*@__PURE__*/ S.suspend(() =>

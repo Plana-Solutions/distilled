@@ -578,6 +578,7 @@
         "online_v1": {
           "target": "com.scaleway.domain_v2beta1#ImportProviderDNSZoneRequestOnlineV1",
           "traits": {
+            "smithy.api#documentation": "Precisely one of online_v1 can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -622,24 +623,28 @@
         "geo_ip_config": {
           "target": "com.scaleway.domain_v2beta1#RecordGeoIPConfig",
           "traits": {
+            "smithy.api#documentation": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "http_service_config": {
           "target": "com.scaleway.domain_v2beta1#RecordHTTPServiceConfig",
           "traits": {
+            "smithy.api#documentation": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "weighted_config": {
           "target": "com.scaleway.domain_v2beta1#RecordWeightedConfig",
           "traits": {
+            "smithy.api#documentation": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "view_config": {
           "target": "com.scaleway.domain_v2beta1#RecordViewConfig",
           "traits": {
+            "smithy.api#documentation": "Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1274,14 +1279,14 @@
         "bind_source": {
           "target": "com.scaleway.domain_v2beta1#ImportRawDNSZoneRequestBindSource",
           "traits": {
-            "smithy.api#documentation": "Import a bind file format.",
+            "smithy.api#documentation": "Import a bind file format.\nPrecisely one of bind_source, axfr_source can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "axfr_source": {
           "target": "com.scaleway.domain_v2beta1#ImportRawDNSZoneRequestAXFRSource",
           "traits": {
-            "smithy.api#documentation": "Import from the name server given with TSIG, to use or not.",
+            "smithy.api#documentation": "Import from the name server given with TSIG, to use or not.\nPrecisely one of bind_source, axfr_source can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1466,24 +1471,28 @@
         "add": {
           "target": "com.scaleway.domain_v2beta1#RecordChangeAdd",
           "traits": {
+            "smithy.api#documentation": "Precisely one of add, set, delete, clear can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "set": {
           "target": "com.scaleway.domain_v2beta1#RecordChangeSet",
           "traits": {
+            "smithy.api#documentation": "Precisely one of add, set, delete, clear can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "delete": {
           "target": "com.scaleway.domain_v2beta1#RecordChangeDelete",
           "traits": {
+            "smithy.api#documentation": "Precisely one of add, set, delete, clear can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "clear": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of add, set, delete, clear can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1512,13 +1521,14 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of id, id_fields can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "id_fields": {
           "target": "com.scaleway.domain_v2beta1#RecordIdentifier",
           "traits": {
+            "smithy.api#documentation": "Precisely one of id, id_fields can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1565,13 +1575,14 @@
         "id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of id, id_fields can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "id_fields": {
           "target": "com.scaleway.domain_v2beta1#RecordIdentifier",
           "traits": {
+            "smithy.api#documentation": "Precisely one of id, id_fields can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

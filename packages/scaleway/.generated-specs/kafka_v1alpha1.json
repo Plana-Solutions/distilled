@@ -257,14 +257,14 @@
         "multi_az": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.",
+            "smithy.api#documentation": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.\nPrecisely one of multi_az, mono_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "mono_az": {
           "target": "com.scaleway.kafka_v1alpha1#ClusterMonoAZDetails",
           "traits": {
-            "smithy.api#documentation": "MonoAZ details.",
+            "smithy.api#documentation": "MonoAZ details.\nPrecisely one of multi_az, mono_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -352,28 +352,28 @@
         "bool_value": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Boolean value of the setting.",
+            "smithy.api#documentation": "Boolean value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "string_value": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "String value of the setting.",
+            "smithy.api#documentation": "String value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "int_value": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Integer value of the setting.",
+            "smithy.api#documentation": "Integer value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "float_value": {
           "target": "smithy.api#Double",
           "traits": {
-            "smithy.api#documentation": "Float value of the setting.",
+            "smithy.api#documentation": "Float value of the setting.\nPrecisely one of bool_value, string_value, int_value, float_value can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -455,14 +455,14 @@
         "private_network": {
           "target": "com.scaleway.kafka_v1alpha1#EndpointPrivateNetworkDetails",
           "traits": {
-            "smithy.api#documentation": "Private Network endpoint details.",
+            "smithy.api#documentation": "Private Network endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Public endpoint details.",
+            "smithy.api#documentation": "Public endpoint details.\nPrecisely one of private_network, public_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -591,12 +591,14 @@
         "public_network": {
           "target": "smithy.api#Document",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network": {
           "target": "com.scaleway.kafka_v1alpha1#EndpointSpecPrivateNetworkDetails",
           "traits": {
+            "smithy.api#documentation": "Precisely one of public_network, private_network can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -703,14 +705,14 @@
         "multi_az": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.",
+            "smithy.api#documentation": "MultiAZ tell the cluster is deployed on multiple availability zones in the region.\nPrecisely one of multi_az, mono_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "mono_az": {
           "target": "com.scaleway.kafka_v1alpha1#ClusterMonoAZDetails",
           "traits": {
-            "smithy.api#documentation": "MonoAZ details.",
+            "smithy.api#documentation": "MonoAZ details.\nPrecisely one of multi_az, mono_az can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1712,28 +1714,28 @@
         "bool_property": {
           "target": "com.scaleway.kafka_v1alpha1#VersionAvailableSettingBooleanProperty",
           "traits": {
-            "smithy.api#documentation": "Boolean property, if the setting is a boolean.",
+            "smithy.api#documentation": "Boolean property, if the setting is a boolean.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "string_property": {
           "target": "com.scaleway.kafka_v1alpha1#VersionAvailableSettingStringProperty",
           "traits": {
-            "smithy.api#documentation": "String property, if the setting is a string.",
+            "smithy.api#documentation": "String property, if the setting is a string.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "int_property": {
           "target": "com.scaleway.kafka_v1alpha1#VersionAvailableSettingIntegerProperty",
           "traits": {
-            "smithy.api#documentation": "Integer property, if the setting is an integer.",
+            "smithy.api#documentation": "Integer property, if the setting is an integer.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "float_property": {
           "target": "com.scaleway.kafka_v1alpha1#VersionAvailableSettingFloatProperty",
           "traits": {
-            "smithy.api#documentation": "Float property, if the setting is a float.",
+            "smithy.api#documentation": "Float property, if the setting is a float.\nPrecisely one of bool_property, string_property, int_property, float_property can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

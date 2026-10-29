@@ -605,9 +605,9 @@ export interface ListSnapshotsRequest {
   filesystem_id?: string;
   /** Filter by snapshot IDs. Only snapshots with one or more matching IDs will be returned. */
   snapshot_ids?: ListSnapshotsRequestSnapshotIdsList;
-  /** Filter by project ID. */
+  /** Filter by project ID. One of project_id, organization_id is required. */
   project_id?: string;
-  /** Filter by organization ID. */
+  /** Filter by organization ID. One of project_id, organization_id is required. */
   organization_id?: string;
 }
 export const ListSnapshotsRequest = /*@__PURE__*/ S.suspend(() =>

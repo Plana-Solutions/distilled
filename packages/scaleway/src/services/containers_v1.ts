@@ -38,54 +38,6 @@ export const ContainerProtocol = S.String;
 export type ContainerSandbox = "unknown_sandbox" | "v1" | "v2";
 export const ContainerSandbox = S.String;
 
-export interface ContainerScalingOption {
-  /** Scale depending on the number of concurrent requests being processed per container instance. The threshold value is the number of concurrent requests above which the container will be scaled up. */
-  concurrent_requests_threshold?: number | null;
-  /** Scale depending on the CPU usage of a container instance. The threshold value is the percentage of CPU usage above which the container will be scaled up. */
-  cpu_usage_threshold?: number | null;
-  /** Scale depending on the memory usage of a container instance. The threshold value is the percentage of memory usage above which the container will be scaled up. */
-  memory_usage_threshold?: number | null;
-}
-export const ContainerScalingOption = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    concurrent_requests_threshold: S.optional(S.NullOr(S.Number)),
-    cpu_usage_threshold: S.optional(S.NullOr(S.Number)),
-    memory_usage_threshold: S.optional(S.NullOr(S.Number)),
-  }),
-).annotate({ identifier: "ContainerScalingOption" }) as any as S.Schema<ContainerScalingOption>;
-
-export interface ContainerProbeHTTPProbe {
-  /** HTTP path to perform the check on. */
-  path?: string;
-}
-export const ContainerProbeHTTPProbe = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    path: S.optional(S.String),
-  }),
-).annotate({ identifier: "ContainerProbeHTTPProbe" }) as any as S.Schema<ContainerProbeHTTPProbe>;
-
-export interface ContainerProbe {
-  /** Number of consecutive failures before considering the container as unhealthy. Unhealthy containers do not receive traffic from incoming requests. */
-  failure_threshold?: number;
-  /** Time interval between checks. (in seconds) */
-  interval?: string | null;
-  /** Duration before the check times out. (in seconds) */
-  timeout?: string | null;
-  /** Perform TCP check on the container. The check is successful if a TCP connection can be established with the container within the specified timeout. */
-  tcp?: unknown | null;
-  /** Perform HTTP check on the container. The check is successful if an HTTP request to the specified path returns a successful status code (e.g. 2XX or 3XX) within the specified timeout. */
-  http?: ContainerProbeHTTPProbe | null;
-}
-export const ContainerProbe = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    failure_threshold: S.optional(S.Number),
-    interval: S.optional(S.NullOr(S.String)),
-    timeout: S.optional(S.NullOr(S.String)),
-    tcp: S.optional(S.NullOr(S.Unknown)),
-    http: S.optional(S.NullOr(ContainerProbeHTTPProbe)),
-  }),
-).annotate({ identifier: "ContainerProbe" }) as any as S.Schema<ContainerProbe>;
-
 /** Tags of the Serverless Container. */
 export type CreateContainerRequestTagsList = Array<string>;
 export const CreateContainerRequestTagsList = /*@__PURE__*/ S.Array(
@@ -142,11 +94,11 @@ export interface CreateContainerRequest {
   /** Local storage limit of the container (in bytes). (in bytes) */
   local_storage_limit_bytes?: number | null;
   /** Parameter used to decide when to scale up or down. */
-  scaling_option?: ContainerScalingOption;
+  scaling_option?: unknown;
   /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be restarted. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
-  liveness_probe?: ContainerProbe;
+  liveness_probe?: unknown;
   /** Defines how to check if the container has started successfully. If the startup probe fails, the container will be restarted. This check is useful for applications that might take a long time to start. It is only performed when the container is starting. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
-  startup_probe?: ContainerProbe;
+  startup_probe?: unknown;
   /** Tags of the Serverless Container. */
   tags?: CreateContainerRequestTagsList;
   /** ID of the Private Network the container is connected to. When connected to a Private Network, the container can access other Scaleway resources in this Private Network. */
@@ -180,9 +132,9 @@ export const CreateContainerRequest = /*@__PURE__*/ S.suspend(() =>
     https_connections_only: S.optional(S.NullOr(S.Boolean)),
     sandbox: S.optional(ContainerSandbox),
     local_storage_limit_bytes: S.optional(S.NullOr(S.Number)),
-    scaling_option: S.optional(ContainerScalingOption),
-    liveness_probe: S.optional(ContainerProbe),
-    startup_probe: S.optional(ContainerProbe),
+    scaling_option: S.optional(S.Unknown),
+    liveness_probe: S.optional(S.Unknown),
+    startup_probe: S.optional(S.Unknown),
     tags: S.optional(CreateContainerRequestTagsList),
     private_network_id: S.optional(S.NullOr(S.String)),
     command: S.optional(CreateContainerRequestCommandList),
@@ -291,11 +243,11 @@ export interface Container {
   /** Execution environment of the container. */
   sandbox?: ContainerSandbox;
   /** Parameter used to decide when to scale up or down. */
-  scaling_option?: ContainerScalingOption;
+  scaling_option?: unknown;
   /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be restarted. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
-  liveness_probe?: ContainerProbe;
+  liveness_probe?: unknown;
   /** Defines how to check if the container has started successfully. If the startup probe fails, the container will be restarted. This check is useful for applications that might take a long time to start. It is only performed when the container is starting. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
-  startup_probe?: ContainerProbe;
+  startup_probe?: unknown;
   /** Tags of the Serverless Container. */
   tags?: ContainerTagsList;
   /** ID of the Private Network the container is connected to. When connected to a Private Network, the container can access other Scaleway resources in this Private Network. (UUID format) */
@@ -338,9 +290,9 @@ export const Container = /*@__PURE__*/ S.suspend(() =>
     port: S.optional(S.Number),
     https_connections_only: S.optional(S.Boolean),
     sandbox: S.optional(ContainerSandbox),
-    scaling_option: S.optional(ContainerScalingOption),
-    liveness_probe: S.optional(ContainerProbe),
-    startup_probe: S.optional(ContainerProbe),
+    scaling_option: S.optional(S.Unknown),
+    liveness_probe: S.optional(S.Unknown),
+    startup_probe: S.optional(S.Unknown),
     tags: S.optional(ContainerTagsList),
     private_network_id: S.optional(S.NullOr(S.String)),
     command: S.optional(ContainerCommandList),
@@ -703,11 +655,11 @@ export interface CreateTriggerRequest {
   tags?: CreateTriggerRequestTagsList;
   /** Configuration of the destination to trigger. */
   destination_config?: CreateTriggerRequestDestinationConfig;
-  /** Configuration for a cron source. */
+  /** Configuration for a cron source. One of cron_config, sqs_config, nats_config is required. */
   cron_config?: CreateTriggerRequestCronConfig | null;
-  /** Configuration for an SQS queue source. */
+  /** Configuration for an SQS queue source. One of cron_config, sqs_config, nats_config is required. */
   sqs_config?: CreateTriggerRequestSQSConfig | null;
-  /** Configuration for a NATS source. */
+  /** Configuration for a NATS source. One of cron_config, sqs_config, nats_config is required. */
   nats_config?: CreateTriggerRequestNATSConfig | null;
 }
 export const CreateTriggerRequest = /*@__PURE__*/ S.suspend(() =>
@@ -857,11 +809,11 @@ export interface Trigger {
   destination_config?: TriggerDestinationConfig;
   /** Type of source that will trigger the container. */
   source_type?: TriggerSourceType;
-  /** Configuration for a cron source. */
+  /** Configuration for a cron source. Precisely one of cron_config, sqs_config, nats_config can be set. */
   cron_config?: TriggerCronConfig | null;
-  /** Configuration for an SQS queue source. */
+  /** Configuration for an SQS queue source. Precisely one of cron_config, sqs_config, nats_config can be set. */
   sqs_config?: TriggerSQSConfig | null;
-  /** Configuration for a NATS source. */
+  /** Configuration for a NATS source. Precisely one of cron_config, sqs_config, nats_config can be set. */
   nats_config?: TriggerNATSConfig | null;
   /** Trigger creation date. (RFC 3339 format) */
   created_at?: string | null;
@@ -1426,7 +1378,9 @@ export interface UpdateContainerRequestProbe {
   interval?: string | null;
   /** (in seconds) */
   timeout?: string | null;
+  /** Precisely one of http, tcp can be set. */
   http?: UpdateContainerRequestProbeHTTPProbe | null;
+  /** Precisely one of http, tcp can be set. */
   tcp?: unknown | null;
 }
 export const UpdateContainerRequestProbe = /*@__PURE__*/ S.suspend(() =>
@@ -1495,9 +1449,9 @@ export interface UpdateContainerRequest {
   /** Local storage limit of the container (in bytes). (in bytes) */
   local_storage_limit_bytes?: number | null;
   /** Parameter used to decide when to scale up or down. */
-  scaling_option?: ContainerScalingOption;
+  scaling_option?: unknown;
   /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be restarted. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
-  liveness_probe?: ContainerProbe;
+  liveness_probe?: unknown;
   /** Defines how to check if the container has started successfully. If the startup probe fails, the container will be restarted. This check is useful for applications that might take a long time to start. It is only performed when the container is starting. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   startup_probe?: UpdateContainerRequestProbe;
   /** Tags of the Serverless Container. */
@@ -1534,8 +1488,8 @@ export const UpdateContainerRequest = /*@__PURE__*/ S.suspend(() =>
     https_connection_only: S.optional(S.NullOr(S.Boolean)),
     sandbox: S.optional(ContainerSandbox),
     local_storage_limit_bytes: S.optional(S.NullOr(S.Number)),
-    scaling_option: S.optional(ContainerScalingOption),
-    liveness_probe: S.optional(ContainerProbe),
+    scaling_option: S.optional(S.Unknown),
+    liveness_probe: S.optional(S.Unknown),
     startup_probe: S.optional(UpdateContainerRequestProbe),
     tags: S.optional(S.NullOr(UpdateContainerRequestTagsList)),
     private_network_id: S.optional(S.NullOr(S.String)),
@@ -1766,11 +1720,11 @@ export interface UpdateTriggerRequest {
   tags?: UpdateTriggerRequestTagsList | null;
   /** Configuration of the destination to trigger. */
   destination_config?: UpdateTriggerRequestDestinationConfig;
-  /** Configuration for a cron source. */
+  /** Configuration for a cron source. Precisely one of cron_config, sqs_config, nats_config can be set. */
   cron_config?: UpdateTriggerRequestCronConfig | null;
-  /** Configuration for an SQS queue source. */
+  /** Configuration for an SQS queue source. Precisely one of cron_config, sqs_config, nats_config can be set. */
   sqs_config?: UpdateTriggerRequestSQSConfig | null;
-  /** Configuration for a NATS source. */
+  /** Configuration for a NATS source. Precisely one of cron_config, sqs_config, nats_config can be set. */
   nats_config?: UpdateTriggerRequestNATSConfig | null;
 }
 export const UpdateTriggerRequest = /*@__PURE__*/ S.suspend(() =>

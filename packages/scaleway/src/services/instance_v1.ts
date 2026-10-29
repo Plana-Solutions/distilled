@@ -801,9 +801,9 @@ export interface VolumeTemplate {
   size?: number;
   /** Type of the volume. */
   volume_type?: VolumeVolumeType | (string & {});
-  /** Organization ID of the volume. */
+  /** Organization ID of the volume. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Project ID of the volume. */
+  /** Project ID of the volume. Precisely one of project, organization can be set. */
   project?: string | null;
 }
 export const VolumeTemplate = /*@__PURE__*/ S.suspend(() =>
@@ -841,9 +841,9 @@ export interface CreateImageRequest {
   arch: Arch | (string & {});
   /** Additional volumes of the image. */
   extra_volumes?: CreateImageRequestExtraVolumesMap;
-  /** Organization ID of the image. */
+  /** Organization ID of the image. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Project ID of the image. */
+  /** Project ID of the image. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Tags of the image. */
   tags?: CreateImageRequestTagsList;
@@ -905,9 +905,9 @@ export const IpType = S.String;
 export interface CreateIpRequest {
   /** The zone you want to target */
   zone?: CreateIpRequestZone | (string & {});
-  /** Organization ID in which the IP is reserved. */
+  /** Organization ID in which the IP is reserved. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Project ID in which the IP is reserved. */
+  /** Project ID in which the IP is reserved. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Tags of the IP. */
   tags?: CreateIpRequestTagsList;
@@ -1008,9 +1008,9 @@ export interface CreatePlacementGroupRequest {
   zone?: CreatePlacementGroupRequestZone | (string & {});
   /** Name of the placement group. */
   name?: string;
-  /** Organization ID of the placement group. */
+  /** Organization ID of the placement group. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Project ID of the placement group. */
+  /** Project ID of the placement group. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Tags of the placement group. */
   tags?: CreatePlacementGroupRequestTagsList;
@@ -1143,15 +1143,15 @@ export interface CreateSecurityGroupRequest {
   name: string;
   /** Description of the security group. */
   description?: string;
-  /** Organization ID the security group belongs to. */
+  /** Organization ID the security group belongs to. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Project ID the security group belong to. */
+  /** Project ID the security group belong to. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Tags of the security group. */
   tags?: CreateSecurityGroupRequestTagsList;
-  /** Defines whether this security group becomes the default security group for new Instances. */
+  /** Defines whether this security group becomes the default security group for new Instances. Precisely one of organization_default, project_default can be set. */
   organization_default?: boolean | null;
-  /** Whether this security group becomes the default security group for new Instances. */
+  /** Whether this security group becomes the default security group for new Instances. Precisely one of organization_default, project_default can be set. */
   project_default?: boolean | null;
   /** Whether the security group is stateful or not. */
   stateful?: boolean;
@@ -1463,9 +1463,9 @@ export interface CreateServerRequest {
   public_ips?: CreateServerRequestPublicIpsList | null;
   /** Boot type to use. */
   boot_type?: BootType | (string & {});
-  /** Instance Organization ID. */
+  /** Instance Organization ID. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Instance Project ID. */
+  /** Instance Project ID. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Instance tags. */
   tags?: CreateServerRequestTagsList;
@@ -1548,9 +1548,9 @@ export interface CreateSnapshotRequest {
   volume_id?: string | null;
   /** Tags of the snapshot. */
   tags?: CreateSnapshotRequestTagsList | null;
-  /** Organization ID of the snapshot. */
+  /** Organization ID of the snapshot. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Project ID of the snapshot. */
+  /** Project ID of the snapshot. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Volume type of the snapshot. Overrides the volume_type of the snapshot. If omitted, the volume type of the original volume will be used. */
   volume_type?: SnapshotVolumeType | (string & {});
@@ -1728,17 +1728,17 @@ export interface CreateVolumeRequest {
   zone?: CreateVolumeRequestZone | (string & {});
   /** Volume name. */
   name?: string;
-  /** Volume Organization ID. */
+  /** Volume Organization ID. Precisely one of project, organization can be set. */
   organization?: string | null;
-  /** Volume Project ID. */
+  /** Volume Project ID. Precisely one of project, organization can be set. */
   project?: string | null;
   /** Volume tags. */
   tags?: CreateVolumeRequestTagsList;
   /** Volume type. */
   volume_type?: VolumeVolumeType | (string & {});
-  /** Volume disk size, must be a multiple of 512. (in bytes) */
+  /** Volume disk size, must be a multiple of 512. (in bytes) Precisely one of size, base_snapshot can be set. */
   size?: number | null;
-  /** ID of the snapshot on which this volume will be based. */
+  /** ID of the snapshot on which this volume will be based. Precisely one of size, base_snapshot can be set. */
   base_snapshot?: string | null;
 }
 export const CreateVolumeRequest = /*@__PURE__*/ S.suspend(() =>
@@ -3168,7 +3168,9 @@ export interface ListIpsRequest {
   page?: number;
   /** Filter on the IP Mobility IP type (whose value should be either 'routed_ipv4' or 'routed_ipv6'). */
   type?: string;
+  /** Precisely one of server, detached can be set. */
   server?: string;
+  /** Precisely one of server, detached can be set. */
   detached?: boolean;
 }
 export const ListIpsRequest = /*@__PURE__*/ S.suspend(() =>

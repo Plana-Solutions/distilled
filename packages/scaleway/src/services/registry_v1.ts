@@ -19,9 +19,9 @@ export interface CreateNamespaceRequest {
   name: string;
   /** Description of the namespace. */
   description?: string;
-  /** Namespace owner (deprecated). */
+  /** Namespace owner (deprecated). Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** Project ID on which the namespace will be created. */
+  /** Project ID on which the namespace will be created. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
   /** Defines whether or not namespace is public. */
   is_public?: boolean;

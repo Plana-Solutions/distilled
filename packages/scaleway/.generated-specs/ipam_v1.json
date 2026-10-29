@@ -237,6 +237,12 @@
             "smithy.api#enumValue": "lb_server"
           }
         },
+        "LB_IP": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "lb_ip"
+          }
+        },
         "FIP_IP": {
           "target": "smithy.api#Unit",
           "traits": {
@@ -689,34 +695,35 @@
         "zonal": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Zone the IP lives in if the IP is a public zoned IP.\nThis source is global.",
+            "smithy.api#documentation": "Zone the IP lives in if the IP is a public zoned IP.\nThis source is global.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "private_network_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network the IP lives in if the IP is a private IP.\nThis source is specific.",
+            "smithy.api#documentation": "Private Network the IP lives in if the IP is a private IP.\nThis source is specific.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "subnet_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Private Network subnet the IP lives in if the IP is a private IP in a Private Network.\nThis source is specific.",
+            "smithy.api#documentation": "Private Network subnet the IP lives in if the IP is a private IP in a Private Network.\nThis source is specific.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "vpc_id": {
           "target": "smithy.api#String",
           "traits": {
+            "smithy.api#documentation": "Precisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "regional": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether the IP is a public regional IP.\nThis source is global.",
+            "smithy.api#documentation": "Defines whether the IP is a public regional IP.\nThis source is global.\nPrecisely one of zonal, private_network_id, subnet_id, vpc_id, regional can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

@@ -1285,12 +1285,14 @@
         "github_configuration": {
           "target": "com.scaleway.apple_silicon_v1alpha1#GithubRunnerConfiguration",
           "traits": {
+            "smithy.api#documentation": "Precisely one of github_configuration, gitlab_configuration can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "gitlab_configuration": {
           "target": "com.scaleway.apple_silicon_v1alpha1#GitlabRunnerConfiguration",
           "traits": {
+            "smithy.api#documentation": "Precisely one of github_configuration, gitlab_configuration can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

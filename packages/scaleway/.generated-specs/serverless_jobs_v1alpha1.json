@@ -761,66 +761,10 @@
       },
       "traits": {}
     },
-    "com.scaleway.serverless_jobs_v1alpha1#Secret": {
-      "type": "structure",
-      "members": {
-        "secret_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "UUID of the secret reference within the job."
-          }
-        },
-        "secret_manager_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "UUID of the secret in Secret Manager."
-          }
-        },
-        "secret_manager_version": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "Version of the secret in Secret Manager."
-          }
-        },
-        "file": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#SecretFile",
-          "traits": {
-            "smithy.api#documentation": "File secret mounted inside the job.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "env_var": {
-          "target": "com.scaleway.serverless_jobs_v1alpha1#SecretEnvVar",
-          "traits": {
-            "smithy.api#documentation": "Environment variable used to expose the secret.",
-            "com.distilled.openapi#nullable": {}
-          }
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.serverless_jobs_v1alpha1#SecretFile": {
-      "type": "structure",
-      "members": {
-        "path": {
-          "target": "smithy.api#String"
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.serverless_jobs_v1alpha1#SecretEnvVar": {
-      "type": "structure",
-      "members": {
-        "name": {
-          "target": "smithy.api#String"
-        }
-      },
-      "traits": {}
-    },
     "com.scaleway.serverless_jobs_v1alpha1#ListJobDefinitionSecretsResponseSecretsList": {
       "type": "list",
       "member": {
-        "target": "com.scaleway.serverless_jobs_v1alpha1#Secret"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#documentation": "List of secret references within a job definition."
@@ -868,34 +812,10 @@
       },
       "traits": {}
     },
-    "com.scaleway.serverless_jobs_v1alpha1#CreateJobDefinitionSecretsRequestSecretConfig": {
-      "type": "structure",
-      "members": {
-        "secret_manager_id": {
-          "target": "smithy.api#String"
-        },
-        "secret_manager_version": {
-          "target": "smithy.api#String"
-        },
-        "path": {
-          "target": "smithy.api#String",
-          "traits": {
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "env_var_name": {
-          "target": "smithy.api#String",
-          "traits": {
-            "com.distilled.openapi#nullable": {}
-          }
-        }
-      },
-      "traits": {}
-    },
     "com.scaleway.serverless_jobs_v1alpha1#CreateJobDefinitionSecretsRequestSecretsList": {
       "type": "list",
       "member": {
-        "target": "com.scaleway.serverless_jobs_v1alpha1#CreateJobDefinitionSecretsRequestSecretConfig"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#documentation": "List of secrets to inject into the job."
@@ -946,7 +866,7 @@
     "com.scaleway.serverless_jobs_v1alpha1#CreateJobDefinitionSecretsResponseSecretsList": {
       "type": "list",
       "member": {
-        "target": "com.scaleway.serverless_jobs_v1alpha1#Secret"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#documentation": "List of secrets created."
@@ -1031,7 +951,7 @@
         "target": "com.scaleway.serverless_jobs_v1alpha1#GetJobDefinitionSecretRequest"
       },
       "output": {
-        "target": "com.scaleway.serverless_jobs_v1alpha1#Secret"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#http": {
@@ -1103,14 +1023,14 @@
         "path": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).",
+            "smithy.api#documentation": "Path of the secret to mount inside the job (either `path` or `env_var_name` must be set).\nPrecisely one of path, env_var_name can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "env_var_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).",
+            "smithy.api#documentation": "Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set).\nPrecisely one of path, env_var_name can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1125,7 +1045,7 @@
         "target": "com.scaleway.serverless_jobs_v1alpha1#UpdateJobDefinitionSecretRequest"
       },
       "output": {
-        "target": "com.scaleway.serverless_jobs_v1alpha1#Secret"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#http": {

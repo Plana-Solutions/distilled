@@ -987,14 +987,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the volume.",
+            "smithy.api#documentation": "Organization ID of the volume.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the volume.",
+            "smithy.api#documentation": "Project ID of the volume.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1061,14 +1061,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the image.",
+            "smithy.api#documentation": "Organization ID of the image.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the image.",
+            "smithy.api#documentation": "Project ID of the image.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1833,13 +1833,15 @@
         "server": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#httpQuery": "server"
+            "smithy.api#httpQuery": "server",
+            "smithy.api#documentation": "Precisely one of server, detached can be set."
           }
         },
         "detached": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#httpQuery": "detached"
+            "smithy.api#httpQuery": "detached",
+            "smithy.api#documentation": "Precisely one of server, detached can be set."
           }
         }
       },
@@ -2111,14 +2113,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID in which the IP is reserved.",
+            "smithy.api#documentation": "Organization ID in which the IP is reserved.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID in which the IP is reserved.",
+            "smithy.api#documentation": "Project ID in which the IP is reserved.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3028,14 +3030,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the placement group.",
+            "smithy.api#documentation": "Organization ID of the placement group.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the placement group.",
+            "smithy.api#documentation": "Project ID of the placement group.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5273,14 +5275,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID the security group belongs to.",
+            "smithy.api#documentation": "Organization ID the security group belongs to.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID the security group belong to.",
+            "smithy.api#documentation": "Project ID the security group belong to.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5293,14 +5295,14 @@
         "organization_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether this security group becomes the default security group for new Instances.",
+            "smithy.api#documentation": "Defines whether this security group becomes the default security group for new Instances.\nPrecisely one of organization_default, project_default can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project_default": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether this security group becomes the default security group for new Instances.",
+            "smithy.api#documentation": "Whether this security group becomes the default security group for new Instances.\nPrecisely one of organization_default, project_default can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -8742,14 +8744,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Instance Organization ID.",
+            "smithy.api#documentation": "Instance Organization ID.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Instance Project ID.",
+            "smithy.api#documentation": "Instance Project ID.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -11956,14 +11958,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Organization ID of the snapshot.",
+            "smithy.api#documentation": "Organization ID of the snapshot.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Project ID of the snapshot.",
+            "smithy.api#documentation": "Project ID of the snapshot.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -12957,14 +12959,14 @@
         "organization": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Volume Organization ID.",
+            "smithy.api#documentation": "Volume Organization ID.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "project": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Volume Project ID.",
+            "smithy.api#documentation": "Volume Project ID.\nPrecisely one of project, organization can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -12983,14 +12985,14 @@
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Volume disk size, must be a multiple of 512. (in bytes)",
+            "smithy.api#documentation": "Volume disk size, must be a multiple of 512. (in bytes)\nPrecisely one of size, base_snapshot can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "base_snapshot": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the snapshot on which this volume will be based.",
+            "smithy.api#documentation": "ID of the snapshot on which this volume will be based.\nPrecisely one of size, base_snapshot can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

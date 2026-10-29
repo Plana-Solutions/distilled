@@ -99,10 +99,15 @@ export const ContactExtensionFRCodeAuthAfnicInfo = /*@__PURE__*/ S.suspend(() =>
 
 export interface ContactExtensionFR {
   mode?: ContactExtensionFRMode | (string & {});
+  /** Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set. */
   individual_info?: ContactExtensionFRIndividualInfo | null;
+  /** Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set. */
   duns_info?: ContactExtensionFRDunsInfo | null;
+  /** Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set. */
   association_info?: ContactExtensionFRAssociationInfo | null;
+  /** Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set. */
   trademark_info?: ContactExtensionFRTrademarkInfo | null;
+  /** Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set. */
   code_auth_afnic_info?: ContactExtensionFRCodeAuthAfnicInfo | null;
 }
 export const ContactExtensionFR = /*@__PURE__*/ S.suspend(() =>
@@ -276,17 +281,17 @@ export interface BuyDomainsRequest {
   duration_in_years?: number;
   /** Project ID to create the domains in. */
   project_id?: string;
-  /** ID of the existing contact to use as the domain's owner. */
+  /** ID of the existing contact to use as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact_id?: string | null;
-  /** New contact to create and use as the domain's owner. */
+  /** New contact to create and use as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted. */
+  /** ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact_id?: string | null;
-  /** New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted. */
+  /** New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted. */
+  /** ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact_id?: string | null;
-  /** New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted. */
+  /** New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact?: NewContact | null;
   /** Enable the `auto renew` feature for all the requested domains. This means the domain will be automatically renewed before its expiry date. */
   auto_renew?: boolean;
@@ -358,17 +363,17 @@ export interface CheckContactsCompatibilityRequest {
   domains?: CheckContactsCompatibilityRequestDomainsList;
   /** List of TLDs to check contacts compatibility against. */
   tlds?: CheckContactsCompatibilityRequestTldsList;
-  /** ID of the existing contact to check as the domain's owner. */
+  /** ID of the existing contact to check as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact_id?: string | null;
-  /** New contact to check as the domain's owner. */
+  /** New contact to check as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact?: NewContact | null;
-  /** ID of the existing contact to check as the domain's administrative contact. */
+  /** ID of the existing contact to check as the domain's administrative contact. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact_id?: string | null;
-  /** New contact to check as the domain's administrative contact. */
+  /** New contact to check as the domain's administrative contact. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact?: NewContact | null;
-  /** ID of the existing contact to check as the domain's technical contact. */
+  /** ID of the existing contact to check as the domain's technical contact. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact_id?: string | null;
-  /** New contact to check as the domain's technical contact. */
+  /** New contact to check as the domain's technical contact. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact?: NewContact | null;
 }
 export const CheckContactsCompatibilityRequest = /*@__PURE__*/ S.suspend(() =>
@@ -605,9 +610,9 @@ export interface DSRecord {
   key_id?: number;
   /** The cryptographic algorithm of the DNSKEY used for the DS record. */
   algorithm?: DSRecordAlgorithm | (string & {});
-  /** The digest of the DS record. */
+  /** The digest of the DS record. Precisely one of digest, public_key can be set. */
   digest?: DSRecordDigest | null;
-  /** The public key of the DS record. */
+  /** The public key of the DS record. Precisely one of digest, public_key can be set. */
   public_key?: DSRecordPublicKey | null;
 }
 export const DSRecord = /*@__PURE__*/ S.suspend(() =>
@@ -968,9 +973,9 @@ export interface Domain {
   technical_contact?: Contact;
   /** Contact information of the domain's administrative contact. */
   administrative_contact?: Contact;
-  /** Registration status of an external domain, if available. */
+  /** Registration status of an external domain, if available. Precisely one of external_domain_registration_status, transfer_registration_status can be set. */
   external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
-  /** Status of an in-progress domain transfer. */
+  /** Status of an in-progress domain transfer. Precisely one of external_domain_registration_status, transfer_registration_status can be set. */
   transfer_registration_status?: DomainRegistrationStatusTransfer | null;
   /** Domain's TLD information. */
   tld?: Tld;
@@ -1361,9 +1366,9 @@ export interface DomainSummary {
   is_external?: boolean;
   /** Status of the domain. */
   status?: DomainStatus;
-  /** Registration status of an external domain, if available. */
+  /** Registration status of an external domain, if available. Precisely one of external_domain_registration_status, transfer_registration_status can be set. */
   external_domain_registration_status?: DomainRegistrationStatusExternalDomain | null;
-  /** Status of an in-progress domain transfer. */
+  /** Status of an in-progress domain transfer. Precisely one of external_domain_registration_status, transfer_registration_status can be set. */
   transfer_registration_status?: DomainRegistrationStatusTransfer | null;
   /** Indicates if a trade is ongoing. */
   pending_trade?: boolean;
@@ -2011,9 +2016,9 @@ export interface TradeDomainRequest {
   domain: string;
   /** Project ID to associate with the domain after the trade. Also used to filter the new owner's contacts. */
   project_id?: string | null;
-  /** ID of the existing contact to use as the domain's new owner. */
+  /** ID of the existing contact to use as the domain's new owner. Precisely one of new_owner_contact_id, new_owner_contact can be set. */
   new_owner_contact_id?: string | null;
-  /** New contact to create and use as the domain's new owner. */
+  /** New contact to create and use as the domain's new owner. Precisely one of new_owner_contact_id, new_owner_contact can be set. */
   new_owner_contact?: NewContact | null;
 }
 export const TradeDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2056,17 +2061,17 @@ export interface TransferInDomainRequest {
   domains: TransferInDomainRequestDomainsList;
   /** Project ID to transfer the domains into. */
   project_id?: string;
-  /** ID of the existing contact to use as the domain's owner. */
+  /** ID of the existing contact to use as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact_id?: string | null;
-  /** New contact to create and use as the domain's owner. */
+  /** New contact to create and use as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's administrative contact. */
+  /** ID of the existing contact to use as the domain's administrative contact. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact_id?: string | null;
-  /** New contact to create and use as the domain's administrative contact. */
+  /** New contact to create and use as the domain's administrative contact. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's technical contact. */
+  /** ID of the existing contact to use as the domain's technical contact. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact_id?: string | null;
-  /** New contact to create and use as the domain's technical contact. */
+  /** New contact to create and use as the domain's technical contact. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact?: NewContact | null;
 }
 export const TransferInDomainRequest = /*@__PURE__*/ S.suspend(() =>
@@ -2205,17 +2210,17 @@ export const UpdateContactRequest = /*@__PURE__*/ S.suspend(() =>
 export interface UpdateDomainRequest {
   /** The domain name to update. */
   domain: string;
-  /** ID of the existing contact to use as the domain's technical contact. */
+  /** ID of the existing contact to use as the domain's technical contact. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact_id?: string | null;
-  /** New contact to create and use as the domain's technical contact. */
+  /** New contact to create and use as the domain's technical contact. Precisely one of technical_contact_id, technical_contact can be set. */
   technical_contact?: NewContact | null;
-  /** Deprecated. ID of the existing contact to use as the domain's owner. */
+  /** Deprecated. ID of the existing contact to use as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact_id?: string | null;
-  /** Deprecated. New contact to create and use as the domain's owner. */
+  /** Deprecated. New contact to create and use as the domain's owner. Precisely one of owner_contact_id, owner_contact can be set. */
   owner_contact?: NewContact | null;
-  /** ID of the existing contact to use as the domain's administrative contact. */
+  /** ID of the existing contact to use as the domain's administrative contact. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact_id?: string | null;
-  /** New contact to create and use as the domain's administrative contact. */
+  /** New contact to create and use as the domain's administrative contact. Precisely one of administrative_contact_id, administrative_contact can be set. */
   administrative_contact?: NewContact | null;
 }
 export const UpdateDomainRequest = /*@__PURE__*/ S.suspend(() =>

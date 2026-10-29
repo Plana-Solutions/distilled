@@ -151,28 +151,10 @@ export const JobDefinition = /*@__PURE__*/ S.suspend(() =>
 export type CreateJobDefinitionSecretsRequestRegion = "fr-par" | "nl-ams" | "pl-waw";
 export const CreateJobDefinitionSecretsRequestRegion = S.String;
 
-export interface CreateJobDefinitionSecretsRequestSecretConfig {
-  secret_manager_id?: string;
-  secret_manager_version?: string;
-  path?: string | null;
-  env_var_name?: string | null;
-}
-export const CreateJobDefinitionSecretsRequestSecretConfig = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    secret_manager_id: S.optional(S.String),
-    secret_manager_version: S.optional(S.String),
-    path: S.optional(S.NullOr(S.String)),
-    env_var_name: S.optional(S.NullOr(S.String)),
-  }),
-).annotate({
-  identifier: "CreateJobDefinitionSecretsRequestSecretConfig",
-}) as any as S.Schema<CreateJobDefinitionSecretsRequestSecretConfig>;
-
 /** List of secrets to inject into the job. */
-export type CreateJobDefinitionSecretsRequestSecretsList =
-  Array<CreateJobDefinitionSecretsRequestSecretConfig>;
+export type CreateJobDefinitionSecretsRequestSecretsList = Array<unknown>;
 export const CreateJobDefinitionSecretsRequestSecretsList = /*@__PURE__*/ S.Array(
-  CreateJobDefinitionSecretsRequestSecretConfig,
+  S.Unknown,
 ) as any as S.Schema<CreateJobDefinitionSecretsRequestSecretsList>;
 
 export interface CreateJobDefinitionSecretsRequest {
@@ -200,50 +182,10 @@ export const CreateJobDefinitionSecretsRequest = /*@__PURE__*/ S.suspend(() =>
   identifier: "CreateJobDefinitionSecretsRequest",
 }) as any as S.Schema<CreateJobDefinitionSecretsRequest>;
 
-export interface SecretFile {
-  path?: string;
-}
-export const SecretFile = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    path: S.optional(S.String),
-  }),
-).annotate({ identifier: "SecretFile" }) as any as S.Schema<SecretFile>;
-
-export interface SecretEnvVar {
-  name?: string;
-}
-export const SecretEnvVar = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    name: S.optional(S.String),
-  }),
-).annotate({ identifier: "SecretEnvVar" }) as any as S.Schema<SecretEnvVar>;
-
-export interface Secret {
-  /** UUID of the secret reference within the job. */
-  secret_id?: string;
-  /** UUID of the secret in Secret Manager. */
-  secret_manager_id?: string;
-  /** Version of the secret in Secret Manager. */
-  secret_manager_version?: string;
-  /** File secret mounted inside the job. */
-  file?: SecretFile | null;
-  /** Environment variable used to expose the secret. */
-  env_var?: SecretEnvVar | null;
-}
-export const Secret = /*@__PURE__*/ S.suspend(() =>
-  S.Struct({
-    secret_id: S.optional(S.String),
-    secret_manager_id: S.optional(S.String),
-    secret_manager_version: S.optional(S.String),
-    file: S.optional(S.NullOr(SecretFile)),
-    env_var: S.optional(S.NullOr(SecretEnvVar)),
-  }),
-).annotate({ identifier: "Secret" }) as any as S.Schema<Secret>;
-
 /** List of secrets created. */
-export type CreateJobDefinitionSecretsResponseSecretsList = Array<Secret>;
+export type CreateJobDefinitionSecretsResponseSecretsList = Array<unknown>;
 export const CreateJobDefinitionSecretsResponseSecretsList = /*@__PURE__*/ S.Array(
-  Secret,
+  S.Unknown,
 ) as any as S.Schema<CreateJobDefinitionSecretsResponseSecretsList>;
 
 export interface CreateJobDefinitionSecretsResponse {
@@ -540,9 +482,9 @@ export const ListJobDefinitionSecretsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<ListJobDefinitionSecretsRequest>;
 
 /** List of secret references within a job definition. */
-export type ListJobDefinitionSecretsResponseSecretsList = Array<Secret>;
+export type ListJobDefinitionSecretsResponseSecretsList = Array<unknown>;
 export const ListJobDefinitionSecretsResponseSecretsList = /*@__PURE__*/ S.Array(
-  Secret,
+  S.Unknown,
 ) as any as S.Schema<ListJobDefinitionSecretsResponseSecretsList>;
 
 export interface ListJobDefinitionSecretsResponse {
@@ -790,9 +732,9 @@ export interface UpdateJobDefinitionSecretRequest {
   secret_id: string;
   /** Version of the secret in Secret Manager. */
   secret_manager_version?: string | null;
-  /** Path of the secret to mount inside the job (either `path` or `env_var_name` must be set). */
+  /** Path of the secret to mount inside the job (either `path` or `env_var_name` must be set). Precisely one of path, env_var_name can be set. */
   path?: string | null;
-  /** Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set). */
+  /** Environment variable name used to expose the secret inside the job (either `path` or `env_var_name` must be set). Precisely one of path, env_var_name can be set. */
   env_var_name?: string | null;
 }
 export const UpdateJobDefinitionSecretRequest = /*@__PURE__*/ S.suspend(() =>
@@ -894,12 +836,12 @@ export type GetJobDefinitionSecretError = ScalewayOpError;
 /** Get a secret references within a job definition */
 export const getJobDefinitionSecret: API.OperationMethod<
   GetJobDefinitionSecretRequest,
-  Secret,
+  unknown,
   GetJobDefinitionSecretError,
   ScalewayOpContext
 > = /*@__PURE__*/ API.make(() => ({
   input: GetJobDefinitionSecretRequest,
-  output: Secret,
+  output: S.Unknown,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,
@@ -1036,12 +978,12 @@ export type UpdateJobDefinitionSecretError = ScalewayOpError;
 /** Update a secret reference within a job definition */
 export const updateJobDefinitionSecret: API.OperationMethod<
   UpdateJobDefinitionSecretRequest,
-  Secret,
+  unknown,
   UpdateJobDefinitionSecretError,
   ScalewayOpContext
 > = /*@__PURE__*/ API.make(() => ({
   input: UpdateJobDefinitionSecretRequest,
-  output: Secret,
+  output: S.Unknown,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

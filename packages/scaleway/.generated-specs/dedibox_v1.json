@@ -640,84 +640,84 @@
         "server_info": {
           "target": "com.scaleway.dedibox_v1#OfferServerInfo",
           "traits": {
-            "smithy.api#documentation": "Server info if it is a server offer.",
+            "smithy.api#documentation": "Server info if it is a server offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "service_level_info": {
           "target": "com.scaleway.dedibox_v1#OfferServiceLevelInfo",
           "traits": {
-            "smithy.api#documentation": "Service level info if it is a service level offer.",
+            "smithy.api#documentation": "Service level info if it is a service level offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "rpn_info": {
           "target": "com.scaleway.dedibox_v1#OfferRPNInfo",
           "traits": {
-            "smithy.api#documentation": "RPN info if it is a RPN offer.",
+            "smithy.api#documentation": "RPN info if it is a RPN offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "san_info": {
           "target": "com.scaleway.dedibox_v1#OfferSANInfo",
           "traits": {
-            "smithy.api#documentation": "SAN info if it is a SAN offer.",
+            "smithy.api#documentation": "SAN info if it is a SAN offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "antidos_info": {
           "target": "com.scaleway.dedibox_v1#OfferAntiDosInfo",
           "traits": {
-            "smithy.api#documentation": "AntiDOS info if it is a antiDOS offer.",
+            "smithy.api#documentation": "AntiDOS info if it is a antiDOS offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backup_info": {
           "target": "com.scaleway.dedibox_v1#OfferBackupInfo",
           "traits": {
-            "smithy.api#documentation": "Backup info if it is a backup offer.",
+            "smithy.api#documentation": "Backup info if it is a backup offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "usb_storage_info": {
           "target": "com.scaleway.dedibox_v1#OfferStorageInfo",
           "traits": {
-            "smithy.api#documentation": "USB storage info if it is a USB storage offer.",
+            "smithy.api#documentation": "USB storage info if it is a USB storage offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "storage_info": {
           "target": "com.scaleway.dedibox_v1#OfferStorageInfo",
           "traits": {
-            "smithy.api#documentation": "Storage info if it is a storage offer.",
+            "smithy.api#documentation": "Storage info if it is a storage offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "license_info": {
           "target": "com.scaleway.dedibox_v1#OfferLicenseInfo",
           "traits": {
-            "smithy.api#documentation": "License info if it is a license offer.",
+            "smithy.api#documentation": "License info if it is a license offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "failover_ip_info": {
           "target": "com.scaleway.dedibox_v1#OfferFailoverIpInfo",
           "traits": {
-            "smithy.api#documentation": "Failover IP info if it is a failover IP offer.",
+            "smithy.api#documentation": "Failover IP info if it is a failover IP offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "failover_block_info": {
           "target": "com.scaleway.dedibox_v1#OfferFailoverBlockInfo",
           "traits": {
-            "smithy.api#documentation": "Failover block info if it is a failover block offer.",
+            "smithy.api#documentation": "Failover block info if it is a failover block offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "bandwidth_info": {
           "target": "com.scaleway.dedibox_v1#OfferBandwidthInfo",
           "traits": {
-            "smithy.api#documentation": "Bandwidth info if it is a bandwidth offer.",
+            "smithy.api#documentation": "Bandwidth info if it is a bandwidth offer.\nPrecisely one of server_info, service_level_info, rpn_info, san_info, antidos_info, backup_info, usb_storage_info, storage_info, license_info, failover_ip_info, failover_block_info, bandwidth_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },

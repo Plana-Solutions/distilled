@@ -72,28 +72,28 @@
         "scaleway_s3": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayS3BackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_lb": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayLbBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Load Balancer origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Load Balancer origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_serverless_container": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayServerlessContainerBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Serverless container origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Serverless container origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_serverless_function": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayServerlessFunctionBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Serverless function origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Serverless function origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -292,28 +292,28 @@
         "scaleway_s3": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayS3BackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_lb": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayLbBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Load Balancer origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Load Balancer origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_serverless_container": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayServerlessContainerBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Serverless container origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Serverless container origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_serverless_function": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayServerlessFunctionBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Serverless function origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Serverless function origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -676,21 +676,21 @@
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of waf_stage_id, backend_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the cache stage is linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the cache stage is linked to. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of waf_stage_id, backend_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -743,21 +743,21 @@
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the cache stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the cache stage will be linked to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1002,21 +1002,21 @@
         "tls_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "TLS stage ID the DNS stage is linked to. (UUID format)",
+            "smithy.api#documentation": "TLS stage ID the DNS stage is linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cache_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cache stage ID the DNS stage is linked to. (UUID format)",
+            "smithy.api#documentation": "Cache stage ID the DNS stage is linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the DNS stage is linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the DNS stage is linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1116,21 +1116,21 @@
         "tls_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "TLS stage ID the DNS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "TLS stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cache_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cache stage ID the DNS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Cache stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the DNS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2118,28 +2118,28 @@
         "scaleway_s3": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayS3BackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Object Storage origin bucket (S3) linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_lb": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayLbBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Load Balancer origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Load Balancer origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_serverless_container": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayServerlessContainerBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Serverless container origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Serverless container origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scaleway_serverless_function": {
           "target": "com.scaleway.edge_services_v1beta1#ScalewayServerlessFunctionBackendConfig",
           "traits": {
-            "smithy.api#documentation": "Scaleway Serverless function origin linked to the backend stage.",
+            "smithy.api#documentation": "Scaleway Serverless function origin linked to the backend stage.\nPrecisely one of scaleway_s3, scaleway_lb, scaleway_serverless_container, scaleway_serverless_function can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2301,21 +2301,21 @@
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the cache stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the cache stage will be linked to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2486,21 +2486,21 @@
         "tls_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "TLS stage ID the DNS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "TLS stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "cache_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cache stage ID the DNS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Cache stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the DNS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the DNS stage will be linked to. (UUID format)\nPrecisely one of tls_stage_id, cache_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2588,7 +2588,7 @@
         "dns_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of dns_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2720,14 +2720,14 @@
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "smithy.api#documentation": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2802,14 +2802,14 @@
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "smithy.api#documentation": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2892,21 +2892,21 @@
         "add_new_head_stage": {
           "target": "com.scaleway.edge_services_v1beta1#SetHeadStageRequestAddNewHeadStage",
           "traits": {
-            "smithy.api#documentation": "Add a new head stage.",
+            "smithy.api#documentation": "Add a new head stage.\nPrecisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "remove_head_stage": {
           "target": "com.scaleway.edge_services_v1beta1#SetHeadStageRequestRemoveHeadStage",
           "traits": {
-            "smithy.api#documentation": "Remove a head stage.",
+            "smithy.api#documentation": "Remove a head stage.\nPrecisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "swap_head_stage": {
           "target": "com.scaleway.edge_services_v1beta1#SetHeadStageRequestSwapHeadStage",
           "traits": {
-            "smithy.api#documentation": "Replace a head stage with a new one.",
+            "smithy.api#documentation": "Replace a head stage with a new one.\nPrecisely one of add_new_head_stage, remove_head_stage, swap_head_stage can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2933,7 +2933,7 @@
         "dns_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of dns_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3102,28 +3102,28 @@
         "cache_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cache stage ID the TLS stage is linked to. (UUID format)",
+            "smithy.api#documentation": "Cache stage ID the TLS stage is linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the TLS stage is linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the TLS stage is linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, waf_stage_id, route_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3229,28 +3229,28 @@
         "cache_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cache stage ID the TLS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Cache stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the TLS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3400,7 +3400,7 @@
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)\nPrecisely one of backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3543,7 +3543,7 @@
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)\nPrecisely one of backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3717,14 +3717,14 @@
         "assets": {
           "target": "com.scaleway.edge_services_v1beta1#PurgeRequestAssetsList",
           "traits": {
-            "smithy.api#documentation": "List of asserts to purge.",
+            "smithy.api#documentation": "List of asserts to purge.\nPrecisely one of assets, all can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "all": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to purge all content.",
+            "smithy.api#documentation": "Defines whether to purge all content.\nPrecisely one of assets, all can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3781,7 +3781,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "List of asserts to purge."
+        "smithy.api#documentation": "List of asserts to purge.\nPrecisely one of assets, all can be set."
       }
     },
     "com.scaleway.edge_services_v1beta1#ListPurgeRequestsResponsePurgeRequestsList": {
@@ -3824,7 +3824,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "List of asserts to purge."
+        "smithy.api#documentation": "List of asserts to purge.\nPrecisely one of assets, all can be set."
       }
     },
     "com.scaleway.edge_services_v1beta1#CreatePurgeRequestRequest": {
@@ -3840,14 +3840,14 @@
         "assets": {
           "target": "com.scaleway.edge_services_v1beta1#CreatePurgeRequestRequestAssetsList",
           "traits": {
-            "smithy.api#documentation": "List of asserts to purge.",
+            "smithy.api#documentation": "List of asserts to purge.\nPrecisely one of assets, all can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "all": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether to purge all content.",
+            "smithy.api#documentation": "Defines whether to purge all content.\nPrecisely one of assets, all can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3956,14 +3956,14 @@
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "smithy.api#documentation": "ID of the WAF stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage HTTP requests should be forwarded to when no rules are matched. (UUID format)\nPrecisely one of waf_stage_id, backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4064,14 +4064,14 @@
         "rule_http_match": {
           "target": "com.scaleway.edge_services_v1beta1#RuleHttpMatch",
           "traits": {
-            "smithy.api#documentation": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.",
+            "smithy.api#documentation": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.\nPrecisely one of rule_http_match can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -4090,7 +4090,7 @@
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)",
+            "smithy.api#documentation": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4283,21 +4283,21 @@
         "rule_http_match": {
           "target": "com.scaleway.edge_services_v1beta1#RuleHttpMatch",
           "traits": {
-            "smithy.api#documentation": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.",
+            "smithy.api#documentation": "Rule condition to be matched. Requests matching the condition defined here will be directly forwarded to the backend specified by the `backend_stage_id` or `waf_stage_id` fields. Requests that do not match will be checked by the next rule's condition.\nPrecisely one of rule_http_match can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)",
+            "smithy.api#documentation": "ID of the WAF stage that requests matching the rule should be forwarded to. (UUID format)\nPrecisely one of backend_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4333,14 +4333,14 @@
         "after_position": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Add rules after the given position.",
+            "smithy.api#documentation": "Add rules after the given position.\nPrecisely one of after_position, before_position can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "before_position": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Add rules before the given position.",
+            "smithy.api#documentation": "Add rules before the given position.\nPrecisely one of after_position, before_position can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4540,28 +4540,28 @@
         "cache_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Cache stage ID the TLS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Cache stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Backend stage ID the TLS stage will be linked to. (UUID format)",
+            "smithy.api#documentation": "Backend stage ID the TLS stage will be linked to. (UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "route_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "waf_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "(UUID format)",
+            "smithy.api#documentation": "(UUID format)\nPrecisely one of cache_stage_id, backend_stage_id, route_stage_id, waf_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4689,7 +4689,7 @@
         "backend_stage_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)",
+            "smithy.api#documentation": "ID of the backend stage to forward requests to after the WAF stage. (UUID format)\nPrecisely one of backend_stage_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

@@ -336,19 +336,19 @@ export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 export interface Endpoint {
   /** UUID of the endpoint. (UUID format) */
   id?: string;
-  /** IPv4 address of the endpoint. (IP address) */
+  /** IPv4 address of the endpoint. (IP address) Precisely one of ip, hostname can be set. */
   ip?: string | null;
   /** TCP port of the endpoint. */
   port?: number;
   /** Name of the endpoint. */
   name?: string | null;
-  /** Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). */
+  /** Private Network details. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). Precisely one of private_network, load_balancer, direct_access can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
-  /** Load balancer details. Public endpoint for Database Instance which is systematically present. One per Database Instance. */
+  /** Load balancer details. Public endpoint for Database Instance which is systematically present. One per Database Instance. Precisely one of private_network, load_balancer, direct_access can be set. */
   load_balancer?: unknown | null;
-  /** Direct access details. Public endpoint reserved for Read Replicas. One per Read Replica. */
+  /** Direct access details. Public endpoint reserved for Read Replicas. One per Read Replica. Precisely one of private_network, load_balancer, direct_access can be set. */
   direct_access?: unknown | null;
-  /** Hostname of the endpoint. */
+  /** Hostname of the endpoint. Precisely one of ip, hostname can be set. */
   hostname?: string | null;
 }
 export const Endpoint = /*@__PURE__*/ S.suspend(() =>
@@ -715,9 +715,9 @@ export const CreateEndpointRequestRegion = S.String;
 export interface EndpointSpecPrivateNetwork {
   /** UUID of the Private Network to be connected to the Database Instance. (UUID format) */
   private_network_id?: string;
-  /** Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network) */
+  /** Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network) Precisely one of service_ip, ipam_config can be set. */
   service_ip?: string | null;
-  /** Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). */
+  /** Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). Precisely one of service_ip, ipam_config can be set. */
   ipam_config?: unknown | null;
 }
 export const EndpointSpecPrivateNetwork = /*@__PURE__*/ S.suspend(() =>
@@ -731,9 +731,9 @@ export const EndpointSpecPrivateNetwork = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointSpecPrivateNetwork>;
 
 export interface EndpointSpec {
-  /** Load balancer endpoint specifications. Public endpoint for Database Instance which is systematically present. One per RDB instance. */
+  /** Load balancer endpoint specifications. Public endpoint for Database Instance which is systematically present. One per RDB instance. Precisely one of load_balancer, private_network can be set. */
   load_balancer?: unknown | null;
-  /** Private Network endpoint specifications. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). */
+  /** Private Network endpoint specifications. One maximum per Database Instance or Read Replica (a Database Instance and its Read Replica can have different Private Networks). Cannot be updated (has to be deleted and recreated). Precisely one of load_balancer, private_network can be set. */
   private_network?: EndpointSpecPrivateNetwork | null;
 }
 export const EndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -790,9 +790,9 @@ export const CreateInstanceRequestInitEndpointsList = /*@__PURE__*/ S.Array(
 export interface CreateInstanceRequest {
   /** The region you want to target */
   region?: CreateInstanceRequestRegion | (string & {});
-  /** Please use project_id instead. */
+  /** Please use project_id instead. Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** The Project ID on which the Database Instance will be created. */
+  /** The Project ID on which the Database Instance will be created. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
   /** Name of the Database Instance. */
   name?: string;
@@ -898,9 +898,9 @@ export const CreateReadReplicaRequestRegion = S.String;
 export interface ReadReplicaEndpointSpecPrivateNetwork {
   /** UUID of the Private Network to be connected to the Read Replica. (UUID format) */
   private_network_id?: string;
-  /** Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network) */
+  /** Endpoint IPv4 address with a CIDR notation. Refer to the official Scaleway documentation to learn more about IP and subnet limitations. (IP network) Precisely one of service_ip, ipam_config can be set. */
   service_ip?: string | null;
-  /** Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different private networks). Cannot be updated (has to be deleted and recreated). */
+  /** Automated configuration of your Private Network endpoint with Scaleway IPAM service. One at the most per Database Instance or Read Replica (a Database Instance and its Read Replica can have different private networks). Cannot be updated (has to be deleted and recreated). Precisely one of service_ip, ipam_config can be set. */
   ipam_config?: unknown | null;
 }
 export const ReadReplicaEndpointSpecPrivateNetwork = /*@__PURE__*/ S.suspend(() =>
@@ -914,9 +914,9 @@ export const ReadReplicaEndpointSpecPrivateNetwork = /*@__PURE__*/ S.suspend(() 
 }) as any as S.Schema<ReadReplicaEndpointSpecPrivateNetwork>;
 
 export interface ReadReplicaEndpointSpec {
-  /** Direct access endpoint specifications. Public endpoint reserved for Read Replicas. One per Read Replica. */
+  /** Direct access endpoint specifications. Public endpoint reserved for Read Replicas. One per Read Replica. Precisely one of direct_access, private_network can be set. */
   direct_access?: unknown | null;
-  /** Private Network endpoint specifications. One at the most per Read Replica. Cannot be updated (has to be deleted and recreated). */
+  /** Private Network endpoint specifications. One at the most per Read Replica. Cannot be updated (has to be deleted and recreated). Precisely one of direct_access, private_network can be set. */
   private_network?: ReadReplicaEndpointSpecPrivateNetwork | null;
 }
 export const ReadReplicaEndpointSpec = /*@__PURE__*/ S.suspend(() =>
@@ -3103,21 +3103,21 @@ export interface UpgradeInstanceRequest {
   region?: UpgradeInstanceRequestRegion | (string & {});
   /** UUID of the Database Instance you want to upgrade. */
   instance_id: string;
-  /** Node type of the Database Instance you want to upgrade to. */
+  /** Node type of the Database Instance you want to upgrade to. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   node_type?: string | null;
-  /** Defines whether or not high availability should be enabled on the Database Instance. */
+  /** Defines whether or not high availability should be enabled on the Database Instance. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   enable_ha?: boolean | null;
-  /** Defines the High-Availability mode of the instance. */
+  /** Defines the High-Availability mode of the instance. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   high_availability_mode?: HighAvailabilityMode | (string & {}) | null;
-  /** Increase your block storage volume size. */
+  /** Increase your block storage volume size. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   volume_size?: number | null;
-  /** Change your Database Instance storage type. */
+  /** Change your Database Instance storage type. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   volume_type?: VolumeType | (string & {}) | null;
-  /** Update your database engine to a newer version. This will create a new Database Instance with same specifications as the current one and perform a Database Engine upgrade. (UUID format) */
+  /** Update your database engine to a newer version. This will create a new Database Instance with same specifications as the current one and perform a Database Engine upgrade. (UUID format) Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   upgradable_version_id?: string | null;
-  /** Upgrade your database engine to a new major version including instance endpoints. */
+  /** Upgrade your database engine to a new major version including instance endpoints. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   major_upgrade_workflow?: UpgradeInstanceRequestMajorUpgradeWorkflow | null;
-  /** Defines whether or not encryption should be enabled on the Database Instance. */
+  /** Defines whether or not encryption should be enabled on the Database Instance. Precisely one of node_type, enable_ha, high_availability_mode, volume_size, volume_type, upgradable_version_id, major_upgrade_workflow, enable_encryption can be set. */
   enable_encryption?: boolean | null;
 }
 export const UpgradeInstanceRequest = /*@__PURE__*/ S.suspend(() =>

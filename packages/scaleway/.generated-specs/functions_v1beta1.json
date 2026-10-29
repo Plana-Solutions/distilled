@@ -3637,14 +3637,14 @@
         "function_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the function the token is associated with.",
+            "smithy.api#documentation": "UUID of the function the token is associated with.\nPrecisely one of function_id, namespace_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "namespace_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "UUID of the namespace the token is associated with.",
+            "smithy.api#documentation": "UUID of the namespace the token is associated with.\nPrecisely one of function_id, namespace_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -4047,14 +4047,14 @@
         "scw_sqs_config": {
           "target": "com.scaleway.functions_v1beta1#TriggerMnqSqsClientConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing SQS queue.",
+            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing SQS queue.\nPrecisely one of scw_sqs_config, scw_nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scw_nats_config": {
           "target": "com.scaleway.functions_v1beta1#TriggerMnqNatsClientConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing NATS subject.",
+            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing NATS subject.\nPrecisely one of scw_sqs_config, scw_nats_config can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -4365,14 +4365,14 @@
         "scw_sqs_config": {
           "target": "com.scaleway.functions_v1beta1#CreateTriggerRequestMnqSqsClientConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing SQS queue.",
+            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing SQS queue.\nOne of scw_sqs_config, scw_nats_config is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "scw_nats_config": {
           "target": "com.scaleway.functions_v1beta1#CreateTriggerRequestMnqNatsClientConfig",
           "traits": {
-            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing NATS subject.",
+            "smithy.api#documentation": "Configuration for a Scaleway Messaging and Queuing NATS subject.\nOne of scw_sqs_config, scw_nats_config is required.",
             "com.distilled.openapi#nullable": {}
           }
         }

@@ -32,9 +32,9 @@ export const EndpointPrivateNetworkDetails = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<EndpointPrivateNetworkDetails>;
 
 export interface EndpointSpec {
-  /** Set the endpoint as public. */
+  /** Set the endpoint as public. Precisely one of public_network, private_network can be set. */
   public_network?: unknown | null;
-  /** Set the endpoint as private. Private endpoints are only accessible from the Private Network. */
+  /** Set the endpoint as private. Private endpoints are only accessible from the Private Network. Precisely one of public_network, private_network can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
   /** Disable the authentication on the endpoint. By default, deployments are protected by IAM authentication. When setting this field to true, the authentication will be disabled. */
   disable_auth?: boolean;
@@ -133,9 +133,9 @@ export interface Endpoint {
   id?: string;
   /** URL of the endpoint. For private endpoints, the URL will be accessible only from the Private Network. In addition, private endpoints will expose a CA certificate that can be used to verify the server's identity. This CA certificate can be retrieved using the `GetDeploymentCertificate` API call. */
   url?: string;
-  /** Defines whether the endpoint is public. */
+  /** Defines whether the endpoint is public. Precisely one of public_network, private_network can be set. */
   public_network?: unknown | null;
-  /** Details of the Private Network. */
+  /** Details of the Private Network. Precisely one of public_network, private_network can be set. */
   private_network?: EndpointPrivateNetworkDetails | null;
   /** Defines whether the authentication is disabled. */
   disable_auth?: boolean;
@@ -245,6 +245,7 @@ export const CreateModelRequestRegion = S.String;
 
 export interface ModelSource {
   url?: string;
+  /** Precisely one of secret can be set. */
   secret?: string | Redacted.Redacted<string> | null;
 }
 export const ModelSource = /*@__PURE__*/ S.suspend(() =>

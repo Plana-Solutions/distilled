@@ -531,9 +531,13 @@ export interface Record {
   ttl?: number;
   type?: RecordType | (string & {});
   comment?: string | null;
+  /** Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set. */
   geo_ip_config?: RecordGeoIPConfig | null;
+  /** Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set. */
   http_service_config?: RecordHTTPServiceConfig | null;
+  /** Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set. */
   weighted_config?: RecordWeightedConfig | null;
+  /** Precisely one of geo_ip_config, http_service_config, weighted_config, view_config can be set. */
   view_config?: RecordViewConfig | null;
   id?: string;
   /** (RFC 3339 format) */
@@ -591,8 +595,9 @@ export const RecordChangeSetRecordsList = /*@__PURE__*/ S.Array(
 ) as any as S.Schema<RecordChangeSetRecordsList>;
 
 export interface RecordChangeSet {
-  /** (UUID format) */
+  /** (UUID format) Precisely one of id, id_fields can be set. */
   id?: string | null;
+  /** Precisely one of id, id_fields can be set. */
   id_fields?: RecordIdentifier | null;
   records?: RecordChangeSetRecordsList;
 }
@@ -605,8 +610,9 @@ export const RecordChangeSet = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "RecordChangeSet" }) as any as S.Schema<RecordChangeSet>;
 
 export interface RecordChangeDelete {
-  /** (UUID format) */
+  /** (UUID format) Precisely one of id, id_fields can be set. */
   id?: string | null;
+  /** Precisely one of id, id_fields can be set. */
   id_fields?: RecordIdentifier | null;
 }
 export const RecordChangeDelete = /*@__PURE__*/ S.suspend(() =>
@@ -617,9 +623,13 @@ export const RecordChangeDelete = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "RecordChangeDelete" }) as any as S.Schema<RecordChangeDelete>;
 
 export interface RecordChange {
+  /** Precisely one of add, set, delete, clear can be set. */
   add?: RecordChangeAdd | null;
+  /** Precisely one of add, set, delete, clear can be set. */
   set?: RecordChangeSet | null;
+  /** Precisely one of add, set, delete, clear can be set. */
   delete?: RecordChangeDelete | null;
+  /** Precisely one of add, set, delete, clear can be set. */
   clear?: unknown | null;
 }
 export const RecordChange = /*@__PURE__*/ S.suspend(() =>
@@ -676,6 +686,7 @@ export const ImportProviderDNSZoneRequestOnlineV1 = /*@__PURE__*/ S.suspend(() =
 
 export interface ImportProviderDNSZoneRequest {
   dns_zone: string;
+  /** Precisely one of online_v1 can be set. */
   online_v1?: ImportProviderDNSZoneRequestOnlineV1 | null;
 }
 export const ImportProviderDNSZoneRequest = /*@__PURE__*/ S.suspend(() =>
@@ -755,9 +766,9 @@ export interface ImportRawDNSZoneRequest {
   content?: string;
   project_id?: string;
   format?: RawFormat | (string & {});
-  /** Import a bind file format. */
+  /** Import a bind file format. Precisely one of bind_source, axfr_source can be set. */
   bind_source?: ImportRawDNSZoneRequestBindSource | null;
-  /** Import from the name server given with TSIG, to use or not. */
+  /** Import from the name server given with TSIG, to use or not. Precisely one of bind_source, axfr_source can be set. */
   axfr_source?: ImportRawDNSZoneRequestAXFRSource | null;
 }
 export const ImportRawDNSZoneRequest = /*@__PURE__*/ S.suspend(() =>

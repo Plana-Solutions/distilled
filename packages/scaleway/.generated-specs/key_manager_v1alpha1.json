@@ -526,28 +526,28 @@
         "symmetric_encryption": {
           "target": "com.scaleway.key_manager_v1alpha1#KeyAlgorithmSymmetricEncryption",
           "traits": {
-            "smithy.api#documentation": "Encrypt and decrypt arbitrary payloads using a symmetric encryption algorithm.\nSee the `Key.Algorithm.SymmetricEncryption` enum for a description of values.",
+            "smithy.api#documentation": "Encrypt and decrypt arbitrary payloads using a symmetric encryption algorithm.\nSee the `Key.Algorithm.SymmetricEncryption` enum for a description of values.\nPrecisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "asymmetric_encryption": {
           "target": "com.scaleway.key_manager_v1alpha1#KeyAlgorithmAsymmetricEncryption",
           "traits": {
-            "smithy.api#documentation": "Encrypt and decrypt arbitrary payloads using an asymmetric encryption algorithm.\nSee the `Key.Algorithm.AsymmetricEncryption` enum for a description of values.",
+            "smithy.api#documentation": "Encrypt and decrypt arbitrary payloads using an asymmetric encryption algorithm.\nSee the `Key.Algorithm.AsymmetricEncryption` enum for a description of values.\nPrecisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "asymmetric_signing": {
           "target": "com.scaleway.key_manager_v1alpha1#KeyAlgorithmAsymmetricSigning",
           "traits": {
-            "smithy.api#documentation": "Sign and verify arbitrary messages using an asymmetric signing algorithm.\nSee the `Key.Algorithm.AsymmetricSigning` enum for a description of values.",
+            "smithy.api#documentation": "Sign and verify arbitrary messages using an asymmetric signing algorithm.\nSee the `Key.Algorithm.AsymmetricSigning` enum for a description of values.\nPrecisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "key_encapsulation": {
           "target": "com.scaleway.key_manager_v1alpha1#KeyAlgorithmKeyEncapsulation",
           "traits": {
-            "smithy.api#documentation": "Wrap and unwrap key using a key encapsulation algorithm.\nSee the `Key.Algorithm.KeyEncapulation` enum for a description of values.",
+            "smithy.api#documentation": "Wrap and unwrap key using a key encapsulation algorithm.\nSee the `Key.Algorithm.KeyEncapulation` enum for a description of values.\nPrecisely one of symmetric_encryption, asymmetric_encryption, asymmetric_signing, key_encapsulation can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1786,7 +1786,7 @@
         "key_material": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The key material.\nDeprecated. Use `encrypted_key_material` instead. The key material is a random sequence of bytes used to derive a cryptographic key.",
+            "smithy.api#documentation": "The key material.\nDeprecated. Use `encrypted_key_material` instead. The key material is a random sequence of bytes used to derive a cryptographic key.\nPrecisely one of key_material, encrypted_key_material can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1800,7 +1800,7 @@
         "encrypted_key_material": {
           "target": "com.scaleway.key_manager_v1alpha1#ImportKeyMaterialRequestEncryptedKeyMaterial",
           "traits": {
-            "smithy.api#documentation": "The encrypted key material to import.\nThis material must be encrypted using the public key and the exact wrapping algorithm returned by the `GetKeyMaterialImportParameters` method.",
+            "smithy.api#documentation": "The encrypted key material to import.\nThis material must be encrypted using the public key and the exact wrapping algorithm returned by the `GetKeyMaterialImportParameters` method.\nPrecisely one of key_material, encrypted_key_material can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2489,21 +2489,21 @@
         "digest": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Pre-hashed digest of the message to sign.\nFor ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384).\nThe 64-byte bound only exists for the ML-DSA backward-compatibility case below.\nAlso accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA.",
+            "smithy.api#documentation": "Pre-hashed digest of the message to sign.\nFor ECDSA and RSA keys, the digest generated using the key's hashing algorithm: 32 bytes (SHA-256) or 48 bytes (SHA-384).\nThe 64-byte bound only exists for the ML-DSA backward-compatibility case below.\nAlso accepted for ML-DSA for backward compatibility only; signatures may not conform to the ML-DSA spec, not recommended for new usage. Prefer `message` or `external_mu` for ML-DSA.\nOne of digest, msg, external_mu is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "msg": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Full message to sign as-is.\nOnly supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes.",
+            "smithy.api#documentation": "Full message to sign as-is.\nOnly supported for ML-DSA keys (`raw` signing): the server computes the μ message representative internally before signing. Between 1 and 4096 bytes.\nOne of digest, msg, external_mu is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "external_mu": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ML-DSA pre-hashed μ message representative, exactly 64 bytes.\nMust equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API.",
+            "smithy.api#documentation": "ML-DSA pre-hashed μ message representative, exactly 64 bytes.\nMust equal SHAKE256(tr ‖ 0x00 ‖ 0x00 ‖ message), where `tr` is the SHAKE256 of the key's public key. Signatures produced from other pre-hash computations (e.g. HashML-DSA) cannot be verified through this API.\nOne of digest, msg, external_mu is required.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2749,14 +2749,14 @@
         "digest": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Digest that was signed.\nFor ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm.",
+            "smithy.api#documentation": "Digest that was signed.\nFor ECDSA and RSA keys, the digest of the original message, generated using the key's hashing algorithm.\nOne of digest, msg is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "msg": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Message that was signed.\nFor ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint.",
+            "smithy.api#documentation": "Message that was signed.\nFor ML-DSA keys, the full original message. This also verifies signatures made with `raw` or `external_mu`: send the message whose μ was signed, not the μ itself (a μ payload always fails). Messages over 4096 bytes cannot be verified through this endpoint.\nOne of digest, msg is required.",
             "com.distilled.openapi#nullable": {}
           }
         },

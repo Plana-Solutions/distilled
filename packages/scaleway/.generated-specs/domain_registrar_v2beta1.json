@@ -256,30 +256,35 @@
         "individual_info": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFRIndividualInfo",
           "traits": {
+            "smithy.api#documentation": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "duns_info": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFRDunsInfo",
           "traits": {
+            "smithy.api#documentation": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "association_info": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFRAssociationInfo",
           "traits": {
+            "smithy.api#documentation": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "trademark_info": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFRTrademarkInfo",
           "traits": {
+            "smithy.api#documentation": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "code_auth_afnic_info": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactExtensionFRCodeAuthAfnicInfo",
           "traits": {
+            "smithy.api#documentation": "Precisely one of individual_info, duns_info, association_info, trademark_info, code_auth_afnic_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -611,42 +616,42 @@
         "owner_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's owner.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "owner_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's owner.",
+            "smithy.api#documentation": "New contact to create and use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.",
+            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted.",
+            "smithy.api#documentation": "New contact to create and use as the domain's technical contact. Optional; falls back to the owner contact if omitted.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -761,42 +766,42 @@
         "owner_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to check as the domain's owner.",
+            "smithy.api#documentation": "ID of the existing contact to check as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "owner_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to check as the domain's owner.",
+            "smithy.api#documentation": "New contact to check as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to check as the domain's administrative contact.",
+            "smithy.api#documentation": "ID of the existing contact to check as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to check as the domain's administrative contact.",
+            "smithy.api#documentation": "New contact to check as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to check as the domain's technical contact.",
+            "smithy.api#documentation": "ID of the existing contact to check as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to check as the domain's technical contact.",
+            "smithy.api#documentation": "New contact to check as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1854,14 +1859,14 @@
         "external_domain_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusExternalDomain",
           "traits": {
-            "smithy.api#documentation": "Registration status of an external domain, if available.",
+            "smithy.api#documentation": "Registration status of an external domain, if available.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "transfer_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusTransfer",
           "traits": {
-            "smithy.api#documentation": "Status of an in-progress domain transfer.",
+            "smithy.api#documentation": "Status of an in-progress domain transfer.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2145,14 +2150,14 @@
         "external_domain_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusExternalDomain",
           "traits": {
-            "smithy.api#documentation": "Registration status of an external domain, if available.",
+            "smithy.api#documentation": "Registration status of an external domain, if available.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "transfer_registration_status": {
           "target": "com.scaleway.domain_registrar_v2beta1#DomainRegistrationStatusTransfer",
           "traits": {
-            "smithy.api#documentation": "Status of an in-progress domain transfer.",
+            "smithy.api#documentation": "Status of an in-progress domain transfer.\nPrecisely one of external_domain_registration_status, transfer_registration_status can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -2213,14 +2218,14 @@
         "digest": {
           "target": "com.scaleway.domain_registrar_v2beta1#DSRecordDigest",
           "traits": {
-            "smithy.api#documentation": "The digest of the DS record.",
+            "smithy.api#documentation": "The digest of the DS record.\nPrecisely one of digest, public_key can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "public_key": {
           "target": "com.scaleway.domain_registrar_v2beta1#DSRecordPublicKey",
           "traits": {
-            "smithy.api#documentation": "The public key of the DS record.",
+            "smithy.api#documentation": "The public key of the DS record.\nPrecisely one of digest, public_key can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -2681,42 +2686,42 @@
         "technical_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's technical contact.",
+            "smithy.api#documentation": "New contact to create and use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "owner_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Deprecated. ID of the existing contact to use as the domain's owner.",
+            "smithy.api#documentation": "Deprecated. ID of the existing contact to use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "owner_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "Deprecated. New contact to create and use as the domain's owner.",
+            "smithy.api#documentation": "Deprecated. New contact to create and use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact.",
+            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3292,14 +3297,14 @@
         "new_owner_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's new owner.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's new owner.\nPrecisely one of new_owner_contact_id, new_owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "new_owner_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's new owner.",
+            "smithy.api#documentation": "New contact to create and use as the domain's new owner.\nPrecisely one of new_owner_contact_id, new_owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3400,42 +3405,42 @@
         "owner_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's owner.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "owner_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's owner.",
+            "smithy.api#documentation": "New contact to create and use as the domain's owner.\nPrecisely one of owner_contact_id, owner_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "administrative_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact.",
+            "smithy.api#documentation": "New contact to create and use as the domain's administrative contact.\nPrecisely one of administrative_contact_id, administrative_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact.",
+            "smithy.api#documentation": "ID of the existing contact to use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "technical_contact": {
           "target": "com.scaleway.domain_registrar_v2beta1#NewContact",
           "traits": {
-            "smithy.api#documentation": "New contact to create and use as the domain's technical contact.",
+            "smithy.api#documentation": "New contact to create and use as the domain's technical contact.\nPrecisely one of technical_contact_id, technical_contact can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

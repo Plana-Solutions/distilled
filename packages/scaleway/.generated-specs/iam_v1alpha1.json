@@ -240,14 +240,14 @@
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of application that bears the API key.",
+            "smithy.api#documentation": "ID of application that bears the API key.\nPrecisely one of application_id, user_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of user that bears the API key.",
+            "smithy.api#documentation": "ID of user that bears the API key.\nPrecisely one of application_id, user_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -357,14 +357,14 @@
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the application.",
+            "smithy.api#documentation": "ID of the application.\nOne of application_id, user_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user.",
+            "smithy.api#documentation": "ID of the user.\nOne of application_id, user_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -980,37 +980,10 @@
         "smithy.api#documentation": "Delete an application\n\nDelete an application. Note that this action is irreversible and will automatically delete the application's API keys. Policies attached to users and applications via this group will no longer apply."
       }
     },
-    "com.scaleway.iam_v1alpha1#CheckPermissionsRequestPermission": {
-      "type": "structure",
-      "members": {
-        "service": {
-          "target": "smithy.api#String"
-        },
-        "name": {
-          "target": "smithy.api#String"
-        },
-        "action": {
-          "target": "smithy.api#String"
-        },
-        "project_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "organization_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "com.distilled.openapi#nullable": {}
-          }
-        }
-      },
-      "traits": {}
-    },
     "com.scaleway.iam_v1alpha1#CheckPermissionsRequestPermissionsList": {
       "type": "list",
       "member": {
-        "target": "com.scaleway.iam_v1alpha1#CheckPermissionsRequestPermission"
+        "target": "smithy.api#Document"
       },
       "traits": {}
     },
@@ -1707,14 +1680,14 @@
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user to add.",
+            "smithy.api#documentation": "ID of the user to add.\nOne of user_id, application_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the application to add.",
+            "smithy.api#documentation": "ID of the application to add.\nOne of user_id, application_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1878,14 +1851,14 @@
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user to remove.",
+            "smithy.api#documentation": "ID of the user to remove.\nOne of user_id, application_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the application to remove.",
+            "smithy.api#documentation": "ID of the application to remove.\nOne of user_id, application_id is required.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3493,28 +3466,28 @@
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the user attributed to the policy.",
+            "smithy.api#documentation": "ID of the user attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "group_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the group attributed to the policy.",
+            "smithy.api#documentation": "ID of the group attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of the application attributed to the policy.",
+            "smithy.api#documentation": "ID of the application attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "no_principal": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not a policy is attributed to a principal.",
+            "smithy.api#documentation": "Defines whether or not a policy is attributed to a principal.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -3570,67 +3543,10 @@
         }
       }
     },
-    "com.scaleway.iam_v1alpha1#RuleSpecs": {
-      "type": "structure",
-      "members": {
-        "permission_set_names": {
-          "target": "com.scaleway.iam_v1alpha1#RuleSpecsPermissionSetNamesList",
-          "traits": {
-            "smithy.api#documentation": "Names of permission sets bound to the rule.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "condition": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "Condition expression to evaluate."
-          }
-        },
-        "project_ids": {
-          "target": "com.scaleway.iam_v1alpha1#RuleSpecsProjectIdsList",
-          "traits": {
-            "smithy.api#documentation": "List of Project IDs the rule is scoped to.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "organization_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "ID of Organization the rule is scoped to.",
-            "com.distilled.openapi#nullable": {}
-          }
-        },
-        "deny": {
-          "target": "smithy.api#Boolean",
-          "traits": {
-            "smithy.api#documentation": "Select whether the rule should remove the permissions instead of granting them."
-          }
-        }
-      },
-      "traits": {}
-    },
-    "com.scaleway.iam_v1alpha1#RuleSpecsPermissionSetNamesList": {
-      "type": "list",
-      "member": {
-        "target": "smithy.api#Document"
-      },
-      "traits": {
-        "smithy.api#documentation": "Names of permission sets bound to the rule."
-      }
-    },
-    "com.scaleway.iam_v1alpha1#RuleSpecsProjectIdsList": {
-      "type": "list",
-      "member": {
-        "target": "smithy.api#Document"
-      },
-      "traits": {
-        "smithy.api#documentation": "List of Project IDs the rule is scoped to."
-      }
-    },
     "com.scaleway.iam_v1alpha1#CreatePolicyRequestRulesList": {
       "type": "list",
       "member": {
-        "target": "com.scaleway.iam_v1alpha1#RuleSpecs"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#documentation": "Rules of the policy to create."
@@ -3682,28 +3598,28 @@
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of user attributed to the policy.",
+            "smithy.api#documentation": "ID of user attributed to the policy.\nOne of user_id, group_id, application_id, no_principal is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "group_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of group attributed to the policy.",
+            "smithy.api#documentation": "ID of group attributed to the policy.\nOne of user_id, group_id, application_id, no_principal is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of application attributed to the policy.",
+            "smithy.api#documentation": "ID of application attributed to the policy.\nOne of user_id, group_id, application_id, no_principal is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "no_principal": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not a policy is attributed to a principal.",
+            "smithy.api#documentation": "Defines whether or not a policy is attributed to a principal.\nOne of user_id, group_id, application_id, no_principal is required.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -3808,28 +3724,28 @@
         "user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "New ID of user attributed to the policy.",
+            "smithy.api#documentation": "New ID of user attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "group_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "New ID of group attributed to the policy.",
+            "smithy.api#documentation": "New ID of group attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "application_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "New ID of application attributed to the policy.",
+            "smithy.api#documentation": "New ID of application attributed to the policy.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "no_principal": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the policy is attributed to a principal.",
+            "smithy.api#documentation": "Defines whether or not the policy is attributed to a principal.\nPrecisely one of user_id, group_id, application_id, no_principal can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4022,14 +3938,14 @@
         "limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum limit of the quota.",
+            "smithy.api#documentation": "Maximum limit of the quota.\nPrecisely one of limit, unlimited can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "unlimited": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Defines whether or not the quota is unlimited.",
+            "smithy.api#documentation": "Defines whether or not the quota is unlimited.\nPrecisely one of limit, unlimited can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -4102,35 +4018,35 @@
         "global": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the limit is applied globally.",
+            "smithy.api#documentation": "Whether or not the limit is applied globally.\nPrecisely one of global, region, zone can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region on which the limit is applied.",
+            "smithy.api#documentation": "The region on which the limit is applied.\nPrecisely one of global, region, zone can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The zone on which the limit is applied.",
+            "smithy.api#documentation": "The zone on which the limit is applied.\nPrecisely one of global, region, zone can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "limit": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Maximum locality limit.",
+            "smithy.api#documentation": "Maximum locality limit.\nPrecisely one of limit, unlimited can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "unlimited": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Whether or not the quota per locality is unlimited.",
+            "smithy.api#documentation": "Whether or not the quota per locality is unlimited.\nPrecisely one of limit, unlimited can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -4306,21 +4222,21 @@
         "project_ids": {
           "target": "com.scaleway.iam_v1alpha1#RuleProjectIdsList",
           "traits": {
-            "smithy.api#documentation": "List of Project IDs the rule is scoped to.",
+            "smithy.api#documentation": "List of Project IDs the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "organization_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of Organization the rule is scoped to.",
+            "smithy.api#documentation": "ID of Organization the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "account_root_user_id": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "ID of account root user the rule is scoped to.",
+            "smithy.api#documentation": "ID of account root user the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -4348,7 +4264,7 @@
         "target": "smithy.api#Document"
       },
       "traits": {
-        "smithy.api#documentation": "List of Project IDs the rule is scoped to."
+        "smithy.api#documentation": "List of Project IDs the rule is scoped to.\nPrecisely one of project_ids, organization_id, account_root_user_id can be set."
       }
     },
     "com.scaleway.iam_v1alpha1#ListRulesResponseRulesList": {
@@ -4388,7 +4304,7 @@
     "com.scaleway.iam_v1alpha1#SetRulesRequestRulesList": {
       "type": "list",
       "member": {
-        "target": "com.scaleway.iam_v1alpha1#RuleSpecs"
+        "target": "smithy.api#Document"
       },
       "traits": {
         "smithy.api#documentation": "Rules of the policy to set."
@@ -5928,7 +5844,7 @@
         "email": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Email of the user.",
+            "smithy.api#documentation": "Email of the user.\nOne of email, member is required.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -5941,7 +5857,7 @@
         "member": {
           "target": "com.scaleway.iam_v1alpha1#CreateUserRequestMember",
           "traits": {
-            "smithy.api#documentation": "Details of IAM member.",
+            "smithy.api#documentation": "Details of IAM member.\nOne of email, member is required.",
             "com.distilled.openapi#nullable": {}
           }
         }

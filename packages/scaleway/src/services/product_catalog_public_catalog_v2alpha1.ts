@@ -114,13 +114,13 @@ export const ListPublicCatalogProductsRequest = /*@__PURE__*/ S.suspend(() =>
 }) as any as S.Schema<ListPublicCatalogProductsRequest>;
 
 export interface PublicCatalogProductLocality {
-  /** Whether or not the product is global. */
+  /** Whether or not the product is global. Precisely one of global, region, zone, datacenter can be set. */
   global?: boolean | null;
-  /** The region of the product. */
+  /** The region of the product. Precisely one of global, region, zone, datacenter can be set. */
   region?: string | null;
-  /** The zone of the product. */
+  /** The zone of the product. Precisely one of global, region, zone, datacenter can be set. */
   zone?: string | null;
-  /** The datacenter of the product. */
+  /** The datacenter of the product. Precisely one of global, region, zone, datacenter can be set. */
   datacenter?: string | null;
 }
 export const PublicCatalogProductLocality = /*@__PURE__*/ S.suspend(() =>
@@ -210,9 +210,9 @@ export interface PublicCatalogProductPropertiesHardwareCPU {
   arch?: PublicCatalogProductPropertiesHardwareCPUArch;
   /** The type of the CPU. */
   type?: string;
-  /** Properties if the CPU is virtual. */
+  /** Properties if the CPU is virtual. Precisely one of virtual, physical can be set. */
   virtual?: PublicCatalogProductPropertiesHardwareCPUVirtual | null;
-  /** Properties if the CPU is physical. */
+  /** Properties if the CPU is physical. Precisely one of virtual, physical can be set. */
   physical?: PublicCatalogProductPropertiesHardwareCPUPhysical | null;
   /** The total number of threads. */
   threads?: number;
@@ -431,9 +431,9 @@ export interface PublicCatalogProductPropertiesBlockStorage {
   min_volume_size?: number;
   /** The maximum size of storage volume for this product in bytes. Deprecated. (in bytes) */
   max_volume_size?: number;
-  /** The properties related to Block Storage snapshot. */
+  /** The properties related to Block Storage snapshot. Precisely one of snapshot, volume can be set. */
   snapshot?: unknown | null;
-  /** The properties related to Block Storage volume. */
+  /** The properties related to Block Storage volume. Precisely one of snapshot, volume can be set. */
   volume?: PublicCatalogProductPropertiesBlockStorageVolumeType | null;
 }
 export const PublicCatalogProductPropertiesBlockStorage = /*@__PURE__*/ S.suspend(() =>
@@ -518,13 +518,13 @@ export const PublicCatalogProductPropertiesObjectStorageRegionTrafficType = /*@_
 }) as any as S.Schema<PublicCatalogProductPropertiesObjectStorageRegionTrafficType>;
 
 export interface PublicCatalogProductPropertiesObjectStorage {
-  /** The properties related to Object Storage class. */
+  /** The properties related to Object Storage class. Precisely one of class, restore, internet_traffic, region_traffic can be set. */
   class?: PublicCatalogProductPropertiesObjectStorageClassType | null;
-  /** The properties related to Object Storage restore operations. */
+  /** The properties related to Object Storage restore operations. Precisely one of class, restore, internet_traffic, region_traffic can be set. */
   restore?: PublicCatalogProductPropertiesObjectStorageRestoreType | null;
-  /** The properties related to Object Storage internet traffic. */
+  /** The properties related to Object Storage internet traffic. Precisely one of class, restore, internet_traffic, region_traffic can be set. */
   internet_traffic?: PublicCatalogProductPropertiesObjectStorageInternetTrafficType | null;
-  /** The properties related to Object Storage region traffic. */
+  /** The properties related to Object Storage region traffic. Precisely one of class, restore, internet_traffic, region_traffic can be set. */
   region_traffic?: PublicCatalogProductPropertiesObjectStorageRegionTrafficType | null;
 }
 export const PublicCatalogProductPropertiesObjectStorage = /*@__PURE__*/ S.suspend(() =>
@@ -558,9 +558,9 @@ export const PublicCatalogProductPropertiesManagedInferenceManagedInferenceDeplo
 export interface PublicCatalogProductPropertiesManagedInference {
   /** The name of the associated instance GPU to this node type. Deprecated, use `deployment.instance_gpu_name` instead. */
   instance_gpu_name?: string;
-  /** The properties related to Managed Inference Deployment. */
+  /** The properties related to Managed Inference Deployment. Precisely one of deployment, custom_model_storage can be set. */
   deployment?: PublicCatalogProductPropertiesManagedInferenceManagedInferenceDeployment | null;
-  /** The properties related to Managed Inference Custom Model Storage. */
+  /** The properties related to Managed Inference Custom Model Storage. Precisely one of deployment, custom_model_storage can be set. */
   custom_model_storage?: unknown | null;
 }
 export const PublicCatalogProductPropertiesManagedInference = /*@__PURE__*/ S.suspend(() =>
@@ -663,9 +663,9 @@ export const PublicCatalogProductPropertiesLoadBalancerNodeType = /*@__PURE__*/ 
 }) as any as S.Schema<PublicCatalogProductPropertiesLoadBalancerNodeType>;
 
 export interface PublicCatalogProductPropertiesLoadBalancer {
-  /** The properties related to Load Balancer nodes. */
+  /** The properties related to Load Balancer nodes. Precisely one of node, ipv4 can be set. */
   node?: PublicCatalogProductPropertiesLoadBalancerNodeType | null;
-  /** The properties related to Load Balancer IPv4. */
+  /** The properties related to Load Balancer IPv4. Precisely one of node, ipv4 can be set. */
   ipv4?: unknown | null;
 }
 export const PublicCatalogProductPropertiesLoadBalancer = /*@__PURE__*/ S.suspend(() =>
@@ -678,11 +678,11 @@ export const PublicCatalogProductPropertiesLoadBalancer = /*@__PURE__*/ S.suspen
 }) as any as S.Schema<PublicCatalogProductPropertiesLoadBalancer>;
 
 export interface PublicCatalogProductPropertiesKubernetes {
-  /** The properties related to Kapsule Control Plane products. */
+  /** The properties related to Kapsule Control Plane products. Precisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set. */
   kapsule_control_plane?: unknown | null;
-  /** The properties related to Kosmos Control Plane products. */
+  /** The properties related to Kosmos Control Plane products. Precisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set. */
   kosmos_control_plane?: unknown | null;
-  /** The properties related to Kosmos nodes. */
+  /** The properties related to Kosmos nodes. Precisely one of kapsule_control_plane, kosmos_control_plane, kosmos_node can be set. */
   kosmos_node?: unknown | null;
 }
 export const PublicCatalogProductPropertiesKubernetes = /*@__PURE__*/ S.suspend(() =>
@@ -724,13 +724,13 @@ export const PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType 
   }) as any as S.Schema<PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType>;
 
 export interface PublicCatalogProductPropertiesManagedRelationalDatabase {
-  /** The properties related to Relational Database Management type. */
+  /** The properties related to Relational Database Management type. Precisely one of management, node, storage, multi_az can be set. */
   management?: unknown | null;
-  /** The properties related to Relational Database Nodes. */
+  /** The properties related to Relational Database Nodes. Precisely one of management, node, storage, multi_az can be set. */
   node?: unknown | null;
-  /** The properties related to Relational Database Storage type. */
+  /** The properties related to Relational Database Storage type. Precisely one of management, node, storage, multi_az can be set. */
   storage?: PublicCatalogProductPropertiesManagedRelationalDatabaseStorageType | null;
-  /** The properties related to Relational Database Multi AZ type. */
+  /** The properties related to Relational Database Multi AZ type. Precisely one of management, node, storage, multi_az can be set. */
   multi_az?: unknown | null;
 }
 export const PublicCatalogProductPropertiesManagedRelationalDatabase = /*@__PURE__*/ S.suspend(() =>
@@ -772,13 +772,13 @@ export const PublicCatalogProductPropertiesServerlessFunctionsResourcesList = /*
 export interface PublicCatalogProductPropertiesServerlessFunctions {
   /** The serverless functions runtime resources sorted by memory size and then by milli-vCPU count. */
   resources?: PublicCatalogProductPropertiesServerlessFunctionsResourcesList;
-  /** The properties related to Serverless functions consumption products. */
+  /** The properties related to Serverless functions consumption products. Precisely one of consumption, request, provision, free_tier can be set. */
   consumption?: unknown | null;
-  /** The properties related to Serverless functions request products. */
+  /** The properties related to Serverless functions request products. Precisely one of consumption, request, provision, free_tier can be set. */
   request?: unknown | null;
-  /** The properties related to Serverless functions provision products. */
+  /** The properties related to Serverless functions provision products. Precisely one of consumption, request, provision, free_tier can be set. */
   provision?: unknown | null;
-  /** The properties related to Serverless functions free tier products. */
+  /** The properties related to Serverless functions free tier products. Precisely one of consumption, request, provision, free_tier can be set. */
   free_tier?: unknown | null;
 }
 export const PublicCatalogProductPropertiesServerlessFunctions = /*@__PURE__*/ S.suspend(() =>
@@ -837,9 +837,9 @@ export const PublicCatalogProductPropertiesServerlessContainersCPUType = /*@__PU
 }) as any as S.Schema<PublicCatalogProductPropertiesServerlessContainersCPUType>;
 
 export interface PublicCatalogProductPropertiesServerlessContainers {
-  /** The properties related to Serverless containers memory products. */
+  /** The properties related to Serverless containers memory products. Precisely one of memory, cpu can be set. */
   memory?: PublicCatalogProductPropertiesServerlessContainersMemoryType | null;
-  /** The properties related to Serverless containers CPU products. */
+  /** The properties related to Serverless containers CPU products. Precisely one of memory, cpu can be set. */
   cpu?: PublicCatalogProductPropertiesServerlessContainersCPUType | null;
 }
 export const PublicCatalogProductPropertiesServerlessContainers = /*@__PURE__*/ S.suspend(() =>
@@ -872,11 +872,11 @@ export const PublicCatalogProductPropertiesManagedMongoDBStorageType = /*@__PURE
 }) as any as S.Schema<PublicCatalogProductPropertiesManagedMongoDBStorageType>;
 
 export interface PublicCatalogProductPropertiesManagedMongoDB {
-  /** The properties related to MongoDB Management type. */
+  /** The properties related to MongoDB Management type. Precisely one of management, node, storage can be set. */
   management?: unknown | null;
-  /** The properties related to MongoDB Node type. */
+  /** The properties related to MongoDB Node type. Precisely one of management, node, storage can be set. */
   node?: unknown | null;
-  /** The properties related to MongoDB Storage type. */
+  /** The properties related to MongoDB Storage type. Precisely one of management, node, storage can be set. */
   storage?: PublicCatalogProductPropertiesManagedMongoDBStorageType | null;
 }
 export const PublicCatalogProductPropertiesManagedMongoDB = /*@__PURE__*/ S.suspend(() =>
@@ -928,9 +928,9 @@ export const PublicCatalogProductPropertiesServerlessJobsCPUType = /*@__PURE__*/
 }) as any as S.Schema<PublicCatalogProductPropertiesServerlessJobsCPUType>;
 
 export interface PublicCatalogProductPropertiesServerlessJobs {
-  /** The properties related to Serverless containers memory products. */
+  /** The properties related to Serverless containers memory products. Precisely one of memory, cpu can be set. */
   memory?: PublicCatalogProductPropertiesServerlessJobsMemoryType | null;
-  /** The properties related to Serverless containers CPU products. */
+  /** The properties related to Serverless containers CPU products. Precisely one of memory, cpu can be set. */
   cpu?: PublicCatalogProductPropertiesServerlessJobsCPUType | null;
 }
 export const PublicCatalogProductPropertiesServerlessJobs = /*@__PURE__*/ S.suspend(() =>
@@ -997,9 +997,9 @@ export const PublicCatalogProductPropertiesApacheKafkaStorageType = /*@__PURE__*
 }) as any as S.Schema<PublicCatalogProductPropertiesApacheKafkaStorageType>;
 
 export interface PublicCatalogProductPropertiesApacheKafka {
-  /** The properties related to Kafka node products. */
+  /** The properties related to Kafka node products. Precisely one of node, storage can be set. */
   node?: PublicCatalogProductPropertiesApacheKafkaNodeType | null;
-  /** The properties related to Kafka storage products. */
+  /** The properties related to Kafka storage products. Precisely one of node, storage can be set. */
   storage?: PublicCatalogProductPropertiesApacheKafkaStorageType | null;
 }
 export const PublicCatalogProductPropertiesApacheKafka = /*@__PURE__*/ S.suspend(() =>
@@ -1019,50 +1019,53 @@ export const PublicCatalogProductPropertiesFileStorage =
 export interface PublicCatalogProductProperties {
   /** The hardware properties of the product (if supported). */
   hardware?: PublicCatalogProductPropertiesHardware;
-  /** The properties of Dedibox products. */
+  /** The properties of Dedibox products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   dedibox?: PublicCatalogProductPropertiesDedibox | null;
-  /** The properties of Elastic Metal products. */
+  /** The properties of Elastic Metal products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   elastic_metal?: PublicCatalogProductPropertiesElasticMetal | null;
-  /** The properties of Apple Silicon products. */
+  /** The properties of Apple Silicon products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   apple_silicon?: PublicCatalogProductPropertiesAppleSilicon | null;
-  /** The properties of Instance products. */
+  /** The properties of Instance products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   instance?: PublicCatalogProductPropertiesInstance | null;
-  /** The properties of Block Storage products. */
+  /** The properties of Block Storage products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   block_storage?: PublicCatalogProductPropertiesBlockStorage | null;
-  /** The properties of Object Storage products. */
+  /** The properties of Object Storage products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   object_storage?: PublicCatalogProductPropertiesObjectStorage | null;
-  /** The properties of Managed Inference products. */
+  /** The properties of Managed Inference products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   managed_inference?: PublicCatalogProductPropertiesManagedInference | null;
-  /** The properties of Generative APIs products. */
+  /** The properties of Generative APIs products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   generative_apis?: PublicCatalogProductPropertiesGenerativeApis | null;
-  /** The properties of Load Balancer products. */
+  /** The properties of Load Balancer products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   load_balancer?: PublicCatalogProductPropertiesLoadBalancer | null;
+  /** Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   secret_manager?: unknown | null;
-  /** The properties of Managed Redis Database products. */
+  /** The properties of Managed Redis Database products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   managed_redis_database?: unknown | null;
+  /** Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   key_manager?: unknown | null;
-  /** The properties of Kubernetes products. */
+  /** The properties of Kubernetes products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   kubernetes?: PublicCatalogProductPropertiesKubernetes | null;
-  /** The properties of Managed Relational Database products. */
+  /** The properties of Managed Relational Database products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   managed_relational_database?: PublicCatalogProductPropertiesManagedRelationalDatabase | null;
-  /** The properties of Serverless Functions products. */
+  /** The properties of Serverless Functions products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   serverless_functions?: PublicCatalogProductPropertiesServerlessFunctions | null;
-  /** The properties of Serverless Containers products. */
+  /** The properties of Serverless Containers products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   serverless_containers?: PublicCatalogProductPropertiesServerlessContainers | null;
+  /** Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   managed_mongodb?: PublicCatalogProductPropertiesManagedMongoDB | null;
-  /** The properties of Serverless Jobs products. */
+  /** The properties of Serverless Jobs products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   serverless_jobs?: PublicCatalogProductPropertiesServerlessJobs | null;
-  /** The properties of Serverless SQL Database products. */
+  /** The properties of Serverless SQL Database products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   serverless_sql_database?: unknown | null;
-  /** The properties of Apache Kafka products. */
+  /** The properties of Apache Kafka products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   apache_kafka?: PublicCatalogProductPropertiesApacheKafka | null;
-  /** The properties of OpenSearch DB products. */
+  /** The properties of OpenSearch DB products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   open_search?: unknown | null;
-  /** The properties of Instance Local SSD Snapshot products. */
+  /** The properties of Instance Local SSD Snapshot products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   instance_local_ssd_snapshot?: unknown | null;
-  /** The properties of Instance Local SSD Storage products. */
+  /** The properties of Instance Local SSD Storage products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   instance_local_ssd_storage?: unknown | null;
-  /** The properties of File Storage products. */
+  /** The properties of File Storage products. Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set. */
   file_storage?: PublicCatalogProductPropertiesBlockStorageVolumeType | null;
 }
 export const PublicCatalogProductProperties = /*@__PURE__*/ S.suspend(() =>

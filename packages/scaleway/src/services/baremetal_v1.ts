@@ -359,15 +359,15 @@ export interface ServerOption {
   manageable?: boolean;
   /** Auto expiration date for compatible options. (RFC 3339 format) */
   expires_at?: string | null;
-  /** License option, contains the ID of the OS linked to the option. */
+  /** License option, contains the ID of the OS linked to the option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   license?: LicenseOption | null;
-  /** Public_bandwidth option, contains the bandwidth_in_bps. */
+  /** Public_bandwidth option, contains the bandwidth_in_bps. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   public_bandwidth?: PublicBandwidthOption | null;
-  /** Private_network option, contains the bandwidth_in_bps. */
+  /** Private_network option, contains the bandwidth_in_bps. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   private_network?: PublicBandwidthOption | null;
-  /** Remote_access option. */
+  /** Remote_access option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   remote_access?: unknown | null;
-  /** Certification option. */
+  /** Certification option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   certification?: unknown | null;
 }
 export const ServerOption = /*@__PURE__*/ S.suspend(() =>
@@ -555,9 +555,9 @@ export interface CreateServerRequest {
   zone?: CreateServerRequestZone | (string & {}) | null;
   /** Offer ID of the new server. */
   offer_id: string;
-  /** Organization ID with which the server will be created. */
+  /** Organization ID with which the server will be created. Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** Project ID with which the server will be created. */
+  /** Project ID with which the server will be created. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
   /** Name of the server (≠hostname). */
   name: string;
@@ -683,9 +683,9 @@ export interface CreateServerRequest2 {
   zone?: CreateServerRequestZone2 | (string & {});
   /** Offer ID of the new server. */
   offer_id: string;
-  /** Organization ID with which the server will be created. */
+  /** Organization ID with which the server will be created. Precisely one of project_id, organization_id can be set. */
   organization_id?: string | null;
-  /** Project ID with which the server will be created. */
+  /** Project ID with which the server will be created. Precisely one of project_id, organization_id can be set. */
   project_id?: string | null;
   /** Name of the server (≠hostname). */
   name: string;
@@ -1057,15 +1057,15 @@ export interface OfferOptionOffer {
   manageable?: boolean;
   /** Deprecated, use LicenseOptionVars.os_id instead. */
   os_id?: string | null;
-  /** License option, contains the ID of the OS linked to the option. */
+  /** License option, contains the ID of the OS linked to the option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   license?: LicenseOption | null;
-  /** Public_bandwidth option, contains the bandwidth_in_bps. */
+  /** Public_bandwidth option, contains the bandwidth_in_bps. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   public_bandwidth?: PublicBandwidthOption | null;
-  /** Private_network option, contains the bandwidth_in_bps. */
+  /** Private_network option, contains the bandwidth_in_bps. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   private_network?: PublicBandwidthOption | null;
-  /** Remote_access option. */
+  /** Remote_access option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   remote_access?: unknown | null;
-  /** Certification option. */
+  /** Certification option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   certification?: unknown | null;
 }
 export const OfferOptionOffer = /*@__PURE__*/ S.suspend(() =>
@@ -1236,15 +1236,15 @@ export interface Option {
   name?: string;
   /** Defines whether the option is manageable (could be added or removed). */
   manageable?: boolean;
-  /** License option, contains the ID of the OS linked to the option. */
+  /** License option, contains the ID of the OS linked to the option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   license?: LicenseOption | null;
-  /** Public_bandwidth option, contains the bandwidth_in_bps. */
+  /** Public_bandwidth option, contains the bandwidth_in_bps. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   public_bandwidth?: PublicBandwidthOption | null;
-  /** Private_network option, contains the bandwidth_in_bps. */
+  /** Private_network option, contains the bandwidth_in_bps. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   private_network?: PublicBandwidthOption | null;
-  /** Remote_access option. */
+  /** Remote_access option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   remote_access?: unknown | null;
-  /** Certification option. */
+  /** Certification option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   certification?: unknown | null;
 }
 export const Option = /*@__PURE__*/ S.suspend(() =>

@@ -603,70 +603,70 @@
         "global": {
           "target": "smithy.api#Boolean",
           "traits": {
-            "smithy.api#documentation": "Locality the resource is in if this is a global resource.",
+            "smithy.api#documentation": "Locality the resource is in if this is a global resource.\nPrecisely one of global, zone, region can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "zone": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Locality the resource is in if this is a zonal resource.",
+            "smithy.api#documentation": "Locality the resource is in if this is a zonal resource.\nPrecisely one of global, zone, region can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Locality the resource is in if this is a regional resource.",
+            "smithy.api#documentation": "Locality the resource is in if this is a regional resource.\nPrecisely one of global, zone, region can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "vpc_private_network_info": {
           "target": "com.scaleway.search_v1alpha1#VpcPrivateNetworkInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for a VPC Private Network.",
+            "smithy.api#documentation": "Additional information for a VPC Private Network.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_functions_function_info": {
           "target": "com.scaleway.search_v1alpha1#ServerlessFunctionsFunctionInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for a Serverless Function.",
+            "smithy.api#documentation": "Additional information for a Serverless Function.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_containers_container_info": {
           "target": "com.scaleway.search_v1alpha1#ServerlessContainersContainerInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for a Serverless Container.",
+            "smithy.api#documentation": "Additional information for a Serverless Container.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_sqldb_backup_info": {
           "target": "com.scaleway.search_v1alpha1#ServerlessSqldbBackupInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for a Serverless SQL database backup.",
+            "smithy.api#documentation": "Additional information for a Serverless SQL database backup.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "baremetal_server_info": {
           "target": "com.scaleway.search_v1alpha1#BrmServerInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for a Baremetal server.",
+            "smithy.api#documentation": "Additional information for a Baremetal server.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "obs_datasource_info": {
           "target": "com.scaleway.search_v1alpha1#ObsDatasourceInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for an OBS datasource.",
+            "smithy.api#documentation": "Additional information for an OBS datasource.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "obs_exporter_info": {
           "target": "com.scaleway.search_v1alpha1#ObsExporterInfo",
           "traits": {
-            "smithy.api#documentation": "Additional information for an OBS exporter.",
+            "smithy.api#documentation": "Additional information for an OBS exporter.\nPrecisely one of vpc_private_network_info, serverless_functions_function_info, serverless_containers_container_info, serverless_sqldb_backup_info, baremetal_server_info, obs_datasource_info, obs_exporter_info can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
