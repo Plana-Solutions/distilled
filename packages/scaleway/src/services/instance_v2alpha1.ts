@@ -447,10 +447,13 @@ export const ServerPublicNetworkInterface = /*@__PURE__*/ S.suspend(() =>
 export interface ServerRuntimeInfo {
   /** True if the Instance is running as Spot. */
   spot?: boolean;
+  /** The unique identifier of the physical server hosting this Instance. */
+  physical_host_id?: string;
 }
 export const ServerRuntimeInfo = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     spot: S.optional(S.Boolean),
+    physical_host_id: S.optional(S.String),
   }),
 ).annotate({ identifier: "ServerRuntimeInfo" }) as any as S.Schema<ServerRuntimeInfo>;
 

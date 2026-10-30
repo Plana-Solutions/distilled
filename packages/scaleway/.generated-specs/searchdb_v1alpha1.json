@@ -354,12 +354,6 @@
           "traits": {
             "smithy.api#documentation": "Define the size of the Volume. (in bytes)"
           }
-        },
-        "deployment_id": {
-          "target": "smithy.api#String",
-          "traits": {
-            "smithy.api#documentation": "ID of the Deployment."
-          }
         }
       },
       "traits": {}

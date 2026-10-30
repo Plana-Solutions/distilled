@@ -404,6 +404,40 @@ export const ServerRescueServer = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ServerRescueServer" }) as any as S.Schema<ServerRescueServer>;
 
+export type CommitmentPeriod =
+  | "unknown_period"
+  | "one_month"
+  | "six_months"
+  | "one_year"
+  | "two_years"
+  | "three_years";
+export const CommitmentPeriod = S.String;
+
+export interface ServerCommitment {
+  /** Commitment period subscribed. */
+  period?: CommitmentPeriod;
+  /** Start of commitment subscribed. (RFC 3339 format) */
+  started_at?: string | null;
+  /** Next renew of commitment subscribed. (RFC 3339 format) */
+  renew_at?: string | null;
+  /** End of commitment subscribed. (RFC 3339 format) */
+  end_at?: string | null;
+  /** Discount rate for the commitment period. */
+  discount_rate_percent?: number;
+  /** Flag for automatic renewal commitment. */
+  auto_renewal?: boolean;
+}
+export const ServerCommitment = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    period: S.optional(CommitmentPeriod),
+    started_at: S.optional(S.NullOr(S.String)),
+    renew_at: S.optional(S.NullOr(S.String)),
+    end_at: S.optional(S.NullOr(S.String)),
+    discount_rate_percent: S.optional(S.Number),
+    auto_renewal: S.optional(S.Boolean),
+  }),
+).annotate({ identifier: "ServerCommitment" }) as any as S.Schema<ServerCommitment>;
+
 export interface Server {
   /** ID of the server. */
   id?: string;
@@ -447,6 +481,12 @@ export interface Server {
   protected?: boolean;
   /** Optional configuration data passed to cloud-init. */
   user_data?: string | null;
+  /** Commitment subscribed for the server. */
+  commitment?: ServerCommitment;
+  /** Date on which the server will be deleted. (RFC 3339 format) */
+  scheduled_deletion_at?: string | null;
+  /** True if a deletion is scheduled. */
+  scheduled_deletion?: boolean;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -471,6 +511,9 @@ export const Server = /*@__PURE__*/ S.suspend(() =>
     rescue_server: S.optional(ServerRescueServer),
     protected: S.optional(S.Boolean),
     user_data: S.optional(S.NullOr(S.String)),
+    commitment: S.optional(ServerCommitment),
+    scheduled_deletion_at: S.optional(S.NullOr(S.String)),
+    scheduled_deletion: S.optional(S.Boolean),
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
 
@@ -573,6 +616,8 @@ export interface CreateServerRequest {
   protected?: boolean;
   /** Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script. */
   user_data?: string | null;
+  /** Commitment period to subscribe. */
+  commitment_period?: CommitmentPeriod | (string & {});
 }
 export const CreateServerRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -587,6 +632,7 @@ export const CreateServerRequest = /*@__PURE__*/ S.suspend(() =>
     option_ids: S.optional(CreateServerRequestOptionIdsList),
     protected: S.optional(S.Boolean),
     user_data: S.optional(S.NullOr(S.String)),
+    commitment_period: S.optional(CommitmentPeriod),
   }),
 ).annotate({ identifier: "CreateServerRequest" }) as any as S.Schema<CreateServerRequest>;
 
@@ -701,6 +747,8 @@ export interface CreateServerRequest2 {
   protected?: boolean;
   /** Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script. */
   user_data?: string | null;
+  /** Commitment period to subscribe. */
+  commitment_period?: CommitmentPeriod | (string & {});
 }
 export const CreateServerRequest2 = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -715,6 +763,7 @@ export const CreateServerRequest2 = /*@__PURE__*/ S.suspend(() =>
     option_ids: S.optional(CreateServerRequestOptionIdsList2),
     protected: S.optional(S.Boolean),
     user_data: S.optional(S.NullOr(S.String)),
+    commitment_period: S.optional(CommitmentPeriod),
   }).pipe(
     T.Http({
       method: "POST",
@@ -1112,6 +1161,28 @@ export const GPU = /*@__PURE__*/ S.suspend(() =>
 export type OfferGpusList = Array<GPU>;
 export const OfferGpusList = /*@__PURE__*/ S.Array(GPU) as any as S.Schema<OfferGpusList>;
 
+export interface OfferCommitment {
+  /** Commitment period. */
+  period?: CommitmentPeriod;
+  /** Discount rate for the commitment period. */
+  discount_rate_percent?: number;
+  /** Fee not mandatory. */
+  no_fee?: boolean;
+}
+export const OfferCommitment = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    period: S.optional(CommitmentPeriod),
+    discount_rate_percent: S.optional(S.Number),
+    no_fee: S.optional(S.Boolean),
+  }),
+).annotate({ identifier: "OfferCommitment" }) as any as S.Schema<OfferCommitment>;
+
+/** List all available commitments on the offer. */
+export type OfferCommitmentsAvailableList = Array<OfferCommitment>;
+export const OfferCommitmentsAvailableList = /*@__PURE__*/ S.Array(
+  OfferCommitment,
+) as any as S.Schema<OfferCommitmentsAvailableList>;
+
 export interface Offer {
   /** ID of the offer. */
   id?: string;
@@ -1163,6 +1234,8 @@ export interface Offer {
   gpus?: OfferGpusList;
   /** Exist only for hourly offers, to migrate to the monthly offer. */
   monthly_offer_id?: string | null;
+  /** List all available commitments on the offer. */
+  commitments_available?: OfferCommitmentsAvailableList;
   /** Zone in which is the offer is available. */
   zone?: string;
   /** Describe the network topology of the offer. */
@@ -1195,6 +1268,7 @@ export const Offer = /*@__PURE__*/ S.suspend(() =>
     tags: S.optional(OfferTagsList),
     gpus: S.optional(OfferGpusList),
     monthly_offer_id: S.optional(S.NullOr(S.String)),
+    commitments_available: S.optional(OfferCommitmentsAvailableList),
     zone: S.optional(S.String),
     dual_attach: S.optional(S.NullOr(S.Boolean)),
   }),
@@ -2232,6 +2306,8 @@ export interface UpdateServerRequest {
   protected?: boolean | null;
   /** Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script. */
   user_data?: string | null;
+  /** Set false to cancel the scheduled deletion of the server. */
+  scheduled_deletion?: boolean | null;
 }
 export const UpdateServerRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -2242,6 +2318,7 @@ export const UpdateServerRequest = /*@__PURE__*/ S.suspend(() =>
     tags: S.optional(S.NullOr(UpdateServerRequestTagsList)),
     protected: S.optional(S.NullOr(S.Boolean)),
     user_data: S.optional(S.NullOr(S.String)),
+    scheduled_deletion: S.optional(S.NullOr(S.Boolean)),
   }).pipe(
     T.Http({
       method: "PATCH",
@@ -2251,6 +2328,38 @@ export const UpdateServerRequest = /*@__PURE__*/ S.suspend(() =>
     }),
   ),
 ).annotate({ identifier: "UpdateServerRequest" }) as any as S.Schema<UpdateServerRequest>;
+
+export type UpdateServerCommitmentRequestZone =
+  | "fr-par-1"
+  | "fr-par-2"
+  | "nl-ams-1"
+  | "nl-ams-2"
+  | "pl-waw-2"
+  | "pl-waw-3";
+export const UpdateServerCommitmentRequestZone = S.String;
+
+export interface UpdateServerCommitmentRequest {
+  /** The zone you want to target */
+  zone?: UpdateServerCommitmentRequestZone | (string & {});
+  server_id: string;
+  auto_renewal?: boolean;
+}
+export const UpdateServerCommitmentRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    zone: S.optional(UpdateServerCommitmentRequestZone.pipe(T.Label())),
+    server_id: S.String.pipe(T.Label()),
+    auto_renewal: S.optional(S.Boolean),
+  }).pipe(
+    T.Http({
+      method: "POST",
+      uri: "/baremetal/v1/zones/{zone}/servers/{server_id}/update-commitment",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({
+  identifier: "UpdateServerCommitmentRequest",
+}) as any as S.Schema<UpdateServerCommitmentRequest>;
 
 export type UpdateSettingRequestZone =
   | "fr-par-1"
@@ -2283,6 +2392,38 @@ export const UpdateSettingRequest = /*@__PURE__*/ S.suspend(() =>
     }),
   ),
 ).annotate({ identifier: "UpdateSettingRequest" }) as any as S.Schema<UpdateSettingRequest>;
+
+export type UpgradeServerCommitmentRequestZone =
+  | "fr-par-1"
+  | "fr-par-2"
+  | "nl-ams-1"
+  | "nl-ams-2"
+  | "pl-waw-2"
+  | "pl-waw-3";
+export const UpgradeServerCommitmentRequestZone = S.String;
+
+export interface UpgradeServerCommitmentRequest {
+  /** The zone you want to target */
+  zone?: UpgradeServerCommitmentRequestZone | (string & {});
+  server_id: string;
+  period?: CommitmentPeriod | (string & {});
+}
+export const UpgradeServerCommitmentRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    zone: S.optional(UpgradeServerCommitmentRequestZone.pipe(T.Label())),
+    server_id: S.String.pipe(T.Label()),
+    period: S.optional(CommitmentPeriod),
+  }).pipe(
+    T.Http({
+      method: "POST",
+      uri: "/baremetal/v1/zones/{zone}/servers/{server_id}/upgrade-commitment",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({
+  identifier: "UpgradeServerCommitmentRequest",
+}) as any as S.Schema<UpgradeServerCommitmentRequest>;
 
 export type ValidatePartitioningSchemaRequestZone =
   | "fr-par-1"
@@ -2791,6 +2932,21 @@ export const updateServer: API.OperationMethod<
   retry: Retry.Retry,
 }));
 
+export type UpdateServerCommitmentError = ScalewayOpError;
+/** Update a commitment Update an existing commitment on a server to enable/disable auto-renewal. */
+export const updateServerCommitment: API.OperationMethod<
+  UpdateServerCommitmentRequest,
+  Server,
+  UpdateServerCommitmentError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: UpdateServerCommitmentRequest,
+  output: Server,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
 export type UpdateSettingError = ScalewayOpError;
 /** Update setting Update a setting for a Project ID (enable or disable). */
 export const updateSetting: API.OperationMethod<
@@ -2801,6 +2957,21 @@ export const updateSetting: API.OperationMethod<
 > = /*@__PURE__*/ API.make(() => ({
   input: UpdateSettingRequest,
   output: Setting,
+  errors: [UnknownScalewayError],
+  protocol: ScalewayProtocol,
+  retry: Retry.Retry,
+}));
+
+export type UpgradeServerCommitmentError = ScalewayOpError;
+/** Upgrade a commitment Start a commitment or upgrade an existing commitment on a server. */
+export const upgradeServerCommitment: API.OperationMethod<
+  UpgradeServerCommitmentRequest,
+  Server,
+  UpgradeServerCommitmentError,
+  ScalewayOpContext
+> = /*@__PURE__*/ API.make(() => ({
+  input: UpgradeServerCommitmentRequest,
+  output: Server,
   errors: [UnknownScalewayError],
   protocol: ScalewayProtocol,
   retry: Retry.Retry,

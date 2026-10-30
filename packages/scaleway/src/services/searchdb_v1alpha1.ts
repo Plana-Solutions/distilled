@@ -27,14 +27,11 @@ export interface Volume {
   type?: VolumeType | (string & {});
   /** Define the size of the Volume. (in bytes) */
   size_bytes?: number;
-  /** ID of the Deployment. */
-  deployment_id?: string;
 }
 export const Volume = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     type: S.optional(VolumeType),
     size_bytes: S.optional(S.Number),
-    deployment_id: S.optional(S.String),
   }),
 ).annotate({ identifier: "Volume" }) as any as S.Schema<Volume>;
 

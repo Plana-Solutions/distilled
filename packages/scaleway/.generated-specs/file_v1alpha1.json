@@ -1114,7 +1114,8 @@
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Snapshot size in bytes. (in bytes)"
+            "smithy.api#documentation": "Snapshot size in bytes. (in bytes)",
+            "com.distilled.openapi#nullable": {}
           }
         },
         "status": {

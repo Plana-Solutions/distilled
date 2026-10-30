@@ -187,7 +187,7 @@ export interface Snapshot {
   /** Information about the parent filesystem. If the parent filesystem was deleted, value is null. */
   parent_filesystem?: SnapshotParentFilesystem;
   /** Snapshot size in bytes. (in bytes) */
-  size?: number;
+  size?: number | null;
   /** Current status of the snapshot (e.g. creating, available, ...). */
   status?: SnapshotStatus;
   /** UUID of the project to which the snapshot belongs. (UUID format) */
@@ -210,7 +210,7 @@ export const Snapshot = /*@__PURE__*/ S.suspend(() =>
     id: S.optional(S.String),
     name: S.optional(S.String),
     parent_filesystem: S.optional(SnapshotParentFilesystem),
-    size: S.optional(S.Number),
+    size: S.optional(S.NullOr(S.Number)),
     status: S.optional(SnapshotStatus),
     project_id: S.optional(S.String),
     organization_id: S.optional(S.String),

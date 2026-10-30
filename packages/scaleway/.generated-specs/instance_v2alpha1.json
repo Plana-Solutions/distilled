@@ -5964,6 +5964,12 @@
           "traits": {
             "smithy.api#documentation": "True if the Instance is running as Spot."
           }
+        },
+        "physical_host_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The unique identifier of the physical server hosting this Instance."
+          }
         }
       },
       "traits": {}

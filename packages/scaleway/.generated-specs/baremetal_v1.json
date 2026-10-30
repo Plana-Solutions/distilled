@@ -135,6 +135,12 @@
             "smithy.api#documentation": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "commitment_period": {
+          "target": "com.scaleway.baremetal_v1#CommitmentPeriod",
+          "traits": {
+            "smithy.api#documentation": "Commitment period to subscribe."
+          }
         }
       },
       "traits": {}
@@ -644,6 +650,48 @@
         "smithy.api#documentation": "IDs of options to enable on server."
       }
     },
+    "com.scaleway.baremetal_v1#CommitmentPeriod": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN_PERIOD": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown_period"
+          }
+        },
+        "ONE_MONTH": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "one_month"
+          }
+        },
+        "SIX_MONTHS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "six_months"
+          }
+        },
+        "ONE_YEAR": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "one_year"
+          }
+        },
+        "TWO_YEARS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "two_years"
+          }
+        },
+        "THREE_YEARS": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "three_years"
+          }
+        }
+      },
+      "traits": {}
+    },
     "com.scaleway.baremetal_v1#BatchCreateServersRequestServerConfig": {
       "type": "structure",
       "members": {
@@ -841,6 +889,25 @@
           "traits": {
             "smithy.api#documentation": "Optional configuration data passed to cloud-init.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "commitment": {
+          "target": "com.scaleway.baremetal_v1#ServerCommitment",
+          "traits": {
+            "smithy.api#documentation": "Commitment subscribed for the server."
+          }
+        },
+        "scheduled_deletion_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Date on which the server will be deleted. (RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "scheduled_deletion": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "True if a deletion is scheduled."
           }
         }
       },
@@ -1360,6 +1427,51 @@
       },
       "traits": {}
     },
+    "com.scaleway.baremetal_v1#ServerCommitment": {
+      "type": "structure",
+      "members": {
+        "period": {
+          "target": "com.scaleway.baremetal_v1#CommitmentPeriod",
+          "traits": {
+            "smithy.api#documentation": "Commitment period subscribed."
+          }
+        },
+        "started_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Start of commitment subscribed. (RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "renew_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Next renew of commitment subscribed. (RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "end_at": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "End of commitment subscribed. (RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "discount_rate_percent": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Discount rate for the commitment period."
+          }
+        },
+        "auto_renewal": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Flag for automatic renewal commitment."
+          }
+        }
+      },
+      "traits": {}
+    },
     "com.scaleway.baremetal_v1#BatchCreateServersResponseServersList": {
       "type": "list",
       "member": {
@@ -1664,6 +1776,12 @@
           "traits": {
             "smithy.api#documentation": "Exist only for hourly offers, to migrate to the monthly offer.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "commitments_available": {
+          "target": "com.scaleway.baremetal_v1#OfferCommitmentsAvailableList",
+          "traits": {
+            "smithy.api#documentation": "List all available commitments on the offer."
           }
         },
         "zone": {
@@ -2065,6 +2183,39 @@
       },
       "traits": {
         "smithy.api#documentation": "GPU specifications of the offer."
+      }
+    },
+    "com.scaleway.baremetal_v1#OfferCommitment": {
+      "type": "structure",
+      "members": {
+        "period": {
+          "target": "com.scaleway.baremetal_v1#CommitmentPeriod",
+          "traits": {
+            "smithy.api#documentation": "Commitment period."
+          }
+        },
+        "discount_rate_percent": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Discount rate for the commitment period."
+          }
+        },
+        "no_fee": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Fee not mandatory."
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.baremetal_v1#OfferCommitmentsAvailableList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.baremetal_v1#OfferCommitment"
+      },
+      "traits": {
+        "smithy.api#documentation": "List all available commitments on the offer."
       }
     },
     "com.scaleway.baremetal_v1#ListOffersResponseOffersList": {
@@ -3332,6 +3483,12 @@
             "smithy.api#documentation": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "commitment_period": {
+          "target": "com.scaleway.baremetal_v1#CommitmentPeriod",
+          "traits": {
+            "smithy.api#documentation": "Commitment period to subscribe."
+          }
         }
       },
       "traits": {
@@ -3540,6 +3697,13 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Configuration data to pass to cloud-init such as a YAML cloud config data or a user-data script.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "scheduled_deletion": {
+          "target": "smithy.api#Boolean",
+          "traits": {
+            "smithy.api#documentation": "Set false to cancel the scheduled deletion of the server.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -5116,6 +5280,176 @@
         "smithy.api#documentation": "Stop an Elastic Metal server\n\nStop the server associated with the ID. The server remains allocated to your account and all data remains on the local storage of the server."
       }
     },
+    "com.scaleway.baremetal_v1#UpdateServerCommitmentRequestZone": {
+      "type": "enum",
+      "members": {
+        "FR_PAR_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par-1"
+          }
+        },
+        "FR_PAR_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par-2"
+          }
+        },
+        "NL_AMS_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nl-ams-1"
+          }
+        },
+        "NL_AMS_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nl-ams-2"
+          }
+        },
+        "PL_WAW_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pl-waw-2"
+          }
+        },
+        "PL_WAW_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pl-waw-3"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.baremetal_v1#UpdateServerCommitmentRequest": {
+      "type": "structure",
+      "members": {
+        "zone": {
+          "target": "com.scaleway.baremetal_v1#UpdateServerCommitmentRequestZone",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The zone you want to target"
+          }
+        },
+        "server_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "auto_renewal": {
+          "target": "smithy.api#Boolean"
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.baremetal_v1#UpdateServerCommitment": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.baremetal_v1#UpdateServerCommitmentRequest"
+      },
+      "output": {
+        "target": "com.scaleway.baremetal_v1#Server"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/baremetal/v1/zones/{zone}/servers/{server_id}/update-commitment",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Update a commitment\n\nUpdate an existing commitment on a server to enable/disable auto-renewal."
+      }
+    },
+    "com.scaleway.baremetal_v1#UpgradeServerCommitmentRequestZone": {
+      "type": "enum",
+      "members": {
+        "FR_PAR_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par-1"
+          }
+        },
+        "FR_PAR_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "fr-par-2"
+          }
+        },
+        "NL_AMS_1": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nl-ams-1"
+          }
+        },
+        "NL_AMS_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "nl-ams-2"
+          }
+        },
+        "PL_WAW_2": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pl-waw-2"
+          }
+        },
+        "PL_WAW_3": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "pl-waw-3"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.baremetal_v1#UpgradeServerCommitmentRequest": {
+      "type": "structure",
+      "members": {
+        "zone": {
+          "target": "com.scaleway.baremetal_v1#UpgradeServerCommitmentRequestZone",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#documentation": "The zone you want to target"
+          }
+        },
+        "server_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {}
+          }
+        },
+        "period": {
+          "target": "com.scaleway.baremetal_v1#CommitmentPeriod"
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.baremetal_v1#UpgradeServerCommitment": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.baremetal_v1#UpgradeServerCommitmentRequest"
+      },
+      "output": {
+        "target": "com.scaleway.baremetal_v1#Server"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "POST",
+          "uri": "/baremetal/v1/zones/{zone}/servers/{server_id}/upgrade-commitment",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#documentation": "Upgrade a commitment\n\nStart a commitment or upgrade an existing commitment on a server."
+      }
+    },
     "com.scaleway.baremetal_v1#ListSettingsRequestZone": {
       "type": "enum",
       "members": {
@@ -5493,6 +5827,12 @@
         },
         {
           "target": "com.scaleway.baremetal_v1#StopServer"
+        },
+        {
+          "target": "com.scaleway.baremetal_v1#UpdateServerCommitment"
+        },
+        {
+          "target": "com.scaleway.baremetal_v1#UpgradeServerCommitment"
         },
         {
           "target": "com.scaleway.baremetal_v1#ListSettings"
