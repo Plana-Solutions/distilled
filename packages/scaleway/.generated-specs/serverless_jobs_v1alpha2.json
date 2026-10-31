@@ -126,6 +126,12 @@
             "smithy.api#documentation": "UUID of the job definition. (UUID format)"
           }
         },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the job definition."
+          }
+        },
         "name": {
           "target": "smithy.api#String",
           "traits": {
@@ -228,7 +234,7 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "Region in which the job definition exists."
           }
         }
       },
@@ -997,6 +1003,12 @@
             "smithy.api#documentation": "UUID of the job run. (UUID format)"
           }
         },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the job run."
+          }
+        },
         "job_definition_id": {
           "target": "smithy.api#String",
           "traits": {
@@ -1116,7 +1128,7 @@
         "region": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "The region you want to target"
+            "smithy.api#documentation": "Region in which the job run exists."
           }
         }
       },
@@ -2156,6 +2168,12 @@
             "smithy.api#documentation": "UUID of the trigger. (UUID format)"
           }
         },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the trigger."
+          }
+        },
         "job_definition_id": {
           "target": "smithy.api#String",
           "traits": {
@@ -2187,6 +2205,12 @@
           "traits": {
             "smithy.api#documentation": "Configuration of the CRON trigger.\nPrecisely one of cron_config can be set.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "region": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Region in which the trigger exists."
           }
         }
       },

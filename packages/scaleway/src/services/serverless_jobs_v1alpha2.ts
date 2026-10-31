@@ -152,6 +152,8 @@ export const JobDefinitionArgsList = /*@__PURE__*/ S.Array(
 export interface JobDefinition {
   /** UUID of the job definition. (UUID format) */
   id?: string;
+  /** SRN of the job definition. */
+  srn?: string;
   /** Name of the job definition. */
   name?: string;
   /** UUID of the Scaleway Project containing the job. (UUID format) */
@@ -184,12 +186,13 @@ export interface JobDefinition {
   args?: JobDefinitionArgsList;
   /** Retry behaviour in case of job failure. */
   retry_policy?: RetryPolicy;
-  /** The region you want to target */
+  /** Region in which the job definition exists. */
   region?: string;
 }
 export const JobDefinition = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     name: S.optional(S.String),
     project_id: S.optional(S.String),
     created_at: S.optional(S.NullOr(S.String)),
@@ -354,6 +357,8 @@ export const TriggerCronConfig = /*@__PURE__*/ S.suspend(() =>
 export interface Trigger {
   /** UUID of the trigger. (UUID format) */
   id?: string;
+  /** SRN of the trigger. */
+  srn?: string;
   /** UUID of the job definition. (UUID format) */
   job_definition_id?: string;
   /** Human readable name of the trigger. */
@@ -364,15 +369,19 @@ export interface Trigger {
   updated_at?: string | null;
   /** Configuration of the CRON trigger. Precisely one of cron_config can be set. */
   cron_config?: TriggerCronConfig | null;
+  /** Region in which the trigger exists. */
+  region?: string;
 }
 export const Trigger = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     job_definition_id: S.optional(S.String),
     name: S.optional(S.String),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
     cron_config: S.optional(S.NullOr(TriggerCronConfig)),
+    region: S.optional(S.String),
   }),
 ).annotate({ identifier: "Trigger" }) as any as S.Schema<Trigger>;
 
@@ -558,6 +567,8 @@ export const JobRunArgsList = /*@__PURE__*/ S.Array(S.String) as any as S.Schema
 export interface JobRun {
   /** UUID of the job run. (UUID format) */
   id?: string;
+  /** SRN of the job run. */
+  srn?: string;
   /** UUID of the job definition. (UUID format) */
   job_definition_id?: string;
   /** Creation date of the job run. (RFC 3339 format) */
@@ -594,12 +605,13 @@ export interface JobRun {
   args?: JobRunArgsList;
   /** Number of run attempts. */
   attempts?: number | null;
-  /** The region you want to target */
+  /** Region in which the job run exists. */
   region?: string;
 }
 export const JobRun = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
     id: S.optional(S.String),
+    srn: S.optional(S.String),
     job_definition_id: S.optional(S.String),
     created_at: S.optional(S.NullOr(S.String)),
     updated_at: S.optional(S.NullOr(S.String)),
