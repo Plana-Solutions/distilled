@@ -1276,6 +1276,12 @@
         },
         "questions": {
           "target": "com.scaleway.domain_registrar_v2beta1#ContactQuestionsList"
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the contact."
+          }
         }
       },
       "traits": {}
@@ -1875,6 +1881,12 @@
           "traits": {
             "smithy.api#documentation": "Indicates if a trade is ongoing."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the domain."
+          }
         }
       },
       "traits": {}
@@ -2178,6 +2190,12 @@
           "traits": {
             "smithy.api#documentation": "Indicates if a trade is ongoing."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the domain."
+          }
         }
       },
       "traits": {}
@@ -2439,6 +2457,12 @@
         },
         "linked_products": {
           "target": "com.scaleway.domain_registrar_v2beta1#DNSZoneLinkedProductsList"
+        },
+        "srn": {
+          "target": "smithy.api#String"
+        },
+        "dns_zone": {
+          "target": "smithy.api#String"
         }
       },
       "traits": {}
@@ -2577,6 +2601,12 @@
           "target": "com.scaleway.domain_registrar_v2beta1#TldSpecificationsMap",
           "traits": {
             "smithy.api#documentation": "Additional specifications of the TLD."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the TLD."
           }
         }
       },
@@ -4020,6 +4050,12 @@
           "traits": {
             "smithy.api#documentation": "TLD information of the domain."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the domain."
+          }
         }
       },
       "traits": {}
@@ -4678,6 +4714,12 @@
           "traits": {
             "smithy.api#documentation": "Human-friendly contact identifier used when the task concerns a contact.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the task."
           }
         }
       },

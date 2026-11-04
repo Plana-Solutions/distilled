@@ -67,6 +67,8 @@ export interface Job {
   model_id?: string | null;
   /** Execution parameters for this job. */
   parameters?: string | null;
+  /** SRN of the job. */
+  srn?: string;
 }
 export const Job = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -83,6 +85,7 @@ export const Job = /*@__PURE__*/ S.suspend(() =>
     result_distribution: S.optional(S.NullOr(S.String)),
     model_id: S.optional(S.NullOr(S.String)),
     parameters: S.optional(S.NullOr(S.String)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Job" }) as any as S.Schema<Job>;
 
@@ -154,6 +157,8 @@ export interface Process {
   progress_message?: string | null;
   /** Input payload of the process as JSON string. */
   input?: string | null;
+  /** SRN of the process. */
+  srn?: string;
 }
 export const Process = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -172,6 +177,7 @@ export const Process = /*@__PURE__*/ S.suspend(() =>
     progress: S.optional(S.NullOr(S.Number)),
     progress_message: S.optional(S.NullOr(S.String)),
     input: S.optional(S.NullOr(S.String)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Process" }) as any as S.Schema<Process>;
 
@@ -258,6 +264,8 @@ export interface Model {
   url?: string | null;
   /** Project ID in which the model has been created. */
   project_id?: string;
+  /** SRN of the model. */
+  srn?: string;
 }
 export const Model = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -265,6 +273,7 @@ export const Model = /*@__PURE__*/ S.suspend(() =>
     created_at: S.optional(S.NullOr(S.String)),
     url: S.optional(S.NullOr(S.String)),
     project_id: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Model" }) as any as S.Schema<Model>;
 
@@ -428,6 +437,8 @@ export interface Session {
   model_id?: string | null;
   /** Platform configuration parameters applied to this session. */
   parameters?: string | null;
+  /** SRN of the session. */
+  srn?: string;
 }
 export const Session = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -452,6 +463,7 @@ export const Session = /*@__PURE__*/ S.suspend(() =>
     booking_id: S.optional(S.NullOr(S.String)),
     model_id: S.optional(S.NullOr(S.String)),
     parameters: S.optional(S.NullOr(S.String)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Session" }) as any as S.Schema<Session>;
 
@@ -558,6 +570,8 @@ export interface Application {
   compatible_platform_ids?: ApplicationCompatiblePlatformIdsList;
   /** JSON format describing the expected input. */
   input_template?: string;
+  /** SRN of the application. */
+  srn?: string;
 }
 export const Application = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -566,6 +580,7 @@ export const Application = /*@__PURE__*/ S.suspend(() =>
     type: S.optional(ApplicationType),
     compatible_platform_ids: S.optional(ApplicationCompatiblePlatformIdsList),
     input_template: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Application" }) as any as S.Schema<Application>;
 
@@ -615,6 +630,8 @@ export interface Booking {
   progress_message?: string;
   /** Time zone for the booking schedule, in tz database format (e.g. 'Europe/Paris'). */
   time_zone?: string | null;
+  /** SRN of the booking. */
+  srn?: string;
 }
 export const Booking = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -627,6 +644,7 @@ export const Booking = /*@__PURE__*/ S.suspend(() =>
     description: S.optional(S.String),
     progress_message: S.optional(S.String),
     time_zone: S.optional(S.NullOr(S.String)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Booking" }) as any as S.Schema<Booking>;
 
@@ -827,6 +845,8 @@ export interface Platform {
   documentation_url?: string;
   /** Specify if the platform is bookable. */
   is_bookable?: boolean;
+  /** SRN of the platform. */
+  srn?: string;
 }
 export const Platform = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -850,6 +870,7 @@ export const Platform = /*@__PURE__*/ S.suspend(() =>
     description: S.optional(S.String),
     documentation_url: S.optional(S.String),
     is_bookable: S.optional(S.Boolean),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Platform" }) as any as S.Schema<Platform>;
 

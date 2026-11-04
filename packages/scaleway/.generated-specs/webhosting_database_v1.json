@@ -481,13 +481,13 @@
         "database_name": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the database to be created."
+            "smithy.api#documentation": "Name of the database to be created. If it is not already prefixed with the hosting's cPanel username followed by an underscore (e.g. `cpe1234_`), this prefix is automatically added. The resulting name must not exceed 64 characters."
           }
         },
         "new_user": {
           "target": "com.scaleway.webhosting_database_v1#CreateDatabaseRequestUser",
           "traits": {
-            "smithy.api#documentation": "(Optional) Username and password to create a user and link to the database.\nPrecisely one of new_user, existing_username can be set.",
+            "smithy.api#documentation": "(Optional) Username and password to create a user and link to the database. The username is prefixed the same way as `database_name`.\nPrecisely one of new_user, existing_username can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -566,7 +566,7 @@
         "username": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Name of the user to create."
+            "smithy.api#documentation": "Name of the user to create. If it is not already prefixed with the hosting's cPanel username followed by an underscore (e.g. `cpe1234_`), this prefix is automatically added. The resulting name must not exceed 32 characters."
           }
         },
         "password": {

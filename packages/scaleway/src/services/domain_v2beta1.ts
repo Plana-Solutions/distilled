@@ -98,6 +98,8 @@ export interface DNSZone {
   updated_at?: string | null;
   project_id?: string;
   linked_products?: DNSZoneLinkedProductsList;
+  srn?: string;
+  dns_zone?: string;
 }
 export const DNSZone = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -111,6 +113,8 @@ export const DNSZone = /*@__PURE__*/ S.suspend(() =>
     updated_at: S.optional(S.NullOr(S.String)),
     project_id: S.optional(S.String),
     linked_products: S.optional(DNSZoneLinkedProductsList),
+    srn: S.optional(S.String),
+    dns_zone: S.optional(S.String),
   }),
 ).annotate({ identifier: "DNSZone" }) as any as S.Schema<DNSZone>;
 
@@ -180,6 +184,7 @@ export interface SSLCertificate {
   created_at?: string | null;
   /** (RFC 3339 format) */
   expired_at?: string | null;
+  srn?: string;
 }
 export const SSLCertificate = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -190,6 +195,7 @@ export const SSLCertificate = /*@__PURE__*/ S.suspend(() =>
     certificate_chain: S.optional(S.String),
     created_at: S.optional(S.NullOr(S.String)),
     expired_at: S.optional(S.NullOr(S.String)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "SSLCertificate" }) as any as S.Schema<SSLCertificate>;
 

@@ -72,7 +72,9 @@ export type ResourceType =
   | "sedb_cluster"
   | "autoscaling_group"
   | "wofl_definition"
-  | "wofl_run";
+  | "wofl_run"
+  | "kvdb_instance"
+  | "kvdb_snapshot";
 export const ResourceType = S.String;
 
 export type SearchResourcesRequestTypesList = Array<ResourceType | (string & {})>;

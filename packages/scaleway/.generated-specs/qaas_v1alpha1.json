@@ -159,6 +159,12 @@
           "traits": {
             "smithy.api#documentation": "JSON format describing the expected input."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the application."
+          }
         }
       },
       "traits": {}
@@ -391,6 +397,12 @@
           "traits": {
             "smithy.api#documentation": "Time zone for the booking schedule, in tz database format (e.g. 'Europe/Paris').",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the booking."
           }
         }
       },
@@ -782,6 +794,12 @@
           "traits": {
             "smithy.api#documentation": "Execution parameters for this job.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the job."
           }
         }
       },
@@ -1416,6 +1434,12 @@
           "traits": {
             "smithy.api#documentation": "Project ID in which the model has been created."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the model."
+          }
         }
       },
       "traits": {}
@@ -1862,6 +1886,12 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "Specify if the platform is bookable."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the platform."
           }
         }
       },
@@ -2311,6 +2341,12 @@
           "traits": {
             "smithy.api#documentation": "Input payload of the process as JSON string.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the process."
           }
         }
       },
@@ -3051,6 +3087,12 @@
           "traits": {
             "smithy.api#documentation": "Platform configuration parameters applied to this session.",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "SRN of the session."
           }
         }
       },

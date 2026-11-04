@@ -702,6 +702,8 @@ export interface DNSZone {
   updated_at?: string | null;
   project_id?: string;
   linked_products?: DNSZoneLinkedProductsList;
+  srn?: string;
+  dns_zone?: string;
 }
 export const DNSZone = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -715,6 +717,8 @@ export const DNSZone = /*@__PURE__*/ S.suspend(() =>
     updated_at: S.optional(S.NullOr(S.String)),
     project_id: S.optional(S.String),
     linked_products: S.optional(DNSZoneLinkedProductsList),
+    srn: S.optional(S.String),
+    dns_zone: S.optional(S.String),
   }),
 ).annotate({ identifier: "DNSZone" }) as any as S.Schema<DNSZone>;
 
@@ -793,6 +797,8 @@ export interface Contact {
   /** Additional information required for .it domains. Contains a PIN. */
   extension_it?: ContactExtensionIT;
   questions?: ContactQuestionsList;
+  /** The SRN of the contact. */
+  srn?: string;
 }
 export const Contact = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -823,6 +829,7 @@ export const Contact = /*@__PURE__*/ S.suspend(() =>
     status: S.optional(ContactStatus),
     extension_it: S.optional(ContactExtensionIT),
     questions: S.optional(ContactQuestionsList),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Contact" }) as any as S.Schema<Contact>;
 
@@ -923,6 +930,8 @@ export interface Tld {
   offers?: TldOffersMap;
   /** Additional specifications of the TLD. */
   specifications?: TldSpecificationsMap;
+  /** The SRN of the TLD. */
+  srn?: string;
 }
 export const Tld = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -933,6 +942,7 @@ export const Tld = /*@__PURE__*/ S.suspend(() =>
     idn_support: S.optional(S.Boolean),
     offers: S.optional(TldOffersMap),
     specifications: S.optional(TldSpecificationsMap),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Tld" }) as any as S.Schema<Tld>;
 
@@ -983,6 +993,8 @@ export interface Domain {
   linked_products?: DomainLinkedProductsList;
   /** Indicates if a trade is ongoing. */
   pending_trade?: boolean;
+  /** The SRN of the domain. */
+  srn?: string;
 }
 export const Domain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1008,6 +1020,7 @@ export const Domain = /*@__PURE__*/ S.suspend(() =>
     tld: S.optional(Tld),
     linked_products: S.optional(DomainLinkedProductsList),
     pending_trade: S.optional(S.Boolean),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Domain" }) as any as S.Schema<Domain>;
 
@@ -1372,6 +1385,8 @@ export interface DomainSummary {
   transfer_registration_status?: DomainRegistrationStatusTransfer | null;
   /** Indicates if a trade is ongoing. */
   pending_trade?: boolean;
+  /** The SRN of the domain. */
+  srn?: string;
 }
 export const DomainSummary = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1392,6 +1407,7 @@ export const DomainSummary = /*@__PURE__*/ S.suspend(() =>
     ),
     transfer_registration_status: S.optional(S.NullOr(DomainRegistrationStatusTransfer)),
     pending_trade: S.optional(S.Boolean),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "DomainSummary" }) as any as S.Schema<DomainSummary>;
 
@@ -1569,6 +1585,8 @@ export interface RenewableDomain {
   estimated_delete_at?: string | null;
   /** TLD information of the domain. */
   tld?: Tld;
+  /** The SRN of the domain. */
+  srn?: string;
 }
 export const RenewableDomain = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1582,6 +1600,7 @@ export const RenewableDomain = /*@__PURE__*/ S.suspend(() =>
     limit_redemption_at: S.optional(S.NullOr(S.String)),
     estimated_delete_at: S.optional(S.NullOr(S.String)),
     tld: S.optional(Tld),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "RenewableDomain" }) as any as S.Schema<RenewableDomain>;
 
@@ -1722,6 +1741,8 @@ export interface Task {
   message?: string | null;
   /** Human-friendly contact identifier used when the task concerns a contact. */
   contact_identifier?: string | null;
+  /** The SRN of the task. */
+  srn?: string;
 }
 export const Task = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1735,6 +1756,7 @@ export const Task = /*@__PURE__*/ S.suspend(() =>
     updated_at: S.optional(S.NullOr(S.String)),
     message: S.optional(S.NullOr(S.String)),
     contact_identifier: S.optional(S.NullOr(S.String)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Task" }) as any as S.Schema<Task>;
 

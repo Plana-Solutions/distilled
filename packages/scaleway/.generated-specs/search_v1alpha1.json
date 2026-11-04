@@ -375,6 +375,18 @@
           "traits": {
             "smithy.api#enumValue": "wofl_run"
           }
+        },
+        "KVDB_INSTANCE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "kvdb_instance"
+          }
+        },
+        "KVDB_SNAPSHOT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "kvdb_snapshot"
+          }
         }
       },
       "traits": {}

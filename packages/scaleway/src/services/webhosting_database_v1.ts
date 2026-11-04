@@ -112,9 +112,9 @@ export interface CreateDatabaseRequest {
   region?: CreateDatabaseRequestRegion | (string & {});
   /** UUID of the hosting plan where the database will be created. */
   hosting_id: string;
-  /** Name of the database to be created. */
+  /** Name of the database to be created. If it is not already prefixed with the hosting's cPanel username followed by an underscore (e.g. `cpe1234_`), this prefix is automatically added. The resulting name must not exceed 64 characters. */
   database_name?: string;
-  /** (Optional) Username and password to create a user and link to the database. Precisely one of new_user, existing_username can be set. */
+  /** (Optional) Username and password to create a user and link to the database. The username is prefixed the same way as `database_name`. Precisely one of new_user, existing_username can be set. */
   new_user?: CreateDatabaseRequestUser | null;
   /** (Optional) Username to link an existing user to the database. Precisely one of new_user, existing_username can be set. */
   existing_username?: string | null;
@@ -163,7 +163,7 @@ export interface CreateDatabaseUserRequest {
   region?: CreateDatabaseUserRequestRegion | (string & {});
   /** UUID of the hosting plan. */
   hosting_id: string;
-  /** Name of the user to create. */
+  /** Name of the user to create. If it is not already prefixed with the hosting's cPanel username followed by an underscore (e.g. `cpe1234_`), this prefix is automatically added. The resulting name must not exceed 32 characters. */
   username?: string;
   /** Password of the user to create. */
   password?: string | Redacted.Redacted<string>;

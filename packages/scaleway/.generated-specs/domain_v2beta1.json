@@ -230,6 +230,12 @@
         },
         "linked_products": {
           "target": "com.scaleway.domain_v2beta1#DNSZoneLinkedProductsList"
+        },
+        "srn": {
+          "target": "smithy.api#String"
+        },
+        "dns_zone": {
+          "target": "smithy.api#String"
         }
       },
       "traits": {}
@@ -2227,6 +2233,9 @@
             "smithy.api#documentation": "(RFC 3339 format)",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "srn": {
+          "target": "smithy.api#String"
         }
       },
       "traits": {}
