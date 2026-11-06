@@ -673,6 +673,39 @@
       },
       "traits": {}
     },
+    "com.scaleway.file_v1alpha1#CreateFileSystemRequestFromEmpty": {
+      "type": "structure",
+      "members": {
+        "size": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Filesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size. (in bytes)",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.file_v1alpha1#CreateFileSystemRequestFromSnapshot": {
+      "type": "structure",
+      "members": {
+        "size": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Filesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size.\nSize is optional. When not set, the current size of the parent filesystem is used.\nWhen set, it must be greater than or equal to the snapshot size. (in bytes)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "snapshot_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Source snapshot from which the filesystem will be created.",
+            "smithy.api#required": {}
+          }
+        }
+      },
+      "traits": {}
+    },
     "com.scaleway.file_v1alpha1#CreateFileSystemRequestTagsList": {
       "type": "list",
       "member": {
@@ -709,8 +742,21 @@
         "size": {
           "target": "smithy.api#Integer",
           "traits": {
-            "smithy.api#documentation": "Filesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size.",
-            "smithy.api#required": {}
+            "smithy.api#documentation": "Deprecated: use `from_empty.size` instead.\nFilesystem size in bytes, with a granularity in GB (10^9 bytes).\nMust be compliant with the minimum (25 GB) and maximum (50 TB) allowed size.\nMust not be set along with `from_empty` or `from_snapshot`."
+          }
+        },
+        "from_empty": {
+          "target": "com.scaleway.file_v1alpha1#CreateFileSystemRequestFromEmpty",
+          "traits": {
+            "smithy.api#documentation": "Specify the size of the new filesystem if creating a new one from scratch.\nPrecisely one of from_empty, from_snapshot can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "from_snapshot": {
+          "target": "com.scaleway.file_v1alpha1#CreateFileSystemRequestFromSnapshot",
+          "traits": {
+            "smithy.api#documentation": "Specify the snapshot ID of the original snapshot to create the filesystem from.\nPrecisely one of from_empty, from_snapshot can be set.",
+            "com.distilled.openapi#nullable": {}
           }
         },
         "type": {
@@ -746,7 +792,7 @@
           "code": 200,
           "baseUrl": "https://api.scaleway.com"
         },
-        "smithy.api#documentation": "Create a new filesystem\n\nTo create a new filesystem, you must specify a name, a size, and a project ID."
+        "smithy.api#documentation": "Create a new filesystem\n\nTo create a new filesystem, you must specify a name, a project ID, and either a size (`from_empty`) or a source snapshot (`from_snapshot`)."
       }
     },
     "com.scaleway.file_v1alpha1#GetFileSystemRequestRegion": {

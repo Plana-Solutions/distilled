@@ -12,6 +12,33 @@ export type { ScalewayOpError, ScalewayOpContext };
 export type CreateFileSystemRequestRegion = "fr-par";
 export const CreateFileSystemRequestRegion = S.String;
 
+export interface CreateFileSystemRequestFromEmpty {
+  /** Filesystem size in bytes, with a granularity in GB (10^9 bytes). Must be compliant with the minimum (25 GB) and maximum (50 TB) allowed size. (in bytes) */
+  size: number;
+}
+export const CreateFileSystemRequestFromEmpty = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    size: S.Number,
+  }),
+).annotate({
+  identifier: "CreateFileSystemRequestFromEmpty",
+}) as any as S.Schema<CreateFileSystemRequestFromEmpty>;
+
+export interface CreateFileSystemRequestFromSnapshot {
+  /** Filesystem size in bytes, with a granularity in GB (10^9 bytes). Must be compliant with the minimum (25 GB) and maximum (50 TB) allowed size. Size is optional. When not set, the current size of the parent filesystem is used. When set, it must be greater than or equal to the snapshot size. (in bytes) */
+  size?: number | null;
+  /** Source snapshot from which the filesystem will be created. */
+  snapshot_id: string;
+}
+export const CreateFileSystemRequestFromSnapshot = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    size: S.optional(S.NullOr(S.Number)),
+    snapshot_id: S.String,
+  }),
+).annotate({
+  identifier: "CreateFileSystemRequestFromSnapshot",
+}) as any as S.Schema<CreateFileSystemRequestFromSnapshot>;
+
 /** List of tags assigned to the filesystem. */
 export type CreateFileSystemRequestTagsList = Array<string>;
 export const CreateFileSystemRequestTagsList = /*@__PURE__*/ S.Array(
@@ -25,8 +52,12 @@ export interface CreateFileSystemRequest {
   name: string;
   /** UUID of the project the filesystem belongs to. (UUID format) */
   project_id: string;
-  /** Filesystem size in bytes, with a granularity in GB (10^9 bytes). Must be compliant with the minimum (25 GB) and maximum (50 TB) allowed size. */
-  size: number;
+  /** Deprecated: use `from_empty.size` instead. Filesystem size in bytes, with a granularity in GB (10^9 bytes). Must be compliant with the minimum (25 GB) and maximum (50 TB) allowed size. Must not be set along with `from_empty` or `from_snapshot`. */
+  size?: number;
+  /** Specify the size of the new filesystem if creating a new one from scratch. Precisely one of from_empty, from_snapshot can be set. */
+  from_empty?: CreateFileSystemRequestFromEmpty | null;
+  /** Specify the snapshot ID of the original snapshot to create the filesystem from. Precisely one of from_empty, from_snapshot can be set. */
+  from_snapshot?: CreateFileSystemRequestFromSnapshot | null;
   /** Type of the filesystem. */
   type?: string | null;
   /** List of tags assigned to the filesystem. */
@@ -37,7 +68,9 @@ export const CreateFileSystemRequest = /*@__PURE__*/ S.suspend(() =>
     region: S.optional(CreateFileSystemRequestRegion.pipe(T.Label())),
     name: S.String,
     project_id: S.String,
-    size: S.Number,
+    size: S.optional(S.Number),
+    from_empty: S.optional(S.NullOr(CreateFileSystemRequestFromEmpty)),
+    from_snapshot: S.optional(S.NullOr(CreateFileSystemRequestFromSnapshot)),
     type: S.optional(S.NullOr(S.String)),
     tags: S.optional(CreateFileSystemRequestTagsList),
   }).pipe(
@@ -725,7 +758,7 @@ export const UpdateSnapshotRequest = /*@__PURE__*/ S.suspend(() =>
 ).annotate({ identifier: "UpdateSnapshotRequest" }) as any as S.Schema<UpdateSnapshotRequest>;
 
 export type CreateFileSystemError = ScalewayOpError;
-/** Create a new filesystem To create a new filesystem, you must specify a name, a size, and a project ID. */
+/** Create a new filesystem To create a new filesystem, you must specify a name, a project ID, and either a size (`from_empty`) or a source snapshot (`from_snapshot`). */
 export const createFileSystem: API.OperationMethod<
   CreateFileSystemRequest,
   FileSystem,
