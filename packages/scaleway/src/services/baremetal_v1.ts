@@ -487,6 +487,8 @@ export interface Server {
   scheduled_deletion_at?: string | null;
   /** True if a deletion is scheduled. */
   scheduled_deletion?: boolean;
+  /** The SRN of the server. */
+  srn?: string;
 }
 export const Server = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -514,6 +516,7 @@ export const Server = /*@__PURE__*/ S.suspend(() =>
     commitment: S.optional(ServerCommitment),
     scheduled_deletion_at: S.optional(S.NullOr(S.String)),
     scheduled_deletion: S.optional(S.Boolean),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Server" }) as any as S.Schema<Server>;
 
@@ -875,6 +878,12 @@ export interface BMCAccess {
   password?: string | Redacted.Redacted<string>;
   /** The date after which the BMC (Baseboard Management Controller) access will be closed. (RFC 3339 format) */
   expires_at?: string | null;
+  /** ID of the server. */
+  server_id?: string;
+  /** Zone in which the server is located. */
+  zone?: string;
+  /** The SRN of the BMC access. */
+  srn?: string;
 }
 export const BMCAccess = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -882,6 +891,9 @@ export const BMCAccess = /*@__PURE__*/ S.suspend(() =>
     login: S.optional(S.String),
     password: S.optional(S.String.pipe(T.SensitiveValue({}))),
     expires_at: S.optional(S.NullOr(S.String)),
+    server_id: S.optional(S.String),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "BMCAccess" }) as any as S.Schema<BMCAccess>;
 
@@ -1240,6 +1252,8 @@ export interface Offer {
   zone?: string;
   /** Describe the network topology of the offer. */
   dual_attach?: boolean | null;
+  /** The SRN of the offer. */
+  srn?: string;
 }
 export const Offer = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1271,6 +1285,7 @@ export const Offer = /*@__PURE__*/ S.suspend(() =>
     commitments_available: S.optional(OfferCommitmentsAvailableList),
     zone: S.optional(S.String),
     dual_attach: S.optional(S.NullOr(S.Boolean)),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Offer" }) as any as S.Schema<Offer>;
 
@@ -1320,6 +1335,10 @@ export interface Option {
   remote_access?: unknown | null;
   /** Certification option. Precisely one of license, public_bandwidth, private_network, remote_access, certification can be set. */
   certification?: unknown | null;
+  /** Zone in which is the option is available. */
+  zone?: string;
+  /** The SRN of the option. */
+  srn?: string;
 }
 export const Option = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1331,6 +1350,8 @@ export const Option = /*@__PURE__*/ S.suspend(() =>
     private_network: S.optional(S.NullOr(PublicBandwidthOption)),
     remote_access: S.optional(S.NullOr(S.Unknown)),
     certification: S.optional(S.NullOr(S.Unknown)),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Option" }) as any as S.Schema<Option>;
 
@@ -1413,6 +1434,8 @@ export interface OS {
   network_boot_persistent_editable?: boolean;
   /** Zone in which is the OS is available. */
   zone?: string;
+  /** The SRN of the OS. */
+  srn?: string;
 }
 export const OS = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1434,6 +1457,7 @@ export const OS = /*@__PURE__*/ S.suspend(() =>
     network_boot: S.optional(OSOSField),
     network_boot_persistent_editable: S.optional(S.Boolean),
     zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "OS" }) as any as S.Schema<OS>;
 
@@ -2004,6 +2028,10 @@ export interface Setting {
   project_id?: string;
   /** Defines whether the setting is enabled. */
   enabled?: boolean;
+  /** Zone in which is the setting is located. */
+  zone?: string;
+  /** The SRN of the setting. */
+  srn?: string;
 }
 export const Setting = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -2011,6 +2039,8 @@ export const Setting = /*@__PURE__*/ S.suspend(() =>
     type: S.optional(SettingType),
     project_id: S.optional(S.String),
     enabled: S.optional(S.Boolean),
+    zone: S.optional(S.String),
+    srn: S.optional(S.String),
   }),
 ).annotate({ identifier: "Setting" }) as any as S.Schema<Setting>;
 

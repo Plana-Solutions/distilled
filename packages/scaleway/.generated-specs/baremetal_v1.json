@@ -909,6 +909,12 @@
           "traits": {
             "smithy.api#documentation": "True if a deletion is scheduled."
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the server."
+          }
         }
       },
       "traits": {}
@@ -1796,6 +1802,12 @@
             "smithy.api#documentation": "Describe the network topology of the offer.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the offer."
+          }
         }
       },
       "traits": {}
@@ -2493,6 +2505,18 @@
             "smithy.api#documentation": "Certification option.\nPrecisely one of license, public_bandwidth, private_network, remote_access, certification can be set.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Zone in which is the option is available."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the option."
+          }
         }
       },
       "traits": {}
@@ -2820,6 +2844,12 @@
           "target": "smithy.api#String",
           "traits": {
             "smithy.api#documentation": "Zone in which is the OS is available."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the OS."
           }
         }
       },
@@ -3905,6 +3935,24 @@
           "traits": {
             "smithy.api#documentation": "The date after which the BMC (Baseboard Management Controller) access will be closed. (RFC 3339 format)",
             "com.distilled.openapi#nullable": {}
+          }
+        },
+        "server_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "ID of the server."
+          }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Zone in which the server is located."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the BMC access."
           }
         }
       },
@@ -5596,6 +5644,18 @@
           "target": "smithy.api#Boolean",
           "traits": {
             "smithy.api#documentation": "Defines whether the setting is enabled."
+          }
+        },
+        "zone": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "Zone in which is the setting is located."
+          }
+        },
+        "srn": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "The SRN of the setting."
           }
         }
       },

@@ -1346,6 +1346,30 @@
           "traits": {
             "smithy.api#documentation": "Scaleway logs retention configuration."
           }
+        },
+        "custom_metrics_ingestion_rate_limit_samples_per_second": {
+          "target": "com.scaleway.cockpit_regional_v1#GetConfigResponseBounds",
+          "traits": {
+            "smithy.api#documentation": "Bounds of the custom metrics ingestion rate limit, in samples per second."
+          }
+        },
+        "custom_metrics_max_series": {
+          "target": "com.scaleway.cockpit_regional_v1#GetConfigResponseBounds",
+          "traits": {
+            "smithy.api#documentation": "Bounds of the custom metrics maximum number of active series."
+          }
+        },
+        "custom_logs_ingestion_rate_limit_bytes_per_second": {
+          "target": "com.scaleway.cockpit_regional_v1#GetConfigResponseBounds",
+          "traits": {
+            "smithy.api#documentation": "Bounds of the custom logs ingestion rate limit, in bytes per second."
+          }
+        },
+        "custom_traces_ingestion_rate_limit_bytes_per_second": {
+          "target": "com.scaleway.cockpit_regional_v1#GetConfigResponseBounds",
+          "traits": {
+            "smithy.api#documentation": "Bounds of the custom traces ingestion rate limit, in bytes per second."
+          }
         }
       },
       "traits": {}
@@ -1361,6 +1385,30 @@
         },
         "default_days": {
           "target": "smithy.api#Integer"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.cockpit_regional_v1#GetConfigResponseBounds": {
+      "type": "structure",
+      "members": {
+        "min_value": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Minimum allowed value."
+          }
+        },
+        "max_value": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum allowed value."
+          }
+        },
+        "default_value": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Value applied to a data source that does not set the limit."
+          }
         }
       },
       "traits": {}
@@ -1681,6 +1729,73 @@
           "traits": {
             "smithy.api#documentation": "The SRN of the data-source."
           }
+        },
+        "metrics_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceMetricsLimits",
+          "traits": {
+            "smithy.api#documentation": "Limits applied to the metrics data source, including the default values of the limits not set.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "logs_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceLogsLimits",
+          "traits": {
+            "smithy.api#documentation": "Limits applied to the logs data source, including the default values of the limits not set.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "traces_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceTracesLimits",
+          "traits": {
+            "smithy.api#documentation": "Limits applied to the traces data source, including the default values of the limits not set.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.cockpit_regional_v1#DataSourceMetricsLimits": {
+      "type": "structure",
+      "members": {
+        "ingestion_rate_limit_samples_per_second": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum number of samples ingested per second.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "max_series": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum number of active series.",
+            "com.distilled.openapi#nullable": {}
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.cockpit_regional_v1#DataSourceLogsLimits": {
+      "type": "structure",
+      "members": {
+        "ingestion_rate_limit_bytes_per_second": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum number of bytes ingested per second.",
+            "com.distilled.openapi#nullable": {}
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.cockpit_regional_v1#DataSourceTracesLimits": {
+      "type": "structure",
+      "members": {
+        "ingestion_rate_limit_bytes_per_second": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#documentation": "Maximum number of bytes ingested per second.",
+            "com.distilled.openapi#nullable": {}
+          }
         }
       },
       "traits": {}
@@ -1784,6 +1899,27 @@
           "target": "smithy.api#Integer",
           "traits": {
             "smithy.api#documentation": "Duration for which the data will be retained in the data source.\nDefault values are 31 days for metrics, 7 days for logs and traces.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "metrics_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceMetricsLimits",
+          "traits": {
+            "smithy.api#documentation": "Limits of the data source. Only allowed for a metrics data source. A limit not set gets its default value (see GetConfig).\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "logs_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceLogsLimits",
+          "traits": {
+            "smithy.api#documentation": "Limits of the data source. Only allowed for a logs data source. A limit not set gets its default value (see GetConfig).\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "traces_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceTracesLimits",
+          "traits": {
+            "smithy.api#documentation": "Limits of the data source. Only allowed for a traces data source. A limit not set gets its default value (see GetConfig).\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }
@@ -1942,6 +2078,27 @@
             "smithy.api#documentation": "Duration for which the data will be retained in the data source.",
             "com.distilled.openapi#nullable": {}
           }
+        },
+        "metrics_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceMetricsLimits",
+          "traits": {
+            "smithy.api#documentation": "Updated limits of the data source. Only allowed on a metrics data source. A limit not set keeps its current value.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "logs_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceLogsLimits",
+          "traits": {
+            "smithy.api#documentation": "Updated limits of the data source. Only allowed on a logs data source. A limit not set keeps its current value.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "traces_limits": {
+          "target": "com.scaleway.cockpit_regional_v1#DataSourceTracesLimits",
+          "traits": {
+            "smithy.api#documentation": "Updated limits of the data source. Only allowed on a traces data source. A limit not set keeps its current value.\nPrecisely one of metrics_limits, logs_limits, traces_limits can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
         }
       },
       "traits": {
@@ -1963,7 +2120,7 @@
           "code": 200,
           "baseUrl": "https://api.scaleway.com"
         },
-        "smithy.api#documentation": "Update a data source\n\nUpdate a given data source attributes (name and/or retention_days)."
+        "smithy.api#documentation": "Update a data source\n\nUpdate a given data source attributes (name, retention_days and/or limits)."
       }
     },
     "com.scaleway.cockpit_regional_v1#DeleteDataSourceRequestRegion": {

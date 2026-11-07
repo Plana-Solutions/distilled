@@ -265,7 +265,7 @@
         "image": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\")."
+            "smithy.api#documentation": "Image reference (e.g. with sample image: \"rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest\")."
           }
         },
         "protocol": {
@@ -747,7 +747,7 @@
         "image": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\").",
+            "smithy.api#documentation": "Image reference (e.g. with sample image: \"rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest\").",
             "smithy.api#required": {}
           }
         },
@@ -1152,7 +1152,7 @@
         "image": {
           "target": "smithy.api#String",
           "traits": {
-            "smithy.api#documentation": "Image reference (e.g. \"rg.fr-par.scw.cloud/my-registry-namespace/image:tag\").",
+            "smithy.api#documentation": "Image reference (e.g. with sample image: \"rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest\").",
             "com.distilled.openapi#nullable": {}
           }
         },
@@ -1703,7 +1703,7 @@
           "code": 200,
           "baseUrl": "https://api.scaleway.com"
         },
-        "smithy.api#documentation": "List all custom domains the caller can access (read permission).\n\nBy default, the custom domains listed are ordered by creation date in ascending order. This can be modified via the `order_by` field.\n    \nAdditional parameters can be set in the query to filter the output, such as `organization_id`, `project_id`, `namespace_id`, or `container_id`.",
+        "smithy.api#documentation": "List all custom domains the caller can access (read permission).\n\nBy default, the custom domains listed are ordered by creation date in ascending order. This can be modified via the `order_by` field.\n\nAdditional parameters can be set in the query to filter the output, such as `organization_id`, `project_id`, `namespace_id`, or `container_id`.",
         "smithy.api#paginated": {
           "mode": "page",
           "inputToken": "page",

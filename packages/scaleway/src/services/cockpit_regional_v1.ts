@@ -72,6 +72,32 @@ export const CreateDataSourceRequestRegion = S.String;
 export type DataSourceType = "unknown_type" | "metrics" | "logs" | "traces";
 export const DataSourceType = S.String;
 
+export interface DataSourceMetricsLimits {
+  /** Maximum number of samples ingested per second. */
+  ingestion_rate_limit_samples_per_second?: number | null;
+  /** Maximum number of active series. */
+  max_series?: number | null;
+}
+export const DataSourceMetricsLimits = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    ingestion_rate_limit_samples_per_second: S.optional(S.NullOr(S.Number)),
+    max_series: S.optional(S.NullOr(S.Number)),
+  }),
+).annotate({ identifier: "DataSourceMetricsLimits" }) as any as S.Schema<DataSourceMetricsLimits>;
+
+export interface DataSourceLogsLimits {
+  /** Maximum number of bytes ingested per second. */
+  ingestion_rate_limit_bytes_per_second?: number | null;
+}
+export const DataSourceLogsLimits = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    ingestion_rate_limit_bytes_per_second: S.optional(S.NullOr(S.Number)),
+  }),
+).annotate({ identifier: "DataSourceLogsLimits" }) as any as S.Schema<DataSourceLogsLimits>;
+
+export type DataSourceTracesLimits = DataSourceLogsLimits;
+export const DataSourceTracesLimits = DataSourceLogsLimits;
+
 export interface CreateDataSourceRequest {
   /** The region you want to target */
   region?: CreateDataSourceRequestRegion | (string & {});
@@ -83,6 +109,12 @@ export interface CreateDataSourceRequest {
   type: DataSourceType | (string & {});
   /** Duration for which the data will be retained in the data source. Default values are 31 days for metrics, 7 days for logs and traces. */
   retention_days?: number | null;
+  /** Limits of the data source. Only allowed for a metrics data source. A limit not set gets its default value (see GetConfig). Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  metrics_limits?: DataSourceMetricsLimits | null;
+  /** Limits of the data source. Only allowed for a logs data source. A limit not set gets its default value (see GetConfig). Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  logs_limits?: DataSourceLogsLimits | null;
+  /** Limits of the data source. Only allowed for a traces data source. A limit not set gets its default value (see GetConfig). Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  traces_limits?: DataSourceLogsLimits | null;
 }
 export const CreateDataSourceRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -91,6 +123,9 @@ export const CreateDataSourceRequest = /*@__PURE__*/ S.suspend(() =>
     name: S.String,
     type: DataSourceType,
     retention_days: S.optional(S.NullOr(S.Number)),
+    metrics_limits: S.optional(S.NullOr(DataSourceMetricsLimits)),
+    logs_limits: S.optional(S.NullOr(DataSourceLogsLimits)),
+    traces_limits: S.optional(S.NullOr(DataSourceLogsLimits)),
   }).pipe(
     T.Http({
       method: "POST",
@@ -131,6 +166,12 @@ export interface DataSource {
   current_month_usage?: number | null;
   /** The SRN of the data-source. */
   srn?: string;
+  /** Limits applied to the metrics data source, including the default values of the limits not set. Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  metrics_limits?: DataSourceMetricsLimits | null;
+  /** Limits applied to the logs data source, including the default values of the limits not set. Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  logs_limits?: DataSourceLogsLimits | null;
+  /** Limits applied to the traces data source, including the default values of the limits not set. Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  traces_limits?: DataSourceLogsLimits | null;
 }
 export const DataSource = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -147,6 +188,9 @@ export const DataSource = /*@__PURE__*/ S.suspend(() =>
     region: S.optional(S.String),
     current_month_usage: S.optional(S.NullOr(S.Number)),
     srn: S.optional(S.String),
+    metrics_limits: S.optional(S.NullOr(DataSourceMetricsLimits)),
+    logs_limits: S.optional(S.NullOr(DataSourceLogsLimits)),
+    traces_limits: S.optional(S.NullOr(DataSourceLogsLimits)),
   }),
 ).annotate({ identifier: "DataSource" }) as any as S.Schema<DataSource>;
 
@@ -709,6 +753,22 @@ export const GetConfigResponseRetention = /*@__PURE__*/ S.suspend(() =>
   identifier: "GetConfigResponseRetention",
 }) as any as S.Schema<GetConfigResponseRetention>;
 
+export interface GetConfigResponseBounds {
+  /** Minimum allowed value. */
+  min_value?: number;
+  /** Maximum allowed value. */
+  max_value?: number;
+  /** Value applied to a data source that does not set the limit. */
+  default_value?: number;
+}
+export const GetConfigResponseBounds = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    min_value: S.optional(S.Number),
+    max_value: S.optional(S.Number),
+    default_value: S.optional(S.Number),
+  }),
+).annotate({ identifier: "GetConfigResponseBounds" }) as any as S.Schema<GetConfigResponseBounds>;
+
 export interface GetConfigResponse {
   /** Custom metrics retention configuration. */
   custom_metrics_retention?: GetConfigResponseRetention;
@@ -720,6 +780,14 @@ export interface GetConfigResponse {
   product_metrics_retention?: GetConfigResponseRetention;
   /** Scaleway logs retention configuration. */
   product_logs_retention?: GetConfigResponseRetention;
+  /** Bounds of the custom metrics ingestion rate limit, in samples per second. */
+  custom_metrics_ingestion_rate_limit_samples_per_second?: GetConfigResponseBounds;
+  /** Bounds of the custom metrics maximum number of active series. */
+  custom_metrics_max_series?: GetConfigResponseBounds;
+  /** Bounds of the custom logs ingestion rate limit, in bytes per second. */
+  custom_logs_ingestion_rate_limit_bytes_per_second?: GetConfigResponseBounds;
+  /** Bounds of the custom traces ingestion rate limit, in bytes per second. */
+  custom_traces_ingestion_rate_limit_bytes_per_second?: GetConfigResponseBounds;
 }
 export const GetConfigResponse = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -728,6 +796,10 @@ export const GetConfigResponse = /*@__PURE__*/ S.suspend(() =>
     custom_traces_retention: S.optional(GetConfigResponseRetention),
     product_metrics_retention: S.optional(GetConfigResponseRetention),
     product_logs_retention: S.optional(GetConfigResponseRetention),
+    custom_metrics_ingestion_rate_limit_samples_per_second: S.optional(GetConfigResponseBounds),
+    custom_metrics_max_series: S.optional(GetConfigResponseBounds),
+    custom_logs_ingestion_rate_limit_bytes_per_second: S.optional(GetConfigResponseBounds),
+    custom_traces_ingestion_rate_limit_bytes_per_second: S.optional(GetConfigResponseBounds),
   }),
 ).annotate({ identifier: "GetConfigResponse" }) as any as S.Schema<GetConfigResponse>;
 
@@ -1462,6 +1534,12 @@ export interface UpdateDataSourceRequest {
   name?: string | null;
   /** Duration for which the data will be retained in the data source. */
   retention_days?: number | null;
+  /** Updated limits of the data source. Only allowed on a metrics data source. A limit not set keeps its current value. Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  metrics_limits?: DataSourceMetricsLimits | null;
+  /** Updated limits of the data source. Only allowed on a logs data source. A limit not set keeps its current value. Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  logs_limits?: DataSourceLogsLimits | null;
+  /** Updated limits of the data source. Only allowed on a traces data source. A limit not set keeps its current value. Precisely one of metrics_limits, logs_limits, traces_limits can be set. */
+  traces_limits?: DataSourceLogsLimits | null;
 }
 export const UpdateDataSourceRequest = /*@__PURE__*/ S.suspend(() =>
   S.Struct({
@@ -1469,6 +1547,9 @@ export const UpdateDataSourceRequest = /*@__PURE__*/ S.suspend(() =>
     data_source_id: S.String.pipe(T.Label()),
     name: S.optional(S.NullOr(S.String)),
     retention_days: S.optional(S.NullOr(S.Number)),
+    metrics_limits: S.optional(S.NullOr(DataSourceMetricsLimits)),
+    logs_limits: S.optional(S.NullOr(DataSourceLogsLimits)),
+    traces_limits: S.optional(S.NullOr(DataSourceLogsLimits)),
   }).pipe(
     T.Http({
       method: "PATCH",
@@ -1983,7 +2064,7 @@ export const updateContactPoint: API.OperationMethod<
 }));
 
 export type UpdateDataSourceError = ScalewayOpError;
-/** Update a data source Update a given data source attributes (name and/or retention_days). */
+/** Update a data source Update a given data source attributes (name, retention_days and/or limits). */
 export const updateDataSource: API.OperationMethod<
   UpdateDataSourceRequest,
   DataSource,

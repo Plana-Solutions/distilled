@@ -81,7 +81,7 @@ export interface CreateContainerRequest {
   privacy?: ContainerPrivacy | (string & {});
   /** Container description. */
   description?: string | null;
-  /** Image reference (e.g. "rg.fr-par.scw.cloud/my-registry-namespace/image:tag"). */
+  /** Image reference (e.g. with sample image: "rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest"). */
   image: string;
   /** Protocol the container uses. */
   protocol?: ContainerProtocol | (string & {});
@@ -232,7 +232,7 @@ export interface Container {
   timeout?: string | null;
   /** Privacy policy of the container. */
   privacy?: ContainerPrivacy;
-  /** Image reference (e.g. "rg.fr-par.scw.cloud/my-registry-namespace/image:tag"). */
+  /** Image reference (e.g. with sample image: "rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest"). */
   image?: string;
   /** Protocol the container uses. */
   protocol?: ContainerProtocol;
@@ -1436,7 +1436,7 @@ export interface UpdateContainerRequest {
   privacy?: ContainerPrivacy | (string & {});
   /** Container description. */
   description?: string | null;
-  /** Image reference (e.g. "rg.fr-par.scw.cloud/my-registry-namespace/image:tag"). */
+  /** Image reference (e.g. with sample image: "rg.fr-par.scw.cloud/serverless-catalog/sample-website:latest"). */
   image?: string | null;
   /** Protocol the container uses. */
   protocol?: ContainerProtocol | (string & {});
