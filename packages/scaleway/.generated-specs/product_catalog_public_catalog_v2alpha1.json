@@ -170,6 +170,12 @@
           "traits": {
             "smithy.api#enumValue": "serverless_sql_database"
           }
+        },
+        "COCKPIT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "cockpit"
+          }
         }
       },
       "traits": {}
@@ -534,168 +540,175 @@
         "dedibox": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesDedibox",
           "traits": {
-            "smithy.api#documentation": "The properties of Dedibox products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Dedibox products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "elastic_metal": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesElasticMetal",
           "traits": {
-            "smithy.api#documentation": "The properties of Elastic Metal products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Elastic Metal products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "apple_silicon": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesAppleSilicon",
           "traits": {
-            "smithy.api#documentation": "The properties of Apple Silicon products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Apple Silicon products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "instance": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesInstance",
           "traits": {
-            "smithy.api#documentation": "The properties of Instance products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Instance products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "block_storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesBlockStorage",
           "traits": {
-            "smithy.api#documentation": "The properties of Block Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Block Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "object_storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesObjectStorage",
           "traits": {
-            "smithy.api#documentation": "The properties of Object Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Object Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_inference": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedInference",
           "traits": {
-            "smithy.api#documentation": "The properties of Managed Inference products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Managed Inference products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "generative_apis": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesGenerativeApis",
           "traits": {
-            "smithy.api#documentation": "The properties of Generative APIs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Generative APIs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "load_balancer": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesLoadBalancer",
           "traits": {
-            "smithy.api#documentation": "The properties of Load Balancer products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Load Balancer products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "secret_manager": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_redis_database": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Managed Redis Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Managed Redis Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "key_manager": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "kubernetes": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesKubernetes",
           "traits": {
-            "smithy.api#documentation": "The properties of Kubernetes products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Kubernetes products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_relational_database": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedRelationalDatabase",
           "traits": {
-            "smithy.api#documentation": "The properties of Managed Relational Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Managed Relational Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_functions": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessFunctions",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless Functions products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Serverless Functions products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_containers": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessContainers",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless Containers products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Serverless Containers products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "managed_mongodb": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesManagedMongoDB",
           "traits": {
-            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "Precisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_jobs": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesServerlessJobs",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless Jobs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Serverless Jobs products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "serverless_sql_database": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Serverless SQL Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Serverless SQL Database products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "apache_kafka": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesApacheKafka",
           "traits": {
-            "smithy.api#documentation": "The properties of Apache Kafka products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Apache Kafka products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "open_search": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of OpenSearch DB products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of OpenSearch DB products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "instance_local_ssd_snapshot": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Instance Local SSD Snapshot products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Instance Local SSD Snapshot products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "instance_local_ssd_storage": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "The properties of Instance Local SSD Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of Instance Local SSD Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         },
         "file_storage": {
           "target": "com.scaleway.product_catalog_public_catalog_v2alpha1#PublicCatalogProductPropertiesFileStorage",
           "traits": {
-            "smithy.api#documentation": "The properties of File Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage can be set.",
+            "smithy.api#documentation": "The properties of File Storage products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "cockpit": {
+          "target": "smithy.api#Document",
+          "traits": {
+            "smithy.api#documentation": "The properties of Cockpit products.\nPrecisely one of dedibox, elastic_metal, apple_silicon, instance, block_storage, object_storage, managed_inference, generative_apis, load_balancer, secret_manager, managed_redis_database, key_manager, kubernetes, managed_relational_database, serverless_functions, serverless_containers, managed_mongodb, serverless_jobs, serverless_sql_database, apache_kafka, open_search, instance_local_ssd_snapshot, instance_local_ssd_storage, file_storage, cockpit can be set.",
             "com.distilled.openapi#nullable": {}
           }
         }

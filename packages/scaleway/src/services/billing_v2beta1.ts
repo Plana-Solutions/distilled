@@ -374,6 +374,71 @@ export const ListConsumptionsResponse = /*@__PURE__*/ S.suspend(() =>
   }),
 ).annotate({ identifier: "ListConsumptionsResponse" }) as any as S.Schema<ListConsumptionsResponse>;
 
+export interface ListDiscountLinesRequest {
+  /** (UUID format) */
+  invoice_id: string;
+  page?: number;
+  page_size?: number;
+}
+export const ListDiscountLinesRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    invoice_id: S.String.pipe(T.Label()),
+    page: S.optional(S.Number.pipe(T.Query())),
+    page_size: S.optional(S.Number.pipe(T.Query())),
+  }).pipe(
+    T.Http({
+      method: "GET",
+      uri: "/billing/v2beta1/invoices/{invoice_id}/discount-lines",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "ListDiscountLinesRequest" }) as any as S.Schema<ListDiscountLinesRequest>;
+
+export type DiscountLineOrigin =
+  | "unknown_origin"
+  | "discount"
+  | "contractual_commitment_range"
+  | "savings_plan_activation"
+  | "credit_note_rebate"
+  | "reserved_resource_activation"
+  | "offer_included";
+export const DiscountLineOrigin = S.String;
+
+export interface DiscountLine {
+  id?: string;
+  /** (UUID format) */
+  invoice_line_id?: string;
+  origin?: DiscountLineOrigin;
+  value?: GoogleTypeMoney;
+}
+export const DiscountLine = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.optional(S.String),
+    invoice_line_id: S.optional(S.String),
+    origin: S.optional(DiscountLineOrigin),
+    value: S.optional(GoogleTypeMoney),
+  }),
+).annotate({ identifier: "DiscountLine" }) as any as S.Schema<DiscountLine>;
+
+export type ListDiscountLinesResponseDiscountLinesList = Array<DiscountLine>;
+export const ListDiscountLinesResponseDiscountLinesList = /*@__PURE__*/ S.Array(
+  DiscountLine,
+) as any as S.Schema<ListDiscountLinesResponseDiscountLinesList>;
+
+export interface ListDiscountLinesResponse {
+  total_count?: number;
+  discount_lines: ListDiscountLinesResponseDiscountLinesList;
+}
+export const ListDiscountLinesResponse = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    total_count: S.optional(S.Number),
+    discount_lines: ListDiscountLinesResponseDiscountLinesList,
+  }),
+).annotate({
+  identifier: "ListDiscountLinesResponse",
+}) as any as S.Schema<ListDiscountLinesResponse>;
+
 export type ListDiscountsRequestOrderBy =
   | "creation_date_desc"
   | "creation_date_asc"
@@ -519,6 +584,92 @@ export const ListDiscountsResponse = /*@__PURE__*/ S.suspend(() =>
     discounts: ListDiscountsResponseDiscountsList,
   }),
 ).annotate({ identifier: "ListDiscountsResponse" }) as any as S.Schema<ListDiscountsResponse>;
+
+export interface ListInvoiceLinesRequest {
+  /** (UUID format) */
+  invoice_id: string;
+  page?: number;
+  page_size?: number;
+}
+export const ListInvoiceLinesRequest = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    invoice_id: S.String.pipe(T.Label()),
+    page: S.optional(S.Number.pipe(T.Query())),
+    page_size: S.optional(S.Number.pipe(T.Query())),
+  }).pipe(
+    T.Http({
+      method: "GET",
+      uri: "/billing/v2beta1/invoices/{invoice_id}/lines",
+      code: 200,
+      baseUrl: "https://api.scaleway.com",
+    }),
+  ),
+).annotate({ identifier: "ListInvoiceLinesRequest" }) as any as S.Schema<ListInvoiceLinesRequest>;
+
+export interface InvoiceLine {
+  /** (UUID format) */
+  id?: string;
+  /** (UUID format) */
+  invoice_id?: string;
+  /** (UUID format) */
+  organization_id?: string;
+  organization_name?: string;
+  /** (UUID format) */
+  project_id?: string;
+  project_name?: string;
+  sku?: string;
+  category_name?: string;
+  product_name?: string;
+  resource_name?: string;
+  /** (RFC 3339 format) */
+  start_date?: string | null;
+  /** (RFC 3339 format) */
+  stop_date?: string | null;
+  unit_price?: GoogleTypeMoney;
+  untaxed_value?: GoogleTypeMoney;
+  unit?: string;
+  unit_quantity?: string;
+  billed_quantity?: string;
+  resource_count?: number;
+}
+export const InvoiceLine = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    id: S.optional(S.String),
+    invoice_id: S.optional(S.String),
+    organization_id: S.optional(S.String),
+    organization_name: S.optional(S.String),
+    project_id: S.optional(S.String),
+    project_name: S.optional(S.String),
+    sku: S.optional(S.String),
+    category_name: S.optional(S.String),
+    product_name: S.optional(S.String),
+    resource_name: S.optional(S.String),
+    start_date: S.optional(S.NullOr(S.String)),
+    stop_date: S.optional(S.NullOr(S.String)),
+    unit_price: S.optional(GoogleTypeMoney),
+    untaxed_value: S.optional(GoogleTypeMoney),
+    unit: S.optional(S.String),
+    unit_quantity: S.optional(S.String),
+    billed_quantity: S.optional(S.String),
+    resource_count: S.optional(S.Number),
+  }),
+).annotate({ identifier: "InvoiceLine" }) as any as S.Schema<InvoiceLine>;
+
+export type ListInvoiceLinesResponseInvoiceLinesList = Array<InvoiceLine>;
+export const ListInvoiceLinesResponseInvoiceLinesList = /*@__PURE__*/ S.Array(
+  InvoiceLine,
+) as any as S.Schema<ListInvoiceLinesResponseInvoiceLinesList>;
+
+export interface ListInvoiceLinesResponse {
+  total_count?: number;
+  invoice_lines: ListInvoiceLinesResponseInvoiceLinesList;
+}
+export const ListInvoiceLinesResponse = /*@__PURE__*/ S.suspend(() =>
+  S.Struct({
+    total_count: S.optional(S.Number),
+    invoice_lines: ListInvoiceLinesResponseInvoiceLinesList,
+  }),
+).annotate({ identifier: "ListInvoiceLinesResponse" }) as any as S.Schema<ListInvoiceLinesResponse>;
 
 export type ListInvoicesRequestOrderBy =
   | "invoice_number_desc"
@@ -789,6 +940,31 @@ export const listConsumptions: API.PaginatedOperationMethod<
   paginateByTotalCount,
 ) as any;
 
+export type ListDiscountLinesError = ScalewayOpError;
+export const listDiscountLines: API.PaginatedOperationMethod<
+  ListDiscountLinesRequest,
+  ListDiscountLinesResponse,
+  ListDiscountLinesError,
+  ScalewayOpContext,
+  DiscountLine
+> = /*@__PURE__*/ API.makePaginated(
+  () => ({
+    input: ListDiscountLinesRequest,
+    output: ListDiscountLinesResponse,
+    errors: [UnknownScalewayError],
+    protocol: ScalewayProtocol,
+    retry: Retry.Retry,
+    pagination: {
+      mode: "page",
+      inputToken: "page",
+      outputToken: "total_count",
+      items: "discount_lines",
+      pageSize: "page_size",
+    } as const,
+  }),
+  paginateByTotalCount,
+) as any;
+
 export type ListDiscountsError = ScalewayOpError;
 /** List discounts List all discounts for your Organization and usable categories, products, offers, references, regions and zones where the discount can be applied. As a reseller: - If you do not specify an `organization_id` you will list the discounts applied to your own Organization and your customers - If you indicate your `organization_id` you will list only the discounts applied to your Organization - If you indicate `the organization_id` of one of your customers, you will list the discounts applied to their Organization. */
 export const listDiscounts: API.PaginatedOperationMethod<
@@ -809,6 +985,31 @@ export const listDiscounts: API.PaginatedOperationMethod<
       inputToken: "page",
       outputToken: "total_count",
       items: "discounts",
+      pageSize: "page_size",
+    } as const,
+  }),
+  paginateByTotalCount,
+) as any;
+
+export type ListInvoiceLinesError = ScalewayOpError;
+export const listInvoiceLines: API.PaginatedOperationMethod<
+  ListInvoiceLinesRequest,
+  ListInvoiceLinesResponse,
+  ListInvoiceLinesError,
+  ScalewayOpContext,
+  InvoiceLine
+> = /*@__PURE__*/ API.makePaginated(
+  () => ({
+    input: ListInvoiceLinesRequest,
+    output: ListInvoiceLinesResponse,
+    errors: [UnknownScalewayError],
+    protocol: ScalewayProtocol,
+    retry: Retry.Retry,
+    pagination: {
+      mode: "page",
+      inputToken: "page",
+      outputToken: "total_count",
+      items: "invoice_lines",
       pageSize: "page_size",
     } as const,
   }),

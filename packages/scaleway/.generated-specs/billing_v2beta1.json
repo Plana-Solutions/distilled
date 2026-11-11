@@ -1164,6 +1164,146 @@
         "smithy.api#documentation": "Get an invoice\n\nGet a specific invoice, specified by its ID."
       }
     },
+    "com.scaleway.billing_v2beta1#ListDiscountLinesRequest": {
+      "type": "structure",
+      "members": {
+        "invoice_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "page": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#httpQuery": "page"
+          }
+        },
+        "page_size": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#httpQuery": "page_size"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.billing_v2beta1#ListDiscountLinesResponse": {
+      "type": "structure",
+      "members": {
+        "total_count": {
+          "target": "smithy.api#Integer"
+        },
+        "discount_lines": {
+          "target": "com.scaleway.billing_v2beta1#ListDiscountLinesResponseDiscountLinesList"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#DiscountLine": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String"
+        },
+        "invoice_line_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "origin": {
+          "target": "com.scaleway.billing_v2beta1#DiscountLineOrigin"
+        },
+        "value": {
+          "target": "com.scaleway.billing_v2beta1#GoogleTypeMoney"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#DiscountLineOrigin": {
+      "type": "enum",
+      "members": {
+        "UNKNOWN_ORIGIN": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "unknown_origin"
+          }
+        },
+        "DISCOUNT": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "discount"
+          }
+        },
+        "CONTRACTUAL_COMMITMENT_RANGE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "contractual_commitment_range"
+          }
+        },
+        "SAVINGS_PLAN_ACTIVATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "savings_plan_activation"
+          }
+        },
+        "CREDIT_NOTE_REBATE": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "credit_note_rebate"
+          }
+        },
+        "RESERVED_RESOURCE_ACTIVATION": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "reserved_resource_activation"
+          }
+        },
+        "OFFER_INCLUDED": {
+          "target": "smithy.api#Unit",
+          "traits": {
+            "smithy.api#enumValue": "offer_included"
+          }
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#ListDiscountLinesResponseDiscountLinesList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.billing_v2beta1#DiscountLine"
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#ListDiscountLines": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.billing_v2beta1#ListDiscountLinesRequest"
+      },
+      "output": {
+        "target": "com.scaleway.billing_v2beta1#ListDiscountLinesResponse"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/billing/v2beta1/invoices/{invoice_id}/discount-lines",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#paginated": {
+          "mode": "page",
+          "inputToken": "page",
+          "outputToken": "total_count",
+          "items": "discount_lines",
+          "pageSize": "page_size"
+        }
+      }
+    },
     "com.scaleway.billing_v2beta1#DownloadInvoiceRequestFileType": {
       "type": "enum",
       "members": {
@@ -1215,6 +1355,157 @@
           "baseUrl": "https://api.scaleway.com"
         },
         "smithy.api#documentation": "Download an invoice\n\nDownload a specific invoice, specified by its ID."
+      }
+    },
+    "com.scaleway.billing_v2beta1#ListInvoiceLinesRequest": {
+      "type": "structure",
+      "members": {
+        "invoice_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#httpLabel": {},
+            "smithy.api#required": {},
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "page": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#httpQuery": "page"
+          }
+        },
+        "page_size": {
+          "target": "smithy.api#Integer",
+          "traits": {
+            "smithy.api#httpQuery": "page_size"
+          }
+        }
+      },
+      "traits": {
+        "smithy.api#input": {}
+      }
+    },
+    "com.scaleway.billing_v2beta1#ListInvoiceLinesResponse": {
+      "type": "structure",
+      "members": {
+        "total_count": {
+          "target": "smithy.api#Integer"
+        },
+        "invoice_lines": {
+          "target": "com.scaleway.billing_v2beta1#ListInvoiceLinesResponseInvoiceLinesList"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#InvoiceLine": {
+      "type": "structure",
+      "members": {
+        "id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "invoice_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "organization_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "organization_name": {
+          "target": "smithy.api#String"
+        },
+        "project_id": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(UUID format)"
+          }
+        },
+        "project_name": {
+          "target": "smithy.api#String"
+        },
+        "sku": {
+          "target": "smithy.api#String"
+        },
+        "category_name": {
+          "target": "smithy.api#String"
+        },
+        "product_name": {
+          "target": "smithy.api#String"
+        },
+        "resource_name": {
+          "target": "smithy.api#String"
+        },
+        "start_date": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "stop_date": {
+          "target": "smithy.api#String",
+          "traits": {
+            "smithy.api#documentation": "(RFC 3339 format)",
+            "com.distilled.openapi#nullable": {}
+          }
+        },
+        "unit_price": {
+          "target": "com.scaleway.billing_v2beta1#GoogleTypeMoney"
+        },
+        "untaxed_value": {
+          "target": "com.scaleway.billing_v2beta1#GoogleTypeMoney"
+        },
+        "unit": {
+          "target": "smithy.api#String"
+        },
+        "unit_quantity": {
+          "target": "smithy.api#String"
+        },
+        "billed_quantity": {
+          "target": "smithy.api#String"
+        },
+        "resource_count": {
+          "target": "smithy.api#Integer"
+        }
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#ListInvoiceLinesResponseInvoiceLinesList": {
+      "type": "list",
+      "member": {
+        "target": "com.scaleway.billing_v2beta1#InvoiceLine"
+      },
+      "traits": {}
+    },
+    "com.scaleway.billing_v2beta1#ListInvoiceLines": {
+      "type": "operation",
+      "input": {
+        "target": "com.scaleway.billing_v2beta1#ListInvoiceLinesRequest"
+      },
+      "output": {
+        "target": "com.scaleway.billing_v2beta1#ListInvoiceLinesResponse"
+      },
+      "traits": {
+        "smithy.api#http": {
+          "method": "GET",
+          "uri": "/billing/v2beta1/invoices/{invoice_id}/lines",
+          "code": 200,
+          "baseUrl": "https://api.scaleway.com"
+        },
+        "smithy.api#paginated": {
+          "mode": "page",
+          "inputToken": "page",
+          "outputToken": "total_count",
+          "items": "invoice_lines",
+          "pageSize": "page_size"
+        }
       }
     },
     "com.scaleway.billing_v2beta1#RedeemCouponRequest": {
@@ -1444,7 +1735,13 @@
           "target": "com.scaleway.billing_v2beta1#GetInvoice"
         },
         {
+          "target": "com.scaleway.billing_v2beta1#ListDiscountLines"
+        },
+        {
           "target": "com.scaleway.billing_v2beta1#DownloadInvoice"
+        },
+        {
+          "target": "com.scaleway.billing_v2beta1#ListInvoiceLines"
         },
         {
           "target": "com.scaleway.billing_v2beta1#RedeemCoupon"

@@ -95,7 +95,7 @@ export interface CreateContainerRequest {
   local_storage_limit_bytes?: number | null;
   /** Parameter used to decide when to scale up or down. */
   scaling_option?: unknown;
-  /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be restarted. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
+  /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   liveness_probe?: unknown;
   /** Defines how to check if the container has started successfully. If the startup probe fails, the container will be restarted. This check is useful for applications that might take a long time to start. It is only performed when the container is starting. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   startup_probe?: unknown;
@@ -244,7 +244,7 @@ export interface Container {
   sandbox?: ContainerSandbox;
   /** Parameter used to decide when to scale up or down. */
   scaling_option?: unknown;
-  /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be restarted. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
+  /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   liveness_probe?: unknown;
   /** Defines how to check if the container has started successfully. If the startup probe fails, the container will be restarted. This check is useful for applications that might take a long time to start. It is only performed when the container is starting. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   startup_probe?: unknown;
@@ -1450,7 +1450,7 @@ export interface UpdateContainerRequest {
   local_storage_limit_bytes?: number | null;
   /** Parameter used to decide when to scale up or down. */
   scaling_option?: unknown;
-  /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be restarted. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
+  /** Defines how to check if the container is running and healthy. If the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore. It is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   liveness_probe?: unknown;
   /** Defines how to check if the container has started successfully. If the startup probe fails, the container will be restarted. This check is useful for applications that might take a long time to start. It is only performed when the container is starting. Possible check types: - http: Perform HTTP check on the container with the specified path. - tcp: Perform TCP check on the container. */
   startup_probe?: UpdateContainerRequestProbe;

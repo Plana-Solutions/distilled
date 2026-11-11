@@ -301,7 +301,7 @@
         "liveness_probe": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
+            "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
         },
         "startup_probe": {
@@ -793,7 +793,7 @@
         "liveness_probe": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
+            "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
         },
         "startup_probe": {
@@ -1198,7 +1198,7 @@
         "liveness_probe": {
           "target": "smithy.api#Document",
           "traits": {
-            "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be restarted.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
+            "smithy.api#documentation": "Defines how to check if the container is running and healthy.\nIf the liveness probe fails, the container will be marked as unhealthy, and won't receive traffic anymore.\nIt is performed periodically during the container's lifetime. The liveness probe is not executed until the startup probe (if defined) is successful.\n\nPossible check types:\n- http: Perform HTTP check on the container with the specified path.\n- tcp: Perform TCP check on the container."
           }
         },
         "startup_probe": {
